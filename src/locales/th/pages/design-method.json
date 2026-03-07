@@ -3,7 +3,7 @@
   "template": "editorial",
   "permalink": "th/design-method.html",
   "title": "แนวคิด Chamaka-se | Tune Clinic",
-  "description": "เรียนรู้แนวคิดการออกแบบแบบ physician-led ของ Tune Clinic สำหรับการวางแผนความงามอย่างมีเหตุผล",
+  "description": "เรียนรู้แนวคิดการออกแบบแบบ แพทย์เป็นผู้ออกแบบ ของ Tune Clinic สำหรับการวางแผนความงามอย่างมีเหตุผล",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/th/design-method.html"
 }

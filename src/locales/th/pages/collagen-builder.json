@@ -3,7 +3,7 @@
   "template": "program",
   "permalink": "th/collagen-builder.html",
   "title": "The Collagen Builder | Tune Clinic",
-  "description": "โปรโตคอลฟื้นฟูคุณภาพผิวและกระตุ้นคอลลาเจนแบบ physician-led",
+  "description": "โปรโตคอลฟื้นฟูคุณภาพผิวและกระตุ้นคอลลาเจนแบบ แพทย์เป็นผู้ออกแบบ",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/th/collagen-builder.html"
 }
