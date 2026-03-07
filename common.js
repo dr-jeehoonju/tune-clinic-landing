@@ -73,19 +73,20 @@
   const t = L[lang];
 
   /* ── URL helpers ────────────────────────────────────────── */
-  const r = (p) => root + p;          // root-relative file
+  const r = (p) => root + p;
   const lk = {
-    home:     lang === 'en' ? r('index.html') : r('index.html'),
-    method:   r(lang === 'en' ? 'design-method.html' : '../design-method.html'),
-    sig:      r(lang === 'en' ? 'signature-lifting.html' : '../signature-lifting.html'),
-    reset:    r(lang === 'en' ? 'structural-reset.html' : '../structural-reset.html'),
-    collagen: r(lang === 'en' ? 'collagen-builder.html' : '../collagen-builder.html'),
-    filler:   r(lang === 'en' ? 'filler-chamaka-se.html' : '../filler-chamaka-se.html'),
-    gallery:  r(lang === 'en' ? 'gallery.html' : '../gallery.html'),
-    en:       root === '' ? 'index.html' : '../index.html',
-    zh:       root === '' ? 'zh/index.html' : (inZh ? 'index.html' : '../zh/index.html'),
-    ja:       root === '' ? 'ja/index.html' : (inJa ? 'index.html' : '../ja/index.html'),
-    logo:     r('/.netlify/images?url=/logo.png&w=200&fm=webp&q=90'),
+    home: root + 'index.html',
+    method: root + 'design-method.html',
+    sig: root + 'signature-lifting.html',
+    reset: root + 'structural-reset.html',
+    collagen: root + 'collagen-builder.html',
+    filler: root + 'filler-chamaka-se.html',
+    gallery: root + 'gallery.html',
+    menu: root + 'menu.html',
+    en: root === '' ? 'index.html' : '../index.html',
+    zh: root === '' ? 'zh/index.html' : (inZh ? 'index.html' : '../zh/index.html'),
+    ja: root === '' ? 'ja/index.html' : (inJa ? 'index.html' : '../ja/index.html'),
+    logo: '/.netlify/images?url=/logo.png&w=200&fm=webp&q=90',
     instagram: 'https://www.instagram.com/tuneclinic_english/',
   };
 

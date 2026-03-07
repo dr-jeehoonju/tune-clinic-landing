@@ -47,6 +47,12 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .hero-signature {
+            background:
+                radial-gradient(circle at 18% 20%, rgba(96,165,250,0.22), transparent 26%),
+                radial-gradient(circle at 82% 18%, rgba(197,160,89,0.18), transparent 22%),
+                linear-gradient(180deg, #09111c 0%, #0f172a 100%);
+        }
     </style>
 </head>
 <body class="bg-white text-slate-800 antialiased">
@@ -76,7 +82,6 @@
                             <a href="signature-lifting.html" class="block px-4 py-2.5 font-bold text-gold border-b border-slate-50">English</a>
                             <a href="zh/signature-lifting.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">中文</a>
                             <a href="ja/signature-lifting.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">日本語</a>
-                            <a href="th/signature-lifting.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">ภาษาไทย</a>
                         </div>
                     </div>
                 </div>
@@ -84,7 +89,7 @@
         </div>
     </div>
 
-    <header class="relative bg-slate-900 overflow-hidden py-24 md:py-32">
+    <header class="relative hero-signature overflow-hidden py-24 md:py-32">
         <div class="absolute inset-0 z-0">
             <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/40"></div>
@@ -111,6 +116,23 @@
             </div>
         </div>
     </header>
+
+    <section class="py-6 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Best For</p>
+                <p class="text-sm text-slate-200">Early to moderate laxity</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Downtime</p>
+                <p class="text-sm text-slate-200">Same-day social return</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Core Device</p>
+                <p class="text-sm text-slate-200">Ultherapy 350-shot protocol</p>
+            </div>
+        </div>
+    </section>
 
     <section class="py-20 bg-white">
         <div class="max-w-5xl mx-auto px-6">
@@ -337,10 +359,10 @@
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-yellow-600 transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg">
-                    <i class="fab fa-instagram"></i> Open Instagram DM
+                    <i class="fab fa-instagram"></i> Start Consultation
                 </a>
                 <a href="index.html" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
-                    View Other Programs
+                    Compare Programs
                 </a>
             </div>
             
