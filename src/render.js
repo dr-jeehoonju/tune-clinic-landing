@@ -517,27 +517,108 @@ function homeChrome(entry, localeData) {
   `;
 }
 
-function homeFooter(locale, localeData) {
-  const g = localeData[locale].global;
-  return `
-    <footer id="contact" class="bg-slate-900 text-white py-24 text-center border-t border-slate-800">
-      <div class="max-w-xl mx-auto px-6">
-        <h2 class="text-3xl font-serif mb-6">${g.footerTitle}</h2>
-        <p class="text-slate-400 mb-10 leading-relaxed">${g.footerSub}</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="${g.consultationHref}" target="_blank" class="bg-slate-800 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-700 transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg border border-slate-700">
-            <i class="${g.consultationIcon}"></i> ${g.footerCta}
-          </a>
+function siteFooter(entry, localeData) {
+  const g = localeData[entry.locale].global;
+  const isHome = entry.template === "home";
+  const guideLink = entry.locale === "en"
+    ? `<a href="/guides.html" class="hover:text-gold transition">Guides Library</a>`
+    : "";
+  const topPanel = isHome
+    ? `
+      <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10 mb-14">
+        <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+          <div>
+            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">Direct Physician Coordination</span>
+            <h2 class="text-3xl md:text-4xl font-serif mt-4">${g.footerTitle}</h2>
+            <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">${g.footerSub}</p>
+          </div>
+          <div class="flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-stretch">
+            <a href="${g.consultationHref}" target="_blank" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
+              <i class="${g.consultationIcon}"></i> ${g.footerCta}
+            </a>
+            <a href="${pageUrl(entry.locale, "menu")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2">
+              <i class="fas fa-list-ul"></i> ${g.menu}
+            </a>
+            <p class="text-xs text-slate-400 text-center lg:text-left">${g.footerResponse}</p>
+          </div>
         </div>
-        <p class="text-xs text-slate-400 mt-4">${g.footerResponse}</p>
-        <p class="text-slate-400 text-sm mt-8">
-          <i class="fas fa-map-marker-alt mr-1"></i> 5th floor, 868, Nonhyeon-ro, Gangnam-gu, Seoul
-          &nbsp;·&nbsp;
-          <i class="fas fa-phone-alt mr-1"></i> <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
-        </p>
-        <p class="text-xs text-slate-600 mt-12">${g.footerCopy}</p>
+      </div>
+    `
+    : `
+      <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10 mb-14">
+        <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+          <div>
+            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">Need a Clearer Plan?</span>
+            <h2 class="text-3xl md:text-4xl font-serif mt-4">Use our guides to narrow the category. Let the consultation finalize the protocol.</h2>
+            <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">The goal is not to create more choices. It is to help you arrive with better questions and a cleaner sense of what may actually fit your face and travel timing.</p>
+          </div>
+          <div class="flex flex-col gap-3 lg:items-stretch">
+            <a href="${g.consultationHref}" target="_blank" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
+              <i class="${g.consultationIcon}"></i> ${g.footerCta}
+            </a>
+            <a href="${pageUrl(entry.locale, "menu")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2">
+              <i class="fas fa-list-ul"></i> ${g.menu}
+            </a>
+            ${entry.locale === "en" ? `<a href="/guides.html" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2"><i class="fas fa-book-open"></i> Guides Library</a>` : ""}
+          </div>
+        </div>
+      </div>
+    `;
+
+  return `
+    <footer id="contact" class="bg-slate-950 text-white border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-6 pt-16 pb-10">
+        ${topPanel}
+        <div class="grid lg:grid-cols-[1.25fr_0.8fr_0.8fr_1fr] gap-10">
+          <div>
+            <a href="${pageUrl(entry.locale, "index")}" class="inline-flex items-center gap-3">
+              <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-9">
+              <span class="font-serif text-2xl text-white">Tune Clinic</span>
+            </a>
+            <p class="text-slate-300 leading-relaxed mt-5 max-w-md">
+              Physician-led aesthetic planning for international patients seeking rational treatment design, clearer sequencing, and a more travel-conscious Seoul clinic experience.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-6 text-[11px] uppercase tracking-[0.18em]">
+              <span class="px-3 py-2 rounded-full border border-white/10 text-gold">${g.staffBadge}</span>
+              <span class="px-3 py-2 rounded-full border border-white/10 text-slate-300">${g.travelBadge}</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">Explore</p>
+            <div class="space-y-3 text-sm text-slate-300">
+              <a href="${pageUrl(entry.locale, "index")}" class="hover:text-gold transition">${g.home}</a>
+              <a href="${pageUrl(entry.locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
+              <a href="${pageUrl(entry.locale, "menu")}" class="hover:text-gold transition">${g.menu}</a>
+              <a href="${pageUrl(entry.locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
+              ${guideLink}
+            </div>
+          </div>
+          <div>
+            <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">${g.programs}</p>
+            <div class="space-y-3 text-sm text-slate-300">
+              <a href="${pageUrl(entry.locale, "signature-lifting")}" class="hover:text-gold transition">${g.sig}</a>
+              <a href="${pageUrl(entry.locale, "structural-reset")}" class="hover:text-gold transition">${g.reset}</a>
+              <a href="${pageUrl(entry.locale, "collagen-builder")}" class="hover:text-gold transition">${g.collagen}</a>
+              <a href="${pageUrl(entry.locale, "filler-chamaka-se")}" class="hover:text-gold transition">${g.filler}</a>
+            </div>
+          </div>
+          <div>
+            <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">Visit and Contact</p>
+            <div class="space-y-4 text-sm text-slate-300">
+              <p class="leading-relaxed"><i class="fas fa-location-dot text-gold mr-2"></i>5th floor, 868, Nonhyeon-ro, Gangnam-gu, Seoul</p>
+              <p><i class="fas fa-phone-alt text-gold mr-2"></i><a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a></p>
+              <p><i class="far fa-clock text-gold mr-2"></i>Mon-Fri 10:00 - 21:00<br><span class="pl-6">Sat 10:00 - 16:00</span></p>
+              <p><i class="fas fa-globe text-gold mr-2"></i>${g.languageName} / 日本語 / 中文 / ไทย</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p class="text-xs text-slate-500">${g.footerCopy}</p>
+          <p class="text-xs text-slate-500">Canonical domain: tuneclinic-global.com</p>
+        </div>
       </div>
     </footer>
+    ${isHome ? `
     <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
       <div class="flex gap-3">
         <a href="#programs" class="flex-1 bg-slate-100 text-slate-900 font-bold py-3 rounded-sm text-center text-sm">${g.mobileCta1}</a>
@@ -545,7 +626,7 @@ function homeFooter(locale, localeData) {
           <i class="${g.consultationIcon}"></i> ${g.mobileCta2}
         </a>
       </div>
-    </div>
+    </div>` : ""}
     <script>
       (function () {
         const btn = document.getElementById("mobile-menu-btn");
@@ -684,7 +765,7 @@ function renderPage(entry, localeData) {
   const g = localeData[entry.locale].global;
   const fragment = readFragment(entry.fragment);
   const chrome = pageChrome(entry, localeData);
-  const footer = entry.template === "home" ? homeFooter(entry.locale, localeData) : "";
+  const footer = siteFooter(entry, localeData);
   const canonicalUrl = publicUrl(entry.locale, entry.key);
   const localeMeta = LOCALE_META[entry.locale] || LOCALE_META.en;
   const ogImage = absoluteAssetUrl(entry.ogImage);
