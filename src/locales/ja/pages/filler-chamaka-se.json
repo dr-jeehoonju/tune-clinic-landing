@@ -2,8 +2,9 @@
   "key": "filler-chamaka-se",
   "template": "program",
   "permalink": "ja/filler-chamaka-se.html",
-  "title": "Filler Chamaka-se | チューンクリニック",
-  "description": "医師監修フェイシャルハーモニーデザイン。Filler Chamaka-seはシリンジベースのパッケージではなく、構造的プロトコルです。",
+  "title": "Filler Chamaka-se | 医師設計の顔バランス施術",
+  "description": "Filler Chamaka-seは、フィラーを単なる増量ではなく構造設計のツールとして用い、自然な輪郭と顔の調和を目指す医師主導プロトコルです。",
   "bodyClass": "bg-white text-slate-800 antialiased",
-  "fragment": "fragments/ja/filler-chamaka-se.html"
+  "fragment": "fragments/ja/filler-chamaka-se.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

@@ -3,7 +3,8 @@
   "template": "program",
   "permalink": "zh/signature-lifting.html",
   "title": "Signature Lifting | Ultherapy 350发医师方案",
-  "description": "Ultherapy 350发医师方案，专为国际旅行者设计。深层组织紧致，恢复期极短。",
+  "description": "Signature Lifting是Tune Clinic为国际顾客设计的Ultherapy 350发医师方案，强调深层组织提升、自然紧致与极短恢复期。",
   "bodyClass": "bg-white text-slate-800 antialiased",
-  "fragment": "fragments/zh/signature-lifting.html"
+  "fragment": "fragments/zh/signature-lifting.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

@@ -2,8 +2,9 @@
   "key": "index",
   "template": "home",
   "permalink": "index.html",
-  "title": "Tune Clinic Apgujeong | Chamaka-se Aesthetics",
-  "description": "Physician-led aesthetic planning for international patients in Seoul, built around rational design, calibrated protocols, and concierge support.",
+  "title": "Tune Clinic Apgujeong Seoul | Physician-Led K-Beauty for International Patients",
+  "description": "Apgujeong Tune Clinic in Seoul offers physician-led aesthetic planning, lifting, filler, collagen, and concierge support for international patients seeking rational K-beauty care.",
   "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
-  "fragment": "fragments/en/index.html"
+  "fragment": "fragments/en/index.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

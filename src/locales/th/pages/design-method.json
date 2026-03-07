@@ -2,8 +2,9 @@
   "key": "design-method",
   "template": "editorial",
   "permalink": "th/design-method.html",
-  "title": "แนวคิด Chamaka-se | Tune Clinic",
-  "description": "เรียนรู้แนวคิดการออกแบบแบบ แพทย์เป็นผู้ออกแบบ ของ Tune Clinic สำหรับการวางแผนความงามอย่างมีเหตุผล",
+  "title": "แนวคิด Chamaka-se | Tune Clinic Apgujeong Seoul",
+  "description": "เรียนรู้แนวคิด Chamaka-se ของ Tune Clinic ตั้งแต่การประเมินกายวิภาค การออกแบบโปรโตคอล ไปจนถึงการวางแผนที่เหมาะกับผู้เดินทางจากต่างประเทศ.",
   "bodyClass": "bg-white text-slate-800 antialiased",
-  "fragment": "fragments/th/design-method.html"
+  "fragment": "fragments/th/design-method.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

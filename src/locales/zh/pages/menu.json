@@ -2,8 +2,9 @@
   "key": "menu",
   "template": "editorial",
   "permalink": "zh/menu.html",
-  "title": "精选体验 | 调优诊所 狎鸥亭",
-  "description": "调优诊所狎鸥亭的体验式医学美容方案及参考价格。",
+  "title": "项目菜单与参考价格 | 狎鸥亭Tune Clinic",
+  "description": "查看Tune Clinic首尔的项目分类、参考价格、提升、填充、胶原治疗与舒适化方案，帮助国际顾客规划美容医疗行程。",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
-  "fragment": "fragments/zh/menu.html"
+  "fragment": "fragments/zh/menu.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

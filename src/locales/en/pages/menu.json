@@ -2,8 +2,9 @@
   "key": "menu",
   "template": "editorial",
   "permalink": "menu.html",
-  "title": "Curated Experiences | Tune Clinic Apgujeong",
-  "description": "Experience-led aesthetic protocols and reference pricing for Tune Clinic Apgujeong.",
+  "title": "Treatment Menu and Pricing | Tune Clinic Apgujeong Seoul",
+  "description": "Review Tune Clinic Apgujeong Seoul treatment categories, reference pricing, lifting, filler, collagen, and comfort options for international patients planning aesthetic care.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
-  "fragment": "fragments/en/menu.html"
+  "fragment": "fragments/en/menu.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

@@ -2,8 +2,9 @@
   "key": "index",
   "template": "home",
   "permalink": "zh/index.html",
-  "title": "调优诊所 狎鸥亭 | Chamaka-se 医学美容",
-  "description": "面向国际顾客的医师主导型美学规划平台，以合理设计、精细化治疗方案与旅行协调支持为核心。",
+  "title": "狎鸥亭Tune Clinic首尔 | 国际顾客医师主导美容医疗",
+  "description": "狎鸥亭Tune Clinic首尔为国际顾客提供医师主导的美容医疗方案，包括提升、填充、胶原刺激治疗与旅行协助服务。",
   "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
-  "fragment": "fragments/zh/index.html"
+  "fragment": "fragments/zh/index.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

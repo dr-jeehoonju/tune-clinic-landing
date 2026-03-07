@@ -2,8 +2,9 @@
   "key": "gallery",
   "template": "editorial",
   "permalink": "zh/gallery.html",
-  "title": "前后对比 | 调优诊所",
-  "description": "记录的临床效果，附有背景信息和时间（如有）。",
+  "title": "术前术后案例库 | 狎鸥亭Tune Clinic",
+  "description": "浏览Tune Clinic首尔术前术后案例，涵盖面部平衡、填充、轮廓与身体项目，并结合临床背景辅助咨询决策。",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
-  "fragment": "fragments/zh/gallery.html"
+  "fragment": "fragments/zh/gallery.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

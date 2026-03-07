@@ -2,8 +2,9 @@
   "key": "menu",
   "template": "editorial",
   "permalink": "ja/menu.html",
-  "title": "厳選メニュー | チューンクリニック 狎鷗亭",
-  "description": "チューンクリニック狎鷗亭の体験型美容医療プロトコルと参考価格。",
+  "title": "施術メニュー・参考価格 | チューンクリニック狎鷗亭",
+  "description": "チューンクリニック狎鷗亭の施術カテゴリ、参考価格、リフティング、フィラー、コラーゲン施術、痛み対策を海外患者様向けにまとめています。",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
-  "fragment": "fragments/ja/menu.html"
+  "fragment": "fragments/ja/menu.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

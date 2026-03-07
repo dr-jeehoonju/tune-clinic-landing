@@ -2,8 +2,9 @@
   "key": "filler-chamaka-se",
   "template": "program",
   "permalink": "th/filler-chamaka-se.html",
-  "title": "Filler Chamaka-se | Tune Clinic",
-  "description": "การออกแบบสัดส่วนใบหน้าโดยแพทย์โดยใช้ฟิลเลอร์เป็นเครื่องมือเชิงโครงสร้าง",
+  "title": "Filler Chamaka-se | ออกแบบสัดส่วนใบหน้าโดยแพทย์",
+  "description": "Filler Chamaka-se คือการใช้ฟิลเลอร์เป็นเครื่องมือเชิงโครงสร้างเพื่อคอนทัวร์ สัดส่วน และความกลมกลืนของใบหน้า ไม่ใช่การเพิ่มวอลุ่มแบบทั่วไป.",
   "bodyClass": "bg-white text-slate-800 antialiased",
-  "fragment": "fragments/th/filler-chamaka-se.html"
+  "fragment": "fragments/th/filler-chamaka-se.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

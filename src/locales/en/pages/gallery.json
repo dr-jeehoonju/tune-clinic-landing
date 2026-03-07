@@ -2,8 +2,9 @@
   "key": "gallery",
   "template": "editorial",
   "permalink": "gallery.html",
-  "title": "Clinical Before/After Gallery | Tune Clinic",
-  "description": "Documented clinical outcomes, shown with context and timeframes when available.",
+  "title": "Before and After Gallery | Tune Clinic Seoul",
+  "description": "Browse Tune Clinic Seoul before and after cases across facial balance, filler, contour, and body treatments, with clinical context to support physician-led consultation.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
-  "fragment": "fragments/en/gallery.html"
+  "fragment": "fragments/en/gallery.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

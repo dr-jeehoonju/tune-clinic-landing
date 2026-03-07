@@ -2,8 +2,9 @@
   "key": "structural-reset",
   "template": "program",
   "permalink": "th/structural-reset.html",
-  "title": "Structural Reset Elite | Tune Clinic",
-  "description": "โปรโตคอลยกกระชับและกระชับผิวแบบครอบคลุมด้วย Ultherapy + Thermage + IV sedation",
+  "title": "Structural Reset Elite | Ultherapy + Thermage ที่โซล",
+  "description": "Structural Reset Elite รวม Ultherapy 300 shots, Thermage 600 shots และ IV sedation สำหรับการยกกระชับและกระชับผิวแบบครอบคลุมโดยไม่ผ่าตัด.",
   "bodyClass": "bg-white text-slate-800 antialiased",
-  "fragment": "fragments/th/structural-reset.html"
+  "fragment": "fragments/th/structural-reset.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
 }

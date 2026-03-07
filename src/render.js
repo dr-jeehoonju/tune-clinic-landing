@@ -2,6 +2,15 @@ const fs = require("fs");
 const path = require("path");
 
 const languageOrder = ["en", "ja", "zh", "th"];
+const SITE_URL = "https://tuneclinic.com";
+const SITE_NAME = "Tune Clinic";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75`;
+const LOCALE_META = {
+  en: { ogLocale: "en_US", ogAlternates: ["ja_JP", "zh_CN", "th_TH"] },
+  ja: { ogLocale: "ja_JP", ogAlternates: ["en_US", "zh_CN", "th_TH"] },
+  zh: { ogLocale: "zh_CN", ogAlternates: ["en_US", "ja_JP", "th_TH"] },
+  th: { ogLocale: "th_TH", ogAlternates: ["en_US", "ja_JP", "zh_CN"] },
+};
 
 function readFragment(fragmentPath) {
   return fs.readFileSync(path.join(__dirname, fragmentPath), "utf8");
@@ -19,6 +28,76 @@ function pageUrl(locale, pageKey) {
   const prefix = locale === "en" ? "" : `${locale}/`;
   const file = pageKey === "index" ? "index.html" : `${pageKey}.html`;
   return `/${prefix}${file}`;
+}
+
+function publicUrl(locale, pageKey) {
+  const pathname = pageKey === "index"
+    ? locale === "en"
+      ? "/"
+      : `/${locale}/`
+    : pageUrl(locale, pageKey);
+  return `${SITE_URL}${pathname}`;
+}
+
+function absoluteAssetUrl(assetPath) {
+  if (!assetPath) return DEFAULT_OG_IMAGE;
+  if (/^https?:\/\//.test(assetPath)) return assetPath;
+  return `${SITE_URL}${assetPath.startsWith("/") ? assetPath : `/${assetPath}`}`;
+}
+
+function alternateLinks(pageKey) {
+  const links = languageOrder
+    .map((locale) => {
+      const hrefLang = locale === "en" ? "en" : locale;
+      return `<link rel="alternate" hreflang="${hrefLang}" href="${publicUrl(locale, pageKey)}">`;
+    })
+    .join("\n  ");
+
+  return `${links}\n  <link rel="alternate" hreflang="x-default" href="${publicUrl("en", pageKey)}">`;
+}
+
+function pageStructuredData(entry, localeData) {
+  const g = localeData[entry.locale].global;
+  const canonicalUrl = publicUrl(entry.locale, entry.key);
+  const org = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    image: DEFAULT_OG_IMAGE,
+    telephone: "+82-507-1438-8022",
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "5th floor, 868, Nonhyeon-ro, Gangnam-gu",
+      addressLocality: "Seoul",
+      addressCountry: "KR",
+    },
+    availableLanguage: languageOrder.map((locale) => localeData[locale].global.languageName),
+    sameAs: ["https://www.instagram.com/tuneclinic_english/"],
+  };
+
+  const webPage = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: entry.title,
+    description: entry.description,
+    inLanguage: g.langAttr,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+    },
+    about: {
+      "@id": `${SITE_URL}/#organization`,
+    },
+  };
+
+  return `${JSON.stringify(org)}\n${JSON.stringify(webPage)}`;
 }
 
 function languageSwitcher(locale, pageKey, localeData) {
@@ -301,7 +380,14 @@ function renderPage(entry, localeData) {
   const fragment = readFragment(entry.fragment);
   const chrome = pageChrome(entry.locale, entry.key, entry.template, localeData);
   const footer = entry.template === "home" ? homeFooter(entry.locale, localeData) : "";
-  const canonicalPath = entry.permalink === "index.html" ? "" : entry.permalink;
+  const canonicalUrl = publicUrl(entry.locale, entry.key);
+  const localeMeta = LOCALE_META[entry.locale] || LOCALE_META.en;
+  const ogImage = absoluteAssetUrl(entry.ogImage);
+  const hreflang = alternateLinks(entry.key);
+  const structuredData = pageStructuredData(entry, localeData);
+  const ogAlternateTags = localeMeta.ogAlternates
+    .map((value) => `<meta property="og:locale:alternate" content="${value}">`)
+    .join("\n  ");
 
   return `<!DOCTYPE html>
 <html lang="${g.langAttr}" class="scroll-smooth">
@@ -310,11 +396,25 @@ function renderPage(entry, localeData) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(entry.title)}</title>
   <meta name="description" content="${esc(entry.description)}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="${SITE_NAME}">
   <meta property="og:title" content="${esc(entry.title)}">
   <meta property="og:description" content="${esc(entry.description)}">
-  <meta property="og:image" content="main.jpeg">
+  <meta property="og:site_name" content="${SITE_NAME}">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${ogImage}">
   <meta property="og:type" content="website">
-  <link rel="canonical" href="https://tuneclinic.com/${canonicalPath}">
+  <meta property="og:locale" content="${localeMeta.ogLocale}">
+  ${ogAlternateTags}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(entry.title)}">
+  <meta name="twitter:description" content="${esc(entry.description)}">
+  <meta name="twitter:image" content="${ogImage}">
+  <link rel="canonical" href="${canonicalUrl}">
+  ${hreflang}
+  <script type="application/ld+json">
+  [${structuredData}]
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
