@@ -1,0 +1,11 @@
+{
+  "key": "skin-boosters-and-regenerative-treatments",
+  "template": "editorial",
+  "permalink": "skin-boosters-and-regenerative-treatments.html",
+  "title": "Skin Boosters and Regenerative Treatments in Korea | Rejuran, Juvelook, Exosomes and More",
+  "description": "Explore skin boosters and regenerative treatments in Korea including Rejuran, Juvelook, PDRN, exosomes, Sculptra, and physician-led plans for texture, glow, elasticity, and longer-term skin quality.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/en/skin-boosters-and-regenerative-treatments.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Skin Booster Guide"
+}

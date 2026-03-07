@@ -1,0 +1,11 @@
+{
+  "key": "guides",
+  "template": "editorial",
+  "permalink": "guides.html",
+  "title": "Seoul Aesthetic Guides | Tune Clinic Resources for International Patients",
+  "description": "Browse Tune Clinic's Seoul aesthetic guides for international patients, including treatment comparisons, travel planning, lifting decisions, fillers, regenerative treatments, and patient FAQs.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/en/guides.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Guides Hub"
+}
