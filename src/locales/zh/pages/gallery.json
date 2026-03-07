@@ -1,0 +1,9 @@
+{
+  "key": "gallery",
+  "template": "editorial",
+  "permalink": "zh/gallery.html",
+  "title": "前后对比 | 调优诊所",
+  "description": "记录的临床效果，附有背景信息和时间（如有）。",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
+  "fragment": "fragments/zh/gallery.html"
+}

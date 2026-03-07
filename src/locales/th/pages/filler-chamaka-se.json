@@ -1,0 +1,9 @@
+{
+  "key": "filler-chamaka-se",
+  "template": "program",
+  "permalink": "th/filler-chamaka-se.html",
+  "title": "Filler Chamaka-se | Tune Clinic",
+  "description": "การออกแบบสัดส่วนใบหน้าโดยแพทย์โดยใช้ฟิลเลอร์เป็นเครื่องมือเชิงโครงสร้าง",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/filler-chamaka-se.html"
+}

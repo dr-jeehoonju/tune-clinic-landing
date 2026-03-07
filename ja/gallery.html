@@ -1,22 +1,109 @@
 <!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ビフォーアフター | チューンクリニック</title>
-    <meta name="description" content="施術部位別の記録された臨床結果。可能な場合は経過期間も表示しています。">
-    
-    <meta property="og:title" content="ビフォーアフター | チューンクリニック">
-    <meta property="og:description" content="施術部位別の記録された臨床結果。可能な場合は経過期間も表示しています。">
-    <meta property="og:image" content="../main.jpeg">
-    <meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ビフォーアフター | チューンクリニック</title>
+  <meta name="description" content="施術部位別の記録された臨床結果。可能な場合は経過期間も表示しています。">
+  <meta property="og:title" content="ビフォーアフター | チューンクリニック">
+  <meta property="og:description" content="施術部位別の記録された臨床結果。可能な場合は経過期間も表示しています。">
+  <meta property="og:image" content="main.jpeg">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tuneclinic.com/ja/gallery.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+    body { font-family: 'Lato', sans-serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .text-gold { color: #C5A059; }
+    .bg-gold { background-color: #C5A059; }
+    .border-gold { border-color: #C5A059; }
+    .bg-gold-light { background-color: #F9F5F0; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-y-scroll">
 
-    <link rel="canonical" href="https://tuneclinic.com/ja/gallery.html">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+    <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <a href="/ja/index.html" class="flex items-center text-slate-300 hover:text-white transition">
+          <i class="fas fa-arrow-left mr-2 text-gold"></i> ホームへ戻る
+        </a>
+        <div class="flex items-center gap-6">
+          <span class="text-gold uppercase tracking-widest font-bold text-[10px] hidden sm:inline">症例写真</span>
+          <a href="/ja/index.html#programs" class="text-slate-300 hover:text-white transition uppercase tracking-widest font-bold text-[10px]">
+            プログラムを見る <i class="fas fa-arrow-right ml-1 text-gold"></i>
+          </a>
+          
+    <div class="group relative cursor-pointer">
+      <span class="hover:text-gold transition font-bold text-[10px] flex items-center gap-1">
+        <i class="fas fa-globe"></i> 日本語
+      </span>
+      <div class="absolute right-0 top-full pt-2 w-36 hidden group-hover:block z-50">
+        <div class="bg-white text-slate-800 shadow-xl rounded-sm border border-slate-100 text-xs">
+          <a href="/gallery.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">English</a><a href="/ja/gallery.html" class="block px-4 py-2.5 font-bold text-gold border-b border-slate-50">日本語</a><a href="/zh/gallery.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">中文</a><a href="/th/gallery.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">ไทย</a>
+        </div>
+      </div>
+    </div>
+  
+        </div>
+      </div>
+    </div>
+    <nav class="bg-white border-b border-slate-100 relative z-40" id="navbar">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+          <a href="/ja/index.html" class="flex items-center gap-2">
+            <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
+            <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
+          </a>
+          <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
+            <a href="/ja/index.html" class="hover:text-gold transition">ホーム</a>
+            <a href="/ja/design-method.html" class="hover:text-gold transition">デザインメソッド</a>
+            <div class="relative group h-16 flex items-center">
+              <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
+                プログラム <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
+              </button>
+              <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
+                <div class="py-2">
+                  <a href="/ja/signature-lifting.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Signature Lifting</a>
+                  <a href="/ja/structural-reset.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Structural Reset Elite</a>
+                  <a href="/ja/collagen-builder.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">The Collagen Builder</a>
+                  <a href="/ja/filler-chamaka-se.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Filler Chamaka-se</a>
+                </div>
+              </div>
+            </div>
+            <a href="/ja/menu.html" class="hover:text-gold transition">料金表</a>
+            <a href="/ja/gallery.html" class="text-gold transition border-b-2 border-gold pb-1">症例写真</a>
+            <a href="/ja/index.html#faq" class="hover:text-gold transition">よくある質問</a>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl">
+        <a href="/ja/index.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">ホーム</a>
+        <a href="/ja/design-method.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">デザインメソッド</a>
+        <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">プログラム</p>
+          <a href="/ja/signature-lifting.html" class="block py-2 text-slate-700">Signature Lifting</a>
+          <a href="/ja/structural-reset.html" class="block py-2 text-slate-700">Structural Reset Elite</a>
+          <a href="/ja/collagen-builder.html" class="block py-2 text-slate-700">The Collagen Builder</a>
+          <a href="/ja/filler-chamaka-se.html" class="block py-2 text-slate-700">Filler Chamaka-se</a>
+        </div>
+        <a href="/ja/menu.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">料金表</a>
+        <a href="/ja/gallery.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">症例写真</a>
+        <a href="/ja/index.html#faq" class="block px-6 py-4 font-bold text-slate-800">よくある質問</a>
+      </div>
+    </nav>
+    <script>
+      (function () {
+        const btn = document.getElementById("mobile-menu-btn");
+        const menu = document.getElementById("mobile-menu");
+        if (btn && menu) btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+      })();
+    </script>
+  
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
         
         body { font-family: 'Lato', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -55,86 +142,9 @@
 
         #gallery-modal { transition: opacity 0.3s ease; }
         .modal-content { transition: transform 0.3s ease; }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-800 antialiased overflow-y-scroll">
+</style>
 
-    <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="flex items-center text-slate-300 hover:text-white transition">
-                <i class="fas fa-arrow-left mr-2 text-gold"></i> ホームへ戻る
-            </a>
-            <div class="flex items-center gap-6">
-                <span class="text-gold uppercase tracking-widest font-bold text-[10px] hidden sm:inline">ビフォーアフター</span>
-                <a href="index.html#programs" class="text-slate-300 hover:text-white transition uppercase tracking-widest font-bold text-[10px]">
-                    プログラムを見る <i class="fas fa-arrow-right ml-1 text-gold"></i>
-                </a>
-                <div class="group relative cursor-pointer">
-                    <span class="hover:text-gold transition font-bold text-[10px] flex items-center gap-1">
-                        <i class="fas fa-globe"></i> JP
-                    </span>
-                    <div class="absolute right-0 top-full pt-2 w-36 hidden group-hover:block z-50">
-                        <div class="bg-white text-slate-800 shadow-xl rounded-sm border border-slate-100 text-xs">
-                            <a href="gallery.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">English</a>
-                            <a href="../zh/gallery.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">中文</a>
-                            <a href="gallery.html" class="block px-4 py-2.5 font-bold text-gold border-b border-slate-50">日本語</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <nav class="bg-white border-b border-slate-100 relative z-40" id="navbar">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="flex items-center gap-2"><img src="../logo.png" alt="Tune Clinic" class="h-8"><span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span></a>
-
-                <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
-                    <a href="index.html" class="hover:text-gold transition">ホーム</a>
-                    <a href="design-method.html" class="hover:text-gold transition">デザインメソッド</a>
-                    
-                    <div class="relative group h-16 flex items-center">
-                        <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
-                            プログラム <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
-                        </button>
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
-                            <div class="py-2">
-                                <a href="signature-lifting.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Signature Lifting</a>
-                                <a href="structural-reset.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Structural Reset Elite</a>
-                                <a href="collagen-builder.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">The Collagen Builder</a>
-                                <a href="filler-chamaka-se.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Filler Chamaka-se</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="menu.html" class="hover:text-gold transition">料金表</a>
-                    <a href="gallery.html" class="text-gold transition border-b-2 border-gold pb-1">ビフォーアフター</a>
-                    <a href="index.html#faq" class="hover:text-gold transition">よくある質問</a>
-                </div>
-
-                <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl">
-            <a href="index.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">ホーム</a>
-            <a href="design-method.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">デザインメソッド</a>
-            <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">プログラム</p>
-                <a href="signature-lifting.html" class="block py-2 text-slate-700 font-bold">Signature Lifting</a>
-                <a href="structural-reset.html" class="block py-2 text-slate-700">Structural Reset Elite</a>
-                <a href="collagen-builder.html" class="block py-2 text-slate-700">The Collagen Builder</a>
-                <a href="filler-chamaka-se.html" class="block py-2 text-slate-700">Filler Chamaka-se</a>
-            </div>
-            <a href="menu.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">料金表</a>
-            <a href="gallery.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">ビフォーアフター</a>
-        </div>
-    </nav>
-
-    <header class="bg-white py-20 border-b border-slate-100">
+<header class="bg-white py-20 border-b border-slate-100">
         <div class="max-w-4xl mx-auto px-6 text-center fade-in-up">
             <h1 class="text-4xl md:text-5xl font-serif text-slate-900 mb-6">ビフォー / アフター ギャラリー</h1>
             <p class="text-lg text-slate-600 mb-4 max-w-2xl mx-auto">
@@ -417,5 +427,7 @@
 
         renderGallery('all');
     </script>
+
+
 </body>
 </html>

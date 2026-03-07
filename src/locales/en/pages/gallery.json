@@ -1,0 +1,9 @@
+{
+  "key": "gallery",
+  "template": "editorial",
+  "permalink": "gallery.html",
+  "title": "Clinical Before/After Gallery | Tune Clinic",
+  "description": "Documented clinical outcomes, shown with context and timeframes when available.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
+  "fragment": "fragments/en/gallery.html"
+}

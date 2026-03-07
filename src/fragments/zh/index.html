@@ -1,0 +1,946 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Custom Colors */
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+
+        /* Animations */
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Match module */
+        .match-option.selected {
+            border-color: #C5A059;
+            background-color: #F9F5F0;
+            box-shadow: 0 0 0 1px #C5A059;
+        }
+        .match-option.selected i { color: #C5A059; }
+
+        .program-highlight {
+            animation: highlightPulse 1.8s ease-in-out;
+            box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3) !important;
+            border-color: #C5A059 !important;
+        }
+        @keyframes highlightPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.6); }
+            50%  { box-shadow: 0 0 0 8px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3); }
+        }
+
+        /* CTA Pulse for matched card */
+        @keyframes ctaPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.8); }
+            70%  { box-shadow: 0 0 0 12px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 0 rgba(197,160,89,0); }
+        }
+        .cta-pulse {
+            animation: ctaPulse 1s ease-out 2;
+        }
+</style>
+
+<header class="relative bg-black overflow-hidden min-h-[90vh] md:min-h-screen flex flex-col">
+        <div class="absolute inset-0 z-0">
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="../main.jpeg"
+                class="w-full h-full object-cover"
+            >
+                <source src="../hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
+        </div>
+
+        <div class="relative z-10 mt-auto max-w-7xl mx-auto w-full px-6 pb-16 md:pb-20">
+            <div class="fade-in-up max-w-3xl">
+                <div class="flex items-center space-x-3 mb-5">
+                    <div class="h-px w-12 bg-gold"></div>
+                    <span class="text-sm tracking-widest uppercase font-bold text-white/60">调优诊所 狎鸥亭</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] mb-6">
+                    不要只选择一个项目。<br>
+                    <span class="italic text-white/50">选择一个决策。</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-white/70 mb-8 leading-relaxed max-w-2xl">
+                    体验<strong class="text-white">"Chamaka-se"</strong>——由医师精心策划、专为国际旅客设计的医学美容方案。
+                    <span class="block mt-6 text-gold font-bold tracking-widest text-[11px] md:text-sm uppercase border-t border-white/20 pt-4">
+                        以我们的Ultherapy 350发医师定制方案为核心
+                    </span>
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#programs" class="px-10 py-4 bg-white text-slate-900 font-semibold rounded-sm hover:bg-white/90 transition shadow-xl text-center">
+                        查看精选方案
+                    </a>
+                    <a href="#wechat" class="px-10 py-4 border border-white/30 text-white font-semibold rounded-sm hover:bg-white/10 transition text-center flex items-center justify-center gap-2 backdrop-blur-sm">
+                        <i class="fab fa-weixin"></i> 添加微信咨询
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-sm font-bold text-gold uppercase tracking-widest mb-4">旅行者的困境</h2>
+            <h3 class="text-3xl font-serif text-slate-900 mb-12">为什么美学决策会出错</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-layer-group text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">设备太多</h4>
+                    <p class="text-sm text-slate-500">Ultherapy、Thermage、填充剂……混乱导致后悔。</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-clock text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">时间太少</h4>
+                    <p class="text-sm text-slate-500">您只有几天，而不是几周。您需要一个为有限时间设计的方案。</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-balance-scale text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">没有标准</h4>
+                    <p class="text-sm text-slate-500">追求"优惠"而非解剖学结果。</p>
+                </div>
+            </div>
+
+            <p class="text-xl font-serif italic text-slate-700 max-w-2xl mx-auto border-l-4 border-gold pl-6 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-6">
+                "遗憾很少来自项目本身，而是来自没有框架的选择。"
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gold-light border-y border-orange-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-4xl text-gold/30 mb-6"></i>
+            <h3 class="text-2xl md:text-4xl font-serif text-slate-900 leading-tight mb-8">
+                "在韩国，Omakase意味着厨师做主。<br>
+                <span class="text-gold">Chamaka-se</span>意味着医师守护。"
+            </h3>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8">
+                医学美容中最令人遗憾的不是治疗失败，而是决策基于潮流而非生理学。
+            </p>
+            <p class="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                在调优诊所，我们不问"您想要什么？"<br>
+                我们问<strong>"对您来说，现在科学上最合理的是什么？"</strong>
+            </p>
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">医师主导</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">医疗团队</h2>
+                <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
+                    由两位代表院长领衔，我们的团队集提升、设计与外科手术于一体。
+                    <br>医师直接沟通。结构化规划。全程中文支持。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-sm shadow-xl border-t-4 border-slate-900 group overflow-hidden">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 uppercase z-10">代表院长</div>
+                        <img src="../cha.jpg" alt="Dr. Cha" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-serif text-slate-900 mb-1">Dr. Cha Seung-yeon</h3>
+                        <p class="text-xs text-gold font-bold uppercase tracking-wide mb-4">总规划师</p>
+                        <p class="text-[10px] text-slate-400 mb-4"><i class="fas fa-headset mr-1"></i> 1:1 专属管家服务</p>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                            "医学美容不是改变你的面容，而是找回你失去的平衡。"
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- 韩国干细胞学会理事</li>
+                            <li>- 面部设计与抗衰老专家</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-sm shadow-xl border-t-4 border-slate-900 group overflow-hidden">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 uppercase z-10">代表院长</div>
+                        <img src="../kim_ky.jpg" alt="Dr. Kim Kwang-yeon" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-serif text-slate-900 mb-1">Dr. Kim Kwang-yeon</h3>
+                        <p class="text-xs text-gold font-bold uppercase tracking-wide mb-4">提升权威</p>
+                        <p class="text-[10px] text-slate-400 mb-4"><i class="fas fa-headset mr-1"></i> 1:1 专属管家服务</p>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                            "提升是物理学。我们计算向量和深度，以确保最自然的效果。"
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- Hugel 提升关键医师</li>
+                            <li>- 中国艺星医院前院长</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-sm shadow-sm hover:shadow-lg transition duration-500 border border-slate-100 group">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <img src="../kim_bj.jpg" alt="Dr. Kim Beom-jin" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-serif text-slate-900 font-bold">Dr. Kim Beom-jin</h3>
+                        <p class="text-[10px] text-gold font-bold uppercase mb-1">整形外科医师</p>
+                        <div class="mb-3"><span class="text-[10px] bg-slate-50 text-slate-400 px-2 py-0.5 rounded">1:1 专属管家服务</span></div>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- 延世大学整形外科临床教授</li>
+                            <li>- 匹兹堡大学医学中心(UPMC)研究员</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-sm shadow-xl transform md:-translate-y-2 border-2 border-gold relative group overflow-hidden">
+                    <div class="absolute top-0 w-full bg-gold text-white text-[10px] font-bold text-center py-1 z-10">国际部院长</div>
+                    <div class="h-80 bg-slate-200 relative overflow-hidden mt-6">
+                        <img src="../ju.jpg" alt="Dr. Ju Jee-hoon" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center bg-gold-light">
+                        <h3 class="text-lg font-serif text-slate-900 font-bold">Dr. Ju Jee-hoon</h3>
+                        <p class="text-[10px] text-gold font-bold uppercase mb-2">精通英语和中文</p>
+                        <div class="mb-3"><span class="text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded">直接中文咨询</span></div>
+                        <ul class="text-xs text-slate-600 space-y-2">
+                            <li>- 毛发移植专家</li>
+                            <li>- ABAM认证（美国美学医学委员会）</li>
+                            <li>- MIT斯隆管理学院 AI医疗课程</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-sm shadow-sm hover:shadow-lg transition duration-500 border border-slate-100 group">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <img src="../jo.jpg" alt="Dr. Jo Dong-hyun" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-serif text-slate-900 font-bold">Dr. Jo Dong-hyun</h3>
+                        <p class="text-[10px] text-gold font-bold uppercase mb-2">干细胞权威</p>
+                        <div class="mb-3"><span class="text-[10px] bg-slate-50 text-slate-400 px-2 py-0.5 rounded">1:1 专属管家服务</span></div>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- 首尔大学医院临床顾问</li>
+                            <li>- 国际实用整形外科学会会长</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-sm shadow-sm hover:shadow-lg transition duration-500 border border-slate-100 group">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <img src="../jang.jpg" alt="Dr. Jang Seung-woo" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-serif text-slate-900 font-bold">Dr. Jang Seung-woo</h3>
+                        <p class="text-[10px] text-gold font-bold uppercase mb-1">儿科专家, 医学博士</p>
+                        <div class="mb-3"><span class="text-[10px] bg-slate-50 text-slate-400 px-2 py-0.5 rounded">1:1 专属管家服务</span></div>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- 朝鲜大学医学院临床教授</li>
+                            <li>- 儿科认证专家, 医学博士</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-lg">
+                    <i class="fas fa-check-circle text-gold"></i>
+                    <span class="text-xs font-bold uppercase">无缝体验：中文医师直接沟通 + 全程管家服务</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="match" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">60秒分诊</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">找到您的方案</h2>
+                <p class="text-slate-500">回答三个问题，我们将为您指引正确的路径。</p>
+            </div>
+
+            <div id="match-form" class="space-y-10">
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">1 - 您的主要目标是什么？</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="goal">
+                        <button type="button" data-value="collagen" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-seedling text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">胶原蛋白</span>
+                            <span class="text-[10px] text-slate-400">细腻、长效</span>
+                        </button>
+                        <button type="button" data-value="volume" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-cube text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">填充</span>
+                            <span class="text-[10px] text-slate-400">结构与轮廓</span>
+                        </button>
+                        <button type="button" data-value="lift" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-arrow-up text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">提升</span>
+                            <span class="text-[10px] text-slate-400">紧致与恢复</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">2 - 恢复期承受度？</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="downtime">
+                        <button type="button" data-value="none" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">无</span>
+                            <span class="text-[10px] text-slate-400">零可见恢复期</span>
+                        </button>
+                        <button type="button" data-value="mild" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">24 - 48 小时</span>
+                            <span class="text-[10px] text-slate-400">轻微肿胀可接受</span>
+                        </button>
+                        <button type="button" data-value="extended" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">3 - 7 天</span>
+                            <span class="text-[10px] text-slate-400">充分恢复时间</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">3 - 旅行紧迫性</p>
+                    <label class="flex items-center gap-4 cursor-pointer border border-slate-200 rounded-sm px-5 py-4 transition hover:border-slate-400 w-fit">
+                        <span class="relative inline-block w-11 h-6">
+                            <input type="checkbox" id="match-urgent" class="peer sr-only">
+                            <span class="absolute inset-0 bg-slate-200 rounded-full transition peer-checked:bg-gold"></span>
+                            <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
+                        </span>
+                        <span class="text-sm text-slate-700"><strong>&lt; 72小时</strong>内离开首尔</span>
+                    </label>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button type="button" id="match-submit" disabled class="px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider">
+                        查看我的推荐
+                    </button>
+                    <p id="match-hint" class="text-xs text-slate-400 mt-3">请选择目标和恢复期偏好以继续。</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">为旅客精心策划</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">Chamaka-se 诊疗方案</h2>
+                <p class="text-slate-500">四条独特路径。透明定价。没有意外。</p>
+                <p class="text-xs text-slate-400 mt-2 italic">所有方案在面对面解剖评估和禁忌症筛查后最终确定。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+
+                <div id="program-collagen" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-blue-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">The Collagen Builder</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">自然 / 长效</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        生物刺激疗法，适合担心"过度填充"的人。细腻、渐进的胶原蛋白修复和肤质改善。
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Rejuran Black 4cc + Juvelook Skin 2cc</p>
+                        <p class="text-xs text-slate-500">全脸胶原蛋白与细纹淡化</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> 时长：约45分钟</p>
+                        <p class="text-[10px] text-slate-400 mt-1">含咨询 + 术后护理</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-1 rounded uppercase font-bold">轻微肿胀 (24小时)</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩700,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="collagen-builder.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            了解更多
+                        </a>
+                        <a href="#wechat" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            添加微信咨询
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-volume" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-purple-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Filler Chamaka-se</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">面部设计 / 和谐</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        医师精心策划的面部和谐设计。填充剂作为比例结构工具使用。
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">医师评估 + 设计 + 精准填充</p>
+                        <p class="text-xs text-slate-500">校准填充作为结构工具</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> 时长：约60分钟</p>
+                        <p class="text-[10px] text-slate-400 mt-1">含咨询 + 术后护理</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-purple-50 text-purple-800 text-[10px] px-2 py-1 rounded uppercase font-bold">轻微肿胀 (24-48小时)</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">From ₩750,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="filler-chamaka-se.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            了解更多
+                        </a>
+                        <a href="#wechat" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            添加微信咨询
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-lifting" class="border-2 border-gold p-8 rounded-sm shadow-2xl relative bg-white transform md:-translate-y-2 h-full flex flex-col">
+                    <div class="absolute top-0 right-0 bg-gold text-white text-[10px] font-bold px-3 py-1 uppercase">最佳选择</div>
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Signature Lifting</h3>
+                    <p class="text-xs text-gold uppercase tracking-wide mb-4">非侵入式 / 紧致</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        医师校准的深层组织提升方案，专为无需手术干预的结构性紧致而设计。
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Ultherapy 350发医师定制方案</p>
+                        <p class="text-xs text-slate-500">全脸 + 颏下</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> 时长：约45分钟</p>
+                        <p class="text-[10px] text-slate-400 mt-1">含咨询 + 术后护理</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-green-50 text-green-800 text-[10px] px-2 py-1 rounded uppercase font-bold">零恢复期</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩900,000</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dashed border-slate-200 mb-6">
+                        <p class="text-xs text-slate-400 flex justify-between">
+                            <span>升级：ONDA Lifting 60,000J</span>
+                            <span class="font-bold text-slate-600">₩650,000</span>
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col gap-2 mt-auto">
+                        <a href="signature-lifting.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            了解更多
+                        </a>
+                        <a href="#wechat" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            立即预约
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-elite" class="bg-slate-900 p-8 rounded-sm shadow-xl relative text-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2">Structural Reset Elite</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">全面焕新</p>
+                    <p class="text-sm text-slate-300 mb-6 min-h-[60px]">
+                        综合性结构精修，结合深层提升与表面紧致，静脉麻醉已包含。
+                    </p>
+                    <div class="border-t border-slate-700 pt-6 mb-6">
+                        <p class="text-sm font-bold text-white mb-1">Ultherapy 300发 + Thermage 600发</p>
+                        <p class="text-xs text-slate-400">静脉麻醉已包含</p>
+                        <p class="text-xs text-slate-500 mt-2"><i class="far fa-clock mr-1"></i> 时长：约90分钟</p>
+                        <p class="text-[10px] text-slate-500 mt-1">含咨询 + 术后护理</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-1 rounded uppercase font-bold">优先预约</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-gold">₩2,770,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="structural-reset.html" class="block w-full text-center py-3 border border-slate-600 text-slate-200 text-sm font-bold hover:bg-slate-800 transition">
+                            了解更多
+                        </a>
+                        <a href="#wechat" class="block w-full text-center py-3 bg-gold text-white text-sm font-bold hover:bg-yellow-600 transition">
+                            预约VIP名额
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16 text-center border-t border-slate-100 pt-10">
+                <p class="text-slate-500 text-sm mb-4">寻找上述未列出的特定项目？</p>
+                <a href="menu.html" class="inline-flex items-center justify-center px-8 py-3 border border-slate-300 rounded-sm text-slate-600 font-bold hover:border-slate-800 hover:text-slate-900 transition bg-white shadow-sm hover:shadow-md">
+                    <i class="fas fa-list-ul mr-2 text-slate-400"></i> 参考价格
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-2xl mx-auto text-center px-6">
+            <h4 class="text-2xl font-serif text-slate-900 mb-6">舒适选项</h4>
+            <div class="inline-block text-left bg-white p-6 rounded-sm shadow-sm border border-slate-100">
+                <ul class="text-slate-600 text-sm space-y-4">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check text-gold"></i>
+                        <span><strong class="text-slate-800">外用麻醉</strong>（标准）</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-bullseye text-gold"></i>
+                        <span><strong class="text-slate-800">精准舒适阻滞</strong>（可选 +₩50,000）</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-procedures text-gold"></i>
+                        <span><strong class="text-slate-800">静脉镇静</strong>（可选 +₩100,000）</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">正品认证</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">我们在您面前拆封每个Ultherapy/Thermage探头。扫描二维码验证真伪。</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">合理剂量</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">我们根据您的解剖结构校准能量水平和发数，避免不必要的暴露。</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">旅行友好</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">我们为可能在48小时内飞行的旅客量身定制治疗强度和术后指导。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50" id="faq">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">旅客常见问题</h2>
+            <div class="space-y-4">
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        治疗后可以很快坐飞机吗？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>大多数情况下可以。</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>能量型提升</strong>（Ultherapy、Thermage、Onda）通常可以立即恢复正常活动。</li>
+                            <li><strong>注射类</strong>（Juvelook、填充剂）通常建议在可能的情况下留出24-48小时的缓冲期，以观察轻微肿胀或瘀青。</li>
+                        </ul>
+                        <p>您的方案将始终根据您的旅行时间表进行调整。</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        恢复期需要多长时间？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>恢复期取决于所选方案：</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>提升：</strong>几乎无可见恢复期</li>
+                            <li><strong>Juvelook：</strong>可能出现轻微肿胀</li>
+                            <li><strong>填充剂：</strong>可能出现瘀青，尤其是敏感部位</li>
+                        </ul>
+                        <p>我们优先进行结构化规划，为旅客最大程度减少不必要的恢复时间。</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        提升项目有疼痛管理吗？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>有的。我们提供<strong>精准舒适阻滞</strong>和<strong>静脉清醒镇静</strong>（可选）以优化舒适度。</p>
+                        <p class="text-xs text-slate-400">资格在治疗当天审核您的病史后确认。</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        如何选择合适的方案？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>您不需要自己选择。<strong>Chamaka-se</strong>是医师主导的模式。</p>
+                        <p>咨询期间，我们会评估：</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>组织厚度</li>
+                            <li>容量分布</li>
+                            <li>皮肤松弛度</li>
+                            <li>旅行时间表</li>
+                        </ul>
+                        <p class="italic border-l-2 border-gold pl-3">目标不是提供更多选择——而是为您找到最合理的路径。</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        来访前如何准备？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>为优化您的咨询，请准备：</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>一张自然光下的正面照片</li>
+                            <li>您的旅行日期</li>
+                            <li>您的主要关注点（提升 / 填充 / 胶原蛋白支持）</li>
+                        </ul>
+                        <p>由于每日预约名额有限，建议提前预约。</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">医师直接接诊</span>
+            <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-4">开始您的咨询</h2>
+            <p class="text-slate-500 mb-14 leading-relaxed max-w-xl mx-auto">医师协调接诊，为国际患者精简流程。<br class="hidden md:inline">无第三方中介。医师直接协调沟通。</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-14">
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">1</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">联系我们</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">请发送：<br><span class="text-slate-700 font-medium">姓名 / 年龄 / 期望项目</span></p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">2</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">获取方案与报价</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">我们将在工作时间内回复<span class="text-slate-700 font-medium">初步方案和价格估算</span>。</p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">3</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">确认预约</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">锁定您的预约。<br><span class="text-slate-700 font-medium">基础咨询无需定金</span>。</p>
+                </div>
+            </div>
+
+            <a href="#wechat" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg text-lg">
+                <i class="fab fa-weixin"></i> 添加微信咨询
+            </a>
+            <p class="text-xs text-slate-400 mt-3">通常回复时间：诊所营业时间内（周一至周六）。</p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">精准与舒适的结合</span>
+                <h2 class="text-4xl font-serif text-white mt-3 mb-6">诊所内部</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    从VIP套房到大堂，每一个细节都为隐私、精准和安心而设计。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-1.jpg&w=600&fm=webp&q=65" alt="诊所大堂" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">豪华入口</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-2.jpg&w=600&fm=webp&q=65" alt="诊所前台" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">前台</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-3.jpg&w=600&fm=webp&q=65" alt="休息区" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">休息区</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-4.jpg&w=600&fm=webp&q=65" alt="等候区" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">等候区</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-1.jpg&w=600&fm=webp&q=65" alt="VIP治疗套房" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">VIP套房</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-2.jpg&w=600&fm=webp&q=65" alt="私人治疗室" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">私人治疗室</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-3.jpg&w=600&fm=webp&q=65" alt="咨询室" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">咨询室</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-4.jpg&w=600&fm=webp&q=65" alt="高端设施" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">高端空间</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">江南区</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">来访我们</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="rounded-sm overflow-hidden shadow-lg aspect-[4/3]">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0!2d127.0262995!3d37.5260439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca312332f6f6d%3A0xbca8eff64fdc0d90!2z7JWV6rWs7KCV7Yqg7J2Y7JuQ!5e0!3m2!1sko!2skr!4v1700000000000"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="调优诊所 狎鸥亭 位置">
+                    </iframe>
+                </div>
+
+                <div class="flex flex-col justify-center space-y-8 py-4">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">地址</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+                            首尔市江南区论岘路868号5楼<br>
+                            <span class="ml-6">大韩民国</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">电话</h3>
+                        <p class="text-slate-700">
+                            <i class="fas fa-phone-alt text-gold mr-2"></i>
+                            <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">营业时间</h3>
+                        <div class="text-slate-700 space-y-1">
+                            <div class="flex gap-4">
+                                <i class="fas fa-clock text-gold mr-2 mt-1"></i>
+                                <div>
+                                    <div class="flex justify-between gap-8"><span>周一至周五</span> <span class="font-bold">10:00 - 21:00</span></div>
+                                    <div class="flex justify-between gap-8"><span>周六</span> <span class="font-bold">10:00 - 16:00</span></div>
+                                    <div class="flex justify-between gap-8 text-red-400"><span>周日</span> <span class="font-bold">休息</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="https://maps.app.goo.gl/QPzFkQ9EpJP7D99y6" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold hover:text-yellow-600 transition">
+                            <i class="fas fa-directions"></i> 获取路线
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-slate-100 border-y border-slate-200 py-8">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <p class="text-sm text-slate-500 leading-relaxed">
+                咨询由我们的医疗团队直接协调。<br>
+                我们不使用第三方中介。
+            </p>
+        </div>
+    </div>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center border-t border-slate-800">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">锁定您的Chamaka-se方案</h2>
+            <p class="text-slate-400 mb-10 leading-relaxed">
+                直接与中文工作人员联系。
+                <br>发送照片进行初步评估。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#wechat" class="bg-slate-800 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-700 transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg border border-slate-700">
+                    <i class="fab fa-weixin"></i> 添加微信咨询
+                </a>
+            </div>
+            <p class="text-xs text-slate-400 mt-4">通常回复时间：诊所营业时间内（周一至周六）。</p>
+
+            <p class="text-slate-400 text-sm mt-8">
+                <i class="fas fa-map-marker-alt mr-1"></i> 首尔市江南区论岘路868号5楼
+                 · 
+                <i class="fas fa-phone-alt mr-1"></i> <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
+            </p>
+            <p class="text-xs text-slate-600 mt-12">
+                © 2026 狎鸥亭调优诊所。循证医学美容。
+                <br><span class="opacity-50">最终付款以韩元(KRW)在诊所结算。</span>
+            </p>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <div class="flex gap-3">
+            <a href="#programs" class="flex-1 bg-slate-100 text-slate-900 font-bold py-3 rounded-sm text-center text-sm">
+                诊疗方案
+            </a>
+            <a href="#wechat" class="flex-1 bg-slate-900 text-white font-extrabold py-3 rounded-sm text-center text-sm flex items-center justify-center gap-2">
+                <i class="fab fa-weixin"></i> 添加微信咨询
+            </a>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+
+        var state = { goal: null, downtime: null };
+        var submitBtn = document.getElementById('match-submit');
+        var hint = document.getElementById('match-hint');
+        var urgent = document.getElementById('match-urgent');
+
+        document.querySelectorAll('[data-match-group]').forEach(function (group) {
+            var key = group.dataset.matchGroup;
+            group.querySelectorAll('.match-option').forEach(function (optionBtn) {
+                optionBtn.addEventListener('click', function () {
+                    group.querySelectorAll('.match-option').forEach(function (b) { b.classList.remove('selected'); });
+                    optionBtn.classList.add('selected');
+                    state[key] = optionBtn.dataset.value;
+                    updateSubmit();
+                });
+            });
+        });
+
+        function updateSubmit() {
+            var ready = state.goal && state.downtime;
+            submitBtn.disabled = !ready;
+            if (ready) {
+                submitBtn.className = 'px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow text-sm uppercase tracking-wider';
+                hint.textContent = '';
+            } else {
+                submitBtn.className = 'px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider';
+                hint.textContent = '请选择目标和恢复期偏好以继续。';
+            }
+        }
+
+        submitBtn.addEventListener('click', function () {
+            if (submitBtn.disabled) return;
+            var g = state.goal;
+            var d = state.downtime;
+            var u = urgent.checked;
+            var pick = resolve(g, d, u);
+            highlight(pick);
+        });
+
+        function resolve(goal, downtime, isUrgent) {
+            if (isUrgent) return 'program-lifting';
+            if (goal === 'collagen') {
+                if (downtime === 'none') return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-collagen';
+            }
+            if (goal === 'volume') {
+                if (downtime === 'none') return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-volume';
+            }
+            if (goal === 'lift') {
+                if (downtime === 'none') return 'program-lifting';
+                return 'program-elite';
+            }
+            return 'program-lifting';
+        }
+
+        function highlight(cardId) {
+            document.querySelectorAll('.program-highlight').forEach(function (el) {
+                el.classList.remove('program-highlight');
+            });
+            document.querySelectorAll('[data-match-badge]').forEach(function (el) {
+                el.remove();
+            });
+            document.querySelectorAll('.cta-pulse').forEach(function (el) {
+                el.classList.remove('cta-pulse');
+            });
+
+            var card = document.getElementById(cardId);
+            if (!card) return;
+
+            var headerOffset = 100;
+            var elementPosition = card.getBoundingClientRect().top;
+            var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            setTimeout(function () {
+                card.classList.add('program-highlight');
+                var badge = document.createElement('span');
+                badge.className = 'absolute top-3 left-3 bg-[#C5A059] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider';
+                badge.setAttribute('data-match-badge', '');
+                badge.textContent = '根据您的选择推荐';
+                card.appendChild(badge);
+
+                var buttons = card.querySelectorAll('a');
+                if (buttons.length > 0) {
+                    var ctaBtn = buttons[buttons.length - 1];
+                    ctaBtn.classList.add('cta-pulse');
+                    setTimeout(function () { ctaBtn.classList.remove('cta-pulse'); }, 2000);
+                }
+            }, 500);
+        }
+    })();
+    </script>
+
+</body>
+</html>

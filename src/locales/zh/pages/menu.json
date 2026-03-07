@@ -1,0 +1,9 @@
+{
+  "key": "menu",
+  "template": "editorial",
+  "permalink": "zh/menu.html",
+  "title": "精选体验 | 调优诊所 狎鸥亭",
+  "description": "调优诊所狎鸥亭的体验式医学美容方案及参考价格。",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/zh/menu.html"
+}

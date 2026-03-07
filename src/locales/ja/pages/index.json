@@ -1,0 +1,9 @@
+{
+  "key": "index",
+  "template": "home",
+  "permalink": "ja/index.html",
+  "title": "チューンクリニック 狎鷗亭 | Chamaka-se 美容医療",
+  "description": "合理的なデザイン、美容医療プロトコル、旅行者向けコンシェルジュサポートを軸にした海外患者様向けの医師主導ビューティープランニング。",
+  "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
+  "fragment": "fragments/ja/index.html"
+}

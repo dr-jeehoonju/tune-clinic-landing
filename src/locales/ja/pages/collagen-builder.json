@@ -1,0 +1,9 @@
+{
+  "key": "collagen-builder",
+  "template": "program",
+  "permalink": "ja/collagen-builder.html",
+  "title": "The Collagen Builder | チューンクリニック",
+  "description": "医師主導のバイオスティミュレーションプロトコル。過度なボリュームを加えることなく、肌密度と小ジワを改善します。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ja/collagen-builder.html"
+}

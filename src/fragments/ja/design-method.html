@@ -1,0 +1,383 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 32px;
+            bottom: -16px;
+            width: 1px;
+            background-color: #E2E8F0;
+        }
+        .timeline-step:last-child::before {
+            display: none;
+        }
+</style>
+
+<header class="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-[10px] font-bold uppercase tracking-widest mb-6 rounded-sm bg-white shadow-sm">
+                医師主導 / デザインファースト
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mb-8 leading-tight">
+                Chamaka-se <br class="hidden md:block">デザインメソッド
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                機器や注入を選ぶ前に、まずお顔の解剖学をマッピングし、プランをデザインします。<br class="mt-2">
+                <strong class="text-slate-800">パッケージはデザインプロセスの成果であり、テンプレートではありません。</strong>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#programs-bridge" class="px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow-lg text-center">
+                    プログラムを見る
+                </a>
+                <a href="#line" class="px-10 py-4 border border-slate-300 text-slate-700 font-semibold rounded-sm hover:border-slate-800 hover:text-slate-900 bg-white transition text-center flex items-center justify-center gap-2">
+                    <i class="fab fa-line"></i> LINEで相談する
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-4xl text-gold/30 mb-6"></i>
+            <h2 class="text-3xl md:text-5xl font-serif text-slate-900 leading-tight mb-8">
+                「機器はツール。<br>
+                プロトコルが製品です。」
+            </h2>
+            <p class="text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto border-t border-slate-100 pt-8">
+                私たちの仕事は、不確実性を減らし、お顔と渡航スケジュールに最も合理的なパスウェイをデザインすることです。
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">基盤</span>
+                <h3 class="text-3xl font-serif text-slate-900 mt-2">4つの柱</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">1</span>
+                        精密分析
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 組織の厚さ評価</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> ボリューム分布マッピング</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 筋肉の優位性と緊張度</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">2</span>
+                        カスタムデザイン
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 構造リフティングベクター</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> ゾーン別エネルギーキャリブレーション</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> エイジングパターン評価</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">3</span>
+                        プロトコル設計
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 相乗効果のある機器選択</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> シーケンスマッピング（エネルギー vs 注入）</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 渡航タイムライン最適化</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">4</span>
+                        効果キャリブレーション
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> リアルタイムの施術調整</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 顔のシンメトリーバランシング</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> フライト対応アフターケア統合</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">プロセス</span>
+                <h3 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">解剖学的デザインワークフロー</h3>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">すべての施術は、医師主導の精密なマッピングプロセスから始まります。</p>
+            </div>
+
+            <div class="space-y-20 md:space-y-32">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-01.png" alt="ベースライン評価" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 01</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">ベースライン評価</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            マーキングを始める前に、基礎的な肌状態、組織の厚さ、安静時の顔面緊張を評価します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-02.png" alt="インタラクティブプランニング" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 02</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">インタラクティブプランニング</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            鏡を使いながら、あなたの美的目標と現実的な解剖学的可能性を一致させるために協働します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-03.png" alt="プライマリーベクターマッピング" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 03</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">プライマリーベクターマッピング</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            基盤となるリフティングベクターをトレースし、組織弛緩の主要方向を特定します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-04.png" alt="構造ブループリント" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 04</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">構造ブループリント</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            深部エネルギー照射またはサポートが必要な正確なゾーンをマッピングする第一段階デザインを完成させます。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-05.png" alt="マイクロディテーリング" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 05</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">マイクロディテーリング</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            局所的なボリュームロスや特別な注意が必要なデリケートな皮膚ゾーンなど、二次的な懸念領域を分離します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-red-100">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-[9px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-sm">安全プロトコル</div>
+                        <img src="../step-06.png" alt="深度＆安全キャリブレーション" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 06</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">深度＆安全キャリブレーション</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            最終的な臨床マーカー（赤）を適用し、正確な施術深度を定め、解剖学的危険ゾーンを厳密に回避します。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-serif text-white">期待できること</h3>
+                <p class="text-slate-400 mt-3 text-sm">デザイン哲学を旅行者にとっての直接的なメリットに変換します。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center">
+                <div class="bg-slate-800 p-8 rounded-sm border border-slate-700">
+                    <div class="w-12 h-12 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">より少ない推測</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">精密な解剖学的ターゲティングにより、すべてのステップに医学的根拠があります。</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• 汎用的な既製プロトコルなし</li>
+                        <li>• 臨床的根拠に基づく判断</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-sm border border-slate-700">
+                    <div class="w-12 h-12 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">最小限のダウンタイム</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">旅行スケジュールを守るため、回復期間もデザインに組み込まれています。</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• 積極的な腫れコントロール</li>
+                        <li>• フライト対応の施術タイミング</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-sm border border-gold/30 relative overflow-hidden shadow-[0_0_15px_rgba(197,160,89,0.1)]">
+                    <div class="absolute top-0 w-full left-0 h-1 bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">不必要な施術なし</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">あなたの生理学が目標達成に必要とするもののみを推奨します。</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• 解剖学ファーストの判断</li>
+                        <li>• 不必要なステップの回避</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">ケアの基準</span>
+                <h3 class="text-2xl font-serif text-slate-900 mt-2">プロセスの証明</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center border-t border-slate-100 pt-12">
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">正規品認証</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">対象の機器消耗品について、患者様の前で正規品認証を行います。QRコードをスキャンして有効性をご確認ください。</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">合理的な投与量</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">エネルギーレベルとショット数を、あなたの特定の解剖学に厳密にキャリブレーションします。</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">快適オプション</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">局所麻酔からターゲットブロック、点滴鎮静まで、快適さを設計します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs-bridge" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-serif text-slate-900 mb-4">厳選されたパスウェイ</h2>
+            <p class="text-slate-600 mb-12 max-w-2xl mx-auto">
+                この厳格なデザインメソッドに基づき、4つの包括的な医師キャリブレーションプログラムを提供しています。
+                これらがあなたの治療ジャーニーの基盤となります。
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <a href="signature-lifting.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Signature Lifting</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Ultherapy 350</p>
+                </a>
+                <a href="structural-reset.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-slate-800 hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-slate-900 transition mb-1">Structural Reset</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Elite Combo</p>
+                </a>
+                <a href="collagen-builder.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-blue-400 hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-blue-600 transition mb-1">Collagen Builder</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Biostimulation</p>
+                </a>
+                <a href="filler-chamaka-se.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-purple-400 hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-purple-600 transition mb-1">Filler Chamaka-se</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Facial Design</p>
+                </a>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#programs" class="px-8 py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition">
+                    すべてのプログラムを見る
+                </a>
+                <a href="menu.html" class="px-8 py-3 border border-slate-300 text-slate-700 font-bold rounded-sm hover:border-slate-800 bg-white transition">
+                    料金表
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center border-t border-slate-800">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">デザインプロセスを始める</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                LINEで医療チームに直接ご連絡ください。<br>
+                効率的な事前評価のために以下の情報をご提供ください。
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">LINEにコピー＆ペースト：</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all">
+                    チューンクリニック様、事前評価をお願いしたいです：<br>
+                    • ソウル滞在日：[ ]<br>
+                    • 韓国出発日：[ ]<br>
+                    • 主な悩み：[リフト / 輪郭 / 肌質]<br>
+                    • 写真あり：はい / いいえ<br>
+                    • 重要なイベント日（任意）：[ ]
+                </code>
+            </div>
+
+            <div class="flex justify-center">
+                <a href="#line" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-yellow-600 transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg">
+                    <i class="fab fa-line"></i> LINEで相談する
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>© 2026 狎鷗亭チューンクリニック. エビデンスベースの美容医療.</p>
+                <p class="opacity-70">結果と適性は個人により異なります。最終的な医療プランとお見積もりは対面診察後に確定します。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+        })();
+    </script>

@@ -1,0 +1,9 @@
+{
+  "key": "signature-lifting",
+  "template": "program",
+  "permalink": "th/signature-lifting.html",
+  "title": "Signature Lifting | Tune Clinic",
+  "description": "โปรโตคอลยกกระชับ Ultherapy แบบ physician-led สำหรับผู้เดินทางต่างชาติ",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/signature-lifting.html"
+}

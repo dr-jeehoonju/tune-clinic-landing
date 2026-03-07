@@ -1,0 +1,9 @@
+{
+  "key": "collagen-builder",
+  "template": "program",
+  "permalink": "zh/collagen-builder.html",
+  "title": "The Collagen Builder | 调优诊所",
+  "description": "医师主导的生物刺激方案，改善皮肤密度和细纹，避免过度填充的外观。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/zh/collagen-builder.html"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "gallery",
+  "template": "editorial",
+  "permalink": "th/gallery.html",
+  "title": "คลังภาพก่อนและหลัง | Tune Clinic",
+  "description": "คลังภาพผลลัพธ์ทางคลินิกเพื่อช่วยในการตัดสินใจและการวางแผนการรักษา",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
+  "fragment": "fragments/th/gallery.html"
+}

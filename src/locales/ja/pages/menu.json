@@ -1,0 +1,9 @@
+{
+  "key": "menu",
+  "template": "editorial",
+  "permalink": "ja/menu.html",
+  "title": "厳選メニュー | チューンクリニック 狎鷗亭",
+  "description": "チューンクリニック狎鷗亭の体験型美容医療プロトコルと参考価格。",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/ja/menu.html"
+}

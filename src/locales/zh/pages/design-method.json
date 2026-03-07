@@ -1,0 +1,9 @@
+{
+  "key": "design-method",
+  "template": "editorial",
+  "permalink": "zh/design-method.html",
+  "title": "Chamaka-se 设计方法 | 调优诊所",
+  "description": "我们的定制化设计优先理念。了解调优诊所如何为国际旅行者创建合理的、医师主导的美学路径。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/zh/design-method.html"
+}

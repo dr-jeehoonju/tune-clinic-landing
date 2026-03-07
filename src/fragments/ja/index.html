@@ -1,0 +1,962 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Custom Colors */
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+
+        /* Animations */
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Match module */
+        .match-option.selected {
+            border-color: #C5A059;
+            background-color: #F9F5F0;
+            box-shadow: 0 0 0 1px #C5A059;
+        }
+        .match-option.selected i { color: #C5A059; }
+
+        .program-highlight {
+            animation: highlightPulse 1.8s ease-in-out;
+            box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3) !important;
+            border-color: #C5A059 !important;
+        }
+        @keyframes highlightPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.6); }
+            50%  { box-shadow: 0 0 0 8px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3); }
+        }
+
+        /* CTA Pulse for matched card */
+        @keyframes ctaPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.8); }
+            70%  { box-shadow: 0 0 0 12px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 0 rgba(197,160,89,0); }
+        }
+        .cta-pulse {
+            animation: ctaPulse 1s ease-out 2;
+        }
+        /* match-recommend-badge: styled via JS inline classes (Tailwind CDN cannot process @apply) */
+</style>
+
+<header class="relative bg-black overflow-hidden min-h-[90vh] md:min-h-screen flex flex-col">
+        <div class="absolute inset-0 z-0">
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="../main.jpeg"
+                class="w-full h-full object-cover"
+            >
+                <source src="../hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
+        </div>
+
+        <div class="relative z-10 mt-auto max-w-7xl mx-auto w-full px-6 pb-16 md:pb-20">
+            <div class="fade-in-up max-w-3xl">
+                <div class="flex items-center space-x-3 mb-5">
+                    <div class="h-px w-12 bg-gold"></div>
+                    <span class="text-sm tracking-widest uppercase font-bold text-white/60">チューンクリニック 狎鷗亭</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] mb-6">
+                    施術を選ぶだけでなく、<br>
+                    <span class="italic text-white/50">決断を選ぶ。</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-white/70 mb-8 leading-relaxed max-w-2xl">
+                    <strong class="text-white">「Chamaka-se」</strong>を体験 — 海外からの旅行者のために医師が設計した美容医療プラン。
+                    <span class="block mt-6 text-gold font-bold tracking-widest text-[11px] md:text-sm uppercase border-t border-white/20 pt-4">
+                        Ultherapy 350ショット医師プロトコルを中心に構築
+                    </span>
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#programs" class="px-10 py-4 bg-white text-slate-900 font-semibold rounded-sm hover:bg-white/90 transition shadow-xl text-center">
+                        厳選プランを見る
+                    </a>
+                    <a href="#line" class="px-10 py-4 border border-white/30 text-white font-semibold rounded-sm hover:bg-white/10 transition text-center flex items-center justify-center gap-2 backdrop-blur-sm">
+                        <i class="fab fa-line"></i> LINEで相談する
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-sm font-bold text-gold uppercase tracking-widest mb-4">旅行者のジレンマ</h2>
+            <h3 class="text-3xl font-serif text-slate-900 mb-12">なぜ美容の判断は間違えるのか</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-layer-group text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">デバイスが多すぎる</h4>
+                    <p class="text-sm text-slate-500">Ultherapy、Thermage、フィラー…混乱は後悔につながります。</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-clock text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">時間が足りない</h4>
+                    <p class="text-sm text-slate-500">数週間ではなく数日間。限られた時間に最適化されたプランが必要です。</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-balance-scale text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">基準がない</h4>
+                    <p class="text-sm text-slate-500">解剖学的な結果ではなく「お得情報」を探してしまう。</p>
+                </div>
+            </div>
+
+            <p class="text-xl font-serif italic text-slate-700 max-w-2xl mx-auto border-l-4 border-gold pl-6 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-6">
+                「後悔するのは施術そのものではなく、基準なく選んでしまったこと。」
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gold-light border-y border-orange-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-4xl text-gold/30 mb-6"></i>
+            <h3 class="text-2xl md:text-4xl font-serif text-slate-900 leading-tight mb-8">
+                「韓国では、おまかせは料理人が決める。<br>
+                <span class="text-gold">Chamaka-se</span>は医師が守る。」
+            </h3>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8">
+                美容医療で最も残念な瞬間は、施術が失敗した時ではなく、生理学ではなく流行に基づいて判断した時です。
+            </p>
+            <p class="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                チューンクリニックでは「何をしたいですか？」とは聞きません。<br>
+                <strong>「今のあなたにとって、科学的に合理的な選択は何か？」</strong>をお伺いします。
+            </p>
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">医師主導のキュレーション</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">医療チーム</h2>
+                <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
+                    2名の代表院長が率いる医療チームは、リフティング、デザイン、外科手術の専門性を兼ね備えています。
+                    <br>医師との直接コミュニケーション。体系的な計画。日本語完全対応。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-sm shadow-xl border-t-4 border-slate-900 group overflow-hidden">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 uppercase z-10">代表院長</div>
+                        <img src="../cha.jpg" alt="Dr. Cha" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-serif text-slate-900 mb-1">Dr. Cha Seung-yeon</h3>
+                        <p class="text-xs text-gold font-bold uppercase tracking-wide mb-4">マスタープランナー</p>
+                        <p class="text-[10px] text-slate-400 mb-4"><i class="fas fa-headset mr-1"></i> 1:1コンシェルジュ対応</p>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                            「美容医療とは顔を変えることではなく、失われたバランスを取り戻すことです。」
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- 韓国幹細胞学会 理事</li>
+                            <li>- フェイスデザイン・アンチエイジング専門</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-sm shadow-xl border-t-4 border-slate-900 group overflow-hidden">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 uppercase z-10">代表院長</div>
+                        <img src="../kim_ky.jpg" alt="Dr. Kim Kwang-yeon" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-serif text-slate-900 mb-1">Dr. Kim Kwang-yeon</h3>
+                        <p class="text-xs text-gold font-bold uppercase tracking-wide mb-4">リフティング専門</p>
+                        <p class="text-[10px] text-slate-400 mb-4"><i class="fas fa-headset mr-1"></i> 1:1コンシェルジュ対応</p>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                            「リフティングは物理学です。最も自然な結果を得るためにベクトルと深度を計算します。」
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- リフティングキードクター（Hugel）</li>
+                            <li>- 元Yestar Hospital院長（中国）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-sm shadow-sm hover:shadow-lg transition duration-500 border border-slate-100 group">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <img src="../kim_bj.jpg" alt="Dr. Kim Beom-jin" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-serif text-slate-900 font-bold">Dr. Kim Beom-jin</h3>
+                        <p class="text-[10px] text-gold font-bold uppercase mb-1">形成外科医</p>
+                        <div class="mb-3"><span class="text-[10px] bg-slate-50 text-slate-400 px-2 py-0.5 rounded">1:1コンシェルジュ対応</span></div>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- 延世大学校 形成外科 臨床教授</li>
+                            <li>- UPMC（ピッツバーグ大学）フェロー</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-sm shadow-xl transform md:-translate-y-2 border-2 border-gold relative group overflow-hidden">
+                    <div class="absolute top-0 w-full bg-gold text-white text-[10px] font-bold text-center py-1 z-10">国際部院長</div>
+                    <div class="h-80 bg-slate-200 relative overflow-hidden mt-6">
+                        <img src="../ju.jpg" alt="Dr. Ju Jee-hoon" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center bg-gold-light">
+                        <h3 class="text-lg font-serif text-slate-900 font-bold">Dr. Ju Jee-hoon</h3>
+                        <p class="text-[10px] text-gold font-bold uppercase mb-2">英語・中国語堪能</p>
+                        <div class="mb-3"><span class="text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded">日本語直接相談</span></div>
+                        <ul class="text-xs text-slate-600 space-y-2">
+                            <li>- 植毛専門医</li>
+                            <li>- ABAM認定（米国美容医学会）</li>
+                            <li>- MIT Sloan AIヘルスケア</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-sm shadow-sm hover:shadow-lg transition duration-500 border border-slate-100 group">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <img src="../jo.jpg" alt="Dr. Jo Dong-hyun" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-serif text-slate-900 font-bold">Dr. Jo Dong-hyun</h3>
+                        <p class="text-[10px] text-gold font-bold uppercase mb-2">幹細胞専門</p>
+                        <div class="mb-3"><span class="text-[10px] bg-slate-50 text-slate-400 px-2 py-0.5 rounded">1:1コンシェルジュ対応</span></div>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- ソウル大学病院 臨床アドバイザー</li>
+                            <li>- 国際実践形成外科学会 会長</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-sm shadow-sm hover:shadow-lg transition duration-500 border border-slate-100 group">
+                    <div class="h-80 bg-slate-200 relative overflow-hidden">
+                        <img src="../jang.jpg" alt="Dr. Jang Seung-woo" class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-serif text-slate-900 font-bold">Dr. Jang Seung-woo</h3>
+                        <p class="text-[10px] text-gold font-bold uppercase mb-1">小児科専門医・医学博士</p>
+                        <div class="mb-3"><span class="text-[10px] bg-slate-50 text-slate-400 px-2 py-0.5 rounded">1:1コンシェルジュ対応</span></div>
+                        <ul class="text-xs text-slate-500 space-y-1 text-left inline-block">
+                            <li>- 朝鮮大学校 医学部 臨床教授</li>
+                            <li>- 小児科専門医・医学博士</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-lg">
+                    <i class="fas fa-check-circle text-gold"></i>
+                    <span class="text-xs font-bold uppercase">シームレスな体験：日本語対応MD + フルプロセスコンシェルジュ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="match" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">60秒トリアージ</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">あなたのプログラムを探す</h2>
+                <p class="text-slate-500">3つの質問にお答えください。最適なプランをご提案します。</p>
+            </div>
+
+            <div id="match-form" class="space-y-10">
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">1 - 主な目的は？</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="goal">
+                        <button type="button" data-value="collagen" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-seedling text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">コラーゲン</span>
+                            <span class="text-[10px] text-slate-400">繊細・長期的</span>
+                        </button>
+                        <button type="button" data-value="volume" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-cube text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">ボリューム</span>
+                            <span class="text-[10px] text-slate-400">構造・輪郭</span>
+                        </button>
+                        <button type="button" data-value="lift" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-arrow-up text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">リフト</span>
+                            <span class="text-[10px] text-slate-400">引き締め・回復</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">2 - ダウンタイムの許容範囲は？</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="downtime">
+                        <button type="button" data-value="none" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">なし</span>
+                            <span class="text-[10px] text-slate-400">回復期間ゼロ</span>
+                        </button>
+                        <button type="button" data-value="mild" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">24〜48時間</span>
+                            <span class="text-[10px] text-slate-400">軽度の腫れOK</span>
+                        </button>
+                        <button type="button" data-value="extended" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">3〜7日間</span>
+                            <span class="text-[10px] text-slate-400">十分な回復期間</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">3 - 旅行の緊急度</p>
+                    <label class="flex items-center gap-4 cursor-pointer border border-slate-200 rounded-sm px-5 py-4 transition hover:border-slate-400 w-fit">
+                        <span class="relative inline-block w-11 h-6">
+                            <input type="checkbox" id="match-urgent" class="peer sr-only">
+                            <span class="absolute inset-0 bg-slate-200 rounded-full transition peer-checked:bg-gold"></span>
+                            <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
+                        </span>
+                        <span class="text-sm text-slate-700"><strong>72時間以内</strong>にソウルを出発</span>
+                    </label>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button type="button" id="match-submit" disabled class="px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider">
+                        おすすめを表示
+                    </button>
+                    <p id="match-hint" class="text-xs text-slate-400 mt-3">目標とダウンタイムの希望を選択してください。</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">旅行者のために厳選</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">Chamaka-se プログラム</h2>
+                <p class="text-slate-500">4つの明確な選択肢。明瞭な価格設定。サプライズなし。</p>
+                <p class="text-xs text-slate-400 mt-2 italic">すべてのプロトコルは対面での解剖学的評価と禁忌スクリーニング後に最終決定されます。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+
+                <div id="program-collagen" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-blue-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">The Collagen Builder</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">ナチュラル / 長期的</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        「過剰注入」を恐れる方のための生体刺激療法。繊細で段階的なコラーゲン再生と肌質改善。
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Rejuran Black 4cc + Juvelook Skin 2cc</p>
+                        <p class="text-xs text-slate-500">全顔コラーゲン＆小じわ改善</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> 所要時間：約45分</p>
+                        <p class="text-[10px] text-slate-400 mt-1">カウンセリング＋アフターケア込み</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-1 rounded uppercase font-bold">軽度の腫れ（24時間）</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩700,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="collagen-builder.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            Learn More
+                        </a>
+                        <a href="#line" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            LINEで相談する
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-volume" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-purple-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Filler Chamaka-se</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">フェイシャルデザイン / ハーモニー</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        医師が設計するフェイシャルハーモニーデザイン。フィラーをプロポーションのための構造ツールとして使用。
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">医師評価 + デザイン + ターゲットフィラー</p>
+                        <p class="text-xs text-slate-500">構造ツールとしての精密ボリューム</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> 所要時間：約60分</p>
+                        <p class="text-[10px] text-slate-400 mt-1">カウンセリング＋アフターケア込み</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-purple-50 text-purple-800 text-[10px] px-2 py-1 rounded uppercase font-bold">軽度の腫れ（24-48時間）</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩750,000〜</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="filler-chamaka-se.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            Learn More
+                        </a>
+                        <a href="#line" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            LINEで相談する
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-lifting" class="border-2 border-gold p-8 rounded-sm shadow-2xl relative bg-white transform md:-translate-y-2 h-full flex flex-col">
+                    <div class="absolute top-0 right-0 bg-gold text-white text-[10px] font-bold px-3 py-1 uppercase">おすすめ</div>
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Signature Lifting</h3>
+                    <p class="text-xs text-gold uppercase tracking-wide mb-4">非侵襲 / タイトニング</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        外科的介入なしで構造的な引き締めを実現する、医師が設計した深部組織リフティングプロトコル。
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Ultherapy 350ショット医師プロトコル</p>
+                        <p class="text-xs text-slate-500">全顔 + 顎下</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> 所要時間：約45分</p>
+                        <p class="text-[10px] text-slate-400 mt-1">カウンセリング＋アフターケア込み</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-green-50 text-green-800 text-[10px] px-2 py-1 rounded uppercase font-bold">ダウンタイムなし</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩900,000</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dashed border-slate-200 mb-6">
+                        <p class="text-xs text-slate-400 flex justify-between">
+                            <span>アップグレード：ONDA Lifting 60,000J</span>
+                            <span class="font-bold text-slate-600">₩650,000</span>
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col gap-2 mt-auto">
+                        <a href="signature-lifting.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            Learn More
+                        </a>
+                        <a href="#line" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            今すぐ予約
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-elite" class="bg-slate-900 p-8 rounded-sm shadow-xl relative text-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2">Structural Reset Elite</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">トータルトランスフォーメーション</p>
+                    <p class="text-sm text-slate-300 mb-6 min-h-[60px]">
+                        Ultherapy 300ショット深部リフティングとThermage 600ショット表面タイトニング、静脈麻酔込みの包括的な構造プロトコル。
+                    </p>
+                    <div class="border-t border-slate-700 pt-6 mb-6">
+                        <p class="text-sm font-bold text-white mb-1">Ultherapy 300ショット + Thermage 600ショット</p>
+                        <p class="text-xs text-slate-400">静脈麻酔込み・包括的構造プロトコル</p>
+                        <p class="text-xs text-slate-500 mt-2"><i class="far fa-clock mr-1"></i> 所要時間：約90分</p>
+                        <p class="text-[10px] text-slate-500 mt-1">カウンセリング＋アフターケア込み</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-1 rounded uppercase font-bold">優先予約</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-gold">₩2,770,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="structural-reset.html" class="block w-full text-center py-3 border border-slate-600 text-slate-200 text-sm font-bold hover:bg-slate-800 transition">
+                            Learn More
+                        </a>
+                        <a href="#line" class="block w-full text-center py-3 bg-gold text-white text-sm font-bold hover:bg-yellow-600 transition">
+                            VIP枠を予約
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16 text-center border-t border-slate-100 pt-10">
+                <p class="text-slate-500 text-sm mb-4">上記にない特定の施術をお探しですか？</p>
+                <a href="menu.html" class="inline-flex items-center justify-center px-8 py-3 border border-slate-300 rounded-sm text-slate-600 font-bold hover:border-slate-800 hover:text-slate-900 transition bg-white shadow-sm hover:shadow-md">
+                    <i class="fas fa-list-ul mr-2 text-slate-400"></i> 参考価格
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-2xl mx-auto text-center px-6">
+            <h4 class="text-2xl font-serif text-slate-900 mb-6">コンフォートオプション</h4>
+            <div class="inline-block text-left bg-white p-6 rounded-sm shadow-sm border border-slate-100">
+                <ul class="text-slate-600 text-sm space-y-4">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check text-gold"></i>
+                        <span><strong class="text-slate-800">塗布麻酔</strong>（標準）</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-bullseye text-gold"></i>
+                        <span><strong class="text-slate-800">ターゲットコンフォートブロック</strong>（オプション +₩50,000）</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-procedures text-gold"></i>
+                        <span><strong class="text-slate-800">静脈内鎮静</strong>（オプション +₩100,000）</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">正規品認証済み</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">すべてのUltherapy/Thermageチップをお客様の前で開封。QRコードで正規品をご確認いただけます。</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">合理的な照射量</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">お客様の骨格に合わせてエネルギーレベルとショット数を調整し、不必要な照射を避けます。</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">旅行者への配慮</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">48時間以内にフライトを控える旅行者のために、施術強度とアフターケアを調整します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50" id="faq">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">旅行者向けFAQ</h2>
+            <div class="space-y-4">
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        施術後すぐに飛行機に乗れますか？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>はい、ほとんどの場合可能です。</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>エネルギーベースのリフティング</strong>（Ultherapy、Thermage、Onda）は通常すぐに日常活動に復帰できます。</li>
+                            <li><strong>注入治療</strong>（Juvelook、フィラー）は軽度の腫れや内出血を観察するため、可能であれば24〜48時間のバッファーを推奨します。</li>
+                        </ul>
+                        <p>プランはお客様の旅行スケジュールに合わせて常に調整されます。</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        ダウンタイムはどのくらいですか？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>選択するプランによって異なります：</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>リフティング：</strong> 目に見えるダウンタイムは最小限</li>
+                            <li><strong>Juvelook：</strong> 軽度の腫れが生じる場合があります</li>
+                            <li><strong>フィラー：</strong> 特にデリケートな部位では内出血の可能性があります</li>
+                        </ul>
+                        <p>旅行者の不必要な回復期間を最小限に抑えるため、体系的な計画を優先しています。</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        リフティング施術の痛みの管理はありますか？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>はい。快適性を最適化するために<strong>ターゲットコンフォートブロック</strong>と<strong>静脈内意識下鎮静</strong>（オプション）をご用意しています。</p>
+                        <p class="text-xs text-slate-400">適格性は施術当日の医療歴の確認後に判断されます。</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        どのプログラムを選べばよいですか？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>ご自身で選ぶ必要はありません。<strong>Chamaka-se</strong>は医師が設計するモデルです。</p>
+                        <p>カウンセリングでは以下を評価します：</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>組織の厚さ</li>
+                            <li>ボリュームの分布</li>
+                            <li>肌のたるみ</li>
+                            <li>旅行スケジュール</li>
+                        </ul>
+                        <p class="italic border-l-2 border-gold pl-3">目標は選択肢を増やすことではなく、あなたにとって最も合理的なプランを特定することです。</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        来院前に何を準備すればよいですか？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>カウンセリングを最適化するため、以下をご準備ください：</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>自然光での正面写真</li>
+                            <li>旅行日程</li>
+                            <li>主なお悩み（リフト / ボリューム / コラーゲン）</li>
+                        </ul>
+                        <p>1日の予約数に限りがあるため、事前予約をお勧めします。</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">医師による直接インテーク</span>
+            <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-4">カウンセリングを始める</h2>
+            <p class="text-slate-500 mb-14 leading-relaxed max-w-xl mx-auto">海外患者様のために効率化された医師主導のインテーク。<br class="hidden md:inline">サードパーティのブローカーなし。医師との直接コミュニケーション。</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-14">
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">1</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">お問い合わせ</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">以下の情報をお送りください：<br><span class="text-slate-700 font-medium">お名前 / 年齢 / ご希望の施術</span></p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">2</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">プラン＆見積もり</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">営業時間内に<span class="text-slate-700 font-medium">予備プランと概算見積もり</span>をお返しします。</p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">3</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">予約確定</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">予約を確定します。<br><span class="text-slate-700 font-medium">基本カウンセリングはデポジット不要</span>です。</p>
+                </div>
+            </div>
+
+            <a href="#line" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg text-lg">
+                <i class="fab fa-line"></i> LINEで相談する
+            </a>
+            <p class="text-xs text-slate-400 mt-3">通常の返信時間：診療時間内（月〜土）</p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">精密さと快適さの融合</span>
+                <h2 class="text-4xl font-serif text-white mt-3 mb-6">クリニック内部</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    VIPスイートからロビーまで、すべてのディテールがプライバシー、精密さ、安心のために設計されています。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-1.jpg&w=600&fm=webp&q=65" alt="クリニックロビー" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">グランドエントランス</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-2.jpg&w=600&fm=webp&q=65" alt="クリニック受付" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">受付</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-3.jpg&w=600&fm=webp&q=65" alt="ロビーラウンジ" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">ラウンジ</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-4.jpg&w=600&fm=webp&q=65" alt="待合エリア" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">待合エリア</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-1.jpg&w=600&fm=webp&q=65" alt="VIPトリートメントスイート" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">VIPスイート</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-2.jpg&w=600&fm=webp&q=65" alt="プライベートルーム" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">プライベートルーム</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-3.jpg&w=600&fm=webp&q=65" alt="カウンセリングスペース" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">カウンセリング</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-4.jpg&w=600&fm=webp&q=65" alt="プレミアムアメニティ" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">プレミアムスペース</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">江南エリア</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">アクセス</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="rounded-sm overflow-hidden shadow-lg aspect-[4/3]">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0!2d127.0262995!3d37.5260439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca312332f6f6d%3A0xbca8eff64fdc0d90!2z7JWV6rWs7KCV7Yqg7J2Y7JuQ!5e0!3m2!1sko!2skr!4v1700000000000"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="チューンクリニック 狎鷗亭 所在地">
+                    </iframe>
+                </div>
+
+                <div class="flex flex-col justify-center space-y-8 py-4">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">住所</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+                            ソウル特別市 江南区 論峴路868<br>
+                            <span class="ml-6">5階</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">電話</h3>
+                        <p class="text-slate-700">
+                            <i class="fas fa-phone-alt text-gold mr-2"></i>
+                            <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">診療時間</h3>
+                        <div class="text-slate-700 space-y-1">
+                            <div class="flex gap-4">
+                                <i class="fas fa-clock text-gold mr-2 mt-1"></i>
+                                <div>
+                                    <div class="flex justify-between gap-8"><span>月〜金</span> <span class="font-bold">10:00 - 21:00</span></div>
+                                    <div class="flex justify-between gap-8"><span>土曜日</span> <span class="font-bold">10:00 - 16:00</span></div>
+                                    <div class="flex justify-between gap-8 text-red-400"><span>日曜日</span> <span class="font-bold">休診</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="https://maps.app.goo.gl/QPzFkQ9EpJP7D99y6" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold hover:text-yellow-600 transition">
+                            <i class="fas fa-directions"></i> ルート案内
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-slate-100 border-y border-slate-200 py-8">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <p class="text-sm text-slate-500 leading-relaxed">
+                カウンセリングは医療チームと直接調整されます。<br>
+                サードパーティのブローカーは使用しておりません。
+            </p>
+        </div>
+    </div>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center border-t border-slate-800">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">Chamaka-seプランを予約する</h2>
+            <p class="text-slate-400 mb-10 leading-relaxed">
+                日本語対応スタッフに直接ご連絡ください。
+                <br>事前評価のためにお写真をお送りください。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#line" class="bg-slate-800 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-700 transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg border border-slate-700">
+                    <i class="fab fa-line"></i> LINEで相談する
+                </a>
+            </div>
+            <p class="text-xs text-slate-400 mt-4">通常の返信時間：診療時間内（月〜土）</p>
+
+            <p class="text-slate-400 text-sm mt-8">
+                <i class="fas fa-map-marker-alt mr-1"></i> ソウル特別市 江南区 論峴路868 5階
+                 · 
+                <i class="fas fa-phone-alt mr-1"></i> <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
+            </p>
+            <p class="text-xs text-slate-600 mt-12">
+                © 2026 狎鷗亭チューンクリニック. エビデンスベースの美容医療.
+                <br><span class="opacity-50">最終決済はクリニックにてKRWで処理されます。</span>
+            </p>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <div class="flex gap-3">
+            <a href="#programs" class="flex-1 bg-slate-100 text-slate-900 font-bold py-3 rounded-sm text-center text-sm">
+                プログラム
+            </a>
+            <a href="#line" class="flex-1 bg-slate-900 text-white font-extrabold py-3 rounded-sm text-center text-sm flex items-center justify-center gap-2">
+                <i class="fab fa-line"></i> LINEで相談する
+            </a>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        // Mobile Menu Toggle Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+
+        // Match Logic
+        var state = { goal: null, downtime: null };
+        var submitBtn = document.getElementById('match-submit');
+        var hint = document.getElementById('match-hint');
+        var urgent = document.getElementById('match-urgent');
+
+        // Option selection
+        document.querySelectorAll('[data-match-group]').forEach(function (group) {
+            var key = group.dataset.matchGroup;
+            group.querySelectorAll('.match-option').forEach(function (optionBtn) {
+                optionBtn.addEventListener('click', function () {
+                    group.querySelectorAll('.match-option').forEach(function (b) { b.classList.remove('selected'); });
+                    optionBtn.classList.add('selected');
+                    state[key] = optionBtn.dataset.value;
+                    updateSubmit();
+                });
+            });
+        });
+
+        function updateSubmit() {
+            var ready = state.goal && state.downtime;
+            submitBtn.disabled = !ready;
+            if (ready) {
+                submitBtn.className = 'px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow text-sm uppercase tracking-wider';
+                hint.textContent = '';
+            } else {
+                submitBtn.className = 'px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider';
+                hint.textContent = '目標とダウンタイムの希望を選択してください。';
+            }
+        }
+
+        // Recommendation engine
+        submitBtn.addEventListener('click', function () {
+            if (submitBtn.disabled) return;
+            var g = state.goal;
+            var d = state.downtime;
+            var u = urgent.checked;
+            var pick = resolve(g, d, u);
+            highlight(pick);
+        });
+
+        function resolve(goal, downtime, isUrgent) {
+            if (isUrgent) return 'program-lifting';
+            if (goal === 'collagen') {
+                if (downtime === 'none') return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-collagen';
+            }
+            if (goal === 'volume') {
+                if (downtime === 'none') return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-volume';
+            }
+            if (goal === 'lift') {
+                if (downtime === 'none') return 'program-lifting';
+                return 'program-elite';
+            }
+            return 'program-lifting';
+        }
+
+        function highlight(cardId) {
+            document.querySelectorAll('.program-highlight').forEach(function (el) {
+                el.classList.remove('program-highlight');
+            });
+            document.querySelectorAll('[data-match-badge]').forEach(function (el) {
+                el.remove();
+            });
+            document.querySelectorAll('.cta-pulse').forEach(function (el) {
+                el.classList.remove('cta-pulse');
+            });
+
+            var card = document.getElementById(cardId);
+            if (!card) return;
+
+            // Scroll slightly above the card (about 100px)
+            var headerOffset = 100;
+            var elementPosition = card.getBoundingClientRect().top;
+            var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            // Delay for smoother animation after scroll
+            setTimeout(function () {
+                card.classList.add('program-highlight');
+                var badge = document.createElement('span');
+                badge.className = 'absolute top-3 left-3 bg-[#C5A059] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider';
+                badge.setAttribute('data-match-badge', '');
+                badge.textContent = '入力に基づくおすすめ';
+                card.appendChild(badge);
+
+                // Pulse CTA button inside highlighted card
+                var buttons = card.querySelectorAll('a');
+                if (buttons.length > 0) {
+                    var ctaBtn = buttons[buttons.length - 1];
+                    ctaBtn.classList.add('cta-pulse');
+                    setTimeout(function () { ctaBtn.classList.remove('cta-pulse'); }, 2000);
+                }
+            }, 500);
+        }
+    })();
+    </script>
+
+</body>
+</html>

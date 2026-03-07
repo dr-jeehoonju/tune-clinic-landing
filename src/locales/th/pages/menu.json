@@ -1,0 +1,9 @@
+{
+  "key": "menu",
+  "template": "editorial",
+  "permalink": "th/menu.html",
+  "title": "Chamaka-se Menu | Tune Clinic",
+  "description": "คู่มือโปรแกรมและราคาอ้างอิงสำหรับผู้ป่วยต่างชาติของ Tune Clinic",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/th/menu.html"
+}

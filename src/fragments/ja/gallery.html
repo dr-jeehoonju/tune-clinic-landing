@@ -1,0 +1,325 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 9999px;
+            border: 1px solid #e2e8f0;
+            background: #fff;
+            color: #64748b;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .filter-btn:hover {
+            border-color: #C5A059;
+            color: #C5A059;
+        }
+        .filter-btn.active {
+            background: #0f172a;
+            border-color: #0f172a;
+            color: #fff;
+        }
+
+        #gallery-modal { transition: opacity 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
+</style>
+
+<header class="bg-white py-20 border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <h1 class="text-4xl md:text-5xl font-serif text-slate-900 mb-6">ビフォー / アフター ギャラリー</h1>
+            <p class="text-lg text-slate-600 mb-4 max-w-2xl mx-auto">
+                施術部位別の記録された結果です。写真は意思決定のサポートとして掲載しており、同一の結果を保証するものではありません。
+            </p>
+            <p class="text-xs text-slate-400 max-w-xl mx-auto leading-relaxed border-l-2 border-gold inline-block pl-3 text-left">
+                結果は解剖学的個人差により異なります。最終プランは対面診察後に確定します。<br>
+                経過期間は判明時に表示しています。<br>
+                Chamaka-seプログラム専用ギャラリーは症例の蓄積に応じて追加されます。
+            </p>
+        </div>
+    </header>
+
+    <section class="py-12 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="flex items-center justify-center gap-3">
+                    <i class="fas fa-camera text-gold/60 text-lg"></i>
+                    <span class="text-sm font-bold text-slate-700">標準化された撮影角度（可能な場合）</span>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    <i class="fas fa-lightbulb text-gold/60 text-lg"></i>
+                    <span class="text-sm font-bold text-slate-700">統一されたライティング</span>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    <i class="far fa-clock text-gold/60 text-lg"></i>
+                    <span class="text-sm font-bold text-slate-700">期間表示（判明時）</span>
+                </div>
+            </div>
+            <div class="text-center mt-6">
+                <p class="text-[10px] text-slate-400 uppercase tracking-widest">患者様の同意を得て掲載しています。必要に応じて個人を特定できる特徴は除去しています。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white min-h-[50vh]">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="filter-container">
+                <button class="filter-btn active" data-filter="all">全症例</button>
+                <button class="filter-btn" data-filter="hip">ヒップディップ</button>
+                <button class="filter-btn" data-filter="lip">リップ</button>
+                <button class="filter-btn" data-filter="shoulder">ショルダーライン</button>
+                <button class="filter-btn" data-filter="ear">イヤー</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="gallery-grid">
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white py-24 text-center border-t border-slate-800">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">カウンセリングを始める</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                渡航日程、気になる部位、そして任意でお写真をお送りいただければ、事前評価を行います。
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">LINEにコピー＆ペースト：</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all">
+                    チューンクリニック様、<br>
+                    • ソウル滞在日：[ ]<br>
+                    • 主な悩み：[例：イヤー / リップ / ショルダー]<br>
+                    • 写真添付：はい / いいえ
+                </code>
+            </div>
+
+            <div class="flex justify-center">
+                <a href="#line" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-yellow-600 transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg">
+                    <i class="fab fa-line"></i> LINEで相談する
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>© 2026 狎鷗亭チューンクリニック. エビデンスベースの美容医療.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="gallery-modal" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center p-4 opacity-0">
+        <div class="absolute inset-0 cursor-pointer" id="modal-backdrop"></div>
+        <div class="modal-content relative bg-white w-full max-w-5xl rounded-sm overflow-hidden shadow-2xl flex flex-col scale-95">
+            <button id="close-modal" class="absolute top-4 right-4 z-10 w-8 h-8 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black transition">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="w-full bg-slate-100 flex items-center justify-center border-b border-slate-200">
+                <img id="modal-img" src="" alt="施術結果" class="w-full h-auto max-h-[60vh] object-contain">
+            </div>
+
+            <div class="w-full p-6 md:p-8 flex flex-col md:flex-row gap-6 bg-white items-start">
+                <div class="flex-1">
+                    <span id="modal-tag" class="text-gold font-bold tracking-widest text-[10px] uppercase mb-2 block border border-gold inline-block px-2 py-1 rounded-sm">Tag</span>
+                    <h3 id="modal-title" class="text-2xl font-serif text-slate-900 mb-2">Title</h3>
+                    <p id="modal-timeframe" class="text-xs text-slate-500 font-bold mb-3 flex items-center gap-1.5"><i class="far fa-clock"></i> <span>Timeframe</span></p>
+                    <p id="modal-note" class="text-sm text-slate-600 leading-relaxed pt-3 border-t border-slate-100">Clinical Note</p>
+                </div>
+                
+                <div class="w-full md:w-64 shrink-0 flex flex-col justify-end pt-4 md:pt-0">
+                    <p class="text-[10px] text-slate-400 italic mb-4 text-center md:text-right">個人差があります。診察が必要です。</p>
+                    <a href="#line" class="block w-full text-center bg-slate-900 text-white py-3 text-sm font-bold rounded-sm hover:bg-slate-800 transition">
+                        カウンセリングを始める
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const galleryData = [
+            {
+                id: 1,
+                category: 'hip',
+                title: 'ヒップディップ矯正',
+                timeframe: '施術後（期間未指定）',
+                note: 'ヒップシルエットを自然に滑らかにするための的確なボリューム回復。',
+                imageSrc: '../hip-dip-ba-1.jpg'
+            },
+            {
+                id: 2,
+                category: 'hip',
+                title: 'ヒップ輪郭バランシング',
+                timeframe: '施術後（期間未指定）',
+                note: '側面の解剖学的陥凹に対応する構造フィラー施術。',
+                imageSrc: '../hip-dip-ba-2.jpg'
+            },
+            {
+                id: 3,
+                category: 'lip',
+                title: 'リップボリューム＆シンメトリー',
+                timeframe: '即時 / 当日',
+                note: '自然な解剖学を尊重した繊細なボリューム増強とシンメトリー矯正。',
+                imageSrc: '../lip-filler-ba-1.jpg'
+            },
+            {
+                id: 4,
+                category: 'lip',
+                title: 'リップコンタリング',
+                timeframe: '施術後（期間未指定）',
+                note: '人工的な突出なく、赤唇縁の定義と中央ボリュームを強化。',
+                imageSrc: '../lip-filler-ba-2.jpg'
+            },
+            {
+                id: 5,
+                category: 'shoulder',
+                title: 'ショルダーラインフィラー',
+                timeframe: '即時 / 当日',
+                note: 'エレガントなネックラインシルエットのための僧帽筋とショルダーライン輪郭形成。',
+                imageSrc: '../shoulder-line-ba-1.jpg'
+            },
+            {
+                id: 6,
+                category: 'shoulder',
+                title: 'ショルダーラインリファインメント',
+                timeframe: '即時 / 当日',
+                note: 'プロポーショナルバランスとショルダーシンメトリーのための的確なボリューム調整。',
+                imageSrc: '../shoulder-line-ba-2.jpg'
+            },
+            {
+                id: 7,
+                category: 'shoulder',
+                title: 'ショルダーラインコンタリング',
+                timeframe: '施術後（期間未指定）',
+                note: '美しいフレームラインのための鎖骨ラインに沿った構造回復。',
+                imageSrc: '../shoulder-line-ba-3.jpg'
+            },
+            {
+                id: 8,
+                category: 'ear',
+                title: 'イヤーローブフィラー',
+                timeframe: '即時 / 当日',
+                note: '若々しい輪郭のための耳たぶボリュームと構造形状の回復。',
+                imageSrc: '../ear-filler-ba-1.jpg'
+            }
+        ];
+
+        const categoryNames = {
+            'ear': 'イヤーフィラー',
+            'lip': 'リップフィラー',
+            'shoulder': 'ショルダーライン',
+            'hip': 'ヒップディップ'
+        };
+
+        const grid = document.getElementById('gallery-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        function renderGallery(filter = 'all') {
+            grid.innerHTML = '';
+            
+            const filteredData = filter === 'all' 
+                ? galleryData 
+                : galleryData.filter(item => item.category === filter);
+
+            if (filteredData.length === 0) {
+                grid.innerHTML = '<p class="col-span-full text-center text-slate-400 py-10">症例は近日追加予定です。</p>';
+                return;
+            }
+
+            filteredData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-sm border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer group overflow-hidden';
+                card.onclick = () => openModal(item);
+                
+                card.innerHTML = `
+                    <div class="w-full bg-slate-100 relative aspect-video overflow-hidden">
+                        <img src="${item.imageSrc}" alt="ビフォーアフター - ${item.title}" loading="lazy" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center z-20">
+                            <span class="bg-white text-slate-900 text-xs font-bold px-4 py-2 rounded-sm shadow-lg transform translate-y-2 group-hover:translate-y-0 transition">詳細を見る</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-serif text-lg text-slate-900 leading-tight">${item.title}</h4>
+                        </div>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2"><i class="far fa-clock mr-1"></i> ${item.timeframe}</p>
+                        <p class="text-sm text-slate-500 line-clamp-2 leading-relaxed">${item.note}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderGallery(btn.dataset.filter);
+            });
+        });
+
+        const modal = document.getElementById('gallery-modal');
+        const modalContent = modal.querySelector('.modal-content');
+        const closeBtn = document.getElementById('close-modal');
+        const backdrop = document.getElementById('modal-backdrop');
+        let prevOverflow = '';
+
+        function openModal(item) {
+            document.getElementById('modal-img').src = item.imageSrc;
+            document.getElementById('modal-img').alt = `ビフォーアフター写真 - ${item.title}`;
+            document.getElementById('modal-tag').textContent = categoryNames[item.category] || 'フィラー';
+            document.getElementById('modal-title').textContent = item.title;
+            document.getElementById('modal-timeframe').innerHTML = `<i class="far fa-clock"></i> <span>${item.timeframe}</span>`;
+            document.getElementById('modal-note').textContent = item.note;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+            }, 10);
+            
+            prevOverflow = document.body.style.overflow;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = prevOverflow;
+            }, 300);
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+
+        renderGallery('all');
+    </script>

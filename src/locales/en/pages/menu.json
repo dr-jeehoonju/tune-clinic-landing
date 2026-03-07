@@ -1,0 +1,9 @@
+{
+  "key": "menu",
+  "template": "editorial",
+  "permalink": "menu.html",
+  "title": "Curated Experiences | Tune Clinic Apgujeong",
+  "description": "Experience-led aesthetic protocols and reference pricing for Tune Clinic Apgujeong.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/en/menu.html"
+}

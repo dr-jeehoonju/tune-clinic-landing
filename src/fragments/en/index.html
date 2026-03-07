@@ -1,0 +1,1363 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Custom Colors */
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+
+        /* Animations */
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Match module */
+        .match-option.selected {
+            border-color: #C5A059;
+            background-color: #F9F5F0;
+            box-shadow: 0 0 0 1px #C5A059;
+        }
+        .match-option.selected i { color: #C5A059; }
+
+        .program-highlight {
+            animation: highlightPulse 1.8s ease-in-out;
+            box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3) !important;
+            border-color: #C5A059 !important;
+        }
+        @keyframes highlightPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.6); }
+            50%  { box-shadow: 0 0 0 8px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3); }
+        }
+
+        /* CTA Pulse for matched card */
+        @keyframes ctaPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.8); }
+            70%  { box-shadow: 0 0 0 12px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 0 rgba(197,160,89,0); }
+        }
+        .cta-pulse {
+            animation: ctaPulse 1s ease-out 2;
+        }
+        /* match-recommend-badge: styled via JS inline classes (Tailwind CDN cannot process @apply) */
+</style>
+
+<header class="relative bg-black overflow-hidden min-h-[90vh] md:min-h-screen flex flex-col">
+        <div class="absolute inset-0 z-0">
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+                class="w-full h-full object-cover"
+            >
+                <source src="hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
+        </div>
+
+        <div class="relative z-10 mt-auto max-w-7xl mx-auto w-full px-6 pb-16 md:pb-20">
+            <div class="fade-in-up max-w-3xl">
+                <div class="flex items-center space-x-3 mb-5">
+                    <div class="h-px w-12 bg-gold"></div>
+                    <span class="text-sm tracking-widest uppercase font-bold text-white/60">Tune Clinic Apgujeong</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] mb-6">
+                    Don't just choose a procedure.<br>
+                    <span class="italic text-white/50">Choose a decision.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-white/70 mb-8 leading-relaxed max-w-2xl">
+                    Experience <strong class="text-white">"Chamaka-se"</strong> - Physician-curated aesthetic planning designed for the international traveler.
+                    <span class="block mt-6 text-gold font-bold tracking-widest text-[11px] md:text-sm uppercase border-t border-white/20 pt-4">
+                        Built around our Ultherapy 350-shot physician protocol
+                    </span>
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#programs" class="px-10 py-4 bg-white text-slate-900 font-semibold rounded-sm hover:bg-white/90 transition shadow-xl text-center">
+                        View Curated Plans
+                    </a>
+                    <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="px-10 py-4 border border-white/30 text-white font-semibold rounded-sm hover:bg-white/10 transition text-center flex items-center justify-center gap-2 backdrop-blur-sm">
+                        <i class="fab fa-instagram"></i> Start Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-12 bg-white border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-5 text-slate-900">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Authenticity Verified</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">We unseal every Ultherapy/Thermage tip in your presence. Scan the QR code to verify validity.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-5 text-slate-900">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Rational Dosage</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">We calibrate energy levels and shot counts to your anatomy, avoiding unnecessary exposure.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-5 text-slate-900">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Travel-Conscious</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">We tailor treatment intensity and aftercare guidance for travelers who may fly within 48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-sm font-bold text-gold uppercase tracking-widest mb-4">The Traveler's Dilemma</h2>
+            <h3 class="text-3xl font-serif text-slate-900 mb-12">Why aesthetic decisions go wrong</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-layer-group text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">Too Many Devices</h4>
+                    <p class="text-sm text-slate-500">Ultherapy, Thermage, Filler... confusion leads to regret.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-clock text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">Too Little Time</h4>
+                    <p class="text-sm text-slate-500">You have days, not weeks. You need a plan designed for limited time.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-balance-scale text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">No Criteria</h4>
+                    <p class="text-sm text-slate-500">Shopping for "deals" instead of anatomical outcomes.</p>
+                </div>
+            </div>
+
+            <p class="text-xl font-serif italic text-slate-700 max-w-2xl mx-auto border-l-4 border-gold pl-6 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-6">
+                "The regret is rarely the procedure. It is choosing without a framework."
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gold-light border-y border-orange-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-4xl text-gold/30 mb-6"></i>
+            <h3 class="text-2xl md:text-4xl font-serif text-slate-900 leading-tight mb-8">
+                "In Korea, Omakase means the chef decides.<br>
+                <span class="text-gold">Chamaka-se</span> means the physician protects."
+            </h3>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8">
+                The most unfortunate moments in aesthetic medicine are not when a treatment fails, but when a decision is made based on hype rather than physiology.
+            </p>
+            <p class="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                At Tune Clinic, we do not ask "What do you want?"<br>
+                We ask <strong>"What is scientifically rational for you, right now?"</strong>
+            </p>
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Technology Arsenal ─────────────────────────────── -->
+    <section class="arsenal-section py-20 overflow-hidden relative">
+        <div class="arsenal-glow arsenal-glow-gold"></div>
+        <div class="arsenal-glow arsenal-glow-blue"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gold uppercase tracking-[0.28em] text-[11px] font-bold">
+                    Technology Portfolio
+                </span>
+                <h2 class="text-3xl md:text-5xl font-serif text-white mt-5 leading-tight">
+                    A Curated Arsenal of
+                    <span class="text-gold">Global Brands, Devices,</span> and Signature Systems
+                </h2>
+                <p class="text-slate-300 text-sm md:text-base mt-5 leading-relaxed max-w-2xl mx-auto">
+                    We build plans from physiology first, then select the right layer of injectables, energy platforms,
+                    regenerative therapies, and Tune-exclusive systems to support that decision.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10">
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">Injectables</span>
+                    <strong>10+ premium brands</strong>
+                </div>
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">Energy</span>
+                    <strong>Lifting & resurfacing platforms</strong>
+                </div>
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">Regenerative</span>
+                    <strong>Hair, skin, and recovery systems</strong>
+                </div>
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">Body</span>
+                    <strong>Contour and firmness solutions</strong>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="arsenal-card">
+                    <div class="arsenal-card-head">
+                        <div>
+                            <span class="arsenal-card-label">Global Brands</span>
+                            <h3 class="arsenal-card-title">Injectables & Biostimulators</h3>
+                        </div>
+                        <p class="arsenal-card-copy">Trusted filler and collagen-stimulating brands selected for structure, softness, and longevity.</p>
+                    </div>
+                    <div class="ticker-shell">
+                        <div class="ticker-row flex gap-6" data-speed="35">
+                            <div class="ticker-track flex gap-6 shrink-0">
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                            </div>
+                            <div class="ticker-track flex gap-6 shrink-0" aria-hidden="true">
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arsenal-card">
+                    <div class="arsenal-card-head">
+                        <div>
+                            <span class="arsenal-card-label">Energy Systems</span>
+                            <h3 class="arsenal-card-title">Lifting, Tightening & Resurfacing</h3>
+                        </div>
+                        <p class="arsenal-card-copy">High-energy platforms chosen by indication, depth, tissue quality, and downtime tolerance.</p>
+                    </div>
+                    <div class="ticker-shell">
+                        <div class="ticker-row flex gap-6" data-speed="30" data-reverse="true">
+                            <div class="ticker-track flex gap-6 shrink-0">
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                            </div>
+                            <div class="ticker-track flex gap-6 shrink-0" aria-hidden="true">
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arsenal-card">
+                    <div class="arsenal-card-head">
+                        <div>
+                            <span class="arsenal-card-label">Signature & Specialty</span>
+                            <h3 class="arsenal-card-title">Tune Systems, Regenerative & Body Programs</h3>
+                        </div>
+                        <p class="arsenal-card-copy">Clinic signatures and adjunctive therapies for skin quality, recovery, hair, and body contouring.</p>
+                    </div>
+                    <div class="ticker-shell">
+                        <div class="ticker-row flex gap-6" data-speed="40">
+                            <div class="ticker-track flex gap-6 shrink-0">
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                            </div>
+                            <div class="ticker-track flex gap-6 shrink-0" aria-hidden="true">
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 text-xs text-slate-300 mt-10">
+                <span class="arsenal-legend"><span class="arsenal-dot brand"></span> Global Brand</span>
+                <span class="arsenal-legend"><span class="arsenal-dot device"></span> Energy Device</span>
+                <span class="arsenal-legend"><span class="arsenal-dot tune"></span> Tune Signature</span>
+                <span class="arsenal-legend"><span class="arsenal-dot specialty"></span> Specialty Treatment</span>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .arsenal-section {
+            background:
+                radial-gradient(circle at 20% 15%, rgba(197,160,89,0.12), transparent 28%),
+                radial-gradient(circle at 82% 20%, rgba(96,165,250,0.10), transparent 24%),
+                linear-gradient(180deg, #07101a 0%, #0f172a 50%, #0b1220 100%);
+        }
+        .arsenal-glow {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(90px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .arsenal-glow-gold {
+            width: 20rem;
+            height: 20rem;
+            top: 3rem;
+            left: -6rem;
+            background: rgba(197,160,89,0.22);
+        }
+        .arsenal-glow-blue {
+            width: 22rem;
+            height: 22rem;
+            right: -6rem;
+            bottom: 2rem;
+            background: rgba(96,165,250,0.18);
+        }
+        .arsenal-stat {
+            border: 1px solid rgba(255,255,255,0.08);
+            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            backdrop-filter: blur(12px);
+            border-radius: 1rem;
+            padding: 1rem 1.1rem;
+            color: #e2e8f0;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .arsenal-stat strong {
+            display: block;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .arsenal-stat-kicker {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #c5a059;
+            font-weight: 700;
+        }
+        .arsenal-card {
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.09);
+            background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 18px 60px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .arsenal-card-head {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 1rem;
+            align-items: end;
+            margin-bottom: 1rem;
+        }
+        .arsenal-card-label {
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #c5a059;
+            font-weight: 700;
+        }
+        .arsenal-card-title {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+        .arsenal-card-copy {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            max-width: 30rem;
+            justify-self: end;
+        }
+        .ticker-shell {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(2,6,23,0.38);
+            padding: 1rem 0;
+        }
+        .ticker-shell::before,
+        .ticker-shell::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 5rem;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .ticker-shell::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(2,6,23,0.9), transparent);
+        }
+        .ticker-shell::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(2,6,23,0.9), transparent);
+        }
+        .ticker-pill {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 0.62rem 1.15rem;
+            border-radius: 999px;
+            font-size: 0.79rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            cursor: default;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+        .ticker-pill:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+            opacity: 1 !important;
+        }
+        .ticker-pill.brand {
+            background: linear-gradient(180deg, rgba(197,160,89,0.22), rgba(197,160,89,0.10));
+            color: #f5d68c;
+            border: 1px solid rgba(197,160,89,0.30);
+        }
+        .ticker-pill.device {
+            background: linear-gradient(180deg, rgba(96,165,250,0.18), rgba(96,165,250,0.08));
+            color: #bfdbfe;
+            border: 1px solid rgba(96,165,250,0.25);
+        }
+        .ticker-pill.tune {
+            background: linear-gradient(180deg, rgba(167,139,250,0.20), rgba(167,139,250,0.08));
+            color: #ddd6fe;
+            border: 1px solid rgba(167,139,250,0.28);
+        }
+        .ticker-pill.specialty {
+            background: linear-gradient(180deg, rgba(52,211,153,0.18), rgba(52,211,153,0.08));
+            color: #bbf7d0;
+            border: 1px solid rgba(52,211,153,0.25);
+        }
+        .ticker-row { width: 100%; overflow: hidden; }
+        .ticker-track { will-change: transform; animation: ticker-ltr var(--spd, 35s) linear infinite; }
+        .ticker-row[data-reverse="true"] .ticker-track { animation-name: ticker-rtl; }
+        @keyframes ticker-ltr { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes ticker-rtl { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+        .ticker-row:hover .ticker-track { animation-play-state: paused; }
+        .arsenal-legend {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.55rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+        }
+        .arsenal-dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            display: inline-block;
+        }
+        .arsenal-dot.brand { background: #c5a059; }
+        .arsenal-dot.device { background: #60a5fa; }
+        .arsenal-dot.tune { background: #a78bfa; }
+        .arsenal-dot.specialty { background: #34d399; }
+        @media (max-width: 768px) {
+            .arsenal-card-head {
+                grid-template-columns: 1fr;
+                gap: 0.7rem;
+            }
+            .arsenal-card-title {
+                font-size: 1.2rem;
+            }
+            .arsenal-card-copy {
+                justify-self: start;
+                font-size: 0.85rem;
+            }
+            .ticker-pill {
+                padding: 0.58rem 1rem;
+                font-size: 0.74rem;
+            }
+        }
+    </style>
+    <script>
+    document.querySelectorAll('.ticker-row').forEach(function(row) {
+        var spd = row.dataset.speed || '35';
+        row.querySelectorAll('.ticker-track').forEach(function(t) {
+            t.style.setProperty('--spd', spd + 's');
+            t.style.animationDuration = spd + 's';
+        });
+    });
+    </script>
+    <!-- ── / Technology Arsenal ────────────────────────────── -->
+
+    <section class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Physician-Led Curation</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">The Medical Board</h2>
+                <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
+                    Strategy, lifting, surgery, regenerative medicine, and international coordination.
+                    <br>One board. One plan. One accountable clinical team.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 mb-8">
+                <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10"></div>
+                    <img src="/.netlify/images?url=/cha.jpg&w=900&fm=webp&q=75" alt="Dr. Cha" class="w-full h-full object-cover object-top min-h-[420px]">
+                    <div class="absolute inset-x-0 bottom-0 z-20 p-8 md:p-10 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] text-gold border border-gold/30 bg-white/5 mb-4">Representative Director</span>
+                        <h3 class="text-3xl md:text-4xl font-serif text-white">Dr. Cha Seung-yeon</h3>
+                        <p class="text-gold text-xs font-bold uppercase tracking-[0.18em] mt-2 mb-4">Master Planner of Facial Balance</p>
+                        <p class="text-slate-300 max-w-2xl leading-relaxed mb-5">
+                            "Aesthetic medicine is not about changing your face. It is about finding the balance you lost."
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs text-slate-200">
+                            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Director, Korean Stem Cell Society</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Face Design & Anti-Aging Specialist</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">1:1 Concierge Supported</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+                        <div class="grid grid-cols-[120px_1fr] md:grid-cols-[150px_1fr]">
+                            <img src="/.netlify/images?url=/kim_ky.jpg&w=500&fm=webp&q=75" alt="Dr. Kim Kwang-yeon" class="w-full h-full object-cover object-top min-h-[220px]">
+                            <div class="p-6 md:p-7">
+                                <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Representative Director</span>
+                                <h3 class="text-2xl font-serif text-slate-900 mt-2">Dr. Kim Kwang-yeon</h3>
+                                <p class="text-sm text-slate-500 mt-1 mb-4">Lifting Authority and vector-based tightening specialist.</p>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                                    "Lifting is physics. We calculate vectors and depth to ensure the most natural result."
+                                </p>
+                                <div class="flex flex-wrap gap-2 text-[11px] text-slate-500">
+                                    <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">Key Doctor for Lifting (Hugel)</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">Ex-Director, Yestar Hospital</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-gold-light to-white rounded-3xl border border-gold/20 shadow-lg p-7">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">International Coordination</span>
+                        <h3 class="text-2xl font-serif text-slate-900 mt-2">Direct English MD + Concierge</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mt-3 mb-5">
+                            International patients do not go through brokers. Planning, communication, and aftercare move through one coordinated channel.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Language</p>
+                                <p class="text-sm font-bold text-slate-900 mt-2">English / Chinese / Japanese / Thai / Arabic</p>
+                            </div>
+                            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Model</p>
+                                <p class="text-sm font-bold text-slate-900 mt-2">Direct MD Planning</p>
+                            </div>
+                            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Support</p>
+                                <p class="text-sm font-bold text-slate-900 mt-2">Full-Process Concierge</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75" alt="Dr. Ju Jee-hoon" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">International Director</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Ju Jee-hoon</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">Hair, medical aesthetics, and global patient communication.</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- American Board of Aesthetic Medicine</li>
+                            <li>- Hair Transplant Specialist</li>
+                            <li>- MIT Sloan AI in Healthcare</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/jo.jpg&w=600&fm=webp&q=75" alt="Dr. Jo Dong-hyun" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Regenerative Medicine</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Jo Dong-hyun</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">Stem cell and regenerative strategy for tissue quality and recovery.</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- Clinical Advisor, Seoul National University Hospital</li>
+                            <li>- President, International Practical Plastic Surgery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/kim_bj.jpg&w=600&fm=webp&q=75" alt="Dr. Kim Beom-jin" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Surgery & Reconstruction</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Kim Beom-jin</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">Plastic surgery depth supporting structural decisions and referrals when needed.</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- Clinical Professor, Plastic Surgery, Yonsei</li>
+                            <li>- UPMC Fellow, University of Pittsburgh</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/jang.jpg&w=600&fm=webp&q=75" alt="Dr. Jang Seung-woo" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Medical Advisory</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Jang Seung-woo</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">MD, PhD advisory depth for pediatric and broad medical evaluation contexts.</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- Clinical Professor, Chosun University College of Medicine</li>
+                            <li>- Board Certified Pediatrician, MD PhD</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-lg">
+                    <i class="fas fa-check-circle text-gold"></i>
+                    <span class="text-xs font-bold uppercase">Seamless Experience: Direct Physician Planning + Full-Process Concierge</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="match" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">60-Second Triage</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">Find Your Program</h2>
+                <p class="text-slate-500">Answer three questions. We'll point you to the right pathway.</p>
+            </div>
+
+            <div id="match-form" class="space-y-10">
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">1 - What is your primary goal?</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="goal">
+                        <button type="button" data-value="collagen" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-seedling text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">Collagen</span>
+                            <span class="text-[10px] text-slate-400">Subtle, long-term</span>
+                        </button>
+                        <button type="button" data-value="volume" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-cube text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">Volume</span>
+                            <span class="text-[10px] text-slate-400">Structure & contour</span>
+                        </button>
+                        <button type="button" data-value="lift" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-arrow-up text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">Lift</span>
+                            <span class="text-[10px] text-slate-400">Tighten & restore</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">2 - Downtime tolerance?</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="downtime">
+                        <button type="button" data-value="none" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">None</span>
+                            <span class="text-[10px] text-slate-400">Zero visible recovery</span>
+                        </button>
+                        <button type="button" data-value="mild" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">24 - 48 h</span>
+                            <span class="text-[10px] text-slate-400">Mild swelling OK</span>
+                        </button>
+                        <button type="button" data-value="extended" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">3 - 7 days</span>
+                            <span class="text-[10px] text-slate-400">Full recovery window</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">3 - Travel urgency</p>
+                    <label class="flex items-center gap-4 cursor-pointer border border-slate-200 rounded-sm px-5 py-4 transition hover:border-slate-400 w-fit">
+                        <span class="relative inline-block w-11 h-6">
+                            <input type="checkbox" id="match-urgent" class="peer sr-only">
+                            <span class="absolute inset-0 bg-slate-200 rounded-full transition peer-checked:bg-gold"></span>
+                            <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
+                        </span>
+                        <span class="text-sm text-slate-700">Leaving Seoul in <strong>&lt; 72 hours</strong></span>
+                    </label>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button type="button" id="match-submit" disabled class="px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider">
+                        Show My Match
+                    </button>
+                    <p id="match-hint" class="text-xs text-slate-400 mt-3">Select a goal and downtime preference to continue.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Curated for Travelers</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">The Chamaka-se Programs</h2>
+                <p class="text-slate-500">Four distinct pathways. Clear pricing. No surprises.</p>
+                <p class="text-xs text-slate-400 mt-2 italic">All protocols are finalized after in-person anatomical assessment and contraindication screening.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+
+                <div id="program-collagen" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-blue-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">The Collagen Builder</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">Natural / Long-term</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        Biostimulation for those who fear the "overfilled" look. Subtle, progressive collagen restoration and skin quality improvement.
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Rejuran Black 4cc + Juvelook Skin 2cc</p>
+                        <p class="text-xs text-slate-500">Full Face Collagen & Fine Line Reduction</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> Time: ~45 min</p>
+                        <p class="text-[10px] text-slate-400 mt-1">Includes consultation + aftercare</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-1 rounded uppercase font-bold">Mild Swelling (24h)</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩700,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="collagen-builder.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            Learn More
+                        </a>
+                        <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            Start Consultation
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-volume" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-purple-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Filler Chamaka-se</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">Facial Design / Harmony</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        Physician-curated facial harmony design. Filler used as a structural tool for proportion.
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Physician Assessment + Design + Targeted Filler</p>
+                        <p class="text-xs text-slate-500">Calibrated Volume as Structural Tool</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> Time: ~60 min</p>
+                        <p class="text-[10px] text-slate-400 mt-1">Includes consultation + aftercare</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-purple-50 text-purple-800 text-[10px] px-2 py-1 rounded uppercase font-bold">Mild Swelling (24-48h)</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">From ₩750,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="filler-chamaka-se.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            Learn More
+                        </a>
+                        <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            Start Consultation
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-lifting" class="border-2 border-gold p-8 rounded-sm shadow-2xl relative bg-white transform md:-translate-y-2 h-full flex flex-col">
+                    <div class="absolute top-0 right-0 bg-gold text-white text-[10px] font-bold px-3 py-1 uppercase">Best Choice</div>
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Signature Lifting</h3>
+                    <p class="text-xs text-gold uppercase tracking-wide mb-4">Non-Invasive / Tightening</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        A physician-calibrated deep tissue lifting protocol designed for structural tightening without surgical intervention.
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Ultherapy 350-shot physician protocol</p>
+                        <p class="text-xs text-slate-500">Full Face + Submental</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> Time: ~45 min</p>
+                        <p class="text-[10px] text-slate-400 mt-1">Includes consultation + aftercare</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-green-50 text-green-800 text-[10px] px-2 py-1 rounded uppercase font-bold">Zero Downtime</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩900,000</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dashed border-slate-200 mb-6">
+                        <p class="text-xs text-slate-400 flex justify-between">
+                            <span>Upgrade: ONDA Lifting 60,000J</span>
+                            <span class="font-bold text-slate-600">₩650,000</span>
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col gap-2 mt-auto">
+                        <a href="signature-lifting.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            Learn More
+                        </a>
+                        <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            Start Consultation
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-elite" class="bg-slate-900 p-8 rounded-sm shadow-xl relative text-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2">Structural Reset Elite</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">Total Transformation</p>
+                    <p class="text-sm text-slate-300 mb-6 min-h-[60px]">
+                        Comprehensive structural refinement combining Ultherapy deep lifting and Thermage surface tightening, with IV sedation included.
+                    </p>
+                    <div class="border-t border-slate-700 pt-6 mb-6">
+                        <p class="text-sm font-bold text-white mb-1">Ultherapy 300 Shots + Thermage 600 Shots</p>
+                        <p class="text-xs text-slate-400">IV Sedation Included</p>
+                        <p class="text-xs text-slate-500 mt-2"><i class="far fa-clock mr-1"></i> Time: ~90 min</p>
+                        <p class="text-[10px] text-slate-500 mt-1">Includes consultation + aftercare</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-1 rounded uppercase font-bold">Priority Booking</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-gold">₩2,770,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="structural-reset.html" class="block w-full text-center py-3 border border-slate-600 text-slate-200 text-sm font-bold hover:bg-slate-800 transition">
+                            Learn More
+                        </a>
+                        <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="block w-full text-center py-3 bg-gold text-white text-sm font-bold hover:bg-yellow-600 transition">
+                            Start Consultation
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16 text-center border-t border-slate-100 pt-10">
+                <p class="text-slate-500 text-sm mb-4">Looking for a specific procedure not listed above?</p>
+                <a href="menu.html" class="inline-flex items-center justify-center px-8 py-3 border border-slate-300 rounded-sm text-slate-600 font-bold hover:border-slate-800 hover:text-slate-900 transition bg-white shadow-sm hover:shadow-md">
+                    <i class="fas fa-list-ul mr-2 text-slate-400"></i> Reference Pricing
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="comfort" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-2xl mx-auto text-center px-6">
+            <h4 class="text-2xl font-serif text-slate-900 mb-6">Comfort Options</h4>
+            <div class="inline-block text-left bg-white p-6 rounded-sm shadow-sm border border-slate-100">
+                <ul class="text-slate-600 text-sm space-y-4">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check text-gold"></i>
+                        <span><strong class="text-slate-800">Topical</strong> (Standard)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-bullseye text-gold"></i>
+                        <span><strong class="text-slate-800">Targeted Comfort Block</strong> (Optional +₩50,000)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-procedures text-gold"></i>
+                        <span><strong class="text-slate-800">IV Sedation</strong> (Optional +₩100,000)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50" id="faq">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">Traveler FAQ</h2>
+            <div class="space-y-4">
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Can I fly soon after treatment?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>Yes, in most cases.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Energy-based lifting</strong> (Ultherapy, Thermage, Onda) typically allow you to resume normal activities immediately.</li>
+                            <li><strong>Injectables</strong> (Juvelook, Filler) generally recommend a 24-48 hour buffer when possible to monitor mild swelling or bruising.</li>
+                        </ul>
+                        <p>Your plan will always be adjusted according to your travel schedule.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        How much downtime should I expect?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>Downtime depends on the pathway selected:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Lifting:</strong> Minimal visible downtime</li>
+                            <li><strong>Juvelook:</strong> Mild swelling may occur</li>
+                            <li><strong>Filler:</strong> Bruising is possible, especially in delicate areas</li>
+                        </ul>
+                        <p>We prioritize structured planning to minimize unnecessary recovery time for travelers.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Is pain management available for lifting procedures?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>Yes. We offer <strong>Targeted Comfort Blocks</strong> and <strong>IV conscious sedation</strong> (optional) to optimize comfort.</p>
+                        <p class="text-xs text-slate-400">Eligibility is confirmed after reviewing your medical history on the day of treatment.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        How do I choose the right program?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>You don't need to. <strong>Chamaka-se</strong> is a physician-curated model.</p>
+                        <p>During consultation, we assess:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Tissue thickness</li>
+                            <li>Volume distribution</li>
+                            <li>Skin laxity</li>
+                            <li>Travel timeline</li>
+                        </ul>
+                        <p class="italic border-l-2 border-gold pl-3">The goal is not to offer more options - but to identify the most rational pathway for you.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        How do I prepare before my visit?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>To optimize your consultation, please prepare:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>A front-facing photo in natural light</li>
+                            <li>Your travel dates</li>
+                            <li>Your primary concern (lift / volume / collagen support)</li>
+                        </ul>
+                        <p>We recommend booking in advance due to limited daily appointment volume.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Direct Physician Intake</span>
+            <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-4">Begin Your Consultation</h2>
+            <p class="text-slate-500 mb-14 leading-relaxed max-w-xl mx-auto">Physician-coordinated intake, streamlined for international patients.<br class="hidden md:inline"> No third-party brokers. Direct physician-coordinated communication.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-14">
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">1</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">Contact Us</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Message us with:<br><span class="text-slate-700 font-medium">Name / Age / Desired Procedure</span></p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">2</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">Get a Plan & Quote</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">We reply within working hours with a <span class="text-slate-700 font-medium">preliminary plan and price estimate</span>.</p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">3</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">Confirm Your Slot</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Secure your appointment.<br><span class="text-slate-700 font-medium">No deposit required</span> for basic consultations.</p>
+                </div>
+            </div>
+
+            <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg text-lg">
+                <i class="fab fa-instagram"></i> Start Consultation
+            </a>
+            <p class="text-xs text-slate-400 mt-3">Typical response time: Within clinic hours (Mon-Sat).</p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Where Precision Meets Comfort</span>
+                <h2 class="text-4xl font-serif text-white mt-3 mb-6">Inside the Clinic</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    Every detail - from our VIP suites to the lobby - is designed for privacy, precision, and peace of mind.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-1.jpg&w=600&fm=webp&q=65" alt="Clinic Lobby" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Grand Entrance</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-2.jpg&w=600&fm=webp&q=65" alt="Clinic Reception" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Reception</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-3.jpg&w=600&fm=webp&q=65" alt="Lobby Lounge" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Lounge</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-4.jpg&w=600&fm=webp&q=65" alt="Waiting Area" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Waiting Area</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-1.jpg&w=600&fm=webp&q=65" alt="VIP Treatment Suite" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">VIP Suite</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-2.jpg&w=600&fm=webp&q=65" alt="Private Treatment Room" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Private Room</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-3.jpg&w=600&fm=webp&q=65" alt="Consultation Space" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Consultation</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-4.jpg&w=600&fm=webp&q=65" alt="Premium Amenities" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Premium Space</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Find Us in Gangnam</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Visit Us</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="rounded-sm overflow-hidden shadow-lg aspect-[4/3]">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0!2d127.0262995!3d37.5260439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca312332f6f6d%3A0xbca8eff64fdc0d90!2z7JWV6rWs7KCV7Yqg7J2Y7JuQ!5e0!3m2!1sko!2skr!4v1700000000000"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Tune Clinic Apgujeong Location">
+                    </iframe>
+                </div>
+
+                <div class="flex flex-col justify-center space-y-8 py-4">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Address</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+                            5th floor, 868, Nonhyeon-ro,<br>
+                            <span class="ml-6">Gangnam-gu, Seoul, Republic of Korea</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Phone</h3>
+                        <p class="text-slate-700">
+                            <i class="fas fa-phone-alt text-gold mr-2"></i>
+                            <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Hours</h3>
+                        <div class="text-slate-700 space-y-1">
+                            <div class="flex gap-4">
+                                <i class="fas fa-clock text-gold mr-2 mt-1"></i>
+                                <div>
+                                    <div class="flex justify-between gap-8"><span>Mon - Fri</span> <span class="font-bold">10:00 - 21:00</span></div>
+                                    <div class="flex justify-between gap-8"><span>Saturday</span> <span class="font-bold">10:00 - 16:00</span></div>
+                                    <div class="flex justify-between gap-8 text-red-400"><span>Sunday</span> <span class="font-bold">Closed</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="https://maps.app.goo.gl/QPzFkQ9EpJP7D99y6" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold hover:text-yellow-600 transition">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-slate-100 border-y border-slate-200 py-8">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <p class="text-sm text-slate-500 leading-relaxed">
+                Consultations are coordinated directly with our medical team.<br>
+                We do not use third-party brokers.
+            </p>
+        </div>
+    </div>
+
+<script>
+    /* ── Match Engine ─────────────────────────────────────── */
+    (function () {
+        var state = { goal: null, downtime: null };
+        var submitBtn = document.getElementById('match-submit');
+        var hint      = document.getElementById('match-hint');
+        var urgent    = document.getElementById('match-urgent');
+
+        document.querySelectorAll('[data-match-group]').forEach(function (group) {
+            var key = group.dataset.matchGroup;
+            group.querySelectorAll('.match-option').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    group.querySelectorAll('.match-option').forEach(function (b) { b.classList.remove('selected'); });
+                    btn.classList.add('selected');
+                    state[key] = btn.dataset.value;
+                    updateSubmit();
+                });
+            });
+        });
+
+        function updateSubmit() {
+            var ready = state.goal && state.downtime;
+            submitBtn.disabled = !ready;
+            submitBtn.className = ready
+                ? 'px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow text-sm uppercase tracking-wider'
+                : 'px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider';
+            hint.textContent = ready ? '' : 'Select a goal and downtime preference to continue.';
+        }
+
+        submitBtn.addEventListener('click', function () {
+            if (submitBtn.disabled) return;
+            highlight(resolve(state.goal, state.downtime, urgent.checked));
+        });
+
+        /* ── Routing table ────────────────────────────────────
+         *  goal × downtime × urgent → program card id
+         *
+         *  program-elite is now reachable via:
+         *    - any goal + extended downtime (not urgent)
+         *    - lift + standard downtime (not urgent)
+         *  This increases its exposure from ~2 paths to ~4 paths.
+         * ────────────────────────────────────────────────── */
+        function resolve(goal, downtime, isUrgent) {
+            if (isUrgent) {
+                // Urgent always wants fastest result
+                return downtime === 'extended' ? 'program-lifting' : 'program-lifting';
+            }
+            if (goal === 'collagen') {
+                if (downtime === 'none')     return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-collagen';
+            }
+            if (goal === 'volume') {
+                if (downtime === 'none')     return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-volume';
+            }
+            if (goal === 'lift') {
+                if (downtime === 'none')     return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-elite'; // standard → elite (full combo)
+            }
+            return 'program-lifting';
+        }
+
+        function highlight(cardId) {
+            document.querySelectorAll('.program-highlight').forEach(function (el) { el.classList.remove('program-highlight'); });
+            document.querySelectorAll('[data-match-badge]').forEach(function (el) { el.remove(); });
+            document.querySelectorAll('.cta-pulse').forEach(function (el) { el.classList.remove('cta-pulse'); });
+
+            var card = document.getElementById(cardId);
+            if (!card) return;
+
+            var offsetPosition = card.getBoundingClientRect().top + window.pageYOffset - 100;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+
+            setTimeout(function () {
+                card.classList.add('program-highlight');
+                var badge = document.createElement('span');
+                badge.className = 'absolute top-3 left-3 bg-[#C5A059] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider';
+                badge.setAttribute('data-match-badge', '');
+                badge.textContent = 'Recommended Based on Your Inputs';
+                card.appendChild(badge);
+
+                var btns = card.querySelectorAll('a');
+                if (btns.length > 0) {
+                    btns[btns.length - 1].classList.add('cta-pulse');
+                    setTimeout(function () { btns[btns.length - 1].classList.remove('cta-pulse'); }, 2000);
+                }
+            }, 500);
+        }
+    })();
+    </script>

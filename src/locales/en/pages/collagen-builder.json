@@ -1,0 +1,9 @@
+{
+  "key": "collagen-builder",
+  "template": "program",
+  "permalink": "collagen-builder.html",
+  "title": "The Collagen Builder | Tune Clinic",
+  "description": "A physician-led biostimulation protocol for skin density and fine lines without an overfilled look.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/en/collagen-builder.html"
+}
