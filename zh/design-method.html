@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamaka-se 设计方法 | 调优诊所</title>
+    <meta name="description" content="我们的定制化设计优先理念。了解调优诊所如何为国际旅行者创建合理的、医师主导的美学路径。">
+    
+    <meta property="og:title" content="Chamaka-se 设计方法 | 调优诊所">
+    <meta property="og:description" content="方案是设计过程的结果——不是模板。探索我们医师主导的方法论。">
+    <meta property="og:image" content="../main.jpeg">
+    <meta property="og:type" content="website">
+
+    <link rel="canonical" href="https://tuneclinic.com/zh/design-method.html">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 32px;
+            bottom: -16px;
+            width: 1px;
+            background-color: #E2E8F0;
+        }
+        .timeline-step:last-child::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+    <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-slate-300 hover:text-white transition">
+                <i class="fas fa-arrow-left mr-2 text-gold"></i> 返回首页
+            </a>
+            <div class="flex items-center gap-6">
+                <span class="text-gold uppercase tracking-widest font-bold text-[10px] hidden sm:inline">设计理念</span>
+                <a href="index.html#programs" class="text-slate-300 hover:text-white transition uppercase tracking-widest font-bold text-[10px]">
+                    查看方案 <i class="fas fa-arrow-right ml-1 text-gold"></i>
+                </a>
+                <div class="group relative cursor-pointer">
+                    <span class="hover:text-gold transition font-bold text-[10px] flex items-center gap-1">
+                        <i class="fas fa-globe"></i> 中文
+                    </span>
+                    <div class="absolute right-0 top-full pt-2 w-36 hidden group-hover:block z-50">
+                        <div class="bg-white text-slate-800 shadow-xl rounded-sm border border-slate-100 text-xs">
+                            <a href="../design-method.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">English</a>
+                            <a href="design-method.html" class="block px-4 py-2.5 font-bold text-gold border-b border-slate-50">中文</a>
+                            <a href="../ja/design-method.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">日本語</a>
+                            <a href="../th/design-method.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">ภาษาไทย</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bg-white border-b border-slate-100 relative z-40" id="navbar">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center gap-2"><img src="../logo.png" alt="Tune Clinic" class="h-8"><span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span></a>
+
+                <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
+                    <a href="index.html" class="hover:text-gold transition">首页</a>
+                    <a href="design-method.html" class="text-gold transition border-b-2 border-gold pb-1">设计理念</a>
+                    
+                    <div class="relative group h-16 flex items-center">
+                        <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
+                            诊疗方案 <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
+                        </button>
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
+                            <div class="py-2">
+                                <a href="signature-lifting.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Signature Lifting</a>
+                                <a href="structural-reset.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Structural Reset Elite</a>
+                                <a href="collagen-builder.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">The Collagen Builder</a>
+                                <a href="filler-chamaka-se.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Filler Chamaka-se</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="menu.html" class="hover:text-gold transition">参考价格</a>
+                    <a href="gallery.html" class="hover:text-gold transition">前后对比</a>
+                    <a href="index.html#faq" class="hover:text-gold transition">常见问题</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl">
+            <a href="index.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">首页</a>
+            <a href="design-method.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">设计理念</a>
+            <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">诊疗方案</p>
+                <a href="signature-lifting.html" class="block py-2 text-slate-700 font-bold">Signature Lifting</a>
+                <a href="structural-reset.html" class="block py-2 text-slate-700">Structural Reset Elite</a>
+                <a href="collagen-builder.html" class="block py-2 text-slate-700">The Collagen Builder</a>
+                <a href="filler-chamaka-se.html" class="block py-2 text-slate-700">Filler Chamaka-se</a>
+            </div>
+            <a href="menu.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">参考价格</a>
+            <a href="gallery.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">前后对比</a>
+            <a href="index.html#faq" class="block px-6 py-4 font-bold text-slate-800">常见问题</a>
+        </div>
+    </nav>
+
+    <header class="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-[10px] font-bold uppercase tracking-widest mb-6 rounded-sm bg-white shadow-sm">
+                医师主导 / 设计优先
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mb-8 leading-tight">
+                Chamaka-se <br class="hidden md:block">设计方法
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                在选择设备或注射之前，我们先分析您的解剖结构并设计方案。<br class="mt-2">
+                <strong class="text-slate-800">方案是设计过程的结果——不是模板。</strong>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#programs-bridge" class="px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow-lg text-center">
+                    查看方案
+                </a>
+                <a href="#wechat" class="px-10 py-4 border border-slate-300 text-slate-700 font-semibold rounded-sm hover:border-slate-800 hover:text-slate-900 bg-white transition text-center flex items-center justify-center gap-2">
+                    <i class="fab fa-weixin"></i> 添加微信咨询
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-4xl text-gold/30 mb-6"></i>
+            <h2 class="text-3xl md:text-5xl font-serif text-slate-900 leading-tight mb-8">
+                "设备是工具。<br>
+                方案才是产品。"
+            </h2>
+            <p class="text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto border-t border-slate-100 pt-8">
+                我们的工作是减少不确定性，为您的面部和旅行时间设计最合理的路径。
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">基础框架</span>
+                <h3 class="text-3xl font-serif text-slate-900 mt-2">四大支柱</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">1</span>
+                        精准分析
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 组织厚度评估</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 容量分布标记</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 肌肉优势与张力分析</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">2</span>
+                        定制设计
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 结构提升向量</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 分区能量校准</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 衰老模式评估</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">3</span>
+                        方案规划
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 协同设备选择</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 顺序规划（能量 vs 注射）</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 旅行时间优化</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">4</span>
+                        效果校准
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 实时操作调整</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 面部对称平衡</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> 飞行安全术后护理整合</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">流程</span>
+                <h3 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">解剖设计流程</h3>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">每次治疗都从精确的、医师主导的皮肤标记过程开始。</p>
+            </div>
+
+            <div class="space-y-20 md:space-y-32">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-01.png" alt="基础评估" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 01</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">基础评估</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            在进行任何标记之前，评估基础皮肤状况、组织厚度和静态面部张力。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-02.png" alt="互动规划" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 02</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">互动规划</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            使用镜子与您协作，将您的美学目标与实际解剖可能性对齐。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-03.png" alt="主向量标记" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 03</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">主向量标记</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            描绘基础提升向量，识别组织松弛的主要方向。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-04.png" alt="结构蓝图" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 04</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">结构蓝图</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            完成第一阶段设计，标注需要深层能量传递或支撑的精确区域。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="../step-05.png" alt="微细调整" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 05</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">微细调整</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            隔离次要关注区域，如局部容量流失或需要特别关注的细腻皮肤区域。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-red-100">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-[9px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-sm">安全方案</div>
+                        <img src="../step-06.png" alt="深度与安全校准" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Step 06</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">深度与安全校准</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            应用最终临床标记（红色），精确划定治疗深度并严格避开解剖危险区。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-serif text-white">您可以期待什么</h3>
+                <p class="text-slate-400 mt-3 text-sm">将我们的设计理念转化为旅行者的直接收益。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center">
+                <div class="bg-slate-800 p-8 rounded-sm border border-slate-700">
+                    <div class="w-12 h-12 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">更少猜测</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">精准的解剖定位确保每一步都有医学依据。</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• 无通用的套版方案</li>
+                        <li>• 临床循证决策</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-sm border border-slate-700">
+                    <div class="w-12 h-12 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">最短恢复期</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">您的恢复期已纳入设计考量，以保障您的旅行行程。</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• 主动消肿控制</li>
+                        <li>• 飞行安全治疗时间</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-sm border border-gold/30 relative overflow-hidden shadow-[0_0_15px_rgba(197,160,89,0.1)]">
+                    <div class="absolute top-0 w-full left-0 h-1 bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">无不必要的操作</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">我们仅推荐您的生理结构所需的项目来达成目标。</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• 解剖优先决策</li>
+                        <li>• 避免不必要的步骤</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">诊疗标准</span>
+                <h3 class="text-2xl font-serif text-slate-900 mt-2">流程证据</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center border-t border-slate-100 pt-12">
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">真品验证</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">我们在您面前验证适用设备耗材的真品性。扫描二维码验证有效性。</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">合理剂量</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">我们根据您的具体解剖结构严格校准能量水平和注射次数。</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">舒适选项</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">从外用麻醉到精准神经阻滞和静脉镇静，您的舒适度经过精心设计。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs-bridge" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-serif text-slate-900 mb-4">精选路径</h2>
+            <p class="text-slate-600 mb-12 max-w-2xl mx-auto">
+                基于这套严谨的设计方法，我们提供四项全面的、医师校准的方案。
+                它们是您治疗旅程的基础。
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <a href="signature-lifting.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Signature Lifting</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Ultherapy 350</p>
+                </a>
+                <a href="structural-reset.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-slate-800 hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-slate-900 transition mb-1">Structural Reset</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">精英组合</p>
+                </a>
+                <a href="collagen-builder.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-blue-400 hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-blue-600 transition mb-1">Collagen Builder</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">生物刺激</p>
+                </a>
+                <a href="filler-chamaka-se.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-purple-400 hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-purple-600 transition mb-1">Filler Chamaka-se</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">面部设计</p>
+                </a>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#programs" class="px-8 py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition">
+                    查看所有方案
+                </a>
+                <a href="menu.html" class="px-8 py-3 border border-slate-300 text-slate-700 font-bold rounded-sm hover:border-slate-800 bg-white transition">
+                    参考价格
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center border-t border-slate-800">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">开始您的设计流程</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                通过微信直接联系我们的医疗团队。<br>
+                提供以下信息以便进行高效的初步评估。
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">复制并粘贴到微信:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all">
+                    您好，Tune Clinic，我想进行初步评估：<br>
+                    • 首尔日期：[ ]<br>
+                    • 离开韩国日期：[ ]<br>
+                    • 主要关注：[提升 / 塑形 / 肤质]<br>
+                    • 是否有照片：是/否<br>
+                    • 重要活动日期（可选）：[ ]
+                </code>
+            </div>
+
+            <div class="flex justify-center">
+                <a href="#wechat" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-yellow-600 transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg">
+                    <i class="fab fa-weixin"></i> 添加微信咨询
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>© 2026 狎鸥亭调优诊所。循证医学美容。</p>
+                <p class="opacity-70">效果和适用性因个人而异。最终医疗方案和报价需面诊后确认。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
