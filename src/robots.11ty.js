@@ -1,4 +1,4 @@
-const SITE_URL = "https://tuneclinic.com";
+const SITE_URL = "https://tuneclinic-global.com";
 
 module.exports = class {
   data() {

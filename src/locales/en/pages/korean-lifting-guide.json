@@ -1,0 +1,11 @@
+{
+  "key": "korean-lifting-guide",
+  "template": "editorial",
+  "permalink": "korean-lifting-guide.html",
+  "title": "Korean Lifting Guide | Ultherapy, Thermage FLX, Oligio and More in Seoul",
+  "description": "Compare Korean lifting treatments in Seoul including Ultherapy, Thermage FLX, Oligio, Potenza, and physician-led combination planning for sagging, laxity, jawline definition, and travel timing.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/en/korean-lifting-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Lifting Guide"
+}
