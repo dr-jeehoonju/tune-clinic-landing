@@ -337,7 +337,7 @@ function videoStructuredData(entry, canonicalUrl) {
     thumbnailUrl: [DEFAULT_OG_IMAGE],
     contentUrl: `${SITE_URL}/hero-video.mp4`,
     embedUrl: canonicalUrl,
-    uploadDate: "2026-02-17",
+    uploadDate: "2026-02-17T00:00:00+09:00",
     publisher: {
       "@id": `${SITE_URL}/#organization`,
     },
