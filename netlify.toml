@@ -57,3 +57,48 @@
   from = "/gallery"
   to = "/gallery.html"
   status = 200
+
+[[redirects]]
+  from = "/guides"
+  to = "/guides.html"
+  status = 200
+
+[[redirects]]
+  from = "/design-method"
+  to = "/design-method.html"
+  status = 200
+
+[[redirects]]
+  from = "/signature-lifting"
+  to = "/signature-lifting.html"
+  status = 200
+
+[[redirects]]
+  from = "/structural-reset"
+  to = "/structural-reset.html"
+  status = 200
+
+[[redirects]]
+  from = "/collagen-builder"
+  to = "/collagen-builder.html"
+  status = 200
+
+[[redirects]]
+  from = "/filler-chamaka-se"
+  to = "/filler-chamaka-se.html"
+  status = 200
+
+[[redirects]]
+  from = "/ja/*"
+  to = "/ja/:splat.html"
+  status = 200
+
+[[redirects]]
+  from = "/zh/*"
+  to = "/zh/:splat.html"
+  status = 200
+
+[[redirects]]
+  from = "/th/*"
+  to = "/th/:splat.html"
+  status = 200

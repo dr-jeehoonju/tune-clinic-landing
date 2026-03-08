@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
+const { SITE_URL, hrefLang, pageUrl, publicUrl } = require("./url-helpers");
 
 const languageOrder = ["en", "ja", "zh", "th"];
-const SITE_URL = "https://tuneclinic-global.com";
 const SITE_NAME = "Tune Clinic";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75`;
 const GA_MEASUREMENT_ID = "G-P68CDTNEV1";
@@ -15,22 +15,22 @@ const CONSENT_COPY = {
     reject: "Reject",
   },
   ja: {
-    title: "Cookie Preferences",
+    title: "クッキー設定",
     body: "アクセス解析クッキーを使用して、訪問状況を把握し、海外患者向けの体験を改善します。",
-    accept: "Accept Analytics",
-    reject: "Reject",
+    accept: "分析を許可",
+    reject: "拒否",
   },
   zh: {
-    title: "Cookie Preferences",
+    title: "Cookie 偏好设置",
     body: "我们使用分析 Cookie 来了解访问情况，并持续优化国际患者的浏览体验。",
-    accept: "Accept Analytics",
-    reject: "Reject",
+    accept: "接受分析",
+    reject: "拒绝",
   },
   th: {
-    title: "Cookie Preferences",
+    title: "การตั้งค่าคุกกี้",
     body: "เราใช้คุกกี้วิเคราะห์เพื่อทำความเข้าใจการเข้าชมและปรับปรุงประสบการณ์สำหรับผู้ป่วยต่างชาติ",
-    accept: "Accept Analytics",
-    reject: "Reject",
+    accept: "ยอมรับการวิเคราะห์",
+    reject: "ปฏิเสธ",
   },
 };
 const PHYSICIANS = [
@@ -96,11 +96,6 @@ const LOCALE_META = {
   th: { ogLocale: "th_TH", ogAlternates: ["en_US", "ja_JP", "zh_CN"] },
 };
 
-function hrefLang(locale) {
-  if (locale === "zh") return "zh-Hans";
-  return locale;
-}
-
 function readFragment(fragmentPath) {
   return fs.readFileSync(path.join(__dirname, fragmentPath), "utf8");
 }
@@ -111,21 +106,6 @@ function esc(str = "") {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
-}
-
-function pageUrl(locale, pageKey) {
-  const prefix = locale === "en" ? "" : `${locale}/`;
-  const file = pageKey === "index" ? "index.html" : `${pageKey}.html`;
-  return `/${prefix}${file}`;
-}
-
-function publicUrl(locale, pageKey) {
-  const pathname = pageKey === "index"
-    ? locale === "en"
-      ? "/"
-      : `/${locale}/`
-    : pageUrl(locale, pageKey);
-  return `${SITE_URL}${pathname}`;
 }
 
 function absoluteAssetUrl(assetPath) {
@@ -311,7 +291,7 @@ function offerCatalogStructuredData(entry, localeData, canonicalUrl) {
     itemOffered: {
       "@type": "Service",
       name: breadcrumbName({ ...entry, key }, localeData),
-      description: localePages[key].description,
+      description: localePages[key]?.description ?? "",
       url: publicUrl(entry.locale, key),
     },
   }));
@@ -804,7 +784,13 @@ function renderPage(entry, localeData) {
   const ogImage = absoluteAssetUrl(entry.ogImage);
   const hreflang = alternateLinks(entry);
   const structuredData = pageStructuredData(entry, localeData, fragment);
+  const availableLocales = entry.availableLocales || languageOrder;
   const ogAlternateTags = localeMeta.ogAlternates
+    .filter((value) => {
+      const localeMap = { en_US: "en", ja_JP: "ja", zh_CN: "zh", th_TH: "th" };
+      const code = localeMap[value];
+      return code && availableLocales.includes(code);
+    })
     .map((value) => `<meta property="og:locale:alternate" content="${value}">`)
     .join("\n  ");
 

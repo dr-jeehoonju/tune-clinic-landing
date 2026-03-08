@@ -1,4 +1,4 @@
-const SITE_URL = "https://tuneclinic-global.com";
+const { SITE_URL } = require("./url-helpers");
 
 module.exports = class {
   data() {
