@@ -593,7 +593,7 @@ function siteFooter(entry, localeData) {
           </div>
           <div>
             <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">Explore</p>
-            <div class="space-y-3 text-sm text-slate-300">
+            <div class="flex flex-col gap-2.5 text-sm text-slate-300">
               <a href="${pageUrl(entry.locale, "index")}" class="hover:text-gold transition">${g.home}</a>
               <a href="${pageUrl(entry.locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
               <a href="${pageUrl(entry.locale, "menu")}" class="hover:text-gold transition">${g.menu}</a>
@@ -604,7 +604,7 @@ function siteFooter(entry, localeData) {
           </div>
           <div>
             <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">${g.programs}</p>
-            <div class="space-y-3 text-sm text-slate-300">
+            <div class="flex flex-col gap-2.5 text-sm text-slate-300">
               <a href="${pageUrl(entry.locale, "signature-lifting")}" class="hover:text-gold transition">${g.sig}</a>
               <a href="${pageUrl(entry.locale, "structural-reset")}" class="hover:text-gold transition">${g.reset}</a>
               <a href="${pageUrl(entry.locale, "collagen-builder")}" class="hover:text-gold transition">${g.collagen}</a>
