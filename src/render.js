@@ -56,6 +56,7 @@ const PHYSICIANS = [
     slug: "ju-jee-hoon",
     name: "Dr. Jee Hoon Ju",
     image: `${SITE_URL}/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75`,
+    avatarPosition: "object-top",
     jobTitle: "Aesthetic Medicine Physician",
     medicalSpecialty: "Aesthetic Medicine",
     description:
@@ -1066,7 +1067,7 @@ function renderBlogPost(post, localeData) {
   const authorMeta = authors.map((a) => `<meta property="article:author" content="${esc(a.name)}">`).join("\n  ");
   const authorAvatars = authors.map((a) => `
       <div class="flex items-center gap-3">
-        <img src="${a.image}" alt="${esc(a.name)}" class="w-11 h-11 rounded-full object-cover border-2 border-gold">
+        <img src="${a.image}" alt="${esc(a.name)}" class="w-11 h-11 rounded-full object-cover ${a.avatarPosition || "object-center"} border-2 border-gold">
         <div><p class="font-bold text-sm">${esc(a.name)}</p><p class="text-slate-400 text-xs">${esc(a.jobTitle)}</p></div>
       </div>`).join("");
 
