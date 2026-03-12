@@ -3,7 +3,7 @@ title: "Three Lifting Devices, Three Different Jobs — Ultherapy, Thermage, and
 description: "Ultherapy, Thermage FLX, and Oligio are not interchangeable. A physician explains which layer each device targets and how to choose based on your anatomy."
 slug: lifting-devices-compared
 date: 2026-03-08
-author: cha-seung-yeon
+author: [cha-seung-yeon, ju-jee-hoon]
 tags: [lifting, ultherapy, thermage, education]
 ---
 

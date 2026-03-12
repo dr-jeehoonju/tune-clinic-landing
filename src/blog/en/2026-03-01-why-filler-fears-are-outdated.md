@@ -3,7 +3,7 @@ title: "Why Most Filler Fears Are Based on Outdated Information"
 description: "A physician explains why common filler fears — migration, overfilling, long-term damage — usually reflect older techniques, not modern evidence-based practice."
 slug: why-filler-fears-are-outdated
 date: 2026-03-01
-author: cha-seung-yeon
+author: [cha-seung-yeon, ju-jee-hoon]
 tags: [filler, education, myths]
 ---
 

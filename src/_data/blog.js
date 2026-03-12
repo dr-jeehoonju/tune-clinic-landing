@@ -43,7 +43,7 @@ for (const locale of locales) {
       description: fm.description || "",
       date: new Date(fm.date).toISOString().slice(0, 10),
       dateISO: new Date(fm.date).toISOString(),
-      author: fm.author || "cha-seung-yeon",
+      author: Array.isArray(fm.author) ? fm.author : [fm.author || "cha-seung-yeon"],
       tags: fm.tags || [],
       ogImage: fm.ogImage || null,
       permalink,

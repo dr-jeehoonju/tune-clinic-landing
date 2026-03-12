@@ -36,7 +36,7 @@ const CONSENT_COPY = {
 const PHYSICIANS = [
   {
     slug: "cha-seung-yeon",
-    name: "Dr. Cha Seung-yeon",
+    name: "Dr. Seung Yeon Cha",
     image: `${SITE_URL}/.netlify/images?url=/cha.jpg&w=900&fm=webp&q=75`,
     jobTitle: "Medical Director",
     medicalSpecialty: "Aesthetic Medicine",
@@ -45,7 +45,7 @@ const PHYSICIANS = [
   },
   {
     slug: "kim-kwang-yeon",
-    name: "Dr. Kim Kwang-yeon",
+    name: "Dr. Kwang Yeon Kim",
     image: `${SITE_URL}/.netlify/images?url=/kim_ky.jpg&w=500&fm=webp&q=75`,
     jobTitle: "Medical Director",
     medicalSpecialty: "Aesthetic Medicine",
@@ -54,7 +54,7 @@ const PHYSICIANS = [
   },
   {
     slug: "ju-jee-hoon",
-    name: "Dr. Ju Jee-hoon",
+    name: "Dr. Jee Hoon Ju",
     image: `${SITE_URL}/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75`,
     jobTitle: "Aesthetic Medicine Physician",
     medicalSpecialty: "Aesthetic Medicine",
@@ -63,7 +63,7 @@ const PHYSICIANS = [
   },
   {
     slug: "jo-dong-hyun",
-    name: "Dr. Jo Dong-hyun",
+    name: "Dr. Dong Hyun Jo",
     image: `${SITE_URL}/.netlify/images?url=/jo.jpg&w=600&fm=webp&q=75`,
     jobTitle: "Regenerative Medicine Physician",
     medicalSpecialty: "Regenerative Medicine",
@@ -72,7 +72,7 @@ const PHYSICIANS = [
   },
   {
     slug: "kim-beom-jin",
-    name: "Dr. Kim Beom-jin",
+    name: "Dr. Beom Jin Kim",
     image: `${SITE_URL}/.netlify/images?url=/kim_bj.jpg&w=600&fm=webp&q=75`,
     jobTitle: "Plastic Surgery Advisor",
     medicalSpecialty: "Plastic Surgery",
@@ -81,7 +81,7 @@ const PHYSICIANS = [
   },
   {
     slug: "jang-seung-woo",
-    name: "Dr. Jang Seung-woo",
+    name: "Dr. Seung Woo Jang",
     image: `${SITE_URL}/.netlify/images?url=/jang.jpg&w=600&fm=webp&q=75`,
     jobTitle: "Medical Advisor",
     medicalSpecialty: "General Medicine",
@@ -955,9 +955,14 @@ function blogIndexAlternateLinks(locale) {
   return `${links}\n  <link rel="alternate" hreflang="x-default" href="${publicBlogIndexUrl("en")}">`;
 }
 
+function resolveAuthors(authorSlugs) {
+  const slugs = Array.isArray(authorSlugs) ? authorSlugs : [authorSlugs || "cha-seung-yeon"];
+  return slugs.map((s) => PHYSICIANS.find((p) => p.slug === s) || PHYSICIANS[0]);
+}
+
 function blogPostStructuredData(post, localeData) {
   const canonicalUrl = publicBlogUrl(post.locale, post.slug);
-  const physician = PHYSICIANS.find((p) => p.slug === post.author) || PHYSICIANS[0];
+  const authors = resolveAuthors(post.author);
   const g = localeData[post.locale].global;
 
   const org = { "@context": "https://schema.org", "@type": "MedicalClinic", "@id": `${SITE_URL}/#organization`, name: SITE_NAME, url: SITE_URL };
@@ -971,12 +976,16 @@ function blogPostStructuredData(post, localeData) {
     ],
   };
 
+  const authorLD = authors.length === 1
+    ? { "@type": "Physician", "@id": `${SITE_URL}/#physician-${authors[0].slug}`, name: authors[0].name }
+    : authors.map((a) => ({ "@type": "Physician", "@id": `${SITE_URL}/#physician-${a.slug}`, name: a.name }));
+
   const article = {
     "@context": "https://schema.org", "@type": "BlogPosting", "@id": `${canonicalUrl}#article`,
     headline: post.title, description: post.description,
     datePublished: post.dateISO, dateModified: post.dateISO,
     url: canonicalUrl, inLanguage: localeData[post.locale].global.langAttr,
-    author: { "@type": "Physician", "@id": `${SITE_URL}/#physician-${physician.slug}`, name: physician.name },
+    author: authorLD,
     publisher: { "@id": `${SITE_URL}/#organization` },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${canonicalUrl}#webpage` },
     image: post.ogImage ? absoluteAssetUrl(post.ogImage) : DEFAULT_OG_IMAGE,
@@ -1047,12 +1056,19 @@ function renderBlogPost(post, localeData) {
   const ogImage = absoluteAssetUrl(post.ogImage);
   const hreflangLinks = blogAlternateLinks(post);
   const structuredData = blogPostStructuredData(post, localeData);
-  const physician = PHYSICIANS.find((p) => p.slug === post.author) || PHYSICIANS[0];
+  const authors = resolveAuthors(post.author);
   const formattedDate = formatBlogDate(post.date, post.locale);
   const tagBadges = post.tags.map((t) => `<span class="px-3 py-1 rounded-full border border-slate-200 text-slate-500 text-[10px] uppercase tracking-[0.15em] font-bold">${esc(t)}</span>`).join(" ");
   const ogAlternateTags = localeMeta.ogAlternates
     .filter((v) => { const m = { en_US: "en", ja_JP: "ja", zh_CN: "zh", th_TH: "th" }; return m[v] && (post.availableLocales || []).includes(m[v]); })
     .map((v) => `<meta property="og:locale:alternate" content="${v}">`).join("\n  ");
+  const authorNames = authors.map((a) => esc(a.name)).join(", ");
+  const authorMeta = authors.map((a) => `<meta property="article:author" content="${esc(a.name)}">`).join("\n  ");
+  const authorAvatars = authors.map((a) => `
+      <div class="flex items-center gap-3">
+        <img src="${a.image}" alt="${esc(a.name)}" class="w-11 h-11 rounded-full object-cover border-2 border-gold">
+        <div><p class="font-bold text-sm">${esc(a.name)}</p><p class="text-slate-400 text-xs">${esc(a.jobTitle)}</p></div>
+      </div>`).join("");
 
   return `<!DOCTYPE html>
 <html lang="${g.langAttr}" class="scroll-smooth">
@@ -1061,14 +1077,14 @@ function renderBlogPost(post, localeData) {
   <title>${esc(post.title)} | ${SITE_NAME} Blog</title>
   <meta name="description" content="${esc(post.description)}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="author" content="${esc(physician.name)}">
+  <meta name="author" content="${authorNames}">
   <meta property="og:title" content="${esc(post.title)}">
   <meta property="og:description" content="${esc(post.description)}">
   <meta property="og:site_name" content="${SITE_NAME}"><meta property="og:url" content="${canonicalUrl}">
   <meta property="og:image" content="${ogImage}"><meta property="og:type" content="article">
   <meta property="og:locale" content="${localeMeta.ogLocale}">
   <meta property="article:published_time" content="${post.dateISO}">
-  <meta property="article:author" content="${esc(physician.name)}">
+  ${authorMeta}
   ${ogAlternateTags}
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(post.title)}">
   <meta name="twitter:description" content="${esc(post.description)}"><meta name="twitter:image" content="${ogImage}">
@@ -1104,9 +1120,8 @@ ${chrome}
     </div>
     <h1 class="text-3xl md:text-5xl font-serif leading-tight">${esc(post.title)}</h1>
     <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-5 max-w-3xl">${esc(post.description)}</p>
-    <div class="flex items-center gap-4 mt-8 pt-6 border-t border-white/10">
-      <img src="${physician.image}" alt="${esc(physician.name)}" class="w-12 h-12 rounded-full object-cover border-2 border-gold">
-      <div><p class="font-bold text-sm">${esc(physician.name)}</p><p class="text-slate-400 text-xs">${esc(physician.jobTitle)} · ${SITE_NAME}</p></div>
+    <div class="flex flex-wrap items-center gap-4 mt-8 pt-6 border-t border-white/10">
+      ${authorAvatars}
     </div>
   </div>
 </header>
@@ -1137,9 +1152,10 @@ function renderBlogIndex(locale, posts, localeData) {
   const switcher = languageSwitcher({ locale, key: "index", availableLocales: languageOrder }, localeData);
 
   const postCards = localePosts.map((post) => {
-    const physician = PHYSICIANS.find((p) => p.slug === post.author) || PHYSICIANS[0];
+    const authors = resolveAuthors(post.author);
     const fd = formatBlogDate(post.date, locale);
     const tb = post.tags.slice(0, 3).map((t) => `<span class="px-2 py-0.5 rounded-full border border-slate-200 text-slate-400 text-[9px] uppercase tracking-[0.12em] font-bold">${esc(t)}</span>`).join(" ");
+    const authorNames = authors.map((a) => esc(a.name)).join(", ");
     return `
       <a href="${blogUrl(locale, post.slug)}" class="group block rounded-2xl border border-slate-200 bg-white hover:border-gold hover:shadow-lg transition overflow-hidden">
         ${post.ogImage ? `<div class="aspect-[16/9] overflow-hidden"><img src="/.netlify/images?url=${post.ogImage}&w=600&fm=webp&q=80" alt="${esc(post.title)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>` : ""}
@@ -1147,7 +1163,7 @@ function renderBlogIndex(locale, posts, localeData) {
           <div class="flex items-center gap-2 mb-3">${tb}</div>
           <h2 class="text-lg font-serif text-slate-900 group-hover:text-gold transition leading-snug mb-3">${esc(post.title)}</h2>
           <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 mb-4">${esc(post.description)}</p>
-          <div class="flex items-center gap-3 text-xs text-slate-400"><span>${esc(physician.name)}</span><span>·</span><time>${fd}</time></div>
+          <div class="flex items-center gap-3 text-xs text-slate-400"><span>${authorNames}</span><span>·</span><time>${fd}</time></div>
         </div>
       </a>`;
   }).join("\n");
