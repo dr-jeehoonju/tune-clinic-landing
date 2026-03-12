@@ -2,7 +2,7 @@
 title: "Before Chasing Results, Define the Right Standard"
 description: "Why 'Is this treatment effective?' is the wrong first question in aesthetic medicine — and what to ask instead before making a decision."
 slug: standards-before-results-in-aesthetic-medicine
-date: 2026-03-15
+date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [philosophy, decision-making, education]
 ---

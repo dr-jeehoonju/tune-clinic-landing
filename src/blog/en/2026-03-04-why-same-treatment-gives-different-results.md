@@ -2,7 +2,7 @@
 title: "Same Treatment, Different Results — The Variables You Can't See"
 description: "Why two patients can receive the same aesthetic procedure and walk away with completely different experiences — and what actually determines the outcome."
 slug: why-same-treatment-gives-different-results
-date: 2026-03-22
+date: 2026-03-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [skin-science, personalization, education]
 ---
