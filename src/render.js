@@ -423,6 +423,7 @@ function homeChrome(entry, localeData) {
   const g = localeData[entry.locale].global;
   const switcher = languageSwitcher(entry, localeData);
   const locales = entry.availableLocales || languageOrder;
+  const blogLink = `<a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${g.blog || "Blog"}</a>`;
   const guidesLink = entry.locale === "en"
     ? `<a href="/guides.html" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition">Guides</a>`
     : "";
@@ -484,6 +485,7 @@ function homeChrome(entry, localeData) {
                 </div>
               </div>
               <a href="${pageUrl(entry.locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
+              ${blogLink}
               ${guidesLink}
               <a href="#faq" class="hover:text-gold transition">${g.faq}</a>
               <a href="#contact" class="hover:text-gold transition">${g.contact}</a>
@@ -512,6 +514,7 @@ function homeChrome(entry, localeData) {
           <a href="${pageUrl(entry.locale, "filler-chamaka-se")}" class="block py-2 text-slate-700">${g.filler}</a>
         </div>
         <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
+        <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
         ${entry.locale === "en" ? `<a href="/guides.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>` : ""}
         <a href="#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
         <a href="#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
@@ -523,6 +526,7 @@ function homeChrome(entry, localeData) {
 function siteFooter(entry, localeData) {
   const g = localeData[entry.locale].global;
   const isHome = entry.template === "home";
+  const blogFooterLink = `<a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${localeData[entry.locale].global.blog || "Blog"}</a>`;
   const guideLink = entry.locale === "en"
     ? `<a href="/guides.html" class="hover:text-gold transition">Guides Library</a>`
     : "";
@@ -593,6 +597,7 @@ function siteFooter(entry, localeData) {
               <a href="${pageUrl(entry.locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
               <a href="${pageUrl(entry.locale, "menu")}" class="hover:text-gold transition">${g.menu}</a>
               <a href="${pageUrl(entry.locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
+              ${blogFooterLink}
               ${guideLink}
             </div>
           </div>
@@ -698,6 +703,7 @@ function editorialChrome(entry, localeData) {
             </div>
             <a href="${pageUrl(entry.locale, "menu")}" class="${activeClass("menu")}">${g.menu}</a>
             <a href="${pageUrl(entry.locale, "gallery")}" class="${activeClass("gallery")}">${g.gallery}</a>
+            <a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${g.blog || "Blog"}</a>
             ${guidesLink}
             <a href="${pageUrl(entry.locale, "index")}#faq" class="hover:text-gold transition">${g.faq}</a>
           </div>
@@ -716,6 +722,7 @@ function editorialChrome(entry, localeData) {
         </div>
         <a href="${pageUrl(entry.locale, "menu")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "menu" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.menu}</a>
         <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "gallery" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.gallery}</a>
+        <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
         ${entry.locale === "en" ? `<a href="/guides.html" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">Guides</a>` : ""}
         <a href="${pageUrl(entry.locale, "index")}#faq" class="block px-6 py-4 font-bold text-slate-800">${g.faq}</a>
       </div>
@@ -737,6 +744,7 @@ function programChrome(entry, localeData) {
     entry.key === key
       ? `<span class="text-gold">${g[labelKey]}</span>`
       : `<a href="${pageUrl(entry.locale, key)}" class="hover:text-gold transition hidden sm:inline">${g[labelKey]}</a>`;
+  const blogLink = `<span class="text-slate-700 hidden sm:inline">|</span><a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition hidden sm:inline">${g.blog || "Blog"}</a>`;
   const guidesLink = entry.locale === "en"
     ? `<span class="text-slate-700 hidden sm:inline">|</span><a href="/guides.html" class="hover:text-gold transition hidden sm:inline">Guides</a>`
     : "";
@@ -759,6 +767,7 @@ function programChrome(entry, localeData) {
           ${item("collagen-builder", "collagen")}
           <span class="text-slate-700 hidden sm:inline">|</span>
           ${item("filler-chamaka-se", "filler")}
+          ${blogLink}
           ${guidesLink}
           <span class="text-slate-700 ml-3 md:ml-4">|</span>
           ${switcher}
@@ -912,4 +921,319 @@ ${consentBanner(entry.locale)}
 </html>`;
 }
 
-module.exports = { renderPage };
+function blogUrl(locale, slug) {
+  const prefix = locale === "en" ? "" : `${locale}/`;
+  return `/${prefix}blog/${slug}.html`;
+}
+
+function publicBlogUrl(locale, slug) {
+  return `${SITE_URL}${blogUrl(locale, slug)}`;
+}
+
+function blogIndexUrl(locale) {
+  const prefix = locale === "en" ? "" : `${locale}/`;
+  return `/${prefix}blog/`;
+}
+
+function publicBlogIndexUrl(locale) {
+  return `${SITE_URL}${blogIndexUrl(locale)}`;
+}
+
+function blogAlternateLinks(post) {
+  const locales = post.availableLocales || ["en"];
+  const links = locales
+    .map((locale) => `<link rel="alternate" hreflang="${hrefLang(locale)}" href="${publicBlogUrl(locale, post.slug)}">`)
+    .join("\n  ");
+  const fallback = locales.includes("en") ? "en" : locales[0];
+  return `${links}\n  <link rel="alternate" hreflang="x-default" href="${publicBlogUrl(fallback, post.slug)}">`;
+}
+
+function blogIndexAlternateLinks(locale) {
+  const links = languageOrder
+    .map((l) => `<link rel="alternate" hreflang="${hrefLang(l)}" href="${publicBlogIndexUrl(l)}">`)
+    .join("\n  ");
+  return `${links}\n  <link rel="alternate" hreflang="x-default" href="${publicBlogIndexUrl("en")}">`;
+}
+
+function blogPostStructuredData(post, localeData) {
+  const canonicalUrl = publicBlogUrl(post.locale, post.slug);
+  const physician = PHYSICIANS.find((p) => p.slug === post.author) || PHYSICIANS[0];
+  const g = localeData[post.locale].global;
+
+  const org = { "@context": "https://schema.org", "@type": "MedicalClinic", "@id": `${SITE_URL}/#organization`, name: SITE_NAME, url: SITE_URL };
+
+  const breadcrumb = {
+    "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": `${canonicalUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: g.home, item: publicUrl(post.locale, "index") },
+      { "@type": "ListItem", position: 2, name: g.blog || "Blog", item: publicBlogIndexUrl(post.locale) },
+      { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
+    ],
+  };
+
+  const article = {
+    "@context": "https://schema.org", "@type": "BlogPosting", "@id": `${canonicalUrl}#article`,
+    headline: post.title, description: post.description,
+    datePublished: post.dateISO, dateModified: post.dateISO,
+    url: canonicalUrl, inLanguage: localeData[post.locale].global.langAttr,
+    author: { "@type": "Physician", "@id": `${SITE_URL}/#physician-${physician.slug}`, name: physician.name },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${canonicalUrl}#webpage` },
+    image: post.ogImage ? absoluteAssetUrl(post.ogImage) : DEFAULT_OG_IMAGE,
+  };
+
+  return [org, breadcrumb, article];
+}
+
+function blogChrome(post, localeData) {
+  const g = localeData[post.locale].global;
+  const switcher = languageSwitcher({ locale: post.locale, key: "index", availableLocales: post.availableLocales || languageOrder }, localeData);
+  return `
+    <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <a href="${blogIndexUrl(post.locale)}" class="flex items-center text-slate-300 hover:text-white transition">
+          <i class="fas fa-arrow-left mr-2 text-gold"></i> ${g.blog || "Blog"}
+        </a>
+        <div class="flex items-center gap-6">
+          <span class="text-gold uppercase tracking-widest font-bold text-[10px] hidden sm:inline">${g.blog || "Blog"}</span>
+          <a href="${pageUrl(post.locale, "index")}#programs" class="text-slate-300 hover:text-white transition uppercase tracking-widest font-bold text-[10px]">
+            ${g.viewPrograms} <i class="fas fa-arrow-right ml-1 text-gold"></i>
+          </a>
+          ${switcher}
+        </div>
+      </div>
+    </div>
+    <nav class="bg-white border-b border-slate-100 relative z-40" id="navbar">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+          <a href="${pageUrl(post.locale, "index")}" class="flex items-center gap-2">
+            <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
+            <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
+          </a>
+          <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
+            <a href="${pageUrl(post.locale, "index")}" class="hover:text-gold transition">${g.home}</a>
+            <a href="${blogIndexUrl(post.locale)}" class="text-gold transition border-b-2 border-gold pb-1">${g.blog || "Blog"}</a>
+            <a href="${pageUrl(post.locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
+            <a href="${pageUrl(post.locale, "menu")}" class="hover:text-gold transition">${g.menu}</a>
+            <a href="${pageUrl(post.locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl">
+        <a href="${pageUrl(post.locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
+        <a href="${blogIndexUrl(post.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">${g.blog || "Blog"}</a>
+        <a href="${pageUrl(post.locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.method}</a>
+        <a href="${pageUrl(post.locale, "menu")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.menu}</a>
+        <a href="${pageUrl(post.locale, "gallery")}" class="block px-6 py-4 font-bold text-slate-800">${g.gallery}</a>
+      </div>
+    </nav>
+    <script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
+  `;
+}
+
+function formatBlogDate(dateStr, locale) {
+  const d = new Date(dateStr);
+  const langMap = { en: "en-US", ja: "ja-JP", zh: "zh-CN", th: "th-TH" };
+  return d.toLocaleDateString(langMap[locale] || "en-US", { year: "numeric", month: "long", day: "numeric" });
+}
+
+function renderBlogPost(post, localeData) {
+  const g = localeData[post.locale].global;
+  const chrome = blogChrome(post, localeData);
+  const footer = siteFooter({ locale: post.locale, template: "editorial", key: `blog-${post.slug}` }, localeData);
+  const canonicalUrl = publicBlogUrl(post.locale, post.slug);
+  const localeMeta = LOCALE_META[post.locale] || LOCALE_META.en;
+  const ogImage = absoluteAssetUrl(post.ogImage);
+  const hreflangLinks = blogAlternateLinks(post);
+  const structuredData = blogPostStructuredData(post, localeData);
+  const physician = PHYSICIANS.find((p) => p.slug === post.author) || PHYSICIANS[0];
+  const formattedDate = formatBlogDate(post.date, post.locale);
+  const tagBadges = post.tags.map((t) => `<span class="px-3 py-1 rounded-full border border-slate-200 text-slate-500 text-[10px] uppercase tracking-[0.15em] font-bold">${esc(t)}</span>`).join(" ");
+  const ogAlternateTags = localeMeta.ogAlternates
+    .filter((v) => { const m = { en_US: "en", ja_JP: "ja", zh_CN: "zh", th_TH: "th" }; return m[v] && (post.availableLocales || []).includes(m[v]); })
+    .map((v) => `<meta property="og:locale:alternate" content="${v}">`).join("\n  ");
+
+  return `<!DOCTYPE html>
+<html lang="${g.langAttr}" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${esc(post.title)} | ${SITE_NAME} Blog</title>
+  <meta name="description" content="${esc(post.description)}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="${esc(physician.name)}">
+  <meta property="og:title" content="${esc(post.title)}">
+  <meta property="og:description" content="${esc(post.description)}">
+  <meta property="og:site_name" content="${SITE_NAME}"><meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${ogImage}"><meta property="og:type" content="article">
+  <meta property="og:locale" content="${localeMeta.ogLocale}">
+  <meta property="article:published_time" content="${post.dateISO}">
+  <meta property="article:author" content="${esc(physician.name)}">
+  ${ogAlternateTags}
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(post.title)}">
+  <meta name="twitter:description" content="${esc(post.description)}"><meta name="twitter:image" content="${ogImage}">
+  <link rel="canonical" href="${canonicalUrl}">
+  ${hreflangLinks}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{anonymize_ip:true});</script>
+  <script type="application/ld+json">${JSON.stringify(structuredData)}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+    body{font-family:'Lato',sans-serif}.font-serif{font-family:'Playfair Display',serif}.text-gold{color:#C5A059}.bg-gold{background-color:#C5A059}.border-gold{border-color:#C5A059}.bg-gold-light{background-color:#F9F5F0}
+    .prose h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:#0f172a;margin-top:2.5rem;margin-bottom:1rem}
+    .prose h3{font-size:1.25rem;font-weight:700;color:#1e293b;margin-top:2rem;margin-bottom:0.75rem}
+    .prose p{color:#475569;line-height:1.8;margin-bottom:1.25rem}
+    .prose ul,.prose ol{color:#475569;margin-bottom:1.25rem;padding-left:1.5rem}.prose li{margin-bottom:0.5rem;line-height:1.7}.prose ul{list-style-type:disc}.prose ol{list-style-type:decimal}
+    .prose blockquote{border-left:4px solid #C5A059;padding:1rem 1.5rem;margin:1.5rem 0;background:#F9F5F0;color:#334155;font-style:italic}
+    .prose img{border-radius:0.75rem;margin:1.5rem 0;max-width:100%}
+    .prose a{color:#C5A059;text-decoration:underline;text-underline-offset:2px}.prose a:hover{color:#b8913f}
+    .prose table{width:100%;border-collapse:collapse;margin:1.5rem 0}.prose th,.prose td{border:1px solid #e2e8f0;padding:0.75rem 1rem;text-align:left;font-size:0.875rem}.prose th{background:#f8fafc;font-weight:700}
+    .prose hr{border:none;border-top:1px solid #e2e8f0;margin:2rem 0}.prose code{background:#f1f5f9;padding:0.15rem 0.4rem;border-radius:0.25rem;font-size:0.875rem}
+  </style>
+</head>
+<body>
+${chrome}
+<header class="bg-slate-950 text-white border-b border-slate-800">
+  <div class="max-w-4xl mx-auto px-6 py-16 md:py-24">
+    <div class="flex flex-wrap items-center gap-3 mb-6">
+      <a href="${blogIndexUrl(post.locale)}" class="text-gold text-[10px] uppercase tracking-[0.22em] font-bold hover:text-white transition"><i class="fas fa-arrow-left mr-1"></i> ${g.blog || "Blog"}</a>
+      <span class="text-slate-600">|</span>
+      <time class="text-slate-400 text-sm">${formattedDate}</time>
+    </div>
+    <h1 class="text-3xl md:text-5xl font-serif leading-tight">${esc(post.title)}</h1>
+    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-5 max-w-3xl">${esc(post.description)}</p>
+    <div class="flex items-center gap-4 mt-8 pt-6 border-t border-white/10">
+      <img src="${physician.image}" alt="${esc(physician.name)}" class="w-12 h-12 rounded-full object-cover border-2 border-gold">
+      <div><p class="font-bold text-sm">${esc(physician.name)}</p><p class="text-slate-400 text-xs">${esc(physician.jobTitle)} · ${SITE_NAME}</p></div>
+    </div>
+  </div>
+</header>
+<article class="py-14 md:py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6 prose">${post.htmlContent}</div>
+  ${post.tags.length ? `<div class="max-w-3xl mx-auto px-6 mt-10 pt-8 border-t border-slate-200 flex flex-wrap gap-2">${tagBadges}</div>` : ""}
+</article>
+<section class="py-14 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <p class="text-gold uppercase tracking-widest text-[10px] font-bold mb-3">Continue Reading</p>
+    <a href="${blogIndexUrl(post.locale)}" class="inline-block px-8 py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition">${g.blog || "Blog"} <i class="fas fa-arrow-right ml-1"></i></a>
+  </div>
+</section>
+${footer}
+${consentBanner(post.locale)}
+<script>(function(){var k='tune-cookie-consent',b=document.getElementById('cookie-consent-banner'),a=document.getElementById('cookie-accept-btn'),r=document.getElementById('cookie-reject-btn');if(!b||!a||!r||typeof window.gtag!=='function')return;function u(g){window.gtag('consent','update',{analytics_storage:g?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'})}function s(v){try{localStorage.setItem(k,v)}catch(e){}}function rd(){try{return localStorage.getItem(k)}catch(e){return null}}var c=rd();if(c==='accepted')u(true);else if(c==='rejected')u(false);else b.classList.remove('hidden');a.addEventListener('click',function(){u(true);s('accepted');b.classList.add('hidden')});r.addEventListener('click',function(){u(false);s('rejected');b.classList.add('hidden')})})();</script>
+</body>
+</html>`;
+}
+
+function renderBlogIndex(locale, posts, localeData) {
+  const g = localeData[locale].global;
+  const canonicalUrl = publicBlogIndexUrl(locale);
+  const localeMeta = LOCALE_META[locale] || LOCALE_META.en;
+  const hreflangLinks = blogIndexAlternateLinks(locale);
+  const blogTitle = g.blog || "Blog";
+  const localePosts = posts.filter((p) => p.locale === locale);
+  const switcher = languageSwitcher({ locale, key: "index", availableLocales: languageOrder }, localeData);
+
+  const postCards = localePosts.map((post) => {
+    const physician = PHYSICIANS.find((p) => p.slug === post.author) || PHYSICIANS[0];
+    const fd = formatBlogDate(post.date, locale);
+    const tb = post.tags.slice(0, 3).map((t) => `<span class="px-2 py-0.5 rounded-full border border-slate-200 text-slate-400 text-[9px] uppercase tracking-[0.12em] font-bold">${esc(t)}</span>`).join(" ");
+    return `
+      <a href="${blogUrl(locale, post.slug)}" class="group block rounded-2xl border border-slate-200 bg-white hover:border-gold hover:shadow-lg transition overflow-hidden">
+        ${post.ogImage ? `<div class="aspect-[16/9] overflow-hidden"><img src="/.netlify/images?url=${post.ogImage}&w=600&fm=webp&q=80" alt="${esc(post.title)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>` : ""}
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">${tb}</div>
+          <h2 class="text-lg font-serif text-slate-900 group-hover:text-gold transition leading-snug mb-3">${esc(post.title)}</h2>
+          <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 mb-4">${esc(post.description)}</p>
+          <div class="flex items-center gap-3 text-xs text-slate-400"><span>${esc(physician.name)}</span><span>·</span><time>${fd}</time></div>
+        </div>
+      </a>`;
+  }).join("\n");
+
+  const emptyState = `<div class="text-center py-20"><i class="fas fa-pen-nib text-5xl text-slate-300 mb-6"></i><p class="text-lg text-slate-500">Articles coming soon.</p></div>`;
+  const structuredData = [{ "@context": "https://schema.org", "@type": "Blog", "@id": `${canonicalUrl}#blog`, url: canonicalUrl, name: `${SITE_NAME} ${blogTitle}`, description: `Evidence-based aesthetic medicine insights from ${SITE_NAME}.`, publisher: { "@id": `${SITE_URL}/#organization` }, inLanguage: g.langAttr }];
+  const footer = siteFooter({ locale, template: "editorial", key: "blog-index" }, localeData);
+
+  return `<!DOCTYPE html>
+<html lang="${g.langAttr}" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${blogTitle} | ${SITE_NAME}</title>
+  <meta name="description" content="Evidence-based aesthetic medicine insights from the physicians at ${SITE_NAME}. Treatment education, physician perspectives, and travel planning for international patients.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="${blogTitle} | ${SITE_NAME}"><meta property="og:site_name" content="${SITE_NAME}"><meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta property="og:type" content="website"><meta property="og:locale" content="${localeMeta.ogLocale}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="${canonicalUrl}">
+  ${hreflangLinks}
+  <link rel="alternate" type="application/rss+xml" title="${SITE_NAME} Blog RSS" href="${SITE_URL}/blog/feed.xml">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{anonymize_ip:true});</script>
+  <script type="application/ld+json">${JSON.stringify(structuredData)}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+    body{font-family:'Lato',sans-serif}.font-serif{font-family:'Playfair Display',serif}.text-gold{color:#C5A059}.bg-gold{background-color:#C5A059}.border-gold{border-color:#C5A059}.bg-gold-light{background-color:#F9F5F0}
+    .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  </style>
+</head>
+<body>
+<div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <a href="${pageUrl(locale, "index")}" class="flex items-center text-slate-300 hover:text-white transition"><i class="fas fa-arrow-left mr-2 text-gold"></i> ${g.backHome}</a>
+    <div class="flex items-center gap-6">
+      <span class="text-gold uppercase tracking-widest font-bold text-[10px] hidden sm:inline">${blogTitle}</span>
+      <a href="${pageUrl(locale, "index")}#programs" class="text-slate-300 hover:text-white transition uppercase tracking-widest font-bold text-[10px]">${g.viewPrograms} <i class="fas fa-arrow-right ml-1 text-gold"></i></a>
+      ${switcher}
+    </div>
+  </div>
+</div>
+<nav class="bg-white border-b border-slate-100 relative z-40" id="navbar">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center h-16">
+      <a href="${pageUrl(locale, "index")}" class="flex items-center gap-2">
+        <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
+        <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
+        <a href="${pageUrl(locale, "index")}" class="hover:text-gold transition">${g.home}</a>
+        <a href="${blogIndexUrl(locale)}" class="text-gold transition border-b-2 border-gold pb-1">${blogTitle}</a>
+        <a href="${pageUrl(locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
+        <a href="${pageUrl(locale, "menu")}" class="hover:text-gold transition">${g.menu}</a>
+        <a href="${pageUrl(locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl">
+    <a href="${pageUrl(locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
+    <a href="${blogIndexUrl(locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">${blogTitle}</a>
+    <a href="${pageUrl(locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.method}</a>
+    <a href="${pageUrl(locale, "menu")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.menu}</a>
+    <a href="${pageUrl(locale, "gallery")}" class="block px-6 py-4 font-bold text-slate-800">${g.gallery}</a>
+  </div>
+</nav>
+<script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
+<header class="bg-slate-950 text-white border-b border-slate-800">
+  <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5"><i class="fas fa-pen-nib"></i> ${SITE_NAME} ${blogTitle}</span>
+    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">Physician Insights on Aesthetic Medicine</h1>
+    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">Evidence-based perspectives on lifting, injectables, regenerative treatments, and rational planning for international patients visiting Seoul.</p>
+  </div>
+</header>
+<section class="py-14 md:py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    ${localePosts.length ? `<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${postCards}</div>` : emptyState}
+  </div>
+</section>
+${footer}
+${consentBanner(locale)}
+<script>(function(){var k='tune-cookie-consent',b=document.getElementById('cookie-consent-banner'),a=document.getElementById('cookie-accept-btn'),r=document.getElementById('cookie-reject-btn');if(!b||!a||!r||typeof window.gtag!=='function')return;function u(g){window.gtag('consent','update',{analytics_storage:g?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'})}function s(v){try{localStorage.setItem(k,v)}catch(e){}}function rd(){try{return localStorage.getItem(k)}catch(e){return null}}var c=rd();if(c==='accepted')u(true);else if(c==='rejected')u(false);else b.classList.remove('hidden');a.addEventListener('click',function(){u(true);s('accepted');b.classList.add('hidden')});r.addEventListener('click',function(){u(false);s('rejected');b.classList.add('hidden')})})();</script>
+</body>
+</html>`;
+}
+
+module.exports = { renderPage, renderBlogPost, renderBlogIndex };

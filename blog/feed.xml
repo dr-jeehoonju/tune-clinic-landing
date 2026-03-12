@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tune Clinic Blog</title>
+    <link>https://tuneclinic-global.com/blog/</link>
+    <description>Evidence-based aesthetic medicine insights from the physicians at Tune Clinic.</description>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Mar 2026 02:45:13 GMT</lastBuildDate>
+    <atom:link href="https://tuneclinic-global.com/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Three Lifting Devices, Three Different Jobs — Ultherapy, Thermage, and Oligio Compared</title>
+      <link>https://tuneclinic-global.com/blog/lifting-devices-compared.html</link>
+      <guid isPermaLink="true">https://tuneclinic-global.com/blog/lifting-devices-compared.html</guid>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Ultherapy, Thermage FLX, and Oligio are not interchangeable. A physician explains which layer each device targets and how to choose based on your anatomy.</description>
+    </item>
+    <item>
+      <title>Why Most Filler Fears Are Based on Outdated Information</title>
+      <link>https://tuneclinic-global.com/blog/why-filler-fears-are-outdated.html</link>
+      <guid isPermaLink="true">https://tuneclinic-global.com/blog/why-filler-fears-are-outdated.html</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <description>A physician explains why common filler fears — migration, overfilling, long-term damage — usually reflect older techniques, not modern evidence-based practice.</description>
+    </item>
+  </channel>
+</rss>
