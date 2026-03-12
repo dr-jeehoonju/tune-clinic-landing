@@ -316,7 +316,7 @@
                 
                 card.innerHTML = `
                     <div class="w-full bg-slate-100 relative aspect-video overflow-hidden">
-                        <img src="${item.imageSrc}" alt="Before and After - ${item.title}" loading="lazy" class="w-full h-full object-cover ${item.category === 'facial' ? 'object-top' : 'object-center'} group-hover:scale-105 transition duration-500">
+                        <img src="${item.imageSrc}" alt="Before and After - ${item.title}" loading="lazy" class="w-full h-full object-cover ${item.category === 'facial' ? 'object-[50%_20%]' : 'object-center'} group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center z-20">
                             <span class="bg-white text-slate-900 text-xs font-bold px-4 py-2 rounded-sm shadow-lg transform translate-y-2 group-hover:translate-y-0 transition">View Details</span>
                         </div>
