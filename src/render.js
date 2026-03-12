@@ -1155,16 +1155,19 @@ function renderBlogIndex(locale, posts, localeData) {
   const postCards = localePosts.map((post) => {
     const authors = resolveAuthors(post.author);
     const fd = formatBlogDate(post.date, locale);
-    const tb = post.tags.slice(0, 3).map((t) => `<span class="px-2 py-0.5 rounded-full border border-slate-200 text-slate-400 text-[9px] uppercase tracking-[0.12em] font-bold">${esc(t)}</span>`).join(" ");
-    const authorNames = authors.map((a) => esc(a.name)).join(", ");
+    const tb = post.tags.slice(0, 3).map((t) => `<span class="inline-block px-2.5 py-1 rounded-full border border-slate-200 text-slate-400 text-[9px] uppercase tracking-[0.12em] font-bold whitespace-nowrap">${esc(t)}</span>`).join(" ");
+    const authorNames = authors.map((a) => esc(a.name)).join(" & ");
     return `
       <a href="${blogUrl(locale, post.slug)}" class="group block rounded-2xl border border-slate-200 bg-white hover:border-gold hover:shadow-lg transition overflow-hidden">
         ${post.ogImage ? `<div class="aspect-[16/9] overflow-hidden"><img src="/.netlify/images?url=${post.ogImage}&w=600&fm=webp&q=80" alt="${esc(post.title)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>` : ""}
         <div class="p-6">
-          <div class="flex items-center gap-2 mb-3">${tb}</div>
-          <h2 class="text-lg font-serif text-slate-900 group-hover:text-gold transition leading-snug mb-3">${esc(post.title)}</h2>
-          <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 mb-4">${esc(post.description)}</p>
-          <div class="flex items-center gap-3 text-xs text-slate-400"><span>${authorNames}</span><span>·</span><time>${fd}</time></div>
+          <div class="flex flex-wrap gap-1.5 mb-4">${tb}</div>
+          <h2 class="text-lg font-serif text-slate-900 group-hover:text-gold transition leading-snug mb-2">${esc(post.title)}</h2>
+          <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 mb-5">${esc(post.description)}</p>
+          <div class="pt-4 border-t border-slate-100">
+            <p class="text-xs font-medium text-slate-600">${authorNames}</p>
+            <time class="text-[11px] text-slate-400 mt-0.5 block">${fd}</time>
+          </div>
         </div>
       </a>`;
   }).join("\n");
