@@ -150,6 +150,12 @@
         .border-gold { border-color: #C5A059; }
         .bg-gold-light { background-color: rgba(197, 160, 89, 0.08); }
 
+        .menu-hero {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(197,160,89,0.18), transparent 28%),
+                radial-gradient(circle at 82% 20%, rgba(96,165,250,0.12), transparent 24%),
+                linear-gradient(180deg, #08111d 0%, #0f172a 60%, #111827 100%);
+        }
         .nav-pill {
             padding: 0.5rem 1rem;
             font-size: 0.75rem;
@@ -176,10 +182,10 @@
         }
 
         .section-card {
-            background-color: #fff;
-            border-radius: 0.125rem;
-            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
-            border: 1px solid #f1f5f9;
+            background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+            border-radius: 1.5rem;
+            box-shadow: 0 18px 50px rgba(15,23,42,0.08);
+            border: 1px solid #e9eef5;
             padding: 1.25rem;
             margin-bottom: 2.5rem;
             position: relative;
@@ -203,7 +209,555 @@
         html { scroll-padding-top: 180px; }
 </style>
 
+<div class="menu-hero -mt-px mb-12 md:mb-16">
+        <div class="max-w-5xl mx-auto px-4 md:px-6 py-14 md:py-20">
+            <div class="text-center fade-in-up">
+                <span class="inline-flex py-2 px-4 border border-white/10 text-gold text-[10px] font-bold uppercase tracking-[0.22em] mb-5 rounded-full bg-white/5 backdrop-blur-sm">
+                    医师严选治疗体验
+                </span>
+                <h1 class="text-4xl md:text-6xl font-serif text-white mb-5 leading-tight">Chamaka-se 菜单</h1>
+                <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                    面向国际患者的医师监修治疗库。作为参考使用，最终方案请与医疗团队直接确认。
+                </p>
+            </div>
 
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-10">
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Smooth & Define</p>
+                    <p class="text-sm text-slate-200">肉毒引领的面部轮廓与肌肉平衡</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Lift & Tighten</p>
+                    <p class="text-sm text-slate-200">结构与紧致的能量方案</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Restore & Plump</p>
+                    <p class="text-sm text-slate-200">按适应症的填充与胶原方案</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Comfort</p>
+                    <p class="text-sm text-slate-200">适合出行的舒适化选项</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 md:px-6 pb-12 md:pb-20">
+
+        <div id="smooth-define" class="section-card">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Smooth & Define</h2>
+                <p class="text-slate-500 text-sm mb-4">高级神经调节剂<strong class="text-slate-700">（肉毒）</strong>治疗，软化表情纹、优化面部轮廓，自然不僵硬。</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="tag-pill">表情纹</span>
+                    <span class="tag-pill">咬肌发达</span>
+                    <span class="tag-pill">面部紧张</span>
+                </div>
+
+                <div class="bg-slate-50 p-4 md:p-5 rounded-sm border border-slate-100">
+                    <p class="font-bold text-slate-800 text-[11px] uppercase tracking-widest mb-3">制剂选项</p>
+                    <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                        <div>
+                            <span class="text-sm font-bold text-slate-700 flex items-center gap-2"><i class="fas fa-check text-gold text-xs"></i> Standard</span>
+                            <p class="text-[11px] md:text-xs text-slate-500 mt-1 leading-relaxed">临床验证有效的韩国神经调节剂</p>
+                        </div>
+                        <div>
+                            <span class="text-sm font-bold text-slate-700 flex items-center gap-2"><i class="fas fa-star text-gold text-xs"></i> Premium <span class="text-xs font-normal text-slate-400">(Xeomin / Allergan)</span></span>
+                            <p class="text-[11px] md:text-xs text-slate-500 mt-1 leading-relaxed">高纯度、零复合蛋白。降低耐药风险，适合长期维护。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">咬肌轮廓（瘦脸）</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">软化方颌或咬肌发达，缓解咬牙紧张</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="1">₩58,000</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="2">₩150,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">高剂量下颌精修（75U）</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">针对肌肉量较大的进阶剂量方案</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="3">₩87,000</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="4">₩225,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">上脸放松</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">针对额头、眉间、鱼尾纹的精准平滑</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard <span class="font-normal text-[10px] text-slate-400 ml-1">(每部位)</span></span>
+                        <span class="font-serif font-bold text-slate-800" data-price="5">₩15,000</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium <span class="font-normal text-[10px] text-slate-400 ml-1">(每部位)</span></span>
+                        <span class="font-serif font-bold text-slate-800" data-price="6">₩110,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">下脸精修</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">下巴凹陷、兔纹、嘴角下垂的调整</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="7">₩58,000</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="8">₩130,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">微剂量皮肤肉毒</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">浅层注射，收紧毛孔、细腻肤质</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">仅面部</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="9">₩99,000</p>
+                    </div>
+                </div>
+                
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> 返回顶部</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="lift-tighten" class="section-card border-t-4 border-t-slate-900">
+            <div class="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 uppercase">旗舰方案</div>
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Lift & Tighten</h2>
+                <p class="text-slate-500 text-sm mb-5">非手术能量方案，对抗重力，恢复深层组织张力</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">皮肤松弛</span>
+                    <span class="tag-pill">双下巴</span>
+                    <span class="tag-pill">弹性流失</span>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="py-6 border border-gold/40 bg-gold-light/30 px-4 md:px-5 rounded-sm flex flex-col md:flex-row justify-between gap-4 my-4 shadow-sm">
+                    <div class="flex-1 pr-2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <p class="font-bold text-slate-900 text-base md:text-lg leading-tight">Ultherapy 350发医师方案</p>
+                            <span class="text-[9px] bg-gold text-white px-1.5 py-0.5 rounded uppercase font-bold tracking-wider shrink-0">首选</span>
+                        </div>
+                        <p class="text-[11px] md:text-xs text-slate-600 leading-relaxed">医师校准矢量规划，靶向SMAS层，深层自然提升，几乎无恢复期</p>
+                    </div>
+                    <div class="text-right border-t border-gold/20 md:border-t-0 pt-3 md:pt-0 flex flex-row md:flex-col justify-between items-center md:items-end shrink-0">
+                        <span class="md:hidden text-[10px] font-bold text-gold uppercase tracking-widest">方案费用</span>
+                        <p class="font-serif text-xl md:text-2xl font-bold text-gold" data-price="10">₩900,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">ONDA 微波轮廓</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">无痛微波能量，溶解顽固脂肪、收紧双下巴</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">60kJ 基础</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="11">₩650,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Inmode FX V-Line 雕塑</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">靶向射频轮廓，常与溶脂联合打造清晰下颌线</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">单部位</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="12">₩180,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> 返回顶部</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="restore-plump" class="section-card mb-12">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Restore & Plump</h2>
+                <p class="text-slate-500 text-sm mb-5">重建年轻饱满，自然刺激深层细胞再生</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">面颊凹陷</span>
+                    <span class="tag-pill">眼窝凹陷</span>
+                    <span class="tag-pill">容量流失</span>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Juvelook Volume 方案</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">渐进式胶原生物刺激，自然填充凹陷，无过度填充感</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">2cc 基础</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="13">₩1,060,000</p>
+                    </div>
+                </div>
+                
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Collagen Synergy</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran Black + Juvelook Skin，双效重建真皮厚度与弹性</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="14">₩700,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">MCT 细胞再生（干细胞）</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">利用身体自身再生能力的先进细胞疗法</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">4cc 基础</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="15">₩1,000,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> 返回顶部</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="filler-reference" class="section-card border-l-4 border-l-gold bg-white">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">填充（参考）</h2>
+                <p class="text-slate-500 text-sm mb-5 leading-relaxed">
+                    品牌与用量于面诊评估后确定。<strong class="text-slate-700">填充剂是用于和谐的结构工具，非常规体积扩张。</strong>
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">下颌线</span>
+                    <span class="tag-pill">下巴</span>
+                    <span class="tag-pill">泪沟</span>
+                    <span class="tag-pill">唇部</span>
+                </div>
+            </div>
+
+            <div class="space-y-10">
+                <div>
+                    <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100">
+                        <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">通用填充 (1cc)</h3>
+                    </div>
+                    <div class="px-2 space-y-0">
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Juvederm</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="16">₩380,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Restylane</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="17">₩340,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Belotero</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="18">₩340,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Yvoire</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="19">₩180,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Rejouviel</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="20">₩180,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Revolline</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="21">₩150,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100">
+                        <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">泪沟 / 耳 / 上眼睑填充 (1cc)</h3>
+                    </div>
+                    <div class="px-2 space-y-0">
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Juvederm</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="22">₩560,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Restylane</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="23">₩460,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Belotero</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="24">₩500,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Yvoire</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="25">₩375,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Rejouviel</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="26">₩375,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Revolline</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="27">₩300,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                    <div>
+                        <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100">
+                            <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">唇部填充</h3>
+                        </div>
+                        <div class="px-2">
+                            <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                                <span class="text-sm font-bold text-slate-700">Restylane Kysse <span class="text-xs text-slate-400 font-normal ml-1">(1cc)</span></span>
+                                <span class="font-serif font-bold text-slate-900" data-price="28">₩385,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100 flex items-center justify-between">
+                            <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">透明质酸酶</h3>
+                            <span class="text-[9px] text-slate-400 bg-white px-2 py-0.5 rounded border border-slate-200 uppercase tracking-widest font-bold">安全信号</span>
+                        </div>
+                        <div class="px-2">
+                            <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                                <span class="text-sm font-bold text-slate-700">H-lase 溶解酶 <span class="text-xs text-slate-400 font-normal ml-1">(每部位 / 2cc)</span></span>
+                                <span class="font-serif font-bold text-slate-900" data-price="29">₩120,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> 返回顶部</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="glow-refine" class="section-card mb-12">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Glow & Refine</h2>
+                <p class="text-slate-500 text-sm mb-5">精选 booster 方案，改善肤质、深层保湿、提亮肤色</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">暗沉</span>
+                    <span class="tag-pill">毛孔粗大</span>
+                    <span class="tag-pill">干燥粗糙</span>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">The Classic Healer</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran Black + White，集中输送多核苷酸，修复屏障、提亮肤色</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">5cc 方案</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="30">₩660,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Luminosity Boost</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran White + LDM，无痛 Dermashine 注射后超声波即时舒缓</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="31">₩640,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Scar & Pore Focus</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran Blue + Potenza，射频微针配合愈合 booster 细化毛孔</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="32">₩1,150,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Essential Clinical Skincare</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">清爽基础：Aqua Peel、冷冻、LDM 保湿等</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">每次</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="33">₩60,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> 返回顶部</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="comfort-experience" class="section-card border-t-2 border-slate-900 bg-slate-50">
+            <div class="mb-8 border-b border-slate-200 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">舒适体验</h2>
+                <p class="text-slate-500 text-sm mb-5">您的安心是我们的首要考量。分阶方案，让旅程无焦虑</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill bg-white border border-slate-200">疼痛管理</span>
+                    <span class="tag-pill bg-white border border-slate-200">无焦虑</span>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-200 last:border-0 flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">表面麻醉准备</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">施术前涂抹标准临床级麻醉霜</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-sm md:text-base font-bold text-slate-500 uppercase tracking-wider" data-price="34">已包含</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-200 last:border-0 flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">精准舒适阻滞</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">医师实施的局部麻醉技术，显著减轻感觉</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">可选</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="35">+ ₩50,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-200 last:border-0 flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">静脉清醒镇静</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">完全放松，医师监护下舒适镇静</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">可选</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="36">+ ₩100,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> 返回顶部</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-16 pt-12 border-t border-slate-200">
+            
+            <div class="mb-10">
+                <p class="text-sm font-bold text-slate-700 border-l-2 border-gold pl-4 inline-block text-left">
+                    所有治疗均需先进行面诊解剖评估<br class="hidden md:block">及禁忌筛查。
+                </p>
+            </div>
+
+            <p class="text-xs text-slate-400 mb-2 uppercase tracking-widest font-bold">下一步</p>
+            <h3 class="text-2xl font-serif text-slate-900 mb-8">开启您的旅程</h3>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="inline-block bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg w-full sm:w-auto">
+                    <i class="fab fa-instagram mr-2"></i> 开始咨询
+                </a>
+                <a href="/zh/index.html#programs" class="inline-block border border-slate-300 text-slate-600 px-10 py-4 font-bold rounded-sm hover:border-slate-800 hover:text-slate-900 transition bg-white w-full sm:w-auto">
+                    <i class="fas fa-arrow-left mr-2"></i> 返回首页
+                </a>
+            </div>
+            <p class="text-xs text-slate-400 mt-8 leading-relaxed max-w-md mx-auto">
+                * 价格以韩元标示，含增值税。<br>
+                * 最终医疗方案与报价将在面诊评估后准确确定。
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            if(btn && menu){
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+
+            const sections = document.querySelectorAll('.section-card');
+            const navLinks = document.querySelectorAll('#section-nav a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-120px 0px -70% 0px' });
+
+            sections.forEach(section => {
+                if (section.id) observer.observe(section);
+            });
+        })();
+    </script>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key] && map[key] !== el.textContent.trim().replace(/~$/, '')) {
+            const hasTilde = el.querySelector('.font-sans') || el.textContent.includes('~');
+            el.textContent = map[key];
+            if (hasTilde && !map[key].includes('~')) {
+              const t = document.createElement('span');
+              t.className = 'font-sans text-[11px] font-normal text-slate-400 ml-0.5';
+              t.textContent = '~';
+              el.appendChild(t);
+            }
+          }
+        });
+      } catch(e) {}
+    })();
+    </script>
 
 
     <footer id="contact" class="bg-slate-950 text-white border-t border-slate-800">

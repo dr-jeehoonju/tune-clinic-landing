@@ -150,6 +150,12 @@
         .border-gold { border-color: #C5A059; }
         .bg-gold-light { background-color: rgba(197, 160, 89, 0.08); }
 
+        .menu-hero {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(197,160,89,0.18), transparent 28%),
+                radial-gradient(circle at 82% 20%, rgba(96,165,250,0.12), transparent 24%),
+                linear-gradient(180deg, #08111d 0%, #0f172a 60%, #111827 100%);
+        }
         .nav-pill {
             padding: 0.5rem 1rem;
             font-size: 0.75rem;
@@ -176,10 +182,10 @@
         }
 
         .section-card {
-            background-color: #fff;
-            border-radius: 0.125rem;
-            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
-            border: 1px solid #f1f5f9;
+            background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+            border-radius: 1.5rem;
+            box-shadow: 0 18px 50px rgba(15,23,42,0.08);
+            border: 1px solid #e9eef5;
             padding: 1.25rem;
             margin-bottom: 2.5rem;
             position: relative;
@@ -200,10 +206,561 @@
             letter-spacing: 0.05em;
         }
         
-        html { scroll-padding-top: 180px; }
+        html { scroll-padding-top: 120px; }
+        @media (max-width: 768px) {
+            html { scroll-padding-top: 88px; }
+        }
 </style>
 
+<div class="menu-hero -mt-px mb-12 md:mb-16">
+        <div class="max-w-5xl mx-auto px-4 md:px-6 py-14 md:py-20">
+            <div class="text-center fade-in-up">
+                <span class="inline-flex py-2 px-4 border border-white/10 text-gold text-[10px] font-bold uppercase tracking-[0.22em] mb-5 rounded-full bg-white/5 backdrop-blur-sm">
+                    医師が厳選した施術体験
+                </span>
+                <h1 class="text-4xl md:text-6xl font-serif text-white mb-5 leading-tight">Chamaka-se メニュー</h1>
+                <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                    海外患者様向けの医師監修施術ライブラリ。参考としてご活用いただき、最終プロトコルは医療チームと直接ご確認ください。
+                </p>
+            </div>
 
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-10">
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Smooth & Define</p>
+                    <p class="text-sm text-slate-200">ニューロモデュレーターによる顔の輪郭調整と筋肉バランス</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Lift & Tighten</p>
+                    <p class="text-sm text-slate-200">構造と引き締めのためのエネルギー施術</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Restore & Plump</p>
+                    <p class="text-sm text-slate-200">症例に応じたフィラーとコラーゲン施術</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Comfort</p>
+                    <p class="text-sm text-slate-200">渡航に配慮した快適オプション</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 md:px-6 pb-12 md:pb-20">
+
+        <div id="smooth-define" class="section-card">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Smooth & Define</h2>
+                <p class="text-slate-500 text-sm mb-4">ニューロモデュレーター<strong class="text-slate-700">（ボトックス）</strong>による表情筋のソフト化と顔の輪郭調整。固くならない自然な仕上がり。</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="tag-pill">表情ジワ</span>
+                    <span class="tag-pill">エラ張り</span>
+                    <span class="tag-pill">顔の緊張</span>
+                </div>
+
+                <div class="bg-slate-50 p-4 md:p-5 rounded-sm border border-slate-100">
+                    <p class="font-bold text-slate-800 text-[11px] uppercase tracking-widest mb-3">製剤オプション</p>
+                    <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                        <div>
+                            <span class="text-sm font-bold text-slate-700 flex items-center gap-2"><i class="fas fa-check text-gold text-xs"></i> Standard</span>
+                            <p class="text-[11px] md:text-xs text-slate-500 mt-1 leading-relaxed">臨床データに基づく韓国製ニューロモデュレーター</p>
+                        </div>
+                        <div>
+                            <span class="text-sm font-bold text-slate-700 flex items-center gap-2"><i class="fas fa-star text-gold text-xs"></i> Premium <span class="text-xs font-normal text-slate-400">(Xeomin / Allergan)</span></span>
+                            <p class="text-[11px] md:text-xs text-slate-500 mt-1 leading-relaxed">高純度・複合タンパク質ゼロ。耐性リスク低減。長期メンテナンスに最適。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">咬筋コントゥーリング（小顔）</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">エラ張りをソフトにし、食いしばり・顎の緊張を緩和</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="1">₩58,000</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="2">₩150,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">高用量顎調整（75U）</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">筋肉量の多い方向けの高用量プロトコル</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="3">₩87,000</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="4">₩225,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">上半顔リラクゼーション</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">額・眉間・目尻の targeted  smoothing</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard <span class="font-normal text-[10px] text-slate-400 ml-1">(部位あたり)</span></span>
+                        <span class="font-serif font-bold text-slate-800" data-price="5">₩15,000</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium <span class="font-normal text-[10px] text-slate-400 ml-1">(部位あたり)</span></span>
+                        <span class="font-serif font-bold text-slate-800" data-price="6">₩110,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">下半顔ディテーリング</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">オトガイの窪み、バニーライン、口角の調整</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="7">₩58,000</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="8">₩130,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">マイクロドージング スキンボトックス</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">浅層注入で毛穴の引き締めと肌表面の滑らかさをサポート</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">顔のみ</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="9">₩99,000</p>
+                    </div>
+                </div>
+                
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> トップへ戻る</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="lift-tighten" class="section-card border-t-4 border-t-slate-900">
+            <div class="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 uppercase">クリニック推奨</div>
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Lift & Tighten</h2>
+                <p class="text-slate-500 text-sm mb-5">非外科的エネルギー施術で重力に抗い、深部組織の張りを回復</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">たるみ</span>
+                    <span class="tag-pill">二重あご</span>
+                    <span class="tag-pill">弾力低下</span>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="py-6 border border-gold/40 bg-gold-light/30 px-4 md:px-5 rounded-sm flex flex-col md:flex-row justify-between gap-4 my-4 shadow-sm">
+                    <div class="flex-1 pr-2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <p class="font-bold text-slate-900 text-base md:text-lg leading-tight">Ultherapy 350ショット医師プロトコル</p>
+                            <span class="text-[9px] bg-gold text-white px-1.5 py-0.5 rounded uppercase font-bold tracking-wider shrink-0">推奨</span>
+                        </div>
+                        <p class="text-[11px] md:text-xs text-slate-600 leading-relaxed">医師がベクターを精密に計画し、SMAS層をターゲット。ダウンタイムの少ない深く自然なリフティング</p>
+                    </div>
+                    <div class="text-right border-t border-gold/20 md:border-t-0 pt-3 md:pt-0 flex flex-row md:flex-col justify-between items-center md:items-end shrink-0">
+                        <span class="md:hidden text-[10px] font-bold text-gold uppercase tracking-widest">プロトコル料金</span>
+                        <p class="font-serif text-xl md:text-2xl font-bold text-gold" data-price="10">₩900,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">ONDA マイクロ波コントゥーリング</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">脂肪溶解と二重あごの引き締めのためのマイクロ波エネルギー</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">60kJ Base</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="11">₩650,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Inmode FX V-Line スカルプティング</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">ターゲットRFコントゥーリング。脂肪溶解施術と組み合わせてシャープな輪郭に</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Single Area</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="12">₩180,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> トップへ戻る</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="restore-plump" class="section-card mb-12">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Restore & Plump</h2>
+                <p class="text-slate-500 text-sm mb-5">若々しいボリュームの回復と深い細胞再生の自然な刺激</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">頬の陥没</span>
+                    <span class="tag-pill">くま</span>
+                    <span class="tag-pill">ボリュームロス</span>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Juvelook Volume プロトコル</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">段階的なコラーゲン生体刺激。過剰感のない自然なボリューム回復</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">2cc Base</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="13">₩1,060,000</p>
+                    </div>
+                </div>
+                
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Collagen Synergy</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran Black + Juvelook Skin。真皮の厚みと弾力の回復</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="14">₩700,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">MCT 細胞再生（幹細胞）</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">身体の再生能力を活用した高度な細胞施術</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">4cc Base</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="15">₩1,000,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> トップへ戻る</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="filler-reference" class="section-card border-l-4 border-l-gold bg-white">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Filler（参考）</h2>
+                <p class="text-slate-500 text-sm mb-5 leading-relaxed">
+                    ブランドと量は来院評価後に決定。<strong class="text-slate-700">フィラーは調和のための構造ツールであり、定型のボリューム注入ではありません。</strong>
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">Jawline</span>
+                    <span class="tag-pill">Chin</span>
+                    <span class="tag-pill">Under-eye</span>
+                    <span class="tag-pill">Lip</span>
+                </div>
+            </div>
+
+            <div class="space-y-10">
+                <div>
+                    <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100">
+                        <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">General Filler (1cc)</h3>
+                    </div>
+                    <div class="px-2 space-y-0">
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Juvederm</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="16">₩380,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Restylane</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="17">₩340,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Belotero</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="18">₩340,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Yvoire</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="19">₩180,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Rejouviel</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="20">₩180,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Revolline</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="21">₩150,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100">
+                        <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">Under-eye / Ear / Upper Eyelid Filler (1cc)</h3>
+                    </div>
+                    <div class="px-2 space-y-0">
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Juvederm</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="22">₩560,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Restylane</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="23">₩460,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Belotero</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="24">₩500,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Yvoire</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="25">₩375,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Rejouviel</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="26">₩375,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Revolline</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="27">₩300,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                    <div>
+                        <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100">
+                            <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">Lip Filler</h3>
+                        </div>
+                        <div class="px-2">
+                            <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                                <span class="text-sm font-bold text-slate-700">Restylane Kysse <span class="text-xs text-slate-400 font-normal ml-1">(1cc)</span></span>
+                                <span class="font-serif font-bold text-slate-900" data-price="28">₩385,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100 flex items-center justify-between">
+                            <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">Hyaluronidase</h3>
+                            <span class="text-[9px] text-slate-400 bg-white px-2 py-0.5 rounded border border-slate-200 uppercase tracking-widest font-bold">Safety Signal</span>
+                        </div>
+                        <div class="px-2">
+                            <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                                <span class="text-sm font-bold text-slate-700">H-lase Dissolver <span class="text-xs text-slate-400 font-normal ml-1">(部位あたり / 2cc)</span></span>
+                                <span class="font-serif font-bold text-slate-900" data-price="29">₩120,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> トップへ戻る</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="glow-refine" class="section-card mb-12">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Glow & Refine</h2>
+                <p class="text-slate-500 text-sm mb-5">テクスチャー改善、深い保湿、明るいトーンのための厳選ブースター施術</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">くすみ</span>
+                    <span class="tag-pill">毛穴開き</span>
+                    <span class="tag-pill">乾燥・荒れ</span>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">The Classic Healer</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran Black + White。ポリヌクレオチドの集中送達でバリア修復と明るい肌へ</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">5cc Protocol</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="30">₩660,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Luminosity Boost</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran White + LDM。痛みの少ないデルマシャイン後に超音波で即時鎮静</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="31">₩640,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Scar & Pore Focus</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran Blue + Potenza。RFマイクロニードリングで毛穴の細やかさを追求</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="32">₩1,150,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Essential Clinical Skincare</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Aqua Peel、Cryotherapy、LDMなど爽やかな基本ケア</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">1回あたり</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="33">₩60,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> トップへ戻る</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="comfort-experience" class="section-card border-t-2 border-slate-900 bg-slate-50">
+            <div class="mb-8 border-b border-slate-200 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">快適体験</h2>
+                <p class="text-slate-500 text-sm mb-5">お客様の安心を最優先。施術中の不安を軽減する段階的プロトコル</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill bg-white border border-slate-200">痛み管理</span>
+                    <span class="tag-pill bg-white border border-slate-200">不安軽減</span>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-200 last:border-0 flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">表面麻酔の準備</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">施術前に標準的なクリニカルグレードの麻酔クリームを塗布</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-sm md:text-base font-bold text-slate-500 uppercase tracking-wider" data-price="34">含まれています</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-200 last:border-0 flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">ターゲットコンフォートブロック</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">医師による局所麻酔で感覚を大幅に軽減</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">オプション</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="35">+ ₩50,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-200 last:border-0 flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">静脈内鎮静</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">完全リラックスのため、医師監視下で快適に鎮静状態を維持</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">オプション</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="36">+ ₩100,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> トップへ戻る</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-16 pt-12 border-t border-slate-200">
+            
+            <div class="mb-10">
+                <p class="text-sm font-bold text-slate-700 border-l-2 border-gold pl-4 inline-block text-left">
+                    すべての施術は来院による解剖学的評価と<br class="hidden md:block">禁忌スクリーニングの後に実施されます。
+                </p>
+            </div>
+
+            <p class="text-xs text-slate-400 mb-2 uppercase tracking-widest font-bold">次のステップ</p>
+            <h3 class="text-2xl font-serif text-slate-900 mb-8">あなたの施術を始める</h3>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="inline-block bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg w-full sm:w-auto">
+                    <i class="fab fa-instagram mr-2"></i> 相談を始める
+                </a>
+                <a href="index.html#programs" class="inline-block border border-slate-300 text-slate-600 px-10 py-4 font-bold rounded-sm hover:border-slate-800 hover:text-slate-900 transition bg-white w-full sm:w-auto">
+                    <i class="fas fa-arrow-left mr-2"></i> ホームへ戻る
+                </a>
+            </div>
+            <p class="text-xs text-slate-400 mt-8 leading-relaxed max-w-md mx-auto">
+                * 価格はウォン建て、VAT込みです。<br>
+                * 最終的な医療プランと見積もりは来院評価後に正確に決定されます。
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            if(btn && menu){
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+
+            const sections = document.querySelectorAll('.section-card');
+            const navLinks = document.querySelectorAll('#section-nav a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-120px 0px -70% 0px' });
+
+            sections.forEach(section => {
+                if (section.id) observer.observe(section);
+            });
+        })();
+    </script>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key] && map[key] !== el.textContent.trim().replace(/~$/, '')) {
+            const hasTilde = el.querySelector('.font-sans') || el.textContent.includes('~');
+            el.textContent = map[key];
+            if (hasTilde && !map[key].includes('~')) {
+              const t = document.createElement('span');
+              t.className = 'font-sans text-[11px] font-normal text-slate-400 ml-0.5';
+              t.textContent = '~';
+              el.appendChild(t);
+            }
+          }
+        });
+      } catch(e) {}
+    })();
+    </script>
 
 
     <footer id="contact" class="bg-slate-950 text-white border-t border-slate-800">
