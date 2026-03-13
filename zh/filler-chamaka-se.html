@@ -145,7 +145,7 @@
             
             <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[280px]">
                 <span class="text-sm font-bold text-white mb-2">方案基础价格</span>
-                <span class="text-3xl font-serif text-gold font-bold mb-1">From ₩750,000</span>
+                <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="104">From ₩750,000</span>
                 <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
                     <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">基础价格包含医师评估<br>+ 设计 + 精准填充方案。</p>
                 </div>
@@ -443,6 +443,22 @@
             </div>
         </div>
     </footer>
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key]) el.textContent = map[key];
+        });
+      } catch(e) {}
+    })();
+    </script>
 
 
     <footer id="contact" class="bg-slate-950 text-white border-t border-slate-800">
