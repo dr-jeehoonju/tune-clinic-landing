@@ -546,7 +546,7 @@ function siteFooter(entry, localeData) {
               <i class="${g.consultationIcon}"></i> ${g.footerCta}
             </a>
             <a href="${pageUrl(entry.locale, "consult")}" class="border border-gold/60 text-gold px-8 py-4 font-bold rounded-sm hover:bg-gold/10 transition flex items-center justify-center gap-2">
-              <i class="fas fa-file-alt"></i> ${g.consult || "Consultation Form"}
+              <i class="fas fa-camera"></i> ${g.consult || "Request Photo Assessment"}
             </a>
             <a href="${pageUrl(entry.locale, "menu")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2">
               <i class="fas fa-list-ul"></i> ${g.menu}
@@ -569,7 +569,7 @@ function siteFooter(entry, localeData) {
               <i class="${g.consultationIcon}"></i> ${g.footerCta}
             </a>
             <a href="${pageUrl(entry.locale, "consult")}" class="border border-gold/60 text-gold px-8 py-4 font-bold rounded-sm hover:bg-gold/10 transition flex items-center justify-center gap-2">
-              <i class="fas fa-file-alt"></i> ${g.consult || "Consultation Form"}
+              <i class="fas fa-camera"></i> ${g.consult || "Request Photo Assessment"}
             </a>
             <a href="${pageUrl(entry.locale, "menu")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2">
               <i class="fas fa-list-ul"></i> ${g.menu}
