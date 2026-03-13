@@ -112,16 +112,50 @@
     <!-- ANALYTICS TAB -->
     <section id="tab-analytics" class="tab-content hidden">
       <h2 class="text-xl font-bold text-slate-800 mb-6">통계 대시보드</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8" id="stat-cards"></div>
-      <div class="grid lg:grid-cols-2 gap-6">
+
+      <!-- Row 1: Summary Cards (8) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-8" id="stat-cards"></div>
+
+      <!-- Row 2: Daily Trend (30 days) -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
+        <h3 class="font-bold text-sm text-slate-600 mb-4">일별 문의 추이 <span class="font-normal text-slate-400">(최근 30일)</span></h3>
+        <canvas id="chart-daily" height="120"></canvas>
+      </div>
+
+      <!-- Row 3: Treatment Interest + Locale -->
+      <div class="grid lg:grid-cols-2 gap-6 mb-6">
         <div class="bg-white rounded-xl p-6 shadow-sm border">
           <h3 class="font-bold text-sm text-slate-600 mb-4">시술별 관심도</h3>
-          <canvas id="chart-treatments" height="250"></canvas>
+          <canvas id="chart-treatments" height="220"></canvas>
         </div>
         <div class="bg-white rounded-xl p-6 shadow-sm border">
           <h3 class="font-bold text-sm text-slate-600 mb-4">언어별 문의 비율</h3>
-          <canvas id="chart-locales" height="250"></canvas>
+          <canvas id="chart-locales" height="220"></canvas>
         </div>
+      </div>
+
+      <!-- Row 4: Status Distribution + Day-of-Week -->
+      <div class="grid lg:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm border">
+          <h3 class="font-bold text-sm text-slate-600 mb-4">상태별 분포</h3>
+          <canvas id="chart-status" height="220"></canvas>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border">
+          <h3 class="font-bold text-sm text-slate-600 mb-4">요일별 문의 패턴</h3>
+          <canvas id="chart-weekday" height="220"></canvas>
+        </div>
+      </div>
+
+      <!-- Row 5: Treatment × Locale Heatmap -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
+        <h3 class="font-bold text-sm text-slate-600 mb-4">시술 × 언어 교차 분석</h3>
+        <div class="overflow-x-auto" id="heatmap-container"></div>
+      </div>
+
+      <!-- Row 6: Recent Timeline -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border">
+        <h3 class="font-bold text-sm text-slate-600 mb-4">최근 문의 타임라인</h3>
+        <div id="timeline-container"></div>
       </div>
     </section>
 
@@ -444,41 +478,92 @@ $('#modal-close').addEventListener('click', () => $('#consult-modal').classList.
 $('#consult-modal').addEventListener('click', (e) => { if (e.target === e.currentTarget) $('#consult-modal').classList.add('hidden'); });
 
 /* ─── ANALYTICS ─── */
-let treatmentChart, localeChart;
+let treatmentChart, localeChart, dailyChart, statusChart, weekdayChart;
+
+const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
+const LOCALE_LABELS = { en: 'EN', ja: 'JA', zh: 'ZH', th: 'TH' };
+const LOCALE_COLORS = { en: '#3b82f6', ja: '#ef4444', zh: '#f59e0b', th: '#10b981' };
+const STATUS_COLORS = { new: '#fbbf24', 'in-progress': '#60a5fa', replied: '#34d399', closed: '#94a3b8' };
+
+function fmtDate(d) { return `${d.getMonth()+1}/${d.getDate()}`; }
 
 async function loadAnalytics() {
   const { data } = await supabase.from('consultations').select('*');
   const all = data || [];
   const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const weekAgo = new Date(now - 7 * 86400000);
   const monthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
 
   const total = all.length;
+  const todayCount = all.filter(c => new Date(c.created_at) >= today).length;
   const thisWeek = all.filter(c => new Date(c.created_at) >= weekAgo).length;
   const thisMonth = all.filter(c => new Date(c.created_at) >= monthAgo).length;
   const newCount = all.filter(c => c.status === 'new').length;
+  const photoCount = all.filter(c => c.photo_urls && c.photo_urls.length > 0).length;
+  const photoRate = total > 0 ? Math.round((photoCount / total) * 100) : 0;
+  const resolved = all.filter(c => c.status === 'replied' || c.status === 'closed').length;
+  const convRate = total > 0 ? Math.round((resolved / total) * 100) : 0;
+  const avgReply = '–';
 
   $('#stat-cards').innerHTML = [
-    { label: '총 문의', value: total, icon: 'fa-inbox', color: 'text-slate-600' },
+    { label: '오늘', value: todayCount, icon: 'fa-bolt', color: 'text-amber-500' },
     { label: '이번 주', value: thisWeek, icon: 'fa-calendar-week', color: 'text-blue-600' },
     { label: '이번 달', value: thisMonth, icon: 'fa-calendar', color: 'text-green-600' },
+    { label: '총 문의', value: total, icon: 'fa-inbox', color: 'text-slate-600' },
     { label: '미처리', value: newCount, icon: 'fa-exclamation-circle', color: 'text-red-500' },
+    { label: '전환율', value: convRate + '%', icon: 'fa-check-double', color: 'text-emerald-600' },
+    { label: '사진첨부', value: photoRate + '%', icon: 'fa-camera', color: 'text-violet-500' },
+    { label: '평균응답', value: avgReply, icon: 'fa-clock', color: 'text-orange-500' },
   ].map(s => `
-    <div class="bg-white rounded-xl p-5 shadow-sm border">
+    <div class="bg-white rounded-xl p-4 shadow-sm border">
       <div class="flex items-center justify-between">
-        <div>
-          <p class="text-xs font-bold text-slate-400 uppercase">${s.label}</p>
-          <p class="text-3xl font-bold ${s.color} mt-1">${s.value}</p>
+        <div class="min-w-0">
+          <p class="text-[10px] font-bold text-slate-400 uppercase truncate">${s.label}</p>
+          <p class="text-2xl font-bold ${s.color} mt-0.5">${s.value}</p>
         </div>
-        <i class="fas ${s.icon} text-2xl text-slate-200"></i>
+        <i class="fas ${s.icon} text-xl text-slate-200 shrink-0"></i>
       </div>
     </div>`).join('');
 
+  /* ── Daily Trend (30 days) ── */
+  const days30 = [];
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(now);
+    d.setDate(d.getDate() - i);
+    days30.push(new Date(d.getFullYear(), d.getMonth(), d.getDate()));
+  }
+  const dailyCounts = days30.map(day => {
+    const next = new Date(day); next.setDate(next.getDate() + 1);
+    return all.filter(c => { const t = new Date(c.created_at); return t >= day && t < next; }).length;
+  });
+
+  if (dailyChart) dailyChart.destroy();
+  dailyChart = new Chart($('#chart-daily'), {
+    type: 'line',
+    data: {
+      labels: days30.map(fmtDate),
+      datasets: [{
+        data: dailyCounts,
+        borderColor: '#c9a55a',
+        backgroundColor: 'rgba(201,165,90,0.1)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 2,
+        pointHoverRadius: 5,
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } }, x: { ticks: { maxTicksLimit: 10, font: { size: 10 } } } }
+    }
+  });
+
+  /* ── Treatment Interest (bar) ── */
   const treatmentCounts = {};
   all.forEach(c => (c.treatment_interest || []).forEach(t => { treatmentCounts[t] = (treatmentCounts[t] || 0) + 1; }));
-
-  const localeCounts = {};
-  all.forEach(c => { const l = c.locale || 'en'; localeCounts[l] = (localeCounts[l] || 0) + 1; });
 
   if (treatmentChart) treatmentChart.destroy();
   treatmentChart = new Chart($('#chart-treatments'), {
@@ -490,16 +575,146 @@ async function loadAnalytics() {
     options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
   });
 
+  /* ── Locale Distribution (doughnut) ── */
+  const localeCounts = {};
+  all.forEach(c => { const l = c.locale || 'en'; localeCounts[l] = (localeCounts[l] || 0) + 1; });
+
   if (localeChart) localeChart.destroy();
-  const localeColors = { en: '#3b82f6', ja: '#ef4444', zh: '#f59e0b', th: '#10b981' };
   localeChart = new Chart($('#chart-locales'), {
     type: 'doughnut',
     data: {
-      labels: Object.keys(localeCounts).map(k => k.toUpperCase()),
-      datasets: [{ data: Object.values(localeCounts), backgroundColor: Object.keys(localeCounts).map(k => localeColors[k] || '#94a3b8') }]
+      labels: Object.keys(localeCounts).map(k => LOCALE_LABELS[k] || k.toUpperCase()),
+      datasets: [{ data: Object.values(localeCounts), backgroundColor: Object.keys(localeCounts).map(k => LOCALE_COLORS[k] || '#94a3b8') }]
     },
     options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
   });
+
+  /* ── Status Distribution (horizontal bar) ── */
+  const statusCounts = {};
+  Object.keys(STATUS_MAP).forEach(k => { statusCounts[k] = 0; });
+  all.forEach(c => { const s = c.status || 'new'; statusCounts[s] = (statusCounts[s] || 0) + 1; });
+
+  if (statusChart) statusChart.destroy();
+  statusChart = new Chart($('#chart-status'), {
+    type: 'bar',
+    data: {
+      labels: Object.keys(statusCounts).map(k => STATUS_MAP[k]?.label || k),
+      datasets: [{
+        data: Object.values(statusCounts),
+        backgroundColor: Object.keys(statusCounts).map(k => STATUS_COLORS[k] || '#94a3b8'),
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { x: { beginAtZero: true, ticks: { stepSize: 1 } } }
+    }
+  });
+
+  /* ── Day-of-Week Pattern (bar) ── */
+  const weekdayCounts = [0, 0, 0, 0, 0, 0, 0];
+  all.forEach(c => { weekdayCounts[new Date(c.created_at).getDay()]++; });
+  const orderedDays = [1, 2, 3, 4, 5, 6, 0];
+  const weekdayColors = orderedDays.map(i => i === 0 || i === 6 ? '#f87171' : '#c9a55a');
+
+  if (weekdayChart) weekdayChart.destroy();
+  weekdayChart = new Chart($('#chart-weekday'), {
+    type: 'bar',
+    data: {
+      labels: orderedDays.map(i => DAY_NAMES[i]),
+      datasets: [{
+        data: orderedDays.map(i => weekdayCounts[i]),
+        backgroundColor: weekdayColors,
+        borderRadius: 6,
+      }]
+    },
+    options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+  });
+
+  /* ── Treatment × Locale Heatmap ── */
+  const treatments = Object.keys(TREATMENT_MAP);
+  const locales = ['en', 'ja', 'zh', 'th'];
+  const heatData = {};
+  treatments.forEach(t => { heatData[t] = {}; locales.forEach(l => { heatData[t][l] = 0; }); });
+  all.forEach(c => {
+    const l = c.locale || 'en';
+    (c.treatment_interest || []).forEach(t => { if (heatData[t]) heatData[t][l] = (heatData[t][l] || 0) + 1; });
+  });
+  const maxVal = Math.max(1, ...treatments.flatMap(t => locales.map(l => heatData[t][l])));
+
+  function heatColor(v) {
+    if (v === 0) return 'bg-slate-50 text-slate-300';
+    const ratio = v / maxVal;
+    if (ratio > 0.7) return 'bg-amber-200 text-amber-900 font-bold';
+    if (ratio > 0.4) return 'bg-amber-100 text-amber-800';
+    return 'bg-amber-50 text-amber-700';
+  }
+
+  $('#heatmap-container').innerHTML = `
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left px-3 py-2 text-xs font-bold text-slate-500">시술</th>
+          ${locales.map(l => `<th class="text-center px-3 py-2 text-xs font-bold text-slate-500 uppercase">${l}</th>`).join('')}
+          <th class="text-center px-3 py-2 text-xs font-bold text-slate-500">합계</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${treatments.map(t => {
+          const rowTotal = locales.reduce((s, l) => s + heatData[t][l], 0);
+          return `<tr class="border-t border-slate-100">
+            <td class="px-3 py-2.5 font-medium text-slate-700">${TREATMENT_MAP[t]}</td>
+            ${locales.map(l => `<td class="text-center px-3 py-2.5"><span class="inline-block w-10 py-1 rounded text-xs ${heatColor(heatData[t][l])}">${heatData[t][l]}</span></td>`).join('')}
+            <td class="text-center px-3 py-2.5 font-bold text-slate-600">${rowTotal}</td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>`;
+
+  /* ── Recent Timeline (last 10) ── */
+  const recent = all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 10);
+  if (!recent.length) {
+    $('#timeline-container').innerHTML = '<p class="text-sm text-slate-400 text-center py-6">문의 데이터가 없습니다.</p>';
+  } else {
+    $('#timeline-container').innerHTML = `
+      <div class="space-y-3">
+        ${recent.map(c => {
+          const st = STATUS_MAP[c.status] || STATUS_MAP.new;
+          const d = new Date(c.created_at);
+          const timeAgo = getTimeAgo(d, now);
+          const treats = (c.treatment_interest || []).map(t => TREATMENT_MAP[t] || t).join(', ');
+          return `
+            <div class="flex items-start gap-3 py-2 border-b border-slate-50 last:border-0">
+              <div class="w-2 h-2 rounded-full mt-2 shrink-0" style="background:${STATUS_COLORS[c.status] || '#94a3b8'}"></div>
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-bold text-sm text-slate-800">${esc(c.name)}</span>
+                  <span class="px-1.5 py-0.5 text-[9px] font-bold rounded ${st.cls}">${st.label}</span>
+                  <span class="text-[10px] text-slate-400 uppercase">${c.locale || 'en'}</span>
+                  ${c.photo_urls && c.photo_urls.length ? '<i class="fas fa-camera text-[10px] text-violet-400"></i>' : ''}
+                </div>
+                <p class="text-xs text-slate-500 mt-0.5 truncate">${treats || '시술 미선택'}</p>
+              </div>
+              <span class="text-[10px] text-slate-400 whitespace-nowrap shrink-0">${timeAgo}</span>
+            </div>`;
+        }).join('')}
+      </div>`;
+  }
+}
+
+function getTimeAgo(date, now) {
+  const diff = now - date;
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return '방금';
+  if (mins < 60) return mins + '분 전';
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return hours + '시간 전';
+  const days = Math.floor(hours / 24);
+  if (days < 7) return days + '일 전';
+  const d = date;
+  return `${d.getMonth()+1}/${d.getDate()}`;
 }
 
 /* ─── GALLERY ─── */
