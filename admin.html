@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tune Clinic Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{gold:'#c9a55a'}}}}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<style>
+  .tab-active { border-color: #c9a55a; color: #c9a55a; }
+  .status-new { background: #fef3c7; color: #92400e; }
+  .status-in-progress { background: #dbeafe; color: #1e40af; }
+  .status-replied { background: #d1fae5; color: #065f46; }
+  .status-closed { background: #f3f4f6; color: #6b7280; }
+</style>
+</head>
+<body class="bg-slate-100 min-h-screen">
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen" class="min-h-screen flex items-center justify-center bg-slate-950">
+  <div class="w-full max-w-sm mx-4">
+    <div class="text-center mb-8">
+      <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-12 mx-auto mb-4">
+      <h1 class="text-2xl font-serif text-white">Admin Dashboard</h1>
+      <p class="text-slate-400 text-sm mt-2">관리자 로그인</p>
+    </div>
+    <form id="login-form" class="space-y-4">
+      <input type="email" id="login-email" required placeholder="이메일"
+        class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-gold">
+      <input type="password" id="login-password" required placeholder="비밀번호"
+        class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-gold">
+      <button type="submit" id="login-btn"
+        class="w-full py-3 bg-gold text-white font-bold rounded-lg hover:opacity-90 transition">
+        로그인
+      </button>
+      <p id="login-error" class="hidden text-red-400 text-sm text-center"></p>
+    </form>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+  <!-- Top Bar -->
+  <header class="bg-slate-900 text-white sticky top-0 z-50 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="" class="h-7">
+        <span class="font-serif text-lg">Tune Admin</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span id="user-email" class="text-slate-400 text-sm hidden sm:inline"></span>
+        <button id="logout-btn" class="text-slate-400 hover:text-white text-sm transition">
+          <i class="fas fa-sign-out-alt mr-1"></i>로그아웃
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="bg-white border-b sticky top-14 z-40">
+    <div class="max-w-7xl mx-auto px-4 flex gap-0 overflow-x-auto">
+      <button data-tab="consults" class="tab-btn px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition whitespace-nowrap">
+        <i class="fas fa-inbox mr-1.5"></i>상담 문의 <span id="consult-badge" class="hidden ml-1 px-1.5 py-0.5 text-[10px] bg-red-500 text-white rounded-full"></span>
+      </button>
+      <button data-tab="analytics" class="tab-btn px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition whitespace-nowrap">
+        <i class="fas fa-chart-bar mr-1.5"></i>통계
+      </button>
+      <button data-tab="gallery" class="tab-btn px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition whitespace-nowrap">
+        <i class="fas fa-images mr-1.5"></i>갤러리
+      </button>
+      <button data-tab="pricing" class="tab-btn px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition whitespace-nowrap">
+        <i class="fas fa-won-sign mr-1.5"></i>가격
+      </button>
+    </div>
+  </nav>
+
+  <!-- Tab Content -->
+  <main class="max-w-7xl mx-auto px-4 py-6">
+
+    <!-- CONSULTATIONS TAB -->
+    <section id="tab-consults" class="tab-content hidden">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <h2 class="text-xl font-bold text-slate-800">상담 문의 관리</h2>
+        <div class="flex gap-2 flex-wrap">
+          <button data-filter="all" class="filter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-900 text-white">전체</button>
+          <button data-filter="new" class="filter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">신규</button>
+          <button data-filter="in-progress" class="filter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">진행중</button>
+          <button data-filter="replied" class="filter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">답변완료</button>
+          <button data-filter="closed" class="filter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">종료</button>
+        </div>
+      </div>
+      <div id="consults-list" class="space-y-3"></div>
+      <p id="consults-empty" class="hidden text-center text-slate-400 py-12">문의가 없습니다.</p>
+
+      <!-- Consultation Detail Modal -->
+      <div id="consult-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+          <div class="p-6 border-b flex items-center justify-between">
+            <h3 class="font-bold text-lg" id="modal-title"></h3>
+            <button id="modal-close" class="text-slate-400 hover:text-slate-800 text-xl"><i class="fas fa-times"></i></button>
+          </div>
+          <div class="p-6 space-y-5" id="modal-body"></div>
+          <div class="p-6 border-t bg-slate-50 rounded-b-2xl space-y-4" id="modal-actions"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALYTICS TAB -->
+    <section id="tab-analytics" class="tab-content hidden">
+      <h2 class="text-xl font-bold text-slate-800 mb-6">통계 대시보드</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8" id="stat-cards"></div>
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm border">
+          <h3 class="font-bold text-sm text-slate-600 mb-4">시술별 관심도</h3>
+          <canvas id="chart-treatments" height="250"></canvas>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border">
+          <h3 class="font-bold text-sm text-slate-600 mb-4">언어별 문의 비율</h3>
+          <canvas id="chart-locales" height="250"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY TAB -->
+    <section id="tab-gallery" class="tab-content hidden">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold text-slate-800">갤러리 관리</h2>
+        <button id="gallery-add-btn" class="px-4 py-2 bg-gold text-white text-sm font-bold rounded-lg hover:opacity-90 transition">
+          <i class="fas fa-plus mr-1"></i>새 케이스 추가
+        </button>
+      </div>
+      <div id="gallery-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      <p id="gallery-empty" class="hidden text-center text-slate-400 py-12">갤러리 케이스가 없습니다.</p>
+
+      <!-- Gallery Add/Edit Modal -->
+      <div id="gallery-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+          <div class="p-6 border-b flex items-center justify-between">
+            <h3 class="font-bold text-lg" id="gallery-modal-title">새 케이스 추가</h3>
+            <button class="gallery-modal-close text-slate-400 hover:text-slate-800 text-xl"><i class="fas fa-times"></i></button>
+          </div>
+          <form id="gallery-form" class="p-6 space-y-5">
+            <input type="hidden" id="gf-id">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-1">카테고리</label>
+                <select id="gf-category" class="w-full border rounded-lg px-3 py-2.5 text-sm">
+                  <option value="facial">Facial</option>
+                  <option value="body">Body</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-1">순서</label>
+                <input type="number" id="gf-sort" value="0" class="w-full border rounded-lg px-3 py-2.5 text-sm">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-1">이미지</label>
+              <input type="file" id="gf-image" accept="image/jpeg,image/png" class="w-full border rounded-lg px-3 py-2 text-sm">
+              <div id="gf-image-preview" class="mt-2"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">Title (EN)</label><input type="text" id="gf-title-en" class="w-full border rounded-lg px-3 py-2 text-sm"></div>
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">Title (JA)</label><input type="text" id="gf-title-ja" class="w-full border rounded-lg px-3 py-2 text-sm"></div>
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">Title (ZH)</label><input type="text" id="gf-title-zh" class="w-full border rounded-lg px-3 py-2 text-sm"></div>
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">Title (TH)</label><input type="text" id="gf-title-th" class="w-full border rounded-lg px-3 py-2 text-sm"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">Notes (EN)</label><textarea id="gf-notes-en" rows="2" class="w-full border rounded-lg px-3 py-2 text-sm"></textarea></div>
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">Notes (JA)</label><textarea id="gf-notes-ja" rows="2" class="w-full border rounded-lg px-3 py-2 text-sm"></textarea></div>
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">Notes (ZH)</label><textarea id="gf-notes-zh" rows="2" class="w-full border rounded-lg px-3 py-2 text-sm"></textarea></div>
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">Notes (TH)</label><textarea id="gf-notes-th" rows="2" class="w-full border rounded-lg px-3 py-2 text-sm"></textarea></div>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="gf-published" checked class="accent-gold w-4 h-4">
+              <label for="gf-published" class="text-sm text-slate-700">공개</label>
+            </div>
+            <button type="submit" class="w-full py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition">저장</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING TAB -->
+    <section id="tab-pricing" class="tab-content hidden">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold text-slate-800">가격 관리</h2>
+        <button id="pricing-add-btn" class="px-4 py-2 bg-gold text-white text-sm font-bold rounded-lg hover:opacity-90 transition">
+          <i class="fas fa-plus mr-1"></i>항목 추가
+        </button>
+      </div>
+      <div class="bg-white rounded-xl shadow-sm border overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-slate-50 border-b">
+            <tr>
+              <th class="text-left px-4 py-3 font-bold text-slate-600">카테고리</th>
+              <th class="text-left px-4 py-3 font-bold text-slate-600">시술명 (EN)</th>
+              <th class="text-left px-4 py-3 font-bold text-slate-600">가격 (KRW)</th>
+              <th class="text-left px-4 py-3 font-bold text-slate-600">비고</th>
+              <th class="text-right px-4 py-3 font-bold text-slate-600">관리</th>
+            </tr>
+          </thead>
+          <tbody id="pricing-tbody"></tbody>
+        </table>
+      </div>
+      <p id="pricing-empty" class="hidden text-center text-slate-400 py-12">가격 항목이 없습니다.</p>
+
+      <!-- Pricing Edit Modal -->
+      <div id="pricing-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+          <div class="p-6 border-b flex items-center justify-between">
+            <h3 class="font-bold text-lg" id="pricing-modal-title">항목 추가</h3>
+            <button class="pricing-modal-close text-slate-400 hover:text-slate-800 text-xl"><i class="fas fa-times"></i></button>
+          </div>
+          <form id="pricing-form" class="p-6 space-y-4">
+            <input type="hidden" id="pf-id">
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-1">카테고리</label>
+              <input type="text" id="pf-category" placeholder="예: Lifting, Filler, Skin" class="w-full border rounded-lg px-3 py-2.5 text-sm">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">시술명 (EN)</label><input type="text" id="pf-name-en" class="w-full border rounded-lg px-3 py-2 text-sm"></div>
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">시술명 (JA)</label><input type="text" id="pf-name-ja" class="w-full border rounded-lg px-3 py-2 text-sm"></div>
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">시술명 (ZH)</label><input type="text" id="pf-name-zh" class="w-full border rounded-lg px-3 py-2 text-sm"></div>
+              <div><label class="block text-xs font-bold text-slate-500 mb-1">시술명 (TH)</label><input type="text" id="pf-name-th" class="w-full border rounded-lg px-3 py-2 text-sm"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div><label class="block text-sm font-bold text-slate-700 mb-1">가격 (KRW)</label><input type="text" id="pf-price" placeholder="예: 300,000" class="w-full border rounded-lg px-3 py-2.5 text-sm"></div>
+              <div><label class="block text-sm font-bold text-slate-700 mb-1">순서</label><input type="number" id="pf-sort" value="0" class="w-full border rounded-lg px-3 py-2.5 text-sm"></div>
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-1">비고</label>
+              <input type="text" id="pf-notes" class="w-full border rounded-lg px-3 py-2.5 text-sm">
+            </div>
+            <button type="submit" class="w-full py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition">저장</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const supabase = createClient(
+  'https://jwlfffpyeczyyojcutcx.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY'
+);
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+
+/* ─── AUTH ─── */
+const loginScreen = $('#login-screen');
+const dashboard = $('#dashboard');
+
+async function checkSession() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (session) showDashboard(session.user);
+}
+
+$('#login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = $('#login-email').value;
+  const password = $('#login-password').value;
+  $('#login-btn').textContent = '로그인 중...';
+  $('#login-error').classList.add('hidden');
+
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error) {
+    $('#login-error').textContent = '이메일 또는 비밀번호가 올바르지 않습니다.';
+    $('#login-error').classList.remove('hidden');
+    $('#login-btn').textContent = '로그인';
+    return;
+  }
+  showDashboard(data.user);
+});
+
+$('#logout-btn').addEventListener('click', async () => {
+  await supabase.auth.signOut();
+  location.reload();
+});
+
+function showDashboard(user) {
+  loginScreen.classList.add('hidden');
+  dashboard.classList.remove('hidden');
+  $('#user-email').textContent = user.email;
+  switchTab('consults');
+}
+
+/* ─── TABS ─── */
+$$('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+});
+
+function switchTab(name) {
+  $$('.tab-btn').forEach(b => b.classList.remove('tab-active'));
+  $$('.tab-content').forEach(c => c.classList.add('hidden'));
+  document.querySelector(`[data-tab="${name}"]`).classList.add('tab-active');
+  $(`#tab-${name}`).classList.remove('hidden');
+
+  if (name === 'consults') loadConsults();
+  if (name === 'analytics') loadAnalytics();
+  if (name === 'gallery') loadGallery();
+  if (name === 'pricing') loadPricing();
+}
+
+/* ─── CONSULTATIONS ─── */
+let allConsults = [];
+let currentFilter = 'all';
+
+const STATUS_MAP = {
+  new: { label: '신규', cls: 'status-new' },
+  'in-progress': { label: '진행중', cls: 'status-in-progress' },
+  replied: { label: '답변완료', cls: 'status-replied' },
+  closed: { label: '종료', cls: 'status-closed' },
+};
+
+const TREATMENT_MAP = {
+  lifting: 'Lifting', filler: 'Filler', 'skin-booster': 'Skin Booster',
+  regenerative: 'Regenerative', body: 'Body', other: 'Other',
+};
+
+$$('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentFilter = btn.dataset.filter;
+    $$('.filter-btn').forEach(b => { b.className = 'filter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200'; });
+    btn.className = 'filter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-900 text-white';
+    renderConsults();
+  });
+});
+
+async function loadConsults() {
+  const { data, error } = await supabase.from('consultations').select('*').order('created_at', { ascending: false });
+  if (error) { console.error(error); return; }
+  allConsults = data || [];
+  const newCount = allConsults.filter(c => c.status === 'new').length;
+  const badge = $('#consult-badge');
+  if (newCount > 0) { badge.textContent = newCount; badge.classList.remove('hidden'); }
+  else badge.classList.add('hidden');
+  renderConsults();
+}
+
+function renderConsults() {
+  const filtered = currentFilter === 'all' ? allConsults : allConsults.filter(c => c.status === currentFilter);
+  const list = $('#consults-list');
+  const empty = $('#consults-empty');
+
+  if (!filtered.length) { list.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+
+  list.innerHTML = filtered.map(c => {
+    const st = STATUS_MAP[c.status] || STATUS_MAP.new;
+    const d = new Date(c.created_at);
+    const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+    const treatments = (c.treatment_interest || []).map(t => TREATMENT_MAP[t] || t).join(', ');
+    return `
+      <div class="bg-white rounded-xl border shadow-sm p-4 hover:border-gold/50 transition cursor-pointer" data-id="${c.id}">
+        <div class="flex items-start justify-between gap-3">
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-bold text-slate-800">${esc(c.name)}</span>
+              <span class="px-2 py-0.5 text-[10px] font-bold rounded-full ${st.cls}">${st.label}</span>
+              <span class="text-xs text-slate-400 uppercase">${c.locale || 'en'}</span>
+            </div>
+            <p class="text-sm text-slate-500 mt-1 truncate">${treatments || '시술 미선택'}</p>
+            ${c.message ? `<p class="text-sm text-slate-400 mt-1 truncate">${esc(c.message)}</p>` : ''}
+          </div>
+          <span class="text-xs text-slate-400 whitespace-nowrap">${dateStr}</span>
+        </div>
+      </div>`;
+  }).join('');
+
+  list.querySelectorAll('[data-id]').forEach(el => {
+    el.addEventListener('click', () => openConsultDetail(el.dataset.id));
+  });
+}
+
+function openConsultDetail(id) {
+  const c = allConsults.find(x => x.id === id);
+  if (!c) return;
+  const st = STATUS_MAP[c.status] || STATUS_MAP.new;
+  const d = new Date(c.created_at);
+  const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  const treatments = (c.treatment_interest || []).map(t => TREATMENT_MAP[t] || t).join(', ');
+
+  $('#modal-title').textContent = c.name;
+  $('#modal-body').innerHTML = `
+    <div class="grid grid-cols-2 gap-4 text-sm">
+      <div><span class="text-slate-400">이메일</span><p class="font-medium">${c.email ? `<a href="mailto:${esc(c.email)}" class="text-blue-600 underline">${esc(c.email)}</a>` : '-'}</p></div>
+      <div><span class="text-slate-400">연락처</span><p class="font-medium">${esc(c.phone) || '-'}</p></div>
+      <div><span class="text-slate-400">언어</span><p class="font-medium uppercase">${c.locale || 'en'}</p></div>
+      <div><span class="text-slate-400">상태</span><p><span class="px-2 py-0.5 text-xs font-bold rounded-full ${st.cls}">${st.label}</span></p></div>
+      <div class="col-span-2"><span class="text-slate-400">관심 시술</span><p class="font-medium">${treatments || '-'}</p></div>
+      <div class="col-span-2"><span class="text-slate-400">메시지</span><p class="font-medium whitespace-pre-wrap">${esc(c.message) || '-'}</p></div>
+      <div class="col-span-2"><span class="text-slate-400">접수일</span><p class="font-medium">${dateStr}</p></div>
+    </div>
+    ${(c.photo_urls && c.photo_urls.length) ? `
+      <div><span class="text-sm text-slate-400">첨부 사진</span>
+        <div class="flex gap-2 mt-2 flex-wrap">${c.photo_urls.map(p => `<a href="${supabase.storage.from('consultation-photos').getPublicUrl(p).data.publicUrl}" target="_blank" class="w-24 h-24 rounded-lg overflow-hidden border"><img src="${supabase.storage.from('consultation-photos').getPublicUrl(p).data.publicUrl}" class="w-full h-full object-cover"></a>`).join('')}</div>
+      </div>` : ''}
+    ${c.notes ? `<div><span class="text-sm text-slate-400">메모</span><p class="text-sm bg-yellow-50 p-3 rounded-lg mt-1">${esc(c.notes)}</p></div>` : ''}`;
+
+  $('#modal-actions').innerHTML = `
+    <div class="flex gap-2 flex-wrap">
+      <label class="text-sm font-bold text-slate-700">상태 변경:</label>
+      ${Object.entries(STATUS_MAP).map(([k, v]) =>
+        `<button class="status-change-btn px-3 py-1.5 text-xs font-bold rounded-full ${c.status === k ? v.cls + ' ring-2 ring-offset-1 ring-slate-400' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}" data-status="${k}">${v.label}</button>`
+      ).join('')}
+    </div>
+    <div>
+      <label class="text-sm font-bold text-slate-700">메모 추가:</label>
+      <div class="flex gap-2 mt-1">
+        <input type="text" id="note-input" value="${esc(c.notes || '')}" placeholder="메모 입력..." class="flex-1 border rounded-lg px-3 py-2 text-sm">
+        <button id="note-save" class="px-4 py-2 bg-slate-900 text-white text-sm font-bold rounded-lg hover:bg-slate-800">저장</button>
+      </div>
+    </div>`;
+
+  $$('.status-change-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      await supabase.from('consultations').update({ status: btn.dataset.status }).eq('id', id);
+      await loadConsults();
+      openConsultDetail(id);
+    });
+  });
+
+  $('#note-save').addEventListener('click', async () => {
+    const notes = $('#note-input').value;
+    await supabase.from('consultations').update({ notes }).eq('id', id);
+    await loadConsults();
+    openConsultDetail(id);
+  });
+
+  $('#consult-modal').classList.remove('hidden');
+}
+
+$('#modal-close').addEventListener('click', () => $('#consult-modal').classList.add('hidden'));
+$('#consult-modal').addEventListener('click', (e) => { if (e.target === e.currentTarget) $('#consult-modal').classList.add('hidden'); });
+
+/* ─── ANALYTICS ─── */
+let treatmentChart, localeChart;
+
+async function loadAnalytics() {
+  const { data } = await supabase.from('consultations').select('*');
+  const all = data || [];
+  const now = new Date();
+  const weekAgo = new Date(now - 7 * 86400000);
+  const monthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
+
+  const total = all.length;
+  const thisWeek = all.filter(c => new Date(c.created_at) >= weekAgo).length;
+  const thisMonth = all.filter(c => new Date(c.created_at) >= monthAgo).length;
+  const newCount = all.filter(c => c.status === 'new').length;
+
+  $('#stat-cards').innerHTML = [
+    { label: '총 문의', value: total, icon: 'fa-inbox', color: 'text-slate-600' },
+    { label: '이번 주', value: thisWeek, icon: 'fa-calendar-week', color: 'text-blue-600' },
+    { label: '이번 달', value: thisMonth, icon: 'fa-calendar', color: 'text-green-600' },
+    { label: '미처리', value: newCount, icon: 'fa-exclamation-circle', color: 'text-red-500' },
+  ].map(s => `
+    <div class="bg-white rounded-xl p-5 shadow-sm border">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-xs font-bold text-slate-400 uppercase">${s.label}</p>
+          <p class="text-3xl font-bold ${s.color} mt-1">${s.value}</p>
+        </div>
+        <i class="fas ${s.icon} text-2xl text-slate-200"></i>
+      </div>
+    </div>`).join('');
+
+  const treatmentCounts = {};
+  all.forEach(c => (c.treatment_interest || []).forEach(t => { treatmentCounts[t] = (treatmentCounts[t] || 0) + 1; }));
+
+  const localeCounts = {};
+  all.forEach(c => { const l = c.locale || 'en'; localeCounts[l] = (localeCounts[l] || 0) + 1; });
+
+  if (treatmentChart) treatmentChart.destroy();
+  treatmentChart = new Chart($('#chart-treatments'), {
+    type: 'bar',
+    data: {
+      labels: Object.keys(treatmentCounts).map(k => TREATMENT_MAP[k] || k),
+      datasets: [{ data: Object.values(treatmentCounts), backgroundColor: '#c9a55a', borderRadius: 6 }]
+    },
+    options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+  });
+
+  if (localeChart) localeChart.destroy();
+  const localeColors = { en: '#3b82f6', ja: '#ef4444', zh: '#f59e0b', th: '#10b981' };
+  localeChart = new Chart($('#chart-locales'), {
+    type: 'doughnut',
+    data: {
+      labels: Object.keys(localeCounts).map(k => k.toUpperCase()),
+      datasets: [{ data: Object.values(localeCounts), backgroundColor: Object.keys(localeCounts).map(k => localeColors[k] || '#94a3b8') }]
+    },
+    options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+  });
+}
+
+/* ─── GALLERY ─── */
+let galleryData = [];
+
+async function loadGallery() {
+  const { data } = await supabase.from('gallery_cases').select('*').order('sort_order');
+  galleryData = data || [];
+  renderGallery();
+}
+
+function renderGallery() {
+  const list = $('#gallery-list');
+  const empty = $('#gallery-empty');
+  if (!galleryData.length) { list.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+
+  list.innerHTML = galleryData.map(g => `
+    <div class="bg-white rounded-xl border shadow-sm overflow-hidden">
+      ${g.image_url ? `<img src="${g.image_url}" class="w-full h-48 object-cover">` : '<div class="w-full h-48 bg-slate-100 flex items-center justify-center text-slate-300"><i class="fas fa-image text-3xl"></i></div>'}
+      <div class="p-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold uppercase text-slate-400">${g.category}</span>
+          <span class="text-xs ${g.is_published ? 'text-green-500' : 'text-red-400'}">${g.is_published ? '공개' : '비공개'}</span>
+        </div>
+        <p class="font-bold text-sm text-slate-800 truncate">${esc(g.title_en || '(제목 없음)')}</p>
+        <div class="flex gap-2 mt-3">
+          <button class="gallery-edit flex-1 py-1.5 text-xs font-bold bg-slate-100 rounded hover:bg-slate-200 transition" data-id="${g.id}">수정</button>
+          <button class="gallery-delete py-1.5 px-3 text-xs font-bold text-red-500 bg-red-50 rounded hover:bg-red-100 transition" data-id="${g.id}">삭제</button>
+        </div>
+      </div>
+    </div>`).join('');
+
+  list.querySelectorAll('.gallery-edit').forEach(b => b.addEventListener('click', () => openGalleryEdit(b.dataset.id)));
+  list.querySelectorAll('.gallery-delete').forEach(b => b.addEventListener('click', () => deleteGallery(b.dataset.id)));
+}
+
+$('#gallery-add-btn').addEventListener('click', () => {
+  $('#gf-id').value = '';
+  $('#gallery-form').reset();
+  $('#gf-published').checked = true;
+  $('#gf-image-preview').innerHTML = '';
+  $('#gallery-modal-title').textContent = '새 케이스 추가';
+  $('#gallery-modal').classList.remove('hidden');
+});
+
+function openGalleryEdit(id) {
+  const g = galleryData.find(x => x.id === id);
+  if (!g) return;
+  $('#gf-id').value = g.id;
+  $('#gf-category').value = g.category;
+  $('#gf-sort').value = g.sort_order;
+  $('#gf-title-en').value = g.title_en || '';
+  $('#gf-title-ja').value = g.title_ja || '';
+  $('#gf-title-zh').value = g.title_zh || '';
+  $('#gf-title-th').value = g.title_th || '';
+  $('#gf-notes-en').value = g.notes_en || '';
+  $('#gf-notes-ja').value = g.notes_ja || '';
+  $('#gf-notes-zh').value = g.notes_zh || '';
+  $('#gf-notes-th').value = g.notes_th || '';
+  $('#gf-published').checked = g.is_published;
+  $('#gf-image-preview').innerHTML = g.image_url ? `<img src="${g.image_url}" class="h-20 rounded">` : '';
+  $('#gallery-modal-title').textContent = '케이스 수정';
+  $('#gallery-modal').classList.remove('hidden');
+}
+
+async function deleteGallery(id) {
+  if (!confirm('정말 삭제하시겠습니까?')) return;
+  await supabase.from('gallery_cases').delete().eq('id', id);
+  loadGallery();
+}
+
+$('#gallery-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const id = $('#gf-id').value;
+  const file = $('#gf-image').files[0];
+  let imageUrl = null;
+
+  if (file) {
+    const ext = file.name.split('.').pop();
+    const filePath = `gallery/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const { error } = await supabase.storage.from('consultation-photos').upload(filePath, file);
+    if (!error) {
+      imageUrl = supabase.storage.from('consultation-photos').getPublicUrl(filePath).data.publicUrl;
+    }
+  }
+
+  const row = {
+    category: $('#gf-category').value,
+    sort_order: parseInt($('#gf-sort').value) || 0,
+    title_en: $('#gf-title-en').value || null,
+    title_ja: $('#gf-title-ja').value || null,
+    title_zh: $('#gf-title-zh').value || null,
+    title_th: $('#gf-title-th').value || null,
+    notes_en: $('#gf-notes-en').value || null,
+    notes_ja: $('#gf-notes-ja').value || null,
+    notes_zh: $('#gf-notes-zh').value || null,
+    notes_th: $('#gf-notes-th').value || null,
+    is_published: $('#gf-published').checked,
+  };
+  if (imageUrl) row.image_url = imageUrl;
+
+  if (id) {
+    await supabase.from('gallery_cases').update(row).eq('id', id);
+  } else {
+    if (!imageUrl) { alert('이미지를 선택해주세요.'); return; }
+    await supabase.from('gallery_cases').insert(row);
+  }
+
+  $('#gallery-modal').classList.add('hidden');
+  loadGallery();
+});
+
+$$('.gallery-modal-close').forEach(b => b.addEventListener('click', () => $('#gallery-modal').classList.add('hidden')));
+
+/* ─── PRICING ─── */
+let pricingData = [];
+
+async function loadPricing() {
+  const { data } = await supabase.from('pricing').select('*').order('sort_order');
+  pricingData = data || [];
+  renderPricing();
+}
+
+function renderPricing() {
+  const tbody = $('#pricing-tbody');
+  const empty = $('#pricing-empty');
+  if (!pricingData.length) { tbody.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+
+  tbody.innerHTML = pricingData.map(p => `
+    <tr class="border-b hover:bg-slate-50">
+      <td class="px-4 py-3 text-xs font-bold uppercase text-slate-400">${esc(p.category)}</td>
+      <td class="px-4 py-3 font-medium">${esc(p.treatment_name_en || '')}</td>
+      <td class="px-4 py-3 font-bold text-gold">${esc(p.price_krw || '')}</td>
+      <td class="px-4 py-3 text-slate-400">${esc(p.notes || '')}</td>
+      <td class="px-4 py-3 text-right">
+        <button class="pricing-edit text-xs text-blue-600 hover:underline mr-2" data-id="${p.id}">수정</button>
+        <button class="pricing-delete text-xs text-red-500 hover:underline" data-id="${p.id}">삭제</button>
+      </td>
+    </tr>`).join('');
+
+  tbody.querySelectorAll('.pricing-edit').forEach(b => b.addEventListener('click', () => openPricingEdit(b.dataset.id)));
+  tbody.querySelectorAll('.pricing-delete').forEach(b => b.addEventListener('click', () => deletePricing(b.dataset.id)));
+}
+
+$('#pricing-add-btn').addEventListener('click', () => {
+  $('#pf-id').value = '';
+  $('#pricing-form').reset();
+  $('#pricing-modal-title').textContent = '항목 추가';
+  $('#pricing-modal').classList.remove('hidden');
+});
+
+function openPricingEdit(id) {
+  const p = pricingData.find(x => x.id === id);
+  if (!p) return;
+  $('#pf-id').value = p.id;
+  $('#pf-category').value = p.category || '';
+  $('#pf-name-en').value = p.treatment_name_en || '';
+  $('#pf-name-ja').value = p.treatment_name_ja || '';
+  $('#pf-name-zh').value = p.treatment_name_zh || '';
+  $('#pf-name-th').value = p.treatment_name_th || '';
+  $('#pf-price').value = p.price_krw || '';
+  $('#pf-sort').value = p.sort_order;
+  $('#pf-notes').value = p.notes || '';
+  $('#pricing-modal-title').textContent = '항목 수정';
+  $('#pricing-modal').classList.remove('hidden');
+}
+
+async function deletePricing(id) {
+  if (!confirm('정말 삭제하시겠습니까?')) return;
+  await supabase.from('pricing').delete().eq('id', id);
+  loadPricing();
+}
+
+$('#pricing-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const id = $('#pf-id').value;
+  const row = {
+    category: $('#pf-category').value,
+    treatment_name_en: $('#pf-name-en').value || null,
+    treatment_name_ja: $('#pf-name-ja').value || null,
+    treatment_name_zh: $('#pf-name-zh').value || null,
+    treatment_name_th: $('#pf-name-th').value || null,
+    price_krw: $('#pf-price').value || null,
+    sort_order: parseInt($('#pf-sort').value) || 0,
+    notes: $('#pf-notes').value || null,
+    updated_at: new Date().toISOString(),
+  };
+
+  if (id) await supabase.from('pricing').update(row).eq('id', id);
+  else await supabase.from('pricing').insert(row);
+
+  $('#pricing-modal').classList.add('hidden');
+  loadPricing();
+});
+
+$$('.pricing-modal-close').forEach(b => b.addEventListener('click', () => $('#pricing-modal').classList.add('hidden')));
+
+/* ─── UTILS ─── */
+function esc(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ─── INIT ─── */
+checkSession();
+</script>
+</body>
+</html>
