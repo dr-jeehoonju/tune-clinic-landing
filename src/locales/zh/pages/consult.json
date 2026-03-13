@@ -1,0 +1,10 @@
+{
+  "key": "consult",
+  "template": "editorial",
+  "permalink": "zh/consult.html",
+  "title": "开始咨询 | Tune Clinic 狎鸥亭 首尔",
+  "description": "向Tune Clinic提交咨询请求。分享您的治疗意向和照片，我们的医师团队将为您进行初步评估。",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/zh/consult.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

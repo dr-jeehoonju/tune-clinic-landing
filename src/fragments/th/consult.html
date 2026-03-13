@@ -1,0 +1,223 @@
+<section class="bg-slate-950 text-white py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">การประสานงานโดยตรงกับแพทย์</span>
+    <h1 class="text-4xl md:text-5xl font-serif mt-5">เริ่มการปรึกษา</h1>
+    <p class="text-slate-300 leading-relaxed mt-5 max-w-2xl mx-auto">บอกเราเกี่ยวกับหัตถการที่คุณสนใจ เราจะตอบกลับพร้อมการประเมินเบื้องต้น การแนบรูปภาพจะช่วยให้แพทย์ให้คำแนะนำได้แม่นยำยิ่งขึ้น</p>
+  </div>
+</section>
+
+<section class="py-14 md:py-20 bg-slate-50">
+  <div class="max-w-2xl mx-auto px-6">
+
+    <form id="consultation-form" class="space-y-8">
+
+      <div>
+        <label for="cf-name" class="block text-sm font-bold text-slate-700 mb-2">ชื่อ-นามสกุล <span class="text-red-500">*</span></label>
+        <input type="text" id="cf-name" name="name" required placeholder="ชื่อเต็มของคุณ"
+          class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label for="cf-email" class="block text-sm font-bold text-slate-700 mb-2">อีเมล</label>
+          <input type="email" id="cf-email" name="email" placeholder="you@example.com"
+            class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+        </div>
+        <div>
+          <label for="cf-phone" class="block text-sm font-bold text-slate-700 mb-2">โทรศัพท์ / ID แอปแชท</label>
+          <input type="text" id="cf-phone" name="phone" placeholder="LINE, WhatsApp เป็นต้น"
+            class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+        </div>
+      </div>
+
+      <p id="cf-contact-error" class="hidden text-red-500 text-sm -mt-4">กรุณาระบุอีเมลหรือเบอร์โทรศัพท์อย่างน้อยหนึ่งอย่าง</p>
+
+      <fieldset>
+        <legend class="block text-sm font-bold text-slate-700 mb-3">หัตถการที่สนใจ</legend>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <label class="flex items-center gap-2.5 px-4 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="lifting" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">ยกกระชับ</span>
+          </label>
+          <label class="flex items-center gap-2.5 px-4 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="filler" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">ฟิลเลอร์</span>
+          </label>
+          <label class="flex items-center gap-2.5 px-4 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="skin-booster" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">สกินบูสเตอร์</span>
+          </label>
+          <label class="flex items-center gap-2.5 px-4 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="regenerative" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">เวชศาสตร์ฟื้นฟู</span>
+          </label>
+          <label class="flex items-center gap-2.5 px-4 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="body" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">ร่างกาย</span>
+          </label>
+          <label class="flex items-center gap-2.5 px-4 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="other" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">อื่นๆ</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="cf-message" class="block text-sm font-bold text-slate-700 mb-2">ข้อความ <span class="text-slate-400 font-normal">(ไม่จำเป็น)</span></label>
+        <textarea id="cf-message" name="message" rows="4" placeholder="อธิบายเป้าหมาย ความกังวล หรือวันที่เดินทาง..."
+          class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white resize-y"></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold text-slate-700 mb-2">แนบรูปภาพ <span class="text-slate-400 font-normal">(ไม่จำเป็น สูงสุด 3 รูป)</span></label>
+        <div id="cf-dropzone" class="border-2 border-dashed border-slate-200 rounded-lg p-8 text-center cursor-pointer hover:border-gold/50 transition bg-white">
+          <i class="fas fa-cloud-upload-alt text-2xl text-slate-300 mb-2"></i>
+          <p class="text-sm text-slate-500">ลากรูปภาพมาที่นี่หรือ<span class="text-gold font-bold">คลิกเพื่อเลือก</span></p>
+          <p class="text-xs text-slate-400 mt-1">JPEG หรือ PNG ขนาดไม่เกิน 5 MB ต่อรูป</p>
+          <input type="file" id="cf-photos" name="photos" accept="image/jpeg,image/png" multiple class="hidden">
+        </div>
+        <div id="cf-preview" class="flex gap-3 mt-3 flex-wrap"></div>
+      </div>
+
+      <button type="submit" id="cf-submit"
+        class="w-full bg-slate-900 text-white py-4 px-8 font-bold rounded-lg hover:bg-slate-800 transition text-lg flex items-center justify-center gap-2">
+        <i class="fas fa-paper-plane"></i> ส่งคำขอปรึกษา
+      </button>
+
+      <p class="text-xs text-slate-400 text-center leading-relaxed">เวลาตอบกลับโดยทั่วไป: ภายในเวลาทำการ (จันทร์–เสาร์) ข้อมูลของคุณจะถูกเก็บรักษาอย่างปลอดภัยและใช้เพื่อการปรึกษาเท่านั้น</p>
+    </form>
+
+    <div id="cf-success" class="hidden text-center py-20">
+      <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-check text-2xl"></i>
+      </div>
+      <h2 class="text-3xl font-serif text-slate-900">ได้รับคำขอแล้ว</h2>
+      <p class="text-slate-500 mt-4 max-w-md mx-auto leading-relaxed">ขอบคุณสำหรับความสนใจ ทีมงานของเราจะตรวจสอบคำขอและตอบกลับภายในเวลาทำการ</p>
+      <a href="/th/index.html" class="inline-block mt-8 text-gold font-bold hover:underline">กลับหน้าหลัก</a>
+    </div>
+
+    <div id="cf-error" class="hidden text-center py-10">
+      <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-exclamation-triangle text-2xl"></i>
+      </div>
+      <h2 class="text-2xl font-serif text-slate-900">เกิดข้อผิดพลาด</h2>
+      <p class="text-slate-500 mt-4">กรุณาลองอีกครั้งหรือติดต่อเราผ่าน Instagram โดยตรง</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="py-12 bg-white border-t border-slate-100">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <p class="text-sm text-slate-500 mb-4">ต้องการส่งข้อความโดยตรง?</p>
+    <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 rounded-lg text-slate-700 font-bold text-sm hover:border-gold hover:text-gold transition">
+      <i class="fab fa-instagram"></i> แชททาง Instagram
+    </a>
+  </div>
+</section>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const supabase = createClient(
+  'https://jwlfffpyeczyyojcutcx.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY'
+);
+
+const LOCALE = 'th';
+const MAX_PHOTOS = 3;
+const MAX_SIZE = 5 * 1024 * 1024;
+
+const form = document.getElementById('consultation-form');
+const submitBtn = document.getElementById('cf-submit');
+const successEl = document.getElementById('cf-success');
+const errorEl = document.getElementById('cf-error');
+const dropzone = document.getElementById('cf-dropzone');
+const fileInput = document.getElementById('cf-photos');
+const previewContainer = document.getElementById('cf-preview');
+const contactError = document.getElementById('cf-contact-error');
+
+let selectedFiles = [];
+
+dropzone.addEventListener('click', () => fileInput.click());
+dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('border-gold'); });
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('border-gold'));
+dropzone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dropzone.classList.remove('border-gold');
+  handleFiles(e.dataTransfer.files);
+});
+fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+
+function handleFiles(files) {
+  for (const f of files) {
+    if (selectedFiles.length >= MAX_PHOTOS) break;
+    if (f.size > MAX_SIZE) { alert('ไฟล์ใหญ่เกินไป (สูงสุด 5MB): ' + f.name); continue; }
+    if (!['image/jpeg', 'image/png'].includes(f.type)) continue;
+    selectedFiles.push(f);
+  }
+  renderPreviews();
+}
+
+function renderPreviews() {
+  previewContainer.innerHTML = '';
+  selectedFiles.forEach((f, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'relative w-20 h-20 rounded-lg overflow-hidden border border-slate-200';
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(f);
+    img.className = 'w-full h-full object-cover';
+    const rm = document.createElement('button');
+    rm.type = 'button';
+    rm.className = 'absolute top-0.5 right-0.5 w-5 h-5 bg-red-500 text-white rounded-full text-xs flex items-center justify-center';
+    rm.innerHTML = '&times;';
+    rm.onclick = () => { selectedFiles.splice(i, 1); renderPreviews(); };
+    wrap.append(img, rm);
+    previewContainer.appendChild(wrap);
+  });
+  if (selectedFiles.length >= MAX_PHOTOS) dropzone.classList.add('opacity-50', 'pointer-events-none');
+  else dropzone.classList.remove('opacity-50', 'pointer-events-none');
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const phone = form.phone.value.trim();
+
+  if (!email && !phone) {
+    contactError.classList.remove('hidden');
+    return;
+  }
+  contactError.classList.add('hidden');
+
+  const treatments = [...form.querySelectorAll('input[name="treatment"]:checked')].map(c => c.value);
+  const message = form.message.value.trim();
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังส่ง...';
+
+  try {
+    let photoUrls = [];
+    for (const file of selectedFiles) {
+      const ext = file.name.split('.').pop();
+      const filePath = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+      const { error: upErr } = await supabase.storage.from('consultation-photos').upload(filePath, file);
+      if (!upErr) photoUrls.push(filePath);
+    }
+
+    const { error } = await supabase.from('consultations').insert({
+      name,
+      email: email || null,
+      phone: phone || null,
+      locale: LOCALE,
+      treatment_interest: treatments,
+      message: message || null,
+      photo_urls: photoUrls.length ? photoUrls : null,
+    });
+
+    if (error) throw error;
+
+    form.classList.add('hidden');
+    successEl.classList.remove('hidden');
+  } catch (err) {
+    console.error(err);
+    form.classList.add('hidden');
+    errorEl.classList.remove('hidden');
+  }
+});
+</script>

@@ -1,0 +1,10 @@
+{
+  "key": "consult",
+  "template": "editorial",
+  "permalink": "ja/consult.html",
+  "title": "カウンセリング予約 | Tune Clinic 狎鸥亭 ソウル",
+  "description": "Tune Clinicにカウンセリングをリクエストしてください。施術のご希望やお写真をお送りいただくと、医師チームが事前評価いたします。",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/ja/consult.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}
