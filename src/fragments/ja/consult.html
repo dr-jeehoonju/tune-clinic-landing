@@ -212,6 +212,25 @@ form.addEventListener('submit', async (e) => {
 
     if (error) throw error;
 
+    try {
+      await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: 'service_ti6j44a',
+          template_id: 'template_xntg0qr',
+          user_id: 'Dd3vrn1gR_VkvfrAK',
+          template_params: {
+            name, email: email || '—', phone: phone || '—',
+            locale: LOCALE.toUpperCase(),
+            treatments: treatments.join(', ') || 'None selected',
+            message: message || '—',
+            photo_count: photoUrls.length,
+          }
+        })
+      });
+    } catch (_) {}
+
     form.classList.add('hidden');
     successEl.classList.remove('hidden');
   } catch (err) {
