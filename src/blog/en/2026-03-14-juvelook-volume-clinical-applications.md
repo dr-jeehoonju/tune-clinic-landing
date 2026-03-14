@@ -26,7 +26,7 @@ The mechanism is sequential: the HA provides an initial tissue support scaffold 
 
 This distinction matters clinically. Juvelook Volume does not "fill." It rebuilds.
 
-## Application 1 — Nasolabial folds (팔자주름)
+## Application 1 — Nasolabial folds
 
 ### The anatomical problem
 
@@ -52,7 +52,7 @@ The fold softens. It does not disappear. This is the correct clinical goal.
 - **Sessions:** 2–3 sessions at 4-week intervals for optimal collagen layering
 - **Onset of visible result:** 6–8 weeks post first session
 
-## Application 2 — Marionette lines (마리오네트 주름)
+## Application 2 — Marionette lines
 
 ### The anatomical problem
 
@@ -84,7 +84,7 @@ The lines soften gradually, and — critically — the oral commissure position 
 - **Sessions:** 2–3 at 4-week intervals
 - **Key caution:** Avoid superficial placement — PDLLA nodularity in thin perioral skin is difficult to manage
 
-## Application 3 — Midface hollowing (볼꺼짐)
+## Application 3 — Midface hollowing
 
 ### The anatomical problem
 
@@ -116,7 +116,7 @@ For patients with **mild to moderate midface hollowing** — particularly those 
 - **Sessions:** 2–3 at 4-week intervals
 - **Expected outcome:** Progressive midface convexity restoration over 8–16 weeks
 
-## Application 4 — Infraorbital deficiency (눈밑 쾡함)
+## Application 4 — Infraorbital deficiency
 
 ### The anatomical problem
 
