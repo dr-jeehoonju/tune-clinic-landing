@@ -1,6 +1,6 @@
 ---
 title: "Juvelook Volume 深层面部修复：法令纹、木偶纹、中面部凹陷与眶下缺损的临床应用"
-description: "从皮肤科医生的临床视角，解析 Juvelook Volume（PDLLA + 非交联透明质酸）如何应对四种不同的面部衰老解剖模式——不依赖填充逻辑，而是通过结构性生物刺激实现修复。"
+description: "从美容医学专家的临床视角，解析 Juvelook Volume（PDLLA + 非交联透明质酸）如何应对四种不同的面部衰老解剖模式——不依赖填充逻辑，而是通过结构性生物刺激实现修复。"
 slug: juvelook-volume-clinical-applications
 date: 2026-03-14
 author: [cha-seung-yeon, ju-jee-hoon]

@@ -1,6 +1,6 @@
 ---
 title: "Juvelook Volume for Deep Facial Restoration: Nasolabial Folds, Marionette Lines, Midface Hollowing, and Infraorbital Deficiency"
-description: "A dermatologist's clinical breakdown of how Juvelook Volume (PDLLA + non-crosslinked HA) addresses four distinct anatomical aging patterns — not through filler logic, but through structural biostimulation."
+description: "An aesthetic medicine specialist's clinical breakdown of how Juvelook Volume (PDLLA + non-crosslinked HA) addresses four distinct anatomical aging patterns — not through filler logic, but through structural biostimulation."
 slug: juvelook-volume-clinical-applications
 date: 2026-03-14
 author: [cha-seung-yeon, ju-jee-hoon]

@@ -1,6 +1,6 @@
 ---
 title: "Juvelook Volumeによる深部顔面リストレーション：ほうれい線・マリオネットライン・中顔面陥凹・眼窩下陥凹"
-description: "Juvelook Volume（PDLLA＋非架橋ヒアルロン酸）が、4つの異なる解剖学的老化パターンにどう対応するか。フィラーの論理ではなく、構造的バイオスティミュレーションという観点から皮膚科専門医が臨床的に解説します。"
+description: "Juvelook Volume（PDLLA＋非架橋ヒアルロン酸）が、4つの異なる解剖学的老化パターンにどう対応するか。フィラーの論理ではなく、構造的バイオスティミュレーションという観点から美容医療専門医が臨床的に解説します。"
 slug: juvelook-volume-clinical-applications
 date: 2026-03-14
 author: [cha-seung-yeon, ju-jee-hoon]
