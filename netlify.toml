@@ -64,6 +64,11 @@
   status = 200
 
 [[redirects]]
+  from = "/consult"
+  to = "/consult.html"
+  status = 200
+
+[[redirects]]
   from = "/design-method"
   to = "/design-method.html"
   status = 200
@@ -86,6 +91,66 @@
 [[redirects]]
   from = "/filler-chamaka-se"
   to = "/filler-chamaka-se.html"
+  status = 200
+
+[[redirects]]
+  from = "/international-patients-guide"
+  to = "/international-patients-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/korean-lifting-guide"
+  to = "/korean-lifting-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/dermal-fillers-in-korea"
+  to = "/dermal-fillers-in-korea.html"
+  status = 200
+
+[[redirects]]
+  from = "/skin-boosters-and-regenerative-treatments"
+  to = "/skin-boosters-and-regenerative-treatments.html"
+  status = 200
+
+[[redirects]]
+  from = "/hair-loss-and-scalp-regeneration-in-korea"
+  to = "/hair-loss-and-scalp-regeneration-in-korea.html"
+  status = 200
+
+[[redirects]]
+  from = "/ultherapy-vs-thermage"
+  to = "/ultherapy-vs-thermage.html"
+  status = 200
+
+[[redirects]]
+  from = "/how-to-choose-the-right-lifting-treatment"
+  to = "/how-to-choose-the-right-lifting-treatment.html"
+  status = 200
+
+[[redirects]]
+  from = "/aesthetic-treatment-faq-for-foreign-patients"
+  to = "/aesthetic-treatment-faq-for-foreign-patients.html"
+  status = 200
+
+[[redirects]]
+  from = "/apgujeong-aesthetic-clinic-for-foreign-patients"
+  to = "/apgujeong-aesthetic-clinic-for-foreign-patients.html"
+  status = 200
+
+[[redirects]]
+  from = "/ja"
+  to = "/ja/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/zh"
+  to = "/zh/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/th"
+  to = "/th/index.html"
   status = 200
 
 [[redirects]]
