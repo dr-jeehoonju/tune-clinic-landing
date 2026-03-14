@@ -1,0 +1,11 @@
+{
+  "key": "guides",
+  "template": "editorial",
+  "permalink": "ja/guides.html",
+  "title": "ソウル美容ガイド | チューンクリニック 海外患者様向けリソース",
+  "description": "チューンクリニックの海外患者様向けソウル美容ガイド。施術比較、渡航計画、リフティング選択、フィラー、再生治療、患者様FAQ等をご案内します。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ja/guides.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Guides Hub"
+}

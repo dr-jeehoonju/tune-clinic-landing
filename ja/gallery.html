@@ -110,7 +110,7 @@
             <a href="/ja/menu.html" class="hover:text-gold transition">料金表</a>
             <a href="/ja/gallery.html" class="text-gold transition border-b-2 border-gold pb-1">症例写真</a>
             <a href="/ja/blog/" class="hover:text-gold transition">ブログ</a>
-            
+            <a href="/ja/guides.html" class="hover:text-gold transition">Guides</a>
             <a href="/ja/index.html#faq" class="hover:text-gold transition">よくある質問</a>
           </div>
           <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
@@ -129,7 +129,7 @@
         <a href="/ja/menu.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">料金表</a>
         <a href="/ja/gallery.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">症例写真</a>
         <a href="/ja/blog/" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">ブログ</a>
-        
+        <a href="/ja/guides.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>
         <a href="/ja/index.html#faq" class="block px-6 py-4 font-bold text-slate-800">よくある質問</a>
       </div>
     </nav>
@@ -294,180 +294,45 @@
         </div>
     </div>
 
-    <script>
-        const galleryData = [
-            {
-                id: 1,
-                category: 'hip',
-                title: 'ヒップディップ矯正',
-                timeframe: '施術後（期間未指定）',
-                note: 'ヒップシルエットを自然に滑らかにするための的確なボリューム回復。',
-                imageSrc: '../hip-dip-ba-1.jpg'
-            },
-            {
-                id: 2,
-                category: 'hip',
-                title: 'ヒップ輪郭バランシング',
-                timeframe: '施術後（期間未指定）',
-                note: '側面の解剖学的陥凹に対応する構造フィラー施術。',
-                imageSrc: '../hip-dip-ba-2.jpg'
-            },
-            {
-                id: 3,
-                category: 'lip',
-                title: 'リップボリューム＆シンメトリー',
-                timeframe: '即時 / 当日',
-                note: '自然な解剖学を尊重した繊細なボリューム増強とシンメトリー矯正。',
-                imageSrc: '../lip-filler-ba-1.jpg'
-            },
-            {
-                id: 4,
-                category: 'lip',
-                title: 'リップコンタリング',
-                timeframe: '施術後（期間未指定）',
-                note: '人工的な突出なく、赤唇縁の定義と中央ボリュームを強化。',
-                imageSrc: '../lip-filler-ba-2.jpg'
-            },
-            {
-                id: 5,
-                category: 'shoulder',
-                title: 'ショルダーラインフィラー',
-                timeframe: '即時 / 当日',
-                note: 'エレガントなネックラインシルエットのための僧帽筋とショルダーライン輪郭形成。',
-                imageSrc: '../shoulder-line-ba-1.jpg'
-            },
-            {
-                id: 6,
-                category: 'shoulder',
-                title: 'ショルダーラインリファインメント',
-                timeframe: '即時 / 当日',
-                note: 'プロポーショナルバランスとショルダーシンメトリーのための的確なボリューム調整。',
-                imageSrc: '../shoulder-line-ba-2.jpg'
-            },
-            {
-                id: 7,
-                category: 'shoulder',
-                title: 'ショルダーラインコンタリング',
-                timeframe: '施術後（期間未指定）',
-                note: '美しいフレームラインのための鎖骨ラインに沿った構造回復。',
-                imageSrc: '../shoulder-line-ba-3.jpg'
-            },
-            {
-                id: 8,
-                category: 'ear',
-                title: 'イヤーローブフィラー',
-                timeframe: '即時 / 当日',
-                note: '若々しい輪郭のための耳たぶボリュームと構造形状の回復。',
-                imageSrc: '../ear-filler-ba-1.jpg'
-            },
-            {
-                id: 9,
-                category: 'body',
-                title: 'ヒップフィラー — 正面',
-                timeframe: '施術後',
-                note: '外側のヒップの凹みを構造的フィラーで補正し、正面から見たスムーズな下半身シルエットを実現。',
-                imageSrc: '../hip-filler-front-ba.jpg'
-            },
-            {
-                id: 10,
-                category: 'body',
-                title: 'ヒップフィラー — 背面',
-                timeframe: '施術後',
-                note: '外側のヒップラインにボリュームを加え、バランスのとれた後方の輪郭とプロポーションの改善を実現。',
-                imageSrc: '../hip-filler-back-ba.jpg'
-            },
-            {
-                id: 11,
-                category: 'facial',
-                title: '実リフティング — 正面',
-                timeframe: '施術後',
-                note: '吸収性スレッドを用いた中顔面のボリューム再配分と顎ラインの引き締めで、リフトアップした輪郭を実現。',
-                imageSrc: '../lifting-front-ba.jpg'
-            },
-            {
-                id: 12,
-                category: 'facial',
-                title: '実リフティング — 左45°',
-                timeframe: '施術後',
-                note: 'スレッド挿入後、斜めの角度から頬の突出とほうれい線の深さの改善が確認。',
-                imageSrc: '../lifting-left45-ba.jpg'
-            },
-            {
-                id: 13,
-                category: 'facial',
-                title: '実リフティング — 右45°',
-                timeframe: '施術後',
-                note: '反対側の斜めビューから観察された、外側の顎ラインの定義と中顔面のリフトアップ。',
-                imageSrc: '../lifting-right45-ba.jpg'
-            },
-            {
-                id: 14,
-                category: 'facial',
-                title: 'ピーナッツ型実リフティング — 正面',
-                timeframe: '施術直後',
-                note: 'ほうれい線とマリオネットラインに焦点を当てた部分実リフティングで、引き締めとボリューム再配分を実現。',
-                imageSrc: '../peanut-lifting-front-ba.jpg'
-            },
-            {
-                id: 15,
-                category: 'facial',
-                title: 'ピーナッツ型実リフティング — 左45°',
-                timeframe: '施術直後',
-                note: '部分スレッド挿入後の頬の突出と顎ラインの定義の改善を斜めの角度から確認。',
-                imageSrc: '../peanut-lifting-left45-ba.jpg'
-            },
-            {
-                id: 16,
-                category: 'facial',
-                title: 'ピーナッツ型実リフティング — 右45°',
-                timeframe: '施術直後',
-                note: '反対側の斜角から中顔面のリフトアップとほうれい線の軟化を確認。',
-                imageSrc: '../peanut-lifting-right45-ba.jpg'
-            }
-        ];
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+        const supabase = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const LANG = 'ja';
+        const PREFIX = '../';
 
-        const categoryNames = {
-            'ear': 'イヤーフィラー',
-            'lip': 'リップフィラー',
-            'shoulder': 'ショルダーライン',
-            'hip': 'ヒップディップ'
-        };
-
+        const categoryNames = { 'facial': 'フェイシャルバランス', 'body': 'ボディコンター' };
         const grid = document.getElementById('gallery-grid');
         const filterBtns = document.querySelectorAll('.filter-btn');
+        let galleryData = [];
+
+        function getTitle(item) { return item[`title_${LANG}`] || item.title_en || ''; }
+        function getNote(item) { return item[`notes_${LANG}`] || item.notes_en || ''; }
+        function imgSrc(item) { return PREFIX + item.image_url; }
 
         function renderGallery(filter = 'all') {
             grid.innerHTML = '';
-            
-            const filteredData = filter === 'all' 
-                ? galleryData 
-                : galleryData.filter(item => item.category === filter);
-
-            if (filteredData.length === 0) {
+            const filtered = filter === 'all' ? galleryData : galleryData.filter(i => i.category === filter);
+            if (!filtered.length) {
                 grid.innerHTML = '<p class="col-span-full text-center text-slate-400 py-10">症例は近日追加予定です。</p>';
                 return;
             }
-
-            filteredData.forEach(item => {
+            filtered.forEach(item => {
+                const title = getTitle(item);
+                const note = getNote(item);
                 const card = document.createElement('div');
                 card.className = 'bg-white rounded-sm border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer group overflow-hidden';
                 card.onclick = () => openModal(item);
-                
                 card.innerHTML = `
                     <div class="w-full bg-slate-100 relative aspect-video overflow-hidden">
-                        <img src="${item.imageSrc}" alt="ビフォーアフター - ${item.title}" loading="lazy" class="w-full h-full object-cover ${item.category === 'facial' ? 'object-[50%_20%]' : 'object-center'} group-hover:scale-105 transition duration-500">
+                        <img src="${imgSrc(item)}" alt="ビフォーアフター - ${title}" loading="lazy" class="w-full h-full object-cover ${item.category === 'facial' ? 'object-[50%_20%]' : 'object-center'} group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center z-20">
                             <span class="bg-white text-slate-900 text-xs font-bold px-4 py-2 rounded-sm shadow-lg transform translate-y-2 group-hover:translate-y-0 transition">詳細を見る</span>
                         </div>
                     </div>
                     <div class="p-5">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-serif text-lg text-slate-900 leading-tight">${item.title}</h4>
-                        </div>
-                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2"><i class="far fa-clock mr-1"></i> ${item.timeframe}</p>
-                        <p class="text-sm text-slate-500 line-clamp-2 leading-relaxed">${item.note}</p>
-                    </div>
-                `;
+                        <h4 class="font-serif text-lg text-slate-900 leading-tight mb-2">${title}</h4>
+                        <p class="text-sm text-slate-500 line-clamp-2 leading-relaxed">${note}</p>
+                    </div>`;
                 grid.appendChild(card);
             });
         }
@@ -487,19 +352,15 @@
         let prevOverflow = '';
 
         function openModal(item) {
-            document.getElementById('modal-img').src = item.imageSrc;
-            document.getElementById('modal-img').alt = `ビフォーアフター写真 - ${item.title}`;
-            document.getElementById('modal-tag').textContent = categoryNames[item.category] || 'フィラー';
-            document.getElementById('modal-title').textContent = item.title;
-            document.getElementById('modal-timeframe').innerHTML = `<i class="far fa-clock"></i> <span>${item.timeframe}</span>`;
-            document.getElementById('modal-note').textContent = item.note;
-
+            const title = getTitle(item);
+            document.getElementById('modal-img').src = imgSrc(item);
+            document.getElementById('modal-img').alt = `ビフォーアフター - ${title}`;
+            document.getElementById('modal-tag').textContent = categoryNames[item.category] || item.category;
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-timeframe').innerHTML = `<i class="far fa-clock"></i> <span>施術後</span>`;
+            document.getElementById('modal-note').textContent = getNote(item);
             modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modalContent.classList.remove('scale-95');
-            }, 10);
-            
+            setTimeout(() => { modal.classList.remove('opacity-0'); modalContent.classList.remove('scale-95'); }, 10);
             prevOverflow = document.body.style.overflow;
             document.body.style.overflow = 'hidden';
         }
@@ -507,28 +368,26 @@
         function closeModal() {
             modal.classList.add('opacity-0');
             modalContent.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = prevOverflow;
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = prevOverflow; }, 300);
         }
-
         closeBtn.addEventListener('click', closeModal);
         backdrop.addEventListener('click', closeModal);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModal();
+        (async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('gallery_cases')
+                    .select('*')
+                    .eq('is_published', true)
+                    .order('sort_order');
+                if (error || !data?.length) throw error;
+                galleryData = data;
+            } catch (_) {
+                galleryData = [];
             }
-        });
-
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        }
-
-        renderGallery('all');
+            renderGallery('all');
+        })();
     </script>
 
 
@@ -552,7 +411,7 @@
             <a href="/ja/menu.html" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2">
               <i class="fas fa-list-ul"></i> 料金表
             </a>
-            
+            <a href="/ja/guides.html" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2"><i class="fas fa-book-open"></i> Guides Library</a>
           </div>
         </div>
       </div>
@@ -580,7 +439,7 @@
               <a href="/ja/gallery.html" class="hover:text-gold transition">症例写真</a>
               <a href="/ja/blog/" class="hover:text-gold transition">ブログ</a>
               <a href="/ja/consult.html" class="hover:text-gold transition">写真評価を依頼する</a>
-              
+              <a href="/ja/guides.html" class="hover:text-gold transition">Guides Library</a>
             </div>
           </div>
           <div>

@@ -1,0 +1,11 @@
+{
+  "key": "guides",
+  "template": "editorial",
+  "permalink": "th/guides.html",
+  "title": "คู่มือความงามโซล | แหล่งข้อมูล Tune Clinic สำหรับผู้ป่วยต่างชาติ",
+  "description": "เรียกดูคู่มือความงามโซลจาก Tune Clinic สำหรับผู้ป่วยต่างชาติ รวมถึงการเปรียบเทียบหัตถการ การวางแผนการเดินทาง การตัดสินใจด้านการยกกระชับ ฟิลเลอร์ หัตถการฟื้นฟู และคำถามที่พบบ่อย.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/guides.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Guides Hub"
+}

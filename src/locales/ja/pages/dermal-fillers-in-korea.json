@@ -1,0 +1,11 @@
+{
+  "key": "dermal-fillers-in-korea",
+  "template": "editorial",
+  "permalink": "ja/dermal-fillers-in-korea.html",
+  "title": "韓国のダーマルフィラー | ジュビダーム・レスチレン・ラディエッセとソウルのフェイシャルデザイン",
+  "description": "チューンクリニックによる韓国フィラーガイド。ジュビダーム、レスチレン、ベロテロ、ラディエッセ、構造的フィラー設計、ボリューム重視とは異なる医師主導のフェイシャルデザインについて解説します。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ja/dermal-fillers-in-korea.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Filler Guide"
+}

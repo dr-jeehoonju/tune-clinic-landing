@@ -1,0 +1,11 @@
+{
+  "key": "ultherapy-vs-thermage",
+  "template": "editorial",
+  "permalink": "zh/ultherapy-vs-thermage.html",
+  "title": "超声刀Ultherapy vs 热玛吉Thermage FLX | 哪种提升更适合您的面部？",
+  "description": "从首尔医师主导诊所视角对比超声刀Ultherapy与热玛吉Thermage FLX——提升深度、皮肤紧致、恢复期、治疗目标，以及为何组合方案可能比单选某一设备更加合理。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/zh/ultherapy-vs-thermage.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Device Comparison"
+}

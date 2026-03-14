@@ -1,0 +1,11 @@
+{
+  "key": "international-patients-guide",
+  "template": "editorial",
+  "permalink": "th/international-patients-guide.html",
+  "title": "คู่มือผู้ป่วยต่างชาติ | Tune Clinic โซลสำหรับผู้มาเยือนจากต่างประเทศ",
+  "description": "วางแผนหัตถการความงามในโซลกับคู่มือผู้ป่วยต่างชาติจาก Tune Clinic ครอบคลุมขั้นตอนการให้คำปรึกษา การสนับสนุนภาษา ระยะเวลาหัตถการ การพักฟื้น ราคาอ้างอิง และการดูแลที่เหมาะกับนักเดินทาง.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/international-patients-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Travel Guide"
+}

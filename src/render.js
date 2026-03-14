@@ -425,9 +425,7 @@ function homeChrome(entry, localeData) {
   const switcher = languageSwitcher(entry, localeData);
   const locales = entry.availableLocales || languageOrder;
   const blogLink = `<a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${g.blog || "Blog"}</a>`;
-  const guidesLink = entry.locale === "en"
-    ? `<a href="/guides.html" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition">Guides</a>`
-    : "";
+  const guidesLink = `<a href="${pageUrl(entry.locale, "guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition">Guides</a>`;
   const mobileLanguageLinks = locales
     .map((code) => {
       const locale = localeData[code].global;
@@ -516,7 +514,7 @@ function homeChrome(entry, localeData) {
         </div>
         <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
         <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
-        ${entry.locale === "en" ? `<a href="/guides.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>` : ""}
+        ${`<a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>`}
         <a href="#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
         <a href="#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
       </div>
@@ -529,9 +527,7 @@ function siteFooter(entry, localeData) {
   const isHome = entry.template === "home";
   const blogFooterLink = `<a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${localeData[entry.locale].global.blog || "Blog"}</a>`;
   const consultFooterLink = `<a href="${pageUrl(entry.locale, "consult")}" class="hover:text-gold transition">${g.consult || "Consultation Form"}</a>`;
-  const guideLink = entry.locale === "en"
-    ? `<a href="/guides.html" class="hover:text-gold transition">Guides Library</a>`
-    : "";
+  const guideLink = `<a href="${pageUrl(entry.locale, "guides")}" class="hover:text-gold transition">Guides Library</a>`;
   const topPanel = isHome
     ? `
       <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10 mb-14">
@@ -574,7 +570,7 @@ function siteFooter(entry, localeData) {
             <a href="${pageUrl(entry.locale, "menu")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2">
               <i class="fas fa-list-ul"></i> ${g.menu}
             </a>
-            ${entry.locale === "en" ? `<a href="/guides.html" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2"><i class="fas fa-book-open"></i> Guides Library</a>` : ""}
+            <a href="${pageUrl(entry.locale, "guides")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2"><i class="fas fa-book-open"></i> Guides Library</a>
           </div>
         </div>
       </div>
@@ -668,9 +664,7 @@ function editorialChrome(entry, localeData) {
       ? "text-gold transition border-b-2 border-gold pb-1"
       : "hover:text-gold transition";
   const chromeLabel = entry.chromeLabel || activeMap[entry.key] || "SEO Guide";
-  const guidesLink = entry.locale === "en"
-    ? `<a href="/guides.html" class="${activeClass("guides")}">Guides</a>`
-    : "";
+  const guidesLink = `<a href="${pageUrl(entry.locale, "guides")}" class="${activeClass("guides")}">Guides</a>`;
 
   return `
     <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
@@ -732,7 +726,7 @@ function editorialChrome(entry, localeData) {
         <a href="${pageUrl(entry.locale, "menu")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "menu" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.menu}</a>
         <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "gallery" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.gallery}</a>
         <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
-        ${entry.locale === "en" ? `<a href="/guides.html" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">Guides</a>` : ""}
+        <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">Guides</a>
         <a href="${pageUrl(entry.locale, "index")}#faq" class="block px-6 py-4 font-bold text-slate-800">${g.faq}</a>
       </div>
     </nav>
@@ -754,9 +748,7 @@ function programChrome(entry, localeData) {
       ? `<span class="text-gold">${g[labelKey]}</span>`
       : `<a href="${pageUrl(entry.locale, key)}" class="hover:text-gold transition hidden sm:inline">${g[labelKey]}</a>`;
   const blogLink = `<span class="text-slate-700 hidden sm:inline">|</span><a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition hidden sm:inline">${g.blog || "Blog"}</a>`;
-  const guidesLink = entry.locale === "en"
-    ? `<span class="text-slate-700 hidden sm:inline">|</span><a href="/guides.html" class="hover:text-gold transition hidden sm:inline">Guides</a>`
-    : "";
+  const guidesLink = `<span class="text-slate-700 hidden sm:inline">|</span><a href="${pageUrl(entry.locale, "guides")}" class="hover:text-gold transition hidden sm:inline">Guides</a>`;
 
   return `
     <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">

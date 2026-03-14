@@ -1,0 +1,11 @@
+{
+  "key": "aesthetic-treatment-faq-for-foreign-patients",
+  "template": "editorial",
+  "permalink": "zh/aesthetic-treatment-faq-for-foreign-patients.html",
+  "title": "外国顾客美容治疗FAQ | 首尔诊所旅行就医常见问题解答",
+  "description": "查看面向外国顾客的美容治疗FAQ解答，涵盖问诊时间、恢复期、语言支持、当天治疗、瘀青风险、术后乘机及Tune Clinic旅行就医规划。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/zh/aesthetic-treatment-faq-for-foreign-patients.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Patient FAQ"
+}

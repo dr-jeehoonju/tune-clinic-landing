@@ -1,0 +1,11 @@
+{
+  "key": "apgujeong-aesthetic-clinic-for-foreign-patients",
+  "template": "editorial",
+  "permalink": "ja/apgujeong-aesthetic-clinic-for-foreign-patients.html",
+  "title": "海外患者様のための狎鷗亭美容クリニック | チューンクリニック ソウル",
+  "description": "ソウル狎鷗亭のチューンクリニックをご紹介。医師主導の美容治療、英語対応、渡航を考慮した計画設計、トレンドに流されないプログラム設計を求める海外患者様へ。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ja/apgujeong-aesthetic-clinic-for-foreign-patients.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Seoul Clinic Guide"
+}

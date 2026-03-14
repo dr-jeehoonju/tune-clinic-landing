@@ -157,178 +157,45 @@
         </div>
     </div>
 
-    <script>
-        const galleryData = [
-            {
-                id: 1,
-                category: 'body',
-                title: 'ปรับความเว้าบริเวณสะโพก',
-                timeframe: 'หลังทำหัตถการ (ไม่ได้ระบุช่วงเวลา)',
-                note: 'เติมปริมาตรเฉพาะจุดเพื่อให้เส้นสะโพกดูเรียบเนียนอย่างเป็นธรรมชาติ',
-                imageSrc: 'hip-dip-ba-1.jpg'
-            },
-            {
-                id: 2,
-                category: 'body',
-                title: 'ปรับสมดุลคอนทัวร์สะโพก',
-                timeframe: 'หลังทำหัตถการ (ไม่ได้ระบุช่วงเวลา)',
-                note: 'ใช้ฟิลเลอร์เชิงโครงสร้างเพื่อแก้บริเวณเว้าด้านข้างตามกายวิภาค',
-                imageSrc: 'hip-dip-ba-2.jpg'
-            },
-            {
-                id: 3,
-                category: 'facial',
-                title: 'เพิ่มวอลุ่มและปรับสมมาตรริมฝีปาก',
-                timeframe: 'ทันที / ภายในวันเดียวกัน',
-                note: 'เพิ่มวอลุ่มอย่างพอดีและปรับสมมาตรโดยยังคงรูปทรงธรรมชาติ',
-                imageSrc: 'lip-filler-ba-1.jpg'
-            },
-            {
-                id: 4,
-                category: 'facial',
-                title: 'เน้นการปรับคอนทัวร์ริมฝีปาก',
-                timeframe: 'หลังทำหัตถการ (ไม่ได้ระบุช่วงเวลา)',
-                note: 'เน้นขอบริมฝีปากและปริมาตรตรงกลางโดยไม่ให้ดูหลอกตา',
-                imageSrc: 'lip-filler-ba-2.jpg'
-            },
-            {
-                id: 5,
-                category: 'body',
-                title: 'ฟิลเลอร์ไลน์หัวไหล่',
-                timeframe: 'ทันที / ภายในวันเดียวกัน',
-                note: 'ปรับแนวไหล่และช่วงคอให้ดูเรียวและสง่างาม',
-                imageSrc: 'shoulder-line-ba-1.jpg'
-            },
-            {
-                id: 6,
-                category: 'body',
-                title: 'ปรับรายละเอียดไลน์หัวไหล่',
-                timeframe: 'ทันที / ภายในวันเดียวกัน',
-                note: 'เติมปริมาตรเฉพาะจุดเพื่อสร้างสมดุลและความสมมาตรของหัวไหล่',
-                imageSrc: 'shoulder-line-ba-2.jpg'
-            },
-            {
-                id: 7,
-                category: 'body',
-                title: 'ปรับคอนทัวร์แนวหัวไหล่',
-                timeframe: 'หลังทำหัตถการ (ไม่ได้ระบุช่วงเวลา)',
-                note: 'เสริมโครงตามแนวไหปลาร้าเพื่อให้กรอบรูปร่างชัดเจนขึ้น',
-                imageSrc: 'shoulder-line-ba-3.jpg'
-            },
-            {
-                id: 8,
-                category: 'facial',
-                title: 'ฟิลเลอร์ติ่งหู',
-                timeframe: 'ทันที / ภายในวันเดียวกัน',
-                note: 'ฟื้นปริมาตรและรูปทรงของติ่งหูให้ดูอ่อนเยาว์ขึ้น',
-                imageSrc: 'ear-filler-ba-1.jpg'
-            },
-            {
-                id: 9,
-                category: 'body',
-                title: 'ฟิลเลอร์สะโพก — ด้านหน้า',
-                timeframe: 'หลังทำหัตถการ',
-                note: 'ใช้ฟิลเลอร์โครงสร้างเพื่อแก้ไขรอยบุ๋มด้านข้างสะโพก สร้างซิลูเอตท่อนล่างที่เรียบเนียนจากด้านหน้า',
-                imageSrc: '../hip-filler-front-ba.jpg'
-            },
-            {
-                id: 10,
-                category: 'body',
-                title: 'ฟิลเลอร์สะโพก — ด้านหลัง',
-                timeframe: 'หลังทำหัตถการ',
-                note: 'เพิ่มวอลุ่มตามแนวสะโพกด้านนอกเพื่อสร้างเส้นรอบวงด้านหลังที่สมดุลและสัดส่วนที่ดีขึ้น',
-                imageSrc: '../hip-filler-back-ba.jpg'
-            },
-            {
-                id: 11,
-                category: 'facial',
-                title: 'ร้อยไหมยกกระชับ — ด้านหน้า',
-                timeframe: 'หลังทำหัตถการ',
-                note: 'การกระจายวอลุ่มบริเวณใบหน้าส่วนกลางและกระชับแนวกรามด้วยไหมละลาย เพื่อซิลูเอตที่ยกกระชับ',
-                imageSrc: '../lifting-front-ba.jpg'
-            },
-            {
-                id: 12,
-                category: 'facial',
-                title: 'ร้อยไหมยกกระชับ — ซ้าย 45°',
-                timeframe: 'หลังทำหัตถการ',
-                note: 'การปรับปรุงที่เห็นได้ชัดในการยื่นของโหนกแก้มและความลึกของร่องแก้มจากมุมเฉียงหลังการวางไหม',
-                imageSrc: '../lifting-left45-ba.jpg'
-            },
-            {
-                id: 13,
-                category: 'facial',
-                title: 'ร้อยไหมยกกระชับ — ขวา 45°',
-                timeframe: 'หลังทำหัตถการ',
-                note: 'ความชัดเจนของแนวกรามด้านข้างและการยกบริเวณใบหน้าส่วนกลางจากมุมเฉียงด้านตรงข้าม',
-                imageSrc: '../lifting-right45-ba.jpg'
-            },
-            {
-                id: 14,
-                category: 'facial',
-                title: 'ร้อยไหมแบบพีนัท — ด้านหน้า',
-                timeframe: 'ทันทีหลังทำ',
-                note: 'ร้อยไหมยกกระชับบริเวณร่องแก้มและร่องมุมปาก เพื่อกระชับและกระจายวอลุ่มใหม่',
-                imageSrc: '../peanut-lifting-front-ba.jpg'
-            },
-            {
-                id: 15,
-                category: 'facial',
-                title: 'ร้อยไหมแบบพีนัท — ซ้าย 45°',
-                timeframe: 'ทันทีหลังทำ',
-                note: 'มุมเฉียงแสดงการปรับปรุงการยื่นของโหนกแก้มและความชัดเจนของแนวกรามหลังวางไหมบางส่วน',
-                imageSrc: '../peanut-lifting-left45-ba.jpg'
-            },
-            {
-                id: 16,
-                category: 'facial',
-                title: 'ร้อยไหมแบบพีนัท — ขวา 45°',
-                timeframe: 'ทันทีหลังทำ',
-                note: 'มุมเฉียงด้านตรงข้ามแสดงการยกบริเวณใบหน้าส่วนกลางและร่องแก้มที่นุ่มนวลขึ้น',
-                imageSrc: '../peanut-lifting-right45-ba.jpg'
-            }
-        ];
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+        const supabase = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const LANG = 'th';
+        const PREFIX = '../';
 
-        const categoryNames = {
-            'facial': 'สมดุลของใบหน้า',
-            'body': 'คอนทัวร์ร่างกาย'
-        };
-
+        const categoryNames = { 'facial': 'สมดุลของใบหน้า', 'body': 'คอนทัวร์ร่างกาย' };
         const grid = document.getElementById('gallery-grid');
         const filterBtns = document.querySelectorAll('.filter-btn');
+        let galleryData = [];
+
+        function getTitle(item) { return item[`title_${LANG}`] || item.title_en || ''; }
+        function getNote(item) { return item[`notes_${LANG}`] || item.notes_en || ''; }
+        function imgSrc(item) { return PREFIX + item.image_url; }
 
         function renderGallery(filter = 'all') {
             grid.innerHTML = '';
-            
-            const filteredData = filter === 'all' 
-                ? galleryData 
-                : galleryData.filter(item => item.category === filter);
-
-            if (filteredData.length === 0) {
+            const filtered = filter === 'all' ? galleryData : galleryData.filter(i => i.category === filter);
+            if (!filtered.length) {
                 grid.innerHTML = '<p class="col-span-full text-center text-slate-400 py-10">จะมีการอัปเดตเคสเพิ่มเติมเร็ว ๆ นี้</p>';
                 return;
             }
-
-            filteredData.forEach(item => {
+            filtered.forEach(item => {
+                const title = getTitle(item);
+                const note = getNote(item);
                 const card = document.createElement('div');
                 card.className = 'bg-white rounded-sm border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer group overflow-hidden';
                 card.onclick = () => openModal(item);
-                
                 card.innerHTML = `
                     <div class="w-full bg-slate-100 relative aspect-video overflow-hidden">
-                        <img src="${item.imageSrc}" alt="Before and After - ${item.title}" loading="lazy" class="w-full h-full object-cover ${item.category === 'facial' ? 'object-[50%_20%]' : 'object-center'} group-hover:scale-105 transition duration-500">
+                        <img src="${imgSrc(item)}" alt="ก่อนและหลัง - ${title}" loading="lazy" class="w-full h-full object-cover ${item.category === 'facial' ? 'object-[50%_20%]' : 'object-center'} group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center z-20">
                             <span class="bg-white text-slate-900 text-xs font-bold px-4 py-2 rounded-sm shadow-lg transform translate-y-2 group-hover:translate-y-0 transition">ดูรายละเอียด</span>
                         </div>
                     </div>
                     <div class="p-5">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-serif text-lg text-slate-900 leading-tight">${item.title}</h4>
-                        </div>
-                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2"><i class="far fa-clock mr-1"></i> ${item.timeframe}</p>
-                        <p class="text-sm text-slate-500 line-clamp-2 leading-relaxed">${item.note}</p>
-                    </div>
-                `;
+                        <h4 class="font-serif text-lg text-slate-900 leading-tight mb-2">${title}</h4>
+                        <p class="text-sm text-slate-500 line-clamp-2 leading-relaxed">${note}</p>
+                    </div>`;
                 grid.appendChild(card);
             });
         }
@@ -348,19 +215,15 @@
         let prevOverflow = '';
 
         function openModal(item) {
-            document.getElementById('modal-img').src = item.imageSrc;
-            document.getElementById('modal-img').alt = `Before and After photo - ${item.title}`;
-            document.getElementById('modal-tag').textContent = categoryNames[item.category] || 'Filler';
-            document.getElementById('modal-title').textContent = item.title;
-            document.getElementById('modal-timeframe').innerHTML = `<i class="far fa-clock"></i> <span>${item.timeframe}</span>`;
-            document.getElementById('modal-note').textContent = item.note;
-
+            const title = getTitle(item);
+            document.getElementById('modal-img').src = imgSrc(item);
+            document.getElementById('modal-img').alt = `ก่อนและหลัง - ${title}`;
+            document.getElementById('modal-tag').textContent = categoryNames[item.category] || item.category;
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-timeframe').innerHTML = `<i class="far fa-clock"></i> <span>หลังทำหัตถการ</span>`;
+            document.getElementById('modal-note').textContent = getNote(item);
             modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modalContent.classList.remove('scale-95');
-            }, 10);
-            
+            setTimeout(() => { modal.classList.remove('opacity-0'); modalContent.classList.remove('scale-95'); }, 10);
             prevOverflow = document.body.style.overflow;
             document.body.style.overflow = 'hidden';
         }
@@ -368,26 +231,24 @@
         function closeModal() {
             modal.classList.add('opacity-0');
             modalContent.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = prevOverflow;
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = prevOverflow; }, 300);
         }
-
         closeBtn.addEventListener('click', closeModal);
         backdrop.addEventListener('click', closeModal);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModal();
+        (async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('gallery_cases')
+                    .select('*')
+                    .eq('is_published', true)
+                    .order('sort_order');
+                if (error || !data?.length) throw error;
+                galleryData = data;
+            } catch (_) {
+                galleryData = [];
             }
-        });
-
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        }
-
-        renderGallery('all');
+            renderGallery('all');
+        })();
     </script>

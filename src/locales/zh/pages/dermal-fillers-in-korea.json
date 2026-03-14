@@ -1,0 +1,11 @@
+{
+  "key": "dermal-fillers-in-korea",
+  "template": "editorial",
+  "permalink": "zh/dermal-fillers-in-korea.html",
+  "title": "韩国玻尿酸填充指南 | Juvederm、瑞蓝Restylane、Radiesse及首尔面部设计",
+  "description": "通过Tune Clinic指南了解韩国玻尿酸填充，包括乔雅登Juvederm、瑞蓝Restylane、薇力朋Belotero、Radiesse、结构性填充规划，以及医师主导的面部设计如何有别于单纯追求体量的治疗方式。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/zh/dermal-fillers-in-korea.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Filler Guide"
+}

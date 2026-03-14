@@ -151,180 +151,45 @@
         </div>
     </div>
 
-    <script>
-        const galleryData = [
-            {
-                id: 1,
-                category: 'hip',
-                title: '臀部凹陷矫正',
-                timeframe: '术后（未标注具体时间）',
-                note: '针对性填充恢复，自然平滑臀部轮廓。',
-                imageSrc: '../hip-dip-ba-1.jpg'
-            },
-            {
-                id: 2,
-                category: 'hip',
-                title: '臀部轮廓平衡',
-                timeframe: '术后（未标注具体时间）',
-                note: '结构性填充应用，改善侧面解剖凹陷。',
-                imageSrc: '../hip-dip-ba-2.jpg'
-            },
-            {
-                id: 3,
-                category: 'lip',
-                title: '唇部丰盈与对称',
-                timeframe: '即时 / 当天',
-                note: '在尊重自然解剖结构的前提下，进行微妙的丰唇和对称矫正。',
-                imageSrc: '../lip-filler-ba-1.jpg'
-            },
-            {
-                id: 4,
-                category: 'lip',
-                title: '唇部塑形',
-                timeframe: '术后（未标注具体时间）',
-                note: '增强唇缘线条定义和中部丰盈度，避免不自然的突出感。',
-                imageSrc: '../lip-filler-ba-2.jpg'
-            },
-            {
-                id: 5,
-                category: 'shoulder',
-                title: '肩线填充',
-                timeframe: '即时 / 当天',
-                note: '斜方肌和肩线塑形，打造优雅的颈肩轮廓。',
-                imageSrc: '../shoulder-line-ba-1.jpg'
-            },
-            {
-                id: 6,
-                category: 'shoulder',
-                title: '肩线精修',
-                timeframe: '即时 / 当天',
-                note: '针对性填充，实现比例平衡和肩部对称。',
-                imageSrc: '../shoulder-line-ba-2.jpg'
-            },
-            {
-                id: 7,
-                category: 'shoulder',
-                title: '肩线塑形',
-                timeframe: '术后（未标注具体时间）',
-                note: '沿锁骨线恢复结构，打造鲜明的美学框架。',
-                imageSrc: '../shoulder-line-ba-3.jpg'
-            },
-            {
-                id: 8,
-                category: 'ear',
-                title: '耳垂填充',
-                timeframe: '即时 / 当天',
-                note: '恢复耳垂丰盈度和结构形态，呈现年轻轮廓。',
-                imageSrc: '../ear-filler-ba-1.jpg'
-            },
-            {
-                id: 9,
-                category: 'body',
-                title: '臀部填充 — 正面',
-                timeframe: '术后',
-                note: '通过结构性填充矫正外侧臀部凹陷，从正面打造更流畅的下半身轮廓。',
-                imageSrc: '../hip-filler-front-ba.jpg'
-            },
-            {
-                id: 10,
-                category: 'body',
-                title: '臀部填充 — 背面',
-                timeframe: '术后',
-                note: '在外侧臀线增加容量，实现平衡的后方轮廓和改善整体比例。',
-                imageSrc: '../hip-filler-back-ba.jpg'
-            },
-            {
-                id: 11,
-                category: 'facial',
-                title: '线雕提升 — 正面',
-                timeframe: '术后',
-                note: '使用可吸收线材进行中面部容量重新分布和下颌线紧致，打造提升轮廓。',
-                imageSrc: '../lifting-front-ba.jpg'
-            },
-            {
-                id: 12,
-                category: 'facial',
-                title: '线雕提升 — 左45°',
-                timeframe: '术后',
-                note: '从斜角观察，线材植入后颧骨突出度和法令纹深度有明显改善。',
-                imageSrc: '../lifting-left45-ba.jpg'
-            },
-            {
-                id: 13,
-                category: 'facial',
-                title: '线雕提升 — 右45°',
-                timeframe: '术后',
-                note: '从对侧斜角观察到的外侧下颌线轮廓和中面部提升效果。',
-                imageSrc: '../lifting-right45-ba.jpg'
-            },
-            {
-                id: 14,
-                category: 'facial',
-                title: '花生型线雕提升 — 正面',
-                timeframe: '术后即刻',
-                note: '针对法令纹和木偶纹区域的局部线雕提升，实现紧致和容量重新分布。',
-                imageSrc: '../peanut-lifting-front-ba.jpg'
-            },
-            {
-                id: 15,
-                category: 'facial',
-                title: '花生型线雕提升 — 左45°',
-                timeframe: '术后即刻',
-                note: '从斜角观察，局部线材植入后颧骨突出度和下颌线轮廓有明显改善。',
-                imageSrc: '../peanut-lifting-left45-ba.jpg'
-            },
-            {
-                id: 16,
-                category: 'facial',
-                title: '花生型线雕提升 — 右45°',
-                timeframe: '术后即刻',
-                note: '从对侧斜角观察到的中面部提升和法令纹软化效果。',
-                imageSrc: '../peanut-lifting-right45-ba.jpg'
-            }
-        ];
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+        const supabase = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const LANG = 'zh';
+        const PREFIX = '../';
 
-        const categoryNames = {
-            'ear': '耳部填充',
-            'lip': '唇部填充',
-            'shoulder': '肩线',
-            'hip': '臀部凹陷'
-        };
-
+        const categoryNames = { 'facial': '面部平衡', 'body': '身体轮廓' };
         const grid = document.getElementById('gallery-grid');
         const filterBtns = document.querySelectorAll('.filter-btn');
+        let galleryData = [];
+
+        function getTitle(item) { return item[`title_${LANG}`] || item.title_en || ''; }
+        function getNote(item) { return item[`notes_${LANG}`] || item.notes_en || ''; }
+        function imgSrc(item) { return PREFIX + item.image_url; }
 
         function renderGallery(filter = 'all') {
             grid.innerHTML = '';
-            
-            const filteredData = filter === 'all' 
-                ? galleryData 
-                : galleryData.filter(item => item.category === filter);
-
-            if (filteredData.length === 0) {
+            const filtered = filter === 'all' ? galleryData : galleryData.filter(i => i.category === filter);
+            if (!filtered.length) {
                 grid.innerHTML = '<p class="col-span-full text-center text-slate-400 py-10">案例即将更新。</p>';
                 return;
             }
-
-            filteredData.forEach(item => {
+            filtered.forEach(item => {
+                const title = getTitle(item);
+                const note = getNote(item);
                 const card = document.createElement('div');
                 card.className = 'bg-white rounded-sm border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer group overflow-hidden';
                 card.onclick = () => openModal(item);
-                
                 card.innerHTML = `
                     <div class="w-full bg-slate-100 relative aspect-video overflow-hidden">
-                        <img src="${item.imageSrc}" alt="前后对比 - ${item.title}" loading="lazy" class="w-full h-full object-cover ${item.category === 'facial' ? 'object-[50%_20%]' : 'object-center'} group-hover:scale-105 transition duration-500">
+                        <img src="${imgSrc(item)}" alt="前后对比 - ${title}" loading="lazy" class="w-full h-full object-cover ${item.category === 'facial' ? 'object-[50%_20%]' : 'object-center'} group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center z-20">
                             <span class="bg-white text-slate-900 text-xs font-bold px-4 py-2 rounded-sm shadow-lg transform translate-y-2 group-hover:translate-y-0 transition">查看详情</span>
                         </div>
                     </div>
                     <div class="p-5">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-serif text-lg text-slate-900 leading-tight">${item.title}</h4>
-                        </div>
-                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2"><i class="far fa-clock mr-1"></i> ${item.timeframe}</p>
-                        <p class="text-sm text-slate-500 line-clamp-2 leading-relaxed">${item.note}</p>
-                    </div>
-                `;
+                        <h4 class="font-serif text-lg text-slate-900 leading-tight mb-2">${title}</h4>
+                        <p class="text-sm text-slate-500 line-clamp-2 leading-relaxed">${note}</p>
+                    </div>`;
                 grid.appendChild(card);
             });
         }
@@ -344,19 +209,15 @@
         let prevOverflow = '';
 
         function openModal(item) {
-            document.getElementById('modal-img').src = item.imageSrc;
-            document.getElementById('modal-img').alt = `前后对比照片 - ${item.title}`;
-            document.getElementById('modal-tag').textContent = categoryNames[item.category] || '填充';
-            document.getElementById('modal-title').textContent = item.title;
-            document.getElementById('modal-timeframe').innerHTML = `<i class="far fa-clock"></i> <span>${item.timeframe}</span>`;
-            document.getElementById('modal-note').textContent = item.note;
-
+            const title = getTitle(item);
+            document.getElementById('modal-img').src = imgSrc(item);
+            document.getElementById('modal-img').alt = `前后对比 - ${title}`;
+            document.getElementById('modal-tag').textContent = categoryNames[item.category] || item.category;
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-timeframe').innerHTML = `<i class="far fa-clock"></i> <span>术后</span>`;
+            document.getElementById('modal-note').textContent = getNote(item);
             modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modalContent.classList.remove('scale-95');
-            }, 10);
-            
+            setTimeout(() => { modal.classList.remove('opacity-0'); modalContent.classList.remove('scale-95'); }, 10);
             prevOverflow = document.body.style.overflow;
             document.body.style.overflow = 'hidden';
         }
@@ -364,26 +225,24 @@
         function closeModal() {
             modal.classList.add('opacity-0');
             modalContent.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = prevOverflow;
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = prevOverflow; }, 300);
         }
-
         closeBtn.addEventListener('click', closeModal);
         backdrop.addEventListener('click', closeModal);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModal();
+        (async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('gallery_cases')
+                    .select('*')
+                    .eq('is_published', true)
+                    .order('sort_order');
+                if (error || !data?.length) throw error;
+                galleryData = data;
+            } catch (_) {
+                galleryData = [];
             }
-        });
-
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        }
-
-        renderGallery('all');
+            renderGallery('all');
+        })();
     </script>

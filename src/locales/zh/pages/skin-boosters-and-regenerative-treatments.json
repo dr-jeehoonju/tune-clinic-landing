@@ -1,0 +1,11 @@
+{
+  "key": "skin-boosters-and-regenerative-treatments",
+  "template": "editorial",
+  "permalink": "zh/skin-boosters-and-regenerative-treatments.html",
+  "title": "韩国水光针与再生治疗 | 婴儿针Rejuran、Juvelook、外泌体及更多项目",
+  "description": "了解韩国水光针与再生治疗，包括婴儿针Rejuran、Juvelook、PDRN、外泌体Exosomes、舒颜萃Sculptra及医师主导的肤质改善、光泽度、弹性和长期皮肤品质提升方案。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/zh/skin-boosters-and-regenerative-treatments.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Skin Booster Guide"
+}

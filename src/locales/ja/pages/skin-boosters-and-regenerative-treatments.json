@@ -1,0 +1,11 @@
+{
+  "key": "skin-boosters-and-regenerative-treatments",
+  "template": "editorial",
+  "permalink": "ja/skin-boosters-and-regenerative-treatments.html",
+  "title": "韓国のスキンブースター＆再生治療 | リジュラン・ジュベルック・エクソソーム他 ソウル",
+  "description": "韓国で受けられるスキンブースターと再生治療をご紹介。リジュラン、ジュベルック、PDRN、エクソソーム、スカルプトラなど、肌質・ハリ・弾力・長期的な肌質改善のための医師主導プランを解説します。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ja/skin-boosters-and-regenerative-treatments.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Skin Booster Guide"
+}

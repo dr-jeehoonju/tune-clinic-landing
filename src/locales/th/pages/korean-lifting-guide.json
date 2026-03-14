@@ -1,0 +1,11 @@
+{
+  "key": "korean-lifting-guide",
+  "template": "editorial",
+  "permalink": "th/korean-lifting-guide.html",
+  "title": "คู่มือยกกระชับเกาหลี | Ultherapy, Thermage FLX, Oligio และอื่นๆ ในโซล",
+  "description": "เปรียบเทียบหัตถการยกกระชับเกาหลีในโซล ทั้ง Ultherapy, Thermage FLX, Oligio, Potenza และการวางแผนแบบผสมผสานโดยแพทย์ สำหรับปัญหาหย่อนคล้อย ขากรรไกร และการวางแผนการเดินทาง.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/korean-lifting-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Lifting Guide"
+}

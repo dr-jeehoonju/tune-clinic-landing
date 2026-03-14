@@ -1,0 +1,11 @@
+{
+  "key": "international-patients-guide",
+  "template": "editorial",
+  "permalink": "zh/international-patients-guide.html",
+  "title": "国际顾客指南 | Tune Clinic 首尔外国访客美容就医指南",
+  "description": "使用Tune Clinic国际顾客指南规划您的首尔美容之旅，涵盖问诊流程、语言支持、治疗时间安排、恢复期、价格参考及旅行友好型诊疗。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/zh/international-patients-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Travel Guide"
+}

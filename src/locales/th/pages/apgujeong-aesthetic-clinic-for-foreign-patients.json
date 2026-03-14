@@ -1,0 +1,11 @@
+{
+  "key": "apgujeong-aesthetic-clinic-for-foreign-patients",
+  "template": "editorial",
+  "permalink": "th/apgujeong-aesthetic-clinic-for-foreign-patients.html",
+  "title": "คลินิกความงามอัปกูจอง สำหรับผู้ป่วยต่างชาติ | Tune Clinic โซล",
+  "description": "ค้นหาข้อมูล Tune Clinic ในอัปกูจอง โซล สำหรับผู้ป่วยต่างชาติที่ต้องการหัตถการความงามโดยแพทย์ การสื่อสารภาษาอังกฤษ การวางแผนที่คำนึงถึงการเดินทาง และการออกแบบโปรแกรมอย่างมีเหตุผลแทนแพ็กเกจตามเทรนด์.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/apgujeong-aesthetic-clinic-for-foreign-patients.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Seoul Clinic Guide"
+}

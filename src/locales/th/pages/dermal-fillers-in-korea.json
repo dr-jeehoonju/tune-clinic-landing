@@ -1,0 +1,11 @@
+{
+  "key": "dermal-fillers-in-korea",
+  "template": "editorial",
+  "permalink": "th/dermal-fillers-in-korea.html",
+  "title": "ฟิลเลอร์ผิวหนังในเกาหลี | Juvederm, Restylane, Radiesse และการออกแบบใบหน้าในโซล",
+  "description": "ค้นหาข้อมูลฟิลเลอร์ผิวหนังในเกาหลีกับคู่มือจาก Tune Clinic เกี่ยวกับ Juvederm, Restylane, Belotero, Radiesse การวางแผนฟิลเลอร์โครงสร้าง และวิธีการออกแบบใบหน้าโดยแพทย์ที่แตกต่างจากการรักษาแบบเน้นปริมาณ.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/dermal-fillers-in-korea.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Filler Guide"
+}

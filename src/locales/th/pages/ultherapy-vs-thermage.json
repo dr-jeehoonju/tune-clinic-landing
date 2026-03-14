@@ -1,0 +1,11 @@
+{
+  "key": "ultherapy-vs-thermage",
+  "template": "editorial",
+  "permalink": "th/ultherapy-vs-thermage.html",
+  "title": "Ultherapy vs Thermage FLX | การยกกระชับแบบไหนเหมาะกับใบหน้าคุณในโซล?",
+  "description": "เปรียบเทียบ Ultherapy กับ Thermage FLX จากมุมมองคลินิกโซลที่แพทย์เป็นผู้นำ เรื่องความลึกการยกกระชับ การกระชับผิว ช่วงพักฟื้น เป้าหมายหัตถการ และเมื่อใดที่แผนผสมผสานอาจเหมาะสมกว่าการเลือกเครื่องเดียว.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/ultherapy-vs-thermage.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Device Comparison"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "aesthetic-treatment-faq-for-foreign-patients",
+  "template": "editorial",
+  "permalink": "th/aesthetic-treatment-faq-for-foreign-patients.html",
+  "title": "คำถามที่พบบ่อยเกี่ยวกับหัตถการความงามสำหรับผู้ป่วยต่างชาติ | คลินิกโซลตอบคำถามการเดินทาง",
+  "description": "อ่านคำตอบคำถามที่พบบ่อยเกี่ยวกับหัตถการความงามสำหรับผู้ป่วยต่างชาติที่มาเยือนโซล รวมถึงเวลานัดหมาย ช่วงพักฟื้น การสนับสนุนภาษา การรักษาวันเดียวกัน ความเสี่ยงฟกช้ำ เที่ยวบินหลังรักษา และการวางแผนการเดินทาง.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/aesthetic-treatment-faq-for-foreign-patients.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Patient FAQ"
+}

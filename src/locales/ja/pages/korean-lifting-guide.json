@@ -1,0 +1,11 @@
+{
+  "key": "korean-lifting-guide",
+  "template": "editorial",
+  "permalink": "ja/korean-lifting-guide.html",
+  "title": "韓国リフティングガイド | ウルセラ・サーマクールFLX・オリジオ他 ソウル",
+  "description": "ソウルの韓国リフティング施術を比較。ウルセラ、サーマクールFLX、オリジオ、ポテンツァ、医師主導のコンビネーション設計、たるみ・肌弛緩・フェイスライン形成・渡航日程について解説します。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ja/korean-lifting-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Lifting Guide"
+}

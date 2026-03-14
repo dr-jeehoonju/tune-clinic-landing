@@ -1,0 +1,11 @@
+{
+  "key": "ultherapy-vs-thermage",
+  "template": "editorial",
+  "permalink": "ja/ultherapy-vs-thermage.html",
+  "title": "ウルセラ vs サーマクールFLX | ソウルであなたの顔に合うリフティング施術は？",
+  "description": "ウルセラとサーマクールFLXを医師主導のソウルクリニックの視点で比較。リフティング深度、肌引き締め、ダウンタイム、治療目標、コンビネーション設計の合理性を解説します。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ja/ultherapy-vs-thermage.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Device Comparison"
+}
