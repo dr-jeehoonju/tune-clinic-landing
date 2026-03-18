@@ -215,7 +215,7 @@ function websiteStructuredData(localeData) {
   };
 }
 
-function faqStructuredData(fragment, canonicalUrl) {
+function faqStructuredData(fragment, canonicalUrl, locale) {
   const matches = [...fragment.matchAll(/<details[\s\S]*?<summary[^>]*>([\s\S]*?)<\/summary>[\s\S]*?<div[^>]*>([\s\S]*?)<\/div>[\s\S]*?<\/details>/g)];
   if (!matches.length) return null;
 
@@ -236,6 +236,7 @@ function faqStructuredData(fragment, canonicalUrl) {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${canonicalUrl}#faq`,
+    inLanguage: locale || "en",
     mainEntity: entities,
   };
 }
@@ -261,7 +262,8 @@ function serviceStructuredData(entry, localeData, canonicalUrl) {
   };
 }
 
-function physicianStructuredData() {
+function physicianStructuredData(locale) {
+  const lang = locale || "en";
   return PHYSICIANS.map((physician) => ({
     "@context": "https://schema.org",
     "@type": "Physician",
@@ -275,6 +277,7 @@ function physicianStructuredData() {
     },
     url: SITE_URL,
     description: physician.description,
+    inLanguage: lang,
   }));
 }
 
@@ -383,9 +386,9 @@ function pageStructuredData(entry, localeData, fragment) {
   const breadcrumb = breadcrumbStructuredData(entry, localeData);
   breadcrumb["@id"] = `${canonicalUrl}#breadcrumb`;
 
-  const faq = faqStructuredData(fragment, canonicalUrl);
+  const faq = faqStructuredData(fragment, canonicalUrl, entry.locale);
   const service = serviceStructuredData(entry, localeData, canonicalUrl);
-  const physicians = entry.key === "index" ? physicianStructuredData() : [];
+  const physicians = entry.key === "index" ? physicianStructuredData(entry.locale) : [];
   const offerCatalog = offerCatalogStructuredData(entry, localeData, canonicalUrl);
   const video = videoStructuredData(entry, canonicalUrl);
 
@@ -543,7 +546,7 @@ function siteFooter(entry, localeData) {
             <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">${g.footerSub}</p>
           </div>
           <div class="flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-stretch">
-            <a href="${g.consultationHref}" target="_blank" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
+            <a href="${g.consultationHref}" target="_blank" rel="noopener noreferrer" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
               <i class="${g.consultationIcon}"></i> ${g.footerCta}
             </a>
             <a href="${pageUrl(entry.locale, "consult")}" class="border border-gold/60 text-gold px-8 py-4 font-bold rounded-sm hover:bg-gold/10 transition flex items-center justify-center gap-2">
@@ -566,7 +569,7 @@ function siteFooter(entry, localeData) {
             <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">${g.footerPlanDesc}</p>
           </div>
           <div class="flex flex-col gap-3 lg:items-stretch">
-            <a href="${g.consultationHref}" target="_blank" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
+            <a href="${g.consultationHref}" target="_blank" rel="noopener noreferrer" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
               <i class="${g.consultationIcon}"></i> ${g.footerCta}
             </a>
             <a href="${pageUrl(entry.locale, "consult")}" class="border border-gold/60 text-gold px-8 py-4 font-bold rounded-sm hover:bg-gold/10 transition flex items-center justify-center gap-2">
@@ -640,7 +643,7 @@ function siteFooter(entry, localeData) {
     <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
       <div class="flex gap-3">
         <a href="#programs" class="flex-1 bg-slate-100 text-slate-900 font-bold py-3 rounded-sm text-center text-sm">${g.mobileCta1}</a>
-        <a href="${g.consultationHref}" target="_blank" class="flex-1 bg-slate-900 text-white font-extrabold py-3 rounded-sm text-center text-sm flex items-center justify-center gap-2">
+        <a href="${g.consultationHref}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-slate-900 text-white font-extrabold py-3 rounded-sm text-center text-sm flex items-center justify-center gap-2">
           <i class="${g.consultationIcon}"></i> ${g.mobileCta2}
         </a>
       </div>
@@ -791,6 +794,14 @@ function programChrome(entry, localeData) {
           ${item("filler-chamaka-se", "filler")}
           <span class="text-slate-700 hidden sm:inline">|</span>
           <a href="${pageUrl(entry.locale, "menu")}" class="hover:text-gold transition hidden sm:inline">${g.menu}</a>
+          <span class="text-slate-700 hidden sm:inline">|</span>
+          <a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition hidden sm:inline">${g.blog || "Blog"}</a>
+          <span class="text-slate-700 hidden sm:inline">|</span>
+          <a href="${pageUrl(entry.locale, "guides")}" class="hover:text-gold transition hidden sm:inline">${g.guides}</a>
+          <span class="text-slate-700 hidden sm:inline">|</span>
+          <a href="${pageUrl(entry.locale, "index")}#faq" class="hover:text-gold transition hidden sm:inline">${g.faq}</a>
+          <span class="text-slate-700 hidden sm:inline">|</span>
+          <a href="${pageUrl(entry.locale, "index")}#contact" class="hover:text-gold transition hidden sm:inline">${g.contact}</a>
           <span class="text-slate-700 ml-3 md:ml-4">|</span>
           ${switcher}
         </div>
@@ -890,12 +901,14 @@ function renderPage(entry, localeData) {
     gtag('config', '${GA_MEASUREMENT_ID}', { anonymize_ip: true });
   </script>
   <script type="application/ld+json">
-  ${JSON.stringify(structuredData)}
+  ${JSON.stringify({"@context":"https://schema.org","@graph":structuredData.map(item => { const {["@context"]:_, ...rest} = item; return rest; })})}
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
     body { font-family: 'Lato', sans-serif; }
     .font-serif { font-family: 'Playfair Display', serif; }
     .text-gold { color: #C5A059; }
@@ -1182,11 +1195,13 @@ function renderBlogPost(post, localeData) {
   ${hreflangLinks}
   <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{anonymize_ip:true});</script>
-  <script type="application/ld+json">${JSON.stringify(structuredData)}</script>
+  <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":structuredData.map(item => { const {["@context"]:_, ...rest} = item; return rest; })})}</script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
     body{font-family:'Lato',sans-serif}.font-serif{font-family:'Playfair Display',serif}.text-gold{color:#C5A059}.bg-gold{background-color:#C5A059}.border-gold{border-color:#C5A059}.bg-gold-light{background-color:#F9F5F0}
     .prose h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:#0f172a;margin-top:2.5rem;margin-bottom:1rem}
     .prose h3{font-size:1.25rem;font-weight:700;color:#1e293b;margin-top:2rem;margin-bottom:0.75rem}
@@ -1287,11 +1302,13 @@ function renderBlogIndex(locale, posts, localeData) {
   <link rel="alternate" type="application/rss+xml" title="${SITE_NAME} Blog RSS" href="${SITE_URL}/blog/feed.xml">
   <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{anonymize_ip:true});</script>
-  <script type="application/ld+json">${JSON.stringify(structuredData)}</script>
+  <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":structuredData.map(item => { const {["@context"]:_, ...rest} = item; return rest; })})}</script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
     body{font-family:'Lato',sans-serif}.font-serif{font-family:'Playfair Display',serif}.text-gold{color:#C5A059}.bg-gold{background-color:#C5A059}.border-gold{border-color:#C5A059}.bg-gold-light{background-color:#F9F5F0}
     .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   </style>

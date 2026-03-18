@@ -1,29 +1,44 @@
 const { SITE_URL } = require("./url-helpers");
 
+const languageOrder = ["en", "ja", "zh", "th"];
+const langNames = { en: "en", ja: "ja", zh: "zh", th: "th" };
+
+function escXml(str) {
+  return String(str).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+}
+
 module.exports = class {
   data() {
     return {
-      permalink: "blog/feed.xml",
+      pagination: {
+        data: "blog.locales",
+        size: 1,
+        alias: "feedLocale",
+        addAllPagesToCollections: true,
+      },
+      permalink: (data) => {
+        const loc = data.feedLocale || "en";
+        const prefix = loc === "en" ? "" : `${loc}/`;
+        return `${prefix}blog/feed.xml`;
+      },
     };
   }
 
   render(data) {
-    const posts = (data.blog.posts || []).filter((p) => p.locale === "en").slice(0, 20);
+    const locale = data.feedLocale || "en";
+    const posts = (data.blog.posts || []).filter((p) => p.locale === locale).slice(0, 20);
     const buildDate = new Date().toUTCString();
+    const prefix = locale === "en" ? "" : `${locale}/`;
 
     const items = posts
       .map((post) => {
-        const url = `${SITE_URL}/blog/${post.slug}.html`;
-        const desc = post.description
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;");
+        const url = `${SITE_URL}/${prefix}blog/${post.slug}.html`;
         return `    <item>
-      <title>${post.title.replaceAll("&", "&amp;")}</title>
+      <title>${escXml(post.title)}</title>
       <link>${url}</link>
       <guid isPermaLink="true">${url}</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      <description>${desc}</description>
+      <description>${escXml(post.description)}</description>
     </item>`;
       })
       .join("\n");
@@ -32,11 +47,11 @@ module.exports = class {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tune Clinic Blog</title>
-    <link>${SITE_URL}/blog/</link>
+    <link>${SITE_URL}/${prefix}blog/</link>
     <description>Evidence-based aesthetic medicine insights from the physicians at Tune Clinic.</description>
-    <language>en</language>
+    <language>${locale}</language>
     <lastBuildDate>${buildDate}</lastBuildDate>
-    <atom:link href="${SITE_URL}/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="${SITE_URL}/${prefix}blog/feed.xml" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
 </rss>`;

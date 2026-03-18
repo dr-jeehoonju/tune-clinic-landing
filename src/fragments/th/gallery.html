@@ -128,7 +128,7 @@
         </div>
     </footer>
 
-    <div id="gallery-modal" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center p-4 opacity-0">
+    <div id="gallery-modal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-4 opacity-0">
         <div class="absolute inset-0 cursor-pointer" id="modal-backdrop"></div>
         <div class="modal-content relative bg-white w-full max-w-5xl rounded-sm overflow-hidden shadow-2xl flex flex-col scale-95">
             <button id="close-modal" class="absolute top-4 right-4 z-10 w-8 h-8 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black transition">
@@ -222,7 +222,7 @@
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-timeframe').innerHTML = `<i class="far fa-clock"></i> <span>หลังทำหัตถการ</span>`;
             document.getElementById('modal-note').textContent = getNote(item);
-            modal.classList.remove('hidden');
+            modal.classList.remove('hidden'); modal.classList.add('flex');
             setTimeout(() => { modal.classList.remove('opacity-0'); modalContent.classList.remove('scale-95'); }, 10);
             prevOverflow = document.body.style.overflow;
             document.body.style.overflow = 'hidden';
@@ -231,7 +231,7 @@
         function closeModal() {
             modal.classList.add('opacity-0');
             modalContent.classList.add('scale-95');
-            setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = prevOverflow; }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = prevOverflow; }, 300);
         }
         closeBtn.addEventListener('click', closeModal);
         backdrop.addEventListener('click', closeModal);

@@ -571,26 +571,6 @@
                     menu.classList.toggle('hidden');
                 });
             }
-
-            const sections = document.querySelectorAll('.section-card');
-            const navLinks = document.querySelectorAll('#section-nav a');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === '#' + entry.target.id) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, { rootMargin: '-120px 0px -70% 0px' });
-
-            sections.forEach(section => {
-                if (section.id) observer.observe(section);
-            });
         })();
     </script>
     <script type="module">

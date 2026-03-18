@@ -1,5 +1,6 @@
 const { SITE_URL, publicUrl, hrefLang } = require("./url-helpers");
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
+const STATIC_PAGE_DATE = "2026-03-01";
 
 function blogPublicUrl(locale, slug) {
   const prefix = locale === "en" ? "" : `${locale}/`;
@@ -35,8 +36,8 @@ module.exports = class {
         return `  <url>
     <loc>${publicUrl(entry.locale, entry.key)}</loc>
 ${alternates}
-    <lastmod>${BUILD_DATE}</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>${entry.key === "index" ? BUILD_DATE : STATIC_PAGE_DATE}</lastmod>
+    <changefreq>${entry.key === "index" ? "weekly" : "monthly"}</changefreq>
     <priority>${entry.key === "index" ? "1.0" : "0.8"}</priority>
   </url>`;
       })
@@ -79,7 +80,7 @@ ${alternates}
 ${alternates}
     <lastmod>${BUILD_DATE}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>`;
       })
       .join("\n");

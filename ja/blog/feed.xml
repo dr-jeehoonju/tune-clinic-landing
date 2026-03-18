@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tune Clinic Blog</title>
+    <link>https://tuneclinic-global.com/ja/blog/</link>
+    <description>Evidence-based aesthetic medicine insights from the physicians at Tune Clinic.</description>
+    <language>ja</language>
+    <lastBuildDate>Wed, 18 Mar 2026 05:39:19 GMT</lastBuildDate>
+    <atom:link href="https://tuneclinic-global.com/ja/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>肌の老化はシワが問題ではない ― 支持構造の変化こそが本質</title>
+      <link>https://tuneclinic-global.com/ja/blog/skin-aging-structural-change.html</link>
+      <guid isPermaLink="true">https://tuneclinic-global.com/ja/blog/skin-aging-structural-change.html</guid>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <description>多くの患者はシワが老化の始まりだと考えています。美容医学専門医が、真の変化が皮膚の下 ― コラーゲンの減少、脂肪の再分布、支持構造の崩壊 ― から始まる理由を解説します。</description>
+    </item>
+    <item>
+      <title>Juvelook Volumeによる深部顔面リストレーション：ほうれい線・マリオネットライン・中顔面陥凹・眼窩下陥凹</title>
+      <link>https://tuneclinic-global.com/ja/blog/juvelook-volume-clinical-applications.html</link>
+      <guid isPermaLink="true">https://tuneclinic-global.com/ja/blog/juvelook-volume-clinical-applications.html</guid>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Juvelook Volume（PDLLA＋非架橋ヒアルロン酸）が、4つの異なる解剖学的老化パターンにどう対応するか。フィラーの論理ではなく、構造的バイオスティミュレーションという観点から美容医療専門医が臨床的に解説します。</description>
+    </item>
+    <item>
+      <title>リフティング施術の比較が常に正確とは限らない理由</title>
+      <link>https://tuneclinic-global.com/ja/blog/why-lifting-comparisons-are-misleading.html</link>
+      <guid isPermaLink="true">https://tuneclinic-global.com/ja/blog/why-lifting-comparisons-are-misleading.html</guid>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <description>「ウルセラ vs サーマジ」の議論は本質を見失っています。どのデバイスが優れているかではなく、どの問題を解決しようとしているかが重要です。</description>
+    </item>
+    <item>
+      <title>3つのリフティング機器、3つの異なる役割 — ウルセラ、サーマジ、オリジオの比較</title>
+      <link>https://tuneclinic-global.com/ja/blog/lifting-devices-compared.html</link>
+      <guid isPermaLink="true">https://tuneclinic-global.com/ja/blog/lifting-devices-compared.html</guid>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 GMT</pubDate>
+      <description>ウルセラ、サーマジFLX、オリジオは互換性がありません。各デバイスが対象とする層と、解剖学的特徴に基づいた選び方を医師が解説します。</description>
+    </item>
+    <item>
+      <title>同じ施術なのに結果が異なる理由</title>
+      <link>https://tuneclinic-global.com/ja/blog/why-same-treatment-gives-different-results.html</link>
+      <guid isPermaLink="true">https://tuneclinic-global.com/ja/blog/why-same-treatment-gives-different-results.html</guid>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 GMT</pubDate>
+      <description>同じ美容施術を受けても、まったく異なる結果になることがあります。その差を生む見えない変数について医師が解説します。</description>
+    </item>
+    <item>
+      <title>「効果」の前に整理すべき基準</title>
+      <link>https://tuneclinic-global.com/ja/blog/standards-before-results-in-aesthetic-medicine.html</link>
+      <guid isPermaLink="true">https://tuneclinic-global.com/ja/blog/standards-before-results-in-aesthetic-medicine.html</guid>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <description>「この施術は効果がありますか？」は最初に聞くべき質問ではありません。美容医療で判断を始める前に考えるべきことを解説します。</description>
+    </item>
+    <item>
+      <title>フィラーへの不安の多くが古い情報に基づいている理由</title>
+      <link>https://tuneclinic-global.com/ja/blog/why-filler-fears-are-outdated.html</link>
+      <guid isPermaLink="true">https://tuneclinic-global.com/ja/blog/why-filler-fears-are-outdated.html</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <description>フィラーの移動、過剰注入、長期的なダメージ — よくある不安の多くは旧来の技術に基づいており、現代のエビデンスに基づく施術とは異なります。</description>
+    </item>
+  </channel>
+</rss>
