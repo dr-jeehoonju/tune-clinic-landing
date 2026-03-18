@@ -64,7 +64,7 @@
         <a href="/ja/index.html" class="flex items-center text-slate-300 hover:text-white transition">
           <i class="fas fa-arrow-left mr-2 text-gold"></i> ホームへ戻る
         </a>
-        <div class="flex items-center gap-3 md:gap-4 text-[10px] uppercase font-bold tracking-widest text-slate-500">
+        <div class="hidden md:flex items-center gap-3 md:gap-4 text-[10px] uppercase font-bold tracking-widest text-slate-500">
           <a href="/ja/design-method.html" class="hover:text-gold transition">デザインメソッド</a>
           <span class="text-slate-700">|</span>
           <a href="/ja/gallery.html" class="hover:text-gold transition">症例写真</a>
@@ -76,8 +76,8 @@
           <a href="/ja/collagen-builder.html" class="hover:text-gold transition hidden sm:inline">The Collagen Builder</a>
           <span class="text-slate-700 hidden sm:inline">|</span>
           <span class="text-gold">Filler Chamaka-se</span>
-          <span class="text-slate-700 hidden sm:inline">|</span><a href="/ja/blog/" class="hover:text-gold transition hidden sm:inline">ブログ</a>
-          <span class="text-slate-700 hidden sm:inline">|</span><a href="/ja/guides.html" class="hover:text-gold transition hidden sm:inline">Guides</a>
+          <span class="text-slate-700 hidden sm:inline">|</span>
+          <a href="/ja/menu.html" class="hover:text-gold transition hidden sm:inline">料金表</a>
           <span class="text-slate-700 ml-3 md:ml-4">|</span>
           
     <div class="group relative cursor-pointer">
@@ -92,8 +92,33 @@
     </div>
   
         </div>
+        <button id="mobile-menu-btn" class="md:hidden text-white text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
       </div>
     </div>
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24 z-40">
+      <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">日本語</p>
+        <div class="grid grid-cols-2 gap-x-4">
+          <a href="/filler-chamaka-se.html" class="block py-2 text-slate-700">English</a><a href="/ja/filler-chamaka-se.html" class="block py-2 font-bold text-gold">日本語</a><a href="/zh/filler-chamaka-se.html" class="block py-2 text-slate-700">中文</a><a href="/th/filler-chamaka-se.html" class="block py-2 text-slate-700">ไทย</a>
+        </div>
+      </div>
+      <a href="/ja/index.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">ホーム</a>
+      <a href="/ja/design-method.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">デザインメソッド</a>
+      <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">プログラム</p>
+        <a href="/ja/signature-lifting.html" class="block py-2 text-slate-700">Signature Lifting</a>
+        <a href="/ja/structural-reset.html" class="block py-2 text-slate-700">Structural Reset Elite</a>
+        <a href="/ja/collagen-builder.html" class="block py-2 text-slate-700">The Collagen Builder</a>
+        <a href="/ja/filler-chamaka-se.html" class="block py-2 text-gold font-bold">Filler Chamaka-se</a>
+        <a href="/ja/menu.html" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> 料金表</a>
+      </div>
+      <a href="/ja/gallery.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">症例写真</a>
+      <a href="/ja/blog/" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">ブログ</a>
+      <a href="/ja/guides.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>
+      <a href="/ja/index.html#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">よくある質問</a>
+      <a href="/ja/index.html#contact" class="block px-6 py-4 font-bold text-slate-800">お問い合わせ</a>
+    </div>
+    <script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
   
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');

@@ -64,7 +64,7 @@
         <a href="/th/index.html" class="flex items-center text-slate-300 hover:text-white transition">
           <i class="fas fa-arrow-left mr-2 text-gold"></i> กลับหน้าหลัก
         </a>
-        <div class="flex items-center gap-3 md:gap-4 text-[10px] uppercase font-bold tracking-widest text-slate-500">
+        <div class="hidden md:flex items-center gap-3 md:gap-4 text-[10px] uppercase font-bold tracking-widest text-slate-500">
           <a href="/th/design-method.html" class="hover:text-gold transition">แนวคิดการออกแบบ</a>
           <span class="text-slate-700">|</span>
           <a href="/th/gallery.html" class="hover:text-gold transition">ก่อนและหลัง</a>
@@ -76,8 +76,8 @@
           <a href="/th/collagen-builder.html" class="hover:text-gold transition hidden sm:inline">The Collagen Builder</a>
           <span class="text-slate-700 hidden sm:inline">|</span>
           <a href="/th/filler-chamaka-se.html" class="hover:text-gold transition hidden sm:inline">Filler Chamaka-se</a>
-          <span class="text-slate-700 hidden sm:inline">|</span><a href="/th/blog/" class="hover:text-gold transition hidden sm:inline">บล็อก</a>
-          <span class="text-slate-700 hidden sm:inline">|</span><a href="/th/guides.html" class="hover:text-gold transition hidden sm:inline">Guides</a>
+          <span class="text-slate-700 hidden sm:inline">|</span>
+          <a href="/th/menu.html" class="hover:text-gold transition hidden sm:inline">ราคาอ้างอิง</a>
           <span class="text-slate-700 ml-3 md:ml-4">|</span>
           
     <div class="group relative cursor-pointer">
@@ -92,8 +92,33 @@
     </div>
   
         </div>
+        <button id="mobile-menu-btn" class="md:hidden text-white text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
       </div>
     </div>
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24 z-40">
+      <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">ไทย</p>
+        <div class="grid grid-cols-2 gap-x-4">
+          <a href="/structural-reset.html" class="block py-2 text-slate-700">English</a><a href="/ja/structural-reset.html" class="block py-2 text-slate-700">日本語</a><a href="/zh/structural-reset.html" class="block py-2 text-slate-700">中文</a><a href="/th/structural-reset.html" class="block py-2 font-bold text-gold">ไทย</a>
+        </div>
+      </div>
+      <a href="/th/index.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">หน้าแรก</a>
+      <a href="/th/design-method.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">แนวคิดการออกแบบ</a>
+      <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">โปรแกรม</p>
+        <a href="/th/signature-lifting.html" class="block py-2 text-slate-700">Signature Lifting</a>
+        <a href="/th/structural-reset.html" class="block py-2 text-gold font-bold">Structural Reset Elite</a>
+        <a href="/th/collagen-builder.html" class="block py-2 text-slate-700">The Collagen Builder</a>
+        <a href="/th/filler-chamaka-se.html" class="block py-2 text-slate-700">Filler Chamaka-se</a>
+        <a href="/th/menu.html" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ราคาอ้างอิง</a>
+      </div>
+      <a href="/th/gallery.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">ก่อนและหลัง</a>
+      <a href="/th/blog/" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">บล็อก</a>
+      <a href="/th/guides.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>
+      <a href="/th/index.html#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">คำถามที่พบบ่อย</a>
+      <a href="/th/index.html#contact" class="block px-6 py-4 font-bold text-slate-800">ติดต่อ</a>
+    </div>
+    <script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
   
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
