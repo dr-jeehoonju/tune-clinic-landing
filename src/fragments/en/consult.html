@@ -98,7 +98,7 @@
         <i class="fas fa-exclamation-triangle text-2xl"></i>
       </div>
       <h2 class="text-2xl font-serif text-slate-900">Something went wrong</h2>
-      <p class="text-slate-500 mt-4">Please try again or contact us directly via Instagram.</p>
+      <p class="text-slate-500 mt-4">Please try again or contact us directly via WhatsApp or Instagram.</p>
     </div>
 
   </div>
@@ -106,10 +106,21 @@
 
 <section class="py-12 bg-white border-t border-slate-100">
   <div class="max-w-2xl mx-auto px-6 text-center">
-    <p class="text-sm text-slate-500 mb-4">Prefer messaging directly?</p>
-    <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 rounded-lg text-slate-700 font-bold text-sm hover:border-gold hover:text-gold transition">
-      <i class="fab fa-instagram"></i> Chat on Instagram
-    </a>
+    <p class="text-sm text-slate-500 mb-5">Prefer messaging directly?</p>
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 bg-green-600 text-white rounded-lg font-bold text-sm hover:bg-green-700 transition">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 border border-slate-200 rounded-lg text-slate-700 font-bold text-sm hover:border-gold hover:text-gold transition">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-2 px-5 py-3 border border-slate-200 rounded-lg text-slate-700 font-bold text-sm hover:border-green-500 hover:text-green-600 transition cursor-pointer">
+        <i class="fab fa-line"></i> LINE
+      </button>
+      <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-2 px-5 py-3 border border-slate-200 rounded-lg text-slate-700 font-bold text-sm hover:border-green-500 hover:text-green-600 transition cursor-pointer">
+        <i class="fab fa-weixin"></i> WeChat
+      </button>
+    </div>
   </div>
 </section>
 

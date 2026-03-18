@@ -348,7 +348,7 @@ function pageStructuredData(entry, localeData, fragment) {
       addressCountry: "KR",
     },
     availableLanguage: languageOrder.map((locale) => localeData[locale].global.languageName),
-    sameAs: ["https://www.instagram.com/tuneclinic_english/"],
+    sameAs: ["https://www.instagram.com/tuneclinic_english/", "https://wa.me/821076744128"],
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -630,6 +630,12 @@ function siteFooter(entry, localeData) {
               <p><i class="fas fa-phone-alt text-gold mr-2"></i><a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a></p>
               <p><i class="far fa-clock text-gold mr-2"></i>${g.footerHours}<br><span class="pl-6">${g.footerHoursSat}</span></p>
               <p><i class="fas fa-globe text-gold mr-2"></i>${g.languageName} / 日本語 / 中文 / ไทย</p>
+              <div class="flex items-center gap-3 pt-2">
+                <a href="${g.whatsappHref}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-green-400 hover:border-green-400 transition" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="${g.instagramHref}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-400 transition" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-green-500 hover:border-green-500 transition cursor-pointer" title="LINE"><i class="fab fa-line"></i></button>
+                <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-green-400 hover:border-green-400 transition cursor-pointer" title="WeChat"><i class="fab fa-weixin"></i></button>
+              </div>
             </div>
           </div>
         </div>
@@ -639,6 +645,24 @@ function siteFooter(entry, localeData) {
         </div>
       </div>
     </footer>
+    <div id="line-qr-modal" class="hidden fixed inset-0 z-[200] bg-black/80 flex items-center justify-center p-4" onclick="if(event.target===this)this.classList.add('hidden')">
+      <div class="bg-white rounded-xl p-6 max-w-xs w-full text-center shadow-2xl relative">
+        <button onclick="this.closest('#line-qr-modal').classList.add('hidden')" class="absolute top-3 right-3 text-slate-400 hover:text-slate-800 text-lg cursor-pointer">&times;</button>
+        <i class="fab fa-line text-3xl text-green-500 mb-3"></i>
+        <p class="font-bold text-slate-900 mb-1">LINE</p>
+        <p class="text-xs text-slate-500 mb-4">Scan to add Tune Clinic on LINE</p>
+        <img src="/.netlify/images?url=${g.lineQr}&w=400&fm=webp&q=90" alt="LINE QR Code" class="w-56 h-56 mx-auto rounded-lg">
+      </div>
+    </div>
+    <div id="wechat-qr-modal" class="hidden fixed inset-0 z-[200] bg-black/80 flex items-center justify-center p-4" onclick="if(event.target===this)this.classList.add('hidden')">
+      <div class="bg-white rounded-xl p-6 max-w-xs w-full text-center shadow-2xl relative">
+        <button onclick="this.closest('#wechat-qr-modal').classList.add('hidden')" class="absolute top-3 right-3 text-slate-400 hover:text-slate-800 text-lg cursor-pointer">&times;</button>
+        <i class="fab fa-weixin text-3xl text-green-600 mb-3"></i>
+        <p class="font-bold text-slate-900 mb-1">WeChat</p>
+        <p class="text-xs text-slate-500 mb-4">Scan to add Tune Clinic on WeChat</p>
+        <img src="/.netlify/images?url=${g.wechatQr}&w=400&fm=webp&q=90" alt="WeChat QR Code" class="w-56 h-56 mx-auto rounded-lg">
+      </div>
+    </div>
     ${isHome ? `
     <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
       <div class="flex gap-3">

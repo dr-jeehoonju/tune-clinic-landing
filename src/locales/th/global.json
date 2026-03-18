@@ -33,8 +33,8 @@
   "backHome": "กลับหน้าหลัก",
   "viewPrograms": "ดูโปรแกรม",
   "consult": "ส่งรูปเพื่อประเมินเบื้องต้น",
-  "consultationHref": "https://www.instagram.com/tuneclinic_english/",
-  "consultationIcon": "fab fa-instagram",
+  "consultationHref": "https://wa.me/821076744128",
+  "consultationIcon": "fab fa-whatsapp",
   "guides": "คู่มือ",
   "guidesLibrary": "ห้องสมุดคู่มือ",
   "continueReading": "อ่านต่อ",
@@ -50,5 +50,9 @@
   "footerHoursSat": "เสาร์ 10:00 - 16:00",
   "blogIndexTitle": "ข้อมูลเชิงลึกจากแพทย์ด้านเวชศาสตร์ความงาม",
   "blogIndexDesc": "มุมมองที่อิงหลักฐานเกี่ยวกับการยกกระชับ ฉีดเสริม การรักษาฟื้นฟู และการวางแผนอย่างมีเหตุผลสำหรับผู้ป่วยต่างชาติที่มาเยือนโซล",
-  "blogMetaDesc": "ข้อมูลเชิงลึกด้านเวชศาสตร์ความงามจากทีมแพทย์ Tune Clinic การศึกษาด้านการรักษา มุมมองของแพทย์ และการวางแผนการเดินทางสำหรับผู้ป่วยต่างชาติ"
+  "blogMetaDesc": "ข้อมูลเชิงลึกด้านเวชศาสตร์ความงามจากทีมแพทย์ Tune Clinic การศึกษาด้านการรักษา มุมมองของแพทย์ และการวางแผนการเดินทางสำหรับผู้ป่วยต่างชาติ",
+  "whatsappHref": "https://wa.me/821076744128",
+  "instagramHref": "https://www.instagram.com/tuneclinic_english/",
+  "lineQr": "/line-qr.png",
+  "wechatQr": "/wechat-qr.png"
 }
