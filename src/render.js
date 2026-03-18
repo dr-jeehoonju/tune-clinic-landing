@@ -424,12 +424,88 @@ function languageSwitcher(entry, localeData) {
   `;
 }
 
+function mainNav(g, locale, localeData, switcher, options = {}) {
+  const { activeKey, isHome, mobileLanguageLinksHtml } = options;
+  const faqHref = isHome ? "#faq" : `${pageUrl(locale, "index")}#faq`;
+  const contactHref = isHome ? "#contact" : `${pageUrl(locale, "index")}#contact`;
+  const activeClass = (key) =>
+    activeKey === key
+      ? "text-gold transition border-b-2 border-gold pb-1"
+      : "hover:text-gold transition";
+  const blogLink = `<a href="${blogIndexUrl(locale)}" class="${activeKey === "blog" ? "text-gold transition border-b-2 border-gold pb-1" : "hover:text-gold transition"}">${g.blog || "Blog"}</a>`;
+  const guidesLink = `<a href="${pageUrl(locale, "guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition ${activeKey === "guides" ? "ring-2 ring-amber-300" : ""}">${g.guides}</a>`;
+
+  return `
+    <nav class="bg-white border-b border-slate-100 ${isHome ? "sticky top-0 z-40" : "relative z-40"} transition-all duration-300" id="navbar">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+          <a href="${pageUrl(locale, "index")}" class="flex items-center gap-2">
+            <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
+            <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
+          </a>
+          <div class="hidden md:flex items-center gap-6">
+            <div class="flex items-center gap-8 text-sm font-bold text-slate-600">
+              <a href="${pageUrl(locale, "design-method")}" class="${activeClass("design-method")}">${g.method}</a>
+              <div class="relative group h-16 flex items-center">
+                <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
+                  ${g.programs} <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
+                </button>
+                <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
+                  <div class="py-2">
+                    <a href="${pageUrl(locale, "signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
+                    <a href="${pageUrl(locale, "structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
+                    <a href="${pageUrl(locale, "collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
+                    <a href="${pageUrl(locale, "filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
+                    <div class="border-t border-slate-100 mt-1 pt-1">
+                      <a href="${pageUrl(locale, "menu")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>${g.menu}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="${pageUrl(locale, "gallery")}" class="${activeClass("gallery")}">${g.gallery}</a>
+              ${blogLink}
+              ${guidesLink}
+              <a href="${faqHref}" class="hover:text-gold transition">${g.faq}</a>
+              <a href="${contactHref}" class="hover:text-gold transition">${g.contact}</a>
+            </div>
+            <div class="pl-5 border-l border-slate-200 text-slate-600">
+              ${switcher}
+            </div>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24">
+        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${esc(g.langLabel)}</p>
+          <div class="grid grid-cols-2 gap-x-4">
+            ${mobileLanguageLinksHtml}
+          </div>
+        </div>
+        <a href="${pageUrl(locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "design-method" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.method}</a>
+        <div class="bg-slate-50 px-6 py-4 border-b border-slate-50">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.programs}</p>
+          <a href="${pageUrl(locale, "signature-lifting")}" class="block py-2 ${activeKey === "signature-lifting" ? "text-gold font-bold" : "text-slate-700"}">${g.sig}</a>
+          <a href="${pageUrl(locale, "structural-reset")}" class="block py-2 ${activeKey === "structural-reset" ? "text-gold font-bold" : "text-slate-700"}">${g.reset}</a>
+          <a href="${pageUrl(locale, "collagen-builder")}" class="block py-2 ${activeKey === "collagen-builder" ? "text-gold font-bold" : "text-slate-700"}">${g.collagen}</a>
+          <a href="${pageUrl(locale, "filler-chamaka-se")}" class="block py-2 ${activeKey === "filler-chamaka-se" ? "text-gold font-bold" : "text-slate-700"}">${g.filler}</a>
+          <a href="${pageUrl(locale, "menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
+        </div>
+        <a href="${pageUrl(locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "gallery" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.gallery}</a>
+        <a href="${blogIndexUrl(locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "blog" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.blog || "Blog"}</a>
+        <a href="${pageUrl(locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.guides}</a>
+        <a href="${faqHref}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
+        <a href="${contactHref}" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
+      </div>
+    </nav>
+    <script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
+  `;
+}
+
 function homeChrome(entry, localeData) {
   const g = localeData[entry.locale].global;
   const switcher = languageSwitcher(entry, localeData);
   const locales = entry.availableLocales || languageOrder;
-  const blogLink = `<a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${g.blog || "Blog"}</a>`;
-  const guidesLink = `<a href="${pageUrl(entry.locale, "guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition">${g.guides}</a>`;
   const mobileLanguageLinks = locales
     .map((code) => {
       const locale = localeData[code].global;
@@ -463,70 +539,7 @@ function homeChrome(entry, localeData) {
         </div>
       </div>
     </div>
-    <nav class="bg-white border-b border-slate-100 sticky top-0 z-40 transition-all duration-300" id="navbar">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex justify-between items-center h-16">
-          <a href="${pageUrl(entry.locale, "index")}" class="flex items-center gap-2">
-            <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
-            <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
-          </a>
-          <div class="hidden md:flex items-center gap-6">
-            <div class="flex items-center gap-8 text-sm font-bold text-slate-600">
-              <a href="${pageUrl(entry.locale, "index")}" class="hover:text-gold transition">${g.home}</a>
-              <a href="${pageUrl(entry.locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
-              <div class="relative group h-16 flex items-center">
-                <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
-                  ${g.programs} <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
-                </button>
-                <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
-                  <div class="py-2">
-                    <a href="${pageUrl(entry.locale, "signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
-                    <a href="${pageUrl(entry.locale, "structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
-                    <a href="${pageUrl(entry.locale, "collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
-                    <a href="${pageUrl(entry.locale, "filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
-                    <div class="border-t border-slate-100 mt-1 pt-1">
-                      <a href="${pageUrl(entry.locale, "menu")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>${g.menu}</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <a href="${pageUrl(entry.locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
-              ${blogLink}
-              ${guidesLink}
-              <a href="#faq" class="hover:text-gold transition">${g.faq}</a>
-              <a href="#contact" class="hover:text-gold transition">${g.contact}</a>
-            </div>
-            <div class="pl-5 border-l border-slate-200 text-slate-600">
-              ${switcher}
-            </div>
-          </div>
-          <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
-        </div>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24">
-        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${esc(g.langLabel)}</p>
-          <div class="grid grid-cols-2 gap-x-4">
-            ${mobileLanguageLinks}
-          </div>
-        </div>
-        <a href="${pageUrl(entry.locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
-        <a href="${pageUrl(entry.locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.method}</a>
-        <div class="bg-slate-50 px-6 py-4 border-b border-slate-50">
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.programs}</p>
-          <a href="${pageUrl(entry.locale, "signature-lifting")}" class="block py-2 text-slate-700">${g.sig}</a>
-          <a href="${pageUrl(entry.locale, "structural-reset")}" class="block py-2 text-slate-700">${g.reset}</a>
-          <a href="${pageUrl(entry.locale, "collagen-builder")}" class="block py-2 text-slate-700">${g.collagen}</a>
-          <a href="${pageUrl(entry.locale, "filler-chamaka-se")}" class="block py-2 text-slate-700">${g.filler}</a>
-          <a href="${pageUrl(entry.locale, "menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
-        </div>
-        <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
-        <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
-        <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.guides}</a>
-        <a href="#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
-        <a href="#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
-      </div>
-    </nav>
+    ${mainNav(g, entry.locale, localeData, switcher, { activeKey: null, isHome: true, mobileLanguageLinksHtml: mobileLanguageLinks })}
   `;
 }
 
@@ -672,191 +685,23 @@ function siteFooter(entry, localeData) {
         </a>
       </div>
     </div>` : ""}
-    <script>
-      (function () {
-        const btn = document.getElementById("mobile-menu-btn");
-        const menu = document.getElementById("mobile-menu");
-        if (btn && menu) btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-      })();
-    </script>
   `;
 }
 
 function editorialChrome(entry, localeData) {
   const g = localeData[entry.locale].global;
   const switcher = languageSwitcher(entry, localeData);
-  const activeMap = {
-    "design-method": g.method,
-    gallery: g.gallery,
-    menu: g.menu,
-    guides: g.guides,
-  };
-  const activeClass = (key) =>
-    entry.key === key
-      ? "text-gold transition border-b-2 border-gold pb-1"
-      : "hover:text-gold transition";
-  const chromeLabel = entry.chromeLabel || activeMap[entry.key] || g.guides;
-  const guidesLink = `<a href="${pageUrl(entry.locale, "guides")}" class="${activeClass("guides")}">${g.guides}</a>`;
+  const mobileLanguageLinksHtml = (entry.availableLocales || languageOrder).map((code) => { const loc = localeData[code].global; const active = code === entry.locale; return `<a href="${pageUrl(code, entry.key)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("");
 
-  return `
-    <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="${pageUrl(entry.locale, "index")}" class="flex items-center text-slate-300 hover:text-white transition">
-          <i class="fas fa-arrow-left mr-2 text-gold"></i> ${g.backHome}
-        </a>
-        <div class="flex items-center gap-6">
-          <span class="text-gold uppercase tracking-widest font-bold text-[10px] hidden sm:inline">${esc(chromeLabel)}</span>
-          <a href="${pageUrl(entry.locale, "index")}#programs" class="text-slate-300 hover:text-white transition uppercase tracking-widest font-bold text-[10px]">
-            ${g.viewPrograms} <i class="fas fa-arrow-right ml-1 text-gold"></i>
-          </a>
-          ${switcher}
-        </div>
-      </div>
-    </div>
-    <nav class="bg-white border-b border-slate-100 relative z-40" id="navbar">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex justify-between items-center h-16">
-          <a href="${pageUrl(entry.locale, "index")}" class="flex items-center gap-2">
-            <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
-            <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
-          </a>
-          <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
-            <a href="${pageUrl(entry.locale, "index")}" class="hover:text-gold transition">${g.home}</a>
-            <a href="${pageUrl(entry.locale, "design-method")}" class="${activeClass("design-method")}">${g.method}</a>
-            <div class="relative group h-16 flex items-center">
-              <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
-                ${g.programs} <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
-              </button>
-              <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
-                <div class="py-2">
-                  <a href="${pageUrl(entry.locale, "signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
-                  <a href="${pageUrl(entry.locale, "structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
-                  <a href="${pageUrl(entry.locale, "collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
-                  <a href="${pageUrl(entry.locale, "filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
-                  <div class="border-t border-slate-100 mt-1 pt-1">
-                    <a href="${pageUrl(entry.locale, "menu")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>${g.menu}</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a href="${pageUrl(entry.locale, "gallery")}" class="${activeClass("gallery")}">${g.gallery}</a>
-            <a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${g.blog || "Blog"}</a>
-            ${guidesLink}
-            <a href="${pageUrl(entry.locale, "index")}#faq" class="hover:text-gold transition">${g.faq}</a>
-            <a href="${pageUrl(entry.locale, "index")}#contact" class="hover:text-gold transition">${g.contact}</a>
-          </div>
-          <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
-        </div>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24">
-        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${esc(g.langLabel)}</p>
-          <div class="grid grid-cols-2 gap-x-4">
-            ${(entry.availableLocales || languageOrder).map((code) => { const loc = localeData[code].global; const active = code === entry.locale; return `<a href="${pageUrl(code, entry.key)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("")}
-          </div>
-        </div>
-        <a href="${pageUrl(entry.locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
-        <a href="${pageUrl(entry.locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "design-method" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.method}</a>
-        <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.programs}</p>
-          <a href="${pageUrl(entry.locale, "signature-lifting")}" class="block py-2 text-slate-700">${g.sig}</a>
-          <a href="${pageUrl(entry.locale, "structural-reset")}" class="block py-2 text-slate-700">${g.reset}</a>
-          <a href="${pageUrl(entry.locale, "collagen-builder")}" class="block py-2 text-slate-700">${g.collagen}</a>
-          <a href="${pageUrl(entry.locale, "filler-chamaka-se")}" class="block py-2 text-slate-700">${g.filler}</a>
-          <a href="${pageUrl(entry.locale, "menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
-        </div>
-        <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "gallery" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.gallery}</a>
-        <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
-        <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.guides}</a>
-        <a href="${pageUrl(entry.locale, "index")}#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
-        <a href="${pageUrl(entry.locale, "index")}#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
-      </div>
-    </nav>
-    <script>
-      (function () {
-        const btn = document.getElementById("mobile-menu-btn");
-        const menu = document.getElementById("mobile-menu");
-        if (btn && menu) btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-      })();
-    </script>
-  `;
+  return mainNav(g, entry.locale, localeData, switcher, { activeKey: entry.key, isHome: false, mobileLanguageLinksHtml });
 }
 
 function programChrome(entry, localeData) {
   const g = localeData[entry.locale].global;
   const switcher = languageSwitcher(entry, localeData);
-  const locales = entry.availableLocales || languageOrder;
-  const item = (key, labelKey) =>
-    entry.key === key
-      ? `<span class="text-gold">${g[labelKey]}</span>`
-      : `<a href="${pageUrl(entry.locale, key)}" class="hover:text-gold transition hidden sm:inline">${g[labelKey]}</a>`;
-  const mobileLanguageLinks = locales
-    .map((code) => {
-      const locale = localeData[code].global;
-      const active = code === entry.locale;
-      return `<a href="${pageUrl(code, entry.key)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${locale.languageName}</a>`;
-    })
-    .join("");
+  const mobileLanguageLinksHtml = (entry.availableLocales || languageOrder).map((code) => { const loc = localeData[code].global; const active = code === entry.locale; return `<a href="${pageUrl(code, entry.key)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("");
 
-  return `
-    <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="${pageUrl(entry.locale, "index")}" class="flex items-center text-slate-300 hover:text-white transition">
-          <i class="fas fa-arrow-left mr-2 text-gold"></i> ${g.backHome}
-        </a>
-        <div class="hidden md:flex items-center gap-3 md:gap-4 text-[10px] uppercase font-bold tracking-widest text-slate-500">
-          <a href="${pageUrl(entry.locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
-          <span class="text-slate-700">|</span>
-          <a href="${pageUrl(entry.locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
-          <span class="text-slate-700">|</span>
-          ${item("signature-lifting", "sig")}
-          <span class="text-slate-700 hidden sm:inline">|</span>
-          ${item("structural-reset", "reset")}
-          <span class="text-slate-700 hidden sm:inline">|</span>
-          ${item("collagen-builder", "collagen")}
-          <span class="text-slate-700 hidden sm:inline">|</span>
-          ${item("filler-chamaka-se", "filler")}
-          <span class="text-slate-700 hidden sm:inline">|</span>
-          <a href="${pageUrl(entry.locale, "menu")}" class="hover:text-gold transition hidden sm:inline">${g.menu}</a>
-          <span class="text-slate-700 hidden sm:inline">|</span>
-          <a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition hidden sm:inline">${g.blog || "Blog"}</a>
-          <span class="text-slate-700 hidden sm:inline">|</span>
-          <a href="${pageUrl(entry.locale, "guides")}" class="hover:text-gold transition hidden sm:inline">${g.guides}</a>
-          <span class="text-slate-700 hidden sm:inline">|</span>
-          <a href="${pageUrl(entry.locale, "index")}#faq" class="hover:text-gold transition hidden sm:inline">${g.faq}</a>
-          <span class="text-slate-700 hidden sm:inline">|</span>
-          <a href="${pageUrl(entry.locale, "index")}#contact" class="hover:text-gold transition hidden sm:inline">${g.contact}</a>
-          <span class="text-slate-700 ml-3 md:ml-4">|</span>
-          ${switcher}
-        </div>
-        <button id="mobile-menu-btn" class="md:hidden text-white text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
-      </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24 z-40">
-      <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
-        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.langLabel}</p>
-        <div class="grid grid-cols-2 gap-x-4">
-          ${mobileLanguageLinks}
-        </div>
-      </div>
-      <a href="${pageUrl(entry.locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
-      <a href="${pageUrl(entry.locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.method}</a>
-      <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
-        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.programs}</p>
-        <a href="${pageUrl(entry.locale, "signature-lifting")}" class="block py-2 ${entry.key === "signature-lifting" ? "text-gold font-bold" : "text-slate-700"}">${g.sig}</a>
-        <a href="${pageUrl(entry.locale, "structural-reset")}" class="block py-2 ${entry.key === "structural-reset" ? "text-gold font-bold" : "text-slate-700"}">${g.reset}</a>
-        <a href="${pageUrl(entry.locale, "collagen-builder")}" class="block py-2 ${entry.key === "collagen-builder" ? "text-gold font-bold" : "text-slate-700"}">${g.collagen}</a>
-        <a href="${pageUrl(entry.locale, "filler-chamaka-se")}" class="block py-2 ${entry.key === "filler-chamaka-se" ? "text-gold font-bold" : "text-slate-700"}">${g.filler}</a>
-        <a href="${pageUrl(entry.locale, "menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
-      </div>
-      <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
-      <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
-      <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.guides}</a>
-      <a href="${pageUrl(entry.locale, "index")}#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
-      <a href="${pageUrl(entry.locale, "index")}#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
-    </div>
-    <script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
-  `;
+  return mainNav(g, entry.locale, localeData, switcher, { activeKey: entry.key, isHome: false, mobileLanguageLinksHtml });
 }
 
 function pageChrome(entry, localeData) {
@@ -1089,82 +934,9 @@ function blogChrome(post, localeData) {
     return `<a href="${blogUrl(code, post.slug)}" class="block px-4 py-2.5 ${active ? "font-bold text-gold border-b border-slate-50" : "hover:bg-slate-50 hover:text-gold transition"}">${lg.languageName}</a>`;
   }).join("");
   const switcher = `<div class="group relative cursor-pointer"><span class="hover:text-gold transition font-bold text-[10px] flex items-center gap-1"><i class="fas fa-globe"></i> ${esc(currentLang.langLabel)}</span><div class="absolute right-0 top-full pt-2 w-36 hidden group-hover:block z-50"><div class="bg-white text-slate-800 shadow-xl rounded-sm border border-slate-100 text-xs">${blogSwitcherRows}</div></div></div>`;
-  return `
-    <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="${blogIndexUrl(post.locale)}" class="flex items-center text-slate-300 hover:text-white transition">
-          <i class="fas fa-arrow-left mr-2 text-gold"></i> ${g.blog || "Blog"}
-        </a>
-        <div class="flex items-center gap-6">
-          <span class="text-gold uppercase tracking-widest font-bold text-[10px] hidden sm:inline">${g.blog || "Blog"}</span>
-          <a href="${pageUrl(post.locale, "index")}#programs" class="text-slate-300 hover:text-white transition uppercase tracking-widest font-bold text-[10px]">
-            ${g.viewPrograms} <i class="fas fa-arrow-right ml-1 text-gold"></i>
-          </a>
-          ${switcher}
-        </div>
-      </div>
-    </div>
-    <nav class="bg-white border-b border-slate-100 relative z-40" id="navbar">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex justify-between items-center h-16">
-          <a href="${pageUrl(post.locale, "index")}" class="flex items-center gap-2">
-            <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
-            <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
-          </a>
-          <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
-            <a href="${pageUrl(post.locale, "index")}" class="hover:text-gold transition">${g.home}</a>
-            <a href="${pageUrl(post.locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
-            <div class="relative group h-16 flex items-center">
-              <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
-                ${g.programs} <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
-              </button>
-              <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
-                <div class="py-2">
-                  <a href="${pageUrl(post.locale, "signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
-                  <a href="${pageUrl(post.locale, "structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
-                  <a href="${pageUrl(post.locale, "collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
-                  <a href="${pageUrl(post.locale, "filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
-                  <div class="border-t border-slate-100 mt-1 pt-1">
-                    <a href="${pageUrl(post.locale, "menu")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>${g.menu}</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a href="${pageUrl(post.locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
-            <a href="${blogIndexUrl(post.locale)}" class="text-gold transition border-b-2 border-gold pb-1">${g.blog || "Blog"}</a>
-            <a href="${pageUrl(post.locale, "guides")}" class="hover:text-gold transition">${g.guides}</a>
-            <a href="${pageUrl(post.locale, "index")}#faq" class="hover:text-gold transition">${g.faq}</a>
-            <a href="${pageUrl(post.locale, "index")}#contact" class="hover:text-gold transition">${g.contact}</a>
-          </div>
-          <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
-        </div>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24">
-        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${esc(g.langLabel)}</p>
-          <div class="grid grid-cols-2 gap-x-4">
-            ${(post.availableLocales || languageOrder).map((code) => { const loc = localeData[code].global; const active = code === post.locale; return `<a href="${blogUrl(code, post.slug)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("")}
-          </div>
-        </div>
-        <a href="${pageUrl(post.locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
-        <a href="${pageUrl(post.locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.method}</a>
-        <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.programs}</p>
-          <a href="${pageUrl(post.locale, "signature-lifting")}" class="block py-2 text-slate-700">${g.sig}</a>
-          <a href="${pageUrl(post.locale, "structural-reset")}" class="block py-2 text-slate-700">${g.reset}</a>
-          <a href="${pageUrl(post.locale, "collagen-builder")}" class="block py-2 text-slate-700">${g.collagen}</a>
-          <a href="${pageUrl(post.locale, "filler-chamaka-se")}" class="block py-2 text-slate-700">${g.filler}</a>
-          <a href="${pageUrl(post.locale, "menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
-        </div>
-        <a href="${pageUrl(post.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
-        <a href="${blogIndexUrl(post.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">${g.blog || "Blog"}</a>
-        <a href="${pageUrl(post.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.guides}</a>
-        <a href="${pageUrl(post.locale, "index")}#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
-        <a href="${pageUrl(post.locale, "index")}#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
-      </div>
-    </nav>
-    <script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
-  `;
+  const mobileLanguageLinksHtml = blogLocales.map((code) => { const loc = localeData[code].global; const active = code === post.locale; return `<a href="${blogUrl(code, post.slug)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("");
+
+  return mainNav(g, post.locale, localeData, switcher, { activeKey: "blog", isHome: false, mobileLanguageLinksHtml });
 }
 
 function formatBlogDate(dateStr, locale) {
@@ -1338,76 +1110,7 @@ function renderBlogIndex(locale, posts, localeData) {
   </style>
 </head>
 <body>
-<div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-    <a href="${pageUrl(locale, "index")}" class="flex items-center text-slate-300 hover:text-white transition"><i class="fas fa-arrow-left mr-2 text-gold"></i> ${g.backHome}</a>
-    <div class="flex items-center gap-6">
-      <span class="text-gold uppercase tracking-widest font-bold text-[10px] hidden sm:inline">${blogTitle}</span>
-      <a href="${pageUrl(locale, "index")}#programs" class="text-slate-300 hover:text-white transition uppercase tracking-widest font-bold text-[10px]">${g.viewPrograms} <i class="fas fa-arrow-right ml-1 text-gold"></i></a>
-      ${switcher}
-    </div>
-  </div>
-</div>
-<nav class="bg-white border-b border-slate-100 relative z-40" id="navbar">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex justify-between items-center h-16">
-      <a href="${pageUrl(locale, "index")}" class="flex items-center gap-2">
-        <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
-        <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
-        <a href="${pageUrl(locale, "index")}" class="hover:text-gold transition">${g.home}</a>
-        <a href="${pageUrl(locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
-        <div class="relative group h-16 flex items-center">
-          <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
-            ${g.programs} <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
-          </button>
-          <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
-            <div class="py-2">
-              <a href="${pageUrl(locale, "signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
-              <a href="${pageUrl(locale, "structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
-              <a href="${pageUrl(locale, "collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
-              <a href="${pageUrl(locale, "filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
-              <div class="border-t border-slate-100 mt-1 pt-1">
-                <a href="${pageUrl(locale, "menu")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>${g.menu}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="${pageUrl(locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
-        <a href="${blogIndexUrl(locale)}" class="text-gold transition border-b-2 border-gold pb-1">${blogTitle}</a>
-        <a href="${pageUrl(locale, "guides")}" class="hover:text-gold transition">${g.guides}</a>
-        <a href="${pageUrl(locale, "index")}#faq" class="hover:text-gold transition">${g.faq}</a>
-        <a href="${pageUrl(locale, "index")}#contact" class="hover:text-gold transition">${g.contact}</a>
-      </div>
-      <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
-    </div>
-  </div>
-  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24">
-    <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
-      <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${esc(g.langLabel)}</p>
-      <div class="grid grid-cols-2 gap-x-4">
-        ${languageOrder.map((code) => { const loc = localeData[code].global; const active = code === locale; return `<a href="${blogIndexUrl(code)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("")}
-      </div>
-    </div>
-    <a href="${pageUrl(locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
-    <a href="${pageUrl(locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.method}</a>
-    <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
-      <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.programs}</p>
-      <a href="${pageUrl(locale, "signature-lifting")}" class="block py-2 text-slate-700">${g.sig}</a>
-      <a href="${pageUrl(locale, "structural-reset")}" class="block py-2 text-slate-700">${g.reset}</a>
-      <a href="${pageUrl(locale, "collagen-builder")}" class="block py-2 text-slate-700">${g.collagen}</a>
-      <a href="${pageUrl(locale, "filler-chamaka-se")}" class="block py-2 text-slate-700">${g.filler}</a>
-      <a href="${pageUrl(locale, "menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
-    </div>
-    <a href="${pageUrl(locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
-    <a href="${blogIndexUrl(locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">${blogTitle}</a>
-    <a href="${pageUrl(locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.guides}</a>
-    <a href="${pageUrl(locale, "index")}#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
-    <a href="${pageUrl(locale, "index")}#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
-  </div>
-</nav>
-<script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
+${mainNav(g, locale, localeData, switcher, { activeKey: "blog", isHome: false, mobileLanguageLinksHtml: languageOrder.map((code) => { const loc = localeData[code].global; const active = code === locale; return `<a href="${blogIndexUrl(code)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("") })}
 <header class="bg-slate-950 text-white border-b border-slate-800">
   <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
     <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5"><i class="fas fa-pen-nib"></i> ${SITE_NAME} ${blogTitle}</span>

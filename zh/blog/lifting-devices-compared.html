@@ -49,51 +49,41 @@
 </head>
 <body>
 
-    <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="/zh/blog/" class="flex items-center text-slate-300 hover:text-white transition">
-          <i class="fas fa-arrow-left mr-2 text-gold"></i> 博客
-        </a>
-        <div class="flex items-center gap-6">
-          <span class="text-gold uppercase tracking-widest font-bold text-[10px] hidden sm:inline">博客</span>
-          <a href="/zh/index.html#programs" class="text-slate-300 hover:text-white transition uppercase tracking-widest font-bold text-[10px]">
-            查看方案 <i class="fas fa-arrow-right ml-1 text-gold"></i>
-          </a>
-          <div class="group relative cursor-pointer"><span class="hover:text-gold transition font-bold text-[10px] flex items-center gap-1"><i class="fas fa-globe"></i> 中文</span><div class="absolute right-0 top-full pt-2 w-36 hidden group-hover:block z-50"><div class="bg-white text-slate-800 shadow-xl rounded-sm border border-slate-100 text-xs"><a href="/blog/lifting-devices-compared.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">English</a><a href="/ja/blog/lifting-devices-compared.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">日本語</a><a href="/zh/blog/lifting-devices-compared.html" class="block px-4 py-2.5 font-bold text-gold border-b border-slate-50">中文</a><a href="/th/blog/lifting-devices-compared.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">ไทย</a></div></div></div>
-        </div>
-      </div>
-    </div>
-    <nav class="bg-white border-b border-slate-100 relative z-40" id="navbar">
+    <nav class="bg-white border-b border-slate-100 relative z-40 transition-all duration-300" id="navbar">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex justify-between items-center h-16">
           <a href="/zh/index.html" class="flex items-center gap-2">
             <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
             <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
           </a>
-          <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
-            <a href="/zh/index.html" class="hover:text-gold transition">首页</a>
-            <a href="/zh/design-method.html" class="hover:text-gold transition">设计理念</a>
-            <div class="relative group h-16 flex items-center">
-              <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
-                诊疗方案 <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
-              </button>
-              <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
-                <div class="py-2">
-                  <a href="/zh/signature-lifting.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Signature Lifting</a>
-                  <a href="/zh/structural-reset.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Structural Reset Elite</a>
-                  <a href="/zh/collagen-builder.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">The Collagen Builder</a>
-                  <a href="/zh/filler-chamaka-se.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Filler Chamaka-se</a>
-                  <div class="border-t border-slate-100 mt-1 pt-1">
-                    <a href="/zh/menu.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>价目参考</a>
+          <div class="hidden md:flex items-center gap-6">
+            <div class="flex items-center gap-8 text-sm font-bold text-slate-600">
+              <a href="/zh/design-method.html" class="hover:text-gold transition">设计理念</a>
+              <div class="relative group h-16 flex items-center">
+                <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
+                  诊疗方案 <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
+                </button>
+                <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
+                  <div class="py-2">
+                    <a href="/zh/signature-lifting.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Signature Lifting</a>
+                    <a href="/zh/structural-reset.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Structural Reset Elite</a>
+                    <a href="/zh/collagen-builder.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">The Collagen Builder</a>
+                    <a href="/zh/filler-chamaka-se.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">Filler Chamaka-se</a>
+                    <div class="border-t border-slate-100 mt-1 pt-1">
+                      <a href="/zh/menu.html" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>价目参考</a>
+                    </div>
                   </div>
                 </div>
               </div>
+              <a href="/zh/gallery.html" class="hover:text-gold transition">前后对比</a>
+              <a href="/zh/blog/" class="text-gold transition border-b-2 border-gold pb-1">博客</a>
+              <a href="/zh/guides.html" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition ">指南</a>
+              <a href="/zh/index.html#faq" class="hover:text-gold transition">常见问题</a>
+              <a href="/zh/index.html#contact" class="hover:text-gold transition">联系我们</a>
             </div>
-            <a href="/zh/gallery.html" class="hover:text-gold transition">前后对比</a>
-            <a href="/zh/blog/" class="text-gold transition border-b-2 border-gold pb-1">博客</a>
-            <a href="/zh/guides.html" class="hover:text-gold transition">指南</a>
-            <a href="/zh/index.html#faq" class="hover:text-gold transition">常见问题</a>
-            <a href="/zh/index.html#contact" class="hover:text-gold transition">联系我们</a>
+            <div class="pl-5 border-l border-slate-200 text-slate-600">
+              <div class="group relative cursor-pointer"><span class="hover:text-gold transition font-bold text-[10px] flex items-center gap-1"><i class="fas fa-globe"></i> 中文</span><div class="absolute right-0 top-full pt-2 w-36 hidden group-hover:block z-50"><div class="bg-white text-slate-800 shadow-xl rounded-sm border border-slate-100 text-xs"><a href="/blog/lifting-devices-compared.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">English</a><a href="/ja/blog/lifting-devices-compared.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">日本語</a><a href="/zh/blog/lifting-devices-compared.html" class="block px-4 py-2.5 font-bold text-gold border-b border-slate-50">中文</a><a href="/th/blog/lifting-devices-compared.html" class="block px-4 py-2.5 hover:bg-slate-50 hover:text-gold transition">ไทย</a></div></div></div>
+            </div>
           </div>
           <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
         </div>
@@ -105,9 +95,8 @@
             <a href="/blog/lifting-devices-compared.html" class="block py-2 text-slate-700">English</a><a href="/ja/blog/lifting-devices-compared.html" class="block py-2 text-slate-700">日本語</a><a href="/zh/blog/lifting-devices-compared.html" class="block py-2 font-bold text-gold">中文</a><a href="/th/blog/lifting-devices-compared.html" class="block py-2 text-slate-700">ไทย</a>
           </div>
         </div>
-        <a href="/zh/index.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">首页</a>
         <a href="/zh/design-method.html" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">设计理念</a>
-        <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
+        <div class="bg-slate-50 px-6 py-4 border-b border-slate-50">
           <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">诊疗方案</p>
           <a href="/zh/signature-lifting.html" class="block py-2 text-slate-700">Signature Lifting</a>
           <a href="/zh/structural-reset.html" class="block py-2 text-slate-700">Structural Reset Elite</a>
@@ -343,13 +332,6 @@
       </div>
     </div>
     
-    <script>
-      (function () {
-        const btn = document.getElementById("mobile-menu-btn");
-        const menu = document.getElementById("mobile-menu");
-        if (btn && menu) btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-      })();
-    </script>
   
 
   <div id="cookie-consent-banner" class="hidden fixed bottom-4 left-4 right-4 md:left-6 md:right-6 z-[80]">
