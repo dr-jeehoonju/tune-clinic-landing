@@ -172,3 +172,18 @@
   from = "/blog"
   to = "/blog/index.html"
   status = 200
+
+[[redirects]]
+  from = "/ja/blog"
+  to = "/ja/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/zh/blog"
+  to = "/zh/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/th/blog"
+  to = "/th/blog/index.html"
+  status = 200

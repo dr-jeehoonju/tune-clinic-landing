@@ -34,5 +34,21 @@
   "viewPrograms": "View Programs",
   "consult": "Request Photo Assessment",
   "consultationHref": "https://www.instagram.com/tuneclinic_english/",
-  "consultationIcon": "fab fa-instagram"
+  "consultationIcon": "fab fa-instagram",
+  "guides": "Guides",
+  "guidesLibrary": "Guides Library",
+  "continueReading": "Continue Reading",
+  "directPhysician": "Direct Physician Coordination",
+  "footerPlanTitle": "Need a Clearer Plan?",
+  "footerPlanH2": "Use our guides to narrow the category. Let the consultation finalize the protocol.",
+  "footerPlanDesc": "The goal is not to create more choices. It is to help you arrive with better questions and a cleaner sense of what may actually fit your face and travel timing.",
+  "footerExplore": "Explore",
+  "footerVisitContact": "Visit and Contact",
+  "footerClinicDesc": "Physician-led aesthetic planning for international patients seeking rational treatment design, clearer sequencing, and a more travel-conscious Seoul clinic experience.",
+  "footerAddress": "5th floor, 868, Nonhyeon-ro, Gangnam-gu, Seoul",
+  "footerHours": "Mon-Fri 10:00 - 21:00",
+  "footerHoursSat": "Sat 10:00 - 16:00",
+  "blogIndexTitle": "Physician Insights on Aesthetic Medicine",
+  "blogIndexDesc": "Evidence-based perspectives on lifting, injectables, regenerative treatments, and rational planning for international patients visiting Seoul.",
+  "blogMetaDesc": "Evidence-based aesthetic medicine insights from the physicians at Tune Clinic. Treatment education, physician perspectives, and travel planning for international patients."
 }

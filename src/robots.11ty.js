@@ -10,6 +10,7 @@ module.exports = class {
   render() {
     return `User-agent: *
 Allow: /
+Disallow: /admin.html
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;

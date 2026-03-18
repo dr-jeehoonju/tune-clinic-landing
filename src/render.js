@@ -106,7 +106,8 @@ function esc(str = "") {
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 function absoluteAssetUrl(assetPath) {
@@ -425,7 +426,7 @@ function homeChrome(entry, localeData) {
   const switcher = languageSwitcher(entry, localeData);
   const locales = entry.availableLocales || languageOrder;
   const blogLink = `<a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${g.blog || "Blog"}</a>`;
-  const guidesLink = `<a href="${pageUrl(entry.locale, "guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition">Guides</a>`;
+  const guidesLink = `<a href="${pageUrl(entry.locale, "guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition">${g.guides}</a>`;
   const mobileLanguageLinks = locales
     .map((code) => {
       const locale = localeData[code].global;
@@ -518,7 +519,7 @@ function homeChrome(entry, localeData) {
         </div>
         <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
         <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
-        <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>
+        <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.guides}</a>
         <a href="#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
         <a href="#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
       </div>
@@ -531,13 +532,13 @@ function siteFooter(entry, localeData) {
   const isHome = entry.template === "home";
   const blogFooterLink = `<a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${localeData[entry.locale].global.blog || "Blog"}</a>`;
   const consultFooterLink = `<a href="${pageUrl(entry.locale, "consult")}" class="hover:text-gold transition">${g.consult || "Consultation Form"}</a>`;
-  const guideLink = `<a href="${pageUrl(entry.locale, "guides")}" class="hover:text-gold transition">Guides Library</a>`;
+  const guideLink = `<a href="${pageUrl(entry.locale, "guides")}" class="hover:text-gold transition">${g.guidesLibrary}</a>`;
   const topPanel = isHome
     ? `
       <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10 mb-14">
         <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
           <div>
-            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">Direct Physician Coordination</span>
+            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">${g.directPhysician}</span>
             <h2 class="text-3xl md:text-4xl font-serif mt-4">${g.footerTitle}</h2>
             <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">${g.footerSub}</p>
           </div>
@@ -560,9 +561,9 @@ function siteFooter(entry, localeData) {
       <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10 mb-14">
         <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
           <div>
-            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">Need a Clearer Plan?</span>
-            <h2 class="text-3xl md:text-4xl font-serif mt-4">Use our guides to narrow the category. Let the consultation finalize the protocol.</h2>
-            <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">The goal is not to create more choices. It is to help you arrive with better questions and a cleaner sense of what may actually fit your face and travel timing.</p>
+            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">${g.footerPlanTitle}</span>
+            <h2 class="text-3xl md:text-4xl font-serif mt-4">${g.footerPlanH2}</h2>
+            <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">${g.footerPlanDesc}</p>
           </div>
           <div class="flex flex-col gap-3 lg:items-stretch">
             <a href="${g.consultationHref}" target="_blank" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
@@ -574,7 +575,7 @@ function siteFooter(entry, localeData) {
             <a href="${pageUrl(entry.locale, "menu")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2">
               <i class="fas fa-list-ul"></i> ${g.menu}
             </a>
-            <a href="${pageUrl(entry.locale, "guides")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2"><i class="fas fa-book-open"></i> Guides Library</a>
+            <a href="${pageUrl(entry.locale, "guides")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2"><i class="fas fa-book-open"></i> ${g.guidesLibrary}</a>
           </div>
         </div>
       </div>
@@ -591,7 +592,7 @@ function siteFooter(entry, localeData) {
               <span class="font-serif text-2xl text-white">Tune Clinic</span>
             </a>
             <p class="text-slate-300 leading-relaxed mt-5 max-w-md">
-              Physician-led aesthetic planning for international patients seeking rational treatment design, clearer sequencing, and a more travel-conscious Seoul clinic experience.
+              ${g.footerClinicDesc}
             </p>
             <div class="flex flex-wrap gap-2 mt-6 text-[11px] uppercase tracking-[0.18em]">
               <span class="px-3 py-2 rounded-full border border-white/10 text-gold">${g.staffBadge}</span>
@@ -599,7 +600,7 @@ function siteFooter(entry, localeData) {
             </div>
           </div>
           <div>
-            <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">Explore</p>
+            <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">${g.footerExplore}</p>
             <div class="flex flex-col gap-2.5 text-sm text-slate-300">
               <a href="${pageUrl(entry.locale, "index")}" class="hover:text-gold transition">${g.home}</a>
               <a href="${pageUrl(entry.locale, "design-method")}" class="hover:text-gold transition">${g.method}</a>
@@ -620,11 +621,11 @@ function siteFooter(entry, localeData) {
             </div>
           </div>
           <div>
-            <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">Visit and Contact</p>
+            <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">${g.footerVisitContact}</p>
             <div class="space-y-4 text-sm text-slate-300">
-              <p class="leading-relaxed"><i class="fas fa-location-dot text-gold mr-2"></i>5th floor, 868, Nonhyeon-ro, Gangnam-gu, Seoul</p>
+              <p class="leading-relaxed"><i class="fas fa-location-dot text-gold mr-2"></i>${g.footerAddress}</p>
               <p><i class="fas fa-phone-alt text-gold mr-2"></i><a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a></p>
-              <p><i class="far fa-clock text-gold mr-2"></i>Mon-Fri 10:00 - 21:00<br><span class="pl-6">Sat 10:00 - 16:00</span></p>
+              <p><i class="far fa-clock text-gold mr-2"></i>${g.footerHours}<br><span class="pl-6">${g.footerHoursSat}</span></p>
               <p><i class="fas fa-globe text-gold mr-2"></i>${g.languageName} / 日本語 / 中文 / ไทย</p>
             </div>
           </div>
@@ -661,14 +662,14 @@ function editorialChrome(entry, localeData) {
     "design-method": g.method,
     gallery: g.gallery,
     menu: g.menu,
-    guides: "Guides",
+    guides: g.guides,
   };
   const activeClass = (key) =>
     entry.key === key
       ? "text-gold transition border-b-2 border-gold pb-1"
       : "hover:text-gold transition";
-  const chromeLabel = entry.chromeLabel || activeMap[entry.key] || "SEO Guide";
-  const guidesLink = `<a href="${pageUrl(entry.locale, "guides")}" class="${activeClass("guides")}">Guides</a>`;
+  const chromeLabel = entry.chromeLabel || activeMap[entry.key] || g.guides;
+  const guidesLink = `<a href="${pageUrl(entry.locale, "guides")}" class="${activeClass("guides")}">${g.guides}</a>`;
 
   return `
     <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
@@ -721,6 +722,12 @@ function editorialChrome(entry, localeData) {
         </div>
       </div>
       <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24">
+        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${esc(g.langLabel)}</p>
+          <div class="grid grid-cols-2 gap-x-4">
+            ${(entry.availableLocales || languageOrder).map((code) => { const loc = localeData[code].global; const active = code === entry.locale; return `<a href="${pageUrl(code, entry.key)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("")}
+          </div>
+        </div>
         <a href="${pageUrl(entry.locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
         <a href="${pageUrl(entry.locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "design-method" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.method}</a>
         <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
@@ -733,7 +740,7 @@ function editorialChrome(entry, localeData) {
         </div>
         <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "gallery" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.gallery}</a>
         <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
-        <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">Guides</a>
+        <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${entry.key === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.guides}</a>
         <a href="${pageUrl(entry.locale, "index")}#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
         <a href="${pageUrl(entry.locale, "index")}#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
       </div>
@@ -809,7 +816,7 @@ function programChrome(entry, localeData) {
       </div>
       <a href="${pageUrl(entry.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
       <a href="${blogIndexUrl(entry.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.blog || "Blog"}</a>
-      <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>
+      <a href="${pageUrl(entry.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.guides}</a>
       <a href="${pageUrl(entry.locale, "index")}#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
       <a href="${pageUrl(entry.locale, "index")}#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
     </div>
@@ -867,6 +874,7 @@ function renderPage(entry, localeData) {
   <meta name="twitter:image" content="${ogImage}">
   ${googleVerificationMeta()}
   <link rel="canonical" href="${canonicalUrl}">
+  <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
   ${hreflang}
   <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
   <script>
@@ -1036,7 +1044,14 @@ function blogPostStructuredData(post, localeData) {
 
 function blogChrome(post, localeData) {
   const g = localeData[post.locale].global;
-  const switcher = languageSwitcher({ locale: post.locale, key: "index", availableLocales: post.availableLocales || languageOrder }, localeData);
+  const blogLocales = post.availableLocales || languageOrder;
+  const currentLang = localeData[post.locale].global;
+  const blogSwitcherRows = blogLocales.map((code) => {
+    const lg = localeData[code].global;
+    const active = code === post.locale;
+    return `<a href="${blogUrl(code, post.slug)}" class="block px-4 py-2.5 ${active ? "font-bold text-gold border-b border-slate-50" : "hover:bg-slate-50 hover:text-gold transition"}">${lg.languageName}</a>`;
+  }).join("");
+  const switcher = `<div class="group relative cursor-pointer"><span class="hover:text-gold transition font-bold text-[10px] flex items-center gap-1"><i class="fas fa-globe"></i> ${esc(currentLang.langLabel)}</span><div class="absolute right-0 top-full pt-2 w-36 hidden group-hover:block z-50"><div class="bg-white text-slate-800 shadow-xl rounded-sm border border-slate-100 text-xs">${blogSwitcherRows}</div></div></div>`;
   return `
     <div class="bg-slate-900 text-white text-xs py-3 border-b border-slate-800 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -1080,7 +1095,7 @@ function blogChrome(post, localeData) {
             </div>
             <a href="${pageUrl(post.locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
             <a href="${blogIndexUrl(post.locale)}" class="text-gold transition border-b-2 border-gold pb-1">${g.blog || "Blog"}</a>
-            <a href="${pageUrl(post.locale, "guides")}" class="hover:text-gold transition">Guides</a>
+            <a href="${pageUrl(post.locale, "guides")}" class="hover:text-gold transition">${g.guides}</a>
             <a href="${pageUrl(post.locale, "index")}#faq" class="hover:text-gold transition">${g.faq}</a>
             <a href="${pageUrl(post.locale, "index")}#contact" class="hover:text-gold transition">${g.contact}</a>
           </div>
@@ -1088,6 +1103,12 @@ function blogChrome(post, localeData) {
         </div>
       </div>
       <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24">
+        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${esc(g.langLabel)}</p>
+          <div class="grid grid-cols-2 gap-x-4">
+            ${(post.availableLocales || languageOrder).map((code) => { const loc = localeData[code].global; const active = code === post.locale; return `<a href="${blogUrl(code, post.slug)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("")}
+          </div>
+        </div>
         <a href="${pageUrl(post.locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
         <a href="${pageUrl(post.locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.method}</a>
         <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
@@ -1100,7 +1121,7 @@ function blogChrome(post, localeData) {
         </div>
         <a href="${pageUrl(post.locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
         <a href="${blogIndexUrl(post.locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">${g.blog || "Blog"}</a>
-        <a href="${pageUrl(post.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>
+        <a href="${pageUrl(post.locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.guides}</a>
         <a href="${pageUrl(post.locale, "index")}#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
         <a href="${pageUrl(post.locale, "index")}#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
       </div>
@@ -1157,6 +1178,7 @@ function renderBlogPost(post, localeData) {
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(post.title)}">
   <meta name="twitter:description" content="${esc(post.description)}"><meta name="twitter:image" content="${ogImage}">
   <link rel="canonical" href="${canonicalUrl}">
+  <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
   ${hreflangLinks}
   <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{anonymize_ip:true});</script>
@@ -1199,7 +1221,7 @@ ${chrome}
 </article>
 <section class="py-14 bg-slate-50 border-t border-slate-200">
   <div class="max-w-3xl mx-auto px-6 text-center">
-    <p class="text-gold uppercase tracking-widest text-[10px] font-bold mb-3">Continue Reading</p>
+    <p class="text-gold uppercase tracking-widest text-[10px] font-bold mb-3">${g.continueReading}</p>
     <a href="${blogIndexUrl(post.locale)}" class="inline-block px-8 py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition">${g.blog || "Blog"} <i class="fas fa-arrow-right ml-1"></i></a>
   </div>
 </section>
@@ -1217,7 +1239,13 @@ function renderBlogIndex(locale, posts, localeData) {
   const hreflangLinks = blogIndexAlternateLinks(locale);
   const blogTitle = g.blog || "Blog";
   const localePosts = posts.filter((p) => p.locale === locale);
-  const switcher = languageSwitcher({ locale, key: "index", availableLocales: languageOrder }, localeData);
+  const currentLang = localeData[locale].global;
+  const blogIdxSwitcherRows = languageOrder.map((code) => {
+    const lg = localeData[code].global;
+    const active = code === locale;
+    return `<a href="${blogIndexUrl(code)}" class="block px-4 py-2.5 ${active ? "font-bold text-gold border-b border-slate-50" : "hover:bg-slate-50 hover:text-gold transition"}">${lg.languageName}</a>`;
+  }).join("");
+  const switcher = `<div class="group relative cursor-pointer"><span class="hover:text-gold transition font-bold text-[10px] flex items-center gap-1"><i class="fas fa-globe"></i> ${esc(currentLang.langLabel)}</span><div class="absolute right-0 top-full pt-2 w-36 hidden group-hover:block z-50"><div class="bg-white text-slate-800 shadow-xl rounded-sm border border-slate-100 text-xs">${blogIdxSwitcherRows}</div></div></div>`;
 
   const postCards = localePosts.map((post) => {
     const authors = resolveAuthors(post.author);
@@ -1248,12 +1276,13 @@ function renderBlogIndex(locale, posts, localeData) {
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${blogTitle} | ${SITE_NAME}</title>
-  <meta name="description" content="Evidence-based aesthetic medicine insights from the physicians at ${SITE_NAME}. Treatment education, physician perspectives, and travel planning for international patients.">
+  <meta name="description" content="${esc(g.blogMetaDesc)}">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="${blogTitle} | ${SITE_NAME}"><meta property="og:site_name" content="${SITE_NAME}"><meta property="og:url" content="${canonicalUrl}">
   <meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta property="og:type" content="website"><meta property="og:locale" content="${localeMeta.ogLocale}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="${canonicalUrl}">
+  <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
   ${hreflangLinks}
   <link rel="alternate" type="application/rss+xml" title="${SITE_NAME} Blog RSS" href="${SITE_URL}/blog/feed.xml">
   <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
@@ -1306,7 +1335,7 @@ function renderBlogIndex(locale, posts, localeData) {
         </div>
         <a href="${pageUrl(locale, "gallery")}" class="hover:text-gold transition">${g.gallery}</a>
         <a href="${blogIndexUrl(locale)}" class="text-gold transition border-b-2 border-gold pb-1">${blogTitle}</a>
-        <a href="${pageUrl(locale, "guides")}" class="hover:text-gold transition">Guides</a>
+        <a href="${pageUrl(locale, "guides")}" class="hover:text-gold transition">${g.guides}</a>
         <a href="${pageUrl(locale, "index")}#faq" class="hover:text-gold transition">${g.faq}</a>
         <a href="${pageUrl(locale, "index")}#contact" class="hover:text-gold transition">${g.contact}</a>
       </div>
@@ -1314,6 +1343,12 @@ function renderBlogIndex(locale, posts, localeData) {
     </div>
   </div>
   <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl max-h-[80vh] overflow-y-auto pb-24">
+    <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+      <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${esc(g.langLabel)}</p>
+      <div class="grid grid-cols-2 gap-x-4">
+        ${languageOrder.map((code) => { const loc = localeData[code].global; const active = code === locale; return `<a href="${blogIndexUrl(code)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("")}
+      </div>
+    </div>
     <a href="${pageUrl(locale, "index")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.home}</a>
     <a href="${pageUrl(locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.method}</a>
     <div class="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
@@ -1326,7 +1361,7 @@ function renderBlogIndex(locale, posts, localeData) {
     </div>
     <a href="${pageUrl(locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.gallery}</a>
     <a href="${blogIndexUrl(locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 text-gold bg-slate-50">${blogTitle}</a>
-    <a href="${pageUrl(locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">Guides</a>
+    <a href="${pageUrl(locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.guides}</a>
     <a href="${pageUrl(locale, "index")}#faq" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
     <a href="${pageUrl(locale, "index")}#contact" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
   </div>
@@ -1335,8 +1370,8 @@ function renderBlogIndex(locale, posts, localeData) {
 <header class="bg-slate-950 text-white border-b border-slate-800">
   <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
     <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5"><i class="fas fa-pen-nib"></i> ${SITE_NAME} ${blogTitle}</span>
-    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">Physician Insights on Aesthetic Medicine</h1>
-    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">Evidence-based perspectives on lifting, injectables, regenerative treatments, and rational planning for international patients visiting Seoul.</p>
+    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">${g.blogIndexTitle}</h1>
+    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">${g.blogIndexDesc}</p>
   </div>
 </header>
 <section class="py-14 md:py-20 bg-white">

@@ -34,5 +34,21 @@
   "viewPrograms": "查看方案",
   "consult": "提交照片评估",
   "consultationHref": "#wechat",
-  "consultationIcon": "fab fa-weixin"
+  "consultationIcon": "fab fa-weixin",
+  "guides": "指南",
+  "guidesLibrary": "指南库",
+  "continueReading": "继续阅读",
+  "directPhysician": "医生直接协调",
+  "footerPlanTitle": "需要更清晰的方案？",
+  "footerPlanH2": "通过指南缩小选择范围，让面诊确定最终方案。",
+  "footerPlanDesc": "目的不是增加选择，而是帮助您带着更好的问题和更清晰的判断来院，找到真正适合您面部和行程的方案。",
+  "footerExplore": "浏览导航",
+  "footerVisitContact": "来院与联系",
+  "footerClinicDesc": "医生主导的医美规划，为国际患者提供合理的治疗设计、清晰的流程安排和贴心的首尔就诊体验。",
+  "footerAddress": "首尔特别市 江南区 论岘路868 5楼",
+  "footerHours": "周一至周五 10:00 - 21:00",
+  "footerHoursSat": "周六 10:00 - 16:00",
+  "blogIndexTitle": "美容医学医生洞察",
+  "blogIndexDesc": "关于提升、注射、再生治疗以及国际患者访问首尔的合理规划，提供循证医学视角。",
+  "blogMetaDesc": "来自Tune Clinic医生团队的循证美容医学洞察。治疗教育、医生视角和国际患者出行规划。"
 }
