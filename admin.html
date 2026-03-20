@@ -1100,7 +1100,7 @@ async function openCaseDetail(id) {
       <div><span class="text-slate-400">임신/수유</span><p class="font-medium">${esc(summary.pregnancy_status || '-')}</p></div>
       ${summary.upcoming_event ? `<div><span class="text-slate-400">다가오는 이벤트</span><p class="font-medium">${esc(summary.upcoming_event)}</p></div>` : ''}
       ${summary.pain_sensitivity ? `<div><span class="text-slate-400">통증 민감도</span><p class="font-medium">${esc(summary.pain_sensitivity)}</p></div>` : ''}
-      ${summary.downtime_ok ? `<div><span class="text-slate-400">다운타임 수용</span><p class="font-medium">${esc(summary.downtime_ok)}</p></div>` : ''}
+      ${(summary.downtime_ok || summary.downtime_preference) ? `<div><span class="text-slate-400">다운타임 수용</span><p class="font-medium">${esc(summary.downtime_ok || summary.downtime_preference)}</p></div>` : ''}
       <div><span class="text-slate-400">접수일</span><p class="font-medium">${fmtDT(new Date(c.created_at))}</p></div>
     </div>
     ${riskHtml}
