@@ -70,6 +70,11 @@
   status = 200
 
 [[redirects]]
+  from = "/booking"
+  to = "/booking.html"
+  status = 200
+
+[[redirects]]
   from = "/design-method"
   to = "/design-method.html"
   status = 200
@@ -155,21 +160,6 @@
   status = 200
 
 [[redirects]]
-  from = "/ja/*"
-  to = "/ja/:splat.html"
-  status = 200
-
-[[redirects]]
-  from = "/zh/*"
-  to = "/zh/:splat.html"
-  status = 200
-
-[[redirects]]
-  from = "/th/*"
-  to = "/th/:splat.html"
-  status = 200
-
-[[redirects]]
   from = "/blog"
   to = "/blog/index.html"
   status = 200
@@ -187,4 +177,19 @@
 [[redirects]]
   from = "/th/blog"
   to = "/th/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ja/*"
+  to = "/ja/:splat.html"
+  status = 200
+
+[[redirects]]
+  from = "/zh/*"
+  to = "/zh/:splat.html"
+  status = 200
+
+[[redirects]]
+  from = "/th/*"
+  to = "/th/:splat.html"
   status = 200

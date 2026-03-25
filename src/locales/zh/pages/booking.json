@@ -1,0 +1,11 @@
+{
+  "key": "booking",
+  "template": "editorial",
+  "chromeLabel": "预约",
+  "permalink": "zh/booking.html",
+  "title": "在线预约 | Tune Clinic 狎鸥亭 首尔",
+  "description": "预约访问首尔狎鸥亭Tune Clinic。选择可用日期和时间，或提交您的首选时间请求。",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/zh/booking.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

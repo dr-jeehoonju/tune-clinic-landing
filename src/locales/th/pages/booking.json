@@ -1,0 +1,11 @@
+{
+  "key": "booking",
+  "template": "editorial",
+  "chromeLabel": "จอง",
+  "permalink": "th/booking.html",
+  "title": "จองนัดหมาย | Tune Clinic อัปกูจอง โซล",
+  "description": "นัดหมายเข้ารับบริการที่ Tune Clinic อัปกูจอง โซล เลือกวันเวลาที่ว่างหรือส่งคำขอวันเวลาที่ต้องการ",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/th/booking.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

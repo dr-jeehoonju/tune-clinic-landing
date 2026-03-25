@@ -173,6 +173,7 @@ function breadcrumbName(entry, localeData) {
     "filler-chamaka-se": g.filler,
     gallery: g.gallery,
     menu: g.menu,
+    booking: g.contact,
   };
   return map[entry.key] || entry.title;
 }
@@ -427,7 +428,7 @@ function languageSwitcher(entry, localeData) {
 function mainNav(g, locale, localeData, switcher, options = {}) {
   const { activeKey, isHome, mobileLanguageLinksHtml } = options;
   const faqHref = isHome ? "#faq" : `${pageUrl(locale, "index")}#faq`;
-  const contactHref = isHome ? "#contact" : `${pageUrl(locale, "index")}#contact`;
+  const contactHref = pageUrl(locale, "booking");
   const activeClass = (key) =>
     activeKey === key
       ? "text-gold transition border-b-2 border-gold pb-1"
@@ -436,7 +437,7 @@ function mainNav(g, locale, localeData, switcher, options = {}) {
   const guidesLink = `<a href="${pageUrl(locale, "guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition ${activeKey === "guides" ? "ring-2 ring-amber-300" : ""}">${g.guides}</a>`;
 
   return `
-    <nav class="bg-white border-b border-slate-100 ${isHome ? "sticky top-0 z-40" : "relative z-40"} transition-all duration-300" id="navbar">
+    <nav class="bg-white border-b border-slate-100 sticky top-0 z-40 transition-all duration-300" id="navbar">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex justify-between items-center h-16">
           <a href="${pageUrl(locale, "index")}" class="flex items-center gap-2">
@@ -466,7 +467,7 @@ function mainNav(g, locale, localeData, switcher, options = {}) {
               ${blogLink}
               ${guidesLink}
               <a href="${faqHref}" class="hover:text-gold transition">${g.faq}</a>
-              <a href="${contactHref}" class="hover:text-gold transition">${g.contact}</a>
+              <a href="${contactHref}" class="${activeClass("booking")}">${g.contact}</a>
             </div>
             <div class="pl-5 border-l border-slate-200 text-slate-600">
               ${switcher}
@@ -495,7 +496,7 @@ function mainNav(g, locale, localeData, switcher, options = {}) {
         <a href="${blogIndexUrl(locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "blog" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.blog || "Blog"}</a>
         <a href="${pageUrl(locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.guides}</a>
         <a href="${faqHref}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
-        <a href="${contactHref}" class="block px-6 py-4 font-bold text-slate-800">${g.contact}</a>
+        <a href="${contactHref}" class="block px-6 py-4 font-bold ${activeKey === "booking" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.contact}</a>
       </div>
     </nav>
     <script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
@@ -598,7 +599,7 @@ function siteFooter(entry, localeData) {
     `;
 
   return `
-    <footer id="contact" class="bg-slate-950 text-white border-t border-slate-800">
+    <footer id="footer" class="bg-slate-950 text-white border-t border-slate-800">
       <div class="max-w-6xl mx-auto px-6 pt-16 pb-10">
         ${topPanel}
         <div class="grid lg:grid-cols-[1.25fr_0.8fr_0.8fr_1fr] gap-10">

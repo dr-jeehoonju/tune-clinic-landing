@@ -16,6 +16,7 @@
   .status-in-progress { background: #dbeafe; color: #1e40af; }
   .status-replied { background: #d1fae5; color: #065f46; }
   .status-closed { background: #f3f4f6; color: #6b7280; }
+  .status-no-show { background: #fee2e2; color: #b91c1c; }
 </style>
 </head>
 <body class="bg-slate-100 min-h-screen">
@@ -77,6 +78,9 @@
       </button>
       <button data-tab="agentune" class="tab-btn px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition whitespace-nowrap">
         <i class="fas fa-robot mr-1.5"></i>에이전튠 <span id="agentune-badge" class="hidden ml-1 px-1.5 py-0.5 text-[10px] bg-red-500 text-white rounded-full"></span>
+      </button>
+      <button data-tab="bookings" class="tab-btn px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition whitespace-nowrap">
+        <i class="fas fa-calendar-check mr-1.5"></i>예약 <span id="booking-badge" class="hidden ml-1 px-1.5 py-0.5 text-[10px] bg-red-500 text-white rounded-full"></span>
       </button>
     </div>
   </nav>
@@ -308,6 +312,114 @@
       </div>
     </section>
 
+    <!-- BOOKINGS TAB -->
+    <section id="tab-bookings" class="tab-content hidden">
+
+      <!-- Sub-tabs: Schedule / Bookings -->
+      <div class="flex gap-4 mb-6 border-b">
+        <button data-bsub="schedule" class="bsub-btn pb-2 text-sm font-bold border-b-2 border-gold text-gold">스케줄 설정</button>
+        <button data-bsub="list" class="bsub-btn pb-2 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-700">예약 목록</button>
+      </div>
+
+      <!-- SCHEDULE SUB-TAB -->
+      <div id="bsub-schedule" class="bsub-content">
+        <div class="grid lg:grid-cols-2 gap-6">
+          <!-- Weekly Template -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <h3 class="font-bold text-slate-800 mb-4"><i class="fas fa-clock mr-2 text-gold"></i>요일별 운영시간</h3>
+            <div id="schedule-week" class="space-y-3"></div>
+            <button id="schedule-save-btn" class="mt-4 w-full py-2.5 bg-slate-900 text-white text-sm font-bold rounded-lg hover:bg-slate-800 transition">저장</button>
+          </div>
+
+          <!-- Block dates -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-bold text-slate-800"><i class="fas fa-ban mr-2 text-red-400"></i>휴무일 관리</h3>
+              <button id="block-add-btn" class="px-3 py-1.5 bg-gold text-white text-xs font-bold rounded-lg hover:opacity-90">
+                <i class="fas fa-plus mr-1"></i>추가
+              </button>
+            </div>
+            <div id="block-list" class="space-y-2 max-h-80 overflow-y-auto"></div>
+            <p id="block-empty" class="hidden text-sm text-slate-400 text-center py-6">등록된 휴무일이 없습니다.</p>
+
+            <!-- Block Add Form (inline) -->
+            <div id="block-form" class="hidden mt-4 p-4 bg-slate-50 rounded-lg border space-y-3">
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-bold text-slate-500 mb-1">날짜</label>
+                  <input type="date" id="bf-date" class="w-full border rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-500 mb-1">사유</label>
+                  <input type="text" id="bf-reason" placeholder="예: 공휴일" class="w-full border rounded-lg px-3 py-2 text-sm">
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button id="bf-save" class="flex-1 py-2 bg-slate-900 text-white text-sm font-bold rounded-lg hover:bg-slate-800">추가</button>
+                <button id="bf-cancel" class="px-4 py-2 bg-slate-100 text-slate-600 text-sm font-bold rounded-lg hover:bg-slate-200">취소</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOOKING LIST SUB-TAB -->
+      <div id="bsub-list" class="bsub-content hidden">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6" id="booking-stat-cards"></div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+          <div class="flex items-center gap-3">
+            <label class="text-sm font-bold text-slate-700">날짜:</label>
+            <input type="date" id="booking-date-from" class="border rounded-lg px-3 py-1.5 text-sm">
+            <span class="text-slate-400">~</span>
+            <input type="date" id="booking-date-to" class="border rounded-lg px-3 py-1.5 text-sm">
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <button data-bfilter="all" class="bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-900 text-white">전체</button>
+            <button data-bfilter="pending" class="bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">대기</button>
+            <button data-bfilter="confirmed" class="bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">확정</button>
+            <button data-bfilter="cancelled" class="bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">취소</button>
+            <button data-bfilter="completed" class="bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">완료</button>
+            <button data-bfilter="no_show" class="bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">노쇼</button>
+          </div>
+        </div>
+
+        <!-- Mini calendar -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border mb-6">
+          <div class="flex items-center justify-between mb-4">
+            <button id="cal-prev" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500"><i class="fas fa-chevron-left"></i></button>
+            <h3 id="cal-title" class="font-bold text-sm text-slate-700"></h3>
+            <button id="cal-next" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          <div class="grid grid-cols-7 gap-1 text-center text-xs">
+            <span class="font-bold text-red-400 py-1">일</span>
+            <span class="font-bold text-slate-500 py-1">월</span>
+            <span class="font-bold text-slate-500 py-1">화</span>
+            <span class="font-bold text-slate-500 py-1">수</span>
+            <span class="font-bold text-slate-500 py-1">목</span>
+            <span class="font-bold text-slate-500 py-1">금</span>
+            <span class="font-bold text-blue-400 py-1">토</span>
+          </div>
+          <div id="cal-grid" class="grid grid-cols-7 gap-1 mt-1"></div>
+        </div>
+
+        <div id="bookings-list" class="space-y-3"></div>
+        <p id="bookings-empty" class="hidden text-center text-slate-400 py-12">예약이 없습니다.</p>
+      </div>
+
+      <!-- Booking Detail Modal -->
+      <div id="booking-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+          <div class="p-6 border-b flex items-center justify-between">
+            <h3 class="font-bold text-lg" id="booking-modal-title"></h3>
+            <button id="booking-modal-close" class="text-slate-400 hover:text-slate-800 text-xl"><i class="fas fa-times"></i></button>
+          </div>
+          <div class="p-6 space-y-5" id="booking-modal-body"></div>
+          <div class="p-6 border-t bg-slate-50 rounded-b-2xl space-y-4" id="booking-modal-actions"></div>
+        </div>
+      </div>
+    </section>
+
   </main>
 </div>
 
@@ -376,6 +488,7 @@ function switchTab(name) {
   if (name === 'gallery') loadGallery();
   if (name === 'pricing') loadPricing();
   if (name === 'agentune') loadAgentune();
+  if (name === 'bookings') loadBookings();
 }
 
 /* ─── CONSULTATIONS ─── */
@@ -390,6 +503,8 @@ const STATUS_MAP = {
 };
 
 const TREATMENT_MAP = {
+  'signature-lifting': 'Signature Lifting', 'structural-reset': 'Structural Reset Elite',
+  'collagen-builder': 'The Collagen Builder', 'filler-chamaka-se': 'Filler Chamaka-se',
   lifting: 'Lifting', filler: 'Filler', 'skin-booster': 'Skin Booster',
   regenerative: 'Regenerative', body: 'Body', other: 'Other',
 };
@@ -1235,6 +1350,428 @@ function safeParse(val) {
 
 function fmtDT(d) {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+}
+
+/* ─── BOOKINGS ─── */
+let scheduleTemplates = [];
+let blockDates = [];
+let allBookings = [];
+let bookingFilter = 'all';
+let calYear, calMonth;
+
+const BOOKING_STATUS_MAP = {
+  pending: { label: '대기', cls: 'status-new' },
+  confirmed: { label: '확정', cls: 'status-in-progress' },
+  cancelled: { label: '취소', cls: 'status-closed' },
+  completed: { label: '완료', cls: 'status-replied' },
+  no_show: { label: '노쇼', cls: 'status-no-show' },
+};
+
+const DAY_LABELS = ['일', '월', '화', '수', '목', '금', '토'];
+
+/* --- Sub-tab switching --- */
+$$('.bsub-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    $$('.bsub-btn').forEach(b => { b.classList.remove('border-gold', 'text-gold'); b.classList.add('border-transparent', 'text-slate-400'); });
+    btn.classList.remove('border-transparent', 'text-slate-400');
+    btn.classList.add('border-gold', 'text-gold');
+    $$('.bsub-content').forEach(c => c.classList.add('hidden'));
+    $(`#bsub-${btn.dataset.bsub}`).classList.remove('hidden');
+    if (btn.dataset.bsub === 'list') loadBookingList();
+  });
+});
+
+async function loadBookings() {
+  await Promise.all([loadScheduleTemplates(), loadBlockDates(), loadBookingList()]);
+}
+
+/* --- Schedule Templates --- */
+async function loadScheduleTemplates() {
+  const { data } = await supabase.from('schedule_templates').select('*').order('day_of_week');
+  scheduleTemplates = data || [];
+  renderScheduleWeek();
+}
+
+function renderScheduleWeek() {
+  const container = $('#schedule-week');
+  if (!scheduleTemplates.length) {
+    container.innerHTML = '<p class="text-sm text-slate-400">스케줄 데이터를 불러올 수 없습니다.</p>';
+    return;
+  }
+  container.innerHTML = scheduleTemplates.map(t => `
+    <div class="flex items-center gap-3 py-2 ${t.day_of_week === 0 ? 'text-red-500' : t.day_of_week === 6 ? 'text-blue-500' : 'text-slate-700'}" data-dow="${t.day_of_week}">
+      <label class="flex items-center gap-2 w-12 shrink-0">
+        <input type="checkbox" class="sched-active accent-gold w-4 h-4" ${t.is_active ? 'checked' : ''}>
+        <span class="text-sm font-bold">${DAY_LABELS[t.day_of_week]}</span>
+      </label>
+      <input type="time" class="sched-start border rounded px-2 py-1.5 text-sm" value="${t.start_time?.slice(0,5) || '10:00'}" ${!t.is_active ? 'disabled' : ''}>
+      <span class="text-slate-400">~</span>
+      <input type="time" class="sched-end border rounded px-2 py-1.5 text-sm" value="${t.end_time?.slice(0,5) || '18:00'}" ${!t.is_active ? 'disabled' : ''}>
+      <select class="sched-dur border rounded px-2 py-1.5 text-sm" ${!t.is_active ? 'disabled' : ''}>
+        <option value="30" ${t.slot_duration_minutes === 30 ? 'selected' : ''}>30분</option>
+        <option value="60" ${t.slot_duration_minutes === 60 ? 'selected' : ''}>60분</option>
+      </select>
+    </div>`).join('');
+
+  container.querySelectorAll('.sched-active').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const row = cb.closest('[data-dow]');
+      row.querySelectorAll('input[type=time], select').forEach(el => { el.disabled = !cb.checked; });
+    });
+  });
+}
+
+$('#schedule-save-btn').addEventListener('click', async () => {
+  const btn = $('#schedule-save-btn');
+  btn.textContent = '저장 중...';
+  btn.disabled = true;
+
+  const rows = $$('#schedule-week [data-dow]');
+  for (const row of rows) {
+    const dow = parseInt(row.dataset.dow);
+    const t = scheduleTemplates.find(x => x.day_of_week === dow);
+    if (!t) continue;
+    await supabase.from('schedule_templates').update({
+      is_active: row.querySelector('.sched-active').checked,
+      start_time: row.querySelector('.sched-start').value + ':00',
+      end_time: row.querySelector('.sched-end').value + ':00',
+      slot_duration_minutes: parseInt(row.querySelector('.sched-dur').value),
+      updated_at: new Date().toISOString(),
+    }).eq('id', t.id);
+  }
+
+  btn.textContent = '저장 완료!';
+  setTimeout(() => { btn.textContent = '저장'; btn.disabled = false; }, 1500);
+  await loadScheduleTemplates();
+});
+
+/* --- Block Dates --- */
+async function loadBlockDates() {
+  const { data } = await supabase.from('schedule_blocks').select('*').order('block_date');
+  blockDates = data || [];
+  renderBlockDates();
+}
+
+function renderBlockDates() {
+  const list = $('#block-list');
+  const empty = $('#block-empty');
+  if (!blockDates.length) { list.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+  list.innerHTML = blockDates.map(b => `
+    <div class="flex items-center justify-between py-2 px-3 bg-slate-50 rounded-lg">
+      <div>
+        <span class="text-sm font-bold text-slate-700">${b.block_date}</span>
+        ${b.reason ? `<span class="text-xs text-slate-400 ml-2">${esc(b.reason)}</span>` : ''}
+      </div>
+      <button class="block-del text-xs text-red-500 hover:underline" data-id="${b.id}">삭제</button>
+    </div>`).join('');
+  list.querySelectorAll('.block-del').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      await supabase.from('schedule_blocks').delete().eq('id', btn.dataset.id);
+      loadBlockDates();
+    });
+  });
+}
+
+$('#block-add-btn').addEventListener('click', () => {
+  $('#block-form').classList.remove('hidden');
+  $('#bf-date').value = '';
+  $('#bf-reason').value = '';
+});
+$('#bf-cancel').addEventListener('click', () => $('#block-form').classList.add('hidden'));
+$('#bf-save').addEventListener('click', async () => {
+  const d = $('#bf-date').value;
+  if (!d) { alert('날짜를 선택하세요.'); return; }
+  await supabase.from('schedule_blocks').insert({ block_date: d, reason: $('#bf-reason').value || null });
+  $('#block-form').classList.add('hidden');
+  loadBlockDates();
+});
+
+/* --- Booking List --- */
+$$('.bfilter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    bookingFilter = btn.dataset.bfilter;
+    $$('.bfilter-btn').forEach(b => { b.className = 'bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200'; });
+    btn.className = 'bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-900 text-white';
+    renderBookingsList();
+  });
+});
+
+async function loadBookingList() {
+  const { data } = await supabase.from('bookings').select('*').order('created_at', { ascending: false });
+  allBookings = data || [];
+
+  const pendingCount = allBookings.filter(b => b.status === 'pending').length;
+  const badge = $('#booking-badge');
+  if (pendingCount > 0) { badge.textContent = pendingCount; badge.classList.remove('hidden'); }
+  else badge.classList.add('hidden');
+
+  renderBookingStats();
+  renderBookingCalendar();
+  renderBookingsList();
+}
+
+function renderBookingStats() {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const weekAgo = new Date(now - 7 * 86400000);
+  const total = allBookings.length;
+  const pending = allBookings.filter(b => b.status === 'pending').length;
+  const confirmed = allBookings.filter(b => b.status === 'confirmed').length;
+  const todayCount = allBookings.filter(b => {
+    if (!b.appointment_date) return false;
+    const d = new Date(b.appointment_date + 'T00:00:00');
+    return d >= today && d < new Date(today.getTime() + 86400000);
+  }).length;
+
+  $('#booking-stat-cards').innerHTML = [
+    { label: '오늘 예약', value: todayCount, icon: 'fa-calendar-day', color: 'text-amber-500' },
+    { label: '대기 중', value: pending, icon: 'fa-hourglass-half', color: 'text-red-500' },
+    { label: '확정', value: confirmed, icon: 'fa-check-circle', color: 'text-green-600' },
+    { label: '총 예약', value: total, icon: 'fa-calendar-check', color: 'text-slate-600' },
+  ].map(s => `
+    <div class="bg-white rounded-xl p-4 shadow-sm border">
+      <div class="flex items-center justify-between">
+        <div class="min-w-0">
+          <p class="text-[10px] font-bold text-slate-400 uppercase truncate">${s.label}</p>
+          <p class="text-2xl font-bold ${s.color} mt-0.5">${s.value}</p>
+        </div>
+        <i class="fas ${s.icon} text-xl text-slate-200 shrink-0"></i>
+      </div>
+    </div>`).join('');
+}
+
+/* --- Mini Calendar --- */
+function initCalendar() {
+  const now = new Date();
+  calYear = now.getFullYear();
+  calMonth = now.getMonth();
+}
+initCalendar();
+
+$('#cal-prev').addEventListener('click', () => { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderBookingCalendar(); });
+$('#cal-next').addEventListener('click', () => { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderBookingCalendar(); });
+
+function renderBookingCalendar() {
+  $('#cal-title').textContent = `${calYear}년 ${calMonth + 1}월`;
+  const grid = $('#cal-grid');
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+
+  const bookingsByDate = {};
+  allBookings.forEach(b => {
+    if (!b.appointment_date) return;
+    bookingsByDate[b.appointment_date] = (bookingsByDate[b.appointment_date] || 0) + 1;
+  });
+
+  let html = '';
+  for (let i = 0; i < firstDay; i++) html += '<div></div>';
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = `${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const count = bookingsByDate[dateStr] || 0;
+    const isToday = dateStr === todayStr;
+    const dow = new Date(calYear, calMonth, d).getDay();
+
+    html += `<div class="relative text-center py-1.5 rounded-lg cursor-pointer hover:bg-slate-100 transition ${isToday ? 'ring-2 ring-gold' : ''} ${dow === 0 ? 'text-red-400' : dow === 6 ? 'text-blue-400' : ''}" data-cal-date="${dateStr}">
+      <span class="text-xs">${d}</span>
+      ${count > 0 ? `<span class="absolute -top-0.5 -right-0.5 w-4 h-4 text-[9px] font-bold bg-gold text-white rounded-full flex items-center justify-center">${count}</span>` : ''}
+    </div>`;
+  }
+  grid.innerHTML = html;
+
+  grid.querySelectorAll('[data-cal-date]').forEach(el => {
+    el.addEventListener('click', () => {
+      $('#booking-date-from').value = el.dataset.calDate;
+      $('#booking-date-to').value = el.dataset.calDate;
+      renderBookingsList();
+    });
+  });
+}
+
+/* --- Bookings List Render --- */
+function renderBookingsList() {
+  const dateFrom = $('#booking-date-from').value;
+  const dateTo = $('#booking-date-to').value;
+
+  let filtered = allBookings;
+  if (bookingFilter !== 'all') filtered = filtered.filter(b => b.status === bookingFilter);
+  if (dateFrom) filtered = filtered.filter(b => b.appointment_date >= dateFrom || (!b.appointment_date && b.created_at >= dateFrom));
+  if (dateTo) filtered = filtered.filter(b => b.appointment_date <= dateTo || (!b.appointment_date && b.created_at <= dateTo + 'T23:59:59'));
+
+  const list = $('#bookings-list');
+  const empty = $('#bookings-empty');
+
+  if (!filtered.length) { list.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+
+  list.innerHTML = filtered.map(b => {
+    const st = BOOKING_STATUS_MAP[b.status] || BOOKING_STATUS_MAP.pending;
+    const treatments = (b.treatment_interest || []).map(t => TREATMENT_MAP[t] || t).join(', ');
+    const dateDisplay = b.appointment_date
+      ? `${b.appointment_date} ${b.appointment_time ? b.appointment_time.slice(0,5) : ''}`
+      : (b.preferred_dates ? '희망: ' + (Array.isArray(b.preferred_dates) ? b.preferred_dates.join(', ') : b.preferred_dates) : '일시 미정');
+    const typeLabel = b.booking_type === 'slot_pick' ? '직접선택' : '희망요청';
+
+    return `
+      <div class="bg-white rounded-xl border shadow-sm p-4 hover:border-gold/50 transition cursor-pointer" data-booking-id="${b.id}">
+        <div class="flex items-start justify-between gap-3">
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-bold text-slate-800">${esc(b.patient_name)}</span>
+              <span class="px-2 py-0.5 text-[10px] font-bold rounded-full ${st.cls}">${st.label}</span>
+              <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-slate-100 text-slate-500">${typeLabel}</span>
+              <span class="text-xs text-slate-400 uppercase">${b.locale || 'en'}</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1"><i class="fas fa-calendar text-slate-300 mr-1.5"></i>${dateDisplay}</p>
+            <p class="text-sm text-slate-400 mt-0.5">${treatments || '시술 미선택'}</p>
+          </div>
+          <span class="text-xs text-slate-400 whitespace-nowrap">${fmtDT(new Date(b.created_at))}</span>
+        </div>
+      </div>`;
+  }).join('');
+
+  list.querySelectorAll('[data-booking-id]').forEach(el => {
+    el.addEventListener('click', () => openBookingDetail(el.dataset.bookingId));
+  });
+}
+
+$('#booking-date-from').addEventListener('change', renderBookingsList);
+$('#booking-date-to').addEventListener('change', renderBookingsList);
+
+/* --- Booking Detail Modal --- */
+function openBookingDetail(id) {
+  const b = allBookings.find(x => x.id === id);
+  if (!b) return;
+  const st = BOOKING_STATUS_MAP[b.status] || BOOKING_STATUS_MAP.pending;
+  const treatments = (b.treatment_interest || []).map(t => TREATMENT_MAP[t] || t).join(', ');
+
+  let preferredHtml = '';
+  if (b.booking_type === 'request') {
+    const dates = Array.isArray(b.preferred_dates) ? b.preferred_dates.join(', ') : (b.preferred_dates || '-');
+    const timeRange = { morning: '오전', afternoon: '오후', evening: '저녁' }[b.preferred_time_range] || b.preferred_time_range || '-';
+    preferredHtml = `
+      <div class="col-span-2 bg-amber-50 rounded-lg p-3">
+        <p class="text-xs font-bold text-amber-700 mb-1"><i class="fas fa-hand-point-right mr-1"></i>희망 일시 요청</p>
+        <p class="text-sm">희망 날짜: <strong>${esc(dates)}</strong></p>
+        <p class="text-sm">희망 시간대: <strong>${esc(timeRange)}</strong></p>
+      </div>`;
+  }
+
+  $('#booking-modal-title').textContent = b.patient_name;
+  $('#booking-modal-body').innerHTML = `
+    <div class="grid grid-cols-2 gap-4 text-sm">
+      <div><span class="text-slate-400">이메일</span><p class="font-medium">${b.patient_email ? `<a href="mailto:${esc(b.patient_email)}" class="text-blue-600 underline">${esc(b.patient_email)}</a>` : '-'}</p></div>
+      <div><span class="text-slate-400">연락처</span><p class="font-medium">${esc(b.patient_phone) || '-'}</p></div>
+      <div><span class="text-slate-400">언어</span><p class="font-medium uppercase">${b.locale || 'en'}</p></div>
+      <div><span class="text-slate-400">시간대</span><p class="font-medium">${esc(b.patient_timezone) || 'KST'}</p></div>
+      <div><span class="text-slate-400">상태</span><p><span class="px-2 py-0.5 text-xs font-bold rounded-full ${st.cls}">${st.label}</span></p></div>
+      <div><span class="text-slate-400">유형</span><p class="font-medium">${b.booking_type === 'slot_pick' ? '직접 선택' : '희망 요청'}</p></div>
+      <div><span class="text-slate-400">예약일</span><p class="font-medium">${b.appointment_date ? `${b.appointment_date} ${b.appointment_time ? b.appointment_time.slice(0,5) : ''}` : '미정'}</p></div>
+      <div><span class="text-slate-400">관심 시술</span><p class="font-medium">${treatments || '-'}</p></div>
+      <div class="col-span-2"><span class="text-slate-400">메시지</span><p class="font-medium whitespace-pre-wrap">${esc(b.message) || '-'}</p></div>
+      ${preferredHtml}
+      <div class="col-span-2"><span class="text-slate-400">접수일</span><p class="font-medium">${fmtDT(new Date(b.created_at))}</p></div>
+    </div>
+    ${b.admin_notes ? `<div><span class="text-sm text-slate-400">관리자 메모</span><p class="text-sm bg-yellow-50 p-3 rounded-lg mt-1">${esc(b.admin_notes)}</p></div>` : ''}`;
+
+  const needsDateAssign = !b.appointment_date || b.booking_type === 'request';
+  $('#booking-modal-actions').innerHTML = `
+    ${needsDateAssign ? `<div>
+      <label class="text-sm font-bold text-slate-700">날짜/시간 ${b.appointment_date ? '변경' : '배정'}:</label>
+      <div class="flex gap-2 mt-1 flex-wrap">
+        <input type="date" id="bm-date" value="${b.appointment_date || ''}" class="border rounded-lg px-3 py-2 text-sm">
+        <input type="time" id="bm-time" value="${b.appointment_time ? b.appointment_time.slice(0,5) : ''}" class="border rounded-lg px-3 py-2 text-sm">
+        <button id="bm-assign" class="px-4 py-2 bg-gold text-white text-sm font-bold rounded-lg hover:opacity-90">배정</button>
+      </div>
+    </div>` : ''}
+    <div class="flex gap-2 flex-wrap items-center">
+      <label class="text-sm font-bold text-slate-700">상태 변경:</label>
+      ${Object.entries(BOOKING_STATUS_MAP).map(([k, v]) =>
+        `<button class="booking-status-btn px-3 py-1.5 text-xs font-bold rounded-full ${b.status === k ? v.cls + ' ring-2 ring-offset-1 ring-slate-400' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}" data-status="${k}">${v.label}</button>`
+      ).join('')}
+    </div>
+    <div>
+      <label class="text-sm font-bold text-slate-700">관리자 메모:</label>
+      <div class="flex gap-2 mt-1">
+        <input type="text" id="bm-notes" value="${esc(b.admin_notes || '')}" placeholder="메모 입력..." class="flex-1 border rounded-lg px-3 py-2 text-sm">
+        <button id="bm-notes-save" class="px-4 py-2 bg-slate-900 text-white text-sm font-bold rounded-lg hover:bg-slate-800">저장</button>
+      </div>
+    </div>`;
+
+  const assignBtn = $('#bm-assign');
+  if (assignBtn) {
+    assignBtn.addEventListener('click', async () => {
+      const date = $('#bm-date').value;
+      const time = $('#bm-time').value;
+      if (!date || !time) { alert('날짜와 시간을 모두 입력하세요.'); return; }
+      const { error } = await supabase.from('bookings').update({
+        appointment_date: date,
+        appointment_time: time + ':00',
+        updated_at: new Date().toISOString(),
+      }).eq('id', id);
+      if (error) { alert('배정 실패: ' + error.message); return; }
+      await loadBookingList();
+      openBookingDetail(id);
+    });
+  }
+
+  $$('.booking-status-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const newStatus = btn.dataset.status;
+      const upd = { status: newStatus, updated_at: new Date().toISOString() };
+      if (newStatus === 'confirmed') upd.confirmed_at = new Date().toISOString();
+
+      const { error } = await supabase.from('bookings').update(upd).eq('id', id);
+      if (error) { alert('상태 변경 실패: ' + error.message); return; }
+
+      if (newStatus === 'confirmed') {
+        const updated = allBookings.find(x => x.id === id);
+        if (updated) sendBookingEmail({ ...updated, ...upd, appointment_date: $('#bm-date')?.value || updated.appointment_date, appointment_time: $('#bm-time')?.value || updated.appointment_time });
+      }
+
+      await loadBookingList();
+      openBookingDetail(id);
+    });
+  });
+
+  $('#bm-notes-save').addEventListener('click', async () => {
+    const { error } = await supabase.from('bookings').update({ admin_notes: $('#bm-notes').value, updated_at: new Date().toISOString() }).eq('id', id);
+    if (error) { alert('메모 저장 실패: ' + error.message); return; }
+    await loadBookingList();
+    openBookingDetail(id);
+  });
+
+  $('#booking-modal').classList.remove('hidden');
+}
+
+$('#booking-modal-close').addEventListener('click', () => $('#booking-modal').classList.add('hidden'));
+$('#booking-modal').addEventListener('click', (e) => { if (e.target === e.currentTarget) $('#booking-modal').classList.add('hidden'); });
+
+/* --- Booking Confirmation Email (EmailJS) --- */
+async function sendBookingEmail(b) {
+  if (!b.patient_email) return;
+  try {
+    await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        service_id: 'service_ti6j44a',
+        template_id: 'template_xntg0qr',
+        user_id: 'Dd3vrn1gR_VkvfrAK',
+        template_params: {
+          name: b.patient_name,
+          email: b.patient_email,
+          phone: b.patient_phone || '—',
+          locale: (b.locale || 'en').toUpperCase(),
+          treatments: (b.treatment_interest || []).map(t => TREATMENT_MAP[t] || t).join(', ') || 'None selected',
+          message: `[Booking Confirmed] Date: ${b.appointment_date || 'TBD'} Time: ${b.appointment_time ? b.appointment_time.slice(0,5) : 'TBD'} (KST)`,
+        }
+      })
+    });
+  } catch (_) {}
 }
 
 /* ─── UTILS ─── */

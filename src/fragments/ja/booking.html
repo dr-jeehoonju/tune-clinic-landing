@@ -1,0 +1,153 @@
+<section class="bg-slate-950 text-white py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">来院予約</span>
+    <h1 class="text-4xl md:text-5xl font-serif mt-5">予約する</h1>
+    <p class="text-slate-300 leading-relaxed mt-5 max-w-2xl mx-auto">空き日時からお選びください。診療時間内に予約を確定いたします。</p>
+  </div>
+</section>
+
+<section class="py-14 md:py-20 bg-slate-50">
+  <div class="max-w-3xl mx-auto px-6">
+
+    <div id="panel-pick">
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6 flex items-start gap-3">
+        <i class="fas fa-globe text-blue-500 mt-0.5"></i>
+        <div class="text-sm">
+          <p class="font-bold text-blue-800">お客様のタイムゾーン: <span id="tz-display" class="font-normal">検出中...</span></p>
+          <p class="text-blue-600 mt-0.5">KST（韓国時間）と現地時間の両方で表示されます。</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
+        <div class="flex items-center justify-between mb-5">
+          <button id="bk-prev" class="w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 transition"><i class="fas fa-chevron-left"></i></button>
+          <h3 id="bk-cal-title" class="font-bold text-lg text-slate-800"></h3>
+          <button id="bk-next" class="w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 transition"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="grid grid-cols-7 gap-1 text-center text-xs mb-2">
+          <span class="font-bold text-red-400 py-1">日</span>
+          <span class="font-bold text-slate-500 py-1">月</span>
+          <span class="font-bold text-slate-500 py-1">火</span>
+          <span class="font-bold text-slate-500 py-1">水</span>
+          <span class="font-bold text-slate-500 py-1">木</span>
+          <span class="font-bold text-slate-500 py-1">金</span>
+          <span class="font-bold text-blue-400 py-1">土</span>
+        </div>
+        <div id="bk-cal-grid" class="grid grid-cols-7 gap-1"></div>
+      </div>
+
+      <div id="slot-section" class="hidden">
+        <h3 class="font-bold text-slate-800 mb-3"><span id="slot-date-label" class="text-gold"></span>の空き時間</h3>
+        <div id="slot-list" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 mb-6"></div>
+        <p id="slot-none" class="hidden text-sm text-slate-400 text-center py-4">この日の空き枠はありません。</p>
+      </div>
+    </div>
+
+    <form id="booking-form" class="space-y-8">
+      <input type="hidden" id="bkf-date" value="">
+      <input type="hidden" id="bkf-time" value="">
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="website" id="bkf-hp" tabindex="-1" autocomplete="off"></div>
+
+      <div>
+        <label for="bkf-name" class="block text-sm font-bold text-slate-700 mb-2">お名前 <span class="text-red-500">*</span></label>
+        <input type="text" id="bkf-name" required placeholder="お名前" class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label for="bkf-email" class="block text-sm font-bold text-slate-700 mb-2">メール <span class="text-red-500">*</span></label>
+          <input type="email" id="bkf-email" required placeholder="you@example.com" class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+        </div>
+        <div>
+          <label for="bkf-phone" class="block text-sm font-bold text-slate-700 mb-2">電話 / メッセンジャーID</label>
+          <input type="text" id="bkf-phone" placeholder="WhatsApp, LINE など" class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+        </div>
+      </div>
+
+      <fieldset>
+        <legend class="block text-sm font-bold text-slate-700 mb-3">ご興味のあるプログラム</legend>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="signature-lifting" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+            <div><span class="text-sm font-bold text-slate-700">Signature Lifting</span><p class="text-xs text-slate-400 mt-0.5">Ultherapy 350ショット医師設計プラン</p><p class="text-xs font-bold text-gold mt-1">₩900,000</p></div>
+          </label>
+          <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="structural-reset" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+            <div><span class="text-sm font-bold text-slate-700">Structural Reset Elite</span><p class="text-xs text-slate-400 mt-0.5">Ultherapy + Thermage 総合施術</p><p class="text-xs font-bold text-gold mt-1">₩2,770,000</p></div>
+          </label>
+          <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="collagen-builder" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+            <div><span class="text-sm font-bold text-slate-700">The Collagen Builder</span><p class="text-xs text-slate-400 mt-0.5">Rejuran + Juvelook 肌再生プログラム</p><p class="text-xs font-bold text-gold mt-1">₩700,000</p></div>
+          </label>
+          <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="filler-chamaka-se" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+            <div><span class="text-sm font-bold text-slate-700">Filler Chamaka-se</span><p class="text-xs text-slate-400 mt-0.5">医師設計の顔バランス施術</p><p class="text-xs font-bold text-gold mt-1">₩750,000〜</p></div>
+          </label>
+          <label class="flex items-center gap-2.5 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 sm:col-span-2">
+            <input type="checkbox" name="treatment" value="other" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">その他 / 未定</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="bkf-message" class="block text-sm font-bold text-slate-700 mb-2">備考 <span class="text-slate-400 font-normal">（任意）</span></label>
+        <textarea id="bkf-message" rows="3" placeholder="渡韓日程、ご要望など" class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white resize-y"></textarea>
+      </div>
+
+      <button type="submit" id="bkf-submit" class="w-full bg-slate-900 text-white py-4 px-8 font-bold rounded-lg hover:bg-slate-800 transition text-lg flex items-center justify-center gap-2">
+        <i class="fas fa-calendar-check"></i> 予約を送信
+      </button>
+      <p class="text-xs text-slate-400 text-center leading-relaxed">診療時間内（月〜土）にスタッフが確認し、確定メールをお送りします。</p>
+
+      <div class="mt-8 pt-8 border-t border-slate-200">
+        <p class="text-sm font-bold text-slate-700 text-center mb-1">ご質問がありましたら、お気軽にご連絡ください。</p>
+        <p class="text-xs text-slate-400 text-center mb-5">通常の返信時間: 診療時間内（月〜土）</p>
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
+          <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-green-600 text-white rounded-lg font-bold text-xs hover:bg-green-700 transition">
+            <i class="fab fa-whatsapp text-sm"></i> WhatsApp
+          </a>
+          <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-gold hover:text-gold transition">
+            <i class="fab fa-instagram text-sm"></i> Instagram DM
+          </a>
+          <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer">
+            <i class="fab fa-line text-sm"></i> LINE
+          </button>
+          <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer">
+            <i class="fab fa-weixin text-sm"></i> WeChat
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div id="bkf-success" class="hidden text-center py-20">
+      <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-check text-2xl"></i></div>
+      <h2 class="text-3xl font-serif text-slate-900">予約リクエストを受け付けました</h2>
+      <p class="text-slate-500 mt-4 max-w-md mx-auto leading-relaxed">ありがとうございます！診療時間内に確認の上、確定メールをお送りいたします。</p>
+      <p id="bkf-summary" class="text-sm text-slate-400 mt-3"></p>
+      <a href="/ja/index.html" class="inline-block mt-8 text-gold font-bold hover:underline">ホームに戻る</a>
+    </div>
+
+    <div id="bkf-error" class="hidden text-center py-10">
+      <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-exclamation-triangle text-2xl"></i></div>
+      <h2 class="text-2xl font-serif text-slate-900">エラーが発生しました</h2>
+      <p class="text-slate-500 mt-4">もう一度お試しいただくか、WhatsAppで直接お問い合わせください。</p>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const supabase = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+const LOCALE='ja';const $=(s)=>document.querySelector(s);const $$=(s)=>document.querySelectorAll(s);
+const patientTZ=Intl.DateTimeFormat().resolvedOptions().timeZone;$('#tz-display').textContent=patientTZ;
+function kstToLocal(dateStr,timeStr){const kst=new Date(`${dateStr}T${timeStr}+09:00`);return kst.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:patientTZ});}
+let templates=[],blocks=[],bookedSlots=[],calY,calM,selectedDate=null,selectedTime=null;const now=new Date();calY=now.getFullYear();calM=now.getMonth();
+async function init(){const[tRes,bRes,sRes]=await Promise.all([supabase.from('schedule_templates').select('*'),supabase.from('schedule_blocks').select('*'),supabase.from('booked_slots').select('appointment_date,appointment_time,status')]);templates=tRes.data||[];blocks=bRes.data||[];bookedSlots=sRes.data||[];renderCalendar();supabase.channel('bookings-rt').on('postgres_changes',{event:'*',schema:'public',table:'bookings'},async()=>{const{data}=await supabase.from('booked_slots').select('appointment_date,appointment_time,status');bookedSlots=data||[];renderCalendar();if(selectedDate)renderSlots(selectedDate);}).subscribe();}
+$('#bk-prev').addEventListener('click',()=>{calM--;if(calM<0){calM=11;calY--;}renderCalendar();});
+$('#bk-next').addEventListener('click',()=>{calM++;if(calM>11){calM=0;calY++;}renderCalendar();});
+function renderCalendar(){const mn=['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];$('#bk-cal-title').textContent=`${calY}年 ${mn[calM]}`;const grid=$('#bk-cal-grid');const fd=new Date(calY,calM,1).getDay();const dim=new Date(calY,calM+1,0).getDate();const today=new Date();today.setHours(0,0,0,0);const blockSet=new Set(blocks.map(b=>b.block_date));const activeDays=new Set(templates.filter(t=>t.is_active).map(t=>t.day_of_week));let h='';for(let i=0;i<fd;i++)h+='<div></div>';for(let d=1;d<=dim;d++){const date=new Date(calY,calM,d);const ds=`${calY}-${String(calM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;const dow=date.getDay();const ok=date>=today&&!blockSet.has(ds)&&activeDays.has(dow);const sel=ds===selectedDate;if(ok){const wc=dow===0?'text-red-400':dow===6?'text-blue-400':'text-slate-700';h+=`<div class="text-center py-2.5 rounded-lg cursor-pointer transition ${sel?'bg-gold text-white font-bold':`hover:bg-gold/10 ${wc}`}" data-date="${ds}"><span class="text-sm">${d}</span></div>`;}else{h+=`<div class="text-center py-2.5 rounded-lg text-slate-300 cursor-not-allowed"><span class="text-sm">${d}</span></div>`;}}grid.innerHTML=h;grid.querySelectorAll('[data-date]').forEach(el=>{el.addEventListener('click',()=>{selectedDate=el.dataset.date;selectedTime=null;renderCalendar();renderSlots(selectedDate);});});}
+function renderSlots(ds){const sec=$('#slot-section');const list=$('#slot-list');const none=$('#slot-none');sec.classList.remove('hidden');const p=ds.split('-');const dow=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])).getDay();const tmpl=templates.find(t=>t.day_of_week===dow&&t.is_active);if(!tmpl){list.innerHTML='';none.classList.remove('hidden');return;}const sm=timeToMins(tmpl.start_time),em=timeToMins(tmpl.end_time),dur=tmpl.slot_duration_minutes;const used=new Set(bookedSlots.filter(s=>s.appointment_date===ds).map(s=>s.appointment_time?.slice(0,5)));const slots=[];for(let m=sm;m+dur<=em;m+=dur){const ts=minsToTime(m);slots.push({time:ts,booked:used.has(ts)});}if(!slots.length){list.innerHTML='';none.classList.remove('hidden');return;}none.classList.add('hidden');$('#slot-date-label').textContent=new Date(ds+'T00:00:00').toLocaleDateString('ja-JP',{month:'long',day:'numeric',weekday:'short'});list.innerHTML=slots.map(s=>{const local=kstToLocal(ds,s.time+':00');if(s.booked)return`<div class="py-3 px-2 rounded-lg border border-slate-100 bg-slate-50 text-center opacity-50 cursor-not-allowed"><p class="text-sm font-bold text-slate-400 line-through">${s.time}</p><p class="text-[10px] text-slate-300">${local} 現地</p></div>`;const sel=s.time===selectedTime;return`<div class="py-3 px-2 rounded-lg border transition cursor-pointer text-center ${sel?'border-gold bg-gold/10 ring-2 ring-gold':'border-slate-200 bg-white hover:border-gold/50'}" data-time="${s.time}"><p class="text-sm font-bold ${sel?'text-gold':'text-slate-700'}">${s.time} <span class="font-normal text-slate-400">KST</span></p><p class="text-[10px] text-slate-400">${local} 現地</p></div>`;}).join('');list.querySelectorAll('[data-time]').forEach(el=>{el.addEventListener('click',()=>{selectedTime=el.dataset.time;$('#bkf-date').value=ds;$('#bkf-time').value=selectedTime;renderSlots(ds);});});}
+function timeToMins(t){const[h,m]=(t||'00:00').split(':').map(Number);return h*60+m;}function minsToTime(m){return`${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`;}
+$('#booking-form').addEventListener('submit',async(e)=>{e.preventDefault();if($('#bkf-hp').value)return;const name=$('#bkf-name').value.trim();const email=$('#bkf-email').value.trim();const phone=$('#bkf-phone').value.trim();const treatments=[...$$('#booking-form input[name="treatment"]:checked')].map(c=>c.value);const message=$('#bkf-message').value.trim();const btn=$('#bkf-submit');if(!$('#bkf-date').value||!$('#bkf-time').value){alert('日時を選択してください。');return;}btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> 送信中...';const row={booking_type:'slot_pick',patient_name:name,patient_email:email||null,patient_phone:phone||null,treatment_interest:treatments,message:message||null,locale:LOCALE,patient_timezone:patientTZ,appointment_date:$('#bkf-date').value,appointment_time:$('#bkf-time').value+':00'};try{const{error}=await supabase.from('bookings').insert(row);if(error)throw error;$('#booking-form').classList.add('hidden');$('#panel-pick').classList.add('hidden');$('#bkf-summary').textContent=`日付: ${row.appointment_date} | 時間: ${row.appointment_time.slice(0,5)} KST`;$('#bkf-success').classList.remove('hidden');}catch(err){console.error(err);$('#booking-form').classList.add('hidden');$('#bkf-error').classList.remove('hidden');}});
+init();
+</script>
