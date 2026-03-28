@@ -8,7 +8,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/" />
     <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/" />
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -19,7 +19,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/" />
     <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/" />
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -30,7 +30,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/" />
     <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/" />
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -41,7 +41,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/" />
     <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/" />
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -888,7 +888,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/blog/" />
     <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/blog/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/blog/" />
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -899,7 +899,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/blog/" />
     <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/blog/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/blog/" />
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -910,7 +910,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/blog/" />
     <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/blog/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/blog/" />
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -921,9 +921,53 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/blog/" />
     <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/blog/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/blog/" />
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tuneclinic-global.com/blog/how-natural-looking-change-is-created.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tuneclinic-global.com/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tuneclinic-global.com/ja/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/blog/how-natural-looking-change-is-created.html" />
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tuneclinic-global.com/ja/blog/how-natural-looking-change-is-created.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tuneclinic-global.com/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tuneclinic-global.com/ja/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/blog/how-natural-looking-change-is-created.html" />
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tuneclinic-global.com/zh/blog/how-natural-looking-change-is-created.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tuneclinic-global.com/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tuneclinic-global.com/ja/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/blog/how-natural-looking-change-is-created.html" />
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tuneclinic-global.com/th/blog/how-natural-looking-change-is-created.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tuneclinic-global.com/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tuneclinic-global.com/ja/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/blog/how-natural-looking-change-is-created.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/blog/how-natural-looking-change-is-created.html" />
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tuneclinic-global.com/blog/skin-aging-structural-change.html</loc>
