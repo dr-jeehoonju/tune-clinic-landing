@@ -11,6 +11,7 @@ module.exports = class {
     return `User-agent: *
 Allow: /
 Disallow: /admin.html
+Disallow: /.netlify/images
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
