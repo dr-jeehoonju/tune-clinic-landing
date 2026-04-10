@@ -598,6 +598,7 @@ function renderDetails(b) {
       $('#mg-details').classList.add('hidden');
       $('#mg-new-summary').textContent = `${fmtDate(rsSelectedDate)} · ${rsSelectedTime} KST`;
       $('#mg-rescheduled').classList.remove('hidden');
+      $('#mg-rescheduled').scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch {
       alert('Failed to reschedule. Please try again.');
       btn.disabled = false;
@@ -628,6 +629,7 @@ function renderDetails(b) {
       if (!res.ok) throw new Error('Failed');
       $('#mg-details').classList.add('hidden');
       $('#mg-cancelled').classList.remove('hidden');
+      $('#mg-cancelled').scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch {
       alert('Failed to cancel. Please try again.');
       $('#btn-cancel-yes').disabled = false;
@@ -670,6 +672,7 @@ function renderDetails(b) {
       $('#mg-details').classList.add('hidden');
       $('#mg-new-program').textContent = programNames;
       $('#mg-program-updated').classList.remove('hidden');
+      $('#mg-program-updated').scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch {
       alert('Failed to update. Please try again.');
       btn.disabled = false;
