@@ -548,7 +548,7 @@ function siteFooter(entry, localeData) {
   const g = localeData[entry.locale].global;
   const isHome = entry.template === "home";
   const blogFooterLink = `<a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${localeData[entry.locale].global.blog || "Blog"}</a>`;
-  const consultFooterLink = `<a href="${pageUrl(entry.locale, "consult")}" class="hover:text-gold transition">${g.consult || "Consultation Form"}</a>`;
+  const consultFooterLink = `<a href="${pageUrl(entry.locale, "booking")}" class="hover:text-gold transition">${g.contact}</a>`;
   const guideLink = `<a href="${pageUrl(entry.locale, "guides")}" class="hover:text-gold transition">${g.guidesLibrary}</a>`;
   const topPanel = isHome
     ? `
@@ -560,11 +560,11 @@ function siteFooter(entry, localeData) {
             <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">${g.footerSub}</p>
           </div>
           <div class="flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-stretch">
-            <a href="${g.consultationHref}" target="_blank" rel="noopener noreferrer" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
-              <i class="${g.consultationIcon}"></i> ${g.footerCta}
+            <a href="${pageUrl(entry.locale, "booking")}" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
+              <i class="fas fa-calendar-check"></i> ${g.footerCta}
             </a>
-            <a href="${pageUrl(entry.locale, "consult")}" class="border border-gold/60 text-gold px-8 py-4 font-bold rounded-sm hover:bg-gold/10 transition flex items-center justify-center gap-2">
-              <i class="fas fa-camera"></i> ${g.consult || "Request Photo Assessment"}
+            <a href="${g.consultationHref}" target="_blank" rel="noopener noreferrer" class="border border-gold/60 text-gold px-8 py-4 font-bold rounded-sm hover:bg-gold/10 transition flex items-center justify-center gap-2">
+              <i class="${g.consultationIcon}"></i> ${g.footerCtaSecondary}
             </a>
             <a href="${pageUrl(entry.locale, "menu")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2">
               <i class="fas fa-list-ul"></i> ${g.menu}
@@ -583,11 +583,11 @@ function siteFooter(entry, localeData) {
             <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">${g.footerPlanDesc}</p>
           </div>
           <div class="flex flex-col gap-3 lg:items-stretch">
-            <a href="${g.consultationHref}" target="_blank" rel="noopener noreferrer" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
-              <i class="${g.consultationIcon}"></i> ${g.footerCta}
+            <a href="${pageUrl(entry.locale, "booking")}" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
+              <i class="fas fa-calendar-check"></i> ${g.footerCta}
             </a>
-            <a href="${pageUrl(entry.locale, "consult")}" class="border border-gold/60 text-gold px-8 py-4 font-bold rounded-sm hover:bg-gold/10 transition flex items-center justify-center gap-2">
-              <i class="fas fa-camera"></i> ${g.consult || "Request Photo Assessment"}
+            <a href="${g.consultationHref}" target="_blank" rel="noopener noreferrer" class="border border-gold/60 text-gold px-8 py-4 font-bold rounded-sm hover:bg-gold/10 transition flex items-center justify-center gap-2">
+              <i class="${g.consultationIcon}"></i> ${g.footerCtaSecondary}
             </a>
             <a href="${pageUrl(entry.locale, "menu")}" class="border border-white/15 text-white px-8 py-4 font-bold rounded-sm hover:border-gold hover:text-gold transition flex items-center justify-center gap-2">
               <i class="fas fa-list-ul"></i> ${g.menu}
@@ -681,8 +681,8 @@ function siteFooter(entry, localeData) {
     <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
       <div class="flex gap-3">
         <a href="#programs" class="flex-1 bg-slate-100 text-slate-900 font-bold py-3 rounded-sm text-center text-sm">${g.mobileCta1}</a>
-        <a href="${g.consultationHref}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-slate-900 text-white font-extrabold py-3 rounded-sm text-center text-sm flex items-center justify-center gap-2">
-          <i class="${g.consultationIcon}"></i> ${g.mobileCta2}
+        <a href="${pageUrl(entry.locale, "booking")}" class="flex-1 bg-slate-900 text-white font-extrabold py-3 rounded-sm text-center text-sm flex items-center justify-center gap-2">
+          <i class="fas fa-calendar-check"></i> ${g.mobileCta2}
         </a>
       </div>
     </div>` : ""}
