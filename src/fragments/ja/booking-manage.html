@@ -94,6 +94,33 @@
               <p id="rs-slot-none" class="hidden text-sm text-slate-400 text-center py-2" data-i18n="noSlots">No available slots for this date.</p>
             </div>
 
+            <!-- Program Selection -->
+            <div class="mb-5">
+              <h4 class="font-bold text-slate-700 text-sm mb-2" data-i18n="labelChangeProgram">Change program (optional)</h4>
+              <div id="rs-programs" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <label class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
+                  <input type="checkbox" name="rs-treatment" value="signature-lifting" class="accent-[#c9a55a] w-4 h-4">
+                  <span class="text-slate-700 font-medium">Signature Lifting</span>
+                </label>
+                <label class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
+                  <input type="checkbox" name="rs-treatment" value="structural-reset" class="accent-[#c9a55a] w-4 h-4">
+                  <span class="text-slate-700 font-medium">Structural Reset Elite</span>
+                </label>
+                <label class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
+                  <input type="checkbox" name="rs-treatment" value="collagen-builder" class="accent-[#c9a55a] w-4 h-4">
+                  <span class="text-slate-700 font-medium">The Collagen Builder</span>
+                </label>
+                <label class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
+                  <input type="checkbox" name="rs-treatment" value="filler-chamaka-se" class="accent-[#c9a55a] w-4 h-4">
+                  <span class="text-slate-700 font-medium">Volume Chamaka-se</span>
+                </label>
+                <label class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm sm:col-span-2">
+                  <input type="checkbox" name="rs-treatment" value="other" class="accent-[#c9a55a] w-4 h-4">
+                  <span class="text-slate-700 font-medium" data-i18n="otherProgram">Other / Not sure yet</span>
+                </label>
+              </div>
+            </div>
+
             <button id="btn-resched-confirm" disabled
               class="w-full bg-gold text-white py-3 rounded-lg font-bold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gold/90 transition flex items-center justify-center gap-2">
               <i class="fas fa-check"></i> <span data-i18n="btnConfirmResched">Confirm New Time</span>
@@ -175,6 +202,8 @@ const I18N = {
     rescheduledTitle: 'Appointment Rescheduled',
     rescheduledMsg: 'Your new appointment time has been confirmed.',
     notSpecified: 'Not specified',
+    labelChangeProgram: 'Change program (optional)',
+    otherProgram: 'Other / Not sure yet',
   },
   ja: {
     tagline: '予約管理', heading: 'ご予約の管理',
@@ -195,6 +224,8 @@ const I18N = {
     rescheduledTitle: '日程変更完了',
     rescheduledMsg: '新しいご予約の日時が確定しました。',
     notSpecified: '未定',
+    labelChangeProgram: 'プログラム変更（任意）',
+    otherProgram: 'その他 / 未定',
   },
   zh: {
     tagline: '预约管理', heading: '管理您的预约',
@@ -215,6 +246,8 @@ const I18N = {
     rescheduledTitle: '预约已更改',
     rescheduledMsg: '您的新预约时间已确认。',
     notSpecified: '未指定',
+    labelChangeProgram: '更改项目（可选）',
+    otherProgram: '其他 / 尚未确定',
   },
   th: {
     tagline: 'จัดการนัดหมาย', heading: 'จัดการนัดหมายของคุณ',
@@ -235,6 +268,8 @@ const I18N = {
     rescheduledTitle: 'เปลี่ยนเวลาเรียบร้อย',
     rescheduledMsg: 'เวลานัดหมายใหม่ของคุณได้รับการยืนยันแล้ว',
     notSpecified: 'ยังไม่ระบุ',
+    labelChangeProgram: 'เปลี่ยนโปรแกรม (ไม่บังคับ)',
+    otherProgram: 'อื่นๆ / ยังไม่แน่ใจ',
   },
 };
 
@@ -320,6 +355,11 @@ function renderDetails(b) {
   /* ── Reschedule ── */
   $('#btn-reschedule').addEventListener('click', async () => {
     await initRescheduleCalendar();
+    // Pre-check current programs
+    (b.treatment_interest || []).forEach(v => {
+      const cb = document.querySelector(`input[name="rs-treatment"][value="${v}"]`);
+      if (cb) cb.checked = true;
+    });
     $('#mg-actions').classList.add('hidden');
     $('#mg-reschedule').classList.remove('hidden');
   });
@@ -335,11 +375,13 @@ function renderDetails(b) {
     btn.disabled = true;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
+    const newTreatments = [...document.querySelectorAll('input[name="rs-treatment"]:checked')].map(c => c.value);
+
     try {
       const res = await fetch(MANAGE_FN, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'reschedule', id: b.id, appointment_date: rsSelectedDate, appointment_time: rsSelectedTime }),
+        body: JSON.stringify({ action: 'reschedule', id: b.id, appointment_date: rsSelectedDate, appointment_time: rsSelectedTime, treatment_interest: newTreatments.length > 0 ? newTreatments : undefined }),
       });
       if (!res.ok) throw new Error('Failed');
       $('#mg-details').classList.add('hidden');

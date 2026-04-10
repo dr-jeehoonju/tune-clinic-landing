@@ -114,19 +114,25 @@ Deno.serve(async (req) => {
       }
 
       if (action === "reschedule") {
-        const { appointment_date, appointment_time } = body;
+        const { appointment_date, appointment_time, treatment_interest } = body;
         if (!appointment_date || !appointment_time)
           return json({ error: "Missing date or time" }, 400);
 
+        const updates: Record<string, unknown> = {
+          appointment_date,
+          appointment_time: appointment_time.length === 5
+            ? appointment_time + ":00"
+            : appointment_time,
+          status: "pending",
+        };
+
+        if (Array.isArray(treatment_interest) && treatment_interest.length > 0) {
+          updates.treatment_interest = treatment_interest;
+        }
+
         const { data, error } = await supabase
           .from("bookings")
-          .update({
-            appointment_date,
-            appointment_time: appointment_time.length === 5
-              ? appointment_time + ":00"
-              : appointment_time,
-            status: "pending",
-          })
+          .update(updates)
           .eq("id", id)
           .select()
           .single();
