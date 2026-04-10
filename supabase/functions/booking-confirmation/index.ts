@@ -111,6 +111,111 @@ function icsUrl(b: BookingRecord): string {
   return `${MANAGE_FN_URL}?id=${b.id}&ics=1`;
 }
 
+// ── Shared clinic-email helpers ──
+
+const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("압구정 튠클리닉 논현로 868 강남구 서울");
+const LOCALE_LABELS_KO: Record<string, string> = { en: "영어", ja: "일본어", zh: "중국어", th: "태국어" };
+
+function dDayLabel(dateStr: string): string {
+  const kstStr = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Seoul" });
+  const todayMs = new Date(kstStr + "T00:00:00+09:00").getTime();
+  const apptMs = new Date(dateStr + "T00:00:00+09:00").getTime();
+  const days = Math.round((apptMs - todayMs) / 86400000);
+  if (days === 0) return "오늘";
+  if (days === 1) return "내일";
+  if (days === 2) return "모레";
+  if (days < 0) return `D+${Math.abs(days)}`;
+  return `D-${days}`;
+}
+
+function confirmUrl(b: BookingRecord): string {
+  return `${MANAGE_FN_URL}?id=${b.id}&action=confirm`;
+}
+
+function phoneDigits(phone: string | null): string {
+  if (!phone) return "";
+  return phone.replace(/[^0-9]/g, "");
+}
+
+const QUICK_REPLY: Record<string, { subject: string; body: string }> = {
+  en: {
+    subject: "Your Tune Clinic Appointment is Confirmed",
+    body: "Dear {name},\n\nYour appointment at Tune Clinic on {date} at {time} KST has been confirmed.\n\nWe look forward to seeing you!\n\nBest regards,\nTune Clinic Team",
+  },
+  ja: {
+    subject: "Tune Clinic ご予約確定のお知らせ",
+    body: "{name}様\n\n{date} {time} KSTのTune Clinicのご予約が確定いたしました。\n\nお会いできることを楽しみにしております。\n\nTune Clinic",
+  },
+  zh: {
+    subject: "Tune Clinic 预约确认通知",
+    body: "{name}您好，\n\n您在Tune Clinic {date} {time} KST的预约已确认。\n\n期待您的到来！\n\nTune Clinic",
+  },
+  th: {
+    subject: "ยืนยันนัดหมาย Tune Clinic",
+    body: "สวัสดี {name}\n\nการนัดหมายที่ Tune Clinic วันที่ {date} เวลา {time} KST ได้รับการยืนยันแล้ว\n\nเราตั้งตาคอยที่จะพบคุณ!\n\nTune Clinic",
+  },
+};
+
+function quickReplyMailto(b: BookingRecord): string {
+  const tmpl = QUICK_REPLY[b.locale] || QUICK_REPLY.en;
+  const dateFmt = formatDate(b.appointment_date);
+  const timeKST = b.appointment_time.slice(0, 5);
+  const subject = encodeURIComponent(tmpl.subject);
+  const body = encodeURIComponent(
+    tmpl.body
+      .replace("{name}", b.patient_name)
+      .replace("{date}", dateFmt)
+      .replace("{time}", timeKST)
+  );
+  return `mailto:${b.patient_email || ""}?subject=${subject}&body=${body}`;
+}
+
+function clinicContactHtml(b: BookingRecord): string {
+  const phone = b.patient_phone || "";
+  const email = b.patient_email || "";
+  const digits = phoneDigits(phone);
+  const phoneBtn = digits
+    ? `<a href="tel:${phone}" style="display:inline-block;background:#0f172a;color:#fff;text-decoration:none;padding:8px 14px;border-radius:6px;font-size:12px;font-weight:600;margin:3px;">📞 전화</a>`
+    : `<span style="display:inline-block;background:#e2e8f0;color:#94a3b8;padding:8px 14px;border-radius:6px;font-size:12px;margin:3px;">📞 번호 없음</span>`;
+  const emailBtn = email
+    ? `<a href="mailto:${email}" style="display:inline-block;background:#3b82f6;color:#fff;text-decoration:none;padding:8px 14px;border-radius:6px;font-size:12px;font-weight:600;margin:3px;">✉️ 이메일</a>`
+    : "";
+  const waBtn = digits
+    ? `<a href="https://wa.me/${digits}" style="display:inline-block;background:#22c55e;color:#fff;text-decoration:none;padding:8px 14px;border-radius:6px;font-size:12px;font-weight:600;margin:3px;">💬 WhatsApp</a>`
+    : "";
+  return `
+        <div style="margin:20px 0 0;padding:16px 0 0;border-top:1px solid #e2e8f0;">
+          <p style="margin:0 0 10px;color:#64748b;font-size:12px;font-weight:700;">빠른 연락</p>
+          <div style="text-align:center;">${phoneBtn}${emailBtn}${waBtn}</div>
+        </div>`;
+}
+
+function clinicQuickReplyHtml(b: BookingRecord): string {
+  const langLabel = LOCALE_LABELS_KO[b.locale] || b.locale.toUpperCase();
+  return `
+        <div style="margin:16px 0 0;padding:16px 0 0;border-top:1px solid #e2e8f0;text-align:center;">
+          <p style="margin:0 0 10px;color:#64748b;font-size:12px;font-weight:700;">빠른 답장 (환자 언어: ${langLabel})</p>
+          <a href="${quickReplyMailto(b)}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;">📝 확정 답장 보내기</a>
+        </div>`;
+}
+
+function clinicActionsHtml(b: BookingRecord): string {
+  return `
+        <div style="margin:16px 0 0;padding:16px 0 0;border-top:1px solid #e2e8f0;text-align:center;">
+          <a href="${confirmUrl(b)}" style="display:inline-block;background:#16a34a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">✅ 예약 확정</a>
+          <a href="${manageUrl(b)}" style="display:inline-block;background:#0f172a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">📋 예약 관리</a>
+        </div>`;
+}
+
+function clinicLocationHtml(): string {
+  return `
+        <div style="margin:16px 0 0;padding:16px 0 0;border-top:1px solid #e2e8f0;">
+          <p style="margin:0 0 4px;color:#0f172a;font-size:13px;font-weight:700;">📍 압구정 튠클리닉</p>
+          <p style="margin:0 0 8px;color:#64748b;font-size:12px;line-height:1.4;">서울 강남구 논현로 868, 5층</p>
+          <a href="${GOOGLE_MAPS_URL}" style="display:inline-block;background:#4285f4;color:#fff;text-decoration:none;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:600;">🗺️ 지도 보기</a>
+        </div>`;
+}
+
 function patientEmailHtml(b: BookingRecord): string {
   const dateFormatted = formatDate(b.appointment_date);
   const timeKST = b.appointment_time.slice(0, 5);
@@ -209,8 +314,7 @@ function clinicNotificationKoHtml(b: BookingRecord): string {
   const dateFormatted = formatDate(b.appointment_date);
   const timeKST = b.appointment_time.slice(0, 5);
   const treatments = treatmentList(b.treatment_interest || [], "en");
-
-  const localeLabel: Record<string, string> = { en: "영어", ja: "일본어", zh: "중국어", th: "태국어" };
+  const dday = dDayLabel(b.appointment_date);
 
   return `
 <!DOCTYPE html>
@@ -220,7 +324,10 @@ function clinicNotificationKoHtml(b: BookingRecord): string {
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
     <div style="background:#fff;border-radius:12px;overflow:hidden;border:2px solid #c9a55a;">
       <div style="background:#c9a55a;padding:16px 24px;">
-        <h1 style="margin:0;color:#fff;font-size:16px;">🔔 새 예약 접수</h1>
+        <table style="width:100%;"><tr>
+          <td><h1 style="margin:0;color:#fff;font-size:16px;">🔔 새 예약 접수</h1></td>
+          <td style="text-align:right;"><span style="background:rgba(255,255,255,0.25);color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;">${dday}</span></td>
+        </tr></table>
       </div>
       <div style="padding:24px;">
         <table style="width:100%;border-collapse:collapse;">
@@ -230,10 +337,14 @@ function clinicNotificationKoHtml(b: BookingRecord): string {
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">예약일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFormatted}</td></tr>
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">시간</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST</td></tr>
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">프로그램</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${treatments || "미정"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${localeLabel[b.locale] || b.locale.toUpperCase()}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${LOCALE_LABELS_KO[b.locale] || b.locale.toUpperCase()}</td></tr>
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">시간대</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_timezone}</td></tr>
           ${b.message ? `<tr><td style="padding:6px 0;color:#64748b;font-size:13px;vertical-align:top;">메모</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.message}</td></tr>` : ""}
         </table>
+        ${clinicContactHtml(b)}
+        ${clinicQuickReplyHtml(b)}
+        ${clinicActionsHtml(b)}
+        ${clinicLocationHtml()}
       </div>
     </div>
   </div>
