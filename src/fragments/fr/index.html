@@ -1,627 +1,1464 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-body { font-family: 'Lato', sans-serif; }
-.font-serif { font-family: 'Playfair Display', serif; }
-.text-gold { color: #C5A059; }
-.bg-gold { background-color: #C5A059; }
-.border-gold { border-color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
-.program-highlight { outline: 3px solid #C5A059; outline-offset: 6px; }
-.match-option.selected { border-color: #C5A059; background: #fdf8ef; }
-.cta-pulse { animation: ctaPulse 1s ease-in-out; }
-@keyframes ctaPulse { 0%,100%{box-shadow:0 0 0 0 rgba(197,160,89,0.4)} 50%{box-shadow:0 0 0 12px rgba(197,160,89,0)} }
+
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Custom Colors */
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+
+        /* Animations */
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Match module */
+        .match-option.selected {
+            border-color: #C5A059;
+            background-color: #F9F5F0;
+            box-shadow: 0 0 0 1px #C5A059;
+        }
+        .match-option.selected i { color: #C5A059; }
+
+        .program-highlight {
+            animation: highlightPulse 1.8s ease-in-out;
+            box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3) !important;
+            border-color: #C5A059 !important;
+        }
+        @keyframes highlightPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.6); }
+            50%  { box-shadow: 0 0 0 8px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3); }
+        }
+
+        /* CTA Pulse for matched card */
+        @keyframes ctaPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.8); }
+            70%  { box-shadow: 0 0 0 12px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 0 rgba(197,160,89,0); }
+        }
+        .cta-pulse {
+            animation: ctaPulse 1s ease-out 2;
+        }
+        /* match-recommend-badge: styled via JS inline classes (Tailwind CDN cannot process @apply) */
 </style>
 
-<!-- Héro -->
-<section class="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
-  <div class="absolute inset-0 z-0">
-    <img src="/.netlify/images?url=/main.jpeg&w=1400&fm=webp&q=75" alt="Tune Clinic Seoul" class="w-full h-full object-cover object-top opacity-40">
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/30 to-slate-950/80"></div>
-  </div>
-  <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-40">
-    <div class="max-w-3xl">
-      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5 backdrop-blur-sm mb-6">
-        <i class="fas fa-map-marker-alt"></i> Seoul Apgujeong · Dirigé par un médecin
-      </span>
-      <h1 class="text-5xl md:text-7xl font-serif text-white leading-tight mb-6">
-        La K-Beauty<br>
-        <span class="text-gold italic">médicale</span> de précision
-      </h1>
-      <p class="text-xl text-slate-300 leading-relaxed max-w-2xl mb-10">
-        Clinique esthétique dirigée par un médecin à Séoul pour les patients internationaux. Planification structurée des traitements de lifting, régénération et contouring — sans intermédiaire, sans approximation.
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="/fr/booking.html" class="inline-flex items-center gap-2 bg-gold text-white px-8 py-4 font-bold rounded-sm hover:bg-gold/90 transition shadow-lg text-base">
-          <i class="fas fa-calendar-check"></i> Réserver maintenant
-        </a>
-        <a href="/fr/design-method.html" class="inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 font-semibold rounded-sm hover:bg-white/10 transition text-base">
-          <i class="fas fa-flask"></i> Méthode de design
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Barre de confiance -->
-<div class="bg-slate-900 border-y border-slate-800 py-6">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex flex-wrap gap-6 justify-center md:justify-between items-center text-xs text-slate-400">
-      <span class="flex items-center gap-2"><i class="fas fa-user-md text-gold"></i> Traitement dirigé par un médecin</span>
-      <span class="flex items-center gap-2"><i class="fas fa-globe text-gold"></i> Anglais · Chinois · Japonais · Thaï</span>
-      <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-gold"></i> Apgujeong Gangnam</span>
-      <span class="flex items-center gap-2"><i class="fas fa-plane text-gold"></i> Planification adaptée aux voyages</span>
-      <span class="flex items-center gap-2"><i class="fas fa-ban text-gold"></i> Sans intermédiaire</span>
-    </div>
-  </div>
-</div>
-
-<!-- Introduction Chamaka-se -->
-<section class="py-24 bg-white border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="text-gold uppercase tracking-widest text-xs font-bold">Méthodologie</span>
-        <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mt-3 mb-6 leading-tight">
-          Chamaka-se<br><span class="text-gold">Méthode de design</span>
-        </h2>
-        <p class="text-slate-600 text-lg leading-relaxed mb-8">
-          Chamaka-se est une méthodologie dirigée par un médecin qui diagnostique d'abord avant de choisir un traitement. L'épaisseur des tissus, la distribution du volume et le relâchement cutané sont évalués — puis la séquence de traitement est conçue.
-        </p>
-        <div class="grid sm:grid-cols-2 gap-4 mb-8">
-          <div class="flex gap-3 items-start">
-            <i class="fas fa-check-circle text-gold mt-1"></i>
-            <div><p class="font-bold text-slate-900 text-sm">Évaluation anatomique</p><p class="text-slate-500 text-xs mt-1">Tissus, symétrie, relâchement d'abord</p></div>
-          </div>
-          <div class="flex gap-3 items-start">
-            <i class="fas fa-check-circle text-gold mt-1"></i>
-            <div><p class="font-bold text-slate-900 text-sm">Design séquentiel</p><p class="text-slate-500 text-xs mt-1">Protocole, pas un forfait</p></div>
-          </div>
-          <div class="flex gap-3 items-start">
-            <i class="fas fa-check-circle text-gold mt-1"></i>
-            <div><p class="font-bold text-slate-900 text-sm">Intégration voyage</p><p class="text-slate-500 text-xs mt-1">Planification selon votre calendrier</p></div>
-          </div>
-          <div class="flex gap-3 items-start">
-            <i class="fas fa-check-circle text-gold mt-1"></i>
-            <div><p class="font-bold text-slate-900 text-sm">Communication transparente</p><p class="text-slate-500 text-xs mt-1">Recommandations justifiées</p></div>
-          </div>
+<header class="relative bg-black overflow-hidden min-h-[85vh] md:min-h-[calc(100vh-4rem)] flex flex-col">
+        <div class="absolute inset-0 z-0">
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+                class="w-full h-full object-cover"
+            >
+                <source src="hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
         </div>
-        <a href="/fr/design-method.html" class="inline-flex items-center gap-2 text-gold font-bold hover:text-slate-900 transition">
-          Voir la méthode en détail <i class="fas fa-arrow-right text-sm"></i>
-        </a>
-      </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-slate-900 rounded-3xl p-6 text-white aspect-square flex flex-col justify-between">
-          <i class="fas fa-microscope text-gold text-3xl"></i>
-          <div>
-            <p class="font-bold text-lg">Diagnostic d'abord</p>
-            <p class="text-slate-400 text-sm mt-1">Évaluation anatomique avant traitement</p>
-          </div>
-        </div>
-        <div class="bg-gold-light border border-gold/20 rounded-3xl p-6 aspect-square flex flex-col justify-between">
-          <i class="fas fa-layer-group text-gold text-3xl"></i>
-          <div>
-            <p class="font-bold text-lg text-slate-900">Design séquentiel</p>
-            <p class="text-slate-600 text-sm mt-1">Séquence de traitement optimale</p>
-          </div>
-        </div>
-        <div class="bg-gold-light border border-gold/20 rounded-3xl p-6 aspect-square flex flex-col justify-between">
-          <i class="fas fa-plane text-gold text-3xl"></i>
-          <div>
-            <p class="font-bold text-lg text-slate-900">Adapté aux voyages</p>
-            <p class="text-slate-600 text-sm mt-1">Planification sur mesure</p>
-          </div>
-        </div>
-        <div class="bg-slate-900 rounded-3xl p-6 text-white aspect-square flex flex-col justify-between">
-          <i class="fas fa-shield-alt text-gold text-3xl"></i>
-          <div>
-            <p class="font-bold text-lg">Sécurité d'abord</p>
-            <p class="text-slate-400 text-sm mt-1">Pas de surtraitement</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Programmes -->
-<section class="py-24 bg-slate-50 border-b border-slate-200">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Programmes de traitement</span>
-      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-4">4 protocoles essentiels</h2>
-      <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Chaque programme est conçu pour un objectif thérapeutique spécifique. La consultation détermine lequel vous convient le mieux.</p>
-    </div>
+        <div class="relative z-10 mt-auto max-w-7xl mx-auto w-full px-6 pb-16 md:pb-20">
+            <div class="fade-in-up max-w-3xl">
+                <div class="flex items-center space-x-3 mb-5">
+                    <div class="h-px w-12 bg-gold"></div>
+                    <span class="text-sm tracking-widest uppercase font-bold text-white/60">Tune Clinic Apgujeong</span>
+                </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <div id="program-lifting" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
-        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Non-invasif / Lifting</span>
-        <h3 class="text-2xl font-serif text-slate-900 mt-3 mb-3">Signature Lifting</h3>
-        <p class="text-slate-600 text-sm leading-relaxed mb-5">Protocole Ultherapy 350 tirs dirigé par un médecin. Lifting profond des tissus avec un temps d'arrêt minimal. Traitement en une journée — idéal pour les voyageurs.</p>
-        <p class="text-gold font-bold text-xl mb-5">₩990 000 <span class="text-slate-400 text-sm font-normal">TVA incluse</span></p>
-        <div class="flex gap-3">
-          <a href="/fr/signature-lifting.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">Détails</a>
-          <a href="/fr/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">Réserver</a>
-        </div>
-      </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] mb-6">
+                    Ne choisissez pas seulement une procédure.<br>
+                    <span class="italic text-white/50">Choisissez une décision.</span>
+                </h1>
 
-      <div id="program-elite" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
-        <span class="inline-flex items-center gap-1 text-[10px] text-white font-bold uppercase tracking-[0.22em] bg-gold px-2 py-1 rounded-full mb-2">Recommandé</span>
-        <h3 class="text-2xl font-serif text-slate-900 mt-1 mb-3">Structural Reset Elite</h3>
-        <p class="text-slate-600 text-sm leading-relaxed mb-5">Ultherapy 300 tirs + Thermage 600 tirs + sédation IV. Lifting & raffermissement non chirurgical complet.</p>
-        <p class="text-gold font-bold text-xl mb-5">₩3 300 000 <span class="text-slate-400 text-sm font-normal">TVA incluse</span></p>
-        <div class="flex gap-3">
-          <a href="/fr/structural-reset.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">Détails</a>
-          <a href="/fr/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">Réserver</a>
-        </div>
-      </div>
+                <p class="text-lg md:text-xl text-white/70 mb-8 leading-relaxed max-w-2xl">
+                    Découvrez <strong class="text-white">« Chamaka-se »</strong> — Une planification esthétique élaborée par des médecins, conçue pour les voyageurs internationaux.
+                    <span class="block mt-6 text-gold font-bold tracking-widest text-[11px] md:text-sm uppercase border-t border-white/20 pt-4">
+                        Construit autour de notre protocole médical Ultherapy de 350 tirs
+                    </span>
+                </p>
 
-      <div id="program-collagen" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
-        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Régénération / Collagène</span>
-        <h3 class="text-2xl font-serif text-slate-900 mt-3 mb-3">The Collagen Builder</h3>
-        <p class="text-slate-600 text-sm leading-relaxed mb-5">Rejuran Black + Juvelook Skin. Amélioration de la texture, des pores et des ridules sans effet volumisant.</p>
-        <p class="text-gold font-bold text-xl mb-5">₩990 000 <span class="text-slate-400 text-sm font-normal">TVA incluse</span></p>
-        <div class="flex gap-3">
-          <a href="/fr/collagen-builder.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">Détails</a>
-          <a href="/fr/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">Réserver</a>
-        </div>
-      </div>
-
-      <div id="program-volume" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
-        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Régénération / Volume</span>
-        <h3 class="text-2xl font-serif text-slate-900 mt-3 mb-3">Volume Chamaka-se</h3>
-        <p class="text-slate-600 text-sm leading-relaxed mb-5">Un flacon entier de Juvelook Volume sur tout le visage. Remodelage du collagène pour un teint lumineux et revitalisé.</p>
-        <p class="text-gold font-bold text-xl mb-5">₩1 100 000 <span class="text-slate-400 text-sm font-normal">TVA incluse</span></p>
-        <div class="flex gap-3">
-          <a href="/fr/filler-chamaka-se.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">Détails</a>
-          <a href="/fr/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">Réserver</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Équipe médicale -->
-<section class="py-24 bg-slate-50 border-y border-slate-200">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Curation dirigée par un médecin</span>
-      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Conseil médical</h2>
-      <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
-        Stratégie, lifting, chirurgie, médecine régénérative et coordination internationale.<br>Un seul conseil. Un seul plan. Une équipe clinique responsable.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 mb-8">
-      <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
-        <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10"></div>
-        <img src="/.netlify/images?url=/cha.jpg&w=900&fm=webp&q=75" alt="Dr. Cha Seungyeon" class="w-full h-full object-cover object-top min-h-[420px]">
-        <div class="absolute inset-x-0 bottom-0 z-20 p-8 md:p-10 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] text-gold border border-gold/30 bg-white/5 mb-4">Médecin-cheffe</span>
-          <h3 class="text-3xl md:text-4xl font-serif text-white">Dr. Cha Seungyeon</h3>
-          <p class="text-gold text-xs font-bold uppercase tracking-[0.18em] mt-2 mb-4">Planificatrice maître de l'équilibre facial</p>
-          <p class="text-slate-300 max-w-2xl leading-relaxed mb-5">
-            « La médecine esthétique ne change pas le visage. Elle restaure l'équilibre perdu. »
-          </p>
-          <div class="flex flex-wrap gap-2 text-xs text-slate-200">
-            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Directrice Korean Stem Cell Society</span>
-            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Spécialiste Facial Design & Anti-Aging</span>
-            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Accompagnement concierge 1:1</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 gap-6">
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
-          <div class="grid grid-cols-[120px_1fr] md:grid-cols-[150px_1fr]">
-            <img src="/.netlify/images?url=/kim_ky.jpg&w=500&fm=webp&q=75" alt="Dr. Kim Kwangyeon" class="w-full h-full object-cover object-top min-h-[220px]">
-            <div class="p-6 md:p-7">
-              <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Médecin principal</span>
-              <h3 class="text-2xl font-serif text-slate-900 mt-2">Dr. Kim Kwangyeon</h3>
-              <p class="text-sm text-slate-500 mt-1 mb-4">Expert en lifting, spécialiste du raffermissement vectoriel.</p>
-              <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                « Le lifting est une science physique. Je calcule les vecteurs et les profondeurs pour le résultat le plus naturel. »
-              </p>
-              <div class="flex flex-wrap gap-2 text-[11px] text-slate-500">
-                <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">Hugel Lifting Key Doctor</span>
-                <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">Ancien directeur Yesta Hospital</span>
-              </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#programs" class="px-10 py-4 bg-white text-slate-900 font-semibold rounded-sm hover:bg-white/90 transition shadow-xl text-center">
+                        Voir les programmes
+                    </a>
+                    <a href="/fr/booking.html" class="px-10 py-4 border border-white/30 text-white font-semibold rounded-sm hover:bg-white/10 transition text-center flex items-center justify-center gap-2 backdrop-blur-sm">
+                        <i class="fas fa-calendar-check"></i> Réserver maintenant
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
+    </header>
 
-        <div class="bg-gradient-to-br from-gold-light to-white rounded-3xl border border-gold/20 shadow-lg p-7">
-          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Coordination internationale</span>
-          <h3 class="text-2xl font-serif text-slate-900 mt-2">MD direct + Concierge en anglais</h3>
-          <p class="text-sm text-slate-600 leading-relaxed mt-3 mb-5">
-            Les patients internationaux ne passent pas par des intermédiaires. La planification, la communication et le suivi sont assurés par un seul canal coordonné.
-          </p>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
-            <div class="rounded-2xl bg-white border border-slate-200 p-4">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Langues</p>
-              <p class="text-sm font-bold text-slate-900 mt-2">EN / ZH / JA / TH / AR</p>
+    <section class="py-12 bg-white border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-5 text-slate-900">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Authenticité vérifiée</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Nous ouvrons chaque embout Ultherapy/Thermage en votre présence. Scannez le code QR pour vérifier l'authenticité.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-5 text-slate-900">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Dosage rationnel</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Nous calibrons les niveaux d'énergie et le nombre de tirs selon votre anatomie, en évitant toute exposition inutile.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-5 text-slate-900">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Adapté aux voyageurs</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Nous adaptons l'intensité du traitement et les soins post-opératoires pour les voyageurs susceptibles de prendre l'avion dans les 48 heures.</p>
+                </div>
             </div>
-            <div class="rounded-2xl bg-white border border-slate-200 p-4">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Modèle</p>
-              <p class="text-sm font-bold text-slate-900 mt-2">Planification MD directe</p>
+        </div>
+    </section>
+    <section id="programs" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Programmes pour voyageurs</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">Les programmes Chamaka-se</h2>
+                <p class="text-slate-500">Quatre parcours distincts. Tarifs transparents. Sans surprises.</p>
+                <p class="text-xs text-slate-400 mt-2 italic">Tous les protocoles sont finalisés après une évaluation anatomique en personne et un dépistage des contre-indications.</p>
+                <div class="mt-8 mb-2">
+                    <p class="text-sm text-slate-400 mb-4 italic">Cela vous parle ?</p>
+                    <div class="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">Mâchoire relâchée</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">Peau terne et fatiguée</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">Perte de volume</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">Pores dilatés</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">Cernes</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">Double menton</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">Rides et ridules</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">Teint irrégulier</span>
+                    </div>
+                </div>
             </div>
-            <div class="rounded-2xl bg-white border border-slate-200 p-4">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Support</p>
-              <p class="text-sm font-bold text-slate-900 mt-2">Concierge complet</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+
+                <div id="program-collagen" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-blue-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Le Collagen Builder</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">Naturel / Long terme</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        Biostimulation pour ceux qui craignent l'aspect « surgonflé ». Restauration progressive et subtile du collagène et amélioration de la qualité de la peau.
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Rejuran Black 4cc + Juvelook Skin 2cc</p>
+                        <p class="text-xs text-slate-500">Collagène visage complet et réduction des ridules</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> Durée : ~45 min</p>
+                        <p class="text-[10px] text-slate-400 mt-1">Consultation et suivi inclus</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-1 rounded uppercase font-bold">Léger gonflement (24h)</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩770,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="/fr/collagen-builder.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            En savoir plus
+                        </a>
+                        <a href="/fr/booking.html" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            <i class="fas fa-calendar-check"></i> Réserver maintenant
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-volume" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-purple-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Volume Chamaka-se</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">Remodelage du collagène / Éclat</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        Juvelook Volume 1 flacon (8cc), conçu par le médecin sur l'ensemble du visage pour le remodelage du collagène et un teint plus lumineux.
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Évaluation médicale + Design + Juvelook Volume</p>
+                        <p class="text-xs text-slate-500">Protocole de remodelage du collagène visage complet</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> Durée : ~60 min</p>
+                        <p class="text-[10px] text-slate-400 mt-1">Consultation et suivi inclus</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-purple-50 text-purple-800 text-[10px] px-2 py-1 rounded uppercase font-bold">Léger gonflement (24-48h)</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩770,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="/fr/filler-chamaka-se.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            En savoir plus
+                        </a>
+                        <a href="/fr/booking.html" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            <i class="fas fa-calendar-check"></i> Réserver maintenant
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-lifting" class="border-2 border-gold p-8 rounded-sm shadow-2xl relative bg-white transform md:-translate-y-2 h-full flex flex-col">
+                    <div class="absolute top-0 right-0 bg-gold text-white text-[10px] font-bold px-3 py-1 uppercase">Meilleur choix</div>
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Signature Lifting</h3>
+                    <p class="text-xs text-gold uppercase tracking-wide mb-4">Non invasif / Raffermissement</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        Un protocole de lifting des tissus profonds calibré par le médecin, conçu pour un raffermissement structurel sans intervention chirurgicale.
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">Protocole médical Ultherapy de 350 tirs</p>
+                        <p class="text-xs text-slate-500">Visage complet + Sous-mentonnier</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> Durée : ~45 min</p>
+                        <p class="text-[10px] text-slate-400 mt-1">Consultation et suivi inclus</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-green-50 text-green-800 text-[10px] px-2 py-1 rounded uppercase font-bold">Zéro temps d'arrêt</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩990,000</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dashed border-slate-200 mb-6">
+                        <p class="text-xs text-slate-400 flex justify-between">
+                            <span>Option : ONDA Lifting 60 000J</span>
+                            <span class="font-bold text-slate-600">₩847,000</span>
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col gap-2 mt-auto">
+                        <a href="/fr/signature-lifting.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            En savoir plus
+                        </a>
+                        <a href="/fr/booking.html" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            <i class="fas fa-calendar-check"></i> Réserver maintenant
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-elite" class="bg-slate-900 p-8 rounded-sm shadow-xl relative text-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2">Structural Reset Elite</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">Transformation totale</p>
+                    <p class="text-sm text-slate-300 mb-6 min-h-[60px]">
+                        Remodelage structurel complet combinant le lifting profond Ultherapy et le raffermissement de surface Thermage, avec sédation intraveineuse incluse.
+                    </p>
+                    <div class="border-t border-slate-700 pt-6 mb-6">
+                        <p class="text-sm font-bold text-white mb-1">Ultherapy 300 tirs + Thermage 600 tirs</p>
+                        <p class="text-xs text-slate-400">Sédation intraveineuse incluse</p>
+                        <p class="text-xs text-slate-500 mt-2"><i class="far fa-clock mr-1"></i> Durée : ~90 min</p>
+                        <p class="text-[10px] text-slate-500 mt-1">Consultation et suivi inclus</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-1 rounded uppercase font-bold">Réservation prioritaire</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-gold">₩3,047,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="/fr/structural-reset.html" class="block w-full text-center py-3 border border-slate-600 text-slate-200 text-sm font-bold hover:bg-slate-800 transition">
+                            En savoir plus
+                        </a>
+                        <a href="/fr/booking.html" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            <i class="fas fa-calendar-check"></i> Réserver maintenant
+                        </a>
+                    </div>
+                </div>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
-        <img src="/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75" alt="Dr. Joo Jihoon" class="w-full h-72 object-cover object-top">
-        <div class="p-6">
-          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Directeur international</span>
-          <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Joo Jihoon</h3>
-          <p class="text-sm text-slate-500 mt-2 mb-4">Transplantation capillaire, médecine esthétique, communication internationale.</p>
-          <ul class="text-sm text-slate-600 space-y-2">
-            <li>- American Board of Aesthetic Medicine</li>
-            <li>- Spécialiste en transplantation capillaire</li>
-            <li>- MIT Sloan Healthcare AI</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
-        <img src="/.netlify/images?url=/jo.jpg&w=600&fm=webp&q=75" alt="Dr. Jo Donghyeon" class="w-full h-72 object-cover object-top">
-        <div class="p-6">
-          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Médecine régénérative</span>
-          <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Jo Donghyeon</h3>
-          <p class="text-sm text-slate-500 mt-2 mb-4">Stratégie cellules souches et régénération.</p>
-          <ul class="text-sm text-slate-600 space-y-2">
-            <li>- Consultant clinique Seoul National University Hospital</li>
-            <li>- Président ISAPS Corée</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
-        <img src="/.netlify/images?url=/kim_bj.jpg&w=600&fm=webp&q=75" alt="Dr. Kim Bumjin" class="w-full h-72 object-cover object-top">
-        <div class="p-6">
-          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Chirurgie plastique & reconstruction</span>
-          <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Kim Bumjin</h3>
-          <p class="text-sm text-slate-500 mt-2 mb-4">Évaluation structurelle et conseil chirurgical.</p>
-          <ul class="text-sm text-slate-600 space-y-2">
-            <li>- Professeur clinique en chirurgie plastique Yonsei</li>
-            <li>- Fellowship UPMC Pittsburgh</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
-        <img src="/.netlify/images?url=/jang.jpg&w=600&fm=webp&q=75" alt="Dr. Jang Seungwoo" class="w-full h-72 object-cover object-top">
-        <div class="p-6">
-          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Conseil médical</span>
-          <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Jang Seungwoo</h3>
-          <p class="text-sm text-slate-500 mt-2 mb-4">Conseil MD, PhD pour évaluations médicales.</p>
-          <ul class="text-sm text-slate-600 space-y-2">
-            <li>- Professeur clinique Faculté de médecine Chosun</li>
-            <li>- Pédiatre, Docteur en médecine</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Programme de correspondance -->
-<section id="match" class="py-20 bg-white border-b border-slate-100">
-  <div class="max-w-3xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Sélection en 60 secondes</span>
-      <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">Trouver mon programme</h2>
-      <p class="text-slate-500">Répondez à trois questions. Nous vous guiderons vers la bonne voie.</p>
-    </div>
-
-    <div id="match-form" class="space-y-10">
-      <div>
-        <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">1 — Quel est votre objectif principal ?</p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="goal">
-          <button type="button" data-value="collagen" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
-            <i class="fas fa-seedling text-lg text-slate-300 mb-2 block"></i>
-            <span class="text-sm font-bold text-slate-700 block">Collagène</span>
-            <span class="text-[10px] text-slate-400">Naturel & durable</span>
-          </button>
-          <button type="button" data-value="volume" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
-            <i class="fas fa-cube text-lg text-slate-300 mb-2 block"></i>
-            <span class="text-sm font-bold text-slate-700 block">Volume</span>
-            <span class="text-[10px] text-slate-400">Structure & contouring</span>
-          </button>
-          <button type="button" data-value="lift" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
-            <i class="fas fa-arrow-up text-lg text-slate-300 mb-2 block"></i>
-            <span class="text-sm font-bold text-slate-700 block">Lifting</span>
-            <span class="text-[10px] text-slate-400">Raffermissement & renouveau</span>
-          </button>
-        </div>
-      </div>
-
-      <div>
-        <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">2 — Quel temps d'arrêt est acceptable ?</p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="downtime">
-          <button type="button" data-value="none" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
-            <span class="text-sm font-bold text-slate-700 block">Aucun</span>
-            <span class="text-[10px] text-slate-400">Pas de récupération</span>
-          </button>
-          <button type="button" data-value="mild" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
-            <span class="text-sm font-bold text-slate-700 block">24–48 heures</span>
-            <span class="text-[10px] text-slate-400">Légère gonflement OK</span>
-          </button>
-          <button type="button" data-value="extended" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
-            <span class="text-sm font-bold text-slate-700 block">3–7 jours</span>
-            <span class="text-[10px] text-slate-400">Récupération complète</span>
-          </button>
-        </div>
-      </div>
-
-      <div>
-        <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">3 — Urgence du voyage</p>
-        <label class="flex items-center gap-4 cursor-pointer border border-slate-200 rounded-sm px-5 py-4 transition hover:border-slate-400 w-fit">
-          <span class="relative inline-block w-11 h-6">
-            <input type="checkbox" id="match-urgent" class="peer sr-only">
-            <span class="absolute inset-0 bg-slate-200 rounded-full transition peer-checked:bg-gold"></span>
-            <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
-          </span>
-          <span class="text-sm text-slate-700">Séjour à Séoul <strong>moins de 72 heures</strong></span>
-        </label>
-      </div>
-
-      <div class="text-center pt-2">
-        <button type="button" id="match-submit" disabled class="px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider">
-          Voir mon programme
-        </button>
-        <p id="match-hint" class="text-xs text-slate-400 mt-3">Veuillez sélectionner un objectif et un temps d'arrêt.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="py-20 bg-slate-50" id="faq">
-  <div class="max-w-3xl mx-auto px-6">
-    <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">FAQ pour les voyageurs</h2>
-    <div class="space-y-4">
-
-      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
-        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-          Puis-je prendre l'avion juste après le traitement ?
-          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
-        </summary>
-        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
-          <p>Dans la plupart des cas, oui.</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li><strong>Le lifting énergétique</strong> (Ultherapy, Thermage, Onda) permet généralement un retour immédiat aux activités quotidiennes.</li>
-            <li><strong>Les injectables</strong> (Juvelook, fillers) : nous recommandons si possible 24–48 heures de délai pour surveiller les gonflements ou ecchymoses.</li>
-          </ul>
-          <p>Le plan est toujours adapté à votre calendrier de voyage.</p>
-        </div>
-      </details>
-
-      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
-        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-          Quel temps d'arrêt faut-il prévoir ?
-          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
-        </summary>
-        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
-          <p>Le temps d'arrêt dépend du protocole choisi :</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li><strong>Lifting :</strong> temps d'arrêt visible minimal</li>
-            <li><strong>Juvelook :</strong> léger gonflement possible</li>
-            <li><strong>Fillers :</strong> ecchymoses possibles, surtout dans les zones délicates</li>
-          </ul>
-          <p>Nous privilégions une planification structurée pour minimiser les interruptions inutiles pour les voyageurs.</p>
-        </div>
-      </details>
-
-      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
-        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-          La gestion de la douleur est-elle possible pour le lifting ?
-          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
-        </summary>
-        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
-          <p>Nous proposons des <strong>blocs de confort ciblés</strong> et une <strong>sédation consciente IV</strong> (optionnelle) pour optimiser le confort.</p>
-          <p class="text-xs text-slate-400">L'éligibilité est confirmée après examen des antécédents médicaux le jour du traitement.</p>
-        </div>
-      </details>
-
-      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
-        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-          Quel programme dois-je choisir ?
-          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
-        </summary>
-        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
-          <p>Vous n'avez pas à choisir vous-même. <strong>Chamaka-se</strong> est un modèle dirigé par un médecin.</p>
-          <p>Lors de la consultation, nous évaluons :</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>L'épaisseur des tissus</li>
-            <li>La distribution du volume</li>
-            <li>Le relâchement cutané</li>
-            <li>Le calendrier de voyage</li>
-          </ul>
-          <p class="italic border-l-2 border-gold pl-3">L'objectif n'est pas d'offrir plus d'options — mais de trouver la voie la plus rationnelle.</p>
-        </div>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-<!-- Section réservation -->
-<section class="py-20 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <span class="text-gold uppercase tracking-widest text-xs font-bold">Réservation en ligne simple</span>
-    <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-4">Prendre rendez-vous</h2>
-    <p class="text-slate-500 mb-14 leading-relaxed max-w-xl mx-auto">Soins coordonnés par un médecin, optimisés pour les patients internationaux.<br class="hidden md:inline"> Sans intermédiaire, sans approximation. Réservez en ligne.</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-14">
-      <div class="relative px-6">
-        <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">1</div>
-        <h4 class="font-bold text-slate-900 mb-2 text-lg">Réserver un créneau</h4>
-        <p class="text-sm text-slate-500 leading-relaxed">Choisissez une date et une heure adaptées à votre voyage. <span class="text-slate-700 font-medium">Aucun acompte requis.</span></p>
-        <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
-      </div>
-      <div class="relative px-6">
-        <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">2</div>
-        <h4 class="font-bold text-slate-900 mb-2 text-lg">Confirmation & préparation</h4>
-        <p class="text-sm text-slate-500 leading-relaxed">Notre équipe confirme la réservation et prépare un <span class="text-slate-700 font-medium">plan de traitement initial</span>.</p>
-        <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
-      </div>
-      <div class="px-6">
-        <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">3</div>
-        <h4 class="font-bold text-slate-900 mb-2 text-lg">Visite à la clinique</h4>
-        <p class="text-sm text-slate-500 leading-relaxed">Évaluation finale et traitement à la date réservée. <span class="text-slate-700 font-medium">Tout est prêt à votre arrivée.</span></p>
-      </div>
-    </div>
-
-    <a href="/fr/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg text-base">
-      <i class="fas fa-calendar-check text-lg"></i> Réserver maintenant
-    </a>
-    <p class="text-sm text-slate-400 mt-6">Des questions ? <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">WhatsApp</a> · <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">Instagram</a></p>
-  </div>
-</section>
-
-<!-- Localisation -->
-<section id="location" class="py-24 bg-slate-50">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Nous trouver à Gangnam</span>
-      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Nous rendre visite</h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-      <div class="rounded-sm overflow-hidden shadow-lg aspect-[4/3]">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0!2d127.0262995!3d37.5260439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca312332f6f6d%3A0xbca8eff64fdc0d90!2z7JWV6rWs7KCV7Yqg7J2Y7JuQ!5e0!3m2!1sko!2skr!4v1700000000000"
-          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" title="Localisation Tune Clinic Apgujeong">
-        </iframe>
-      </div>
-
-      <div class="flex flex-col justify-center space-y-8 py-4">
-        <div>
-          <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Adresse</h3>
-          <p class="text-slate-700 leading-relaxed">
-            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
-            5F, 868 Nonhyeon-ro, Gangnam-gu, Séoul
-          </p>
-        </div>
-        <div>
-          <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Téléphone</h3>
-          <p class="text-slate-700">
-            <i class="fas fa-phone-alt text-gold mr-2"></i>
-            <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
-          </p>
-        </div>
-        <div>
-          <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Horaires</h3>
-          <div class="text-slate-700 space-y-1">
-            <div class="flex gap-4">
-              <i class="fas fa-clock text-gold mr-2 mt-1"></i>
-              <div>
-                <div class="flex justify-between gap-8"><span>Lun – Ven</span> <span class="font-bold">10:00 – 21:00</span></div>
-                <div class="flex justify-between gap-8"><span>Samedi</span> <span class="font-bold">10:00 – 16:00</span></div>
-                <div class="flex justify-between gap-8 text-red-400"><span>Dimanche</span> <span class="font-bold">Fermé</span></div>
-              </div>
+            <div class="mt-16 text-center border-t border-slate-100 pt-10">
+                <p class="text-slate-500 text-sm mb-4">Vous recherchez une procédure spécifique non répertoriée ci-dessus ?</p>
+                <a href="/fr/menu.html" class="inline-flex items-center justify-center px-8 py-3 border border-slate-300 rounded-sm text-slate-600 font-bold hover:border-slate-800 hover:text-slate-900 transition bg-white shadow-sm hover:shadow-md">
+                    <i class="fas fa-list-ul mr-2 text-slate-400"></i> Tarifs de référence
+                </a>
             </div>
-          </div>
-        </div>
-        <div>
-          <a href="https://maps.app.goo.gl/QPzFkQ9EpJP7D99y6" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold hover:text-yellow-600 transition">
-            <i class="fas fa-directions"></i> Obtenir l'itinéraire
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<div class="bg-slate-100 border-y border-slate-200 py-8">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <p class="text-sm text-slate-500 leading-relaxed">
-      Les consultations sont coordonnées directement avec notre équipe médicale.<br>
-      Nous ne travaillons pas avec des intermédiaires tiers.
-    </p>
-  </div>
-</div>
+        </div>
+    </section>
+
+    <section id="comfort" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-2xl mx-auto text-center px-6">
+            <h4 class="text-2xl font-serif text-slate-900 mb-6">Options de confort</h4>
+            <div class="inline-block text-left bg-white p-6 rounded-sm shadow-sm border border-slate-100">
+                <ul class="text-slate-600 text-sm space-y-4">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check text-gold"></i>
+                        <span><strong class="text-slate-800">Topique</strong> (Standard)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-bullseye text-gold"></i>
+                        <span><strong class="text-slate-800">Bloc de confort ciblé</strong> (Optionnel +₩55 000)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-procedures text-gold"></i>
+                        <span><strong class="text-slate-800">Sédation intraveineuse</strong> (Optionnel +₩110 000)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-sm font-bold text-gold uppercase tracking-widest mb-4">Le dilemme du voyageur</h2>
+            <h3 class="text-3xl font-serif text-slate-900 mb-12">Pourquoi les décisions esthétiques tournent mal</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-layer-group text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">Trop d'appareils</h4>
+                    <p class="text-sm text-slate-500">Ultherapy, Thermage, Filler... la confusion mène au regret.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-clock text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">Trop peu de temps</h4>
+                    <p class="text-sm text-slate-500">Vous avez des jours, pas des semaines. Vous avez besoin d'un plan conçu pour un temps limité.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-balance-scale text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">Aucun critère</h4>
+                    <p class="text-sm text-slate-500">Rechercher des « promotions » plutôt que des résultats anatomiques.</p>
+                </div>
+            </div>
+
+            <p class="text-xl font-serif italic text-slate-700 max-w-2xl mx-auto border-l-4 border-gold pl-6 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-6">
+                « Le regret ne concerne rarement la procédure. C'est le fait de choisir sans cadre de référence. »
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gold-light border-y border-orange-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-4xl text-gold/30 mb-6"></i>
+            <h3 class="text-2xl md:text-4xl font-serif text-slate-900 leading-tight mb-8">
+                « En Corée, Omakase signifie que le chef décide.<br>
+                <span class="text-gold">Chamaka-se</span> signifie que le médecin protège. »
+            </h3>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8">
+                Les moments les plus regrettables en médecine esthétique ne sont pas lorsqu'un traitement échoue, mais lorsqu'une décision est prise sur la base de tendances plutôt que de la physiologie.
+            </p>
+            <p class="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                À Tune Clinic, nous ne demandons pas « Que souhaitez-vous ? »<br>
+                Nous demandons <strong>« Quelle est la décision scientifiquement rationnelle pour vous, en ce moment ? »</strong>
+            </p>
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Technology Arsenal ─────────────────────────────── -->
+    <section class="arsenal-section py-20 overflow-hidden relative">
+        <div class="arsenal-glow arsenal-glow-gold"></div>
+        <div class="arsenal-glow arsenal-glow-blue"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gold uppercase tracking-[0.28em] text-[11px] font-bold">
+                    Technology Portfolio
+                </span>
+                <h2 class="text-3xl md:text-5xl font-serif text-white mt-5 leading-tight">
+                    Un arsenal sélectionné de
+                    <span class="text-gold">marques mondiales, appareils</span> et systèmes exclusifs
+                </h2>
+                <p class="text-slate-300 text-sm md:text-base mt-5 leading-relaxed max-w-2xl mx-auto">
+                    Nous élaborons les plans en partant de la physiologie, puis sélectionnons la bonne combinaison d'injectables, de plateformes énergétiques,
+                    de thérapies régénératives et de systèmes exclusifs Tune pour appuyer cette décision.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10">
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">Injectables</span>
+                    <strong>Plus de 10 marques premium</strong>
+                </div>
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">Énergie</span>
+                    <strong>Plateformes de lifting et resurfaçage</strong>
+                </div>
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">Régénératif</span>
+                    <strong>Systèmes capillaires, cutanés et de récupération</strong>
+                </div>
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">Corps</span>
+                    <strong>Solutions de contour et de fermeté</strong>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="arsenal-card">
+                    <div class="arsenal-card-head">
+                        <div>
+                            <span class="arsenal-card-label">Marques mondiales</span>
+                            <h3 class="arsenal-card-title">Injectables et biostimulateurs</h3>
+                        </div>
+                        <p class="arsenal-card-copy">Marques de filler et de stimulation du collagène de confiance, sélectionnées pour la structure, la douceur et la longévité.</p>
+                    </div>
+                    <div class="ticker-shell">
+                        <div class="ticker-row flex gap-6" data-speed="35">
+                            <div class="ticker-track flex gap-6 shrink-0">
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                            </div>
+                            <div class="ticker-track flex gap-6 shrink-0" aria-hidden="true">
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arsenal-card">
+                    <div class="arsenal-card-head">
+                        <div>
+                            <span class="arsenal-card-label">Systèmes énergétiques</span>
+                            <h3 class="arsenal-card-title">Lifting, raffermissement et resurfaçage</h3>
+                        </div>
+                        <p class="arsenal-card-copy">Plateformes haute énergie choisies selon l'indication, la profondeur, la qualité tissulaire et la tolérance aux temps d'arrêt.</p>
+                    </div>
+                    <div class="ticker-shell">
+                        <div class="ticker-row flex gap-6" data-speed="30" data-reverse="true">
+                            <div class="ticker-track flex gap-6 shrink-0">
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                            </div>
+                            <div class="ticker-track flex gap-6 shrink-0" aria-hidden="true">
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arsenal-card">
+                    <div class="arsenal-card-head">
+                        <div>
+                            <span class="arsenal-card-label">Signature et spécialité</span>
+                            <h3 class="arsenal-card-title">Systèmes Tune, programmes régénératifs et corporels</h3>
+                        </div>
+                        <p class="arsenal-card-copy">Signatures cliniques et thérapies complémentaires pour la qualité de la peau, la récupération, les cheveux et le remodelage corporel.</p>
+                    </div>
+                    <div class="ticker-shell">
+                        <div class="ticker-row flex gap-6" data-speed="40">
+                            <div class="ticker-track flex gap-6 shrink-0">
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                            </div>
+                            <div class="ticker-track flex gap-6 shrink-0" aria-hidden="true">
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 text-xs text-slate-300 mt-10">
+                <span class="arsenal-legend"><span class="arsenal-dot brand"></span> Marque mondiale</span>
+                <span class="arsenal-legend"><span class="arsenal-dot device"></span> Appareil énergétique</span>
+                <span class="arsenal-legend"><span class="arsenal-dot tune"></span> Signature Tune</span>
+                <span class="arsenal-legend"><span class="arsenal-dot specialty"></span> Traitement spécialisé</span>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .arsenal-section {
+            background:
+                radial-gradient(circle at 20% 15%, rgba(197,160,89,0.12), transparent 28%),
+                radial-gradient(circle at 82% 20%, rgba(96,165,250,0.10), transparent 24%),
+                linear-gradient(180deg, #07101a 0%, #0f172a 50%, #0b1220 100%);
+        }
+        .arsenal-glow {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(90px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .arsenal-glow-gold {
+            width: 20rem;
+            height: 20rem;
+            top: 3rem;
+            left: -6rem;
+            background: rgba(197,160,89,0.22);
+        }
+        .arsenal-glow-blue {
+            width: 22rem;
+            height: 22rem;
+            right: -6rem;
+            bottom: 2rem;
+            background: rgba(96,165,250,0.18);
+        }
+        .arsenal-stat {
+            border: 1px solid rgba(255,255,255,0.08);
+            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            backdrop-filter: blur(12px);
+            border-radius: 1rem;
+            padding: 1rem 1.1rem;
+            color: #e2e8f0;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .arsenal-stat strong {
+            display: block;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .arsenal-stat-kicker {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #c5a059;
+            font-weight: 700;
+        }
+        .arsenal-card {
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.09);
+            background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 18px 60px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .arsenal-card-head {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 1rem;
+            align-items: end;
+            margin-bottom: 1rem;
+        }
+        .arsenal-card-label {
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #c5a059;
+            font-weight: 700;
+        }
+        .arsenal-card-title {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+        .arsenal-card-copy {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            max-width: 30rem;
+            justify-self: end;
+        }
+        .ticker-shell {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(2,6,23,0.38);
+            padding: 1rem 0;
+        }
+        .ticker-shell::before,
+        .ticker-shell::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 5rem;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .ticker-shell::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(2,6,23,0.9), transparent);
+        }
+        .ticker-shell::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(2,6,23,0.9), transparent);
+        }
+        .ticker-pill {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 0.62rem 1.15rem;
+            border-radius: 999px;
+            font-size: 0.79rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            cursor: default;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+        .ticker-pill:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+            opacity: 1 !important;
+        }
+        .ticker-pill.brand {
+            background: linear-gradient(180deg, rgba(197,160,89,0.22), rgba(197,160,89,0.10));
+            color: #f5d68c;
+            border: 1px solid rgba(197,160,89,0.30);
+        }
+        .ticker-pill.device {
+            background: linear-gradient(180deg, rgba(96,165,250,0.18), rgba(96,165,250,0.08));
+            color: #bfdbfe;
+            border: 1px solid rgba(96,165,250,0.25);
+        }
+        .ticker-pill.tune {
+            background: linear-gradient(180deg, rgba(167,139,250,0.20), rgba(167,139,250,0.08));
+            color: #ddd6fe;
+            border: 1px solid rgba(167,139,250,0.28);
+        }
+        .ticker-pill.specialty {
+            background: linear-gradient(180deg, rgba(52,211,153,0.18), rgba(52,211,153,0.08));
+            color: #bbf7d0;
+            border: 1px solid rgba(52,211,153,0.25);
+        }
+        .ticker-row { width: 100%; overflow: hidden; }
+        .ticker-track { will-change: transform; animation: ticker-ltr var(--spd, 35s) linear infinite; }
+        .ticker-row[data-reverse="true"] .ticker-track { animation-name: ticker-rtl; }
+        @keyframes ticker-ltr { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes ticker-rtl { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+        .ticker-row:hover .ticker-track { animation-play-state: paused; }
+        .arsenal-legend {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.55rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+        }
+        .arsenal-dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            display: inline-block;
+        }
+        .arsenal-dot.brand { background: #c5a059; }
+        .arsenal-dot.device { background: #60a5fa; }
+        .arsenal-dot.tune { background: #a78bfa; }
+        .arsenal-dot.specialty { background: #34d399; }
+        @media (max-width: 768px) {
+            .arsenal-card-head {
+                grid-template-columns: 1fr;
+                gap: 0.7rem;
+            }
+            .arsenal-card-title {
+                font-size: 1.2rem;
+            }
+            .arsenal-card-copy {
+                justify-self: start;
+                font-size: 0.85rem;
+            }
+            .ticker-pill {
+                padding: 0.58rem 1rem;
+                font-size: 0.74rem;
+            }
+        }
+    </style>
+    <script>
+    document.querySelectorAll('.ticker-row').forEach(function(row) {
+        var spd = row.dataset.speed || '35';
+        row.querySelectorAll('.ticker-track').forEach(function(t) {
+            t.style.setProperty('--spd', spd + 's');
+            t.style.animationDuration = spd + 's';
+        });
+    });
+    </script>
+    <!-- ── / Technology Arsenal ────────────────────────────── -->
+
+    <section class="py-24 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center">
+                <div>
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 bg-gold-light text-gold uppercase tracking-[0.22em] text-[11px] font-bold">
+                        High-Volume Clinical Archive
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-slate-900 mt-6 leading-tight">
+                        Utilisation réelle en clinique, documentée avec
+                        <span class="text-gold">de véritables images d'archives de traitements</span>
+                    </h2>
+                    <p class="text-slate-600 text-base md:text-lg leading-relaxed mt-6 max-w-2xl">
+                        Flacons et consommables réellement utilisés, collectés en moins de trois mois à Tune Clinic.
+                        Il ne s'agit pas d'un inventaire de brochure. C'est un registre axé sur la transparence du volume réel de traitements en filler,
+                        Juvelook, Rejuran et la planification d'injectables dirigée par le médecin.
+                    </p>
+                    <div class="grid sm:grid-cols-3 gap-4 mt-8">
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">Période de collecte</p>
+                            <p class="text-lg font-serif text-slate-900 mt-2">Moins de 3 mois</p>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">Catégories observées</p>
+                            <p class="text-lg font-serif text-slate-900 mt-2">Filler, Rejuran, Juvelook</p>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">Pourquoi c'est important</p>
+                            <p class="text-lg font-serif text-slate-900 mt-2">Volume sous contrôle médical</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-500 leading-relaxed mt-6">
+                        L'objectif n'est pas de célébrer la quantité seule. Il s'agit de montrer que des marques premium et des techniques minutieuses
+                        sont utilisées de manière répétée dans un flux clinique réel, et non présentées comme des traitements vitrine occasionnels.
+                    </p>
+                </div>
+
+                <div class="grid gap-4">
+                    <div class="rounded-[2rem] overflow-hidden border border-slate-200 shadow-xl bg-slate-50">
+                        <img src="/.netlify/images?url=/used-bottles-archive.png&w=1400&fm=webp&q=75" alt="Archives cliniques de flacons et consommables utilisés, collectés à Tune Clinic en moins de trois mois" class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white">
+                            <img src="/.netlify/images?url=/used-filler-bottles.png&w=700&fm=webp&q=75" alt="Seringues de filler utilisées photographiées à Tune Clinic" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white">
+                            <img src="/.netlify/images?url=/used-rejuran-bottles.png&w=700&fm=webp&q=75" alt="Seringues de Rejuran utilisées photographiées à Tune Clinic" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white">
+                            <img src="/.netlify/images?url=/used-juvelook-bottles.png&w=700&fm=webp&q=75" alt="Flacons de Juvelook utilisés photographiés à Tune Clinic" class="w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Curation dirigée par les médecins</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Le comité médical</h2>
+                <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
+                    Stratégie, lifting, chirurgie, médecine régénérative et coordination internationale.
+                    <br>Un comité. Un plan. Une équipe clinique responsable.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 mb-8">
+                <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10"></div>
+                    <img src="/.netlify/images?url=/cha.jpg&w=900&fm=webp&q=75" alt="Dr. Cha" class="w-full h-full object-cover object-top min-h-[420px]">
+                    <div class="absolute inset-x-0 bottom-0 z-20 p-8 md:p-10 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] text-gold border border-gold/30 bg-white/5 mb-4">Directeur représentant</span>
+                        <h3 class="text-3xl md:text-4xl font-serif text-white">Dr. Seung Yeon Cha</h3>
+                        <p class="text-gold text-xs font-bold uppercase tracking-[0.18em] mt-2 mb-4">Planificateur expert de l'équilibre facial</p>
+                        <p class="text-slate-300 max-w-2xl leading-relaxed mb-5">
+                            « La médecine esthétique ne consiste pas à changer votre visage. Il s'agit de retrouver l'équilibre perdu. »
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs text-slate-200">
+                            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Directeur, Société coréenne des cellules souches</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Spécialiste en design facial et anti-âge</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Conciergerie dédiée 1:1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+                        <div class="grid grid-cols-[120px_1fr] md:grid-cols-[150px_1fr]">
+                            <img src="/.netlify/images?url=/kim_ky.jpg&w=500&fm=webp&q=75" alt="Dr. Kwang Yeon Kim" class="w-full h-full object-cover object-top min-h-[220px]">
+                            <div class="p-6 md:p-7">
+                                <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Directeur représentant</span>
+                                <h3 class="text-2xl font-serif text-slate-900 mt-2">Dr. Kwang Yeon Kim</h3>
+                                <p class="text-sm text-slate-500 mt-1 mb-4">Autorité en lifting et spécialiste du raffermissement vectoriel.</p>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                                    « Le lifting est une question de physique. Nous calculons les vecteurs et la profondeur pour garantir le résultat le plus naturel. »
+                                </p>
+                                <div class="flex flex-wrap gap-2 text-[11px] text-slate-500">
+                                    <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">Médecin référent pour le lifting (Hugel)</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">Ancien directeur, Hôpital Yestar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-gold-light to-white rounded-3xl border border-gold/20 shadow-lg p-7">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Coordination internationale</span>
+                        <h3 class="text-2xl font-serif text-slate-900 mt-2">Médecin anglophone + conciergerie</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mt-3 mb-5">
+                            Les patients internationaux ne passent pas par des intermédiaires. La planification, la communication et le suivi sont gérés via un seul canal coordonné.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Langues</p>
+                                <p class="text-sm font-bold text-slate-900 mt-2">Anglais / Chinois / Japonais / Thaï / Arabe</p>
+                            </div>
+                            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Modèle</p>
+                                <p class="text-sm font-bold text-slate-900 mt-2">Planification médicale directe</p>
+                            </div>
+                            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Accompagnement</p>
+                                <p class="text-sm font-bold text-slate-900 mt-2">Conciergerie complète</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75" alt="Dr. Jee Hoon Ju" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Directeur international</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Jee Hoon Ju</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">Cheveux, esthétique médicale et communication avec les patients internationaux.</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- American Board of Aesthetic Medicine</li>
+                            <li>- Spécialiste en greffe capillaire</li>
+                            <li>- MIT Sloan IA en santé</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/jo.jpg&w=600&fm=webp&q=75" alt="Dr. Dong Hyun Jo" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Médecine régénérative</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Dong Hyun Jo</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">Stratégie en cellules souches et médecine régénérative pour la qualité tissulaire et la récupération.</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- Conseiller clinique, Hôpital universitaire national de Séoul</li>
+                            <li>- Président, International Practical Plastic Surgery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/kim_bj.jpg&w=600&fm=webp&q=75" alt="Dr. Beom Jin Kim" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Chirurgie et reconstruction</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Beom Jin Kim</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">Expertise en chirurgie plastique soutenant les décisions structurelles et les orientations si nécessaire.</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- Professeur clinique, Chirurgie plastique, Yonsei</li>
+                            <li>- UPMC Fellow, Université de Pittsburgh</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/jang.jpg&w=600&fm=webp&q=75" alt="Dr. Seung Woo Jang" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Conseil médical</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">Dr. Seung Woo Jang</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">Expertise consultative MD, PhD en pédiatrie et évaluation médicale générale.</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- Professeur clinique, Faculté de médecine de l'Université Chosun</li>
+                            <li>- Pédiatre certifié, MD PhD</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-lg">
+                    <i class="fas fa-check-circle text-gold"></i>
+                    <span class="text-xs font-bold uppercase">Expérience fluide : planification médicale directe + conciergerie complète</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="match" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Triage en 60 secondes</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">Trouvez votre programme</h2>
+                <p class="text-slate-500">Répondez à trois questions. Nous vous orienterons vers le parcours adapté.</p>
+            </div>
+
+            <div id="match-form" class="space-y-10">
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">1 - Quel est votre objectif principal ?</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="goal">
+                        <button type="button" data-value="collagen" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-seedling text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">Collagène</span>
+                            <span class="text-[10px] text-slate-400">Subtil, long terme</span>
+                        </button>
+                        <button type="button" data-value="volume" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-cube text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">Volume</span>
+                            <span class="text-[10px] text-slate-400">Structure et contour</span>
+                        </button>
+                        <button type="button" data-value="lift" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-arrow-up text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">Lifting</span>
+                            <span class="text-[10px] text-slate-400">Raffermir et restaurer</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">2 - Tolérance aux temps d'arrêt ?</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="downtime">
+                        <button type="button" data-value="none" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">Aucun</span>
+                            <span class="text-[10px] text-slate-400">Aucune récupération visible</span>
+                        </button>
+                        <button type="button" data-value="mild" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">24 - 48 h</span>
+                            <span class="text-[10px] text-slate-400">Léger gonflement acceptable</span>
+                        </button>
+                        <button type="button" data-value="extended" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">3 - 7 jours</span>
+                            <span class="text-[10px] text-slate-400">Fenêtre de récupération complète</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">3 - Urgence de voyage</p>
+                    <label class="flex items-center gap-4 cursor-pointer border border-slate-200 rounded-sm px-5 py-4 transition hover:border-slate-400 w-fit">
+                        <span class="relative inline-block w-11 h-6">
+                            <input type="checkbox" id="match-urgent" class="peer sr-only">
+                            <span class="absolute inset-0 bg-slate-200 rounded-full transition peer-checked:bg-gold"></span>
+                            <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
+                        </span>
+                        <span class="text-sm text-slate-700">Départ de Séoul dans <strong>&lt; 72 heures</strong></span>
+                    </label>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button type="button" id="match-submit" disabled class="px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider">
+                        Voir mon programme
+                    </button>
+                    <p id="match-hint" class="text-xs text-slate-400 mt-3">Sélectionnez un objectif et une préférence de temps d'arrêt pour continuer.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Ressources de planification</span>
+                <h2 class="text-3xl font-serif text-slate-900 mt-3">Commencez par le bon guide avant de réserver</h2>
+                <p class="text-slate-500 mt-4">Si vous comparez les cliniques de Séoul depuis l'étranger, commencez par trois guides essentiels. La bibliothèque complète reste disponible dans un espace dédié sans encombrer le parcours principal.</p>
+            </div>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <a href="/fr/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Planification de voyage</p>
+                    <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Guide pour les patients internationaux</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mt-3">Déroulement de la consultation, support linguistique, planification de séjour court, et ce qui convient généralement aux visiteurs étrangers.</p>
+                </a>
+                <a href="/fr/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Recherche locale</p>
+                    <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Clinique esthétique d'Apgujeong pour patients étrangers</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mt-3">Pourquoi les patients recherchent par quartier, et comment évaluer la pertinence d'une clinique au-delà de la marque et de la localisation.</p>
+                </a>
+                <a href="/fr/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Centre de traitements</p>
+                    <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Guide du lifting coréen</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mt-3">Comparez Ultherapy, Thermage FLX, Oligio et les combinaisons de lifting dirigées par le médecin avant de vous décider.</p>
+                </a>
+            </div>
+            <div class="mt-10 text-center">
+                <a href="/fr/guides.html" class="inline-flex items-center justify-center px-8 py-3 border border-slate-300 rounded-sm text-slate-700 font-bold hover:border-slate-900 hover:text-slate-900 transition bg-white shadow-sm hover:shadow-md">
+                    <i class="fas fa-book-open mr-2 text-gold"></i> Voir tous les guides
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50" id="faq">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">FAQ voyageurs</h2>
+            <div class="space-y-4">
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Puis-je prendre l'avion peu après le traitement ?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>Oui, dans la plupart des cas.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Le lifting par énergie</strong> (Ultherapy, Thermage, Onda) vous permet généralement de reprendre vos activités normales immédiatement.</li>
+                            <li><strong>Les injectables</strong> (Juvelook, Filler) recommandent généralement un délai de 24-48 heures si possible pour surveiller un léger gonflement ou des ecchymoses.</li>
+                        </ul>
+                        <p>Votre plan sera toujours ajusté en fonction de votre programme de voyage.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Quel temps de récupération dois-je prévoir ?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>Le temps de récupération dépend du parcours sélectionné :</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Lifting :</strong> Temps d'arrêt visible minimal</li>
+                            <li><strong>Juvelook :</strong> Un léger gonflement peut survenir</li>
+                            <li><strong>Filler :</strong> Des ecchymoses sont possibles, en particulier dans les zones délicates</li>
+                        </ul>
+                        <p>Nous privilégions une planification structurée pour minimiser le temps de récupération inutile pour les voyageurs.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        La gestion de la douleur est-elle disponible pour les procédures de lifting ?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>Oui. Nous proposons des <strong>blocs de confort ciblés</strong> et une <strong>sédation consciente intraveineuse</strong> (optionnelle) pour optimiser le confort.</p>
+                        <p class="text-xs text-slate-400">L'éligibilité est confirmée après examen de vos antécédents médicaux le jour du traitement.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Comment choisir le bon programme ?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>Vous n'avez pas besoin de le faire. <strong>Chamaka-se</strong> est un modèle élaboré par le médecin.</p>
+                        <p>Lors de la consultation, nous évaluons :</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>L'épaisseur des tissus</li>
+                            <li>La distribution du volume</li>
+                            <li>La laxité cutanée</li>
+                            <li>Le calendrier de voyage</li>
+                        </ul>
+                        <p class="italic border-l-2 border-gold pl-3">L'objectif n'est pas d'offrir plus d'options, mais d'identifier le parcours le plus rationnel pour vous.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Comment me préparer avant ma visite ?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>Pour optimiser votre consultation, veuillez préparer :</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Une photo de face en lumière naturelle</li>
+                            <li>Vos dates de voyage</li>
+                            <li>Votre préoccupation principale (lifting / volume / soutien au collagène)</li>
+                        </ul>
+                        <p>Nous recommandons de réserver à l'avance en raison du nombre limité de rendez-vous quotidiens.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Réservation en ligne simple</span>
+            <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-4">Réservez votre visite</h2>
+            <p class="text-slate-500 mb-14 leading-relaxed max-w-xl mx-auto">Soins coordonnés par le médecin, simplifiés pour les patients internationaux.<br class="hidden md:inline"> Sans intermédiaires. Sans approximation. Réservez votre créneau en ligne.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-14">
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">1</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">Réservez un créneau</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Choisissez une date et une heure adaptées à votre programme de voyage. <span class="text-slate-700 font-medium">Aucun acompte requis.</span></p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">2</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">Nous confirmons et préparons</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Notre équipe confirme votre réservation et prépare un <span class="text-slate-700 font-medium">plan de traitement préliminaire</span>.</p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">3</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">Visitez la clinique</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Évaluation finale et traitement à la date prévue. <span class="text-slate-700 font-medium">Tout est prêt à votre arrivée.</span></p>
+                </div>
+            </div>
+
+            <a href="/fr/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg text-base">
+                <i class="fas fa-calendar-check text-lg"></i> Réserver maintenant
+            </a>
+            <p class="text-sm text-slate-400 mt-6">Une question ? <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">WhatsApp</a> · <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">Instagram</a></p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Où la précision rencontre le confort</span>
+                <h2 class="text-4xl font-serif text-white mt-3 mb-6">L'intérieur de la clinique</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    Chaque détail — de nos suites VIP au hall — est conçu pour la confidentialité, la précision et la tranquillité d'esprit.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-1.jpg&w=600&fm=webp&q=65" alt="Hall de la clinique" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Entrée principale</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-2.jpg&w=600&fm=webp&q=65" alt="Réception de la clinique" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Réception</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-3.jpg&w=600&fm=webp&q=65" alt="Salon du hall" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Salon</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-4.jpg&w=600&fm=webp&q=65" alt="Salle d'attente" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Salle d'attente</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-1.jpg&w=600&fm=webp&q=65" alt="Suite de traitement VIP" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Suite VIP</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-2.jpg&w=600&fm=webp&q=65" alt="Salle de traitement privée" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Salle privée</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-3.jpg&w=600&fm=webp&q=65" alt="Espace de consultation" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Consultation</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-4.jpg&w=600&fm=webp&q=65" alt="Équipements premium" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Espace premium</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Nous trouver à Gangnam</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Nous rendre visite</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="rounded-sm overflow-hidden shadow-lg aspect-[4/3]">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0!2d127.0262995!3d37.5260439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca312332f6f6d%3A0xbca8eff64fdc0d90!2z7JWV6rWs7KCV7Yqg7J2Y7JuQ!5e0!3m2!1sko!2skr!4v1700000000000"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Tune Clinic Apgujeong Location">
+                    </iframe>
+                </div>
+
+                <div class="flex flex-col justify-center space-y-8 py-4">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Adresse</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+                            5ème étage, 868, Nonhyeon-ro,<br>
+                            <span class="ml-6">Gangnam-gu, Séoul, République de Corée</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Téléphone</h3>
+                        <p class="text-slate-700">
+                            <i class="fas fa-phone-alt text-gold mr-2"></i>
+                            <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Horaires</h3>
+                        <div class="text-slate-700 space-y-1">
+                            <div class="flex gap-4">
+                                <i class="fas fa-clock text-gold mr-2 mt-1"></i>
+                                <div>
+                                    <div class="flex justify-between gap-8"><span>Lun - Ven</span> <span class="font-bold">10:00 - 21:00</span></div>
+                                    <div class="flex justify-between gap-8"><span>Samedi</span> <span class="font-bold">10:00 - 16:00</span></div>
+                                    <div class="flex justify-between gap-8 text-red-400"><span>Dimanche</span> <span class="font-bold">Fermé</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="https://maps.app.goo.gl/QPzFkQ9EpJP7D99y6" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold hover:text-yellow-600 transition">
+                            <i class="fas fa-directions"></i> Itinéraire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-slate-100 border-y border-slate-200 py-8">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <p class="text-sm text-slate-500 leading-relaxed">
+                Les consultations sont coordonnées directement avec notre équipe médicale.<br>
+                Nous ne faisons pas appel à des intermédiaires tiers.
+            </p>
+        </div>
+    </div>
 
 <script>
-(function () {
-  var state = { goal: null, downtime: null };
-  var submitBtn = document.getElementById('match-submit');
-  var hint = document.getElementById('match-hint');
-  var urgent = document.getElementById('match-urgent');
+    /* ── Match Engine ─────────────────────────────────────── */
+    (function () {
+        var state = { goal: null, downtime: null };
+        var submitBtn = document.getElementById('match-submit');
+        var hint      = document.getElementById('match-hint');
+        var urgent    = document.getElementById('match-urgent');
 
-  document.querySelectorAll('[data-match-group]').forEach(function (group) {
-    var key = group.dataset.matchGroup;
-    group.querySelectorAll('.match-option').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        group.querySelectorAll('.match-option').forEach(function (b) { b.classList.remove('selected'); });
-        btn.classList.add('selected');
-        state[key] = btn.dataset.value;
-        updateSubmit();
-      });
-    });
-  });
+        document.querySelectorAll('[data-match-group]').forEach(function (group) {
+            var key = group.dataset.matchGroup;
+            group.querySelectorAll('.match-option').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    group.querySelectorAll('.match-option').forEach(function (b) { b.classList.remove('selected'); });
+                    btn.classList.add('selected');
+                    state[key] = btn.dataset.value;
+                    updateSubmit();
+                });
+            });
+        });
 
-  function updateSubmit() {
-    var ready = state.goal && state.downtime;
-    submitBtn.disabled = !ready;
-    submitBtn.className = ready
-      ? 'px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow text-sm uppercase tracking-wider'
-      : 'px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider';
-    hint.textContent = ready ? '' : 'Veuillez sélectionner un objectif et un temps d\'arrêt.';
-  }
+        function updateSubmit() {
+            var ready = state.goal && state.downtime;
+            submitBtn.disabled = !ready;
+            submitBtn.className = ready
+                ? 'px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow text-sm uppercase tracking-wider'
+                : 'px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider';
+            hint.textContent = ready ? '' : 'Sélectionnez un objectif et une préférence de temps d\u0027arrêt pour continuer.';
+        }
 
-  submitBtn.addEventListener('click', function () {
-    if (submitBtn.disabled) return;
-    highlight(resolve(state.goal, state.downtime, urgent.checked));
-  });
+        submitBtn.addEventListener('click', function () {
+            if (submitBtn.disabled) return;
+            highlight(resolve(state.goal, state.downtime, urgent.checked));
+        });
 
-  function resolve(goal, downtime, isUrgent) {
-    if (isUrgent) return 'program-lifting';
-    if (goal === 'collagen') {
-      if (downtime === 'none') return 'program-lifting';
-      if (downtime === 'extended') return 'program-elite';
-      return 'program-collagen';
-    }
-    if (goal === 'volume') {
-      if (downtime === 'none') return 'program-lifting';
-      if (downtime === 'extended') return 'program-elite';
-      return 'program-volume';
-    }
-    if (goal === 'lift') {
-      if (downtime === 'none') return 'program-lifting';
-      return 'program-elite';
-    }
-    return 'program-lifting';
-  }
+        /* ── Routing table ────────────────────────────────────
+         *  goal × downtime × urgent → program card id
+         *
+         *  program-elite is now reachable via:
+         *    - any goal + extended downtime (not urgent)
+         *    - lift + standard downtime (not urgent)
+         *  This increases its exposure from ~2 paths to ~4 paths.
+         * ────────────────────────────────────────────────── */
+        function resolve(goal, downtime, isUrgent) {
+            if (isUrgent) {
+                // Urgent always wants fastest result
+                return downtime === 'extended' ? 'program-lifting' : 'program-lifting';
+            }
+            if (goal === 'collagen') {
+                if (downtime === 'none')     return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-collagen';
+            }
+            if (goal === 'volume') {
+                if (downtime === 'none')     return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-volume';
+            }
+            if (goal === 'lift') {
+                if (downtime === 'none')     return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-elite'; // standard → elite (full combo)
+            }
+            return 'program-lifting';
+        }
 
-  function highlight(cardId) {
-    document.querySelectorAll('.program-highlight').forEach(function (el) { el.classList.remove('program-highlight'); });
-    document.querySelectorAll('[data-match-badge]').forEach(function (el) { el.remove(); });
-    document.querySelectorAll('.cta-pulse').forEach(function (el) { el.classList.remove('cta-pulse'); });
-    var card = document.getElementById(cardId);
-    if (!card) return;
-    var offsetPosition = card.getBoundingClientRect().top + window.pageYOffset - 100;
-    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    setTimeout(function () {
-      card.classList.add('program-highlight');
-      var badge = document.createElement('span');
-      badge.className = 'absolute top-3 left-3 bg-[#C5A059] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider';
-      badge.setAttribute('data-match-badge', '');
-      badge.textContent = 'Recommandé pour vous';
-      card.appendChild(badge);
-      var btns = card.querySelectorAll('a');
-      if (btns.length > 0) {
-        btns[btns.length - 1].classList.add('cta-pulse');
-        setTimeout(function () { btns[btns.length - 1].classList.remove('cta-pulse'); }, 2000);
-      }
-    }, 500);
-  }
-})();
-</script>
+        function highlight(cardId) {
+            document.querySelectorAll('.program-highlight').forEach(function (el) { el.classList.remove('program-highlight'); });
+            document.querySelectorAll('[data-match-badge]').forEach(function (el) { el.remove(); });
+            document.querySelectorAll('.cta-pulse').forEach(function (el) { el.classList.remove('cta-pulse'); });
+
+            var card = document.getElementById(cardId);
+            if (!card) return;
+
+            var offsetPosition = card.getBoundingClientRect().top + window.pageYOffset - 100;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+
+            setTimeout(function () {
+                card.classList.add('program-highlight');
+                var badge = document.createElement('span');
+                badge.className = 'absolute top-3 left-3 bg-[#C5A059] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider';
+                badge.setAttribute('data-match-badge', '');
+                badge.textContent = 'Recommandé selon vos réponses';
+                card.appendChild(badge);
+
+                var btns = card.querySelectorAll('a');
+                if (btns.length > 0) {
+                    btns[btns.length - 1].classList.add('cta-pulse');
+                    setTimeout(function () { btns[btns.length - 1].classList.remove('cta-pulse'); }, 2000);
+                }
+            }, 500);
+        }
+    })();
+    </script>

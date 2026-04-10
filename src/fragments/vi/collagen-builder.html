@@ -1,40 +1,393 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-body { font-family: 'Lato', sans-serif; }
-.font-serif { font-family: 'Playfair Display', serif; }
-.text-gold { color: #C5A059; }
-.bg-gold { background-color: #C5A059; }
-.border-gold { border-color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-collagen {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(125,211,252,0.20), transparent 24%),
+                radial-gradient(circle at 82% 20%, rgba(197,160,89,0.15), transparent 22%),
+                linear-gradient(180deg, #0f172a 0%, #152238 55%, #1e293b 100%);
+        }
 </style>
 
-<section class="bg-white py-24 border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="text-gold uppercase tracking-widest text-xs font-bold">Tái sinh / Collagen</span>
-        <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mt-4 mb-6 leading-tight">The Collagen<br><span class="text-gold italic">Builder</span></h1>
-        <p class="text-slate-600 text-lg leading-relaxed mb-8">Rejuran Black + Juvelook Skin kích thích collagen, làm mịn lỗ chân lông và cải thiện kết cấu da mà không có hiệu ứng tạo thể tích.</p>
-        <p class="text-gold font-bold text-2xl mb-2">₩990,000</p>
-        <p class="text-slate-500 text-sm mb-8">đã bao gồm VAT</p>
-        <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
-      </div>
-      <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
-        <h3 class="text-xl font-serif text-slate-900 mb-6">Chi tiết</h3>
-        <div class="space-y-4">
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Rejuran Black</span><span class="font-bold text-slate-900 text-sm">2cc × 2 lọ</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Juvelook Skin</span><span class="font-bold text-slate-900 text-sm">1 lọ</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Kỹ thuật</span><span class="font-bold text-slate-900 text-sm">Mạng lưới vi tiêm</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Nghỉ dưỡng</span><span class="font-bold text-slate-900 text-sm">24–48 giờ</span></div>
-          <div class="flex justify-between items-center py-3"><span class="text-slate-600 text-sm">Giá</span><span class="font-bold text-gold text-sm">₩990,000</span></div>
+<header class="relative hero-collagen overflow-hidden py-24 md:py-32">
+        <div class="absolute inset-0 z-0">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/30 backdrop-blur-sm">
+                Kích thích sinh học / Chất lượng da
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+                Chương trình tái tạo Collagen
+            </h1>
+            <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+                Phác đồ kích thích sinh học do bác sĩ dẫn dắt nhằm cải thiện độ dày da, nếp nhăn nhỏ và chất lượng da tổng thể — không gây hiệu ứng "bơm quá đà".
+            </p>
+            
+            <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[260px]">
+                <span class="text-sm font-bold text-white mb-2">Rejuran Black 4cc + Juvelook Skin 2cc</span>
+                <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="103">₩770,000</span>
+                <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
+                    <p class="text-[10px] text-slate-300 uppercase tracking-wider">Bao gồm Tư vấn + Điều trị + Chăm sóc sau thủ thuật</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/vi/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+                <a href="/vi/index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                    So sánh chương trình
+                </a>
+            </div>
+        </div>
+    </header>
 
-<section class="py-24 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check text-gold"></i> Đặt lịch ngay</a>
-  </div>
-</section>
+    <section class="py-6 bg-slate-900 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Phù hợp nhất cho</p>
+                <p class="text-sm text-slate-200">Kết cấu da, độ dày và nếp nhăn nhỏ</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Thời gian nghỉ dưỡng</p>
+                <p class="text-sm text-slate-200">Sưng nhẹ trong 24–48 giờ</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Phối hợp chính</p>
+                <p class="text-sm text-slate-200">Rejuran Black + Juvelook</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="bg-gold-light p-8 rounded-sm border-t-4 border-gold">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-check-circle text-gold mr-3"></i> Dành cho ai
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Bệnh nhân muốn cải thiện kết cấu da, nếp nhăn nhỏ, lỗ chân lông và chất lượng da tổng thể.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Bệnh nhân lo ngại hiệu ứng "bơm quá đà" hoặc biến dạng khuôn mặt do filler truyền thống.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Người có dấu hiệu lão hóa sớm, da xỉn màu mãn tính hoặc da dễ mất nước.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Bệnh nhân ưa thích sự cải thiện chất lượng da từ từ, tự nhiên trong vài tuần.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Khách du lịch có thể dành thời gian nghỉ dưỡng nhẹ (sưng nhẹ trong 24–48 giờ).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> KHÔNG dành cho ai
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Tạo đường nét tức thì:</strong> Nếu bạn cần nâng cơ cấu trúc ngay lập tức, chúng tôi khuyên dùng <a href="/vi/signature-lifting.html" class="underline hover:text-gold font-bold text-slate-600">Signature Lifting</a>.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Da chảy xệ nghiêm trọng:</strong> Đối với da chảy xệ sâu, cần sử dụng thiết bị năng lượng trước.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Da chảy xệ nghiêm trọng + Kết cấu:</strong> Để kết hợp nâng sâu và làm săn bề mặt, <a href="/vi/structural-reset.html" class="underline hover:text-gold font-bold text-slate-600">Structural Reset Elite</a> (Ultherapy + Thermage) phù hợp hơn.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Yêu cầu không có thời gian nghỉ:</strong> Nếu bạn cần hoàn toàn sẵn sàng cho sự kiện ngay sáng hôm sau, hãy dành khoảng đệm 24–48 giờ.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Cơ sở khoa học</span>
+                <h2 class="text-3xl font-serif text-slate-900 mt-2">Tại sao phương pháp này hiệu quả</h2>
+            </div>
+            
+            <div class="prose prose-slate mx-auto text-center">
+                <p class="text-slate-600 font-bold leading-relaxed text-lg mb-10 border-l-2 border-gold pl-4 inline-block text-left">
+                    "Mục tiêu là chất lượng và độ dày da, không phải biến dạng thể tích."
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-white p-6 rounded-sm shadow-sm border border-slate-100">
+                        <h4 class="font-bold text-slate-900 mb-2">1. Phục hồi lớp bì</h4>
+                        <p class="text-sm text-slate-500">Rejuran Black hoạt động như một phác đồ polynucleotide hướng tới phục hồi da, tối ưu hóa môi trường tế bào và sức khỏe hàng rào bảo vệ da.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-sm shadow-sm border border-slate-100">
+                        <h4 class="font-bold text-slate-900 mb-2">2. Kích thích sinh học</h4>
+                        <p class="text-sm text-slate-500">Juvelook Skin cung cấp kích thích sinh học chủ động hỗ trợ collagen, nhắm trực tiếp vào kết cấu nếp nhăn nhỏ và độ dày lớp bì.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-sm shadow-sm border border-slate-100">
+                        <h4 class="font-bold text-slate-900 mb-2">3. Lập kế hoạch lâm sàng</h4>
+                        <p class="text-sm text-slate-500">Liều lượng và độ sâu tiêm được bác sĩ hiệu chỉnh dựa trên độ dày da và vùng cần điều trị riêng của bạn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-serif text-slate-900">Trình tự phác đồ</h2>
+                <p class="text-slate-500 text-sm mt-2">Phương pháp kích thích sinh học có cấu trúc, do bác sĩ dẫn dắt.</p>
+            </div>
+
+            <div class="relative">
+                <div class="hidden md:block absolute top-8 left-10 right-10 h-0.5 bg-slate-100 z-0"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-white border-2 border-slate-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-slate-400 font-bold text-lg">1</div>
+                        <h4 class="font-bold text-slate-900 mb-2">Assessment & Mapping</h4>
+                        <p class="text-sm text-slate-500 px-4">Bác sĩ đánh giá kết cấu da, lỗ chân lông và nếp nhăn nhỏ để lập bản đồ vùng tiêm cụ thể.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-white border-2 border-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-gold font-bold text-lg">2</div>
+                        <h4 class="font-bold text-slate-900 mb-2">Thành phần Rejuran Black</h4>
+                        <p class="text-sm text-slate-500 px-4">Đưa polynucleotide vào da để khởi động quá trình phục hồi lớp bì sâu và thiết lập nền tảng lành mạnh.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-900 border-2 border-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-white font-bold text-lg">3</div>
+                        <h4 class="font-bold text-slate-900 mb-2">Juvelook Skin & Aftercare</h4>
+                        <p class="text-sm text-slate-500 px-4">Đặt chất kích thích sinh học Juvelook Skin để tăng mật độ collagen, tiếp theo là kế hoạch làm dịu lâm sàng có cấu trúc.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-[10px] text-slate-400 mt-10 uppercase tracking-widest">* Trình tự có thể được điều chỉnh dựa trên đánh giá cá nhân.</p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-12 text-slate-900">Chi tiết phác đồ</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
+                
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="far fa-clock text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Thời gian tại phòng khám</h4>
+                    <p class="text-slate-500 text-sm mt-auto">Khoảng 45 phút</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-band-aid text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Thời gian nghỉ dưỡng</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Sưng nhẹ bề mặt<br><span class="text-[11px] opacity-80">(Nốt sần nhỏ tạm thời)</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-plane-departure text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Thời điểm di chuyển</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Lý tưởng nhất là không ngay trước<br><span class="text-[11px] block mt-1 opacity-80">một sự kiện quan trọng.</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Kết quả đỉnh</h4>
+                    <p class="text-slate-500 text-sm mt-auto">4 – 8 tuần</p>
+                    <p class="text-[10px] text-slate-400 mt-1 leading-tight">Cải thiện dần dần</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-procedures text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Phác đồ giảm đau</h4>
+                    <ul class="text-slate-500 text-xs space-y-2 mt-auto text-left w-full inline-block">
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>Bôi tê (Tiêu chuẩn)</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>Gây tê vùng mục tiêu<br><span class="text-[10px] opacity-70 block mt-0.5">(Optional +₩55,000)</span></span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>An thần tĩnh mạch có ý thức<br><span class="text-[10px] opacity-70 block mt-0.5">(Optional +₩110,000)</span></span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-3 font-bold rounded-sm hover:bg-slate-800 transition shadow-md text-sm"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="h-px bg-gold flex-grow"></div>
+                <h2 class="text-lg font-serif text-slate-900 font-bold uppercase tracking-wide">Thường kết hợp với</h2>
+                <div class="h-px bg-gold flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-50 p-5 rounded-sm border border-slate-100 text-center">
+                    <h4 class="font-bold text-slate-900 mb-1">Signature Lifting</h4>
+                    <p class="text-xs text-slate-500 mb-3">Phác đồ Ultherapy</p>
+                    <p class="text-xs text-slate-500 italic">"Đồng thời xử lý tình trạng chảy xệ cấu trúc bên dưới."</p>
+                </div>
+                <div class="bg-slate-50 p-5 rounded-sm border border-slate-100 text-center">
+                    <h4 class="font-bold text-slate-900 mb-1">Botox nhắm mục tiêu</h4>
+                    <p class="text-xs text-slate-500 mb-3">Nếp nhăn biểu cảm</p>
+                    <p class="text-xs text-slate-500 italic">"Làm giãn các nếp nhăn vận động gây ra nếp nhăn nhỏ."</p>
+                </div>
+                <div class="bg-slate-50 p-5 rounded-sm border border-slate-100 text-center">
+                    <h4 class="font-bold text-slate-900 mb-1">Làm dịu lâm sàng</h4>
+                    <p class="text-xs text-slate-500 mb-3">LDM / Cryo</p>
+                    <p class="text-xs text-slate-500 italic">"Chăm sóc dưỡng ẩm nhẹ nhàng sau thủ thuật để đẩy nhanh phục hồi."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">Câu hỏi thường gặp</h2>
+            <div class="space-y-4">
+                
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Liệu kết quả có bị "bơm quá đà" không?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Không. Rejuran Black và Juvelook Skin là chất kích thích sinh học, không phải filler cấu trúc truyền thống. Chúng được đặt ở tầng nông để cải thiện mật độ, độ đàn hồi và kết cấu lớp bì, đảm bảo tiến triển hoàn toàn tự nhiên thay vì biến dạng thể tích.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Bao lâu sẽ thấy kết quả?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Cải thiện ban đầu về độ ẩm và kết cấu thường cảm nhận được trong vòng 1–2 tuần khi mô bắt đầu phục hồi. Tuy nhiên, mật độ collagen đỉnh và giảm nếp nhăn nhỏ thường thể hiện rõ trong khoảng 4 đến 8 tuần.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Nếu sắp có sự kiện thì sao?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Vì đây là các mũi tiêm nông, bạn có thể gặp nốt sần nhỏ tạm thời hoặc sưng nhẹ trong 24–48 giờ. Chúng tôi khuyến nghị dành khoảng đệm 2–3 ngày trước bất kỳ sự kiện xã hội quan trọng hoặc buổi chụp ảnh chuyên nghiệp nào.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Có thể kết hợp với nâng cơ không?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Có. Kết hợp nâng cơ bằng năng lượng (nhắm vào cấu trúc mô sâu) với chất kích thích sinh học (nhắm vào mật độ và kết cấu bề mặt) rất hiệu quả và thường được thực hiện trong cùng một buổi.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Phác đồ được cá nhân hóa như thế nào?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Trong buổi tư vấn, bác sĩ lập bản đồ khuôn mặt của bạn để xác định các vùng da mỏng, lỗ chân lông to hoặc nếp nhăn nhỏ. Nồng độ liều lượng và độ sâu tiêm được điều chỉnh linh hoạt để nhắm đúng các yêu cầu giải phẫu cụ thể này.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">Bắt đầu phác đồ của bạn</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Liên hệ trực tiếp với nhân viên qua Instagram DM.<br>
+                Sử dụng mẫu bên dưới để được phản hồi ưu tiên.
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">Copy & Paste to DM:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all leading-relaxed">
+                    Xin chào Tune Clinic,<br>
+                    • Ngày ở Seoul: [ ]<br>
+                    • Ngày rời Hàn Quốc: [ ]<br>
+                    • Chương trình: Tái tạo Collagen<br>
+                    • Có ảnh: Có/Không<br>
+                    • Vấn đề chính: (kết cấu da / lỗ chân lông / nếp nhăn nhỏ / da xỉn màu)<br>
+                    • Ngày sự kiện quan trọng (tùy chọn): [ ]
+                </code>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/vi/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+                <a href="/vi/index.html" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    So sánh chương trình
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>© 2026 Apgujeong Tune Clinic. Thẩm mỹ dựa trên bằng chứng.</p>
+                <p class="opacity-70">Kết quả và mức độ phù hợp khác nhau tùy từng người. Kế hoạch cuối cùng được xác nhận sau đánh giá trực tiếp.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key]) el.textContent = map[key];
+        });
+      } catch(e) {}
+    })();
+    </script>

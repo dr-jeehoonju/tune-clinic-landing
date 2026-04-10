@@ -1,53 +1,190 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
 body { font-family: 'Lato', sans-serif; }
 .font-serif { font-family: 'Playfair Display', serif; }
 .text-gold { color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+.bg-gold { background-color: #C5A059; }
+.border-gold { border-color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
 </style>
 
 <header class="bg-slate-950 text-white border-b border-slate-800">
-  <div class="max-w-4xl mx-auto px-6 py-20 md:py-28">
-    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">Гид для путешественников</span>
-    <h1 class="text-4xl md:text-5xl font-serif leading-tight mt-7">Гид для международных пациентов · Tune Clinic Seoul</h1>
-    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">Как планировать эстетические процедуры в Сеуле как иностранный пациент — процесс консультации, язык, тайминг и интеграция с поездкой.</p>
+  <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">
+      Руководство для иностранных пациентов
+    </span>
+    <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 mt-8 items-start">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-serif leading-tight">Руководство для иностранных пациентов Tune Clinic в Seoul</h1>
+        <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">
+          Если вы планируете эстетическое лечение во время визита в Корею, самый важный вопрос — не что сейчас в тренде.
+          А что медицински обосновано для вашей анатомии, графика и периода восстановления.
+          Это руководство объясняет, как иностранные пациенты обычно планируют визит в Tune Clinic в Apgujeong.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+          <a href="/ru/booking.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center"><i class="fas fa-calendar-check"></i> Забронировать</a>
+          <a href="/ru/menu.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center">
+            Смотреть справочные цены
+          </a>
+        </div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-4">Обзор</p>
+        <ul class="space-y-4 text-sm text-slate-200">
+          <li class="flex gap-3"><i class="fas fa-language text-gold mt-1"></i><span>Англоязычная координация с дополнительной поддержкой запросов на китайском, японском, тайском и арабском языках.</span></li>
+          <li class="flex gap-3"><i class="fas fa-user-md text-gold mt-1"></i><span>Планирование под руководством врача с учётом качества тканей, анатомии и сроков восстановления.</span></li>
+          <li class="flex gap-3"><i class="fas fa-location-dot text-gold mt-1"></i><span>Расположение в Apgujeong, Seoul — удобно для проживания в отеле и коротких медицинских поездок.</span></li>
+          <li class="flex gap-3"><i class="fas fa-plane-departure text-gold mt-1"></i><span>Последовательность процедур с учётом поездки для сокращения ненужного простоя перед рейсами или деловыми встречами.</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </header>
 
-<section class="py-16 bg-slate-50">
-  <div class="max-w-4xl mx-auto px-6 space-y-8">
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Процесс консультации</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Первый опыт начинается с цифрового предварительного запроса. Наша команда оценивает ваши цели, рекомендует первоначальный план и координирует логистику клиники до вашего приезда.</p></div>
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Как обычно проходит планирование</span>
+      <h2 class="text-3xl md:text-5xl font-serif text-slate-900 mt-3">Чёткий план до вашего приезда</h2>
+      <p class="text-slate-500 mt-5 leading-relaxed">
+        Международные пациенты часто хотят быстрых результатов, но хорошие результаты требуют последовательности.
+        Лучший опыт возникает, когда ожидания, анатомия и сроки поездки согласованы до дня процедуры.
+      </p>
     </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Языковая поддержка</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Прямая коммуникация доступна на английском. Координаторы доступны для арабского, японского, китайского и тайского языков. Никто не вынужден общаться через третьих лиц.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Планирование поездки</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Планы лечения учитывают ваши рейсы, время восстановления и туристические предпочтения. Для пребывания менее 3 дней доступны специальные протоколы для краткосрочных поездок.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Модель без посредников</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Tune Clinic не работает с посредниками или реферальными агентствами. Все коммуникации происходят напрямую с медицинской командой. Цены прозрачны и фиксированы.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">После лечения</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Инструкции после лечения и поддержка предоставляются через WhatsApp или электронную почту. Повторные процедуры можно запланировать при следующем визите.</p></div>
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Шаг 01</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Поделитесь своей проблемой</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Отправьте недавние фотографии, основную проблему и даты поездки. Это поможет команде определить, что является приоритетом: лифтинг, филлеры, стимуляция коллагена или улучшение качества кожи.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Шаг 02</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Получите направление планирования</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Цель предварительного общения — определить направление, а не дать слепую оценку. Вы узнаете, какая категория, вероятно, подходит, и какие процедуры могут быть излишними для вашей анатомии.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Шаг 03</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Подтверждение в клинике</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">В день процедуры врач подтверждает состояние тканей, асимметрию, распределение объёма и переносимость восстановления перед утверждением протокола.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Шаг 04</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Уходите с рациональным планом</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Иногда это означает процедуру в тот же день. Иногда — изменение последовательности, уменьшение объёма или разделение процедур, чтобы результаты были элегантными и безопасными для поездки.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="py-16 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="/ru/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
-        <i class="fas fa-calendar-check text-gold"></i> Записаться
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Что обычно спрашивают иностранные пациенты</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3 mb-5">Что реально можно сделать за короткую поездку?</h2>
+        <p class="text-slate-600 leading-relaxed">
+          Ответ зависит от риска синяков, переносимости отёков и от того, является ли вашим приоритетом контур, лифтинг, текстура или долгосрочное ремоделирование коллагена.
+          Если поездка короткая, главное решение обычно не «больше или меньше» процедур.
+          А «какая категория даёт лучшее соотношение видимого улучшения к периоду восстановления».
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="rounded-3xl bg-white border border-slate-200 p-6">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Подходит для путешествий</p>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li>Ultherapy, Thermage FLX, Oligio и тщательно подобранные протоколы подтяжки</li>
+            <li>Процедуры для качества кожи, где покраснение обычно легче контролировать, чем синяки</li>
+            <li>Небольшие, анатомически точные коррекции вместо избыточной коррекции</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl bg-white border border-slate-200 p-6">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Требует больше планирования</p>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li>Филлеры большого объёма, когда контроль отёков важен</li>
+            <li>Несколько регенеративных процедур, объединённых в один короткий визит</li>
+            <li>Всё, что следует проводить поэтапно для более естественного результата</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Рекомендуемое чтение</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Три страницы, которые помогут перед бронированием</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/ru/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Местная информация</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Эстетическая клиника в Apgujeong для иностранных пациентов</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Почему расположение, логика врача и координация поездки важнее пакетного маркетинга.</p>
       </a>
-      <a href="/ru/guides.html" class="inline-flex items-center gap-2 border border-slate-300 text-slate-700 px-8 py-4 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition">
-        Назад к руководствам
+      <a href="/ru/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Центр процедур</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Корейский гид по лифтингу</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Сравните Ultherapy, Thermage FLX, Oligio и комбинации под руководством врача по показаниям.</p>
+      </a>
+      <a href="/ru/design-method.html" class="group rounded-3xl border border-slate-200 p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Логика бренда</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Метод дизайна Chamaka-se</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Узнайте, как Tune Clinic выбирает последовательность, дозу и метод вместо продажи одного аппарата.</p>
       </a>
     </div>
+  </div>
+</section>
+
+<section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Частые вопросы</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Вопросы иностранных пациентов</h2>
+    </div>
+    <div class="space-y-4">
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6" open>
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Можно ли получить процедуру в тот же день, что и консультация?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Часто да, но только если врач подтвердит, что план подходит для вашей анатомии и графика. Процедура в тот же день не всегда лучший вариант, если период восстановления ограничен.</div>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Есть ли поддержка для пациентов, не говорящих по-корейски?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Да. Tune Clinic организована для общения с международными пациентами: англоязычная координация и дополнительные каналы поддержки на нескольких основных языках.</div>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">За сколько до вылета нужно связаться с клиникой?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">В идеале — минимум за несколько дней, особенно если вы хотите предварительное планирование, координацию расписания или рекомендации по реалистичным процедурам в рамках вашего визита.</div>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Какие процедуры обычно проще для путешественников с коротким визитом?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Энергетический лифтинг, подтяжка и отдельные процедуры для качества кожи часто легче вписать в короткие поездки, чем процедуры с высоким риском отёков или синяков. Окончательные рекомендации зависят от анатомии лица и переносимости периода восстановления.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-slate-950 text-white">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">Планируйте рационально</span>
+    <h2 class="text-3xl md:text-5xl font-serif mt-3">Начните с анатомии, а не с трендов</h2>
+    <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto mt-5">
+      Если вы сравниваете клиники в Seoul, начните с определения основной проблемы и ограничений поездки.
+      Затем ознакомьтесь с <a href="/ru/korean-lifting-guide.html" class="text-gold hover:text-white transition">Корейский гид по лифтингу</a>,
+      the <a href="/ru/menu.html" class="text-gold hover:text-white transition">страницей справочных цен</a>,
+      and the <a href="/ru/design-method.html" class="text-gold hover:text-white transition">методом дизайна</a>, прежде чем обращаться в клинику.
+    </p>
   </div>
 </section>

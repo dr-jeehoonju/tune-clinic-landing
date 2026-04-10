@@ -1,90 +1,239 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
 body { font-family: 'Lato', sans-serif; }
 .font-serif { font-family: 'Playfair Display', serif; }
 .text-gold { color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
+.guide-card {
+  border-radius: 1.5rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  transition: all 180ms ease;
+}
+.guide-card:hover {
+  border-color: #C5A059;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+.section-shell {
+  border-radius: 2rem;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
 </style>
 
 <header class="bg-slate-950 text-white border-b border-slate-800">
   <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
-    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">Hub de guides</span>
-    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">Bibliothèque de guides esthétiques de Séoul</h1>
-    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">Collection complète de guides esthétiques de Séoul pour les patients internationaux — comparaisons de traitements, planification de voyage, décisions de lifting, fillers, traitements régénératifs et FAQ patients.</p>
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">
+      Guides Tune Clinic
+    </span>
+    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">Une bibliothèque de ressources pour les patients internationaux envisageant des soins esthétiques à Séoul</h1>
+    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">
+      Ces guides sont conçus pour réduire la confusion avant la consultation.
+      Au lieu de vous orienter vers un appareil ou une tendance, ils vous aident à comprendre la catégorie adaptée, le calendrier de voyage, l'enchaînement des traitements et les bonnes questions à poser en priorité.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+      <a href="/fr/menu.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center">
+        Voir les tarifs de référence
+      </a>
+      <a href="/fr/booking.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center"><i class="fas fa-calendar-check"></i> Réserver</a>
+    </div>
   </div>
 </header>
 
 <section class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Guides essentiels</span>
-      <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-8">3 guides à lire avant de réserver</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <a href="/fr/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Planification voyage</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Guide pour patients internationaux</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Flux de consultation, support linguistique, planification de court séjour.</p>
-        </a>
-
-        <a href="/fr/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Choix de clinique</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Clinique esthétique Apgujeong pour patients étrangers</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Pourquoi les patients recherchent par quartier et comment évaluer l'adéquation d'une clinique.</p>
-        </a>
-
-        <a href="/fr/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Hub traitement</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Guide du lifting coréen</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Comparez Ultherapy, Thermage FLX, Oligio et combinaisons de lifting dirigées par un médecin.</p>
-        </a>
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Comment utiliser cette bibliothèque</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Lisez dans l'ordre qu'une bonne consultation suivrait</h2>
+      <p class="text-slate-500 leading-relaxed mt-4">Commencez par les questions de voyage et d'adéquation clinique, passez ensuite à la catégorie adaptée, puis ne comparez les appareils ou les options de séquence qu'une fois le problème principal plus clair.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-plane-departure"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Étape 01</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">Voyage d'abord</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Commencez ici si votre principale préoccupation concerne la communication, le calendrier, le moment du voyage ou la planification d'un court séjour à Séoul.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Étape 02</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">Catégorie adaptée</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Utilisez ces guides lorsque vous connaissez le problème mais pas la catégorie. C'est ici que le lifting, les fillers, les traitements régénératifs et la logique de décision deviennent plus clairs.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-scale-balanced"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Étape 03</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">Comparaison et approfondissement</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Lisez ceci si vous êtes déjà avancé dans vos recherches et avez besoin d'aide pour comparer les appareils, séquencer les traitements ou poser des questions plus précises.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Guides de traitement</span>
-      <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-8">Informations approfondies sur les traitements</h2>
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-        <a href="/fr/ultherapy-vs-thermage.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Comparaison appareils</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Ultherapy vs Thermage FLX</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Profondeur de lifting, raffermissement et temps d'arrêt comparés.</p>
-        </a>
-
-        <a href="/fr/how-to-choose-the-right-lifting-treatment.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Guide de décision</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Choisir le bon traitement de lifting</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Cadre de décision selon le relâchement, l'élasticité et le timing de récupération.</p>
-        </a>
-
-        <a href="/fr/dermal-fillers-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Guide fillers</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Fillers dermiques en Corée</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Juvederm, Restylane, Radiesse et design facial dirigé par un médecin.</p>
-        </a>
-
-        <a href="/fr/skin-boosters-and-regenerative-treatments.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Traitement régénératif</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Boosters cutanés et traitements régénératifs</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Rejuran, Juvelook, Exosomes, Sculptra comparés.</p>
-        </a>
-
-        <a href="/fr/hair-loss-and-scalp-regeneration-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Guide cheveux</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Chute de cheveux et régénération du cuir chevelu</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Planification des soins du cuir chevelu et soutien régénératif.</p>
-        </a>
-
-        <a href="/fr/aesthetic-treatment-faq-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">FAQ patients</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">FAQ traitements esthétiques pour patients étrangers</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Réponses sur le timing, la récupération, la communication et le vol.</p>
-        </a>
+<section class="py-20 bg-white border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
+      <div class="rounded-[2rem] overflow-hidden border border-slate-200 shadow-lg bg-slate-50">
+        <img src="/.netlify/images?url=/used-bottles-archive.png&w=1200&fm=webp&q=75" alt="Archives cliniques des injectables et consommables utilisés chez Tune Clinic" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Référence de volume clinique</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Voyez à quoi ressemble l'utilisation réelle avant de comparer les affirmations</h2>
+        <p class="text-slate-600 leading-relaxed mt-5">
+          Tune Clinic conserve des archives photographiées des flacons et consommables réellement utilisés, collectés en moins de trois mois.
+          Cela donne du contexte aux marques mentionnées dans ces guides et aide à distinguer l'utilisation clinique courante des traitements de démonstration ponctuels.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mt-7">
+          <a href="/fr/dermal-fillers-in-korea.html" class="guide-card p-5">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Preuves filler</p>
+            <p class="text-lg font-serif text-slate-900">Fillers dermiques en Corée</p>
+            <p class="text-sm text-slate-500 mt-3">Seringues de filler utilisées et logique de filler axée sur le design.</p>
+          </a>
+          <a href="/fr/skin-boosters-and-regenerative-treatments.html" class="guide-card p-5">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Preuves régénératives</p>
+            <p class="text-lg font-serif text-slate-900">Skin Boosters et traitements régénératifs</p>
+            <p class="text-sm text-slate-500 mt-3">Contexte d'archives Juvelook et Rejuran avec planification régénérative.</p>
+          </a>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="text-center mt-10">
-      <a href="/fr/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
-        <i class="fas fa-calendar-check text-gold"></i> Réserver maintenant
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Guides recommandés</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Commencez par ceux-ci si vous découvrez Tune Clinic</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/fr/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Planification du voyage</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Guide pour les patients internationaux</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Déroulement de la consultation, support linguistique, planification de court séjour et comment aborder le traitement de manière rationnelle avant votre arrivée.</p>
       </a>
+      <a href="/fr/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Centre de traitements</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Guide du lifting en Corée</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Comprenez les catégories de lifting avant de comparer un appareil à un autre.</p>
+      </a>
+      <a href="/fr/dermal-fillers-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Centre fillers</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Fillers dermiques en Corée</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Découvrez en quoi la planification structurelle des fillers diffère d'un traitement simplement axé sur le volume.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="space-y-10">
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-950 text-white p-8 md:p-10">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Voyage et adéquation clinique</span>
+            <h3 class="text-3xl font-serif mt-4">Commencez par les questions pratiques</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mt-5">Ces guides conviennent particulièrement aux primo-visiteurs qui doivent comprendre le fonctionnement de la planification des traitements à Séoul avant de comparer les procédures.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/fr/international-patients-guide.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Commencez ici</p>
+              <p class="text-lg font-serif text-slate-900">Guide pour les patients internationaux</p>
+              <p class="text-sm text-slate-500 mt-3">Le meilleur point de départ pour planifier un traitement à Séoul depuis l'étranger.</p>
+            </a>
+            <a href="/fr/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Adéquation du lieu</p>
+              <p class="text-lg font-serif text-slate-900">Clinique esthétique à Apgujeong pour les patients étrangers</p>
+              <p class="text-sm text-slate-500 mt-3">Pourquoi l'emplacement compte moins que la logique médicale, la communication et une planification adaptée au voyage.</p>
+            </a>
+            <a href="/fr/aesthetic-treatment-faq-for-foreign-patients.html" class="guide-card p-5 md:col-span-2">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">FAQ</p>
+              <p class="text-lg font-serif text-slate-900">FAQ sur les traitements esthétiques pour les patients étrangers</p>
+              <p class="text-sm text-slate-500 mt-3">Réponses directes sur le calendrier, les vols, la langue, le temps de récupération et les consultations le jour même.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-50 p-8 md:p-10 border-r border-slate-200">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Lifting, contour et qualité de peau</span>
+            <h3 class="text-3xl font-serif text-slate-900 mt-4">Déterminez la catégorie adaptée avant de comparer</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mt-5">Ces guides aident les patients à distinguer entre lifting, fillers, soins régénératifs de la peau et soins du cuir chevelu avant de se perdre dans les noms de marques.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/fr/korean-lifting-guide.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Centre lifting</p>
+              <p class="text-lg font-serif text-slate-900">Guide du lifting en Corée</p>
+              <p class="text-sm text-slate-500 mt-3">Vue d'ensemble par catégorie pour Ultherapy, Thermage FLX, Oligio et la stratégie de lifting.</p>
+            </a>
+            <a href="/fr/dermal-fillers-in-korea.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Centre fillers</p>
+              <p class="text-lg font-serif text-slate-900">Fillers dermiques en Corée</p>
+              <p class="text-sm text-slate-500 mt-3">Quand le filler est approprié et quand le lifting ou la séquence compte davantage.</p>
+            </a>
+            <a href="/fr/skin-boosters-and-regenerative-treatments.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Régénératif</p>
+              <p class="text-lg font-serif text-slate-900">Skin Boosters et traitements régénératifs</p>
+              <p class="text-sm text-slate-500 mt-3">Pour les patients intéressés par Rejuran, Juvelook, les exosomes et les soins de qualité cutanée à long terme.</p>
+            </a>
+            <a href="/fr/hair-loss-and-scalp-regeneration-in-korea.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Cheveux et cuir chevelu</p>
+              <p class="text-lg font-serif text-slate-900">Perte de cheveux et régénération du cuir chevelu en Corée</p>
+              <p class="text-sm text-slate-500 mt-3">Un guide pour les patients internationaux explorant les soins du cuir chevelu et la planification capillaire régénérative.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-950 text-white p-8 md:p-10">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Comparaison et aide à la décision</span>
+            <h3 class="text-3xl font-serif mt-4">Ne comparez qu'une fois la catégorie clarifiée</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mt-5">Ces pages sont plus utiles une fois que vous savez que le visage relève probablement d'un parcours axé sur le lifting et que vous avez besoin d'un arbre décisionnel plus clair.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/fr/ultherapy-vs-thermage.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Comparaison d'appareils</p>
+              <p class="text-lg font-serif text-slate-900">Ultherapy vs Thermage FLX</p>
+              <p class="text-sm text-slate-500 mt-3">Une comparaison directe pour les patients déjà dans la catégorie lifting.</p>
+            </a>
+            <a href="/fr/how-to-choose-the-right-lifting-treatment.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Guide de décision</p>
+              <p class="text-lg font-serif text-slate-900">Comment choisir le bon traitement de lifting</p>
+              <p class="text-sm text-slate-500 mt-3">Une page d'aide à la décision pour l'affaissement, le relâchement cutané, la perte de contour et les contraintes de voyage.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-slate-950 text-white">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">Prochaine étape</span>
+    <h2 class="text-3xl md:text-5xl font-serif mt-3">Lisez suffisamment pour poser de meilleures questions, puis gardez le plan simple</h2>
+    <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto mt-5">
+      L'objectif de ces guides n'est pas de transformer le traitement en labyrinthe.
+      Il s'agit de rendre votre consultation plus précise, vos attentes plus claires et votre plan final plus élégant.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      <a href="/fr/menu.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center">
+        Retour aux tarifs
+      </a>
+      <a href="/fr/booking.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center"><i class="fas fa-calendar-check"></i> Réserver</a>
     </div>
   </div>
 </section>

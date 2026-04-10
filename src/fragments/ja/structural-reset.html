@@ -14,51 +14,74 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .hero-reset {
+            background:
+                radial-gradient(circle at 20% 18%, rgba(197,160,89,0.20), transparent 24%),
+                radial-gradient(circle at 80% 18%, rgba(255,255,255,0.10), transparent 20%),
+                linear-gradient(180deg, #06080d 0%, #0b1220 55%, #111827 100%);
+        }
 </style>
 
-<header class="relative bg-slate-900 overflow-hidden py-24 md:py-32">
+<header class="relative hero-reset overflow-hidden py-24 md:py-32">
         <div class="absolute inset-0 z-0">
-            <img src="../main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/55"></div>
         </div>
         
         <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
             <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/30 backdrop-blur-sm">
-                総合 / トータルトランスフォーメーション
+                包括的 / トータルトランスフォーメーション
             </span>
             <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
                 Structural Reset Elite
             </h1>
             <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
                 当院が提供する最も包括的な非外科的フェイシャルプロトコル。<br>
-                <strong>Ultherapy 300ショット</strong>深部リフティングと<strong>Thermage 600ショット</strong>表面タイトニング、<strong>静脈麻酔込み</strong>で完全な快適性を。
+                <strong>Ultherapy 300ショットの深部リフティング</strong>と<strong>Thermage 600ショットの表面タイトニング</strong>を組み合わせ、最大限の快適性のために<strong>IV鎮静を含む</strong>プロトコルです。
             </p>
             
             <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[280px]">
-                <span class="text-sm font-bold text-white mb-2">Ultherapy 300ショット + Thermage 600ショット + 静脈麻酔</span>
+                <span class="text-sm font-bold text-white mb-2">Ultherapy 300ショット + Thermage 600ショット + IV鎮静</span>
                 <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="102">₩3,047,000</span>
                 <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
-                    <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">総合構造プロトコル<br>カウンセリング＋施術＋アフターケア込み。</p>
+                    <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">包括的構造プロトコル<br>カウンセリング + 施術 + アフターケア含む。</p>
                 </div>
             </div>
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/ja/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> 今すぐ予約</a>
-                <a href="../index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
-                    他のプログラムを見る
+                <a href="/ja/index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                    プログラム比較
                 </a>
             </div>
         </div>
     </header>
+
+    <section class="py-6 bg-black border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">こんな方に</p>
+                <p class="text-sm text-slate-200">多層的な顔面老化</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">ダウンタイム</p>
+                <p class="text-sm text-slate-200">3〜5日間の回復期間</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">コアスタック</p>
+                <p class="text-sm text-slate-200">Ultherapy + Thermage + IV</p>
+            </div>
+        </div>
+    </section>
 
     <section class="py-16 bg-gold-light/40 border-b border-slate-100 text-center">
         <div class="max-w-3xl mx-auto px-6">
             <i class="fas fa-quote-left text-3xl text-gold/30 mb-4"></i>
             <h2 class="text-2xl font-serif text-slate-900 leading-relaxed">
                 単独の施術が一つの層にアプローチするのに対し、<br>
-                Structural Resetは全体の構造に働きかけます —<br>
-                深部組織リフティングと表面コラーゲンタイトニングを、<br>
-                静脈麻酔による完全な快適性のもとで。
+                Structural Resetは全体の構造にアプローチします —<br>
+                深部組織のリフティングと表面コラーゲンのタイトニングを、<br>
+                IV鎮静下で完全な快適性のもと施術します。
             </h2>
         </div>
     </section>
@@ -74,39 +97,39 @@
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed"><strong>複数の悩み：</strong>深部のたるみと表面テクスチャー変化の両方があり、包括的なソリューションを求める方。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>複合的な悩み：</strong>深部のたるみと表面のテクスチャー変化の両方を抱え、包括的な解決策を求める方。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed"><strong>中程度のエイジング：</strong>目に見えるたるみと表面テクスチャーの変化が同時に現れている方。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>中程度の老化：</strong>目に見えるたるみと表面のテクスチャー変化を経験し、一度のセッションで最大限のリフティングを求める方。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed"><strong>最大限の効果：</strong>非外科的施術で最も徹底的なトランスフォーメーションを望む方。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>最大限の効果：</strong>最も徹底的な非外科的トランスフォーメーションを求める方。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed"><strong>効率性：</strong>1回の計画的な来院ですべてを完了したい旅行者の方。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>効率性：</strong>一度の計画的な来院ですべてを完了させたい旅行者の方。</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
                     <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
-                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> こんな方には向いていません
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> こんな方には不向き
                     </h2>
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed"><strong>手術適応の方：</strong>外科的フェイスリフトでしか解決できない重度のたるみがある場合。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>外科手術の対象者：</strong>外科的フェイスリフトでのみ解決できる重度のたるみ。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed"><strong>単一の悩み：</strong>肌質だけが気になる場合は、<a href="collagen-builder.html" class="underline hover:text-gold font-bold text-slate-600">The Collagen Builder</a>で十分な場合があります。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>単層の悩み：</strong>肌のテクスチャーのみが気になる場合は、<a href="/ja/collagen-builder.html" class="underline hover:text-gold font-bold text-slate-600">The Collagen Builder</a>で十分な場合があります。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed"><strong>ダウンタイムゼロ希望：</strong>本プロトコルは3〜5日間の軽度の腫れを伴います。スケジュールの調整が必要です。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>ダウンタイムゼロが必要な方：</strong>このプロトコルは3〜5日間の軽度の腫れを伴います。それに応じてご計画ください。</span>
                         </li>
                     </ul>
                 </div>
@@ -120,7 +143,7 @@
             <div class="text-center mb-16">
                 <span class="text-gold uppercase tracking-widest text-xs font-bold">2つのデバイス。1つのプロトコル。完全な快適性。</span>
                 <h2 class="text-3xl font-serif text-slate-900 mt-2">プロトコルの内容</h2>
-                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">各コンポーネントが異なる構造層をターゲットにし、静脈麻酔のもとで痛みのない体験を実現します。</p>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">各コンポーネントが異なる構造層をターゲットにし、IV鎮静下で痛みのない体験を提供します。</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -129,7 +152,7 @@
                     <div class="w-12 h-12 bg-gold-light rounded-full flex items-center justify-center mb-6 text-gold font-bold text-lg">1</div>
                     <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">Ultherapy 300ショット</h3>
                     <p class="text-xs text-gold uppercase tracking-widest mb-4">深部組織層</p>
-                    <p class="text-sm text-slate-600 leading-relaxed">集束超音波エネルギーがSMAS層 — 外科的フェイスリフトで対処されるのと同じ層 — を300ショットで精密にターゲットにし、深部の構造的タイトニングとコラーゲンリモデリングを促進します。</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">集束超音波エネルギーがSMAS層 — 外科的フェイスリフトで対処されるのと同じ層 — をターゲットに、300発の精密に調整されたショットで深部構造の引き締めとコラーゲンリモデリングを行います。</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 relative">
@@ -137,15 +160,15 @@
                     <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-6 text-slate-800 font-bold text-lg">2</div>
                     <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">Thermage 600ショット</h3>
                     <p class="text-xs text-slate-500 uppercase tracking-widest mb-4">表面コラーゲン層</p>
-                    <p class="text-sm text-slate-600 leading-relaxed">600ショットの高周波エネルギーが真皮コラーゲン層を加熱し、皮膚表面を引き締めてテクスチャーを改善しながら、深部のUltherapyリフトを補完します。</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">600発の高周波エネルギーが真皮コラーゲン層を加熱し、皮膚表面を引き締めてテクスチャーを改善しながら、深部のUltherapyリフトを補完します。</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 relative">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-emerald-500"></div>
                     <div class="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mb-6 text-emerald-600 font-bold text-lg">3</div>
-                    <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">静脈麻酔</h3>
+                    <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">IV鎮静</h3>
                     <p class="text-xs text-emerald-600 uppercase tracking-widest mb-4">完全な快適性</p>
-                    <p class="text-sm text-slate-600 leading-relaxed">静脈内意識下鎮静が本プロトコルに標準で含まれています。医師の監督のもと、セッション全体を通じて快適に鎮静状態を維持できます — 追加料金なし。</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">IV鎮静（静脈内鎮静法）はこのプロトコルに標準で含まれています。医師の監督下で、セッション全体を通じて快適に鎮静された状態を維持します — 追加料金はありません。</p>
                 </div>
             </div>
         </div>
@@ -153,14 +176,14 @@
 
     <section class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-2xl font-serif text-center mb-12 text-slate-900">プロトコル詳細</h2>
+            <h2 class="text-2xl font-serif text-center mb-12 text-slate-900">プロトコルの詳細</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
                 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
                     <div class="h-12 flex items-center justify-center mb-4">
                         <i class="far fa-clock text-3xl text-gold"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">院内所要時間</h4>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">クリニック滞在時間</h4>
                     <p class="text-slate-500 text-sm mt-auto">約<br>90分</p>
                 </div>
 
@@ -169,24 +192,24 @@
                         <i class="fas fa-band-aid text-3xl text-gold"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">ダウンタイム</h4>
-                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">軽度の腫れと赤み<br><span class="text-[11px] opacity-80">（3〜5日）</span></p>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">軽度の腫れと赤み<br><span class="text-[11px] opacity-80">（3〜5日間）</span></p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
                     <div class="h-12 flex items-center justify-center mb-4">
                         <i class="fas fa-plane-departure text-3xl text-gold"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">旅行スケジュール</h4>
-                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">3〜5日の余裕を推奨<br><span class="text-[11px] block mt-1 opacity-80">大切なイベントの前に。</span></p>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">旅行のタイミング</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">3〜5日間の余裕を<br><span class="text-[11px] block mt-1 opacity-80">重要なイベントの前に。</span></p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
                     <div class="h-12 flex items-center justify-center mb-4">
                         <i class="fas fa-chart-line text-3xl text-gold"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">最大効果</h4>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">効果のピーク</h4>
                     <p class="text-slate-500 text-sm mt-auto">8〜12週間</p>
-                    <p class="text-[10px] text-slate-400 mt-1 leading-tight">コラーゲンリモデリングに伴い段階的に改善</p>
+                    <p class="text-[10px] text-slate-400 mt-1 leading-tight">コラーゲンリモデリングに伴う段階的な改善</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
@@ -196,8 +219,8 @@
                     <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">コンフォートプロトコル</h4>
                     <ul class="text-slate-500 text-xs space-y-2 mt-auto text-left w-full inline-block">
                         <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>外用麻酔（標準）</span></li>
-                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>Targeted Comfort Block<br><span class="text-[10px] opacity-70 block mt-0.5">（オプション +₩55,000）</span></span></li>
-                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>IV Conscious Sedation<br><span class="text-[10px] text-emerald-600 font-bold block mt-0.5">（プロトコルに含まれます）</span></span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>ターゲットコンフォートブロック<br><span class="text-[10px] opacity-70 block mt-0.5">（オプション +₩55,000）</span></span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>IV鎮静（静脈内鎮静法）<br><span class="text-[10px] text-emerald-600 font-bold block mt-0.5">（プロトコルに含む）</span></span></li>
                     </ul>
                 </div>
 
@@ -207,46 +230,46 @@
 
     <section class="py-20 bg-slate-50">
         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">医師FAQ</h2>
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">医師によるFAQ</h2>
             <div class="space-y-4">
                 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        なぜ2つのエネルギーデバイスを1回のセッションで組み合わせるのですか？
+                        なぜ一度のセッションで2つのエネルギーデバイスを組み合わせるのですか？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>各技術は異なる構造層をターゲットにしています。Ultherapy 300ショットは最も深い組織（SMAS）に到達し、Thermage 600ショットは真皮コラーゲン層を引き締めます。これらが合わさることで、単一のデバイスでは達成できない相乗効果を生み出します。静脈麻酔により、セッション全体を通じて完全な快適性を確保します。</p>
+                        <p>それぞれの技術が異なる構造層をターゲットにしています。Ultherapy 300ショットは最も深い組織（SMAS）に到達し、Thermage 600ショットは真皮コラーゲン層を引き締めます。併用することで、単一のデバイスでは達成できない相乗効果を生み出します。IV鎮静により、施術全体を通じて完全な快適性が確保されます。</p>
                     </div>
                 </details>
 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        1回のセッションで安全ですか？
+                        このプロトコルは一度のセッションで安全ですか？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>はい。エネルギーデバイスはそれぞれ異なる組織深度と波長で作用するため、競合や重複はありません。医師がプロトコルの順序を最適化し、安全性と効果を最大化します。静脈麻酔により、長時間のセッションを通じて快適に過ごせます。</p>
+                        <p>はい。エネルギーデバイスは異なる組織の深さと波長で作用するため、競合や重複はありません。医師がプロトコルの順序を最適化し、安全性と効果を最大化します。IV鎮静により、長時間のセッション中も快適に過ごせます。</p>
                     </div>
                 </details>
 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        単独施術と比べてダウンタイムはどうですか？
+                        ダウンタイムは単独施術と比べてどうですか？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>複数の層にアプローチするため、単一デバイスの施術よりもやや腫れが大きくなります。ほとんどの患者様は3〜5日以内に大幅に改善します。静脈麻酔はプロトコルに標準で含まれており、長時間のセッションにおける最大限の快適さを確保します。</p>
+                        <p>2つの強力なデバイスで複数の層にアプローチするため、単一デバイスの施術よりもやや多い腫れが予想されます。ほとんどの患者様は3〜5日以内に大幅に軽減します。IV鎮静は長時間のセッション中の最大限の快適性を確保するため、標準で含まれています。</p>
                     </div>
                 </details>
 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        まずライトなバージョンから始められますか？
+                        まず軽めのバージョンから始められますか？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>もちろんです。迷われている場合は、<a href="signature-lifting.html" class="underline hover:text-gold font-bold text-slate-700">Signature Lifting</a>（Ultherapyのみ）から始めるのが最適なエントリーポイントです。フォローアップの来院時にThermageを追加してフルStructural Resetにアップグレードすることも可能です。</p>
+                        <p>もちろんです。迷われている場合は、<a href="/ja/signature-lifting.html" class="underline hover:text-gold font-bold text-slate-700">Signature Lifting</a>（Ultherapyのみ）から始めるのが最適です。次回の来院時にThermageを追加してフルのStructural Resetにアップグレードすることも可能です。</p>
                     </div>
                 </details>
 
@@ -256,38 +279,39 @@
 
     <footer id="contact" class="bg-slate-900 text-white py-24 text-center">
         <div class="max-w-xl mx-auto px-6">
-            <h2 class="text-3xl font-serif mb-6">VIP枠を予約する</h2>
+            <h2 class="text-3xl font-serif mb-6">VIP枠のご予約</h2>
             <p class="text-slate-400 mb-8 leading-relaxed">
-                LINEで直接スタッフにご連絡ください。<br>
-                以下のテンプレートをご利用いただくと、優先的にご対応いたします。
+                InstagramのDMでスタッフに直接ご連絡ください。<br>
+                以下のテンプレートをご使用いただくと、優先的にご対応いたします。
             </p>
 
             <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
-                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">LINEにコピー＆ペースト：</p>
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">DMにコピー＆ペースト：</p>
                 <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all leading-relaxed">
-                    Tune Clinic様、<br>
+                    Tune Clinic 様<br>
                     • ソウル滞在日程：[ ]<br>
                     • 韓国出発日：[ ]<br>
                     • プログラム：Structural Reset Elite<br>
-                    • 写真の有無：はい／いいえ<br>
-                    • 主な悩み：（深部たるみ＋表面テクスチャー／顔全体のリセット）<br>
-                    • 大切なイベントの日程（任意）：[ ]
+                    • 写真提供可能：はい/いいえ<br>
+                    • 主な悩み：（たるみ + ボリュームロス / 顔全体のリセット）<br>
+                    • 重要なイベント日（任意）：[ ]
                 </code>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/ja/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> 今すぐ予約</a>
-                <a href="../index.html#programs" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
-                    他のプログラムを見る
+                <a href="/ja/index.html#programs" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    プログラム比較
                 </a>
             </div>
             
             <div class="mt-16 text-xs text-slate-500 space-y-2">
-                <p>&copy; 2026 Apgujeong Tune Clinic. Evidence-Based Aesthetics.</p>
-                <p class="opacity-70">効果や適応は個人により異なります。最終的なプランは対面診察後に確定します。</p>
+                <p>&copy; 2026 狎鷗亭 Tune Clinic. エビデンスに基づく美容医療。</p>
+                <p class="opacity-70">効果や適応は個人により異なります。最終プランは対面での診察後に確定いたします。</p>
             </div>
         </div>
     </footer>
+
     <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
     (async () => {

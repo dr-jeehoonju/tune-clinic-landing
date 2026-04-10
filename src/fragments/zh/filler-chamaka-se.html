@@ -14,35 +14,41 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .hero-filler {
+            background:
+                radial-gradient(circle at 20% 18%, rgba(167,139,250,0.20), transparent 24%),
+                radial-gradient(circle at 82% 16%, rgba(197,160,89,0.16), transparent 20%),
+                linear-gradient(180deg, #120d1c 0%, #1e1b3a 55%, #111827 100%);
+        }
 </style>
 
-<header class="relative bg-slate-900 overflow-hidden py-24 md:py-32">
+<header class="relative hero-filler overflow-hidden py-24 md:py-32">
         <div class="absolute inset-0 z-0">
-            <img src="../main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/60"></div>
         </div>
         
         <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
             <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/40 backdrop-blur-sm">
-                医师定制 / 胶原蛋白重塑
+                医生精选 / 胶原蛋白重塑
             </span>
             <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
                 Volume Chamaka-se
             </h1>
             <p class="text-xl text-gold font-serif mb-6 italic drop-shadow-md">
-                医师定制胶原蛋白重塑方案
+                Physician-Curated Collagen Remodeling
             </p>
             
             <div class="text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed text-sm md:text-base space-y-4 drop-shadow-md">
                 <p>
-                    Volume Chamaka-se 使用一整瓶Juvelook Volume（8cc），<strong class="text-white font-bold">由医师设计注射全脸，诱导胶原蛋白重塑。</strong>
+                    Volume Chamaka-se使用一整瓶Juvelook Volume（8cc），<strong class="text-white font-bold">由医生在整个面部设计，以刺激胶原蛋白重塑。</strong>
                 </p>
                 <p>
-                    注射前，我们评估面部结构、暗沉区域和胶原蛋白密度，设计精准注射方案。<br class="hidden md:block">
-                    效果是由内而外焕发自然光彩与活力。
+                    在设计注射方案之前，我们会评估面部结构、暗沉区域和胶原蛋白密度。<br class="hidden md:block">
+                    效果是由内而外的自然明亮、更加焕发活力的肤色。
                 </p>
                 <p class="text-white font-bold tracking-wide uppercase text-xs pt-4 border-t border-white/20 inline-block">
-                    目标不是体积，而是光彩。
+                    目标不是丰盈。目标是光彩。
                 </p>
             </div>
             
@@ -50,27 +56,44 @@
                 <span class="text-sm font-bold text-white mb-2">方案基础价格</span>
                 <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="104">₩770,000</span>
                 <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
-                    <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">Juvelook Volume 1瓶（8cc）<br>+ 医师设计 + 全脸注射方案</p>
+                    <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">Juvelook Volume 1瓶（8cc）<br>+ 医生设计 + 全脸方案。</p>
                 </div>
             </div>
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/zh/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> 立即预约</a>
-                <a href="../index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
-                    查看其他项目
+                <a href="/zh/index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                    对比项目
                 </a>
             </div>
         </div>
     </header>
 
+    <section class="py-6 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">适用人群</p>
+                <p class="text-sm text-slate-200">暗沉肌肤、胶原蛋白流失和光泽</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">恢复期</p>
+                <p class="text-sm text-slate-200">24-48小时典型肿胀期</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">核心模式</p>
+                <p class="text-sm text-slate-200">医生精选胶原蛋白重塑</p>
+            </div>
+        </div>
+    </section>
+
     <section class="py-16 bg-gold-light/40 border-b border-slate-100 text-center">
         <div class="max-w-3xl mx-auto px-6">
             <i class="fas fa-quote-left text-3xl text-gold/30 mb-4"></i>
             <h2 class="text-2xl font-serif text-slate-900 leading-relaxed">
-                Volume Chamaka-se 不是简单的注射套餐。<br>
-                它是由医师定制的胶原蛋白重塑方案，<br>
-                将Juvelook Volume设计注射全脸，<br>
-                恢复明亮与自然活力。
+                Volume Chamaka-se不是简单的注射套餐。<br>
+                它是一个由医生精选的胶原蛋白重塑方案，<br>
+                Juvelook Volume被设计用于全脸，<br>
+                以恢复光彩和自然活力。
             </h2>
         </div>
     </section>
@@ -81,7 +104,7 @@
                 
                 <div class="bg-gold-light p-8 rounded-sm border-t-4 border-gold">
                     <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
-                        <i class="fas fa-check-circle text-gold mr-3"></i> 适合人群
+                        <i class="fas fa-check-circle text-gold mr-3"></i> 适用人群
                     </h2>
                     <ul class="space-y-4">
                         <li class="flex items-start">
@@ -94,39 +117,39 @@
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed">希望增强轮廓但不想看起来不自然的患者。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed">希望增强轮廓但不显人工的患者。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed">希望由医师主导审美决策的患者。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed">希望由医生主导美学决策的患者。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed">寻求高效且精准提升的旅行者。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed">寻求高效而精准提升的旅行者。</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
                     <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
-                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> 不适合人群
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> 不适用人群
                     </h2>
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed">寻求手术级别戏剧性改变的人群。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed">寻求戏剧性手术级别改造的患者。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed">希望最大化体积增加的人群。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed">希望最大程度增加丰盈度的患者。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed">期望无视解剖限制的即时重塑的人群。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed">期望无解剖学限制即时重塑的患者。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed">不愿接受医师主导设计决策的人群。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed">不愿意接受医生主导设计决策的患者。</span>
                         </li>
                     </ul>
                 </div>
@@ -147,20 +170,20 @@
                 <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100">
                     <h3 class="text-lg font-serif text-slate-900 mb-6 border-b border-slate-100 pb-3">每张脸都有：</h3>
                     <ul class="space-y-4 text-slate-600">
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 天然平衡区域</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 自然平衡区域</li>
                         <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 视觉锚点</li>
                         <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 需要轮廓定义的区域</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 应保持不动的区域</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 应保持不变的区域</li>
                     </ul>
                 </div>
 
                 <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100">
-                    <h3 class="text-lg font-serif text-slate-900 mb-6 border-b border-slate-100 pb-3">Volume Chamaka-se 专注于：</h3>
+                    <h3 class="text-lg font-serif text-slate-900 mb-6 border-b border-slate-100 pb-3">Volume Chamaka-se聚焦于：</h3>
                     <ul class="space-y-4 text-slate-600">
                         <li class="flex items-center gap-3"><i class="fas fa-bullseye text-gold/60"></i> 增强关键焦点</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-drafting-compass text-gold/60"></i> 支撑轮廓过渡</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-vector-square text-gold/60"></i> 精修结构边界</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-smile text-gold/60"></i> 保持自然动态</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-drafting-compass text-gold/60"></i> 支持轮廓过渡</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-vector-square text-gold/60"></i> 精炼结构边界</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-smile text-gold/60"></i> 保持自然运动</li>
                     </ul>
                 </div>
             </div>
@@ -170,27 +193,27 @@
     <section class="py-20 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-serif text-slate-900 mb-4">可能包含的项目</h2>
+                <h2 class="text-3xl font-serif text-slate-900 mb-4">可能包含的内容</h2>
                 <p class="text-slate-500 text-sm max-w-xl mx-auto">
-                    根据您的具体解剖结构，您的 Volume Chamaka-se 方案可能涉及以下技术的精确组合：
+                    根据您的具体解剖结构，您的Volume Chamaka-se方案可能涉及以下技术的精确组合：
                 </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
-                    <p class="font-bold text-slate-800 text-sm">下颌线<br>修饰</p>
+                    <p class="font-bold text-slate-800 text-sm">下颌线<br>精修</p>
                 </div>
                 <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
-                    <p class="font-bold text-slate-800 text-sm">下巴<br>支撑</p>
+                    <p class="font-bold text-slate-800 text-sm">下巴突出<br>支撑</p>
                 </div>
                 <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
-                    <p class="font-bold text-slate-800 text-sm">面中部<br>平衡</p>
+                    <p class="font-bold text-slate-800 text-sm">中面部<br>平衡</p>
                 </div>
                 <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
                     <p class="font-bold text-slate-800 text-sm">下面部轮廓<br>过渡</p>
                 </div>
                 <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50 sm:col-span-2 md:col-span-1">
-                    <p class="font-bold text-slate-800 text-sm">微妙高光<br>矫正</p>
+                    <p class="font-bold text-slate-800 text-sm">微妙高光<br>修正</p>
                 </div>
             </div>
         </div>
@@ -207,7 +230,7 @@
                         <i class="far fa-clock text-3xl text-gold"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">就诊时间</h4>
-                    <p class="text-slate-500 text-sm mt-auto">约<br>45–60分钟</p>
+                    <p class="text-slate-500 text-sm mt-auto">约<br>45-60分钟</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
@@ -215,15 +238,15 @@
                         <i class="fas fa-band-aid text-3xl text-gold"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">恢复期</h4>
-                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">可能有轻微肿胀<br><span class="text-[11px] opacity-80">（24-48小时）</span></p>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">可能出现轻微肿胀<br><span class="text-[11px] opacity-80">（24-48小时）</span></p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
                     <div class="h-12 flex items-center justify-center mb-4">
                         <i class="fas fa-plane-departure text-3xl text-gold"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">出行时间</h4>
-                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">可以正常出行。<br><span class="text-[11px] block mt-1 opacity-80">最好不要安排在重要活动之前。</span></p>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">旅行时间安排</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">旅行无碍。<br><span class="text-[11px] block mt-1 opacity-80">最好不要在重要活动前立即进行。</span></p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
@@ -231,7 +254,7 @@
                         <i class="fas fa-chart-line text-3xl text-gold"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">最佳效果</h4>
-                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">多数情况下可立即看到结构性变化<br><span class="text-[11px] block mt-1 opacity-80">1-2周内持续精修</span></p>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">许多情况下可立即看到结构性变化<br><span class="text-[11px] block mt-1 opacity-80">1-2周内持续改善</span></p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
@@ -246,11 +269,11 @@
                         </li>
                         <li class="flex items-start">
                             <span class="mr-2 text-gold">•</span>
-                            <span>定向舒适阻滞<br><span class="text-[10px] opacity-70 block mt-0.5">（可选 +₩55,000）</span></span>
+                            <span>靶向舒适阻滞<br><span class="text-[10px] opacity-70 block mt-0.5">（可选 +₩55,000）</span></span>
                         </li>
                         <li class="flex items-start">
                             <span class="mr-2 text-gold">•</span>
-                            <span>静脉清醒镇静<br><span class="text-[10px] opacity-70 block mt-0.5">（可选 +₩110,000）</span></span>
+                            <span>IV清醒镇静<br><span class="text-[10px] opacity-70 block mt-0.5">（可选 +₩110,000）</span></span>
                         </li>
                     </ul>
                 </div>
@@ -261,36 +284,36 @@
 
     <section class="py-20 bg-white">
         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">医师常见问题</h2>
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">医生常见问题</h2>
             <div class="space-y-4">
                 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        这只是标准的填充注射吗？
+                        这只是标准的丰盈填充手术吗？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>不是。虽然使用了填充剂，但主要目标是结构和谐与焦点平衡，而非单纯的体积扩大。我们使用精确的剂量来定义过渡区域并支撑面部结构。</p>
+                        <p>不是。虽然使用了填充剂，但主要目标是结构和谐与焦点平衡，而非单纯的体积扩增。我们使用精确的剂量来定义过渡并支撑面部结构。</p>
                     </div>
                 </details>
 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        会看起来不自然或"过度填充"吗？
+                        看起来会不自然或"过度填充"吗？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>我们的理念从根本上反对不自然的外观。通过将面部视为整体构图、尊重天然锚点并保持动态表情，最终效果高度自然且比例协调。</p>
+                        <p>我们的理念从根本上反对人工外观。通过将面部视为整体构图，尊重自然锚点并保持动态运动，效果高度自然且比例协调。</p>
                     </div>
                 </details>
 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        可以与 Ultherapy 等深层提升设备结合吗？
+                        可以与Ultherapy等深层提升设备结合吗？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>可以。将深层组织紧致（通过 Ultherapy）与结构轮廓塑形（Volume Chamaka-se）相结合，可提供最佳的综合重置效果。这种组合同时解决重力和和谐问题。</p>
+                        <p>可以。将深层组织张力（通过Ultherapy）与结构轮廓塑造（Volume Chamaka-se）配对，提供最佳的综合重塑。这种组合同时解决重力和和谐问题。</p>
                     </div>
                 </details>
 
@@ -300,7 +323,7 @@
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>对于大多数追求和谐而非极端体积的患者，确切用量由医师在评估您的具体解剖结构后严格确定，避免不必要的过度治疗。</p>
+                        <p>对于追求和谐而非极端丰盈的大多数患者，确切的用量由医生在评估您的具体解剖结构后严格确定，避免不必要的过度治疗。</p>
                     </div>
                 </details>
 
@@ -312,36 +335,37 @@
         <div class="max-w-xl mx-auto px-6">
             <h2 class="text-3xl font-serif mb-6">开始您的设计方案</h2>
             <p class="text-slate-400 mb-8 leading-relaxed">
-                通过微信直接联系我们的工作人员。<br>
-                使用以下模板可获得优先回复。
+                通过Instagram私信直接联系我们的工作人员。<br>
+                使用以下模板以获得优先回复。
             </p>
 
             <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
-                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">复制并粘贴到微信:</p>
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">复制粘贴到私信：</p>
                 <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all leading-relaxed">
-                    您好 Tune Clinic，<br>
-                    • 在首尔的日期：[ ]<br>
+                    Tune Clinic 您好，<br>
+                    • 首尔日期：[ ]<br>
                     • 离开韩国日期：[ ]<br>
                     • 项目：Volume Chamaka-se<br>
                     • 可提供照片：是/否<br>
-                    • 主要关注：（下颌线 / 面中部平衡 / 下巴支撑）<br>
+                    • 主要关注：（下颌线 / 中面部平衡 / 下巴突出）<br>
                     • 重要活动日期（可选）：[ ]
                 </code>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/zh/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> 立即预约</a>
-                <a href="../index.html#programs" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
-                    查看其他项目
+                <a href="/zh/index.html#programs" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    对比项目
                 </a>
             </div>
             
             <div class="mt-16 text-xs text-slate-500 space-y-2">
-                <p>© 2026 狎鸥亭调优诊所。循证医学美容。</p>
+                <p>© 2026 狎鸥亭 Tune Clinic. 循证美容医疗。</p>
                 <p class="opacity-70">效果和适用性因人而异。最终方案和确切剂量在面诊评估后确认。</p>
             </div>
         </div>
     </footer>
+
     <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
     (async () => {

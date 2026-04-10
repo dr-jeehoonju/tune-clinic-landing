@@ -1,49 +1,155 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
 body { font-family: 'Lato', sans-serif; }
 .font-serif { font-family: 'Playfair Display', serif; }
 .text-gold { color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+.bg-gold { background-color: #C5A059; }
+.border-gold { border-color: #C5A059; }
 </style>
 
 <header class="bg-slate-950 text-white border-b border-slate-800">
-  <div class="max-w-4xl mx-auto px-6 py-20 md:py-28">
-    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">Guide clinique Séoul</span>
-    <h1 class="text-4xl md:text-5xl font-serif leading-tight mt-7">Clinique esthétique Apgujeong pour patients étrangers</h1>
-    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">Pourquoi les patients internationaux choisissent Apgujeong et comment trouver la bonne clinique pour les visiteurs étrangers.</p>
+  <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <div class="max-w-4xl">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">
+        Apgujeong + Patients étrangers
+      </span>
+      <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7">Pourquoi les patients étrangers recherchent une clinique esthétique à Apgujeong</h1>
+      <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">
+        Apgujeong est l'une des zones les plus recherchées à Seoul pour la médecine esthétique, mais l'emplacement seul ne garantit pas un bon résultat.
+        Les patients internationaux ont généralement besoin d'une clinique qui combine jugement médical, communication claire et planification réaliste de la récupération.
+        C'est là que Tune Clinic se positionne.
+      </p>
+    </div>
   </div>
 </header>
 
-<section class="py-16 bg-slate-50">
-  <div class="max-w-4xl mx-auto px-6 space-y-8">
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Pourquoi Apgujeong ?</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Apgujeong Rodeo est l'épicentre de la médecine esthétique coréenne. La plus haute densité de médecins expérimentés, de technologies et de cliniques spécialisées se trouve dans ce quartier.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Ce que recherchent les patients étrangers</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Les visiteurs internationaux recherchent des cliniques avec une communication directe médecin-patient, des prix transparents, une expérience avec les calendriers de voyage et des résultats prouvés pour leur type de peau.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">La différence Tune Clinic</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Tune Clinic offre un design dirigé par un médecin, aucun intermédiaire, une communication directe en anglais avec le médecin et une coordination concierge. Chaque plan est examiné par le médecin principal.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Réservation en tant que patient étranger</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Vous pouvez réserver en ligne sans voyager en Corée. Notre pré-demande capture vos objectifs et dates de voyage — nous préparons votre plan préliminaire avant votre arrivée.</p></div>
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+      <div class="rounded-3xl bg-slate-900 text-white p-8">
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Ce qui compte le plus généralement</p>
+        <ul class="space-y-4 text-sm leading-relaxed text-slate-200">
+          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>Logique médicale directe plutôt que vente de forfaits basée sur les tendances</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>Coordination anglophone pour la planification, les questions de prix et la communication pré-arrivée</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>Planification adaptée au voyage respectant le gonflement, les ecchymoses et les limites de suivi</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>Un mélange rationnel d'appareils, d'injectables et de traitements régénératifs au lieu du marketing mono-appareil</span></li>
+        </ul>
+      </div>
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Positionnement de Tune Clinic</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3 mb-5">Une clinique conçue pour la qualité des décisions</h2>
+        <p class="text-slate-600 leading-relaxed">
+          Beaucoup de patients étrangers recherchent la "meilleure clinique" alors qu'ils ont besoin de la "meilleure adéquation pour mon anatomie et mon plan de voyage."
+          L'approche Chamaka-se de Tune Clinic est utile ici car elle commence par le diagnostic et la séquence.
+          Certains visages ont besoin de lifting avant les fillers. D'autres ont besoin de stimulation du collagène avant de chercher le contour.
+          Parfois, la décision la plus premium est d'en faire moins, pas plus.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-5 mt-8">
+          <div class="rounded-3xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="text-lg font-serif text-slate-900 mb-2">Planification dirigée par le médecin</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">La clinique est positionnée autour du jugement médical, pas de la vente additionnelle à la manière des influenceurs. Les programmes sont présentés comme des résultats de design plutôt que des modèles fixes.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="text-lg font-serif text-slate-900 mb-2">Flux de travail international</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">La planification, le soutien linguistique et le séquençage des traitements sont adaptés aux visiteurs qui ne restent peut-être à Seoul que pour une courte période.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="py-16 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="/fr/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
-        <i class="fas fa-calendar-check text-gold"></i> Réserver maintenant
-      </a>
-      <a href="/fr/guides.html" class="inline-flex items-center gap-2 border border-slate-300 text-slate-700 px-8 py-4 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition">
-        Tous les guides
-      </a>
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Pourquoi les recherches sur Apgujeong se produisent</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Trois raisons pour lesquelles les patients incluent le lieu dans leur recherche</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-3xl bg-white border border-slate-200 p-7">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Raison 01</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Confiance par quartier</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Apgujeong jouit d'une forte reconnaissance en médecine esthétique. Les patients utilisent souvent le quartier lui-même comme filtre lorsqu'ils comparent les cliniques à Seoul.</p>
+      </div>
+      <div class="rounded-3xl bg-white border border-slate-200 p-7">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Raison 02</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Commodité pendant le voyage</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Le quartier est pratique pour les séjours hôteliers, les transports, la restauration et la combinaison de rendez-vous avec d'autres parties d'un court itinéraire à Seoul.</p>
+      </div>
+      <div class="rounded-3xl bg-white border border-slate-200 p-7">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Raison 03</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Attente de soins premium</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Les patients associent souvent Apgujeong à un standard plus sélectif. Le défi est de séparer la mise en scène de marque de la qualité réelle du médecin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="rounded-3xl border border-slate-200 p-8">
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Si votre préoccupation est le lifting</span>
+        <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mt-3 mb-4">Ne comparez pas les appareils isolément</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Ultherapy, Thermage FLX, Oligio et les autres appareils de raffermissement ne sont pas interchangeables.
+          Le bon choix dépend de l'épaisseur de la peau, de la distribution des graisses, du schéma de relâchement, de la tolérance à la douleur et du changement visible que vous attendez d'une visite.
+        </p>
+        <a href="/fr/korean-lifting-guide.html" class="inline-flex items-center gap-2 text-gold font-bold text-sm mt-6 hover:text-slate-900 transition">
+          Lire le guide du lifting coréen <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-8 bg-slate-50">
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Si votre préoccupation est la planification globale</span>
+        <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mt-3 mb-4">Commencez par la conception du protocole, pas par un nom de marque</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          La différenciation fondamentale de Tune Clinic n'est pas un seul produit.
+          C'est le processus dirigé par le médecin pour décider si vous avez besoin d'un lifting structurel, d'une stimulation du collagène, d'un soutien par fillers ou d'un plan échelonné sur plusieurs visites.
+        </p>
+        <a href="/fr/design-method.html" class="inline-flex items-center gap-2 text-gold font-bold text-sm mt-6 hover:text-slate-900 transition">
+          Voir la méthode de design <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="py-20 bg-slate-950 text-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Questions fréquentes</span>
+      <h2 class="text-3xl md:text-4xl font-serif mt-3">Rechercher une clinique à Apgujeong depuis l'étranger</h2>
+    </div>
+    <div class="space-y-4">
+      <details class="group bg-white/5 border border-white/10 rounded-2xl p-6" open>
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif">Pourquoi de nombreux patients étrangers recherchent-ils d'abord par nom de quartier ?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-300 leading-relaxed mt-4">Les noms de quartiers comme Apgujeong fonctionnent comme un raccourci de qualité dans le comportement de recherche. Les patients utilisent le quartier pour réduire les choix avant d'évaluer le style du médecin, la qualité de communication et la philosophie de traitement.</div>
+      </details>
+      <details class="group bg-white/5 border border-white/10 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif">Qu'est-ce qui rend Tune Clinic pertinente pour les patients étrangers ?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-300 leading-relaxed mt-4">La clinique combine la commodité de l'emplacement à Apgujeong avec une conception de traitement dirigée par le médecin, une communication anglophone et une prise de décision adaptée au voyage pour les visiteurs en court séjour.</div>
+      </details>
+      <details class="group bg-white/5 border border-white/10 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif">L'emplacement suffit-il pour choisir une clinique ?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-300 leading-relaxed mt-4">Non. Le meilleur filtre est de savoir si la clinique explique pourquoi un traitement est approprié, ce qui devrait être reporté et comment le plan s'adapte à votre temps de récupération. L'emplacement est utile, mais le jugement médical compte davantage.</div>
+      </details>
+      <details class="group bg-white/5 border border-white/10 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif">Quelle page devrais-je lire ensuite ?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-300 leading-relaxed mt-4">Si vous savez déjà que votre préoccupation est l'affaissement ou la perte de contour, lisez le guide du lifting coréen. Si vous cherchez encore à comprendre comment la clinique réfléchit, lisez la méthode de design Chamaka-se et le guide des patients internationaux.</div>
+      </details>
     </div>
   </div>
 </section>

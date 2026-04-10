@@ -1,40 +1,330 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-body { font-family: 'Lato', sans-serif; }
-.font-serif { font-family: 'Playfair Display', serif; }
-.text-gold { color: #C5A059; }
-.bg-gold { background-color: #C5A059; }
-.border-gold { border-color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-reset {
+            background:
+                radial-gradient(circle at 20% 18%, rgba(197,160,89,0.20), transparent 24%),
+                radial-gradient(circle at 80% 18%, rgba(255,255,255,0.10), transparent 20%),
+                linear-gradient(180deg, #06080d 0%, #0b1220 55%, #111827 100%);
+        }
 </style>
 
-<section class="bg-white py-24 border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="inline-flex items-center gap-1 text-[10px] text-white font-bold uppercase tracking-[0.22em] bg-gold px-3 py-1 rounded-full mb-4">Được khuyến nghị</span>
-        <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mt-2 mb-6 leading-tight">Structural Reset<br><span class="text-gold italic">Elite</span></h1>
-        <p class="text-slate-600 text-lg leading-relaxed mb-8">Chương trình nâng cơ không phẫu thuật toàn diện nhất: Ultherapy 300 phát + Thermage FLX 600 phát + an thần IV.</p>
-        <p class="text-gold font-bold text-2xl mb-2">₩3,300,000</p>
-        <p class="text-slate-500 text-sm mb-8">đã bao gồm VAT</p>
-        <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
-      </div>
-      <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
-        <h3 class="text-xl font-serif text-slate-900 mb-6">Chi tiết</h3>
-        <div class="space-y-4">
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Ultherapy</span><span class="font-bold text-slate-900 text-sm">300 phát</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Thermage FLX</span><span class="font-bold text-slate-900 text-sm">600 phát</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Comfort</span><span class="font-bold text-slate-900 text-sm">An thần IV (tùy chọn)</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Thời gian</span><span class="font-bold text-slate-900 text-sm">3–4 giờ</span></div>
-          <div class="flex justify-between items-center py-3"><span class="text-slate-600 text-sm">Giá</span><span class="font-bold text-gold text-sm">₩3,300,000</span></div>
+<header class="relative hero-reset overflow-hidden py-24 md:py-32">
+        <div class="absolute inset-0 z-0">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/55"></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/30 backdrop-blur-sm">
+                Toàn diện / Chuyển đổi Tổng thể
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+                Structural Reset Elite
+            </h1>
+            <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+                Phác đồ điều trị da mặt không phẫu thuật toàn diện nhất mà chúng tôi cung cấp.<br>
+                Kết hợp <strong>nâng cơ sâu Ultherapy 300 phát</strong> và <strong>siết chặt bề mặt Thermage 600 phát</strong> với <strong>gây mê tĩnh mạch (IV) đã bao gồm</strong> để đạt sự thoải mái tối đa.
+            </p>
+            
+            <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[280px]">
+                <span class="text-sm font-bold text-white mb-2">Ultherapy 300 phát + Thermage 600 phát + Gây mê tĩnh mạch</span>
+                <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="102">₩3,047,000</span>
+                <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
+                    <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">Phác đồ cấu trúc toàn diện<br>Bao gồm tư vấn + điều trị + chăm sóc sau.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/vi/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+                <a href="/vi/index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                    So sánh chương trình
+                </a>
+            </div>
+        </div>
+    </header>
 
-<section class="py-24 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check text-gold"></i> Đặt lịch ngay</a>
-  </div>
-</section>
+    <section class="py-6 bg-black border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Phù hợp nhất</p>
+                <p class="text-sm text-slate-200">Lão hóa da mặt đa tầng</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Thời gian hồi phục</p>
+                <p class="text-sm text-slate-200">Thời gian hồi phục 3–5 ngày</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Thành phần chính</p>
+                <p class="text-sm text-slate-200">Ultherapy + Thermage + IV</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gold-light/40 border-b border-slate-100 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <i class="fas fa-quote-left text-3xl text-gold/30 mb-4"></i>
+            <h2 class="text-2xl font-serif text-slate-900 leading-relaxed">
+                Trong khi các liệu trình đơn lẻ chỉ tác động lên một tầng,<br>
+                Structural Reset tác động lên toàn bộ cấu trúc —<br>
+                nâng cơ mô sâu và siết chặt collagen bề mặt,<br>
+                được thực hiện dưới gây mê tĩnh mạch để đảm bảo thoải mái hoàn toàn.
+            </h2>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="bg-gold-light p-8 rounded-sm border-t-4 border-gold">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-check-circle text-gold mr-3"></i> Đối tượng phù hợp
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>Nhiều vấn đề:</strong> Bệnh nhân có cả tình trạng chùng da sâu và thay đổi kết cấu bề mặt cần giải pháp toàn diện.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>Lão hóa trung bình:</strong> Người có tình trạng chảy xệ và thay đổi kết cấu da rõ ràng, muốn nâng cơ tối đa trong một buổi điều trị.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>Kết quả tối đa:</strong> Bệnh nhân muốn đạt được sự chuyển đổi không phẫu thuật toàn diện nhất.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>Hiệu quả:</strong> Khách du lịch muốn hoàn thành mọi thứ trong một lần đến phối hợp.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> Đối tượng KHÔNG phù hợp
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Cần phẫu thuật:</strong> Tình trạng chùng da nghiêm trọng chỉ có thể giải quyết bằng phẫu thuật căng da mặt.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Vấn đề đơn tầng:</strong> Nếu bạn chỉ quan tâm đến kết cấu da, <a href="/vi/collagen-builder.html" class="underline hover:text-gold font-bold text-slate-600">The Collagen Builder</a> có thể là đủ.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Zero Thời gian hồi phục Required:</strong> This protocol involves mild swelling for 3–5 days; plan accordingly.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Hai thiết bị. Một phác đồ. Thoải mái hoàn toàn.</span>
+                <h2 class="text-3xl font-serif text-slate-900 mt-2">Phác đồ bao gồm những gì</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Mỗi thành phần nhắm vào một tầng cấu trúc khác nhau, được thực hiện dưới gây mê tĩnh mạch để không đau.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 relative">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold-light rounded-full flex items-center justify-center mb-6 text-gold font-bold text-lg">1</div>
+                    <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">Ultherapy 300 phát</h3>
+                    <p class="text-xs text-gold uppercase tracking-widest mb-4">Tầng mô sâu</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Năng lượng siêu âm hội tụ nhắm vào tầng SMAS — cùng tầng được xử lý trong phẫu thuật căng da — với 300 phát được hiệu chỉnh chính xác để siết chặt cấu trúc sâu và tái tạo collagen.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 relative">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-slate-800"></div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-6 text-slate-800 font-bold text-lg">2</div>
+                    <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">Thermage 600 phát</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest mb-4">Tầng collagen bề mặt</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">600 phát năng lượng sóng cao tần làm nóng tầng collagen hạ bì, siết chặt bề mặt da và cải thiện kết cấu, đồng thời bổ sung cho việc nâng sâu Ultherapy.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 relative">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-emerald-500"></div>
+                    <div class="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mb-6 text-emerald-600 font-bold text-lg">3</div>
+                    <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">Gây mê tĩnh mạch</h3>
+                    <p class="text-xs text-emerald-600 uppercase tracking-widest mb-4">Thoải mái hoàn toàn</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Gây mê tĩnh mạch có ý thức được bao gồm tiêu chuẩn trong phác đồ này. Bạn sẽ được an thần thoải mái trong suốt buổi điều trị dưới sự giám sát của bác sĩ — không phụ thu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-12 text-slate-900">Chi tiết phác đồ</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
+                
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="far fa-clock text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Thời gian tại phòng khám</h4>
+                    <p class="text-slate-500 text-sm mt-auto">Khoảng<br>90 phút</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-band-aid text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Thời gian hồi phục</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Sưng nhẹ & đỏ da<br><span class="text-[11px] opacity-80">(3–5 days)</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-plane-departure text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Lịch trình di chuyển</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Lý tưởng nên dành 3–5 ngày<br><span class="text-[11px] block mt-1 opacity-80">trước sự kiện quan trọng.</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Kết quả tối ưu</h4>
+                    <p class="text-slate-500 text-sm mt-auto">8 – 12 tuần</p>
+                    <p class="text-[10px] text-slate-400 mt-1 leading-tight">Cải thiện dần khi collagen tái tạo</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-procedures text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Phác đồ thoải mái</h4>
+                    <ul class="text-slate-500 text-xs space-y-2 mt-auto text-left w-full inline-block">
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>Bôi tại chỗ (Tiêu chuẩn)</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>Gây tê vùng mục tiêu<br><span class="text-[10px] opacity-70 block mt-0.5">(Tùy chọn +₩55.000)</span></span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>Gây mê tĩnh mạch có ý thức<br><span class="text-[10px] text-emerald-600 font-bold block mt-0.5">(Đã bao gồm trong phác đồ)</span></span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">Câu hỏi thường gặp</h2>
+            <div class="space-y-4">
+                
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Tại sao kết hợp hai thiết bị năng lượng trong một buổi?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Mỗi công nghệ nhắm vào một tầng cấu trúc khác nhau. 300 phát Ultherapy tác động vào mô sâu nhất (SMAS), trong khi 600 phát Thermage siết chặt tầng collagen hạ bì. Kết hợp lại, chúng tạo ra kết quả hiệp đồng mà không thiết bị đơn lẻ nào có thể đạt được. Gây mê tĩnh mạch đảm bảo thoải mái hoàn toàn trong suốt quá trình.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Phác đồ này có an toàn trong một buổi không?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Có. Các thiết bị năng lượng hoạt động ở các độ sâu mô và bước sóng khác nhau, nghĩa là chúng không cạnh tranh hay chồng chéo. Bác sĩ sắp xếp trình tự phác đồ để tối đa hóa an toàn và hiệu quả. Gây mê tĩnh mạch đảm bảo bạn luôn thoải mái trong suốt buổi điều trị kéo dài.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Thời gian hồi phục so với liệu trình đơn lẻ như thế nào?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Vì chúng tôi tác động lên nhiều tầng với hai thiết bị mạnh, hãy chuẩn bị cho tình trạng sưng nhẹ hơn so với điều trị một thiết bị. Hầu hết bệnh nhân thấy giảm đáng kể trong 3–5 ngày. Gây mê tĩnh mạch được bao gồm tiêu chuẩn để đảm bảo thoải mái tối đa trong buổi điều trị kéo dài.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Tôi có thể thử phiên bản nhẹ hơn trước không?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Hoàn toàn được. Nếu bạn chưa chắc chắn, bắt đầu với <a href="/vi/signature-lifting.html" class="underline hover:text-gold font-bold text-slate-700">Signature Lifting</a> (chỉ Ultherapy) là điểm khởi đầu tuyệt vời. Bạn luôn có thể nâng cấp lên Structural Reset đầy đủ với Thermage trong lần tái khám.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">Đặt lịch VIP của bạn</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Liên hệ trực tiếp với nhân viên qua Instagram DM.<br>
+                Sử dụng mẫu bên dưới để được phản hồi ưu tiên.
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">Sao chép & dán vào DM:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all leading-relaxed">
+                    Xin chào Tune Clinic,<br>
+                    • Ngày ở Seoul: [ ]<br>
+                    • Rời Hàn Quốc ngày: [ ]<br>
+                    • Chương trình: Structural Reset Elite<br>
+                    • Có ảnh: Có/Không<br>
+                    • Vấn đề chính: (chảy xệ + mất thể tích / reset toàn bộ mặt)<br>
+                    • Ngày sự kiện quan trọng (tùy chọn): [ ]
+                </code>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/vi/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+                <a href="/vi/index.html#programs" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    So sánh chương trình
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>&copy; 2026 Apgujeong Tune Clinic. Thẩm mỹ dựa trên bằng chứng.</p>
+                <p class="opacity-70">Kết quả và mức phù hợp khác nhau tùy từng người. Kế hoạch cuối cùng được xác nhận sau đánh giá trực tiếp.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key]) el.textContent = map[key];
+        });
+      } catch(e) {}
+    })();
+    </script>

@@ -1,53 +1,190 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
 body { font-family: 'Lato', sans-serif; }
 .font-serif { font-family: 'Playfair Display', serif; }
 .text-gold { color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+.bg-gold { background-color: #C5A059; }
+.border-gold { border-color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
 </style>
 
 <header class="bg-slate-950 text-white border-b border-slate-800">
-  <div class="max-w-4xl mx-auto px-6 py-20 md:py-28">
-    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">Hướng dẫn du lịch</span>
-    <h1 class="text-4xl md:text-5xl font-serif leading-tight mt-7">Hướng dẫn bệnh nhân quốc tế · Tune Clinic Seoul</h1>
-    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">Cách lập kế hoạch điều trị thẩm mỹ tại Seoul với tư cách bệnh nhân nước ngoài — quy trình tư vấn, ngôn ngữ, thời điểm và tích hợp du lịch.</p>
+  <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">
+      Hướng dẫn cho bệnh nhân quốc tế
+    </span>
+    <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 mt-8 items-start">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-serif leading-tight">Hướng dẫn cho bệnh nhân quốc tế tại Tune Clinic Seoul</h1>
+        <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">
+          Nếu bạn đang lên kế hoạch điều trị thẩm mỹ khi đến Hàn Quốc, câu hỏi quan trọng nhất không phải là xu hướng hiện tại.
+          Mà là điều gì hợp lý về mặt y khoa cho cấu trúc giải phẫu, lịch trình và thời gian phục hồi của bạn.
+          Hướng dẫn này giải thích cách bệnh nhân nước ngoài thường lên kế hoạch tại Tune Clinic ở Apgujeong.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+          <a href="/vi/booking.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+          <a href="/vi/menu.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center">
+            Xem bảng giá tham khảo
+          </a>
+        </div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-4">Tổng quan</p>
+        <ul class="space-y-4 text-sm text-slate-200">
+          <li class="flex gap-3"><i class="fas fa-language text-gold mt-1"></i><span>Điều phối bằng tiếng Anh với hỗ trợ bổ sung cho các yêu cầu bằng tiếng Trung, Nhật, Thái và Ả Rập.</span></li>
+          <li class="flex gap-3"><i class="fas fa-user-md text-gold mt-1"></i><span>Kế hoạch do bác sĩ chủ trì, thiết kế xoay quanh chất lượng mô, giải phẫu và thời gian phục hồi.</span></li>
+          <li class="flex gap-3"><i class="fas fa-location-dot text-gold mt-1"></i><span>Vị trí tại Apgujeong, Seoul, thuận tiện cho việc lưu trú khách sạn và lịch trình du lịch y tế ngắn ngày.</span></li>
+          <li class="flex gap-3"><i class="fas fa-plane-departure text-gold mt-1"></i><span>Trình tự điều trị có tính đến lịch trình di chuyển để giảm thời gian nghỉ không cần thiết trước chuyến bay hoặc cuộc họp.</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </header>
 
-<section class="py-16 bg-slate-50">
-  <div class="max-w-4xl mx-auto px-6 space-y-8">
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Quy trình tư vấn</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Trải nghiệm đầu tiên bắt đầu với yêu cầu kỹ thuật số trước. Đội ngũ của chúng tôi đánh giá mục tiêu của bạn, đề xuất kế hoạch ban đầu và điều phối hậu cần phòng khám trước khi bạn đến.</p></div>
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Quy trình lên kế hoạch</span>
+      <h2 class="text-3xl md:text-5xl font-serif text-slate-900 mt-3">Lộ trình rõ ràng trước khi bạn đến</h2>
+      <p class="text-slate-500 mt-5 leading-relaxed">
+        Bệnh nhân quốc tế thường muốn nhanh chóng, nhưng kết quả tốt đòi hỏi trình tự hợp lý.
+        Trải nghiệm tốt nhất xảy ra khi kỳ vọng, giải phẫu và lịch trình chuyến đi được căn chỉnh trước ngày điều trị.
+      </p>
     </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Hỗ trợ ngôn ngữ</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Giao tiếp trực tiếp có sẵn bằng tiếng Anh. Điều phối viên có sẵn cho tiếng Ả Rập, Nhật, Trung và Thái. Không ai phải giao tiếp qua bên thứ ba.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Lập kế hoạch du lịch</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Kế hoạch điều trị tính đến các chuyến bay, thời gian hồi phục và sở thích tham quan của bạn. Các giao thức cho chuyến đi ngắn hạn dưới 3 ngày có sẵn.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Mô hình không trung gian</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Tune Clinic không làm việc với trung gian hay đại lý giới thiệu. Tất cả giao tiếp được thực hiện trực tiếp với đội ngũ y tế. Giá cả minh bạch và cố định.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Sau điều trị</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Hướng dẫn sau điều trị và hỗ trợ theo dõi được cung cấp qua WhatsApp hoặc email. Các điều trị tiếp theo có thể được lên kế hoạch khi quay lại.</p></div>
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Bước 01</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Chia sẻ mối quan tâm của bạn</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Gửi ảnh gần đây, mối quan tâm chính và ngày đi của bạn. Điều này giúp đội ngũ xác định ưu tiên là nâng cơ, filler, kích thích collagen hay cải thiện chất lượng da.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Bước 02</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Nhận định hướng kế hoạch</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Mục tiêu của trao đổi trước khi đến là định hướng, không phải báo giá mù quáng. Bạn sẽ biết danh mục nào phù hợp và phương pháp nào có thể không cần thiết cho giải phẫu của bạn.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Bước 03</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Xác nhận tại phòng khám</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Vào ngày điều trị, bác sĩ xác nhận tình trạng mô, sự bất đối xứng, phân bố thể tích và khả năng chịu đựng phục hồi trước khi hoàn thiện phác đồ.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Bước 04</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Ra về với kế hoạch hợp lý</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Đôi khi điều đó có nghĩa là điều trị trong ngày. Đôi khi là thay đổi trình tự, giảm thể tích, hoặc tách riêng các thủ thuật để kết quả vẫn tinh tế và an toàn cho di chuyển.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="py-16 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
-        <i class="fas fa-calendar-check text-gold"></i> Đặt lịch ngay
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Bệnh nhân quốc tế thường hỏi gì</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3 mb-5">Thực tế có thể làm gì trong chuyến đi ngắn?</h2>
+        <p class="text-slate-600 leading-relaxed">
+          Câu trả lời phụ thuộc vào nguy cơ bầm tím, khả năng chịu sưng và liệu ưu tiên của bạn là đường viền, nâng cơ, kết cấu hay tái tạo collagen dài hạn.
+          Nếu chuyến đi ngắn, quyết định chính thường không phải là điều trị "nhiều hay ít".
+          Mà là "danh mục nào cho tỷ lệ cải thiện nhìn thấy được so với thời gian nghỉ dưỡng tốt nhất."
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="rounded-3xl bg-white border border-slate-200 p-6">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Thân thiện với du lịch</p>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li>Ultherapy, Thermage FLX, Oligio và các phác đồ làm săn chắc được lựa chọn cẩn thận</li>
+            <li>Điều trị chất lượng da với mức độ đỏ thường dễ kiểm soát hơn bầm tím</li>
+            <li>Điều chỉnh nhỏ theo giải phẫu thay vì chỉnh sửa quá mức</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl bg-white border border-slate-200 p-6">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Cần lên kế hoạch thêm</p>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li>Filler khối lượng lớn khi kiểm soát sưng là quan trọng</li>
+            <li>Nhiều phương pháp tái tạo kết hợp trong một lần lưu trú ngắn</li>
+            <li>Bất kỳ điều gì nên được thực hiện theo giai đoạn để có kết quả tự nhiên hơn</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Đọc thêm</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Ba trang hữu ích trước khi đặt lịch</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/vi/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Thông tin địa phương</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Phòng khám thẩm mỹ Apgujeong cho bệnh nhân nước ngoài</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Tại sao vị trí, tư duy bác sĩ và phối hợp du lịch quan trọng hơn tiếp thị gói dịch vụ.</p>
       </a>
-      <a href="/vi/guides.html" class="inline-flex items-center gap-2 border border-slate-300 text-slate-700 px-8 py-4 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition">
-        Quay lại hướng dẫn
+      <a href="/vi/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Trung tâm điều trị</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Hướng dẫn nâng cơ Hàn Quốc</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">So sánh Ultherapy, Thermage FLX, Oligio và các phác đồ kết hợp do bác sĩ chỉ định.</p>
+      </a>
+      <a href="/vi/design-method.html" class="group rounded-3xl border border-slate-200 p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Logic thương hiệu</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Phương pháp thiết kế Chamaka-se</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Hiểu cách Tune Clinic chọn trình tự, liều lượng và phương thức thay vì bán một thiết bị duy nhất.</p>
       </a>
     </div>
+  </div>
+</section>
+
+<section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Câu hỏi thường gặp</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Câu hỏi của bệnh nhân quốc tế</h2>
+    </div>
+    <div class="space-y-4">
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6" open>
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Tôi có thể điều trị ngay trong ngày tư vấn không?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Thường là có, nhưng chỉ khi bác sĩ xác nhận kế hoạch phù hợp với giải phẫu và lịch trình của bạn. Lựa chọn trong ngày không phải lúc nào cũng tốt nhất nếu thời gian phục hồi bị hạn chế.</div>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Có hỗ trợ cho bệnh nhân không nói tiếng Hàn không?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Có. Tune Clinic được tổ chức xoay quanh giao tiếp với bệnh nhân quốc tế, với điều phối bằng tiếng Anh và các kênh hỗ trợ bổ sung cho nhiều ngôn ngữ chính.</div>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Tôi nên liên hệ phòng khám bao lâu trước chuyến bay?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Ít nhất vài ngày trước là lý tưởng, đặc biệt nếu bạn muốn lên kế hoạch trước, phối hợp lịch trình hoặc được tư vấn về loại điều trị thực tế trong thời gian lưu trú.</div>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Những phương pháp điều trị nào thường dễ hơn cho du khách lưu trú ngắn?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Nâng cơ bằng năng lượng, làm săn chắc và các liệu trình cải thiện da chọn lọc thường dễ phù hợp với chuyến đi ngắn hơn so với các phương pháp có nguy cơ sưng hoặc bầm cao. Khuyến nghị cuối cùng phụ thuộc vào giải phẫu khuôn mặt và khả năng chịu thời gian nghỉ dưỡng.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-slate-950 text-white">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">Lên kế hoạch hợp lý</span>
+    <h2 class="text-3xl md:text-5xl font-serif mt-3">Bắt đầu từ giải phẫu, không phải xu hướng</h2>
+    <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto mt-5">
+      Nếu bạn đang so sánh các phòng khám ở Seoul, hãy bắt đầu bằng cách xác định mối quan tâm chính và giới hạn chuyến đi.
+      Sau đó hãy xem <a href="/vi/korean-lifting-guide.html" class="text-gold hover:text-white transition">Hướng dẫn nâng cơ Hàn Quốc</a>,
+      the <a href="/vi/menu.html" class="text-gold hover:text-white transition">trang giá tham khảo</a>,
+      and the <a href="/vi/design-method.html" class="text-gold hover:text-white transition">phương pháp thiết kế</a> trước khi liên hệ phòng khám.
+    </p>
   </div>
 </section>

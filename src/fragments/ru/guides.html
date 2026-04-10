@@ -1,90 +1,239 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
 body { font-family: 'Lato', sans-serif; }
 .font-serif { font-family: 'Playfair Display', serif; }
 .text-gold { color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
+.guide-card {
+  border-radius: 1.5rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  transition: all 180ms ease;
+}
+.guide-card:hover {
+  border-color: #C5A059;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+.section-shell {
+  border-radius: 2rem;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
 </style>
 
 <header class="bg-slate-950 text-white border-b border-slate-800">
   <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
-    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">Хаб руководств</span>
-    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">Библиотека руководств по эстетике Сеула</h1>
-    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">Полная коллекция руководств по эстетике Сеула для международных пациентов — сравнения процедур, планирование поездок, решения по лифтингу, филлеры, регенеративные процедуры и FAQ для пациентов.</p>
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">
+      Гиды Tune Clinic
+    </span>
+    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">Подборка материалов для иностранных пациентов, рассматривающих эстетические процедуры в Сеуле</h1>
+    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">
+      Эти гиды призваны уменьшить неопределённость перед консультацией.
+      Вместо того чтобы навязывать конкретный аппарат или тренд, они помогают разобраться в подходящей категории, сроках поездки, последовательности процедур и правильных вопросах.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+      <a href="/ru/menu.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center">
+        Смотреть ориентировочные цены
+      </a>
+      <a href="/ru/booking.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center"><i class="fas fa-calendar-check"></i> Записаться</a>
+    </div>
   </div>
 </header>
 
 <section class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Ключевые руководства</span>
-      <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-8">3 руководства для чтения перед записью</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <a href="/ru/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Планирование поездки</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Гид для международных пациентов</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Процесс консультации, языковая поддержка, планирование краткосрочных поездок.</p>
-        </a>
-
-        <a href="/ru/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Выбор клиники</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Эстетическая клиника Апгуджон для иностранных пациентов</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Почему пациенты ищут по районам и как оценить соответствие клиники.</p>
-        </a>
-
-        <a href="/ru/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Хаб процедур</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Корейский гид по лифтингу</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Сравните Ultherapy, Thermage FLX, Oligio и комбинации лифтинга под руководством врача.</p>
-        </a>
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Как пользоваться этой библиотекой</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Читайте в том порядке, в котором думает хорошая консультация</h2>
+      <p class="text-slate-500 leading-relaxed mt-4">Начните с вопросов о поездке и подборе клиники, затем перейдите к выбору категории, и лишь потом сравнивайте аппараты или порядок процедур, когда основная проблема станет яснее.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-plane-departure"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Шаг 01</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">Сначала поездка</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Начните здесь, если ваша главная забота — это коммуникация, расписание, время поездки или планирование краткосрочного пребывания в Сеуле.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Шаг 02</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">Подбор категории</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Используйте эти гиды, если вы знаете проблему, но не категорию. Здесь лифтинг, филлеры, регенеративные процедуры и логика принятия решений становятся понятнее.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-scale-balanced"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Шаг 03</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">Сравнение и углублённый анализ</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Читайте эти материалы, если вы уже глубоко изучаете тему и нуждаетесь в помощи при сравнении аппаратов, последовательности процедур или формулировке более точных вопросов.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Руководства по процедурам</span>
-      <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-8">Подробная информация о процедурах</h2>
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-        <a href="/ru/ultherapy-vs-thermage.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Сравнение аппаратов</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Ultherapy vs Thermage FLX</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Глубина лифтинга, подтяжка и время восстановления сравниваются.</p>
-        </a>
-
-        <a href="/ru/how-to-choose-the-right-lifting-treatment.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Гид по выбору</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Как выбрать правильную процедуру лифтинга</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Система принятия решений по дряблости, эластичности и времени восстановления.</p>
-        </a>
-
-        <a href="/ru/dermal-fillers-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Гид по филлерам</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Дермальные филлеры в Корее</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Juvederm, Restylane, Radiesse и дизайн лица под руководством врача.</p>
-        </a>
-
-        <a href="/ru/skin-boosters-and-regenerative-treatments.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Регенеративные процедуры</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Скин-бустеры и регенеративные процедуры</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Rejuran, Juvelook, Exosomes, Sculptra сравниваются.</p>
-        </a>
-
-        <a href="/ru/hair-loss-and-scalp-regeneration-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Гид по волосам</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Выпадение волос и регенерация кожи головы</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Планирование ухода за кожей головы и регенеративная поддержка.</p>
-        </a>
-
-        <a href="/ru/aesthetic-treatment-faq-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">FAQ пациентов</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">FAQ по эстетическим процедурам для иностранных пациентов</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Ответы по срокам, восстановлению, общению и перелётам.</p>
-        </a>
+<section class="py-20 bg-white border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
+      <div class="rounded-[2rem] overflow-hidden border border-slate-200 shadow-lg bg-slate-50">
+        <img src="/.netlify/images?url=/used-bottles-archive.png&w=1200&fm=webp&q=75" alt="Клинический архив использованных инъекционных препаратов и расходных материалов в Tune Clinic" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Справка по клиническим объёмам</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Посмотрите, как выглядит реальное использование, прежде чем сравнивать заявления</h2>
+        <p class="text-slate-600 leading-relaxed mt-5">
+          Tune Clinic ведёт фотоархив реально использованных флаконов и расходных материалов, собранных менее чем за три месяца.
+          Это придаёт контекст брендам, упомянутым в этих гидах, и помогает отличить рутинное клиническое использование от разовых показательных процедур.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mt-7">
+          <a href="/ru/dermal-fillers-in-korea.html" class="guide-card p-5">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Доказательства по филлерам</p>
+            <p class="text-lg font-serif text-slate-900">Дермальные филлеры в Корее</p>
+            <p class="text-sm text-slate-500 mt-3">Использованные шприцы филлеров и логика филлинга с приоритетом дизайна.</p>
+          </a>
+          <a href="/ru/skin-boosters-and-regenerative-treatments.html" class="guide-card p-5">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Доказательства по регенерации</p>
+            <p class="text-lg font-serif text-slate-900">Skin Boosters и регенеративные процедуры</p>
+            <p class="text-sm text-slate-500 mt-3">Архивный контекст Juvelook и Rejuran с планированием регенеративных процедур.</p>
+          </a>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="text-center mt-10">
-      <a href="/ru/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
-        <i class="fas fa-calendar-check text-gold"></i> Записаться
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Рекомендуемые гиды</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Начните с этих гидов, если вы впервые знакомитесь с Tune Clinic</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/ru/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Планирование поездки</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Гид для иностранных пациентов</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Ход консультации, языковая поддержка, планирование короткой поездки и рациональный подход к лечению до прибытия.</p>
       </a>
+      <a href="/ru/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Центр процедур</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Гид по лифтингу в Корее</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Разберитесь в категориях лифтинга, прежде чем сравнивать аппараты.</p>
+      </a>
+      <a href="/ru/dermal-fillers-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Центр филлеров</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Дермальные филлеры в Корее</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Узнайте, чем структурное планирование филлеров отличается от простого объёмного подхода.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="space-y-10">
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-950 text-white p-8 md:p-10">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Поездка и подбор клиники</span>
+            <h3 class="text-3xl font-serif mt-4">Начните с практических вопросов</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mt-5">Эти гиды лучше всего подходят для тех, кто приезжает впервые и хочет понять, как устроено планирование процедур в Сеуле, прежде чем сравнивать методы.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/ru/international-patients-guide.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Начните здесь</p>
+              <p class="text-lg font-serif text-slate-900">Гид для иностранных пациентов</p>
+              <p class="text-sm text-slate-500 mt-3">Лучшая отправная точка для планирования процедур в Сеуле из-за рубежа.</p>
+            </a>
+            <a href="/ru/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Подбор по расположению</p>
+              <p class="text-lg font-serif text-slate-900">Эстетическая клиника в Апкуджоне для иностранных пациентов</p>
+              <p class="text-sm text-slate-500 mt-3">Почему расположение менее важно, чем логика врача, коммуникация и планирование с учётом поездки.</p>
+            </a>
+            <a href="/ru/aesthetic-treatment-faq-for-foreign-patients.html" class="guide-card p-5 md:col-span-2">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">FAQ</p>
+              <p class="text-lg font-serif text-slate-900">FAQ по эстетическим процедурам для иностранных пациентов</p>
+              <p class="text-sm text-slate-500 mt-3">Прямые ответы о сроках, перелётах, языке, восстановлении и вопросах консультации в тот же день.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-50 p-8 md:p-10 border-r border-slate-200">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Лифтинг, контур и качество кожи</span>
+            <h3 class="text-3xl font-serif text-slate-900 mt-4">Определите подходящую категорию перед сравнением</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mt-5">Эти гиды помогают пациентам различать лифтинг, филлеры, регенеративные процедуры для кожи и уход за кожей головы, пока они не запутались в названиях брендов.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/ru/korean-lifting-guide.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Центр лифтинга</p>
+              <p class="text-lg font-serif text-slate-900">Гид по лифтингу в Корее</p>
+              <p class="text-sm text-slate-500 mt-3">Обзор на уровне категорий для Ultherapy, Thermage FLX, Oligio и стратегии лифтинга.</p>
+            </a>
+            <a href="/ru/dermal-fillers-in-korea.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Центр филлеров</p>
+              <p class="text-lg font-serif text-slate-900">Дермальные филлеры в Корее</p>
+              <p class="text-sm text-slate-500 mt-3">Когда филлеры уместны, а когда лифтинг или последовательность важнее.</p>
+            </a>
+            <a href="/ru/skin-boosters-and-regenerative-treatments.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Регенеративные</p>
+              <p class="text-lg font-serif text-slate-900">Skin Boosters и регенеративные процедуры</p>
+              <p class="text-sm text-slate-500 mt-3">Для пациентов, интересующихся Rejuran, Juvelook, экзосомами и долгосрочным улучшением качества кожи.</p>
+            </a>
+            <a href="/ru/hair-loss-and-scalp-regeneration-in-korea.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Волосы и кожа головы</p>
+              <p class="text-lg font-serif text-slate-900">Выпадение волос и регенерация кожи головы в Корее</p>
+              <p class="text-sm text-slate-500 mt-3">Гид для иностранных пациентов, изучающих уход за кожей головы и регенеративное планирование для волос.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-950 text-white p-8 md:p-10">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Сравнение и поддержка принятия решений</span>
+            <h3 class="text-3xl font-serif mt-4">Сравнивайте только после того, как категория определена</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mt-5">Эти страницы более полезны, когда вы уже понимаете, что лицо, скорее всего, относится к лифтинг-ориентированному пути, и вам нужно более чёткое дерево решений.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/ru/ultherapy-vs-thermage.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Сравнение аппаратов</p>
+              <p class="text-lg font-serif text-slate-900">Ultherapy vs Thermage FLX</p>
+              <p class="text-sm text-slate-500 mt-3">Прямое сравнение для пациентов, уже определившихся с категорией лифтинга.</p>
+            </a>
+            <a href="/ru/how-to-choose-the-right-lifting-treatment.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Гид по выбору</p>
+              <p class="text-lg font-serif text-slate-900">Как выбрать подходящую процедуру лифтинга</p>
+              <p class="text-sm text-slate-500 mt-3">Страница поддержки решений при провисании, дряблости кожи, потере контура и ограничениях поездки.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-slate-950 text-white">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">Следующий шаг</span>
+    <h2 class="text-3xl md:text-5xl font-serif mt-3">Прочитайте достаточно, чтобы задать правильные вопросы, и оставьте план простым</h2>
+    <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto mt-5">
+      Цель этих гидов — не превратить лечение в лабиринт.
+      А сделать вашу консультацию точнее, ожидания — яснее, а итоговый план — элегантнее.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      <a href="/ru/menu.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center">
+        Вернуться к ценам
+      </a>
+      <a href="/ru/booking.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center"><i class="fas fa-calendar-check"></i> Записаться</a>
     </div>
   </div>
 </section>

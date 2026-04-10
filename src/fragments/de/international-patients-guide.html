@@ -1,53 +1,190 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
 body { font-family: 'Lato', sans-serif; }
 .font-serif { font-family: 'Playfair Display', serif; }
 .text-gold { color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+.bg-gold { background-color: #C5A059; }
+.border-gold { border-color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
 </style>
 
 <header class="bg-slate-950 text-white border-b border-slate-800">
-  <div class="max-w-4xl mx-auto px-6 py-20 md:py-28">
-    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">Leitfaden für internationale Patienten</span>
-    <h1 class="text-4xl md:text-5xl font-serif leading-tight mt-7">Leitfaden für internationale Patienten · Tune Clinic Seoul</h1>
-    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">Wie man ästhetische Behandlungen in Seoul als ausländischer Patient plant — Beratungsablauf, Sprache, Timing und Reiseintegration.</p>
+  <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">
+      Leitfaden für internationale Patienten
+    </span>
+    <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 mt-8 items-start">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-serif leading-tight">Leitfaden für internationale Patienten der Tune Clinic in Seoul</h1>
+        <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">
+          Wenn Sie eine ästhetische Behandlung während Ihres Korea-Besuchs planen, ist die wichtigste Frage nicht, was gerade im Trend liegt.
+          Es geht darum, was für Ihre Anatomie, Ihren Zeitplan und Ihr Erholungsfenster medizinisch sinnvoll ist.
+          Dieser Leitfaden erklärt, wie ausländische Patienten üblicherweise bei der Tune Clinic in Apgujeong planen.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+          <a href="/de/booking.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center"><i class="fas fa-calendar-check"></i> Jetzt buchen</a>
+          <a href="/de/menu.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center">
+            Referenzpreise ansehen
+          </a>
+        </div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-4">Auf einen Blick</p>
+        <ul class="space-y-4 text-sm text-slate-200">
+          <li class="flex gap-3"><i class="fas fa-language text-gold mt-1"></i><span>Englischsprachige Koordination mit zusätzlicher Unterstützung für chinesische, japanische, thailändische und arabische Anfragen.</span></li>
+          <li class="flex gap-3"><i class="fas fa-user-md text-gold mt-1"></i><span>Ärztlich geleitete Planung, ausgerichtet auf Gewebequalität, Anatomie und Erholungszeitpunkt.</span></li>
+          <li class="flex gap-3"><i class="fas fa-location-dot text-gold mt-1"></i><span>Apgujeong-Standort in Seoul, ideal für Hotelaufenthalte und kurze medizinische Reisepläne.</span></li>
+          <li class="flex gap-3"><i class="fas fa-plane-departure text-gold mt-1"></i><span>Reisebewusste Abfolge zur Reduzierung unnötiger Ausfallzeiten vor Flügen oder Geschäftstreffen.</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </header>
 
-<section class="py-16 bg-slate-50">
-  <div class="max-w-4xl mx-auto px-6 space-y-8">
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Beratungsablauf</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Das Ersterlebnis beginnt mit einer digitalen Voranfrage. Unser Team bewertet Ihre Ziele, empfiehlt einen Erstplan und koordiniert die Kliniklogistik vor Ihrer Ankunft.</p></div>
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Wie die Planung üblicherweise abläuft</span>
+      <h2 class="text-3xl md:text-5xl font-serif text-slate-900 mt-3">Ein klarer Weg vor Ihrer Ankunft</h2>
+      <p class="text-slate-500 mt-5 leading-relaxed">
+        Internationale Patienten wünschen sich oft Schnelligkeit, aber gute Ergebnisse erfordern eine durchdachte Abfolge.
+        Das beste Erlebnis entsteht, wenn Erwartungen, Anatomie und Reisezeitplan vor dem Behandlungstag abgestimmt sind.
+      </p>
     </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Sprachunterstützung</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Direktkommunikation ist auf Englisch verfügbar. Für Arabisch, Japanisch, Chinesisch und Thailändisch stehen Koordinatoren zur Verfügung. Niemand wird zur Kommunikation durch Drittanbieter gezwungen.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Reiseplanung</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Behandlungspläne berücksichtigen Ihre Flüge, Erholungszeiten und Sightseeing-Präferenzen. Für Aufenthalte unter 3 Tagen sind spezielle Kurzreise-Protokolle verfügbar.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Kein Vermittler-Modell</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Tune Clinic arbeitet nicht mit Vermittlern oder Vermittlungsagenturen. Alle Kommunikation erfolgt direkt mit dem medizinischen Team. Preise sind transparent und fest.</p></div>
-    </div>
-    <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-serif text-slate-900 mb-4">Nach der Behandlung</h2>
-      <div class="text-slate-600 leading-relaxed space-y-3"><p>Post-Behandlungsanweisungen und Nachsorgeunterstützung werden per WhatsApp oder E-Mail bereitgestellt. Bei Rückkehr sind Folgebehandlungen planbar.</p></div>
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Schritt 01</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Teilen Sie Ihr Anliegen mit</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Senden Sie aktuelle Fotos, Ihr Hauptanliegen und Ihre Reisedaten. So kann das Team einschätzen, ob Lifting, Filler, Kollagenstimulation oder Hautqualitätsverbesserung die Hauptpriorität ist.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Schritt 02</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Erhalten Sie eine Planungsrichtung</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Das Ziel der Vorab-Kommunikation ist Orientierung, kein blindes Angebot. Sie erfahren, welche Kategorie voraussichtlich geeignet ist und welche Behandlungen für Ihre Anatomie unnötig sein könnten.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Schritt 03</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Bestätigung in der Klinik</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Am Behandlungstag bestätigt der Arzt den Gewebezustand, Asymmetrien, Volumenverteilung und Erholungstoleranz, bevor das Protokoll finalisiert wird.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3">Schritt 04</p>
+        <h3 class="text-xl font-serif text-slate-900 mb-3">Verlassen Sie die Klinik mit einem rationalen Plan</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Manchmal bedeutet das eine Behandlung am selben Tag. Manchmal bedeutet es eine Änderung der Reihenfolge, Volumenreduzierung oder Trennung von Eingriffen, damit die Ergebnisse elegant und reisesicher bleiben.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="py-16 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="/de/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
-        <i class="fas fa-calendar-check text-gold"></i> Jetzt buchen
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Was internationale Patienten häufig fragen</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3 mb-5">Was kann realistisch während einer kurzen Reise erreicht werden?</h2>
+        <p class="text-slate-600 leading-relaxed">
+          Die Antwort hängt vom Blutergussrisiko, der Schwellungstoleranz und davon ab, ob Ihre Priorität Kontur, Lifting, Textur oder langfristige Kollagenumstrukturierung ist.
+          Bei einer kurzen Reise geht es meist nicht um "mehr oder weniger" Behandlung.
+          Es geht darum, "welche Kategorie das beste Verhältnis von sichtbarer Verbesserung zu Ausfallzeit bietet."
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="rounded-3xl bg-white border border-slate-200 p-6">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Reisefreundlich</p>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li>Ultherapy, Thermage FLX, Oligio und sorgfältig ausgewählte Straffungsprotokolle</li>
+            <li>Hautqualitätsbehandlungen, bei denen Rötungen meist leichter zu handhaben sind als Blutergüsse</li>
+            <li>Kleinere, anatomisch spezifische Anpassungen statt Überkorrektur</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl bg-white border border-slate-200 p-6">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Erfordert mehr Planung</p>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li>Hochvolumige Filler, wenn Schwellungskontrolle wichtig ist</li>
+            <li>Mehrere regenerative Behandlungen in einem kurzen Aufenthalt kombiniert</li>
+            <li>Alles, was für ein natürlicheres Ergebnis zeitlich gestaffelt werden sollte</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Empfohlene Lektüre</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Drei Seiten, die vor der Buchung helfen</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/de/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Lokale Information</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Apgujeong-Ästhetikklinik für ausländische Patienten</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Warum Standort, ärztliche Logik und Reisekoordination wichtiger sind als Paketmarketing.</p>
       </a>
-      <a href="/de/guides.html" class="inline-flex items-center gap-2 border border-slate-300 text-slate-700 px-8 py-4 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition">
-        Zurück zu den Ratgebern
+      <a href="/de/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Behandlungs-Hub</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Koreanischer Lifting-Leitfaden</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Vergleichen Sie Ultherapy, Thermage FLX, Oligio und ärztlich geleitete Kombinationen nach Indikation.</p>
+      </a>
+      <a href="/de/design-method.html" class="group rounded-3xl border border-slate-200 p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Markenlogik</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Die Chamaka-se Designmethode</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Verstehen Sie, wie Tune Clinic Reihenfolge, Dosis und Modalität wählt, anstatt ein einzelnes Gerät zu verkaufen.</p>
       </a>
     </div>
+  </div>
+</section>
+
+<section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Häufige Fragen</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Fragen internationaler Patienten</h2>
+    </div>
+    <div class="space-y-4">
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6" open>
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Kann ich am selben Tag wie meine Beratung behandelt werden?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Oft ja, aber nur wenn der Arzt bestätigt, dass der Plan für Ihre Anatomie und Ihren Zeitplan angemessen ist. Eine Behandlung am selben Tag ist nicht immer die beste Option, wenn Ihr Erholungsfenster begrenzt ist.</div>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Gibt es Unterstützung für Patienten, die kein Koreanisch sprechen?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Ja. Tune Clinic ist auf internationale Patientenkommunikation ausgerichtet, mit englischsprachiger Koordination und zusätzlichen Unterstützungswegen für mehrere wichtige Sprachen.</div>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Wie früh sollte ich die Klinik vor meinem Flug kontaktieren?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Idealerweise mindestens mehrere Tage im Voraus, besonders wenn Sie Vorab-Planung, Terminkoordination oder Beratung wünschen, welche Behandlungsart innerhalb Ihres Aufenthalts realistisch ist.</div>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-2xl p-6">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-lg font-serif text-slate-900">Welche Behandlungen sind für Kurzreisende in der Regel einfacher?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">Energiebasiertes Lifting, Straffung und ausgewählte Hautqualitätsbehandlungen lassen sich oft leichter in kurze Reisen einpassen als Behandlungen mit höherem Schwellungs- oder Blutergussrisiko. Endgültige Empfehlungen hängen von der Gesichtsanatomie und der Toleranz für Ausfallzeiten ab.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-slate-950 text-white">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">Rational planen</span>
+    <h2 class="text-3xl md:text-5xl font-serif mt-3">Beginnen Sie mit der Anatomie, nicht mit dem Hype</h2>
+    <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto mt-5">
+      Wenn Sie Kliniken in Seoul vergleichen, identifizieren Sie zunächst Ihr Hauptanliegen und Ihre Reisebeschränkungen.
+      Lesen Sie dann den <a href="/de/korean-lifting-guide.html" class="text-gold hover:text-white transition">Koreanischer Lifting-Leitfaden</a>,
+      the <a href="/de/menu.html" class="text-gold hover:text-white transition">Referenzpreisseite</a>,
+      and the <a href="/de/design-method.html" class="text-gold hover:text-white transition">Designmethode</a>, bevor Sie die Klinik kontaktieren.
+    </p>
   </div>
 </section>

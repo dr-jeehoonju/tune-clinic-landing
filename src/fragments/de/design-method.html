@@ -1,73 +1,379 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-body { font-family: 'Lato', sans-serif; }
-.font-serif { font-family: 'Playfair Display', serif; }
-.text-gold { color: #C5A059; }
-.bg-gold { background-color: #C5A059; }
-.border-gold { border-color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 32px;
+            bottom: -16px;
+            width: 1px;
+            background-color: #E2E8F0;
+        }
+        .timeline-step:last-child::before {
+            display: none;
+        }
 </style>
 
-<section class="bg-white py-24 border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 bg-gold-light text-gold uppercase tracking-[0.22em] text-[11px] font-bold">Chamaka-se Design-Methode</span>
-        <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mt-6 leading-tight">Gesichtsästhetik beginnt<br><span class="text-gold italic">mit Planung</span></h1>
-        <p class="text-slate-600 text-base md:text-lg leading-relaxed mt-6 max-w-xl">Chamaka-se ist eine Methodik, die zuerst diagnostiziert, bevor ein Behandlungsweg gewählt wird. Der Arzt beginnt mit Gewebeanalyse, Symmetriebewertung und Sequenzplanung — und empfiehlt dann, was wirklich benötigt wird.</p>
-        <div class="flex flex-wrap gap-4 mt-10">
-          <a href="/de/booking.html" class="px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow-lg flex items-center gap-2"><i class="fas fa-calendar-check"></i> Jetzt buchen</a>
-          <a href="/de/signature-lifting.html" class="px-10 py-4 border border-slate-300 text-slate-700 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition flex items-center gap-2"><i class="fas fa-star"></i> Programme</a>
+<header class="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-[10px] font-bold uppercase tracking-widest mb-6 rounded-sm bg-white shadow-sm">
+                Ärztlich geleitet / Design-First
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mb-8 leading-tight">
+                Die Chamaka-se <br class="hidden md:block">Design-Methode
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Bevor wir Geräte oder Injektionen auswählen, kartieren wir Ihre Anatomie und erstellen einen Plan. <br class="mt-2">
+                <strong class="text-slate-800">Pakete sind Ergebnisse eines Designprozesses — keine Vorlagen.</strong>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#programs-bridge" class="px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow-lg text-center">
+                    Programme ansehen
+                </a>
+                <a href="/de/booking.html" class="px-10 py-4 border border-slate-300 text-slate-700 font-semibold rounded-sm hover:border-slate-800 hover:text-slate-900 bg-white transition text-center flex items-center justify-center gap-2"><i class="fas fa-calendar-check"></i> Jetzt buchen</a>
+            </div>
         </div>
-      </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-slate-900 rounded-2xl p-6 text-white"><i class="fas fa-microscope text-gold text-2xl mb-4"></i><h3 class="font-bold text-lg mb-2">Diagnose zuerst</h3><p class="text-slate-400 text-sm leading-relaxed">Gewebe, Symmetrie und Elastizitätsmuster werden zuerst bewertet.</p></div>
-        <div class="bg-gold-light border border-gold/20 rounded-2xl p-6"><i class="fas fa-layer-group text-gold text-2xl mb-4"></i><h3 class="font-bold text-lg text-slate-900 mb-2">Protokolldesign</h3><p class="text-slate-600 text-sm leading-relaxed">Lifting, Volumen und Regeneration in einer bestimmten Sequenz.</p></div>
-        <div class="bg-gold-light border border-gold/20 rounded-2xl p-6"><i class="fas fa-plane text-gold text-2xl mb-4"></i><h3 class="font-bold text-lg text-slate-900 mb-2">Reisefreundlich</h3><p class="text-slate-600 text-sm leading-relaxed">Erholungszeiten nach dem Zeitplan geplant.</p></div>
-        <div class="bg-slate-900 rounded-2xl p-6 text-white"><i class="fas fa-shield-alt text-gold text-2xl mb-4"></i><h3 class="font-bold text-lg mb-2">Sicherheit zuerst</h3><p class="text-slate-400 text-sm leading-relaxed">Überbehandlung wird ausgeschlossen.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<section class="py-24 bg-slate-50 border-b border-slate-200">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Arztgeführtes Framework</span>
-      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Vier Kernprinzipien</h2>
-      <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">Chamaka-se basiert auf vier anatomischen Prinzipien. Jedes bildet die Grundlage für Behandlungsentscheidungen.</p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"><span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Prinzip 01</span><h3 class="text-2xl font-serif text-slate-900 mt-3 mb-4">Strukturelle Priorität</h3><p class="text-slate-600 leading-relaxed">Jeder Gesichtseingriff berücksichtigt zuerst die strukturelle Unterstützung. Wir bewerten, ob Lifting vor dem Hinzufügen von Volumen priorisiert werden sollte.</p></div>
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"><span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Prinzip 02</span><h3 class="text-2xl font-serif text-slate-900 mt-3 mb-4">Sequenzbasierte Planung</h3><p class="text-slate-600 leading-relaxed">Lifting, Filler und Kollagenstimulation in optimaler Reihenfolge. Die falsche Reihenfolge führt zu falschen Ergebnissen.</p></div>
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"><span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Prinzip 03</span><h3 class="text-2xl font-serif text-slate-900 mt-3 mb-4">Reisezeitplan-Integration</h3><p class="text-slate-600 leading-relaxed">Behandlungspläne auf den Reisezeitplan, Flüge und Veranstaltungen abgestimmt. Erholungszeiten werden minimiert.</p></div>
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"><span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Prinzip 04</span><h3 class="text-2xl font-serif text-slate-900 mt-3 mb-4">Transparente Kommunikation</h3><p class="text-slate-600 leading-relaxed">Was empfohlen wird, was zurückgehalten wird und warum — wird klar erklärt. Kein trendbasierter Verkauf.</p></div>
-    </div>
-  </div>
-</section>
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-4xl text-gold/30 mb-6"></i>
+            <h2 class="text-3xl md:text-5xl font-serif text-slate-900 leading-tight mb-8">
+                "Geräte sind Werkzeuge.<br>
+                Das Protokoll ist das Produkt."
+            </h2>
+            <p class="text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto border-t border-slate-100 pt-8">
+                Unsere Aufgabe ist es, Unsicherheiten zu reduzieren und den rationalsten Behandlungsweg für Ihr Gesicht und Ihren Reisezeitplan zu entwerfen.
+            </p>
+        </div>
+    </section>
 
-<section class="py-24 bg-white border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Anatomischer Design-Workflow</span>
-      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Von der Beratung zur Behandlung</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="text-center"><div class="w-14 h-14 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-xl font-bold">1</div><h3 class="text-xl font-serif text-slate-900 mb-3">Anatomische Bewertung</h3><p class="text-slate-600 text-sm leading-relaxed">Gewebestärke, Fettverteilung, Hautelastizität und Asymmetrie werden systematisch bewertet.</p></div>
-      <div class="text-center"><div class="w-14 h-14 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-xl font-bold">2</div><h3 class="text-xl font-serif text-slate-900 mb-3">Protokolldesign</h3><p class="text-slate-600 text-sm leading-relaxed">Spezifische Behandlungen, Geräte und Präparate werden ausgewählt und sequenziert.</p></div>
-      <div class="text-center"><div class="w-14 h-14 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-xl font-bold">3</div><h3 class="text-xl font-serif text-slate-900 mb-3">Präzise Durchführung</h3><p class="text-slate-600 text-sm leading-relaxed">Behandlungen werden direkt vom Arzt gemäß dem entworfenen Protokoll durchgeführt.</p></div>
-    </div>
-  </div>
-</section>
+    <section class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Grundlage</span>
+                <h3 class="text-3xl font-serif text-slate-900 mt-2">Die vier Säulen</h3>
+            </div>
 
-<section class="py-24 bg-slate-50">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <span class="text-gold uppercase tracking-widest text-xs font-bold">Loslegen</span>
-    <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Termin vereinbaren</h2>
-    <p class="text-slate-500 mb-10 leading-relaxed max-w-xl mx-auto">Die Chamaka-se-Methodik beginnt mit einer Beratung. Die Diagnose kommt vor der Programmauswahl.</p>
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="/de/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check text-gold"></i> Jetzt buchen</a>
-      <a href="/de/signature-lifting.html" class="inline-flex items-center gap-2 border border-slate-300 text-slate-700 px-8 py-4 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition">Signature Lifting</a>
-    </div>
-  </div>
-</section>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">1</span>
+                        Präzisionsanalyse
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Bewertung der Gewebedicke</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Kartierung der Volumenverteilung</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Muskeldominanz und Spannung</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">2</span>
+                        Individuelles Design
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Strukturelle Lifting-Vektoren</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Energiekalibrierung nach Zone</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Bewertung des Alterungsmusters</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">3</span>
+                        Protokollplanung
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Synergistische Geräteauswahl</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Sequenzkartierung (Energie vs. Injektionen)</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Optimierung des Reisezeitplans</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">4</span>
+                        Ergebniskalibrierung
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Echtzeit-Anpassungen während der Behandlung</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Ausgleich der Gesichtssymmetrie</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Flugsichere Nachsorge-Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Der Prozess</span>
+                <h3 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Anatomischer Design-Workflow</h3>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Jede Behandlung beginnt mit einem präzisen, ärztlich geführten Kartierungsprozess direkt auf Ihrer Haut.</p>
+            </div>
+
+            <div class="space-y-20 md:space-y-32">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-01.png" alt="Basisanalyse" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Schritt 01</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Basisanalyse</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            Bewertung des Hautzustands, der Gewebedicke und der Gesichtsspannung in Ruhe, bevor Markierungen gesetzt werden.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-02.png" alt="Interaktive Planung" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Schritt 02</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Interaktive Planung</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            Gemeinsame Abstimmung mit Ihnen mithilfe eines Spiegels, um Ihre ästhetischen Ziele mit realistischen anatomischen Möglichkeiten in Einklang zu bringen.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-03.png" alt="Primäre Vektorkartierung" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Schritt 03</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Primäre Vektorkartierung</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            Nachzeichnung der grundlegenden Lifting-Vektoren und Identifizierung der primären Richtung der Gewebeerschlaffung.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-04.png" alt="Struktureller Bauplan" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Schritt 04</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Struktureller Bauplan</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            Fertigstellung des ersten Designentwurfs zur Kartierung der exakten Zonen, die tiefe Energiezufuhr oder Unterstützung erfordern.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-05.png" alt="Mikro-Detailarbeit" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Schritt 05</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Mikro-Detailarbeit</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            Isolierung sekundärer Problembereiche wie lokaler Volumenverlust oder empfindliche Hautzonen, die besondere Aufmerksamkeit erfordern.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-red-100">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-[9px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-sm">Sicherheitsprotokoll</div>
+                        <img src="step-06.png" alt="Tiefen- & Sicherheitskalibrierung" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Schritt 06</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Tiefen- & Sicherheitskalibrierung</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            Setzen der finalen klinischen Markierungen (rot) zur Bestimmung präziser Behandlungstiefen und strikten Vermeidung anatomischer Gefahrenzonen.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-serif text-white">Was Sie erwarten können</h3>
+                <p class="text-slate-400 mt-3 text-sm">Übersetzung unserer Designphilosophie in direkte Vorteile für Reisende.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center">
+                <div class="bg-slate-800 p-8 rounded-sm border border-slate-700">
+                    <div class="w-12 h-12 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">Weniger Vermutungen</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">Präzise anatomische Zielführung stellt sicher, dass jeder Schritt medizinisch begründet ist.</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• Keine generischen Standardprotokolle</li>
+                        <li>• Klinisch fundierte Entscheidungen</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-sm border border-slate-700">
+                    <div class="w-12 h-12 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">Minimale Ausfallzeit</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">Ihre Erholung wird in die Planung einbezogen, um Ihren Reiseplan zu schützen.</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• Aktive Schwellungskontrolle</li>
+                        <li>• Flugsicheres Behandlungstiming</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-sm border border-gold/30 relative overflow-hidden shadow-[0_0_15px_rgba(197,160,89,0.1)]">
+                    <div class="absolute top-0 w-full left-0 h-1 bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">Keine unnötigen Maßnahmen</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">Wir empfehlen nur das, was Ihre Physiologie zur Erreichung Ihrer Ziele erfordert.</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• Anatomie-basierte Entscheidungen</li>
+                        <li>• Vermeidung unnötiger Schritte</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Behandlungsstandard</span>
+                <h3 class="text-2xl font-serif text-slate-900 mt-2">Prozessnachweise</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center border-t border-slate-100 pt-12">
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Echtheit verifiziert</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Wir überprüfen die Echtheit der relevanten Geräte-Verbrauchsmaterialien in Ihrer Gegenwart. Scannen Sie den QR-Code zur Gültigkeitsprüfung.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Rationale Dosierung</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Wir kalibrieren Energieniveaus und Schusszahlen strikt nach Ihrer spezifischen Anatomie.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Komfortoptionen</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Von topischer Betäubung über gezielte Nervenblockaden bis zur IV-Sedierung — Ihr Komfort wird durchgeplant.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs-bridge" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-serif text-slate-900 mb-4">Kuratierte Behandlungspfade</h2>
+            <p class="text-slate-600 mb-12 max-w-2xl mx-auto">
+                Basierend auf dieser rigorosen Design-Methode bieten wir vier umfassende, ärztlich kalibrierte Programme an. 
+                Sie dienen als Grundlage Ihrer Behandlungsreise.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <a href="/de/signature-lifting.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Signature Lifting</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Ultherapy 350</p>
+                </a>
+                <a href="/de/structural-reset.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Structural Reset</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Elite Combo</p>
+                </a>
+                <a href="/de/collagen-builder.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Collagen Builder</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Biostimulation</p>
+                </a>
+                <a href="/de/filler-chamaka-se.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Volume Chamaka-se</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Facial Design</p>
+                </a>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/de/index.html#programs" class="px-8 py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition">
+                    Alle Programme ansehen
+                </a>
+                <a href="/de/menu.html" class="px-8 py-3 border border-slate-300 text-slate-700 font-bold rounded-sm hover:border-slate-800 bg-white transition">
+                    Referenzpreise
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center border-t border-slate-800">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">Starten Sie Ihren Designprozess</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Verbinden Sie sich direkt mit unserem medizinischen Team über Instagram.<br>
+                Geben Sie die folgenden Informationen für eine effiziente Vorprüfung an.
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">Kopieren & als DM senden:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all">
+                    Hallo Tune Clinic, ich hätte gerne eine Vorprüfung:<br>
+                    • Aufenthalt in Seoul: [ ]<br>
+                    • Abreise aus Korea am: [ ]<br>
+                    • Hauptanliegen: [Lifting / Kontur / Hautqualität]<br>
+                    • Foto verfügbar: Ja/Nein<br>
+                    • Wichtiges Ereignis (optional): [ ]
+                </code>
+            </div>
+
+            <div class="flex justify-center">
+                <a href="/de/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> Jetzt buchen</a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>© 2026 Apgujeong Tune Clinic. Evidenzbasierte Ästhetik.</p>
+                <p class="opacity-70">Ergebnisse und Eignung variieren individuell. Der endgültige Behandlungsplan und das Angebot werden nach der persönlichen Untersuchung bestätigt.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+        })();
+    </script>

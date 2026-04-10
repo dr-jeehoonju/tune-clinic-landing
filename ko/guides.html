@@ -149,84 +149,240 @@
   
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
 body { font-family: 'Lato', sans-serif; }
 .font-serif { font-family: 'Playfair Display', serif; }
 .text-gold { color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
+.guide-card {
+  border-radius: 1.5rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  transition: all 180ms ease;
+}
+.guide-card:hover {
+  border-color: #C5A059;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+.section-shell {
+  border-radius: 2rem;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
 </style>
 
 <header class="bg-slate-950 text-white border-b border-slate-800">
   <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
-    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">가이드 허브</span>
-    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">서울 미용 가이드 라이브러리</h1>
-    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">치료 비교, 여행 계획, 리프팅 결정, 필러, 재생 치료, 환자 FAQ를 포함한 국제 환자를 위한 서울 미용 가이드 전체 모음.</p>
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">
+      Tune Clinic 가이드
+    </span>
+    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">서울 미용 시술을 고려하는 해외 환자를 위한 큐레이션 자료 라이브러리</h1>
+    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">
+      이 가이드는 상담 전 혼란을 줄이기 위해 마련되었습니다.
+      특정 장비나 트렌드를 강요하는 대신, 카테고리 적합성, 여행 시기, 시술 순서, 그리고 먼저 해야 할 질문이 무엇인지를 이해하도록 돕습니다.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+      <a href="/ko/menu.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center">
+        참고 가격 보기
+      </a>
+      <a href="/ko/booking.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center"><i class="fas fa-calendar-check"></i> 예약하기</a>
+    </div>
   </div>
 </header>
 
 <section class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">핵심 가이드</span>
-      <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-8">예약 전 먼저 읽어야 할 3가지</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <a href="/ko/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">여행 계획</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">국제 환자 가이드</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">상담 흐름, 언어 지원, 단기 여행 계획, 외국인 방문자에게 적합한 것들.</p>
-        </a>
-        <a href="/ko/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">클리닉 선택</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">외국인을 위한 압구정 미용 클리닉</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">환자들이 지역으로 검색하는 이유와 브랜딩 및 위치를 넘어 클리닉 적합성을 판단하는 방법.</p>
-        </a>
-        <a href="/ko/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">치료 허브</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">한국 리프팅 가이드</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">결정 전에 울쎄라, 써마지 FLX, 올리지오, 의사 주도 리프팅 조합을 비교하세요.</p>
-        </a>
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">이 라이브러리 활용법</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">좋은 상담이 진행되는 순서대로 읽어보세요</h2>
+      <p class="text-slate-500 leading-relaxed mt-4">여행 및 클리닉 적합성 질문부터 시작하여 카테고리 적합성으로 이동한 후, 핵심 문제가 명확해지면 장비를 비교하거나 시술 순서를 검토하세요.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-plane-departure"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">단계 01</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">여행 먼저</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">의사소통, 일정, 여행 시기, 또는 서울 단기 체류 계획이 가장 큰 관심사라면 여기서 시작하세요.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">단계 02</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">카테고리 적합성</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">고민은 알지만 어떤 카테고리인지 모를 때 이 가이드를 활용하세요. 리프팅, 필러, 재생 시술, 그리고 판단 기준이 여기서 명확해집니다.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-scale-balanced"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">단계 03</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">비교 및 심층 분석</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">이미 깊이 조사 중이며 장비 비교, 시술 순서, 또는 더 정확한 질문을 하는 데 도움이 필요하면 이 가이드를 읽어보세요.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">치료 가이드</span>
-      <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-8">심화 치료 정보</h2>
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-        <a href="/ko/ultherapy-vs-thermage.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">기기 비교</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">울쎄라 vs 써마지 FLX</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">리프팅 깊이, 타이트닝, 다운타임 비교.</p>
-        </a>
-        <a href="/ko/how-to-choose-the-right-lifting-treatment.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">선택 가이드</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">올바른 리프팅 치료 선택</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">처짐, 이완, 회복 타이밍에 따른 결정 프레임워크.</p>
-        </a>
-        <a href="/ko/dermal-fillers-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">필러 가이드</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">한국 피부 필러</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">쥬비덤, 레스틸렌, 라디에스, 의사 주도 안면 설계.</p>
-        </a>
-        <a href="/ko/skin-boosters-and-regenerative-treatments.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">재생 치료</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">스킨 부스터 및 재생 치료</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">리쥬란, 쥬베룩, 엑소좀, 스컬트라 비교.</p>
-        </a>
-        <a href="/ko/hair-loss-and-scalp-regeneration-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">헤어 가이드</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">탈모 및 두피 재생</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">두피 케어 계획 및 재생 지원 방법.</p>
-        </a>
-        <a href="/ko/aesthetic-treatment-faq-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">환자 FAQ</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">외국인 환자 미용 치료 FAQ</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">타이밍, 회복, 소통, 비행에 대한 답변.</p>
-        </a>
+<section class="py-20 bg-white border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
+      <div class="rounded-[2rem] overflow-hidden border border-slate-200 shadow-lg bg-slate-50">
+        <img src="/.netlify/images?url=/used-bottles-archive.png&w=1200&fm=webp&q=75" alt="Tune Clinic에서 사용된 주사제 및 소모품 아카이브" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">임상 사용량 참고자료</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">주장을 비교하기 전에 실제 사용 현황을 확인하세요</h2>
+        <p class="text-slate-600 leading-relaxed mt-5">
+          Tune Clinic은 3개월 이내에 수집된 실제 사용 병 및 소모품의 사진 아카이브를 보관합니다.
+          이 가이드에서 언급되는 브랜드에 맥락을 부여하고, 일상적 임상 사용과 일회성 시연 시술을 구별하는 데 도움이 됩니다.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mt-7">
+          <a href="/ko/dermal-fillers-in-korea.html" class="guide-card p-5">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">필러 근거자료</p>
+            <p class="text-lg font-serif text-slate-900">한국의 피부 필러</p>
+            <p class="text-sm text-slate-500 mt-3">사용된 필러 주사기와 디자인 우선 필러 로직.</p>
+          </a>
+          <a href="/ko/skin-boosters-and-regenerative-treatments.html" class="guide-card p-5">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">재생 시술 근거자료</p>
+            <p class="text-lg font-serif text-slate-900">스킨 부스터 및 재생 시술</p>
+            <p class="text-sm text-slate-500 mt-3">Juvelook 및 Rejuran 아카이브와 재생 시술 계획 맥락.</p>
+          </a>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="text-center mt-10">
-      <a href="/ko/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
-        <i class="fas fa-calendar-check text-gold"></i> 지금 예약
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">주요 가이드</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Tune Clinic이 처음이라면 이 가이드부터 시작하세요</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/ko/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">여행 계획</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">해외 환자 가이드</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">상담 절차, 언어 지원, 단기 여행 계획, 도착 전 합리적인 시술 접근 방법.</p>
       </a>
+      <a href="/ko/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">시술 허브</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">한국 리프팅 가이드</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">기기를 비교하기 전에 리프팅 카테고리를 먼저 이해하세요.</p>
+      </a>
+      <a href="/ko/dermal-fillers-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">필러 허브</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">한국의 피부 필러</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">구조적 필러 계획이 단순한 볼륨 우선 시술과 어떻게 다른지 확인하세요.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="space-y-10">
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-950 text-white p-8 md:p-10">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">여행 및 클리닉 적합성</span>
+            <h3 class="text-3xl font-serif mt-4">실질적인 질문부터 시작하세요</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mt-5">시술을 비교하기 전에 서울 시술 계획이 어떻게 작동하는지 이해해야 하는 첫 방문 환자에게 가장 적합합니다.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/ko/international-patients-guide.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">여기서 시작</p>
+              <p class="text-lg font-serif text-slate-900">해외 환자 가이드</p>
+              <p class="text-sm text-slate-500 mt-3">해외에서 서울 시술을 계획하는 최적의 출발점.</p>
+            </a>
+            <a href="/ko/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">위치 적합성</p>
+              <p class="text-lg font-serif text-slate-900">외국인 환자를 위한 압구정 미용 클리닉</p>
+              <p class="text-sm text-slate-500 mt-3">위치보다 의사의 판단 논리, 의사소통, 여행을 고려한 계획이 더 중요한 이유.</p>
+            </a>
+            <a href="/ko/aesthetic-treatment-faq-for-foreign-patients.html" class="guide-card p-5 md:col-span-2">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">FAQ</p>
+              <p class="text-lg font-serif text-slate-900">외국인 환자를 위한 미용 시술 FAQ</p>
+              <p class="text-sm text-slate-500 mt-3">시기, 항공편, 언어, 회복 기간, 당일 상담에 대한 직접적인 답변.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-50 p-8 md:p-10 border-r border-slate-200">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">리프팅, 윤곽, 피부 질감</span>
+            <h3 class="text-3xl font-serif text-slate-900 mt-4">비교하기 전에 카테고리 적합성을 먼저 파악하세요</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mt-5">이 가이드는 환자가 브랜드명에 혼란을 겪기 전에 리프팅, 필러, 재생 피부 시술, 두피 관리를 구분하도록 도와줍니다.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/ko/korean-lifting-guide.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">리프팅 허브</p>
+              <p class="text-lg font-serif text-slate-900">한국 리프팅 가이드</p>
+              <p class="text-sm text-slate-500 mt-3">Ultherapy, Thermage FLX, Oligio 및 리프팅 전략의 카테고리별 개요.</p>
+            </a>
+            <a href="/ko/dermal-fillers-in-korea.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">필러 허브</p>
+              <p class="text-lg font-serif text-slate-900">한국의 피부 필러</p>
+              <p class="text-sm text-slate-500 mt-3">필러가 적합한 경우와 리프팅 또는 시술 순서가 더 중요한 경우.</p>
+            </a>
+            <a href="/ko/skin-boosters-and-regenerative-treatments.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">재생 시술</p>
+              <p class="text-lg font-serif text-slate-900">스킨 부스터 및 재생 시술</p>
+              <p class="text-sm text-slate-500 mt-3">Rejuran, Juvelook, 엑소좀 및 장기적 피부 질감 관리에 관심 있는 환자를 위한 가이드.</p>
+            </a>
+            <a href="/ko/hair-loss-and-scalp-regeneration-in-korea.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">모발 및 두피</p>
+              <p class="text-lg font-serif text-slate-900">한국의 탈모 및 두피 재생</p>
+              <p class="text-sm text-slate-500 mt-3">두피 관리 및 재생 모발 계획을 탐색하는 해외 환자를 위한 가이드.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-950 text-white p-8 md:p-10">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">비교 및 의사결정 지원</span>
+            <h3 class="text-3xl font-serif mt-4">카테고리가 명확해진 후에 비교하세요</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mt-5">얼굴이 리프팅 중심 경로에 해당한다는 것을 이미 알고 있으며, 더 명확한 의사결정이 필요할 때 이 페이지가 더 유용합니다.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/ko/ultherapy-vs-thermage.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">장비 비교</p>
+              <p class="text-lg font-serif text-slate-900">Ultherapy vs Thermage FLX</p>
+              <p class="text-sm text-slate-500 mt-3">이미 리프팅 카테고리에 해당하는 환자를 위한 직접 비교.</p>
+            </a>
+            <a href="/ko/how-to-choose-the-right-lifting-treatment.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">의사결정 가이드</p>
+              <p class="text-lg font-serif text-slate-900">올바른 리프팅 시술을 선택하는 방법</p>
+              <p class="text-sm text-slate-500 mt-3">처짐, 피부 이완, 윤곽 손실, 여행 제약을 고려한 의사결정 지원 페이지.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-slate-950 text-white">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">다음 단계</span>
+    <h2 class="text-3xl md:text-5xl font-serif mt-3">더 나은 질문을 할 수 있을 만큼 읽고, 계획은 단순하게 유지하세요</h2>
+    <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto mt-5">
+      이 가이드의 목적은 시술을 미로로 만드는 것이 아닙니다.
+      상담을 더 정확하게, 기대를 더 명확하게, 최종 계획을 더 우아하게 만드는 것입니다.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      <a href="/ko/menu.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center">
+        가격표로 돌아가기
+      </a>
+      <a href="/ko/booking.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center"><i class="fas fa-calendar-check"></i> 예약하기</a>
     </div>
   </div>
 </section>

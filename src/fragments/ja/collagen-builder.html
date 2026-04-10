@@ -14,41 +14,64 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .hero-collagen {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(125,211,252,0.20), transparent 24%),
+                radial-gradient(circle at 82% 20%, rgba(197,160,89,0.15), transparent 22%),
+                linear-gradient(180deg, #0f172a 0%, #152238 55%, #1e293b 100%);
+        }
 </style>
 
-<header class="relative bg-slate-900 overflow-hidden py-24 md:py-32">
+<header class="relative hero-collagen overflow-hidden py-24 md:py-32">
         <div class="absolute inset-0 z-0">
-            <img src="../main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/50"></div>
         </div>
         
         <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
             <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/30 backdrop-blur-sm">
-                バイオスティミュレーション / スキンクオリティ
+                バイオスティミュレーション / 肌質改善
             </span>
             <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
                 The Collagen Builder
             </h1>
             <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
-                医師主導のバイオスティミュレーションプロトコル。「過度なボリューム感」を出すことなく、肌密度、小ジワ、全体的な肌質を改善します。
+                医師主導のバイオスティミュレーションプロトコル。肌の密度、細かいシワ、全体的な肌質を改善 — 「過剰充填」の見た目にはなりません。
             </p>
             
             <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[260px]">
                 <span class="text-sm font-bold text-white mb-2">Rejuran Black 4cc + Juvelook Skin 2cc</span>
                 <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="103">₩770,000</span>
                 <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
-                    <p class="text-[10px] text-slate-300 uppercase tracking-wider">カウンセリング＋施術＋アフターケア込み</p>
+                    <p class="text-[10px] text-slate-300 uppercase tracking-wider">カウンセリング + 施術 + アフターケア含む</p>
                 </div>
             </div>
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/ja/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> 今すぐ予約</a>
-                <a href="index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
-                    他のプログラムを見る
+                <a href="/ja/index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                    プログラム比較
                 </a>
             </div>
         </div>
     </header>
+
+    <section class="py-6 bg-slate-900 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">こんな方に</p>
+                <p class="text-sm text-slate-200">テクスチャー、密度、細かいシワ</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">ダウンタイム</p>
+                <p class="text-sm text-slate-200">24〜48時間の軽度の腫れ</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">コアスタック</p>
+                <p class="text-sm text-slate-200">Rejuran Black + Juvelook</p>
+            </div>
+        </div>
+    </section>
 
     <section class="py-20 bg-white">
         <div class="max-w-5xl mx-auto px-6">
@@ -61,47 +84,47 @@
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed">肌のキメ、小ジワ、毛穴、全体的な肌質の改善を求める方。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed">テクスチャー、細かいシワ、毛穴、全体的な肌質の改善を求める方。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed">従来のフィラーによる「過注入」や不自然なボリュームを避けたい方。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed">従来のフィラーによる「過剰充填」や歪んだボリュームを心配される方。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed">初期のエイジングサイン、慢性的なくすみ、乾燥しやすい肌にお悩みの方。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed">初期の老化兆候、慢性的なくすみ、または乾燥しやすい肌を経験している方。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed">数週間かけて段階的かつ自然な肌質改善を希望される方。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed">数週間にわたる段階的で自然な肌質改善を好む方。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-700 leading-relaxed">軽度のダウンタイム（24〜48時間の軽い腫れ）を許容できる旅行者の方。</span>
+                            <span class="text-sm text-slate-700 leading-relaxed">軽度のダウンタイム（24〜48時間の軽い腫れ）に対応できる旅行者の方。</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
                     <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
-                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> こんな方には向いていません
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> こんな方には不向き
                     </h2>
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed"><strong>即時的な輪郭形成：</strong>即座に構造的なリフティングを求める場合は、<a href="signature-lifting.html" class="underline hover:text-gold font-bold text-slate-600">Signature Lifting</a>をお勧めします。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>即時的な輪郭形成：</strong>即座に構造的リフティングを求める場合は、<a href="/ja/signature-lifting.html" class="underline hover:text-gold font-bold text-slate-600">Signature Lifting</a>をお勧めします。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed"><strong>著しいたるみ：</strong>深部組織のたるみには、まずエネルギーベースのデバイスが必要です。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>顕著なたるみ：</strong>深部組織のたるみには、まずエネルギーベースのデバイスが必要です。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed"><strong>著しいたるみ・テクスチャー変化：</strong>深部のたるみと表面のテクスチャー変化の両方には、<a href="structural-reset.html" class="underline hover:text-gold font-bold text-slate-600">Structural Reset Elite</a>（Ultherapy＋Thermage＋静脈麻酔込み）がより適切です。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>顕著なたるみ + テクスチャー：</strong>深部リフティングと表面タイトニングを組み合わせる場合は、<a href="/ja/structural-reset.html" class="underline hover:text-gold font-bold text-slate-600">Structural Reset Elite</a>（Ultherapy + Thermage）がより適切です。</span>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
-                            <span class="text-sm text-slate-500 leading-relaxed"><strong>ダウンタイムゼロが必須：</strong>翌朝に完璧な状態である必要がある場合は、24〜48時間の余裕を持ってください。</span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>ダウンタイムゼロが必要な方：</strong>翌朝には完璧に「イベント対応」できる必要がある場合は、24〜48時間のバッファーを確保してください。</span>
                         </li>
                     </ul>
                 </div>
@@ -114,26 +137,26 @@
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12">
                 <span class="text-gold uppercase tracking-widest text-xs font-bold">サイエンス</span>
-                <h2 class="text-3xl font-serif text-slate-900 mt-2">なぜ効果があるのか</h2>
+                <h2 class="text-3xl font-serif text-slate-900 mt-2">効果のメカニズム</h2>
             </div>
             
             <div class="prose prose-slate mx-auto text-center">
                 <p class="text-slate-600 font-bold leading-relaxed text-lg mb-10 border-l-2 border-gold pl-4 inline-block text-left">
-                    「目標は肌質と密度の向上であり、ボリュームの歪みではありません。」
+                    「目標は肌の質と密度であり、ボリュームの歪みではありません。」
                 </p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                     <div class="bg-white p-6 rounded-sm shadow-sm border border-slate-100">
                         <h4 class="font-bold text-slate-900 mb-2">1. 真皮修復</h4>
-                        <p class="text-sm text-slate-500">Rejuran Blackは肌修復に特化したポリヌクレオチドプロトコルとして機能し、細胞環境とバリア機能を最適化します。</p>
+                        <p class="text-sm text-slate-500">Rejuran Blackは、肌修復に特化したポリヌクレオチドプロトコルとして機能し、細胞環境とバリア機能の健康を最適化します。</p>
                     </div>
                     <div class="bg-white p-6 rounded-sm shadow-sm border border-slate-100">
                         <h4 class="font-bold text-slate-900 mb-2">2. バイオスティミュレーション</h4>
-                        <p class="text-sm text-slate-500">Juvelook Skinはコラーゲンサポートのための活性バイオスティミュレーションを提供し、小ジワのキメと真皮の厚みを直接ターゲットにします。</p>
+                        <p class="text-sm text-slate-500">Juvelook Skinはコラーゲンサポートのためのアクティブなバイオスティミュレーションを提供し、細かいシワのテクスチャーと真皮の厚さを直接ターゲットにします。</p>
                     </div>
                     <div class="bg-white p-6 rounded-sm shadow-sm border border-slate-100">
-                        <h4 class="font-bold text-slate-900 mb-2">3. 臨床計画</h4>
-                        <p class="text-sm text-slate-500">投与量と注入深度は、患者様固有の肌の厚みと気になる部位に基づき、医師が調整します。</p>
+                        <h4 class="font-bold text-slate-900 mb-2">3. 臨床プランニング</h4>
+                        <p class="text-sm text-slate-500">投与量と注入深度は、お客様独自の肌の厚さと気になる部位に基づいて医師が調整します。</p>
                     </div>
                 </div>
             </div>
@@ -143,8 +166,8 @@
     <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-2xl font-serif text-slate-900">プロトコルの流れ</h2>
-                <p class="text-slate-500 text-sm mt-2">医師主導による体系的なバイオスティミュレーションアプローチ。</p>
+                <h2 class="text-2xl font-serif text-slate-900">プロトコルシーケンス</h2>
+                <p class="text-slate-500 text-sm mt-2">構造化された医師主導のバイオスティミュレーションアプローチ。</p>
             </div>
 
             <div class="relative">
@@ -153,22 +176,22 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-white border-2 border-slate-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-slate-400 font-bold text-lg">1</div>
-                        <h4 class="font-bold text-slate-900 mb-2">評価＆マッピング</h4>
-                        <p class="text-sm text-slate-500 px-4">医師がキメ、毛穴、小ジワを評価し、具体的な注入ゾーンをマッピングします。</p>
+                        <h4 class="font-bold text-slate-900 mb-2">評価 & マッピング</h4>
+                        <p class="text-sm text-slate-500 px-4">医師がテクスチャー、毛穴、細かいシワを評価し、具体的な注入ゾーンをマッピングします。</p>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-white border-2 border-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-gold font-bold text-lg">2</div>
                         <h4 class="font-bold text-slate-900 mb-2">Rejuran Blackコンポーネント</h4>
-                        <p class="text-sm text-slate-500 px-4">ポリヌクレオチドを導入し、深部の真皮修復を開始して健全なマトリックスを構築します。</p>
+                        <p class="text-sm text-slate-500 px-4">ポリヌクレオチドを送達し、深部真皮の修復を開始し、健全なマトリックスを構築します。</p>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-slate-900 border-2 border-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-white font-bold text-lg">3</div>
-                        <h4 class="font-bold text-slate-900 mb-2">Juvelook Skin＆アフターケア</h4>
-                        <p class="text-sm text-slate-500 px-4">コラーゲン密度のためのJuvelook Skinバイオスティミュレーターを配置し、体系的な臨床スージングプランを実施します。</p>
+                        <h4 class="font-bold text-slate-900 mb-2">Juvelook Skin & アフターケア</h4>
+                        <p class="text-sm text-slate-500 px-4">コラーゲン密度のためのJuvelook Skinバイオスティミュレーターの配置、続いて体系的な臨床スージングプランを実施します。</p>
                     </div>
                 </div>
             </div>
-            <p class="text-center text-[10px] text-slate-400 mt-10 uppercase tracking-widest">※ 個人の評価に基づき、順序が調整される場合があります。</p>
+            <p class="text-center text-[10px] text-slate-400 mt-10 uppercase tracking-widest">※ シーケンスは個人の評価に基づいて調整される場合があります。</p>
         </div>
     </section>
 
@@ -181,7 +204,7 @@
                     <div class="h-12 flex items-center justify-center mb-4">
                         <i class="far fa-clock text-3xl text-gold"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">施術時間</h4>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">クリニック滞在時間</h4>
                     <p class="text-slate-500 text-sm mt-auto">約45分</p>
                 </div>
 
@@ -190,7 +213,7 @@
                         <i class="fas fa-band-aid text-3xl text-gold"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">ダウンタイム</h4>
-                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">軽度の表面腫れ<br><span class="text-[11px] opacity-80">（一時的な微小膨隆）</span></p>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">軽度の表面的な腫れ<br><span class="text-[11px] opacity-80">（一時的な微細な隆起）</span></p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
@@ -198,7 +221,7 @@
                         <i class="fas fa-plane-departure text-3xl text-gold"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">旅行のタイミング</h4>
-                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">大きなイベント直前は<br><span class="text-[11px] block mt-1 opacity-80">避けることをお勧めします。</span></p>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">直前は避けるのが理想<br><span class="text-[11px] block mt-1 opacity-80">重要なイベント。</span></p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
@@ -207,18 +230,18 @@
                     </div>
                     <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">効果のピーク</h4>
                     <p class="text-slate-500 text-sm mt-auto">4〜8週間</p>
-                    <p class="text-[10px] text-slate-400 mt-1 leading-tight">段階的に改善</p>
+                    <p class="text-[10px] text-slate-400 mt-1 leading-tight">段階的な改善</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
                     <div class="h-12 flex items-center justify-center mb-4">
                         <i class="fas fa-procedures text-3xl text-gold"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">痛み対策</h4>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">コンフォートプロトコル</h4>
                     <ul class="text-slate-500 text-xs space-y-2 mt-auto text-left w-full inline-block">
-                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>表面麻酔（標準）</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>外用麻酔（標準）</span></li>
                         <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>ターゲットコンフォートブロック<br><span class="text-[10px] opacity-70 block mt-0.5">（オプション +₩55,000）</span></span></li>
-                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>静脈内鎮静法<br><span class="text-[10px] opacity-70 block mt-0.5">（オプション +₩110,000）</span></span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>IV鎮静（静脈内鎮静法）<br><span class="text-[10px] opacity-70 block mt-0.5">（オプション +₩110,000）</span></span></li>
                     </ul>
                 </div>
 
@@ -235,24 +258,24 @@
         <div class="max-w-4xl mx-auto px-6">
             <div class="flex items-center gap-3 mb-8">
                 <div class="h-px bg-gold flex-grow"></div>
-                <h2 class="text-lg font-serif text-slate-900 font-bold uppercase tracking-wide">よく組み合わされる施術</h2>
+                <h2 class="text-lg font-serif text-slate-900 font-bold uppercase tracking-wide">よく組み合わせる施術</h2>
                 <div class="h-px bg-gold flex-grow"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-slate-50 p-5 rounded-sm border border-slate-100 text-center">
                     <h4 class="font-bold text-slate-900 mb-1">Signature Lifting</h4>
                     <p class="text-xs text-slate-500 mb-3">Ultherapyプロトコル</p>
-                    <p class="text-xs text-slate-500 italic">「根本的な構造のたるみを同時に改善します。」</p>
+                    <p class="text-xs text-slate-500 italic">「根本的な構造的たるみに同時にアプローチします。」</p>
                 </div>
                 <div class="bg-slate-50 p-5 rounded-sm border border-slate-100 text-center">
                     <h4 class="font-bold text-slate-900 mb-1">ターゲットボトックス</h4>
                     <p class="text-xs text-slate-500 mb-3">表情ジワ</p>
-                    <p class="text-xs text-slate-500 italic">「小ジワの原因となる動的なシワを緩和します。」</p>
+                    <p class="text-xs text-slate-500 italic">「細かいシワの原因となる動的なラインを緩和します。」</p>
                 </div>
                 <div class="bg-slate-50 p-5 rounded-sm border border-slate-100 text-center">
                     <h4 class="font-bold text-slate-900 mb-1">クリニカルスージング</h4>
-                    <p class="text-xs text-slate-500 mb-3">LDM / クライオ</p>
-                    <p class="text-xs text-slate-500 italic">「回復を促進する優しい保湿アフターケア。」</p>
+                    <p class="text-xs text-slate-500 mb-3">LDM / Cryo</p>
+                    <p class="text-xs text-slate-500 italic">「回復を促進するための優しい保湿アフターケア。」</p>
                 </div>
             </div>
         </div>
@@ -265,11 +288,11 @@
                 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        「過注入」のような見た目になりませんか？
+                        これで「過剰充填」のように見えますか？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>いいえ。Rejuran BlackとJuvelook Skinはバイオスティミュレーターであり、従来の構造的フィラーではありません。真皮の密度、弾力性、キメを改善するために浅い層に配置され、ボリュームの歪みではなく、完全に自然な経過を確保します。</p>
+                        <p>いいえ。Rejuran BlackとJuvelook Skinはバイオスティミュレーターであり、従来の構造的フィラーではありません。真皮の密度、弾力性、テクスチャーを改善するために浅い層に配置され、ボリュームの歪みではなく完全に自然な変化を実現します。</p>
                     </div>
                 </details>
 
@@ -279,27 +302,27 @@
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>組織の修復が始まるため、保湿やキメの初期改善は1〜2週間で感じられることが多いです。しかし、コラーゲン密度と小ジワの軽減のピークは通常4〜8週間で現れます。</p>
+                        <p>組織の修復が始まると、保湿とテクスチャーの初期改善は1〜2週間以内に感じられることが多いです。ただし、コラーゲン密度と細かいシワの減少のピークは通常4〜8週間で現れます。</p>
                     </div>
                 </details>
 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        近々イベントがある場合は？
+                        近日中にイベントがある場合はどうすればいいですか？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>浅い層への注入のため、24〜48時間の一時的な微小膨隆や軽い腫れが生じる場合があります。大きな社交イベントやプロの撮影の2〜3日前には余裕を持つことを強くお勧めします。</p>
+                        <p>これらは浅い層への注入であるため、24〜48時間の一時的な微細な隆起や軽度の腫れが生じる可能性があります。重要な社交イベントやプロの撮影の前に、2〜3日のバッファーを確保することを強くお勧めします。</p>
                     </div>
                 </details>
 
                 <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
                     <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
-                        リフティングと組み合わせることはできますか？
+                        リフティングと組み合わせられますか？
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>はい。エネルギーベースのリフティング（深部組織構造をターゲット）とバイオスティミュレーター（表面の密度とキメをターゲット）の組み合わせは非常に効果的で、同じセッションで頻繁に行われています。</p>
+                        <p>はい。エネルギーベースのリフティング（深部組織構造をターゲット）とバイオスティミュレーター（表面の密度とテクスチャーをターゲット）の組み合わせは非常に効果的で、同じセッションで頻繁に行われています。</p>
                     </div>
                 </details>
 
@@ -309,7 +332,7 @@
                         <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
                     </summary>
                     <div class="text-slate-600 mt-4 text-sm leading-relaxed">
-                        <p>カウンセリング時に、医師が薄くなった肌、拡大した毛穴、小ジワのある部位を特定するために顔をマッピングします。投与濃度と注入深度は、これらの具体的な解剖学的要件に合わせて動的に調整されます。</p>
+                        <p>カウンセリング中、医師がお顔をマッピングし、薄くなった皮膚、拡大した毛穴、細かいシワの部位を特定します。投与濃度と注入深度は、これらの具体的な解剖学的要件に合わせて動的に調整されます。</p>
                     </div>
                 </details>
 
@@ -321,36 +344,37 @@
         <div class="max-w-xl mx-auto px-6">
             <h2 class="text-3xl font-serif mb-6">プロトコルを始める</h2>
             <p class="text-slate-400 mb-8 leading-relaxed">
-                LINEで直接スタッフにご連絡ください。<br>
-                優先対応のため、以下のテンプレートをご利用ください。
+                InstagramのDMでスタッフに直接ご連絡ください。<br>
+                以下のテンプレートをご使用いただくと、優先的にご対応いたします。
             </p>
 
             <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
-                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">コピー＆ペーストしてDMに送信：</p>
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">DMにコピー＆ペースト：</p>
                 <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all leading-relaxed">
-                    Tune Clinicさん、こんにちは。<br>
+                    Tune Clinic 様<br>
                     • ソウル滞在日程：[ ]<br>
                     • 韓国出発日：[ ]<br>
                     • プログラム：The Collagen Builder<br>
-                    • 写真の用意：はい／いいえ<br>
-                    • 主な悩み：（キメ／毛穴／小ジワ／くすみ）<br>
+                    • 写真提供可能：はい/いいえ<br>
+                    • 主な悩み：（テクスチャー / 毛穴 / 細かいシワ / くすみ）<br>
                     • 重要なイベント日（任意）：[ ]
                 </code>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/ja/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> 今すぐ予約</a>
-                <a href="index.html" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
-                    他のプログラムを見る
+                <a href="/ja/index.html" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    プログラム比較
                 </a>
             </div>
             
             <div class="mt-16 text-xs text-slate-500 space-y-2">
-                <p>© 2026 Apgujeong Tune Clinic. Evidence-Based Aesthetics.</p>
-                <p class="opacity-70">効果や適応は個人により異なります。最終プランは対面での評価後に確定します。</p>
+                <p>© 2026 狎鷗亭 Tune Clinic. エビデンスに基づく美容医療。</p>
+                <p class="opacity-70">効果や適応は個人により異なります。最終プランは対面での診察後に確定いたします。</p>
             </div>
         </div>
     </footer>
+
     <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
     (async () => {

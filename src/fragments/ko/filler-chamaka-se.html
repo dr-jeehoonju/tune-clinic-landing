@@ -1,130 +1,384 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-body { font-family: 'Lato', sans-serif; }
-.font-serif { font-family: 'Playfair Display', serif; }
-.text-gold { color: #C5A059; }
-.bg-gold { background-color: #C5A059; }
-.border-gold { border-color: #C5A059; }
-.bg-gold-light { background-color: #F9F5F0; }
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-filler {
+            background:
+                radial-gradient(circle at 20% 18%, rgba(167,139,250,0.20), transparent 24%),
+                radial-gradient(circle at 82% 16%, rgba(197,160,89,0.16), transparent 20%),
+                linear-gradient(180deg, #120d1c 0%, #1e1b3a 55%, #111827 100%);
+        }
 </style>
 
-<header class="bg-slate-950 text-white py-24 md:py-32 border-b border-slate-800">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm">
-      재생 / 볼륨
-    </span>
-    <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight">
-      볼륨 차마카-세
-    </h1>
-    <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed">
-      더 밝고 생기 있는 피부를 위해 쥬베룩 볼륨 1병 전체를 전안면에 의사가 직접 설계합니다.
-    </p>
-    <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[240px]">
-      <span class="text-xs text-slate-300 uppercase tracking-wide mb-1">총 프로토콜 비용 (VAT 포함)</span>
-      <span class="text-4xl font-serif text-white font-bold mb-1">₩1,100,000</span>
-      <div class="mt-3 pt-3 border-t border-white/10 w-full text-center">
-        <p class="text-[10px] text-slate-300">쥬베룩 볼륨 1병 + 상담 + 치료 포함</p>
-      </div>
-    </div>
-  </div>
-</header>
+<header class="relative hero-filler overflow-hidden py-24 md:py-32">
+        <div class="absolute inset-0 z-0">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/40 backdrop-blur-sm">
+                의사 맞춤 설계 / 콜라겐 리모델링
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+                Volume Chamaka-se
+            </h1>
+            <p class="text-xl text-gold font-serif mb-6 italic drop-shadow-md">
+                의사 맞춤 설계 콜라겐 리모델링
+            </p>
+            
+            <div class="text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed text-sm md:text-base space-y-4 drop-shadow-md">
+                <p>
+                    Volume Chamaka-se는 Juvelook Volume 1병(8cc)을 사용하여, <strong class="text-white font-bold">의사가 얼굴 전체에 맞춤 설계하여 콜라겐 리모델링을 촉진합니다.</strong>
+                </p>
+                <p>
+                    시술 전 얼굴 구조, 칙칙한 부위, 콜라겐 밀도를 평가한 후 주입 맵을 설계합니다.<br class="hidden md:block">
+                    그 결과, 내부에서부터 자연스럽게 더 밝고 생기 있는 피부톤을 얻을 수 있습니다.
+                </p>
+                <p class="text-white font-bold tracking-wide uppercase text-xs pt-4 border-t border-white/20 inline-block">
+                    목표는 볼륨이 아닙니다. 목표는 광채입니다.
+                </p>
+            </div>
+            
+            <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[280px]">
+                <span class="text-sm font-bold text-white mb-2">프로토콜 기본가</span>
+                <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="104">₩770,000</span>
+                <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
+                    <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">Juvelook Volume 1병 (8cc)<br>+ 의사 설계 + 전체 얼굴 프로토콜.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/ko/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> 지금 예약</a>
+                <a href="/ko/index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                    프로그램 비교
+                </a>
+            </div>
+        </div>
+    </header>
 
-<section class="py-16 bg-white border-b border-slate-100">
-  <div class="max-w-5xl mx-auto px-6">
-    <div class="grid md:grid-cols-4 gap-6">
-      <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
-        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">성분</p>
-        <p class="font-serif text-lg text-slate-900">쥬베룩 볼륨</p>
-      </div>
-      <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
-        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">용량</p>
-        <p class="font-serif text-lg text-slate-900">1병 전체</p>
-      </div>
-      <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
-        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">효과</p>
-        <p class="font-serif text-lg text-slate-900">콜라겐 리모델링</p>
-      </div>
-      <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
-        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">결과</p>
-        <p class="font-serif text-lg text-slate-900">광채 & 생기</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="py-6 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">적합 대상</p>
+                <p class="text-sm text-slate-200">칙칙한 피부, 콜라겐 손실, 광채 개선</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">회복 기간</p>
+                <p class="text-sm text-slate-200">일반적 부기 기간 24–48시간</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">핵심 방식</p>
+                <p class="text-sm text-slate-200">의사 맞춤 설계 콜라겐 리모델링</p>
+            </div>
+        </div>
+    </section>
 
-<section class="py-20 bg-white">
-  <div class="max-w-5xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-12 items-start">
-      <div>
-        <span class="text-gold uppercase tracking-widest text-xs font-bold">프로그램 개요</span>
-        <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-5">전안면 콜라겐 리모델링</h2>
-        <p class="text-slate-600 leading-relaxed mb-6">
-          볼륨 차마카-세는 볼륨감보다 피부 질 개선에 초점을 맞춥니다. 쥬베룩 볼륨 1병 전체가 의사에 의해 전안면에 전략적으로 분배됩니다. 결과는 즉각적인 부피감이 아닌, 점진적인 콜라겐 재생과 피부 밝기 개선입니다.
-        </p>
-        <ul class="space-y-3 text-slate-600 text-sm">
-          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>쥬베룩 볼륨 1병 전체를 전안면에 사용</span></li>
-          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>의사가 설계한 분배 맵</span></li>
-          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>4-8주에 걸친 점진적인 콜라겐 자극</span></li>
-          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>더 밝고 균일한 피부톤</span></li>
-        </ul>
-      </div>
-      <div class="bg-slate-900 rounded-3xl p-8 text-white">
-        <h3 class="text-xl font-serif mb-6 text-gold">이 프로그램에 적합한 분</h3>
-        <ul class="space-y-4 text-sm text-slate-300">
-          <li class="flex gap-3"><i class="fas fa-chevron-right text-gold mt-1"></i><span>전반적인 피부 활력을 원하는 분</span></li>
-          <li class="flex gap-3"><i class="fas fa-chevron-right text-gold mt-1"></i><span>자연스러운 광채 개선을 원하는 분</span></li>
-          <li class="flex gap-3"><i class="fas fa-chevron-right text-gold mt-1"></i><span>콜라겐 재생에 관심 있는 분</span></li>
-          <li class="flex gap-3"><i class="fas fa-chevron-right text-gold mt-1"></i><span>리프팅과 함께 피부 질 개선을 원하는 분</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="py-16 bg-gold-light/40 border-b border-slate-100 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <i class="fas fa-quote-left text-3xl text-gold/30 mb-4"></i>
+            <h2 class="text-2xl font-serif text-slate-900 leading-relaxed">
+                Volume Chamaka-se는 단순한 주사 패키지가 아닙니다.<br>
+                Juvelook Volume을 얼굴 전체에 맞춤 설계하여<br>
+                밝기와 자연스러운 활력을 회복하는<br>
+                의사 맞춤 콜라겐 리모델링 프로토콜입니다.
+            </h2>
+        </div>
+    </section>
 
-<section class="py-20 bg-slate-50 border-y border-slate-200">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">자주 묻는 질문</span>
-      <h2 class="text-3xl font-serif text-slate-900 mt-3">볼륨 차마카-세 FAQ</h2>
-    </div>
-    <div class="space-y-4">
-      <details class="group bg-white p-6 rounded-2xl border border-slate-200">
-        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
-          <span class="font-serif text-slate-900">쥬베룩과 일반 필러의 차이는 무엇인가요?</span>
-          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
-        </summary>
-        <div class="text-sm text-slate-600 leading-relaxed mt-4">일반 히알루론산 필러는 주로 볼륨을 추가하는 반면, 쥬베룩은 PLLA(폴리-L-락트산)와 히알루론산의 복합체로 콜라겐 자극과 피부 재생에 초점을 맞춥니다. 즉각적인 볼륨감보다 장기적인 피부 질 개선이 목표입니다.</div>
-      </details>
-      <details class="group bg-white p-6 rounded-2xl border border-slate-200">
-        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
-          <span class="font-serif text-slate-900">얼마나 자주 받아야 하나요?</span>
-          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
-        </summary>
-        <div class="text-sm text-slate-600 leading-relaxed mt-4">초기 시술 후 2-4주 뒤에 추가 세션을 권장할 수 있습니다. 유지를 위해서는 보통 6-12개월마다 1회 시술을 권장합니다.</div>
-      </details>
-      <details class="group bg-white p-6 rounded-2xl border border-slate-200">
-        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
-          <span class="font-serif text-slate-900">멍이 생기나요?</span>
-          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
-        </summary>
-        <div class="text-sm text-slate-600 leading-relaxed mt-4">미세 주사 기술을 사용하므로 멍의 위험이 최소화됩니다. 그러나 개인 차이가 있을 수 있습니다. 의사가 여행 일정을 고려하여 위험을 최소화하는 방향으로 계획을 세웁니다.</div>
-      </details>
-    </div>
-  </div>
-</section>
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="bg-gold-light p-8 rounded-sm border-t-4 border-gold">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-check-circle text-gold mr-3"></i> 이런 분께 적합합니다
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">얼굴 윤곽이 부족하다고 느끼는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">특정 부위가 "평평하다"고 느끼는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">인위적으로 보이지 않으면서 더 뚜렷한 윤곽을 원하는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">의사 주도의 미적 설계를 원하는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">효율적이면서도 정밀한 시술을 원하는 여행자.</span>
+                        </li>
+                    </ul>
+                </div>
 
-<section class="py-20 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <span class="text-gold uppercase tracking-widest text-xs font-bold">지금 시작하기</span>
-    <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">방문 예약</h2>
-    <p class="text-slate-500 mb-10 leading-relaxed">볼륨 차마카-세는 상담을 통해 개인 맞춤화됩니다.</p>
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="/ko/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
-        <i class="fas fa-calendar-check text-gold"></i> 지금 예약
-      </a>
-      <a href="/ko/collagen-builder.html" class="inline-flex items-center gap-2 border border-slate-300 text-slate-700 px-8 py-4 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition">
-        콜라겐 빌더 보기
-      </a>
-    </div>
-  </div>
-</section>
+                <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> 이런 분께는 적합하지 않습니다
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">극적인 수술 수준의 변화를 원하는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">최대한의 볼륨 증가를 원하는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">해부학적 한계 없이 즉각적인 윤곽 변화를 기대하는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">의사 주도의 설계 결정을 수용하지 않으려는 분.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">핵심 철학</span>
+                <h2 class="text-3xl font-serif text-slate-900 mt-2">조화를 위한 설계</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">우리는 얼굴을 주사 부위의 모음이 아닌 하나의 구성으로 다룹니다.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-serif text-slate-900 mb-6 border-b border-slate-100 pb-3">모든 얼굴에는:</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 자연적인 균형 구역</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 시각적 앵커 포인트</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 윤곽 정의가 필요한 부위</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> 손대지 않아야 할 부위</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-serif text-slate-900 mb-6 border-b border-slate-100 pb-3">Volume Chamaka-se가 집중하는 것:</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex items-center gap-3"><i class="fas fa-bullseye text-gold/60"></i> 핵심 포컬 포인트 강화</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-drafting-compass text-gold/60"></i> 윤곽 전환 지원</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-vector-square text-gold/60"></i> 구조적 경계 정돈</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-smile text-gold/60"></i> 자연스러운 움직임 보존</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif text-slate-900 mb-4">포함될 수 있는 시술</h2>
+                <p class="text-slate-500 text-sm max-w-xl mx-auto">
+                    개인의 해부학적 구조에 따라 Volume Chamaka-se 프로토콜은 다음 기법의 정밀한 조합을 포함할 수 있습니다:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">턱선<br>정돈</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">턱끝 돌출<br>보강</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">중안면<br>균형</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">하안면 윤곽<br>전환</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50 sm:col-span-2 md:col-span-1">
+                    <p class="font-bold text-slate-800 text-sm">미세 하이라이트<br>보정</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-12 text-slate-900">프로토콜 안내</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
+                
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="far fa-clock text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">클리닉 소요 시간</h4>
+                    <p class="text-slate-500 text-sm mt-auto">약<br>45–60분</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-band-aid text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">회복 기간</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">가벼운 부기 가능<br><span class="text-[11px] opacity-80">(24–48시간)</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-plane-departure text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">여행 시기</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">여행에 적합합니다.<br><span class="text-[11px] block mt-1 opacity-80">가급적 주요 행사 직전은 피해 주세요.</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">최적 결과 시기</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">많은 경우 즉시 눈에 보이는 구조적 변화<br><span class="text-[11px] block mt-1 opacity-80">1–2주에 걸쳐 정교한 개선이 지속됩니다</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-procedures text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">편안함 옵션</h4>
+                    <ul class="text-slate-500 text-xs space-y-2 mt-auto text-left w-full inline-block">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-gold">•</span>
+                            <span>도포 마취 (기본)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-gold">•</span>
+                            <span>타겟 컴포트 블록<br><span class="text-[10px] opacity-70 block mt-0.5">(선택 +₩55,000)</span></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-gold">•</span>
+                            <span>IV 의식 하 진정<br><span class="text-[10px] opacity-70 block mt-0.5">(가능 +₩110,000)</span></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">의사의 FAQ</h2>
+            <div class="space-y-4">
+                
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        이것은 단순한 볼륨 필링 시술인가요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>아닙니다. 필러가 사용되지만, 주요 목표는 단순한 볼륨 확장이 아닌 구조적 조화와 포컬 밸런스입니다. 정밀한 양을 사용하여 전환을 정의하고 얼굴 구조를 지원합니다.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        인위적으로 보이거나 "과충전"되어 보일까요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>우리의 철학은 근본적으로 인위적인 외모에 반대합니다. 얼굴을 하나의 구성으로 다루고, 자연적 앵커 포인트를 존중하며, 역동적인 움직임을 보존함으로써 매우 자연스럽고 균형 잡힌 결과를 만들어냅니다.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Ultherapy와 같은 딥 리프팅 장비와 병행할 수 있나요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>네. 딥 티슈 텐션(Ultherapy)과 구조적 윤곽 형성(Volume Chamaka-se)을 병행하면 최적의 종합 리셋을 제공합니다. 이 조합은 중력과 조화를 동시에 해결합니다.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        필러가 얼마나 (cc) 필요한가요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>극단적인 볼륨이 아닌 조화를 추구하는 대부분의 환자의 경우, 정확한 양은 개인의 해부학적 구조를 평가한 후 의사가 엄격하게 결정하며 불필요한 과잉 시술을 피합니다.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">디자인 프로토콜을 시작하세요</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Instagram DM을 통해 직원과 직접 연결하세요.<br>
+                우선 응답을 위해 아래 템플릿을 사용하세요.
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">DM에 복사 및 붙여넣기:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all leading-relaxed">
+                    안녕하세요 Tune Clinic,<br>
+                    • 서울 체류 일정: [ ]<br>
+                    • 한국 출국일: [ ]<br>
+                    • Program: Volume Chamaka-se<br>
+                    • 사진 제공 가능: 예/아니오<br>
+                    • 주요 고민: (턱선 / 중안면 균형 / 턱끝 돌출)<br>
+                    • 중요 행사 날짜 (선택): [ ]
+                </code>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/ko/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> 지금 예약</a>
+                <a href="/ko/index.html#programs" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    프로그램 비교
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>© 2026 압구정 Tune Clinic. 근거 기반 미학.</p>
+                <p class="opacity-70">결과 및 적합성은 개인에 따라 다릅니다. 최종 계획과 정확한 용량은 대면 평가 후 확정됩니다.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key]) el.textContent = map[key];
+        });
+      } catch(e) {}
+    })();
+    </script>

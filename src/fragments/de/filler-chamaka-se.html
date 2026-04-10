@@ -1,40 +1,384 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-body { font-family: 'Lato', sans-serif; }
-.font-serif { font-family: 'Playfair Display', serif; }
-.text-gold { color: #C5A059; }
-.bg-gold { background-color: #C5A059; }
-.border-gold { border-color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-filler {
+            background:
+                radial-gradient(circle at 20% 18%, rgba(167,139,250,0.20), transparent 24%),
+                radial-gradient(circle at 82% 16%, rgba(197,160,89,0.16), transparent 20%),
+                linear-gradient(180deg, #120d1c 0%, #1e1b3a 55%, #111827 100%);
+        }
 </style>
 
-<section class="bg-white py-24 border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="text-gold uppercase tracking-widest text-xs font-bold">Regeneration / Volumen</span>
-        <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mt-4 mb-6 leading-tight">Volume<br><span class="text-gold italic">Chamaka-se</span></h1>
-        <p class="text-slate-600 text-lg leading-relaxed mb-8">Eine ganze Flasche Juvelook Volume im gesamten Gesicht für Kollagenstimulation und Hauthelligkeit statt klassischer Volumenvergrößerung.</p>
-        <p class="text-gold font-bold text-2xl mb-2">₩1,100,000</p>
-        <p class="text-slate-500 text-sm mb-8">inkl. MwSt.</p>
-        <a href="/de/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check"></i> Jetzt buchen</a>
-      </div>
-      <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
-        <h3 class="text-xl font-serif text-slate-900 mb-6">Details</h3>
-        <div class="space-y-4">
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Product</span><span class="font-bold text-slate-900 text-sm">Juvelook Volume</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Qty</span><span class="font-bold text-slate-900 text-sm">1 volle Flasche</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Zone</span><span class="font-bold text-slate-900 text-sm">Gesamtes Gesicht</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Downtime</span><span class="font-bold text-slate-900 text-sm">24–48 Std.</span></div>
-          <div class="flex justify-between items-center py-3"><span class="text-slate-600 text-sm">Preis</span><span class="font-bold text-gold text-sm">₩1,100,000</span></div>
+<header class="relative hero-filler overflow-hidden py-24 md:py-32">
+        <div class="absolute inset-0 z-0">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/60"></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/40 backdrop-blur-sm">
+                Ärztlich kuratiert / Kollagen-Remodeling
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+                Volume Chamaka-se
+            </h1>
+            <p class="text-xl text-gold font-serif mb-6 italic drop-shadow-md">
+                Ärztlich kuratiertes Kollagen-Remodeling
+            </p>
+            
+            <div class="text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed text-sm md:text-base space-y-4 drop-shadow-md">
+                <p>
+                    Volume Chamaka-se verwendet eine volle Flasche Juvelook Volume (8 cc), <strong class="text-white font-bold">die vom Arzt über das gesamte Gesicht verteilt wird, um das Kollagen-Remodeling anzuregen.</strong>
+                </p>
+                <p>
+                    Wir analysieren die Gesichtsstruktur, fahle Zonen und die Kollagendichte, bevor wir den Injektionsplan entwerfen.<br class="hidden md:block">
+                    Das Ergebnis ist ein strahlenderer, lebendigerer Teint — natürlich, von innen heraus.
+                </p>
+                <p class="text-white font-bold tracking-wide uppercase text-xs pt-4 border-t border-white/20 inline-block">
+                    Das Ziel ist nicht Volumen. Das Ziel ist Ausstrahlung.
+                </p>
+            </div>
+            
+            <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[280px]">
+                <span class="text-sm font-bold text-white mb-2">Protokoll-Grundpreis</span>
+                <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="104">₩770,000</span>
+                <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
+                    <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">Juvelook Volume 1 Flasche (8 cc)<br>+ ärztliches Design + Ganzsicht-Protokoll.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/de/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> Jetzt buchen</a>
+                <a href="/de/index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                    Programme vergleichen
+                </a>
+            </div>
+        </div>
+    </header>
 
-<section class="py-24 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <a href="/de/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check text-gold"></i> Jetzt buchen</a>
-  </div>
-</section>
+    <section class="py-6 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Ideal für</p>
+                <p class="text-sm text-slate-200">Fahle Haut, Kollagenverlust und Ausstrahlung</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Ausfallzeit</p>
+                <p class="text-sm text-slate-200">Typische Schwellungsdauer 24–48 Std.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Kernmethode</p>
+                <p class="text-sm text-slate-200">Ärztlich kuratiertes Kollagen-Remodeling</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gold-light/40 border-b border-slate-100 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <i class="fas fa-quote-left text-3xl text-gold/30 mb-4"></i>
+            <h2 class="text-2xl font-serif text-slate-900 leading-relaxed">
+                Volume Chamaka-se ist kein einfaches Injektionspaket.<br>
+                Es ist ein ärztlich kuratiertes Kollagen-Remodeling-Protokoll,<br>
+                bei dem Juvelook Volume über das gesamte Gesicht verteilt wird,<br>
+                um Ausstrahlung und natürliche Vitalität wiederherzustellen.
+            </h2>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="bg-gold-light p-8 rounded-sm border-t-4 border-gold">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-check-circle text-gold mr-3"></i> Für wen es geeignet ist
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Patienten, die das Gefühl haben, ihrem Gesicht fehle Definition.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Patienten, die bestimmte Bereiche als „flach" empfinden.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Patienten, die stärkere Konturen wünschen, ohne künstlich auszusehen.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Patienten, die eine ärztlich geleitete ästhetische Entscheidung wünschen.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Reisende, die eine effiziente und zugleich präzise Behandlung suchen.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> Für wen es NICHT geeignet ist
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">Personen, die eine dramatische chirurgische Veränderung anstreben.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">Personen, die eine maximale Volumensteigerung wünschen.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">Personen, die sofortige Umformung ohne anatomische Einschränkungen erwarten.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">Personen, die ärztlich geleitete Designentscheidungen nicht akzeptieren möchten.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Kernphilosophie</span>
+                <h2 class="text-3xl font-serif text-slate-900 mt-2">Gestaltet für Harmonie</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Wir behandeln das Gesicht als Komposition — nicht als Sammlung von Injektionsstellen.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-serif text-slate-900 mb-6 border-b border-slate-100 pb-3">Jedes Gesicht hat:</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> Natürliche Balancezonen</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> Visuelle Ankerpunkte</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> Bereiche, die Konturdefinition benötigen</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> Bereiche, die unberührt bleiben sollten</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-serif text-slate-900 mb-6 border-b border-slate-100 pb-3">Volume Chamaka-se konzentriert sich auf:</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex items-center gap-3"><i class="fas fa-bullseye text-gold/60"></i> Verbesserung wichtiger Fokuspunkte</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-drafting-compass text-gold/60"></i> Unterstützung von Konturübergängen</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-vector-square text-gold/60"></i> Verfeinerung struktureller Grenzen</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-smile text-gold/60"></i> Bewahrung natürlicher Bewegung</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif text-slate-900 mb-4">Mögliche Bestandteile</h2>
+                <p class="text-slate-500 text-sm max-w-xl mx-auto">
+                    Abhängig von Ihrer individuellen Anatomie kann Ihr Volume Chamaka-se-Protokoll eine präzise Kombination der folgenden Techniken umfassen:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">Kieferlinien-<br>Verfeinerung</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">Kinn-Projektions-<br>Unterstützung</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">Mittelgesichts-<br>Balance</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">Untere Gesichtskontur-<br>Übergänge</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50 sm:col-span-2 md:col-span-1">
+                    <p class="font-bold text-slate-800 text-sm">Dezente Highlight-<br>Korrektur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-12 text-slate-900">Protokoll-Details</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
+                
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="far fa-clock text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Zeit in der Klinik</h4>
+                    <p class="text-slate-500 text-sm mt-auto">Ungefähr<br>45–60 Minuten</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-band-aid text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Ausfallzeit</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Leichte Schwellung möglich<br><span class="text-[11px] opacity-80">(24–48 Stunden)</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-plane-departure text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Reisezeitpunkt</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Reisen ist möglich.<br><span class="text-[11px] block mt-1 opacity-80">Idealerweise nicht unmittelbar vor einem wichtigen Anlass.</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Optimale Ergebnisse</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">In vielen Fällen sofort sichtbare strukturelle Veränderung<br><span class="text-[11px] block mt-1 opacity-80">Verfeinerung setzt sich über 1–2 Wochen fort</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-procedures text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Komfortoptionen</h4>
+                    <ul class="text-slate-500 text-xs space-y-2 mt-auto text-left w-full inline-block">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-gold">•</span>
+                            <span>Topisch (Standard)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-gold">•</span>
+                            <span>Gezielte Komfortblockade<br><span class="text-[10px] opacity-70 block mt-0.5">(Optional +₩55.000)</span></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-gold">•</span>
+                            <span>IV-Sedierung bei Bewusstsein<br><span class="text-[10px] opacity-70 block mt-0.5">(Verfügbar +₩110.000)</span></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">Häufige Fragen des Arztes</h2>
+            <div class="space-y-4">
+                
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Ist dies nur ein Standard-Volumenfüllverfahren?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Nein. Obwohl Filler verwendet wird, ist das primäre Ziel strukturelle Harmonie und fokale Balance, nicht bloße Volumensteigerung. Wir setzen präzise Mengen ein, um Übergänge zu definieren und die Gesichtsarchitektur zu stützen.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Wird es künstlich oder „überfüllt" aussehen?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Unsere Philosophie steht dem künstlichen Aussehen grundsätzlich entgegen. Indem wir das Gesicht als Komposition behandeln, natürliche Ankerpunkte respektieren und dynamische Bewegung bewahren, ist das Ergebnis hochgradig natürlich und proportioniert.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Kann ich dies mit Tiefenstraffungsgeräten wie Ultherapy kombinieren?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Ja. Die Kombination von tiefem Gewebezug (via Ultherapy) mit struktureller Konturierung (Volume Chamaka-se) bietet ein optimales umfassendes Reset. Diese Kombination adressiert sowohl Schwerkraft als auch Harmonie gleichzeitig.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Wie viel Filler (cc) werde ich benötigen?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Für die meisten Patienten, die Harmonie statt extremes Volumen suchen, wird die genaue Menge vom Arzt nach Beurteilung Ihrer individuellen Anatomie streng festgelegt, um unnötige Überbehandlung zu vermeiden.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">Starten Sie Ihr Design-Protokoll</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Kontaktieren Sie unser Team direkt per Instagram-DM.<br>
+                Nutzen Sie die untenstehende Vorlage für eine bevorzugte Antwort.
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">Kopieren & per DM senden:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all leading-relaxed">
+                    Hallo Tune Clinic,<br>
+                    • Aufenthalt in Seoul: [ ]<br>
+                    • Abreise aus Korea am: [ ]<br>
+                    • Program: Volume Chamaka-se<br>
+                    • Foto vorhanden: Ja/Nein<br>
+                    • Hauptanliegen: (Kieferlinie / Mittelgesicht-Balance / Kinnprojektion)<br>
+                    • Wichtiger Anlass (optional): [ ]
+                </code>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/de/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> Jetzt buchen</a>
+                <a href="/de/index.html#programs" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    Programme vergleichen
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>© 2026 Apgujeong Tune Clinic. Evidenzbasierte Ästhetik.</p>
+                <p class="opacity-70">Ergebnisse und Eignung variieren individuell. Der endgültige Plan und die genaue Dosierung werden nach persönlicher Untersuchung bestätigt.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key]) el.textContent = map[key];
+        });
+      } catch(e) {}
+    })();
+    </script>

@@ -1,73 +1,379 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-body { font-family: 'Lato', sans-serif; }
-.font-serif { font-family: 'Playfair Display', serif; }
-.text-gold { color: #C5A059; }
-.bg-gold { background-color: #C5A059; }
-.border-gold { border-color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 32px;
+            bottom: -16px;
+            width: 1px;
+            background-color: #E2E8F0;
+        }
+        .timeline-step:last-child::before {
+            display: none;
+        }
 </style>
 
-<section class="bg-white py-24 border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 bg-gold-light text-gold uppercase tracking-[0.22em] text-[11px] font-bold">Метод дизайна Chamaka-se</span>
-        <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mt-6 leading-tight">Лицевая эстетика начинается<br><span class="text-gold italic">с планирования</span></h1>
-        <p class="text-slate-600 text-base md:text-lg leading-relaxed mt-6 max-w-xl">Chamaka-se — это методология, которая сначала диагностирует, прежде чем выбрать путь лечения. Врач начинает с анализа тканей, оценки симметрии и планирования последовательности — и только потом рекомендует то, что действительно необходимо.</p>
-        <div class="flex flex-wrap gap-4 mt-10">
-          <a href="/ru/booking.html" class="px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow-lg flex items-center gap-2"><i class="fas fa-calendar-check"></i> Записаться</a>
-          <a href="/ru/signature-lifting.html" class="px-10 py-4 border border-slate-300 text-slate-700 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition flex items-center gap-2"><i class="fas fa-star"></i> Программы</a>
+<header class="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-[10px] font-bold uppercase tracking-widest mb-6 rounded-sm bg-white shadow-sm">
+                Под руководством врача / Дизайн прежде всего
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mb-8 leading-tight">
+                Дизайн-метод <br class="hidden md:block">Chamaka-se
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Прежде чем выбирать аппараты или инъекции, мы картируем вашу анатомию и разрабатываем план. <br class="mt-2">
+                <strong class="text-slate-800">Пакеты — это результат процесса проектирования, а не шаблоны.</strong>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#programs-bridge" class="px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow-lg text-center">
+                    Смотреть программы
+                </a>
+                <a href="/ru/booking.html" class="px-10 py-4 border border-slate-300 text-slate-700 font-semibold rounded-sm hover:border-slate-800 hover:text-slate-900 bg-white transition text-center flex items-center justify-center gap-2"><i class="fas fa-calendar-check"></i> Записаться</a>
+            </div>
         </div>
-      </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-slate-900 rounded-2xl p-6 text-white"><i class="fas fa-microscope text-gold text-2xl mb-4"></i><h3 class="font-bold text-lg mb-2">Сначала диагностика</h3><p class="text-slate-400 text-sm leading-relaxed">Ткани, симметрия и паттерны дряблости оцениваются первыми.</p></div>
-        <div class="bg-gold-light border border-gold/20 rounded-2xl p-6"><i class="fas fa-layer-group text-gold text-2xl mb-4"></i><h3 class="font-bold text-lg text-slate-900 mb-2">Дизайн протокола</h3><p class="text-slate-600 text-sm leading-relaxed">Лифтинг, объём и регенерация в определённой последовательности.</p></div>
-        <div class="bg-gold-light border border-gold/20 rounded-2xl p-6"><i class="fas fa-plane text-gold text-2xl mb-4"></i><h3 class="font-bold text-lg text-slate-900 mb-2">Удобно для поездок</h3><p class="text-slate-600 text-sm leading-relaxed">Время восстановления планируется по расписанию.</p></div>
-        <div class="bg-slate-900 rounded-2xl p-6 text-white"><i class="fas fa-shield-alt text-gold text-2xl mb-4"></i><h3 class="font-bold text-lg mb-2">Безопасность прежде всего</h3><p class="text-slate-400 text-sm leading-relaxed">Избыточное лечение исключается.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<section class="py-24 bg-slate-50 border-b border-slate-200">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Фреймворк под руководством врача</span>
-      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Четыре ключевых принципа</h2>
-      <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">Chamaka-se основан на четырёх анатомических принципах, формирующих основу для решений о лечении.</p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"><span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Принцип 01</span><h3 class="text-2xl font-serif text-slate-900 mt-3 mb-4">Структурный приоритет</h3><p class="text-slate-600 leading-relaxed">Каждое вмешательство сначала учитывает структурную поддержку. Оцениваем, нужен ли лифтинг перед добавлением объёма.</p></div>
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"><span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Принцип 02</span><h3 class="text-2xl font-serif text-slate-900 mt-3 mb-4">Последовательное планирование</h3><p class="text-slate-600 leading-relaxed">Лифтинг, филлеры и стимуляция коллагена в оптимальном порядке. Неправильный порядок — неправильные результаты.</p></div>
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"><span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Принцип 03</span><h3 class="text-2xl font-serif text-slate-900 mt-3 mb-4">Интеграция расписания поездки</h3><p class="text-slate-600 leading-relaxed">Планы лечения с учётом расписания поездки, рейсов и мероприятий. Время восстановления минимизируется.</p></div>
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"><span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Принцип 04</span><h3 class="text-2xl font-serif text-slate-900 mt-3 mb-4">Прозрачная коммуникация</h3><p class="text-slate-600 leading-relaxed">Что рекомендуется, что не включается и почему — объясняется чётко. Никаких продаж на основе трендов.</p></div>
-    </div>
-  </div>
-</section>
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-4xl text-gold/30 mb-6"></i>
+            <h2 class="text-3xl md:text-5xl font-serif text-slate-900 leading-tight mb-8">
+                "Аппараты — это инструменты.<br>
+                Протокол — это продукт."
+            </h2>
+            <p class="text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto border-t border-slate-100 pt-8">
+                Наша задача — снизить неопределённость и разработать максимально рациональный план для вашего лица и графика поездки.
+            </p>
+        </div>
+    </section>
 
-<section class="py-24 bg-white border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Анатомический дизайн-воркфлоу</span>
-      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">От консультации до лечения</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="text-center"><div class="w-14 h-14 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-xl font-bold">1</div><h3 class="text-xl font-serif text-slate-900 mb-3">Анатомическая оценка</h3><p class="text-slate-600 text-sm leading-relaxed">Толщина тканей, распределение жира, дряблость кожи и асимметрия оцениваются систематически.</p></div>
-      <div class="text-center"><div class="w-14 h-14 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-xl font-bold">2</div><h3 class="text-xl font-serif text-slate-900 mb-3">Дизайн протокола</h3><p class="text-slate-600 text-sm leading-relaxed">Конкретные процедуры, аппараты и препараты выбираются и секвенируются.</p></div>
-      <div class="text-center"><div class="w-14 h-14 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-xl font-bold">3</div><h3 class="text-xl font-serif text-slate-900 mb-3">Точное исполнение</h3><p class="text-slate-600 text-sm leading-relaxed">Процедуры проводятся непосредственно врачом в соответствии с разработанным протоколом.</p></div>
-    </div>
-  </div>
-</section>
+    <section class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Основа</span>
+                <h3 class="text-3xl font-serif text-slate-900 mt-2">Четыре столпа</h3>
+            </div>
 
-<section class="py-24 bg-slate-50">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <span class="text-gold uppercase tracking-widest text-xs font-bold">Начать</span>
-    <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Записаться на приём</h2>
-    <p class="text-slate-500 mb-10 leading-relaxed max-w-xl mx-auto">Методология Chamaka-se начинается с консультации. Диагностика предшествует выбору программы.</p>
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="/ru/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check text-gold"></i> Записаться</a>
-      <a href="/ru/signature-lifting.html" class="inline-flex items-center gap-2 border border-slate-300 text-slate-700 px-8 py-4 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition">Signature Lifting</a>
-    </div>
-  </div>
-</section>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">1</span>
+                        Точный анализ
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Оценка толщины тканей</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Картирование распределения объёма</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Мышечное доминирование и напряжение</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">2</span>
+                        Индивидуальный дизайн
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Структурные лифтинг-векторы</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Калибровка энергии по зонам</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Оценка паттернов старения</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">3</span>
+                        Планирование протокола
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Синергетический подбор аппаратов</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Картирование последовательности (энергия vs инъекции)</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Оптимизация графика поездки</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-gold transition duration-300">
+                    <h4 class="text-xl font-serif text-slate-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-gold-light text-gold flex items-center justify-center text-sm font-sans">4</span>
+                        Калибровка результата
+                    </h4>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Корректировки в реальном времени</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Балансировка симметрии лица</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-gold/60 mt-1 text-[10px]"></i> Интеграция ухода, безопасного для перелёта</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Процесс</span>
+                <h3 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Рабочий процесс анатомического дизайна</h3>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Каждая процедура начинается с точного картирования непосредственно на вашей коже под руководством врача.</p>
+            </div>
+
+            <div class="space-y-20 md:space-y-32">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-01.png" alt="Базовая оценка" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Этап 01</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Базовая оценка</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            Оценка состояния кожи, толщины тканей и тонуса лицевых мышц в покое до начала разметки.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-02.png" alt="Интерактивное планирование" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Этап 02</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Интерактивное планирование</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            Совместная работа с вами при помощи зеркала для согласования ваших эстетических целей с реалистичными анатомическими возможностями.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-03.png" alt="Картирование основных векторов" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Этап 03</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Картирование основных векторов</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            Прорисовка основных лифтинг-векторов и определение первичного направления птоза тканей.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-04.png" alt="Структурный чертёж" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Этап 04</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Структурный чертёж</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            Завершение проектирования первого этапа для точного определения зон, требующих глубокой энергетической обработки или поддержки.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-slate-100">
+                        <img src="step-05.png" alt="Микро-детализация" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Этап 05</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Микро-детализация</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                            Выделение вторичных проблемных зон, таких как локальная потеря объёма или деликатные участки кожи, требующие особого внимания.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="order-2 md:order-2 relative rounded-sm overflow-hidden aspect-square md:aspect-[4/3] shadow-lg border border-red-100">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-[9px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-sm">Протокол безопасности</div>
+                        <img src="step-06.png" alt="Калибровка глубины и безопасности" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="order-1 md:order-1 md:text-right">
+                        <span class="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">Этап 06</span>
+                        <h4 class="text-2xl font-serif text-slate-900 mb-4">Калибровка глубины и безопасности</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base border-l-2 md:border-l-0 md:border-r-2 border-gold/30 pl-4 md:pl-0 md:pr-4">
+                            Нанесение финальных клинических маркеров (красных) для определения точной глубины воздействия и строгого избегания анатомически опасных зон.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-serif text-white">Что вы можете ожидать</h3>
+                <p class="text-slate-400 mt-3 text-sm">Превращение нашей дизайн-философии в прямые преимущества для путешественника.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center">
+                <div class="bg-slate-800 p-8 rounded-sm border border-slate-700">
+                    <div class="w-12 h-12 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">Меньше догадок</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">Точное анатомическое нацеливание гарантирует медицинское обоснование каждого шага.</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• Никаких стандартных шаблонных протоколов</li>
+                        <li>• Клинически обоснованные решения</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-sm border border-slate-700">
+                    <div class="w-12 h-12 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">Минимальное время восстановления</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">Ваше восстановление учитывается в плане для защиты вашего графика поездки.</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• Активный контроль отёчности</li>
+                        <li>• Безопасное для перелёта время процедур</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-sm border border-gold/30 relative overflow-hidden shadow-[0_0_15px_rgba(197,160,89,0.1)]">
+                    <div class="absolute top-0 w-full left-0 h-1 bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto mb-6 text-lg">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">Никаких лишних процедур</h4>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">Мы рекомендуем только то, что требуется вашей физиологии для достижения целей.</p>
+                    <ul class="text-xs text-slate-300 text-left mx-auto inline-block space-y-1.5">
+                        <li>• Решения на основе анатомии</li>
+                        <li>• Избегание ненужных шагов</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Стандарт лечения</span>
+                <h3 class="text-2xl font-serif text-slate-900 mt-2">Доказательство процесса</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center border-t border-slate-100 pt-12">
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Подлинность подтверждена</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Мы проверяем подлинность применимых расходных материалов для аппаратов в вашем присутствии. Отсканируйте QR-код для подтверждения подлинности.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Рациональная дозировка</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Мы калибруем уровни энергии и количество импульсов строго под вашу индивидуальную анатомию.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Варианты комфорта</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">От местной анестезии до таргетных блокад и внутривенной седации — ваш комфорт продуман до мелочей.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs-bridge" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-serif text-slate-900 mb-4">Специально подобранные программы</h2>
+            <p class="text-slate-600 mb-12 max-w-2xl mx-auto">
+                На основе этого строгого дизайн-метода мы предлагаем четыре комплексные программы, откалиброванные врачом. 
+                Они служат основой вашего лечебного пути.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <a href="/ru/signature-lifting.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Signature Lifting</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Ultherapy 350</p>
+                </a>
+                <a href="/ru/structural-reset.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Structural Reset</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Elite Combo</p>
+                </a>
+                <a href="/ru/collagen-builder.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Collagen Builder</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Biostimulation</p>
+                </a>
+                <a href="/ru/filler-chamaka-se.html" class="block bg-white border border-slate-200 p-4 rounded-sm hover:border-gold hover:shadow-md transition text-center group">
+                    <p class="text-sm font-bold text-slate-800 group-hover:text-gold transition mb-1">Volume Chamaka-se</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Facial Design</p>
+                </a>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/ru/index.html#programs" class="px-8 py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition">
+                    Все программы
+                </a>
+                <a href="/ru/menu.html" class="px-8 py-3 border border-slate-300 text-slate-700 font-bold rounded-sm hover:border-slate-800 bg-white transition">
+                    Справочные цены
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center border-t border-slate-800">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">Начните свой дизайн-процесс</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Свяжитесь напрямую с нашей медицинской командой через Instagram.<br>
+                Предоставьте указанные ниже данные для эффективного предварительного обзора.
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">Скопируйте и отправьте в DM:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all">
+                    Здравствуйте, Tune Clinic, я хотел(а) бы предварительную консультацию:<br>
+                    • Даты пребывания в Сеуле: [ ]<br>
+                    • Вылет из Кореи: [ ]<br>
+                    • Основная задача: [лифтинг / контурирование / качество кожи]<br>
+                    • Фото доступно: Да/Нет<br>
+                    • Дата важного мероприятия (по желанию): [ ]
+                </code>
+            </div>
+
+            <div class="flex justify-center">
+                <a href="/ru/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> Записаться</a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>© 2026 Apgujeong Tune Clinic. Эстетика, основанная на доказательствах.</p>
+                <p class="opacity-70">Результаты и пригодность варьируются индивидуально. Окончательный медицинский план и стоимость подтверждаются после очной оценки.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+        })();
+    </script>

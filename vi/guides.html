@@ -149,94 +149,244 @@
   
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
 body { font-family: 'Lato', sans-serif; }
 .font-serif { font-family: 'Playfair Display', serif; }
 .text-gold { color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
+.guide-card {
+  border-radius: 1.5rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  transition: all 180ms ease;
+}
+.guide-card:hover {
+  border-color: #C5A059;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+.section-shell {
+  border-radius: 2rem;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
 </style>
 
 <header class="bg-slate-950 text-white border-b border-slate-800">
   <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
-    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">Hub hướng dẫn</span>
-    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">Thư viện hướng dẫn thẩm mỹ Seoul</h1>
-    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">Bộ sưu tập đầy đủ hướng dẫn thẩm mỹ Seoul cho bệnh nhân quốc tế — so sánh điều trị, lập kế hoạch du lịch, quyết định nâng cơ, filler, điều trị tái sinh và FAQ bệnh nhân.</p>
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5">
+      Hướng dẫn Tune Clinic
+    </span>
+    <h1 class="text-4xl md:text-6xl font-serif leading-tight mt-7 max-w-4xl">Thư viện tài liệu dành cho bệnh nhân quốc tế đang cân nhắc chăm sóc thẩm mỹ tại Seoul</h1>
+    <p class="text-slate-300 text-base md:text-lg leading-relaxed mt-6 max-w-3xl">
+      Những hướng dẫn này được thiết kế để giảm bớt sự nhầm lẫn trước khi tư vấn.
+      Thay vì ép bạn vào một thiết bị hay xu hướng cụ thể, chúng giúp bạn hiểu về danh mục phù hợp, thời điểm du lịch, trình tự điều trị và câu hỏi nào nên đặt ra trước tiên.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+      <a href="/vi/menu.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center">
+        Xem bảng giá tham khảo
+      </a>
+      <a href="/vi/booking.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+    </div>
   </div>
 </header>
 
 <section class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Hướng dẫn cốt lõi</span>
-      <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-8">3 hướng dẫn nên đọc trước khi đặt lịch</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <a href="/vi/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Lập kế hoạch du lịch</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Hướng dẫn bệnh nhân quốc tế</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Quy trình tư vấn, hỗ trợ ngôn ngữ, lập kế hoạch chuyến đi ngắn hạn.</p>
-        </a>
-
-        <a href="/vi/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Chọn phòng khám</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Phòng khám thẩm mỹ Apgujeong cho bệnh nhân nước ngoài</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Tại sao bệnh nhân tìm theo khu vực và cách đánh giá sự phù hợp của phòng khám.</p>
-        </a>
-
-        <a href="/vi/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Hub điều trị</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Hướng dẫn nâng cơ Hàn Quốc</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">So sánh Ultherapy, Thermage FLX, Oligio và các kết hợp nâng cơ do bác sĩ dẫn dắt.</p>
-        </a>
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Cách sử dụng thư viện này</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Đọc theo trình tự mà một buổi tư vấn tốt sẽ tiến hành</h2>
+      <p class="text-slate-500 leading-relaxed mt-4">Bắt đầu với các câu hỏi về du lịch và phù hợp phòng khám, sau đó chuyển sang danh mục phù hợp, rồi chỉ so sánh thiết bị hoặc lựa chọn trình tự khi vấn đề cốt lõi đã rõ ràng hơn.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-plane-departure"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Bước 01</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">Du lịch trước</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Bắt đầu từ đây nếu mối quan tâm lớn nhất của bạn là giao tiếp, lịch trình, thời điểm du lịch hoặc cách lên kế hoạch cho chuyến lưu trú ngắn tại Seoul.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-white shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Bước 02</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">Danh mục phù hợp</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Sử dụng những hướng dẫn này khi bạn biết vấn đề nhưng chưa rõ danh mục. Đây là nơi lifting, filler, liệu pháp tái tạo và logic quyết định trở nên rõ ràng hơn.</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 p-7 bg-slate-50">
+        <div class="w-12 h-12 rounded-2xl bg-gold-light text-gold flex items-center justify-center mb-5">
+          <i class="fas fa-scale-balanced"></i>
+        </div>
+        <p class="text-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-3">Bước 03</p>
+        <h3 class="text-2xl font-serif text-slate-900 mb-3">So sánh và phân tích chuyên sâu</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Đọc những tài liệu này nếu bạn đã nghiên cứu sâu và cần hỗ trợ so sánh thiết bị, sắp xếp trình tự điều trị hoặc đặt câu hỏi chính xác hơn.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="mb-12">
-      <span class="text-gold uppercase tracking-widest text-xs font-bold">Hướng dẫn điều trị</span>
-      <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-8">Thông tin điều trị chuyên sâu</h2>
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-        <a href="/vi/ultherapy-vs-thermage.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">So sánh thiết bị</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Ultherapy vs Thermage FLX</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Độ sâu nâng cơ, làm căng và thời gian nghỉ dưỡng được so sánh.</p>
-        </a>
-
-        <a href="/vi/how-to-choose-the-right-lifting-treatment.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Hướng dẫn quyết định</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Cách chọn liệu trình nâng cơ phù hợp</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Khung quyết định theo độ chùng, độ đàn hồi và thời gian hồi phục.</p>
-        </a>
-
-        <a href="/vi/dermal-fillers-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Hướng dẫn filler</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Filler da ở Hàn Quốc</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Juvederm, Restylane, Radiesse và thiết kế khuôn mặt do bác sĩ dẫn dắt.</p>
-        </a>
-
-        <a href="/vi/skin-boosters-and-regenerative-treatments.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Điều trị tái sinh</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Tiêm căng da và điều trị tái sinh</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Rejuran, Juvelook, Exosome, Sculptra được so sánh.</p>
-        </a>
-
-        <a href="/vi/hair-loss-and-scalp-regeneration-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Hướng dẫn tóc</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Rụng tóc và tái sinh da đầu</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Lập kế hoạch chăm sóc da đầu và hỗ trợ tái sinh.</p>
-        </a>
-
-        <a href="/vi/aesthetic-treatment-faq-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">FAQ bệnh nhân</p>
-          <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">FAQ điều trị thẩm mỹ cho bệnh nhân nước ngoài</h3>
-          <p class="text-sm text-slate-500 leading-relaxed mt-3">Câu trả lời về thời điểm, hồi phục, giao tiếp và bay.</p>
-        </a>
+<section class="py-20 bg-white border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
+      <div class="rounded-[2rem] overflow-hidden border border-slate-200 shadow-lg bg-slate-50">
+        <img src="/.netlify/images?url=/used-bottles-archive.png&w=1200&fm=webp&q=75" alt="Lưu trữ lâm sàng các chế phẩm tiêm và vật tư tiêu hao đã sử dụng tại Tune Clinic" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Tham chiếu khối lượng lâm sàng</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Xem thực tế sử dụng trước khi so sánh các tuyên bố</h2>
+        <p class="text-slate-600 leading-relaxed mt-5">
+          Tune Clinic lưu giữ kho ảnh các lọ và vật tư tiêu hao thực tế đã sử dụng, được thu thập trong chưa đầy ba tháng.
+          Điều này cung cấp bối cảnh cho các thương hiệu được đề cập trong các hướng dẫn và giúp phân biệt sử dụng lâm sàng thường quy với các điều trị trưng bày một lần.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mt-7">
+          <a href="/vi/dermal-fillers-in-korea.html" class="guide-card p-5">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Bằng chứng filler</p>
+            <p class="text-lg font-serif text-slate-900">Filler da tại Hàn Quốc</p>
+            <p class="text-sm text-slate-500 mt-3">Ống tiêm filler đã sử dụng và logic filler ưu tiên thiết kế.</p>
+          </a>
+          <a href="/vi/skin-boosters-and-regenerative-treatments.html" class="guide-card p-5">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Bằng chứng tái tạo</p>
+            <p class="text-lg font-serif text-slate-900">Skin Booster và liệu pháp tái tạo</p>
+            <p class="text-sm text-slate-500 mt-3">Bối cảnh lưu trữ Juvelook và Rejuran cùng kế hoạch tái tạo.</p>
+          </a>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="text-center mt-10">
-      <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
-        <i class="fas fa-calendar-check text-gold"></i> Đặt lịch ngay
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Hướng dẫn nổi bật</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Bắt đầu với những hướng dẫn này nếu bạn mới biết đến Tune Clinic</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/vi/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Lập kế hoạch du lịch</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Hướng dẫn cho bệnh nhân quốc tế</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Quy trình tư vấn, hỗ trợ ngôn ngữ, lập kế hoạch chuyến đi ngắn và cách tiếp cận điều trị hợp lý trước khi đến.</p>
+      </a>
+      <a href="/vi/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Trung tâm điều trị</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Hướng dẫn lifting Hàn Quốc</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Hiểu các danh mục lifting trước khi so sánh các thiết bị với nhau.</p>
+      </a>
+      <a href="/vi/dermal-fillers-in-korea.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Trung tâm filler</p>
+        <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">Filler da tại Hàn Quốc</h3>
+        <p class="text-sm text-slate-500 leading-relaxed mt-3">Xem kế hoạch filler cấu trúc khác với điều trị đơn giản ưu tiên thể tích như thế nào.</p>
       </a>
     </div>
   </div>
 </section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="space-y-10">
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-950 text-white p-8 md:p-10">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Du lịch và phòng khám phù hợp</span>
+            <h3 class="text-3xl font-serif mt-4">Bắt đầu với những câu hỏi thực tế</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mt-5">Những hướng dẫn này phù hợp nhất cho khách lần đầu cần hiểu cách hoạch định điều trị tại Seoul trước khi so sánh các phương pháp.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/vi/international-patients-guide.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Bắt đầu từ đây</p>
+              <p class="text-lg font-serif text-slate-900">Hướng dẫn cho bệnh nhân quốc tế</p>
+              <p class="text-sm text-slate-500 mt-3">Điểm khởi đầu tốt nhất để lên kế hoạch điều trị tại Seoul từ nước ngoài.</p>
+            </a>
+            <a href="/vi/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Vị trí phù hợp</p>
+              <p class="text-lg font-serif text-slate-900">Phòng khám thẩm mỹ Apgujeong cho bệnh nhân nước ngoài</p>
+              <p class="text-sm text-slate-500 mt-3">Tại sao vị trí ít quan trọng hơn logic của bác sĩ, giao tiếp và kế hoạch phù hợp với du lịch.</p>
+            </a>
+            <a href="/vi/aesthetic-treatment-faq-for-foreign-patients.html" class="guide-card p-5 md:col-span-2">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">FAQ</p>
+              <p class="text-lg font-serif text-slate-900">FAQ điều trị thẩm mỹ cho bệnh nhân nước ngoài</p>
+              <p class="text-sm text-slate-500 mt-3">Câu trả lời trực tiếp về thời gian, chuyến bay, ngôn ngữ, thời gian hồi phục và tư vấn trong ngày.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-50 p-8 md:p-10 border-r border-slate-200">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">Nâng cơ, tạo hình và chất lượng da</span>
+            <h3 class="text-3xl font-serif text-slate-900 mt-4">Xác định danh mục phù hợp trước khi so sánh</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mt-5">Những hướng dẫn này giúp bệnh nhân phân biệt giữa lifting, filler, liệu pháp tái tạo da và chăm sóc da đầu trước khi bị lạc trong các tên thương hiệu.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/vi/korean-lifting-guide.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Trung tâm lifting</p>
+              <p class="text-lg font-serif text-slate-900">Hướng dẫn lifting Hàn Quốc</p>
+              <p class="text-sm text-slate-500 mt-3">Tổng quan theo danh mục cho Ultherapy, Thermage FLX, Oligio và chiến lược lifting.</p>
+            </a>
+            <a href="/vi/dermal-fillers-in-korea.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Trung tâm filler</p>
+              <p class="text-lg font-serif text-slate-900">Filler da tại Hàn Quốc</p>
+              <p class="text-sm text-slate-500 mt-3">Khi nào filler là phù hợp và khi nào lifting hoặc trình tự quan trọng hơn.</p>
+            </a>
+            <a href="/vi/skin-boosters-and-regenerative-treatments.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Tái tạo</p>
+              <p class="text-lg font-serif text-slate-900">Skin Booster và liệu pháp tái tạo</p>
+              <p class="text-sm text-slate-500 mt-3">Dành cho bệnh nhân quan tâm đến Rejuran, Juvelook, exosome và chăm sóc chất lượng da dài hạn.</p>
+            </a>
+            <a href="/vi/hair-loss-and-scalp-regeneration-in-korea.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Tóc và da đầu</p>
+              <p class="text-lg font-serif text-slate-900">Rụng tóc và tái tạo da đầu tại Hàn Quốc</p>
+              <p class="text-sm text-slate-500 mt-3">Hướng dẫn cho bệnh nhân quốc tế tìm hiểu về chăm sóc da đầu và kế hoạch tái tạo tóc.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-shell">
+        <div class="grid lg:grid-cols-[0.34fr_0.66fr]">
+          <div class="bg-slate-950 text-white p-8 md:p-10">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">So sánh và hỗ trợ quyết định</span>
+            <h3 class="text-3xl font-serif mt-4">Chỉ so sánh khi danh mục đã rõ ràng</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mt-5">Những trang này hữu ích hơn khi bạn đã biết khuôn mặt có thể thuộc lộ trình lifting và cần một cây quyết định rõ ràng hơn.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 grid md:grid-cols-2 gap-4">
+            <a href="/vi/ultherapy-vs-thermage.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">So sánh thiết bị</p>
+              <p class="text-lg font-serif text-slate-900">Ultherapy vs Thermage FLX</p>
+              <p class="text-sm text-slate-500 mt-3">So sánh trực tiếp cho bệnh nhân đã thuộc danh mục lifting.</p>
+            </a>
+            <a href="/vi/how-to-choose-the-right-lifting-treatment.html" class="guide-card p-5">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">Hướng dẫn quyết định</p>
+              <p class="text-lg font-serif text-slate-900">Cách chọn phương pháp lifting phù hợp</p>
+              <p class="text-sm text-slate-500 mt-3">Trang hỗ trợ quyết định cho tình trạng chảy xệ, da chùng, mất đường viền và hạn chế du lịch.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-slate-950 text-white">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">Bước tiếp theo</span>
+    <h2 class="text-3xl md:text-5xl font-serif mt-3">Đọc đủ để đặt câu hỏi tốt hơn, rồi giữ kế hoạch đơn giản</h2>
+    <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto mt-5">
+      Mục đích của những hướng dẫn này không phải biến điều trị thành mê cung.
+      Mà là làm cho buổi tư vấn chính xác hơn, kỳ vọng rõ ràng hơn và kế hoạch cuối cùng tinh tế hơn.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      <a href="/vi/menu.html" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-sm hover:bg-slate-100 transition text-center">
+        Quay lại bảng giá
+      </a>
+      <a href="/vi/booking.html" class="px-8 py-4 border border-white/15 text-white font-bold rounded-sm hover:border-gold hover:text-gold transition text-center"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+    </div>
+  </div>
+</section>
+
 
     <footer id="footer" class="bg-slate-950 text-white border-t border-slate-800">
       <div class="max-w-6xl mx-auto px-6 pt-16 pb-10">

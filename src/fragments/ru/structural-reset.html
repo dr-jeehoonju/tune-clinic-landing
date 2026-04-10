@@ -1,40 +1,330 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-body { font-family: 'Lato', sans-serif; }
-.font-serif { font-family: 'Playfair Display', serif; }
-.text-gold { color: #C5A059; }
-.bg-gold { background-color: #C5A059; }
-.border-gold { border-color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-reset {
+            background:
+                radial-gradient(circle at 20% 18%, rgba(197,160,89,0.20), transparent 24%),
+                radial-gradient(circle at 80% 18%, rgba(255,255,255,0.10), transparent 20%),
+                linear-gradient(180deg, #06080d 0%, #0b1220 55%, #111827 100%);
+        }
 </style>
 
-<section class="bg-white py-24 border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="inline-flex items-center gap-1 text-[10px] text-white font-bold uppercase tracking-[0.22em] bg-gold px-3 py-1 rounded-full mb-4">Рекомендуется</span>
-        <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mt-2 mb-6 leading-tight">Structural Reset<br><span class="text-gold italic">Elite</span></h1>
-        <p class="text-slate-600 text-lg leading-relaxed mb-8">Наиболее комплексная нехирургическая программа: Ultherapy 300 выстрелов + Thermage FLX 600 выстрелов + IV-седация.</p>
-        <p class="text-gold font-bold text-2xl mb-2">₩3,300,000</p>
-        <p class="text-slate-500 text-sm mb-8">включая НДС</p>
-        <a href="/ru/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check"></i> Записаться</a>
-      </div>
-      <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
-        <h3 class="text-xl font-serif text-slate-900 mb-6">Подробнее</h3>
-        <div class="space-y-4">
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Ultherapy</span><span class="font-bold text-slate-900 text-sm">300 выстрелов</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Thermage FLX</span><span class="font-bold text-slate-900 text-sm">600 выстрелов</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Comfort</span><span class="font-bold text-slate-900 text-sm">IV-седация (опционально)</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Длительность</span><span class="font-bold text-slate-900 text-sm">3–4 ч.</span></div>
-          <div class="flex justify-between items-center py-3"><span class="text-slate-600 text-sm">Цена</span><span class="font-bold text-gold text-sm">₩3,300,000</span></div>
+<header class="relative hero-reset overflow-hidden py-24 md:py-32">
+        <div class="absolute inset-0 z-0">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/55"></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/30 backdrop-blur-sm">
+                Комплексная / Полная трансформация
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+                Structural Reset Elite
+            </h1>
+            <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+                Самый комплексный нехирургический протокол для лица, который мы предлагаем.<br>
+                Сочетание <strong>глубокого лифтинга Ultherapy 300 импульсов</strong> и <strong>поверхностного уплотнения Thermage 600 импульсов</strong> с <strong>включённой внутривенной седацией</strong> для максимального комфорта.
+            </p>
+            
+            <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[280px]">
+                <span class="text-sm font-bold text-white mb-2">Ultherapy 300 импульсов + Thermage 600 импульсов + Внутривенная седация</span>
+                <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="102">₩3,047,000</span>
+                <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
+                    <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">Комплексный структурный протокол<br>Включает консультацию + процедуру + послепроцедурный уход.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/ru/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> Записаться</a>
+                <a href="/ru/index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                    Сравнить программы
+                </a>
+            </div>
+        </div>
+    </header>
 
-<section class="py-24 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <a href="/ru/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check text-gold"></i> Записаться</a>
-  </div>
-</section>
+    <section class="py-6 bg-black border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Подходит для</p>
+                <p class="text-sm text-slate-200">Многослойное старение лица</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Восстановление</p>
+                <p class="text-sm text-slate-200">Период восстановления 3–5 дней</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Основной состав</p>
+                <p class="text-sm text-slate-200">Ultherapy + Thermage + IV</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gold-light/40 border-b border-slate-100 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <i class="fas fa-quote-left text-3xl text-gold/30 mb-4"></i>
+            <h2 class="text-2xl font-serif text-slate-900 leading-relaxed">
+                Там, где отдельные процедуры воздействуют лишь на один слой,<br>
+                Structural Reset работает со всей архитектурой —<br>
+                глубокий тканевый лифтинг и поверхностное уплотнение коллагена,<br>
+                выполняемые под внутривенной седацией для полного комфорта.
+            </h2>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="bg-gold-light p-8 rounded-sm border-t-4 border-gold">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-check-circle text-gold mr-3"></i> Кому подходит
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>Множественные проблемы:</strong> Пациенты с глубоким птозом и изменениями текстуры поверхности, которым нужно комплексное решение.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>Умеренное старение:</strong> Пациенты с видимым провисанием и изменениями текстуры, желающие максимального лифтинга за одну процедуру.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>Максимальный результат:</strong> Пациенты, стремящиеся к наиболее полной нехирургической трансформации.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>Эффективность:</strong> Путешественники, предпочитающие завершить всё за один скоординированный визит.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> Кому НЕ подходит
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Кандидаты на операцию:</strong> Выраженный птоз, который может быть устранён только хирургической подтяжкой.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Однослойные проблемы:</strong> Если вас беспокоит только текстура кожи, <a href="/ru/collagen-builder.html" class="underline hover:text-gold font-bold text-slate-600">The Collagen Builder</a> может быть достаточным.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>Zero Восстановление Required:</strong> This protocol involves mild swelling for 3–5 days; plan accordingly.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Два аппарата. Один протокол. Полный комфорт.</span>
+                <h2 class="text-3xl font-serif text-slate-900 mt-2">Что включает протокол</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Каждый компонент воздействует на отдельный структурный слой, процедура проводится под внутривенной седацией для безболезненного опыта.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 relative">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold-light rounded-full flex items-center justify-center mb-6 text-gold font-bold text-lg">1</div>
+                    <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">Ultherapy 300 импульсов</h3>
+                    <p class="text-xs text-gold uppercase tracking-widest mb-4">Глубокий тканевый слой</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Фокусированная ультразвуковая энергия, воздействующая на слой SMAS — тот же слой, который затрагивается при хирургической подтяжке — с 300 точно откалиброванными импульсами для глубокого структурного уплотнения и ремоделирования коллагена.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 relative">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-slate-800"></div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-6 text-slate-800 font-bold text-lg">2</div>
+                    <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">Thermage 600 импульсов</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest mb-4">Поверхностный коллагеновый слой</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">600 импульсов радиочастотной энергии, нагревающих дермальный коллагеновый слой, уплотняя поверхность кожи и улучшая текстуру, дополняя глубокий лифтинг Ultherapy.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 relative">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-emerald-500"></div>
+                    <div class="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mb-6 text-emerald-600 font-bold text-lg">3</div>
+                    <h3 class="text-lg font-serif text-slate-900 mb-3 font-bold">Внутривенная седация</h3>
+                    <p class="text-xs text-emerald-600 uppercase tracking-widest mb-4">Полный комфорт</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Внутривенная седация включена в этот протокол как стандарт. Вы будете находиться в комфортном состоянии седации на протяжении всей процедуры под наблюдением врача — без дополнительной платы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-12 text-slate-900">Детали протокола</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
+                
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="far fa-clock text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Время в клинике</h4>
+                    <p class="text-slate-500 text-sm mt-auto">Приблизительно<br>90 минут</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-band-aid text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Восстановление</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Лёгкая отёчность и покраснение<br><span class="text-[11px] opacity-80">(3–5 days)</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-plane-departure text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Планирование поездки</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Идеально выделить 3–5 дней<br><span class="text-[11px] block mt-1 opacity-80">перед важными мероприятиями.</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Максимальные результаты</h4>
+                    <p class="text-slate-500 text-sm mt-auto">8 – 12 недель</p>
+                    <p class="text-[10px] text-slate-400 mt-1 leading-tight">Постепенное улучшение по мере ремоделирования коллагена</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-procedures text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Протокол комфорта</h4>
+                    <ul class="text-slate-500 text-xs space-y-2 mt-auto text-left w-full inline-block">
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>Местная анестезия (Стандарт)</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>Целевая блокада<br><span class="text-[10px] opacity-70 block mt-0.5">(По желанию +₩55 000)</span></span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>Внутривенная седация<br><span class="text-[10px] text-emerald-600 font-bold block mt-0.5">(Включено в протокол)</span></span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">Часто задаваемые вопросы</h2>
+            <div class="space-y-4">
+                
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Зачем совмещать два энергетических аппарата за одну процедуру?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Каждая технология воздействует на свой структурный слой. 300 импульсов Ultherapy достигают самых глубоких тканей (SMAS), а 600 импульсов Thermage уплотняют дермальный коллагеновый слой. Вместе они дают синергетический результат, недостижимый для одного аппарата. Внутривенная седация обеспечивает полный комфорт на протяжении всей процедуры.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Безопасен ли этот протокол за одну процедуру?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Да. Энергетические аппараты работают на различных глубинах тканей и длинах волн, поэтому они не конкурируют и не пересекаются. Врач выстраивает последовательность протокола для максимальной безопасности и эффективности. Внутривенная седация обеспечивает ваш комфорт на протяжении всей расширенной процедуры.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Как период восстановления сравнивается с одиночной процедурой?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Поскольку мы воздействуем на несколько слоёв двумя мощными аппаратами, ожидайте немного большую отёчность, чем при процедуре одним аппаратом. У большинства пациентов значительное уменьшение отёка наблюдается в течение 3–5 дней. Внутривенная седация включена как стандарт для обеспечения максимального комфорта.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Можно ли сначала попробовать облегчённую версию?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Безусловно. Если вы не уверены, начните с <a href="/ru/signature-lifting.html" class="underline hover:text-gold font-bold text-slate-700">Signature Lifting</a> (только Ultherapy) — это отличная отправная точка. Вы всегда можете перейти к полному Structural Reset с Thermage при повторном визите.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">Запишитесь на VIP-приём</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Свяжитесь с нами напрямую через Instagram Direct.<br>
+                Используйте шаблон ниже для приоритетного ответа.
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">Скопируйте и отправьте в DM:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all leading-relaxed">
+                    Здравствуйте, Tune Clinic,<br>
+                    • Даты в Сеуле: [ ]<br>
+                    • Отъезд из Кореи: [ ]<br>
+                    • Программа: Structural Reset Elite<br>
+                    • Фото доступно: Да/Нет<br>
+                    • Основная проблема: (провисание + потеря объёма / полный ресет лица)<br>
+                    • Дата важного мероприятия (по желанию): [ ]
+                </code>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/ru/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> Записаться</a>
+                <a href="/ru/index.html#programs" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    Сравнить программы
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>&copy; 2026 Apgujeong Tune Clinic. Эстетика, основанная на доказательствах.</p>
+                <p class="opacity-70">Результаты и пригодность зависят от индивидуальных особенностей. Окончательный план утверждается после очной консультации.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key]) el.textContent = map[key];
+        });
+      } catch(e) {}
+    })();
+    </script>

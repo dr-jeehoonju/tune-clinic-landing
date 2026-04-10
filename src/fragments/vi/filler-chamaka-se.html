@@ -1,40 +1,384 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-body { font-family: 'Lato', sans-serif; }
-.font-serif { font-family: 'Playfair Display', serif; }
-.text-gold { color: #C5A059; }
-.bg-gold { background-color: #C5A059; }
-.border-gold { border-color: #C5A059; }
-.bg-gold-light { background-color: #fdf8ef; }
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-filler {
+            background:
+                radial-gradient(circle at 20% 18%, rgba(167,139,250,0.20), transparent 24%),
+                radial-gradient(circle at 82% 16%, rgba(197,160,89,0.16), transparent 20%),
+                linear-gradient(180deg, #120d1c 0%, #1e1b3a 55%, #111827 100%);
+        }
 </style>
 
-<section class="bg-white py-24 border-b border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="text-gold uppercase tracking-widest text-xs font-bold">Tái sinh / Thể tích</span>
-        <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mt-4 mb-6 leading-tight">Volume<br><span class="text-gold italic">Chamaka-se</span></h1>
-        <p class="text-slate-600 text-lg leading-relaxed mb-8">Toàn bộ một lọ Juvelook Volume trên toàn khuôn mặt để kích thích collagen và làm sáng da thay vì tăng thể tích truyền thống.</p>
-        <p class="text-gold font-bold text-2xl mb-2">₩1,100,000</p>
-        <p class="text-slate-500 text-sm mb-8">đã bao gồm VAT</p>
-        <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
-      </div>
-      <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
-        <h3 class="text-xl font-serif text-slate-900 mb-6">Chi tiết</h3>
-        <div class="space-y-4">
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Product</span><span class="font-bold text-slate-900 text-sm">Juvelook Volume</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Qty</span><span class="font-bold text-slate-900 text-sm">1 lọ đầy</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Zone</span><span class="font-bold text-slate-900 text-sm">Toàn bộ khuôn mặt</span></div>
-          <div class="flex justify-between items-center py-3 border-b border-slate-200"><span class="text-slate-600 text-sm">Nghỉ dưỡng</span><span class="font-bold text-slate-900 text-sm">24–48 giờ</span></div>
-          <div class="flex justify-between items-center py-3"><span class="text-slate-600 text-sm">Giá</span><span class="font-bold text-gold text-sm">₩1,100,000</span></div>
+<header class="relative hero-filler overflow-hidden py-24 md:py-32">
+        <div class="absolute inset-0 z-0">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/60"></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/40 backdrop-blur-sm">
+                Thiết kế bởi bác sĩ / Tái tạo collagen
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+                Volume Chamaka-se
+            </h1>
+            <p class="text-xl text-gold font-serif mb-6 italic drop-shadow-md">
+                Tái tạo collagen theo thiết kế của bác sĩ
+            </p>
+            
+            <div class="text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed text-sm md:text-base space-y-4 drop-shadow-md">
+                <p>
+                    Volume Chamaka-se sử dụng một lọ Juvelook Volume đầy đủ (8cc), <strong class="text-white font-bold">được bác sĩ thiết kế trên toàn bộ khuôn mặt để kích thích tái tạo collagen.</strong>
+                </p>
+                <p>
+                    Chúng tôi đánh giá cấu trúc khuôn mặt, vùng da xỉn màu và mật độ collagen trước khi thiết kế bản đồ tiêm.<br class="hidden md:block">
+                    Kết quả là làn da sáng hơn, rạng rỡ hơn — một cách tự nhiên, từ bên trong.
+                </p>
+                <p class="text-white font-bold tracking-wide uppercase text-xs pt-4 border-t border-white/20 inline-block">
+                    Mục tiêu không phải là thể tích. Mục tiêu là sự rạng rỡ.
+                </p>
+            </div>
+            
+            <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[280px]">
+                <span class="text-sm font-bold text-white mb-2">Giá cơ bản của phác đồ</span>
+                <span class="text-3xl font-serif text-gold font-bold mb-1" data-price="104">₩770,000</span>
+                <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
+                    <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">Juvelook Volume 1 lọ (8cc)<br>+ thiết kế của bác sĩ + phác đồ toàn mặt.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/vi/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+                <a href="/vi/index.html#programs" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                    So sánh chương trình
+                </a>
+            </div>
+        </div>
+    </header>
 
-<section class="py-24 bg-white">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg"><i class="fas fa-calendar-check text-gold"></i> Đặt lịch ngay</a>
-  </div>
-</section>
+    <section class="py-6 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Phù hợp cho</p>
+                <p class="text-sm text-slate-200">Da xỉn màu, mất collagen và sự rạng rỡ</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Thời gian phục hồi</p>
+                <p class="text-sm text-slate-200">Thời gian sưng thông thường 24–48 giờ</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Phương thức chính</p>
+                <p class="text-sm text-slate-200">Tái tạo collagen theo thiết kế của bác sĩ</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gold-light/40 border-b border-slate-100 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <i class="fas fa-quote-left text-3xl text-gold/30 mb-4"></i>
+            <h2 class="text-2xl font-serif text-slate-900 leading-relaxed">
+                Volume Chamaka-se không phải là một gói tiêm đơn giản.<br>
+                Đây là phác đồ tái tạo collagen do bác sĩ thiết kế,<br>
+                trong đó Juvelook Volume được phân bổ trên toàn bộ khuôn mặt<br>
+                để phục hồi độ sáng và sức sống tự nhiên.
+            </h2>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="bg-gold-light p-8 rounded-sm border-t-4 border-gold">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-check-circle text-gold mr-3"></i> Phù hợp với ai
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Bệnh nhân cảm thấy khuôn mặt thiếu đường nét rõ ràng.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Bệnh nhân cảm thấy một số vùng trên mặt "phẳng".</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Bệnh nhân muốn đường viền rõ nét hơn mà không trông nhân tạo.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Bệnh nhân muốn quyết định thẩm mỹ do bác sĩ dẫn dắt.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed">Du khách tìm kiếm cải thiện hiệu quả nhưng chính xác.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> KHÔNG phù hợp với ai
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">Những người tìm kiếm sự thay đổi mạnh mẽ như phẫu thuật.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">Những người muốn tăng thể tích tối đa.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">Những người mong đợi tái tạo hình dáng ngay lập tức mà không có giới hạn giải phẫu.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3 shrink-0"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed">Những người không sẵn sàng chấp nhận quyết định thiết kế của bác sĩ.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">Triết lý cốt lõi</span>
+                <h2 class="text-3xl font-serif text-slate-900 mt-2">Thiết kế vì sự hài hòa</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Chúng tôi coi khuôn mặt là một tổng thể — không phải tập hợp các điểm tiêm.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-serif text-slate-900 mb-6 border-b border-slate-100 pb-3">Mỗi khuôn mặt đều có:</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> Các vùng cân bằng tự nhiên</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> Các điểm neo thị giác</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> Các vùng cần định hình đường viền</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold/60"></i> Các vùng nên giữ nguyên</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-serif text-slate-900 mb-6 border-b border-slate-100 pb-3">Volume Chamaka-se tập trung vào:</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex items-center gap-3"><i class="fas fa-bullseye text-gold/60"></i> Tăng cường các điểm nhấn chính</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-drafting-compass text-gold/60"></i> Hỗ trợ chuyển tiếp đường viền</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-vector-square text-gold/60"></i> Tinh chỉnh đường viền cấu trúc</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-smile text-gold/60"></i> Bảo tồn chuyển động tự nhiên</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif text-slate-900 mb-4">Có thể bao gồm</h2>
+                <p class="text-slate-500 text-sm max-w-xl mx-auto">
+                    Tùy thuộc vào cấu trúc giải phẫu cụ thể của bạn, phác đồ Volume Chamaka-se có thể bao gồm sự kết hợp chính xác của các kỹ thuật sau:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">Tinh chỉnh<br>đường hàm</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">Hỗ trợ<br>độ nhô cằm</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">Cân bằng<br>vùng giữa mặt</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50">
+                    <p class="font-bold text-slate-800 text-sm">Chuyển tiếp đường viền<br>phần dưới mặt</p>
+                </div>
+                <div class="border border-slate-100 p-5 rounded-sm text-center bg-slate-50 sm:col-span-2 md:col-span-1">
+                    <p class="font-bold text-slate-800 text-sm">Hiệu chỉnh<br>điểm sáng tinh tế</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-12 text-slate-900">Thông tin phác đồ</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
+                
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="far fa-clock text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Thời gian tại phòng khám</h4>
+                    <p class="text-slate-500 text-sm mt-auto">Khoảng<br>45–60 phút</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-band-aid text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Thời gian phục hồi</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Có thể sưng nhẹ<br><span class="text-[11px] opacity-80">(24–48 giờ)</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-plane-departure text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Thời điểm di chuyển</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Có thể di chuyển bình thường.<br><span class="text-[11px] block mt-1 opacity-80">Tốt nhất không nên ngay trước một sự kiện quan trọng.</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Kết quả tối ưu</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">Thay đổi cấu trúc có thể thấy ngay trong nhiều trường hợp<br><span class="text-[11px] block mt-1 opacity-80">Quá trình tinh chỉnh tiếp tục trong 1–2 tuần</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-procedures text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">Tùy chọn giảm đau</h4>
+                    <ul class="text-slate-500 text-xs space-y-2 mt-auto text-left w-full inline-block">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-gold">•</span>
+                            <span>Bôi ngoài da (tiêu chuẩn)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-gold">•</span>
+                            <span>Gây tê vùng mục tiêu<br><span class="text-[10px] opacity-70 block mt-0.5">(Tùy chọn +₩55.000)</span></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-gold">•</span>
+                            <span>An thần tĩnh mạch có ý thức<br><span class="text-[10px] opacity-70 block mt-0.5">(Có sẵn +₩110.000)</span></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">Câu hỏi thường gặp từ bác sĩ</h2>
+            <div class="space-y-4">
+                
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Đây chỉ là thủ thuật làm đầy thể tích tiêu chuẩn?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Không. Mặc dù filler được sử dụng, mục tiêu chính là sự hài hòa cấu trúc và cân bằng điểm nhấn, chứ không phải tăng thể tích đơn thuần. Chúng tôi sử dụng lượng chính xác để xác định các chuyển tiếp và hỗ trợ cấu trúc khuôn mặt.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Liệu kết quả có trông nhân tạo hoặc "tiêm quá nhiều" không?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Triết lý của chúng tôi hoàn toàn phản đối vẻ ngoài nhân tạo. Bằng cách coi khuôn mặt là một tổng thể, tôn trọng các điểm neo tự nhiên và bảo tồn chuyển động động, kết quả rất tự nhiên và cân đối.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Tôi có thể kết hợp với các thiết bị nâng sâu như Ultherapy không?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Có. Kết hợp căng mô sâu (qua Ultherapy) với tạo đường viền cấu trúc (Volume Chamaka-se) mang lại sự tái thiết toàn diện tối ưu. Sự kết hợp này giải quyết đồng thời cả trọng lực và sự hài hòa.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-100">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        Tôi cần bao nhiêu filler (cc)?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>Đối với hầu hết bệnh nhân tìm kiếm sự hài hòa thay vì thể tích cực đại, lượng chính xác được bác sĩ xác định nghiêm ngặt sau khi đánh giá cấu trúc giải phẫu cụ thể của bạn, tránh điều trị quá mức không cần thiết.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">Bắt đầu phác đồ thiết kế của bạn</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Liên hệ trực tiếp với nhân viên qua Instagram DM.<br>
+                Sử dụng mẫu bên dưới để được phản hồi ưu tiên.
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">Sao chép & dán vào DM:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all leading-relaxed">
+                    Xin chào Tune Clinic,<br>
+                    • Ngày ở Seoul: [ ]<br>
+                    • Ngày rời Hàn Quốc: [ ]<br>
+                    • Program: Volume Chamaka-se<br>
+                    • Có ảnh: Có/Không<br>
+                    • Mối quan tâm chính: (đường hàm / cân bằng giữa mặt / độ nhô cằm)<br>
+                    • Ngày sự kiện quan trọng (tùy chọn): [ ]
+                </code>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/vi/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> Đặt lịch ngay</a>
+                <a href="/vi/index.html#programs" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    So sánh chương trình
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>© 2026 Apgujeong Tune Clinic. Thẩm mỹ dựa trên bằng chứng.</p>
+                <p class="opacity-70">Kết quả và mức độ phù hợp khác nhau tùy từng cá nhân. Kế hoạch cuối cùng và liều lượng chính xác được xác nhận sau khi đánh giá trực tiếp.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key]) el.textContent = map[key];
+        });
+      } catch(e) {}
+    })();
+    </script>
