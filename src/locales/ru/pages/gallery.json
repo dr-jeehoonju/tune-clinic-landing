@@ -1,0 +1,10 @@
+{
+  "key": "gallery",
+  "template": "editorial",
+  "permalink": "ru/gallery.html",
+  "title": "Галерея До/После | Tune Clinic Сеул",
+  "description": "Просматривайте случаи До/После Tune Clinic Seoul.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
+  "fragment": "fragments/ru/gallery.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

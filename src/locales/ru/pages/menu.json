@@ -1,0 +1,10 @@
+{
+  "key": "menu",
+  "template": "editorial",
+  "permalink": "ru/menu.html",
+  "title": "Меню процедур и цены | Tune Clinic Апгуджон Сеул",
+  "description": "Ознакомьтесь с категориями процедур и справочными ценами Tune Clinic Апгуджон Сеул.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/ru/menu.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

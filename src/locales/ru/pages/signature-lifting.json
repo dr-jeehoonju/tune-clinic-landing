@@ -1,0 +1,10 @@
+{
+  "key": "signature-lifting",
+  "template": "program",
+  "permalink": "ru/signature-lifting.html",
+  "title": "Signature Lifting | Протокол Ultherapy 350 выстрелов в Сеуле",
+  "description": "Signature Lifting в Tune Clinic Seoul — это протокол лифтинга Ultherapy 350 выстрелов.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/signature-lifting.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

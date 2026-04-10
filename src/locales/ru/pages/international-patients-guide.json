@@ -1,0 +1,11 @@
+{
+  "key": "international-patients-guide",
+  "template": "editorial",
+  "permalink": "ru/international-patients-guide.html",
+  "title": "Гид для международных пациентов | Tune Clinic Сеул",
+  "description": "Планируйте эстетическое лечение в Сеуле с гидом Tune Clinic для международных пациентов.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/international-patients-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Гид для путешественников"
+}

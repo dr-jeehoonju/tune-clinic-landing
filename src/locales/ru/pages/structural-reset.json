@@ -1,0 +1,10 @@
+{
+  "key": "structural-reset",
+  "template": "program",
+  "permalink": "ru/structural-reset.html",
+  "title": "Structural Reset Elite | Ultherapy + Thermage в Сеуле",
+  "description": "Structural Reset Elite сочетает Ultherapy 300 выстрелов, Thermage 600 выстрелов и IV-седацию.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/structural-reset.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

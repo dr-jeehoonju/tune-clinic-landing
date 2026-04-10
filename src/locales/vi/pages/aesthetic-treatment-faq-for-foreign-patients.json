@@ -1,0 +1,11 @@
+{
+  "key": "aesthetic-treatment-faq-for-foreign-patients",
+  "template": "editorial",
+  "permalink": "vi/aesthetic-treatment-faq-for-foreign-patients.html",
+  "title": "FAQ điều trị thẩm mỹ cho bệnh nhân nước ngoài | Seoul",
+  "description": "Đọc câu trả lời FAQ cho bệnh nhân nước ngoài thăm Seoul.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/vi/aesthetic-treatment-faq-for-foreign-patients.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "FAQ bệnh nhân"
+}

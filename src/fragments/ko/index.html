@@ -1,0 +1,627 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+body { font-family: 'Lato', sans-serif; }
+.font-serif { font-family: 'Playfair Display', serif; }
+.text-gold { color: #C5A059; }
+.bg-gold { background-color: #C5A059; }
+.border-gold { border-color: #C5A059; }
+.bg-gold-light { background-color: #fdf8ef; }
+.program-highlight { outline: 3px solid #C5A059; outline-offset: 6px; }
+.match-option.selected { border-color: #C5A059; background: #fdf8ef; }
+.cta-pulse { animation: ctaPulse 1s ease-in-out; }
+@keyframes ctaPulse { 0%,100%{box-shadow:0 0 0 0 rgba(197,160,89,0.4)} 50%{box-shadow:0 0 0 12px rgba(197,160,89,0)} }
+</style>
+
+<!-- 히어로 섹션 -->
+<section class="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
+  <div class="absolute inset-0 z-0">
+    <img src="/.netlify/images?url=/main.jpeg&w=1400&fm=webp&q=75" alt="튠 클리닉 서울" class="w-full h-full object-cover object-top opacity-40">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/30 to-slate-950/80"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-40">
+    <div class="max-w-3xl">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5 backdrop-blur-sm mb-6">
+        <i class="fas fa-map-marker-alt"></i> 서울 압구정 · 의사 주도
+      </span>
+      <h1 class="text-5xl md:text-7xl font-serif text-white leading-tight mb-6">
+        정밀 K-뷰티<br>
+        <span class="text-gold italic">의학</span>을 경험하세요
+      </h1>
+      <p class="text-xl text-slate-300 leading-relaxed max-w-2xl mb-10">
+        서울의 국제 환자를 위한 의사 주도 미용 클리닉. 리프팅, 재생, 윤곽에 대한 합리적인 치료 설계. 브로커 없이, 추측 없이.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/ko/booking.html" class="inline-flex items-center gap-2 bg-gold text-white px-8 py-4 font-bold rounded-sm hover:bg-gold/90 transition shadow-lg text-base">
+          <i class="fas fa-calendar-check"></i> 지금 예약
+        </a>
+        <a href="/ko/design-method.html" class="inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 font-semibold rounded-sm hover:bg-white/10 transition text-base">
+          <i class="fas fa-flask"></i> 디자인 메서드
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 신뢰 배지 -->
+<div class="bg-slate-900 border-y border-slate-800 py-6">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-wrap gap-6 justify-center md:justify-between items-center text-xs text-slate-400">
+      <span class="flex items-center gap-2"><i class="fas fa-user-md text-gold"></i> 의사 주도 치료</span>
+      <span class="flex items-center gap-2"><i class="fas fa-globe text-gold"></i> 영어·중국어·일본어·태국어 응대</span>
+      <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-gold"></i> 압구정 강남</span>
+      <span class="flex items-center gap-2"><i class="fas fa-plane text-gold"></i> 여행 친화적 계획</span>
+      <span class="flex items-center gap-2"><i class="fas fa-ban text-gold"></i> 브로커 없음</span>
+    </div>
+  </div>
+</div>
+
+<!-- 차마카-세 소개 -->
+<section class="py-24 bg-white border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">방법론</span>
+        <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mt-3 mb-6 leading-tight">
+          차마카-세<br><span class="text-gold">디자인 메서드</span>
+        </h2>
+        <p class="text-slate-600 text-lg leading-relaxed mb-8">
+          차마카-세는 치료를 먼저 선택하는 것이 아니라 먼저 진단하는 의사 주도 방법론입니다. 조직 두께, 볼륨 분포, 피부 이완이 평가된 후 치료 순서가 설계됩니다.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mb-8">
+          <div class="flex gap-3 items-start">
+            <i class="fas fa-check-circle text-gold mt-1"></i>
+            <div><p class="font-bold text-slate-900 text-sm">해부학적 평가</p><p class="text-slate-500 text-xs mt-1">조직, 대칭, 이완 먼저</p></div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <i class="fas fa-check-circle text-gold mt-1"></i>
+            <div><p class="font-bold text-slate-900 text-sm">순서 기반 설계</p><p class="text-slate-500 text-xs mt-1">패키지가 아닌 프로토콜</p></div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <i class="fas fa-check-circle text-gold mt-1"></i>
+            <div><p class="font-bold text-slate-900 text-sm">여행 통합</p><p class="text-slate-500 text-xs mt-1">일정에 맞는 계획</p></div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <i class="fas fa-check-circle text-gold mt-1"></i>
+            <div><p class="font-bold text-slate-900 text-sm">투명한 소통</p><p class="text-slate-500 text-xs mt-1">근거 있는 추천</p></div>
+          </div>
+        </div>
+        <a href="/ko/design-method.html" class="inline-flex items-center gap-2 text-gold font-bold hover:text-slate-900 transition">
+          메서드 자세히 보기 <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-slate-900 rounded-3xl p-6 text-white aspect-square flex flex-col justify-between">
+          <i class="fas fa-microscope text-gold text-3xl"></i>
+          <div>
+            <p class="font-bold text-lg">진단 먼저</p>
+            <p class="text-slate-400 text-sm mt-1">치료 전 해부학적 평가</p>
+          </div>
+        </div>
+        <div class="bg-gold-light border border-gold/20 rounded-3xl p-6 aspect-square flex flex-col justify-between">
+          <i class="fas fa-layer-group text-gold text-3xl"></i>
+          <div>
+            <p class="font-bold text-lg text-slate-900">순서 설계</p>
+            <p class="text-slate-600 text-sm mt-1">최적의 치료 시퀀스</p>
+          </div>
+        </div>
+        <div class="bg-gold-light border border-gold/20 rounded-3xl p-6 aspect-square flex flex-col justify-between">
+          <i class="fas fa-plane text-gold text-3xl"></i>
+          <div>
+            <p class="font-bold text-lg text-slate-900">여행 친화적</p>
+            <p class="text-slate-600 text-sm mt-1">일정 맞춤 계획</p>
+          </div>
+        </div>
+        <div class="bg-slate-900 rounded-3xl p-6 text-white aspect-square flex flex-col justify-between">
+          <i class="fas fa-shield-alt text-gold text-3xl"></i>
+          <div>
+            <p class="font-bold text-lg">안전 우선</p>
+            <p class="text-slate-400 text-sm mt-1">과도한 치료 배제</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 프로그램 -->
+<section class="py-24 bg-slate-50 border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">치료 프로그램</span>
+      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-4">4가지 핵심 프로토콜</h2>
+      <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">각 프로그램은 특정 치료 목표를 위해 설계되었습니다. 상담에서 어느 것이 가장 적합한지 결정됩니다.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div id="program-lifting" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
+        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">비침습 / 리프팅</span>
+        <h3 class="text-2xl font-serif text-slate-900 mt-3 mb-3">시그니처 리프팅</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">울쎄라 350샷 의사 프로토콜. 최소 다운타임으로 깊은 조직 타이트닝. 여행객에게 적합한 당일 시술.</p>
+        <p class="text-gold font-bold text-xl mb-5">₩990,000 <span class="text-slate-400 text-sm font-normal">VAT 포함</span></p>
+        <div class="flex gap-3">
+          <a href="/ko/signature-lifting.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">자세히</a>
+          <a href="/ko/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">예약</a>
+        </div>
+      </div>
+
+      <div id="program-elite" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
+        <span class="inline-flex items-center gap-1 text-[10px] text-white font-bold uppercase tracking-[0.22em] bg-gold px-2 py-1 rounded-full mb-2">추천</span>
+        <h3 class="text-2xl font-serif text-slate-900 mt-1 mb-3">스트럭처럴 리셋 엘리트</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">울쎄라 300샷 + 써마지 600샷 + IV 진정. 종합적인 비수술 리프팅 & 타이트닝.</p>
+        <p class="text-gold font-bold text-xl mb-5">₩3,300,000 <span class="text-slate-400 text-sm font-normal">VAT 포함</span></p>
+        <div class="flex gap-3">
+          <a href="/ko/structural-reset.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">자세히</a>
+          <a href="/ko/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">예약</a>
+        </div>
+      </div>
+
+      <div id="program-collagen" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
+        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">재생 / 콜라겐</span>
+        <h3 class="text-2xl font-serif text-slate-900 mt-3 mb-3">콜라겐 빌더</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">리쥬란 블랙 + 쥬베룩 스킨. 볼륨감 없이 피부 밀도, 모공, 잔주름 개선.</p>
+        <p class="text-gold font-bold text-xl mb-5">₩990,000 <span class="text-slate-400 text-sm font-normal">VAT 포함</span></p>
+        <div class="flex gap-3">
+          <a href="/ko/collagen-builder.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">자세히</a>
+          <a href="/ko/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">예약</a>
+        </div>
+      </div>
+
+      <div id="program-volume" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
+        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">재생 / 볼륨</span>
+        <h3 class="text-2xl font-serif text-slate-900 mt-3 mb-3">볼륨 차마카-세</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">쥬베룩 볼륨 1병 전체를 전안면에. 더 밝고 생기 있는 피부를 위한 콜라겐 리모델링.</p>
+        <p class="text-gold font-bold text-xl mb-5">₩1,100,000 <span class="text-slate-400 text-sm font-normal">VAT 포함</span></p>
+        <div class="flex gap-3">
+          <a href="/ko/filler-chamaka-se.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">자세히</a>
+          <a href="/ko/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">예약</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 의료진 -->
+<section class="py-24 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">의사 주도 큐레이션</span>
+      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">메디컬 보드</h2>
+      <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
+        전략, 리프팅, 수술, 재생 의학, 국제 코디네이션.<br>하나의 보드. 하나의 계획. 책임감 있는 임상팀.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 mb-8">
+      <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10"></div>
+        <img src="/.netlify/images?url=/cha.jpg&w=900&fm=webp&q=75" alt="차승연 원장" class="w-full h-full object-cover object-top min-h-[420px]">
+        <div class="absolute inset-x-0 bottom-0 z-20 p-8 md:p-10 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] text-gold border border-gold/30 bg-white/5 mb-4">대표원장</span>
+          <h3 class="text-3xl md:text-4xl font-serif text-white">차승연 원장</h3>
+          <p class="text-gold text-xs font-bold uppercase tracking-[0.18em] mt-2 mb-4">안면 균형의 마스터 플래너</p>
+          <p class="text-slate-300 max-w-2xl leading-relaxed mb-5">
+            "미용 의학은 얼굴을 바꾸는 것이 아닙니다. 잃어버린 균형을 찾는 것입니다."
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs text-slate-200">
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">한국줄기세포학회 이사</span>
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">안면 디자인 & 안티에이징 전문</span>
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">1:1 컨시어지 지원</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+          <div class="grid grid-cols-[120px_1fr] md:grid-cols-[150px_1fr]">
+            <img src="/.netlify/images?url=/kim_ky.jpg&w=500&fm=webp&q=75" alt="김광연 원장" class="w-full h-full object-cover object-top min-h-[220px]">
+            <div class="p-6 md:p-7">
+              <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">대표원장</span>
+              <h3 class="text-2xl font-serif text-slate-900 mt-2">김광연 원장</h3>
+              <p class="text-sm text-slate-500 mt-1 mb-4">리프팅 전문가, 벡터 기반 타이트닝 스페셜리스트.</p>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                "리프팅은 물리학입니다. 가장 자연스러운 결과를 위해 벡터와 깊이를 계산합니다."
+              </p>
+              <div class="flex flex-wrap gap-2 text-[11px] text-slate-500">
+                <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">휴젤 리프팅 키닥터</span>
+                <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">前 예스타병원 원장</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-gold-light to-white rounded-3xl border border-gold/20 shadow-lg p-7">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">국제 코디네이션</span>
+          <h3 class="text-2xl font-serif text-slate-900 mt-2">영어 직접 MD + 컨시어지</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mt-3 mb-5">
+            국제 환자는 브로커를 거치지 않습니다. 계획, 소통, 사후 관리가 하나의 조율된 채널을 통해 이루어집니다.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">언어</p>
+              <p class="text-sm font-bold text-slate-900 mt-2">영어 / 중국어 / 일본어 / 태국어 / 아랍어</p>
+            </div>
+            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">모델</p>
+              <p class="text-sm font-bold text-slate-900 mt-2">직접 MD 계획</p>
+            </div>
+            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">지원</p>
+              <p class="text-sm font-bold text-slate-900 mt-2">전 과정 컨시어지</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+        <img src="/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75" alt="주지훈 원장" class="w-full h-72 object-cover object-top">
+        <div class="p-6">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">국제 디렉터</span>
+          <h3 class="text-xl font-serif text-slate-900 mt-2">주지훈 원장</h3>
+          <p class="text-sm text-slate-500 mt-2 mb-4">모발, 의료 미용, 국제 환자 소통.</p>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li>- 미국 미용의학학회 (ABAM)</li>
+            <li>- 모발 이식 전문</li>
+            <li>- MIT Sloan 헬스케어 AI</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+        <img src="/.netlify/images?url=/jo.jpg&w=600&fm=webp&q=75" alt="조동현 원장" class="w-full h-72 object-cover object-top">
+        <div class="p-6">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">재생 의학</span>
+          <h3 class="text-xl font-serif text-slate-900 mt-2">조동현 원장</h3>
+          <p class="text-sm text-slate-500 mt-2 mb-4">줄기세포 및 재생 전략.</p>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li>- 서울대학교병원 임상 자문</li>
+            <li>- 국제실용성형외과학회 회장</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+        <img src="/.netlify/images?url=/kim_bj.jpg&w=600&fm=webp&q=75" alt="김범진 원장" class="w-full h-72 object-cover object-top">
+        <div class="p-6">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">성형 & 재건</span>
+          <h3 class="text-xl font-serif text-slate-900 mt-2">김범진 원장</h3>
+          <p class="text-sm text-slate-500 mt-2 mb-4">구조적 평가 및 수술 자문.</p>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li>- 연세대학교 성형외과 임상교수</li>
+            <li>- 피츠버그대학 UPMC 펠로우</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+        <img src="/.netlify/images?url=/jang.jpg&w=600&fm=webp&q=75" alt="장승우 원장" class="w-full h-72 object-cover object-top">
+        <div class="p-6">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">의학 자문</span>
+          <h3 class="text-xl font-serif text-slate-900 mt-2">장승우 원장</h3>
+          <p class="text-sm text-slate-500 mt-2 mb-4">의학적 평가를 위한 MD, PhD 자문.</p>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li>- 조선대학교 의과대학 임상교수</li>
+            <li>- 소아과 전문의, 의학박사</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 프로그램 매칭 -->
+<section id="match" class="py-20 bg-white border-b border-slate-100">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">60초 분류</span>
+      <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">내 프로그램 찾기</h2>
+      <p class="text-slate-500">세 가지 질문에 답해 주세요. 적합한 경로를 안내해 드립니다.</p>
+    </div>
+
+    <div id="match-form" class="space-y-10">
+      <div>
+        <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">1 - 주요 목표는 무엇인가요?</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="goal">
+          <button type="button" data-value="collagen" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <i class="fas fa-seedling text-lg text-slate-300 mb-2 block"></i>
+            <span class="text-sm font-bold text-slate-700 block">콜라겐</span>
+            <span class="text-[10px] text-slate-400">자연스럽고 장기적</span>
+          </button>
+          <button type="button" data-value="volume" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <i class="fas fa-cube text-lg text-slate-300 mb-2 block"></i>
+            <span class="text-sm font-bold text-slate-700 block">볼륨</span>
+            <span class="text-[10px] text-slate-400">구조 & 윤곽</span>
+          </button>
+          <button type="button" data-value="lift" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <i class="fas fa-arrow-up text-lg text-slate-300 mb-2 block"></i>
+            <span class="text-sm font-bold text-slate-700 block">리프팅</span>
+            <span class="text-[10px] text-slate-400">타이트닝 & 회복</span>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">2 - 다운타임 허용 범위는?</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="downtime">
+          <button type="button" data-value="none" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <span class="text-sm font-bold text-slate-700 block">없음</span>
+            <span class="text-[10px] text-slate-400">회복 기간 없음</span>
+          </button>
+          <button type="button" data-value="mild" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <span class="text-sm font-bold text-slate-700 block">24 - 48시간</span>
+            <span class="text-[10px] text-slate-400">경미한 부기 OK</span>
+          </button>
+          <button type="button" data-value="extended" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <span class="text-sm font-bold text-slate-700 block">3 - 7일</span>
+            <span class="text-[10px] text-slate-400">완전한 회복 기간</span>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">3 - 여행 긴급도</p>
+        <label class="flex items-center gap-4 cursor-pointer border border-slate-200 rounded-sm px-5 py-4 transition hover:border-slate-400 w-fit">
+          <span class="relative inline-block w-11 h-6">
+            <input type="checkbox" id="match-urgent" class="peer sr-only">
+            <span class="absolute inset-0 bg-slate-200 rounded-full transition peer-checked:bg-gold"></span>
+            <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
+          </span>
+          <span class="text-sm text-slate-700">서울 체류 <strong>72시간 미만</strong></span>
+        </label>
+      </div>
+
+      <div class="text-center pt-2">
+        <button type="button" id="match-submit" disabled class="px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider">
+          내 프로그램 확인
+        </button>
+        <p id="match-hint" class="text-xs text-slate-400 mt-3">목표와 다운타임을 선택하세요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-20 bg-slate-50" id="faq">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">여행자 FAQ</h2>
+    <div class="space-y-4">
+
+      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+          시술 후 바로 비행기를 탈 수 있나요?
+          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+        </summary>
+        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+          <p>대부분의 경우 가능합니다.</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>에너지 기반 리프팅</strong>(울쎄라, 써마지, 온다)은 일반적으로 즉시 일상 활동 복귀가 가능합니다.</li>
+            <li><strong>인젝터블</strong>(쥬베룩, 필러)는 경미한 부기나 멍을 모니터링하기 위해 가능하면 24-48시간 여유를 권장합니다.</li>
+          </ul>
+          <p>계획은 항상 여행 일정에 맞게 조정됩니다.</p>
+        </div>
+      </details>
+
+      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+          다운타임은 얼마나 예상해야 하나요?
+          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+        </summary>
+        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+          <p>다운타임은 선택된 경로에 따라 다릅니다:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>리프팅:</strong> 가시적인 다운타임 최소</li>
+            <li><strong>쥬베룩:</strong> 경미한 부기 가능</li>
+            <li><strong>필러:</strong> 특히 섬세한 부위는 멍 가능</li>
+          </ul>
+          <p>여행자를 위해 불필요한 회복 시간을 최소화하는 구조화된 계획을 우선시합니다.</p>
+        </div>
+      </details>
+
+      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+          리프팅 시술 시 통증 관리가 가능한가요?
+          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+        </summary>
+        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+          <p><strong>타겟 컴포트 블록</strong>과 <strong>IV 의식 진정</strong>(선택 사항)을 제공하여 편안함을 최적화합니다.</p>
+          <p class="text-xs text-slate-400">치료 당일 의료 기록 검토 후 적합성이 확인됩니다.</p>
+        </div>
+      </details>
+
+      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+          어떤 프로그램을 선택해야 하나요?
+          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+        </summary>
+        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+          <p>직접 선택하실 필요가 없습니다. <strong>차마카-세</strong>는 의사가 큐레이팅하는 모델입니다.</p>
+          <p>상담에서 다음을 평가합니다:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>조직 두께</li>
+            <li>볼륨 분포</li>
+            <li>피부 이완</li>
+            <li>여행 일정</li>
+          </ul>
+          <p class="italic border-l-2 border-gold pl-3">목표는 더 많은 선택지를 제공하는 것이 아니라 가장 합리적인 경로를 찾는 것입니다.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- 예약 섹션 -->
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">간편한 온라인 예약</span>
+    <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-4">방문 예약</h2>
+    <p class="text-slate-500 mb-14 leading-relaxed max-w-xl mx-auto">의사 조율 케어, 국제 환자에게 맞게 최적화.<br class="hidden md:inline"> 브로커 없이, 추측 없이. 온라인으로 예약하세요.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-14">
+      <div class="relative px-6">
+        <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">1</div>
+        <h4 class="font-bold text-slate-900 mb-2 text-lg">시간 예약</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">여행 일정에 맞는 날짜와 시간을 선택하세요. <span class="text-slate-700 font-medium">보증금 불필요.</span></p>
+        <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+      </div>
+      <div class="relative px-6">
+        <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">2</div>
+        <h4 class="font-bold text-slate-900 mb-2 text-lg">확인 및 준비</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">저희 팀이 예약을 확인하고 <span class="text-slate-700 font-medium">초기 치료 계획</span>을 준비합니다.</p>
+        <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+      </div>
+      <div class="px-6">
+        <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">3</div>
+        <h4 class="font-bold text-slate-900 mb-2 text-lg">클리닉 방문</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">예약된 날짜에 최종 평가 및 치료 진행. <span class="text-slate-700 font-medium">도착 시 모든 준비 완료.</span></p>
+      </div>
+    </div>
+
+    <a href="/ko/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg text-base">
+      <i class="fas fa-calendar-check text-lg"></i> 지금 예약
+    </a>
+    <p class="text-sm text-slate-400 mt-6">문의 사항이 있으신가요? <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">WhatsApp</a> · <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">Instagram</a></p>
+  </div>
+</section>
+
+<!-- 위치 -->
+<section id="location" class="py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">강남에서 찾기</span>
+      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">방문하기</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="rounded-sm overflow-hidden shadow-lg aspect-[4/3]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0!2d127.0262995!3d37.5260439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca312332f6f6d%3A0xbca8eff64fdc0d90!2z7JWV6rWs7KCV7Yqg7J2Y7JuQ!5e0!3m2!1sko!2skr!4v1700000000000"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="튠 클리닉 압구정 위치">
+        </iframe>
+      </div>
+
+      <div class="flex flex-col justify-center space-y-8 py-4">
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">주소</h3>
+          <p class="text-slate-700 leading-relaxed">
+            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+            서울 강남구 논현로 868, 5층
+          </p>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">전화</h3>
+          <p class="text-slate-700">
+            <i class="fas fa-phone-alt text-gold mr-2"></i>
+            <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
+          </p>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">진료 시간</h3>
+          <div class="text-slate-700 space-y-1">
+            <div class="flex gap-4">
+              <i class="fas fa-clock text-gold mr-2 mt-1"></i>
+              <div>
+                <div class="flex justify-between gap-8"><span>월 - 금</span> <span class="font-bold">10:00 - 21:00</span></div>
+                <div class="flex justify-between gap-8"><span>토요일</span> <span class="font-bold">10:00 - 16:00</span></div>
+                <div class="flex justify-between gap-8 text-red-400"><span>일요일</span> <span class="font-bold">휴무</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a href="https://maps.app.goo.gl/QPzFkQ9EpJP7D99y6" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold hover:text-yellow-600 transition">
+            <i class="fas fa-directions"></i> 길찾기
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bg-slate-100 border-y border-slate-200 py-8">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <p class="text-sm text-slate-500 leading-relaxed">
+      상담은 저희 의료팀과 직접 조율됩니다.<br>
+      제3자 브로커를 이용하지 않습니다.
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var state = { goal: null, downtime: null };
+  var submitBtn = document.getElementById('match-submit');
+  var hint = document.getElementById('match-hint');
+  var urgent = document.getElementById('match-urgent');
+
+  document.querySelectorAll('[data-match-group]').forEach(function (group) {
+    var key = group.dataset.matchGroup;
+    group.querySelectorAll('.match-option').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        group.querySelectorAll('.match-option').forEach(function (b) { b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        state[key] = btn.dataset.value;
+        updateSubmit();
+      });
+    });
+  });
+
+  function updateSubmit() {
+    var ready = state.goal && state.downtime;
+    submitBtn.disabled = !ready;
+    submitBtn.className = ready
+      ? 'px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow text-sm uppercase tracking-wider'
+      : 'px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider';
+    hint.textContent = ready ? '' : '목표와 다운타임을 선택하세요.';
+  }
+
+  submitBtn.addEventListener('click', function () {
+    if (submitBtn.disabled) return;
+    highlight(resolve(state.goal, state.downtime, urgent.checked));
+  });
+
+  function resolve(goal, downtime, isUrgent) {
+    if (isUrgent) return 'program-lifting';
+    if (goal === 'collagen') {
+      if (downtime === 'none') return 'program-lifting';
+      if (downtime === 'extended') return 'program-elite';
+      return 'program-collagen';
+    }
+    if (goal === 'volume') {
+      if (downtime === 'none') return 'program-lifting';
+      if (downtime === 'extended') return 'program-elite';
+      return 'program-volume';
+    }
+    if (goal === 'lift') {
+      if (downtime === 'none') return 'program-lifting';
+      return 'program-elite';
+    }
+    return 'program-lifting';
+  }
+
+  function highlight(cardId) {
+    document.querySelectorAll('.program-highlight').forEach(function (el) { el.classList.remove('program-highlight'); });
+    document.querySelectorAll('[data-match-badge]').forEach(function (el) { el.remove(); });
+    document.querySelectorAll('.cta-pulse').forEach(function (el) { el.classList.remove('cta-pulse'); });
+    var card = document.getElementById(cardId);
+    if (!card) return;
+    var offsetPosition = card.getBoundingClientRect().top + window.pageYOffset - 100;
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    setTimeout(function () {
+      card.classList.add('program-highlight');
+      var badge = document.createElement('span');
+      badge.className = 'absolute top-3 left-3 bg-[#C5A059] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider';
+      badge.setAttribute('data-match-badge', '');
+      badge.textContent = '입력 결과에 따른 추천';
+      card.appendChild(badge);
+      var btns = card.querySelectorAll('a');
+      if (btns.length > 0) {
+        btns[btns.length - 1].classList.add('cta-pulse');
+        setTimeout(function () { btns[btns.length - 1].classList.remove('cta-pulse'); }, 2000);
+      }
+    }, 500);
+  }
+})();
+</script>

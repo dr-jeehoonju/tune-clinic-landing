@@ -1,0 +1,11 @@
+{
+  "key": "international-patients-guide",
+  "template": "editorial",
+  "permalink": "ko/international-patients-guide.html",
+  "title": "국제 환자 가이드 | 서울 튠 클리닉",
+  "description": "상담 흐름, 언어 지원, 치료 타이밍, 회복, 가격 기대치, 여행 친화적 케어를 다루는 튠 클리닉의 국제 환자 가이드로 서울 미용 치료를 계획하세요.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/international-patients-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "여행 가이드"
+}

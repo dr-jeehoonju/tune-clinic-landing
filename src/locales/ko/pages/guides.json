@@ -1,0 +1,11 @@
+{
+  "key": "guides",
+  "template": "editorial",
+  "permalink": "ko/guides.html",
+  "title": "서울 미용 가이드 | 국제 환자를 위한 튠 클리닉 자료",
+  "description": "치료 비교, 여행 계획, 리프팅 결정, 필러, 재생 치료, 환자 FAQ를 포함한 국제 환자를 위한 서울 미용 가이드를 둘러보세요.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/guides.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "가이드 허브"
+}

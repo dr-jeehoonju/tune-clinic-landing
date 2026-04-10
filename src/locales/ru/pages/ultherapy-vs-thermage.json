@@ -1,0 +1,11 @@
+{
+  "key": "ultherapy-vs-thermage",
+  "template": "editorial",
+  "permalink": "ru/ultherapy-vs-thermage.html",
+  "title": "Ultherapy vs Thermage FLX | Какой лифтинг подходит вам?",
+  "description": "Сравните Ultherapy vs Thermage FLX.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/ultherapy-vs-thermage.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Сравнение аппаратов"
+}

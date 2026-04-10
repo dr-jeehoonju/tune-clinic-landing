@@ -1,0 +1,10 @@
+{
+  "key": "signature-lifting",
+  "template": "program",
+  "permalink": "de/signature-lifting.html",
+  "title": "Signature Lifting | Ultherapy 350-Schuss-Protokoll in Seoul",
+  "description": "Das Signature Lifting der Tune Clinic Seoul ist ein arztkoordiniertes Ultherapy 350-Schuss-Lifting-Protokoll für internationale Patienten.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/de/signature-lifting.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

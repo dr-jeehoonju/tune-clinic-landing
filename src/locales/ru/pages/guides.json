@@ -1,0 +1,11 @@
+{
+  "key": "guides",
+  "template": "editorial",
+  "permalink": "ru/guides.html",
+  "title": "Путеводители по эстетике Сеула | Ресурсы Tune Clinic",
+  "description": "Просматривайте путеводители по эстетике Сеула Tune Clinic для международных пациентов.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/guides.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Хаб руководств"
+}

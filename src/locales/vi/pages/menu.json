@@ -1,0 +1,10 @@
+{
+  "key": "menu",
+  "template": "editorial",
+  "permalink": "vi/menu.html",
+  "title": "Menu điều trị và giá cả | Tune Clinic Apgujeong Seoul",
+  "description": "Xem các danh mục điều trị và giá tham khảo của Tune Clinic Apgujeong Seoul.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/vi/menu.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

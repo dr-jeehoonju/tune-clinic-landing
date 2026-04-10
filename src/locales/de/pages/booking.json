@@ -1,0 +1,11 @@
+{
+  "key": "booking",
+  "template": "editorial",
+  "permalink": "de/booking.html",
+  "title": "Termin buchen | Tune Clinic Apgujeong Seoul",
+  "description": "Vereinbaren Sie Ihren Besuch bei der Tune Clinic in Apgujeong, Seoul.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/de/booking.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Buchen"
+}

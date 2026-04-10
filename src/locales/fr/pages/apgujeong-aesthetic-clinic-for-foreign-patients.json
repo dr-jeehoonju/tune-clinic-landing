@@ -1,0 +1,11 @@
+{
+  "key": "apgujeong-aesthetic-clinic-for-foreign-patients",
+  "template": "editorial",
+  "permalink": "fr/apgujeong-aesthetic-clinic-for-foreign-patients.html",
+  "title": "Clinique esthétique Apgujeong pour patients étrangers | Tune Clinic Séoul",
+  "description": "Explorez la Tune Clinic à Apgujeong, Séoul pour les patients étrangers.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/fr/apgujeong-aesthetic-clinic-for-foreign-patients.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Guide clinique Séoul"
+}

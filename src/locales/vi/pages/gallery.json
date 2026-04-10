@@ -1,0 +1,10 @@
+{
+  "key": "gallery",
+  "template": "editorial",
+  "permalink": "vi/gallery.html",
+  "title": "Thư viện Trước/Sau | Tune Clinic Seoul",
+  "description": "Xem các trường hợp Trước/Sau của Tune Clinic Seoul.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
+  "fragment": "fragments/vi/gallery.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

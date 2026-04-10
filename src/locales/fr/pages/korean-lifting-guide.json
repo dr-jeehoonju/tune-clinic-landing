@@ -1,0 +1,11 @@
+{
+  "key": "korean-lifting-guide",
+  "template": "editorial",
+  "permalink": "fr/korean-lifting-guide.html",
+  "title": "Guide du lifting coréen | Ultherapy, Thermage FLX, Oligio à Séoul",
+  "description": "Comparez les traitements de lifting coréens à Séoul.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/fr/korean-lifting-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Guide lifting"
+}

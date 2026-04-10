@@ -1,0 +1,10 @@
+{
+  "key": "collagen-builder",
+  "template": "program",
+  "permalink": "vi/collagen-builder.html",
+  "title": "The Collagen Builder | Rejuran + Juvelook tại Seoul",
+  "description": "The Collagen Builder kết hợp Rejuran Black và Juvelook Skin để kích thích collagen.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/vi/collagen-builder.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

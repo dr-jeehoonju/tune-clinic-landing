@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { SITE_URL, hrefLang, pageUrl, publicUrl } = require("./url-helpers");
 
-const languageOrder = ["en", "ja", "zh", "th"];
+const languageOrder = ["en", "ja", "zh", "th", "ko", "de", "fr", "ru", "vi"];
 const SITE_NAME = "Tune Clinic";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75`;
 const GA_MEASUREMENT_ID = "G-P68CDTNEV1";
@@ -31,6 +31,36 @@ const CONSENT_COPY = {
     body: "เราใช้คุกกี้วิเคราะห์เพื่อทำความเข้าใจการเข้าชมและปรับปรุงประสบการณ์สำหรับผู้ป่วยต่างชาติ",
     accept: "ยอมรับการวิเคราะห์",
     reject: "ปฏิเสธ",
+  },
+  ko: {
+    title: "쿠키 설정",
+    body: "저희는 분석 쿠키를 사용하여 트래픽을 이해하고 국제 환자를 위한 경험을 개선합니다.",
+    accept: "분석 허용",
+    reject: "거부",
+  },
+  de: {
+    title: "Cookie-Einstellungen",
+    body: "Wir verwenden Analyse-Cookies, um den Datenverkehr zu verstehen und die Erfahrung für internationale Patienten zu verbessern.",
+    accept: "Analyse akzeptieren",
+    reject: "Ablehnen",
+  },
+  fr: {
+    title: "Préférences de cookies",
+    body: "Nous utilisons des cookies d'analyse pour comprendre le trafic et améliorer l'expérience des patients internationaux.",
+    accept: "Accepter l'analyse",
+    reject: "Refuser",
+  },
+  ru: {
+    title: "Настройки файлов cookie",
+    body: "Мы используем аналитические файлы cookie для понимания трафика и улучшения опыта для международных пациентов.",
+    accept: "Принять аналитику",
+    reject: "Отклонить",
+  },
+  vi: {
+    title: "Tùy chọn Cookie",
+    body: "Chúng tôi sử dụng cookie phân tích để hiểu lưu lượng truy cập và cải thiện trải nghiệm cho bệnh nhân quốc tế.",
+    accept: "Chấp nhận phân tích",
+    reject: "Từ chối",
   },
 };
 const PHYSICIANS = [
@@ -91,10 +121,15 @@ const PHYSICIANS = [
   },
 ];
 const LOCALE_META = {
-  en: { ogLocale: "en_US", ogAlternates: ["ja_JP", "zh_CN", "th_TH"] },
-  ja: { ogLocale: "ja_JP", ogAlternates: ["en_US", "zh_CN", "th_TH"] },
-  zh: { ogLocale: "zh_CN", ogAlternates: ["en_US", "ja_JP", "th_TH"] },
-  th: { ogLocale: "th_TH", ogAlternates: ["en_US", "ja_JP", "zh_CN"] },
+  en: { ogLocale: "en_US", ogAlternates: ["ja_JP", "zh_CN", "th_TH", "ko_KR", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
+  ja: { ogLocale: "ja_JP", ogAlternates: ["en_US", "zh_CN", "th_TH", "ko_KR", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
+  zh: { ogLocale: "zh_CN", ogAlternates: ["en_US", "ja_JP", "th_TH", "ko_KR", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
+  th: { ogLocale: "th_TH", ogAlternates: ["en_US", "ja_JP", "zh_CN", "ko_KR", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
+  ko: { ogLocale: "ko_KR", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
+  de: { ogLocale: "de_DE", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "ko_KR", "fr_FR", "ru_RU", "vi_VN"] },
+  fr: { ogLocale: "fr_FR", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "ko_KR", "de_DE", "ru_RU", "vi_VN"] },
+  ru: { ogLocale: "ru_RU", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "ko_KR", "de_DE", "fr_FR", "vi_VN"] },
+  vi: { ogLocale: "vi_VN", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "ko_KR", "de_DE", "fr_FR", "ru_RU"] },
 };
 
 function readFragment(fragmentPath) {
@@ -643,7 +678,7 @@ function siteFooter(entry, localeData) {
               <p class="leading-relaxed"><i class="fas fa-location-dot text-gold mr-2"></i>${g.footerAddress}</p>
               <p><i class="fas fa-phone-alt text-gold mr-2"></i><a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a></p>
               <p><i class="far fa-clock text-gold mr-2"></i>${g.footerHours}<br><span class="pl-6">${g.footerHoursSat}</span></p>
-              <p><i class="fas fa-globe text-gold mr-2"></i>${g.languageName} / 日本語 / 中文 / ไทย</p>
+              <p><i class="fas fa-globe text-gold mr-2"></i>${localeData.map(l => l.global.langLabel).join(' / ')}</p>
               <div class="flex items-center gap-3 pt-2">
                 <a href="${g.whatsappHref}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-green-400 hover:border-green-400 transition" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="${g.instagramHref}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-400 transition" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -724,7 +759,7 @@ function renderPage(entry, localeData) {
   const availableLocales = entry.availableLocales || languageOrder;
   const ogAlternateTags = localeMeta.ogAlternates
     .filter((value) => {
-      const localeMap = { en_US: "en", ja_JP: "ja", zh_CN: "zh", th_TH: "th" };
+      const localeMap = { en_US: "en", ja_JP: "ja", zh_CN: "zh", th_TH: "th", ko_KR: "ko", de_DE: "de", fr_FR: "fr", ru_RU: "ru", vi_VN: "vi" };
       const code = localeMap[value];
       return code && availableLocales.includes(code);
     })
@@ -942,7 +977,7 @@ function blogChrome(post, localeData) {
 
 function formatBlogDate(dateStr, locale) {
   const d = new Date(dateStr);
-  const langMap = { en: "en-US", ja: "ja-JP", zh: "zh-CN", th: "th-TH" };
+  const langMap = { en: "en-US", ja: "ja-JP", zh: "zh-CN", th: "th-TH", ko: "ko-KR", de: "de-DE", fr: "fr-FR", ru: "ru-RU", vi: "vi-VN" };
   return d.toLocaleDateString(langMap[locale] || "en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 

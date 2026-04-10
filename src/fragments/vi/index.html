@@ -1,0 +1,627 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+body { font-family: 'Lato', sans-serif; }
+.font-serif { font-family: 'Playfair Display', serif; }
+.text-gold { color: #C5A059; }
+.bg-gold { background-color: #C5A059; }
+.border-gold { border-color: #C5A059; }
+.bg-gold-light { background-color: #fdf8ef; }
+.program-highlight { outline: 3px solid #C5A059; outline-offset: 6px; }
+.match-option.selected { border-color: #C5A059; background: #fdf8ef; }
+.cta-pulse { animation: ctaPulse 1s ease-in-out; }
+@keyframes ctaPulse { 0%,100%{box-shadow:0 0 0 0 rgba(197,160,89,0.4)} 50%{box-shadow:0 0 0 12px rgba(197,160,89,0)} }
+</style>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
+  <div class="absolute inset-0 z-0">
+    <img src="/.netlify/images?url=/main.jpeg&w=1400&fm=webp&q=75" alt="Tune Clinic Seoul" class="w-full h-full object-cover object-top opacity-40">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/30 to-slate-950/80"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-40">
+    <div class="max-w-3xl">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5 backdrop-blur-sm mb-6">
+        <i class="fas fa-map-marker-alt"></i> Seoul Apgujeong · Do bác sĩ dẫn dắt
+      </span>
+      <h1 class="text-5xl md:text-7xl font-serif text-white leading-tight mb-6">
+        K-Beauty y khoa<br>
+        <span class="text-gold italic">chính xác</span>
+      </h1>
+      <p class="text-xl text-slate-300 leading-relaxed max-w-2xl mb-10">
+        Phòng khám thẩm mỹ do bác sĩ dẫn dắt tại Seoul dành cho bệnh nhân quốc tế. Lập kế hoạch điều trị có cấu trúc cho nâng cơ, tái sinh và tạo hình — không qua trung gian, không phỏng đoán.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-gold text-white px-8 py-4 font-bold rounded-sm hover:bg-gold/90 transition shadow-lg text-base">
+          <i class="fas fa-calendar-check"></i> Đặt lịch ngay
+        </a>
+        <a href="/vi/design-method.html" class="inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 font-semibold rounded-sm hover:bg-white/10 transition text-base">
+          <i class="fas fa-flask"></i> Phương pháp thiết kế
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Thanh tin cậy -->
+<div class="bg-slate-900 border-y border-slate-800 py-6">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-wrap gap-6 justify-center md:justify-between items-center text-xs text-slate-400">
+      <span class="flex items-center gap-2"><i class="fas fa-user-md text-gold"></i> Điều trị do bác sĩ dẫn dắt</span>
+      <span class="flex items-center gap-2"><i class="fas fa-globe text-gold"></i> Tiếng Anh · Trung · Nhật · Thái</span>
+      <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-gold"></i> Apgujeong Gangnam</span>
+      <span class="flex items-center gap-2"><i class="fas fa-plane text-gold"></i> Lập kế hoạch thân thiện với du lịch</span>
+      <span class="flex items-center gap-2"><i class="fas fa-ban text-gold"></i> Không qua trung gian</span>
+    </div>
+  </div>
+</div>
+
+<!-- Giới thiệu Chamaka-se -->
+<section class="py-24 bg-white border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">Phương pháp luận</span>
+        <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mt-3 mb-6 leading-tight">
+          Chamaka-se<br><span class="text-gold">Phương pháp thiết kế</span>
+        </h2>
+        <p class="text-slate-600 text-lg leading-relaxed mb-8">
+          Chamaka-se là phương pháp luận do bác sĩ dẫn dắt, chẩn đoán trước rồi mới chọn phương pháp điều trị. Độ dày mô, phân bổ thể tích và độ chùng da được đánh giá — sau đó thiết kế trình tự điều trị.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mb-8">
+          <div class="flex gap-3 items-start">
+            <i class="fas fa-check-circle text-gold mt-1"></i>
+            <div><p class="font-bold text-slate-900 text-sm">Đánh giá giải phẫu</p><p class="text-slate-500 text-xs mt-1">Mô, đối xứng, độ chùng — trước tiên</p></div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <i class="fas fa-check-circle text-gold mt-1"></i>
+            <div><p class="font-bold text-slate-900 text-sm">Thiết kế theo trình tự</p><p class="text-slate-500 text-xs mt-1">Giao thức, không phải gói</p></div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <i class="fas fa-check-circle text-gold mt-1"></i>
+            <div><p class="font-bold text-slate-900 text-sm">Tích hợp du lịch</p><p class="text-slate-500 text-xs mt-1">Lập kế hoạch theo lịch trình của bạn</p></div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <i class="fas fa-check-circle text-gold mt-1"></i>
+            <div><p class="font-bold text-slate-900 text-sm">Giao tiếp minh bạch</p><p class="text-slate-500 text-xs mt-1">Khuyến nghị có căn cứ</p></div>
+          </div>
+        </div>
+        <a href="/vi/design-method.html" class="inline-flex items-center gap-2 text-gold font-bold hover:text-slate-900 transition">
+          Xem chi tiết phương pháp <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-slate-900 rounded-3xl p-6 text-white aspect-square flex flex-col justify-between">
+          <i class="fas fa-microscope text-gold text-3xl"></i>
+          <div>
+            <p class="font-bold text-lg">Chẩn đoán trước</p>
+            <p class="text-slate-400 text-sm mt-1">Đánh giá giải phẫu trước điều trị</p>
+          </div>
+        </div>
+        <div class="bg-gold-light border border-gold/20 rounded-3xl p-6 aspect-square flex flex-col justify-between">
+          <i class="fas fa-layer-group text-gold text-3xl"></i>
+          <div>
+            <p class="font-bold text-lg text-slate-900">Thiết kế trình tự</p>
+            <p class="text-slate-600 text-sm mt-1">Trình tự điều trị tối ưu</p>
+          </div>
+        </div>
+        <div class="bg-gold-light border border-gold/20 rounded-3xl p-6 aspect-square flex flex-col justify-between">
+          <i class="fas fa-plane text-gold text-3xl"></i>
+          <div>
+            <p class="font-bold text-lg text-slate-900">Thân thiện du lịch</p>
+            <p class="text-slate-600 text-sm mt-1">Kế hoạch theo lịch trình</p>
+          </div>
+        </div>
+        <div class="bg-slate-900 rounded-3xl p-6 text-white aspect-square flex flex-col justify-between">
+          <i class="fas fa-shield-alt text-gold text-3xl"></i>
+          <div>
+            <p class="font-bold text-lg">An toàn là trên hết</p>
+            <p class="text-slate-400 text-sm mt-1">Không điều trị quá mức</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chương trình -->
+<section class="py-24 bg-slate-50 border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Chương trình điều trị</span>
+      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-4">4 giao thức cốt lõi</h2>
+      <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Mỗi chương trình được thiết kế cho một mục tiêu điều trị cụ thể. Tư vấn sẽ xác định chương trình phù hợp nhất với bạn.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div id="program-lifting" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
+        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Không xâm lấn / Nâng cơ</span>
+        <h3 class="text-2xl font-serif text-slate-900 mt-3 mb-3">Signature Lifting</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Giao thức Ultherapy 350 phát do bác sĩ thiết kế. Nâng cơ mô sâu với thời gian nghỉ tối thiểu. Điều trị trong một ngày — lý tưởng cho du khách.</p>
+        <p class="text-gold font-bold text-xl mb-5">₩990.000 <span class="text-slate-400 text-sm font-normal">đã bao gồm VAT</span></p>
+        <div class="flex gap-3">
+          <a href="/vi/signature-lifting.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">Chi tiết</a>
+          <a href="/vi/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">Đặt lịch</a>
+        </div>
+      </div>
+
+      <div id="program-elite" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
+        <span class="inline-flex items-center gap-1 text-[10px] text-white font-bold uppercase tracking-[0.22em] bg-gold px-2 py-1 rounded-full mb-2">Được khuyến nghị</span>
+        <h3 class="text-2xl font-serif text-slate-900 mt-1 mb-3">Structural Reset Elite</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Ultherapy 300 phát + Thermage 600 phát + an thần IV. Nâng cơ và làm căng không phẫu thuật toàn diện.</p>
+        <p class="text-gold font-bold text-xl mb-5">₩3.300.000 <span class="text-slate-400 text-sm font-normal">đã bao gồm VAT</span></p>
+        <div class="flex gap-3">
+          <a href="/vi/structural-reset.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">Chi tiết</a>
+          <a href="/vi/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">Đặt lịch</a>
+        </div>
+      </div>
+
+      <div id="program-collagen" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
+        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Tái sinh / Collagen</span>
+        <h3 class="text-2xl font-serif text-slate-900 mt-3 mb-3">The Collagen Builder</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Rejuran Black + Juvelook Skin. Cải thiện kết cấu da, lỗ chân lông và nếp nhăn mịn mà không có hiệu ứng tạo thể tích.</p>
+        <p class="text-gold font-bold text-xl mb-5">₩990.000 <span class="text-slate-400 text-sm font-normal">đã bao gồm VAT</span></p>
+        <div class="flex gap-3">
+          <a href="/vi/collagen-builder.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">Chi tiết</a>
+          <a href="/vi/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">Đặt lịch</a>
+        </div>
+      </div>
+
+      <div id="program-volume" class="relative bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition duration-500 p-8">
+        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.22em]">Tái sinh / Thể tích</span>
+        <h3 class="text-2xl font-serif text-slate-900 mt-3 mb-3">Volume Chamaka-se</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Toàn bộ một lọ Juvelook Volume trên toàn khuôn mặt. Tái cơ cấu collagen cho làn da rạng rỡ và trẻ trung.</p>
+        <p class="text-gold font-bold text-xl mb-5">₩1.100.000 <span class="text-slate-400 text-sm font-normal">đã bao gồm VAT</span></p>
+        <div class="flex gap-3">
+          <a href="/vi/filler-chamaka-se.html" class="flex-1 text-center py-3 border border-slate-200 text-slate-600 font-bold rounded-sm hover:border-gold hover:text-gold transition text-sm">Chi tiết</a>
+          <a href="/vi/booking.html" class="flex-1 text-center py-3 bg-slate-900 text-white font-bold rounded-sm hover:bg-slate-800 transition text-sm">Đặt lịch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Đội ngũ y tế -->
+<section class="py-24 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Tuyển chọn do bác sĩ dẫn dắt</span>
+      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Hội đồng y tế</h2>
+      <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
+        Chiến lược, nâng cơ, phẫu thuật, y học tái sinh và điều phối quốc tế.<br>Một hội đồng. Một kế hoạch. Đội ngũ lâm sàng có trách nhiệm.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 mb-8">
+      <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10"></div>
+        <img src="/.netlify/images?url=/cha.jpg&w=900&fm=webp&q=75" alt="BS. Cha Seungyeon" class="w-full h-full object-cover object-top min-h-[420px]">
+        <div class="absolute inset-x-0 bottom-0 z-20 p-8 md:p-10 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] text-gold border border-gold/30 bg-white/5 mb-4">Bác sĩ trưởng</span>
+          <h3 class="text-3xl md:text-4xl font-serif text-white">BS. Cha Seungyeon</h3>
+          <p class="text-gold text-xs font-bold uppercase tracking-[0.18em] mt-2 mb-4">Chuyên gia lập kế hoạch cân bằng khuôn mặt</p>
+          <p class="text-slate-300 max-w-2xl leading-relaxed mb-5">
+            "Y học thẩm mỹ không thay đổi khuôn mặt. Nó phục hồi sự cân bằng đã mất."
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs text-slate-200">
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Giám đốc Korean Stem Cell Society</span>
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Chuyên gia Facial Design & Anti-Aging</span>
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Hỗ trợ concierge 1:1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+          <div class="grid grid-cols-[120px_1fr] md:grid-cols-[150px_1fr]">
+            <img src="/.netlify/images?url=/kim_ky.jpg&w=500&fm=webp&q=75" alt="BS. Kim Kwangyeon" class="w-full h-full object-cover object-top min-h-[220px]">
+            <div class="p-6 md:p-7">
+              <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Bác sĩ trưởng</span>
+              <h3 class="text-2xl font-serif text-slate-900 mt-2">BS. Kim Kwangyeon</h3>
+              <p class="text-sm text-slate-500 mt-1 mb-4">Chuyên gia nâng cơ, chuyên gia làm căng theo vector.</p>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                "Nâng cơ là vật lý học. Tôi tính toán vector và độ sâu để đạt kết quả tự nhiên nhất."
+              </p>
+              <div class="flex flex-wrap gap-2 text-[11px] text-slate-500">
+                <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">Hugel Lifting Key Doctor</span>
+                <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">Cựu giám đốc Yesta Hospital</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-gold-light to-white rounded-3xl border border-gold/20 shadow-lg p-7">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Điều phối quốc tế</span>
+          <h3 class="text-2xl font-serif text-slate-900 mt-2">MD trực tiếp + Concierge bằng tiếng Anh</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mt-3 mb-5">
+            Bệnh nhân quốc tế không phải qua trung gian. Lập kế hoạch, giao tiếp và chăm sóc sau điều trị được thực hiện qua một kênh điều phối duy nhất.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Ngôn ngữ</p>
+              <p class="text-sm font-bold text-slate-900 mt-2">EN / ZH / JA / TH / AR</p>
+            </div>
+            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Mô hình</p>
+              <p class="text-sm font-bold text-slate-900 mt-2">Lập kế hoạch MD trực tiếp</p>
+            </div>
+            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">Hỗ trợ</p>
+              <p class="text-sm font-bold text-slate-900 mt-2">Concierge toàn diện</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+        <img src="/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75" alt="BS. Joo Jihoon" class="w-full h-72 object-cover object-top">
+        <div class="p-6">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Giám đốc quốc tế</span>
+          <h3 class="text-xl font-serif text-slate-900 mt-2">BS. Joo Jihoon</h3>
+          <p class="text-sm text-slate-500 mt-2 mb-4">Cấy ghép tóc, y học thẩm mỹ, giao tiếp quốc tế.</p>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li>- American Board of Aesthetic Medicine</li>
+            <li>- Chuyên gia cấy ghép tóc</li>
+            <li>- MIT Sloan Healthcare AI</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+        <img src="/.netlify/images?url=/jo.jpg&w=600&fm=webp&q=75" alt="BS. Jo Donghyeon" class="w-full h-72 object-cover object-top">
+        <div class="p-6">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Y học tái sinh</span>
+          <h3 class="text-xl font-serif text-slate-900 mt-2">BS. Jo Donghyeon</h3>
+          <p class="text-sm text-slate-500 mt-2 mb-4">Chiến lược tế bào gốc và tái sinh.</p>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li>- Cố vấn lâm sàng Seoul National University Hospital</li>
+            <li>- Chủ tịch ISAPS Hàn Quốc</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+        <img src="/.netlify/images?url=/kim_bj.jpg&w=600&fm=webp&q=75" alt="BS. Kim Bumjin" class="w-full h-72 object-cover object-top">
+        <div class="p-6">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Phẫu thuật tạo hình & tái tạo</span>
+          <h3 class="text-xl font-serif text-slate-900 mt-2">BS. Kim Bumjin</h3>
+          <p class="text-sm text-slate-500 mt-2 mb-4">Đánh giá cấu trúc và tư vấn phẫu thuật.</p>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li>- Giáo sư lâm sàng phẫu thuật tạo hình Yonsei</li>
+            <li>- Fellowship UPMC Pittsburgh</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+        <img src="/.netlify/images?url=/jang.jpg&w=600&fm=webp&q=75" alt="BS. Jang Seungwoo" class="w-full h-72 object-cover object-top">
+        <div class="p-6">
+          <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">Tư vấn y tế</span>
+          <h3 class="text-xl font-serif text-slate-900 mt-2">BS. Jang Seungwoo</h3>
+          <p class="text-sm text-slate-500 mt-2 mb-4">Tư vấn MD, PhD cho các đánh giá y tế.</p>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li>- Giáo sư lâm sàng Đại học Y Chosun</li>
+            <li>- Bác sĩ nhi, Tiến sĩ Y khoa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ghép chương trình -->
+<section id="match" class="py-20 bg-white border-b border-slate-100">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Lựa chọn trong 60 giây</span>
+      <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">Tìm chương trình của tôi</h2>
+      <p class="text-slate-500">Trả lời ba câu hỏi. Chúng tôi sẽ hướng dẫn bạn đến con đường phù hợp.</p>
+    </div>
+
+    <div id="match-form" class="space-y-10">
+      <div>
+        <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">1 — Mục tiêu chính của bạn là gì?</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="goal">
+          <button type="button" data-value="collagen" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <i class="fas fa-seedling text-lg text-slate-300 mb-2 block"></i>
+            <span class="text-sm font-bold text-slate-700 block">Collagen</span>
+            <span class="text-[10px] text-slate-400">Tự nhiên & lâu dài</span>
+          </button>
+          <button type="button" data-value="volume" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <i class="fas fa-cube text-lg text-slate-300 mb-2 block"></i>
+            <span class="text-sm font-bold text-slate-700 block">Thể tích</span>
+            <span class="text-[10px] text-slate-400">Cấu trúc & tạo hình</span>
+          </button>
+          <button type="button" data-value="lift" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <i class="fas fa-arrow-up text-lg text-slate-300 mb-2 block"></i>
+            <span class="text-sm font-bold text-slate-700 block">Nâng cơ</span>
+            <span class="text-[10px] text-slate-400">Làm căng & phục hồi</span>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">2 — Bao nhiêu thời gian nghỉ dưỡng?</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="downtime">
+          <button type="button" data-value="none" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <span class="text-sm font-bold text-slate-700 block">Không có</span>
+            <span class="text-[10px] text-slate-400">Không cần thời gian hồi phục</span>
+          </button>
+          <button type="button" data-value="mild" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <span class="text-sm font-bold text-slate-700 block">24–48 giờ</span>
+            <span class="text-[10px] text-slate-400">Sưng nhẹ chấp nhận được</span>
+          </button>
+          <button type="button" data-value="extended" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+            <span class="text-sm font-bold text-slate-700 block">3–7 ngày</span>
+            <span class="text-[10px] text-slate-400">Thời gian hồi phục đầy đủ</span>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">3 — Mức độ gấp của chuyến đi</p>
+        <label class="flex items-center gap-4 cursor-pointer border border-slate-200 rounded-sm px-5 py-4 transition hover:border-slate-400 w-fit">
+          <span class="relative inline-block w-11 h-6">
+            <input type="checkbox" id="match-urgent" class="peer sr-only">
+            <span class="absolute inset-0 bg-slate-200 rounded-full transition peer-checked:bg-gold"></span>
+            <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
+          </span>
+          <span class="text-sm text-slate-700">Lưu trú tại Seoul <strong>dưới 72 giờ</strong></span>
+        </label>
+      </div>
+
+      <div class="text-center pt-2">
+        <button type="button" id="match-submit" disabled class="px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider">
+          Xem chương trình của tôi
+        </button>
+        <p id="match-hint" class="text-xs text-slate-400 mt-3">Vui lòng chọn mục tiêu và thời gian nghỉ dưỡng.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-20 bg-slate-50" id="faq">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">FAQ dành cho du khách</h2>
+    <div class="space-y-4">
+
+      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+          Tôi có thể bay ngay sau khi điều trị không?
+          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+        </summary>
+        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+          <p>Trong hầu hết các trường hợp là có.</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>Nâng cơ bằng năng lượng</strong> (Ultherapy, Thermage, Onda) thường cho phép trở lại hoạt động hàng ngày ngay lập tức.</li>
+            <li><strong>Tiêm chất làm đầy</strong> (Juvelook, filler): nếu có thể, chúng tôi khuyến nghị 24–48 giờ để theo dõi sưng hoặc bầm tím.</li>
+          </ul>
+          <p>Kế hoạch luôn được điều chỉnh theo lịch trình du lịch của bạn.</p>
+        </div>
+      </details>
+
+      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+          Cần bao nhiêu thời gian nghỉ dưỡng?
+          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+        </summary>
+        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+          <p>Thời gian nghỉ dưỡng tùy thuộc vào giao thức được chọn:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>Nâng cơ:</strong> Thời gian nghỉ dưỡng tối thiểu</li>
+            <li><strong>Juvelook:</strong> Có thể sưng nhẹ</li>
+            <li><strong>Filler:</strong> Có thể bầm tím, đặc biệt ở vùng nhạy cảm</li>
+          </ul>
+          <p>Chúng tôi ưu tiên lập kế hoạch có cấu trúc để giảm thiểu gián đoạn không cần thiết cho du khách.</p>
+        </div>
+      </details>
+
+      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+          Có thể kiểm soát đau khi nâng cơ không?
+          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+        </summary>
+        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+          <p>Chúng tôi cung cấp <strong>khối thoải mái có chủ đích</strong> và <strong>an thần IV có ý thức</strong> (tùy chọn) để tối ưu hóa sự thoải mái.</p>
+          <p class="text-xs text-slate-400">Tính phù hợp được xác nhận sau khi xem xét hồ sơ y tế vào ngày điều trị.</p>
+        </div>
+      </details>
+
+      <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+          Tôi nên chọn chương trình nào?
+          <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+        </summary>
+        <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+          <p>Bạn không cần tự chọn. <strong>Chamaka-se</strong> là mô hình do bác sĩ dẫn dắt.</p>
+          <p>Trong buổi tư vấn, chúng tôi đánh giá:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Độ dày mô</li>
+            <li>Phân bổ thể tích</li>
+            <li>Độ chùng da</li>
+            <li>Lịch trình du lịch</li>
+          </ul>
+          <p class="italic border-l-2 border-gold pl-3">Mục tiêu không phải là đưa ra nhiều lựa chọn hơn — mà là tìm ra con đường hợp lý nhất.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- Phần đặt lịch -->
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">Đặt lịch trực tuyến đơn giản</span>
+    <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-4">Lên lịch thăm khám</h2>
+    <p class="text-slate-500 mb-14 leading-relaxed max-w-xl mx-auto">Chăm sóc được điều phối bởi bác sĩ, tối ưu hóa cho bệnh nhân quốc tế.<br class="hidden md:inline"> Không qua trung gian, không phỏng đoán. Đặt lịch trực tuyến.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-14">
+      <div class="relative px-6">
+        <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">1</div>
+        <h4 class="font-bold text-slate-900 mb-2 text-lg">Đặt khung giờ</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">Chọn ngày và giờ phù hợp với chuyến đi của bạn. <span class="text-slate-700 font-medium">Không cần đặt cọc.</span></p>
+        <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+      </div>
+      <div class="relative px-6">
+        <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">2</div>
+        <h4 class="font-bold text-slate-900 mb-2 text-lg">Xác nhận & chuẩn bị</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">Đội ngũ của chúng tôi xác nhận đặt lịch và chuẩn bị <span class="text-slate-700 font-medium">kế hoạch điều trị ban đầu</span>.</p>
+        <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+      </div>
+      <div class="px-6">
+        <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">3</div>
+        <h4 class="font-bold text-slate-900 mb-2 text-lg">Thăm khám tại phòng khám</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">Đánh giá cuối cùng và điều trị vào ngày đã đặt. <span class="text-slate-700 font-medium">Mọi thứ đã sẵn sàng khi bạn đến.</span></p>
+      </div>
+    </div>
+
+    <a href="/vi/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg text-base">
+      <i class="fas fa-calendar-check text-lg"></i> Đặt lịch ngay
+    </a>
+    <p class="text-sm text-slate-400 mt-6">Có câu hỏi? <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">WhatsApp</a> · <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">Instagram</a></p>
+  </div>
+</section>
+
+<!-- Vị trí -->
+<section id="location" class="py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">Tìm chúng tôi tại Gangnam</span>
+      <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">Đến thăm chúng tôi</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="rounded-sm overflow-hidden shadow-lg aspect-[4/3]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0!2d127.0262995!3d37.5260439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca312332f6f6d%3A0xbca8eff64fdc0d90!2z7JWV6rWs7KCV7Yqg7J2Y7JuQ!5e0!3m2!1sko!2skr!4v1700000000000"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Vị trí Tune Clinic Apgujeong">
+        </iframe>
+      </div>
+
+      <div class="flex flex-col justify-center space-y-8 py-4">
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Địa chỉ</h3>
+          <p class="text-slate-700 leading-relaxed">
+            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+            Tầng 5, 868 Nonhyeon-ro, Gangnam-gu, Seoul
+          </p>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Điện thoại</h3>
+          <p class="text-slate-700">
+            <i class="fas fa-phone-alt text-gold mr-2"></i>
+            <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
+          </p>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">Giờ mở cửa</h3>
+          <div class="text-slate-700 space-y-1">
+            <div class="flex gap-4">
+              <i class="fas fa-clock text-gold mr-2 mt-1"></i>
+              <div>
+                <div class="flex justify-between gap-8"><span>Thứ 2 – 6</span> <span class="font-bold">10:00 – 21:00</span></div>
+                <div class="flex justify-between gap-8"><span>Thứ 7</span> <span class="font-bold">10:00 – 16:00</span></div>
+                <div class="flex justify-between gap-8 text-red-400"><span>Chủ nhật</span> <span class="font-bold">Đóng cửa</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a href="https://maps.app.goo.gl/QPzFkQ9EpJP7D99y6" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold hover:text-yellow-600 transition">
+            <i class="fas fa-directions"></i> Xem đường đi
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bg-slate-100 border-y border-slate-200 py-8">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <p class="text-sm text-slate-500 leading-relaxed">
+      Các buổi tư vấn được điều phối trực tiếp với đội ngũ y tế của chúng tôi.<br>
+      Chúng tôi không làm việc với bên trung gian thứ ba.
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var state = { goal: null, downtime: null };
+  var submitBtn = document.getElementById('match-submit');
+  var hint = document.getElementById('match-hint');
+  var urgent = document.getElementById('match-urgent');
+
+  document.querySelectorAll('[data-match-group]').forEach(function (group) {
+    var key = group.dataset.matchGroup;
+    group.querySelectorAll('.match-option').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        group.querySelectorAll('.match-option').forEach(function (b) { b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        state[key] = btn.dataset.value;
+        updateSubmit();
+      });
+    });
+  });
+
+  function updateSubmit() {
+    var ready = state.goal && state.downtime;
+    submitBtn.disabled = !ready;
+    submitBtn.className = ready
+      ? 'px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow text-sm uppercase tracking-wider'
+      : 'px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider';
+    hint.textContent = ready ? '' : 'Vui lòng chọn mục tiêu và thời gian nghỉ dưỡng.';
+  }
+
+  submitBtn.addEventListener('click', function () {
+    if (submitBtn.disabled) return;
+    highlight(resolve(state.goal, state.downtime, urgent.checked));
+  });
+
+  function resolve(goal, downtime, isUrgent) {
+    if (isUrgent) return 'program-lifting';
+    if (goal === 'collagen') {
+      if (downtime === 'none') return 'program-lifting';
+      if (downtime === 'extended') return 'program-elite';
+      return 'program-collagen';
+    }
+    if (goal === 'volume') {
+      if (downtime === 'none') return 'program-lifting';
+      if (downtime === 'extended') return 'program-elite';
+      return 'program-volume';
+    }
+    if (goal === 'lift') {
+      if (downtime === 'none') return 'program-lifting';
+      return 'program-elite';
+    }
+    return 'program-lifting';
+  }
+
+  function highlight(cardId) {
+    document.querySelectorAll('.program-highlight').forEach(function (el) { el.classList.remove('program-highlight'); });
+    document.querySelectorAll('[data-match-badge]').forEach(function (el) { el.remove(); });
+    document.querySelectorAll('.cta-pulse').forEach(function (el) { el.classList.remove('cta-pulse'); });
+    var card = document.getElementById(cardId);
+    if (!card) return;
+    var offsetPosition = card.getBoundingClientRect().top + window.pageYOffset - 100;
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    setTimeout(function () {
+      card.classList.add('program-highlight');
+      var badge = document.createElement('span');
+      badge.className = 'absolute top-3 left-3 bg-[#C5A059] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider';
+      badge.setAttribute('data-match-badge', '');
+      badge.textContent = 'Được khuyến nghị cho bạn';
+      card.appendChild(badge);
+      var btns = card.querySelectorAll('a');
+      if (btns.length > 0) {
+        btns[btns.length - 1].classList.add('cta-pulse');
+        setTimeout(function () { btns[btns.length - 1].classList.remove('cta-pulse'); }, 2000);
+      }
+    }, 500);
+  }
+})();
+</script>

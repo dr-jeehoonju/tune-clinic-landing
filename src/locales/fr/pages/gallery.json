@@ -1,0 +1,10 @@
+{
+  "key": "gallery",
+  "template": "editorial",
+  "permalink": "fr/gallery.html",
+  "title": "Galerie Avant/Après | Tune Clinic Séoul",
+  "description": "Parcourez les cas avant/après de la Tune Clinic Seoul.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
+  "fragment": "fragments/fr/gallery.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "aesthetic-treatment-faq-for-foreign-patients",
+  "template": "editorial",
+  "permalink": "de/aesthetic-treatment-faq-for-foreign-patients.html",
+  "title": "Ästhetik-FAQ für ausländische Patienten | Seoul Klinik",
+  "description": "Lesen Sie FAQ-Antworten für ausländische Patienten, die Seoul besuchen.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/de/aesthetic-treatment-faq-for-foreign-patients.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Patienten-FAQ"
+}

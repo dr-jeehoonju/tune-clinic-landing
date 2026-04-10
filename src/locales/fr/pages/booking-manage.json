@@ -1,0 +1,12 @@
+{
+  "key": "booking-manage",
+  "template": "editorial",
+  "permalink": "fr/booking-manage.html",
+  "title": "Gérer votre réservation | Tune Clinic",
+  "description": "Annulez ou reportez votre rendez-vous à la Tune Clinic.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/fr/booking-manage.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Gérer la réservation",
+  "noIndex": true
+}

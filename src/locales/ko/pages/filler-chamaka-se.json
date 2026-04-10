@@ -1,0 +1,10 @@
+{
+  "key": "filler-chamaka-se",
+  "template": "program",
+  "permalink": "ko/filler-chamaka-se.html",
+  "title": "볼륨 차마카-세 | 서울 쥬베룩 볼륨 콜라겐 리모델링",
+  "description": "서울 튠 클리닉의 볼륨 차마카-세는 더 밝고 생기 있는 피부를 위한 콜라겐 리모델링을 자극하기 위해 쥬베룩 볼륨 1병 전체를 의사가 전안면에 설계합니다.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/filler-chamaka-se.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

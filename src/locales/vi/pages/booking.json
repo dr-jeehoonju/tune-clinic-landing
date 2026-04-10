@@ -1,0 +1,11 @@
+{
+  "key": "booking",
+  "template": "editorial",
+  "permalink": "vi/booking.html",
+  "title": "Đặt lịch hẹn | Tune Clinic Apgujeong Seoul",
+  "description": "Lên lịch thăm khám tại Tune Clinic ở Apgujeong, Seoul.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/vi/booking.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Đặt lịch"
+}

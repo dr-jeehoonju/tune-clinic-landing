@@ -1,0 +1,11 @@
+{
+  "key": "international-patients-guide",
+  "template": "editorial",
+  "permalink": "vi/international-patients-guide.html",
+  "title": "Hướng dẫn bệnh nhân quốc tế | Tune Clinic Seoul",
+  "description": "Lập kế hoạch điều trị thẩm mỹ tại Seoul với hướng dẫn của Tune Clinic.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/vi/international-patients-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Hướng dẫn du lịch"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "apgujeong-aesthetic-clinic-for-foreign-patients",
+  "template": "editorial",
+  "permalink": "ru/apgujeong-aesthetic-clinic-for-foreign-patients.html",
+  "title": "Эстетическая клиника Апгуджон для иностранных пациентов | Tune Clinic Сеул",
+  "description": "Изучите Tune Clinic в Апгуджоне, Сеул для иностранных пациентов.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/apgujeong-aesthetic-clinic-for-foreign-patients.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Гид по клинике Сеула"
+}

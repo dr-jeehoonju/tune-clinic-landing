@@ -1,0 +1,11 @@
+{
+  "key": "guides",
+  "template": "editorial",
+  "permalink": "de/guides.html",
+  "title": "Seoul Ästhetik-Ratgeber | Tune Clinic Ressourcen",
+  "description": "Durchsuchen Sie die Seoul Ästhetik-Ratgeber der Tune Clinic für internationale Patienten.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/de/guides.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Ratgeber-Hub"
+}

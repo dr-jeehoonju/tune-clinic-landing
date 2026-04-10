@@ -1,0 +1,10 @@
+{
+  "key": "signature-lifting",
+  "template": "program",
+  "permalink": "fr/signature-lifting.html",
+  "title": "Signature Lifting | Protocole Ultherapy 350 tirs à Séoul",
+  "description": "Le Signature Lifting de Tune Clinic Seoul est un protocole de lifting Ultherapy 350 tirs.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/fr/signature-lifting.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

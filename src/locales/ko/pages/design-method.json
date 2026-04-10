@@ -1,0 +1,10 @@
+{
+  "key": "design-method",
+  "template": "editorial",
+  "permalink": "ko/design-method.html",
+  "title": "차마카-세 디자인 메서드 | 튠 클리닉 압구정 서울",
+  "description": "해부학적 분석, 프로토콜 계획, 여행 친화적 미용 의사 결정을 포함한 튠 클리닉의 의사 주도 차마카-세 디자인 메서드를 알아보세요.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/design-method.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

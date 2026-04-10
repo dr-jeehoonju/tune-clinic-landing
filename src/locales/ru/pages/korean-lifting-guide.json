@@ -1,0 +1,11 @@
+{
+  "key": "korean-lifting-guide",
+  "template": "editorial",
+  "permalink": "ru/korean-lifting-guide.html",
+  "title": "Корейский гид по лифтингу | Ultherapy, Thermage FLX, Oligio в Сеуле",
+  "description": "Сравните процедуры лифтинга в Сеуле.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/korean-lifting-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Гид по лифтингу"
+}

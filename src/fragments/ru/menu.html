@@ -1,0 +1,700 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+
+        .menu-hero {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(197,160,89,0.18), transparent 28%),
+                radial-gradient(circle at 82% 20%, rgba(96,165,250,0.12), transparent 24%),
+                linear-gradient(180deg, #08111d 0%, #0f172a 60%, #111827 100%);
+        }
+        .nav-pill {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            font-weight: 700;
+            border-radius: 9999px;
+            border: 1px solid #e2e8f0;
+            transition: all 150ms ease;
+            white-space: nowrap;
+            background-color: #fff;
+            color: #64748b;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+        }
+        .nav-pill:hover {
+            border-color: #C5A059;
+            color: #C5A059;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+        }
+        .nav-pill.active {
+            background-color: #0f172a;
+            color: #fff;
+            border-color: #0f172a;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+        }
+
+        .section-card {
+            background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+            border-radius: 1.5rem;
+            box-shadow: 0 18px 50px rgba(15,23,42,0.08);
+            border: 1px solid #e9eef5;
+            padding: 1.25rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .section-card { padding: 2.5rem; }
+        }
+
+        .guide-library-panel {
+            background:
+                radial-gradient(circle at top left, rgba(197,160,89,0.18), transparent 32%),
+                linear-gradient(145deg, #0b1320 0%, #111827 55%, #172033 100%);
+            border-color: rgba(255,255,255,0.08);
+            box-shadow: 0 24px 60px rgba(15,23,42,0.2);
+        }
+        .guide-step-card {
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.06);
+            padding: 1rem;
+        }
+        .guide-link-card {
+            display: block;
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            transition: all 180ms ease;
+        }
+        .guide-link-card:hover {
+            border-color: rgba(197,160,89,0.6);
+            background: rgba(255,255,255,0.09);
+            transform: translateY(-2px);
+        }
+        .guide-link-copy {
+            color: #cbd5e1;
+            font-size: 0.78rem;
+            line-height: 1.45;
+            margin-top: 0.4rem;
+        }
+
+        .tag-pill {
+            background-color: #f1f5f9;
+            color: #64748b;
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 0.25rem 0.625rem;
+            border-radius: 0.125rem;
+            letter-spacing: 0.05em;
+        }
+        
+        html { scroll-padding-top: 120px; }
+        @media (max-width: 768px) {
+            html { scroll-padding-top: 88px; }
+        }
+</style>
+
+<div class="menu-hero -mt-px mb-12 md:mb-16">
+        <div class="max-w-5xl mx-auto px-4 md:px-6 py-14 md:py-20">
+            <div class="text-center fade-in-up">
+                <span class="inline-flex py-2 px-4 border border-white/10 text-gold text-[10px] font-bold uppercase tracking-[0.22em] mb-5 rounded-full bg-white/5 backdrop-blur-sm">
+                    Curated Treatment Experiences
+                </span>
+                <h1 class="text-4xl md:text-6xl font-serif text-white mb-5 leading-tight">The Chamaka-se Menu</h1>
+                <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                    A physician-supervised treatment library for international patients.
+                    Use it as a reference map, then confirm the final protocol directly with our medical team.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-10">
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Smooth & Define</p>
+                    <p class="text-sm text-slate-200">Botox-led refinement and muscle balance.</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Lift & Tighten</p>
+                    <p class="text-sm text-slate-200">Energy protocols for structure and firmness.</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Restore & Plump</p>
+                    <p class="text-sm text-slate-200">Filler and collagen pathways by indication.</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Comfort</p>
+                    <p class="text-sm text-slate-200">Structured options for travel-friendly recovery.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 md:px-6 pb-12 md:pb-20">
+
+        <div class="section-card guide-library-panel text-white mb-8 md:mb-10">
+            <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-6 md:gap-8 items-start">
+                <div>
+                    <p class="text-[10px] uppercase tracking-[0.22em] text-gold font-bold mb-3">Need context before pricing?</p>
+                    <h2 class="text-2xl md:text-3xl font-serif text-white mb-4 leading-tight">Use these guides before comparing numbers</h2>
+                    <p class="text-sm text-slate-200 leading-relaxed max-w-xl">
+                        Reference pricing is only useful after you understand category fit.
+                        Start with a few core guides here, or jump into the full editorial library if you want deeper comparison before booking.
+                    </p>
+                    <div class="grid sm:grid-cols-3 gap-3 mt-6">
+                        <div class="guide-step-card">
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Start Here</p>
+                            <p class="text-sm text-white font-bold">Travel + clinic fit</p>
+                        </div>
+                        <div class="guide-step-card">
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Then Read</p>
+                            <p class="text-sm text-white font-bold">Lift, filler, regenerative</p>
+                        </div>
+                        <div class="guide-step-card">
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Deep Dive</p>
+                            <p class="text-sm text-white font-bold">Comparisons and FAQs</p>
+                        </div>
+                    </div>
+                    <a href="/ru/guides.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-gold/40 bg-white/10 text-gold font-bold text-sm hover:text-white hover:border-white/30 hover:bg-white/14 transition mt-6">
+                        <i class="fas fa-book-open"></i> Open Full Guides Library
+                    </a>
+                </div>
+                <div>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <a href="/ru/international-patients-guide.html" class="guide-link-card">
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Travel Guide</p>
+                            <p class="text-sm font-bold text-white">International Patients Guide</p>
+                            <p class="guide-link-copy">Start here for communication, travel timing, and first-visit planning from overseas.</p>
+                        </a>
+                        <a href="/ru/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="guide-link-card">
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Location Guide</p>
+                            <p class="text-sm font-bold text-white">Apgujeong Aesthetic Clinic for Foreign Patients</p>
+                            <p class="guide-link-copy">Useful if you are choosing by district and want better clinic-fit criteria.</p>
+                        </a>
+                        <a href="/ru/korean-lifting-guide.html" class="guide-link-card">
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Treatment Guide</p>
+                            <p class="text-sm font-bold text-white">Korean Lifting Guide</p>
+                            <p class="guide-link-copy">A category-first overview before comparing Ultherapy, Thermage FLX, or Oligio.</p>
+                        </a>
+                        <a href="/ru/dermal-fillers-in-korea.html" class="guide-link-card">
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Filler Guide</p>
+                            <p class="text-sm font-bold text-white">Dermal Fillers in Korea</p>
+                            <p class="guide-link-copy">Understand when filler supports design and when lift or sequencing matters more.</p>
+                        </a>
+                        <a href="/ru/skin-boosters-and-regenerative-treatments.html" class="guide-link-card">
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Regenerative</p>
+                            <p class="text-sm font-bold text-white">Skin Boosters and Regenerative Treatments</p>
+                            <p class="guide-link-copy">For Rejuran, Juvelook, exosomes, and skin-quality planning with better category clarity.</p>
+                        </a>
+                        <a href="/ru/aesthetic-treatment-faq-for-foreign-patients.html" class="guide-link-card">
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">FAQ Guide</p>
+                            <p class="text-sm font-bold text-white">Aesthetic Treatment FAQ for Foreign Patients</p>
+                            <p class="guide-link-copy">Quick answers on downtime, flights, consultation flow, and travel-conscious decisions.</p>
+                        </a>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed mt-4">
+                        Looking for device comparisons, scalp guides, or decision support? The full library lives in
+                        <a href="/ru/guides.html" class="text-gold hover:text-white transition font-bold">Guides</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="smooth-define" class="section-card">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Smooth & Define</h2>
+                <p class="text-slate-500 text-sm mb-4">Advanced neuromodulator <strong class="text-slate-700">(Botox)</strong> treatments for softening expression lines and refining facial architecture without looking frozen.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="tag-pill">Expression Lines</span>
+                    <span class="tag-pill">Heavy Jawline</span>
+                    <span class="tag-pill">Facial Tension</span>
+                </div>
+
+                <div class="bg-slate-50 p-4 md:p-5 rounded-sm border border-slate-100">
+                    <p class="font-bold text-slate-800 text-[11px] uppercase tracking-widest mb-3">Formulation Options</p>
+                    <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                        <div>
+                            <span class="text-sm font-bold text-slate-700 flex items-center gap-2"><i class="fas fa-check text-gold text-xs"></i> Standard</span>
+                            <p class="text-[11px] md:text-xs text-slate-500 mt-1 leading-relaxed">Highly effective, clinically proven Korean neuromodulators.</p>
+                        </div>
+                        <div>
+                            <span class="text-sm font-bold text-slate-700 flex items-center gap-2"><i class="fas fa-star text-gold text-xs"></i> Premium <span class="text-xs font-normal text-slate-400">(Xeomin / Allergan)</span></span>
+                            <p class="text-[11px] md:text-xs text-slate-500 mt-1 leading-relaxed">Highly purified with zero complexing proteins. Minimizes resistance risks. Ideal for long-term maintenance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">Masseter Contouring (Jaw Slimming)</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Softens a square or heavy jawline while relieving clenching tension.</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="1">₩63,800</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="2">₩165,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">High-Dose Jaw Refinement (75U)</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Advanced dosage for pronounced muscle volume.</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="3">₩95,700</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="4">₩247,500<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">Upper Face Relaxation</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Targeted smoothing for forehead, glabella (frown lines), and crow's feet.</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard <span class="font-normal text-[10px] text-slate-400 ml-1">(Per Area)</span></span>
+                        <span class="font-serif font-bold text-slate-800" data-price="5">₩31,900</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium <span class="font-normal text-[10px] text-slate-400 ml-1">(Per Area)</span></span>
+                        <span class="font-serif font-bold text-slate-800" data-price="6">₩121,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition">
+                    <div class="mb-3">
+                        <p class="font-bold text-slate-900 text-sm md:text-base">Lower Face Detailing</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Refining chin dimpling, bunny lines, or drooping mouth corners.</p>
+                    </div>
+                    <div class="flex justify-between items-center bg-slate-50/50 px-2 py-1.5 rounded-sm">
+                        <span class="text-[13px] font-bold text-slate-500">Standard</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="7">₩63,800</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2 py-1.5">
+                        <span class="text-[13px] font-bold text-gold flex items-center gap-1.5"><i class="fas fa-star text-[10px]"></i> Premium</span>
+                        <span class="font-serif font-bold text-slate-800" data-price="8">₩143,000<span class="font-sans text-[11px] font-normal text-slate-400 ml-0.5">~</span></span>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Micro-Dosing Skin Botox</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Superficial injections for tight pores and surface refinement.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Face Only</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="9">₩108,900</p>
+                    </div>
+                </div>
+                
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> Back to Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="lift-tighten" class="section-card border-t-4 border-t-slate-900">
+            <div class="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 uppercase">Flagship Solutions</div>
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Lift & Tighten</h2>
+                <p class="text-slate-500 text-sm mb-5">Non-surgical energy experiences to reverse gravity and restore deep tissue tension.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">Sagging Skin</span>
+                    <span class="tag-pill">Double Chin</span>
+                    <span class="tag-pill">Loss of Elasticity</span>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="py-6 border border-gold/40 bg-gold-light/30 px-4 md:px-5 rounded-sm flex flex-col md:flex-row justify-between gap-4 my-4 shadow-sm">
+                    <div class="flex-1 pr-2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <p class="font-bold text-slate-900 text-base md:text-lg leading-tight">Ultherapy 350-shot physician protocol</p>
+                            <span class="text-[9px] bg-gold text-white px-1.5 py-0.5 rounded uppercase font-bold tracking-wider shrink-0">Top Choice</span>
+                        </div>
+                        <p class="text-[11px] md:text-xs text-slate-600 leading-relaxed">Physician-calibrated vector planning targeting the SMAS layer for profound, natural lifting without downtime.</p>
+                    </div>
+                    <div class="text-right border-t border-gold/20 md:border-t-0 pt-3 md:pt-0 flex flex-row md:flex-col justify-between items-center md:items-end shrink-0">
+                        <span class="md:hidden text-[10px] font-bold text-gold uppercase tracking-widest">Protocol Cost</span>
+                        <p class="font-serif text-xl md:text-2xl font-bold text-gold" data-price="10">₩990,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">ONDA Microwave Contouring</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Painless microwave energy designed to dissolve stubborn fat and shrink double chins.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">60kJ Base</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="11">₩847,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Inmode FX V-Line Sculpting</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Targeted RF contouring. Often combined with fat-dissolving aesthetics for a sharp jawline.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Single Area</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="12">₩165,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> Back to Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="restore-plump" class="section-card mb-12">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Restore & Plump</h2>
+                <p class="text-slate-500 text-sm mb-5">Rebuilding youthful volume and stimulating deep cellular regeneration naturally.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">Sunken Cheeks</span>
+                    <span class="tag-pill">Hollow Eyes</span>
+                    <span class="tag-pill">Volume Loss</span>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Juvelook Volume Protocol</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Progressive collagen biostimulation. Fills hollows over time without the "overfilled" artificial look.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">2cc Base</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="13">₩1,166,000</p>
+                    </div>
+                </div>
+                
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Collagen Synergy</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran Black + Juvelook Skin. Dual-action approach to rebuild dermal thickness and elasticity.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="14">₩770,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">MCT Cellular Regeneration (Stem Cell)</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Advanced cellular therapy using your body's own regenerative properties for profound structural healing.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">4cc Base</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="15">₩1,100,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> Back to Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="filler-reference" class="section-card border-l-4 border-l-gold bg-white">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Filler (Reference)</h2>
+                <p class="text-slate-500 text-sm mb-5 leading-relaxed">
+                    Brand selection and volume are determined after in-person assessment. <strong class="text-slate-700">Filler is used as a structural tool for harmony—not routine volume expansion.</strong>
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">Jawline</span>
+                    <span class="tag-pill">Chin</span>
+                    <span class="tag-pill">Under-eye</span>
+                    <span class="tag-pill">Lip</span>
+                </div>
+            </div>
+
+            <div class="space-y-10">
+                <div>
+                    <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100">
+                        <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">General Filler (1cc)</h3>
+                    </div>
+                    <div class="px-2 space-y-0">
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Juvederm</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="16">₩423,500</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Restylane</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="17">₩363,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Belotero</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="18">₩423,500</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Yvoire</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="19">₩198,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Rejouviel</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="20">₩198,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Revolline</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="21">₩165,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100">
+                        <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">Under-eye / Ear / Upper Eyelid Filler (1cc)</h3>
+                    </div>
+                    <div class="px-2 space-y-0">
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Juvederm</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="22">₩605,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Restylane</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="23">₩484,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Belotero</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="24">₩605,000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Yvoire</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="25">₩412,500</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-50 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Rejouviel</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="26">₩412,500</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                            <span class="text-sm font-bold text-slate-700">Revolline</span>
+                            <span class="font-serif font-bold text-slate-900" data-price="27">₩330,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                    <div>
+                        <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100">
+                            <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">Lip Filler</h3>
+                        </div>
+                        <div class="px-2">
+                            <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                                <span class="text-sm font-bold text-slate-700">Restylane Kysse <span class="text-xs text-slate-400 font-normal ml-1">(1cc)</span></span>
+                                <span class="font-serif font-bold text-slate-900" data-price="28">₩418,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-slate-50 px-4 py-2.5 rounded-sm mb-3 border border-slate-100 flex items-center justify-between">
+                            <h3 class="font-bold text-slate-900 text-xs md:text-sm uppercase tracking-widest">Hyaluronidase</h3>
+                            <span class="text-[9px] text-slate-400 bg-white px-2 py-0.5 rounded border border-slate-200 uppercase tracking-widest font-bold">Safety Signal</span>
+                        </div>
+                        <div class="px-2">
+                            <div class="flex justify-between items-center py-3 hover:bg-slate-50/50 transition px-2">
+                                <span class="text-sm font-bold text-slate-700">H-lase Dissolver <span class="text-xs text-slate-400 font-normal ml-1">(Per area / 2cc)</span></span>
+                                <span class="font-serif font-bold text-slate-900" data-price="29">₩121,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> Back to Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="glow-refine" class="section-card mb-12">
+            <div class="mb-8 border-b border-slate-100 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">Glow & Refine</h2>
+                <p class="text-slate-500 text-sm mb-5">Curated booster experiences for flawless texture, deep hydration, and brightened tone.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">Dullness</span>
+                    <span class="tag-pill">Enlarged Pores</span>
+                    <span class="tag-pill">Dry Texture</span>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">The Classic Healer</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran Black + White. Intensive polynucleotide delivery to repair skin barrier and brighten complexion.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">5cc Protocol</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="30">₩726,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Luminosity Boost</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran White + LDM. Painless Dermashine injection followed by ultrasound for immediate soothing.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="31">₩704,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Scar & Pore Focus</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Rejuran Blue + Potenza. Microneedling RF paired with specialized healing boosters to refine pores.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="32">₩1,265,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Essential Clinical Skincare</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Refreshing basics: Aqua Peel, Cryotherapy, or LDM moisture retention.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Per Session</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="33">₩66,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> Back to Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="comfort-experience" class="section-card border-t-2 border-slate-900 bg-slate-50">
+            <div class="mb-8 border-b border-slate-200 pb-6">
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mb-2">The Comfort Experience</h2>
+                <p class="text-slate-500 text-sm mb-5">Your peace of mind is our priority. Tiered protocols for an anxiety-free journey.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill bg-white border border-slate-200">Pain Management</span>
+                    <span class="tag-pill bg-white border border-slate-200">Anxiety-Free</span>
+                </div>
+            </div>
+
+            <div class="space-y-0">
+                <div class="py-5 border-b border-slate-200 last:border-0 flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Topical Preparation</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">Standard clinical-grade numbing cream applied prior to your procedure.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="font-serif text-sm md:text-base font-bold text-slate-500 uppercase tracking-wider" data-price="34">Included</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-200 last:border-0 flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Targeted Comfort Block</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">A specialized, localized numbing technique administered by the physician to significantly reduce sensation.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Optional</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="35">+ ₩55,000</p>
+                    </div>
+                </div>
+
+                <div class="py-5 border-b border-slate-200 last:border-0 flex justify-between items-start gap-4">
+                    <div class="flex-1 pr-2">
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">IV Conscious Sedation</p>
+                        <p class="text-[11px] md:text-xs text-slate-500 mt-1.5 leading-relaxed">For complete relaxation. You will remain comfortably sedated under physician supervision.</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Optional</p>
+                        <p class="font-serif text-base md:text-lg font-bold text-slate-900" data-price="36">+ ₩110,000</p>
+                    </div>
+                </div>
+
+                <div class="text-right mt-6">
+                    <a href="#navbar" class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-gold transition"><i class="fas fa-arrow-up mr-1"></i> Back to Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-16 pt-12 border-t border-slate-200">
+            
+            <div class="mb-10">
+                <p class="text-sm font-bold text-slate-700 border-l-2 border-gold pl-4 inline-block text-left">
+                    Every treatment is preceded by in-person anatomical assessment<br class="hidden md:block"> and contraindication screening.
+                </p>
+            </div>
+
+            <p class="text-xs text-slate-400 mb-2 uppercase tracking-widest font-bold">Next Steps</p>
+            <h3 class="text-2xl font-serif text-slate-900 mb-8">Begin Your Journey</h3>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="/ru/booking.html" class="inline-block bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg w-full sm:w-auto"><i class="fas fa-calendar-check"></i> Записаться</a>
+                <a href="/index.html#programs" class="inline-block border border-slate-300 text-slate-600 px-10 py-4 font-bold rounded-sm hover:border-slate-800 hover:text-slate-900 transition bg-white w-full sm:w-auto">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Homepage
+                </a>
+            </div>
+            <p class="text-xs text-slate-400 mt-8 leading-relaxed max-w-md mx-auto">
+                * Prices are presented in KRW and include VAT.<br>
+                * Final medical plan and quote will be accurately determined after your in-person physician assessment.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            if(btn && menu){
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+        })();
+    </script>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key] && map[key] !== el.textContent.trim().replace(/~$/, '')) {
+            const hasTilde = el.querySelector('.font-sans') || el.textContent.includes('~');
+            el.textContent = map[key];
+            if (hasTilde && !map[key].includes('~')) {
+              const t = document.createElement('span');
+              t.className = 'font-sans text-[11px] font-normal text-slate-400 ml-0.5';
+              t.textContent = '~';
+              el.appendChild(t);
+            }
+          }
+        });
+      } catch(e) {}
+    })();
+    </script>

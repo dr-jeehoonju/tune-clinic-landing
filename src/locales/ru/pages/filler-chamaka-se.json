@@ -1,0 +1,10 @@
+{
+  "key": "filler-chamaka-se",
+  "template": "program",
+  "permalink": "ru/filler-chamaka-se.html",
+  "title": "Volume Chamaka-se | Ремоделирование коллагена Juvelook Volume в Сеуле",
+  "description": "Volume Chamaka-se в Tune Clinic Seoul использует целый флакон Juvelook Volume на всём лице.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/filler-chamaka-se.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

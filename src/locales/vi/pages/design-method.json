@@ -1,0 +1,10 @@
+{
+  "key": "design-method",
+  "template": "editorial",
+  "permalink": "vi/design-method.html",
+  "title": "Phương pháp thiết kế Chamaka-se | Tune Clinic Apgujeong Seoul",
+  "description": "Tìm hiểu phương pháp thiết kế Chamaka-se do bác sĩ dẫn dắt của Tune Clinic.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/vi/design-method.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

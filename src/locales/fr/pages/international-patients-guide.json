@@ -1,0 +1,11 @@
+{
+  "key": "international-patients-guide",
+  "template": "editorial",
+  "permalink": "fr/international-patients-guide.html",
+  "title": "Guide pour patients internationaux | Tune Clinic Séoul",
+  "description": "Planifiez un traitement esthétique à Séoul avec le guide des patients internationaux.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/fr/international-patients-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Guide voyage"
+}

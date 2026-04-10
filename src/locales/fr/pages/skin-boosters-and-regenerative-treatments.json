@@ -1,0 +1,11 @@
+{
+  "key": "skin-boosters-and-regenerative-treatments",
+  "template": "editorial",
+  "permalink": "fr/skin-boosters-and-regenerative-treatments.html",
+  "title": "Boosters cutanés et traitements régénératifs en Corée",
+  "description": "Explorez les boosters cutanés et les traitements régénératifs en Corée.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/fr/skin-boosters-and-regenerative-treatments.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Guide boosters cutanés"
+}

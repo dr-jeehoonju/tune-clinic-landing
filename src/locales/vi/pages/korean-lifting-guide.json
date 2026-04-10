@@ -1,0 +1,11 @@
+{
+  "key": "korean-lifting-guide",
+  "template": "editorial",
+  "permalink": "vi/korean-lifting-guide.html",
+  "title": "Hướng dẫn nâng cơ Hàn Quốc | Ultherapy, Thermage FLX, Oligio tại Seoul",
+  "description": "So sánh các liệu trình nâng cơ Hàn Quốc tại Seoul.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/vi/korean-lifting-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Hướng dẫn nâng cơ"
+}

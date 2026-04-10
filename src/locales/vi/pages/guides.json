@@ -1,0 +1,11 @@
+{
+  "key": "guides",
+  "template": "editorial",
+  "permalink": "vi/guides.html",
+  "title": "Hướng dẫn thẩm mỹ Seoul | Tài nguyên Tune Clinic",
+  "description": "Xem hướng dẫn thẩm mỹ Seoul của Tune Clinic cho bệnh nhân quốc tế.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/vi/guides.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "Hub hướng dẫn"
+}

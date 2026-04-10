@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const locales = ["en", "ja", "zh", "th"];
+const locales = ["en", "ja", "zh", "th", "ko", "de", "fr", "ru", "vi"];
 const preferredPageOrder = [
   "index",
   "design-method",

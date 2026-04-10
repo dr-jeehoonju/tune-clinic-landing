@@ -1,0 +1,11 @@
+{
+  "key": "dermal-fillers-in-korea",
+  "template": "editorial",
+  "permalink": "ko/dermal-fillers-in-korea.html",
+  "title": "한국 피부 필러 | 서울의 쥬비덤, 레스틸렌, 라디에스와 안면 디자인",
+  "description": "쥬비덤, 레스틸렌, 벨로테로, 라디에스, 구조적 필러 계획, 그리고 의사 주도 안면 디자인이 볼륨 우선 치료와 어떻게 다른지에 대한 튠 클리닉 가이드로 한국 피부 필러를 알아보세요.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/dermal-fillers-in-korea.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "필러 가이드"
+}

@@ -1,0 +1,142 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+body { font-family: 'Lato', sans-serif; }
+.font-serif { font-family: 'Playfair Display', serif; }
+.text-gold { color: #C5A059; }
+.bg-gold { background-color: #C5A059; }
+.border-gold { border-color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
+.fade-in-up { animation: fadeInUp 0.8s ease-out; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.hero-signature {
+  background: radial-gradient(circle at 18% 20%, rgba(96,165,250,0.22), transparent 26%),
+    radial-gradient(circle at 82% 18%, rgba(197,160,89,0.18), transparent 22%),
+    linear-gradient(180deg, #09111c 0%, #0f172a 100%);
+}
+</style>
+
+<header class="relative hero-signature overflow-hidden py-24 md:py-32">
+  <div class="absolute inset-0 z-0">
+    <img src="main.jpeg" alt="배경" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+    <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/20 backdrop-blur-sm">
+      비침습 / 리프팅
+    </span>
+    <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+      시그니처 리프팅 프로토콜
+    </h1>
+    <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+      여행객을 위해 설계된 의사가 조율하는 심부 조직 타이트닝 프로토콜.<br>
+      <strong>울쎄라 350샷 의사 프로토콜</strong>과 튠 클리닉의 벡터 계획을 기반으로 합니다.
+    </p>
+    <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[240px]">
+      <span class="text-xs text-slate-300 uppercase tracking-wide mb-1">총 프로토콜 비용 (VAT 포함)</span>
+      <span class="text-4xl font-serif text-white font-bold mb-1">₩990,000</span>
+      <div class="mt-3 pt-3 border-t border-white/10 w-full text-center">
+        <p class="text-[10px] text-slate-300">상담 + 치료 + 사후 관리 가이드 포함</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="py-16 bg-white border-b border-slate-100">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">기기</p>
+        <p class="font-serif text-lg text-slate-900">울쎄라</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">프로토콜</p>
+        <p class="font-serif text-lg text-slate-900">350샷</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">다운타임</p>
+        <p class="font-serif text-lg text-slate-900">최소</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">대상</p>
+        <p class="font-serif text-lg text-slate-900">처짐, 이완</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <span class="text-gold uppercase tracking-widest text-xs font-bold">프로그램 개요</span>
+        <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-5">350샷 의사 프로토콜</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          시그니처 리프팅은 최소한의 다운타임을 원하면서도 심부 조직 타이트닝이 필요한 국제 환자를 위해 설계되었습니다. 울쎄라 350샷은 표준 프로토콜보다 많은 샷 수로, 더 종합적인 커버리지와 결과를 제공합니다.
+        </p>
+        <ul class="space-y-3 text-slate-600 text-sm">
+          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>개별 안면 구조에 맞춘 의사 설계 벡터 계획</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>SMAS층, 진피층, 표피층을 타겟으로 하는 멀티레이어 접근</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>여행 일정과 조율 가능한 당일 시술</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-gold mt-1"></i><span>치료 후 바로 일상 복귀 가능</span></li>
+        </ul>
+      </div>
+      <div class="bg-slate-900 rounded-3xl p-8 text-white">
+        <h3 class="text-xl font-serif mb-6 text-gold">이 프로그램에 적합한 분</h3>
+        <ul class="space-y-4 text-sm text-slate-300">
+          <li class="flex gap-3"><i class="fas fa-chevron-right text-gold mt-1"></i><span>피부 처짐 및 이완이 고민인 분</span></li>
+          <li class="flex gap-3"><i class="fas fa-chevron-right text-gold mt-1"></i><span>수술 없이 리프팅 효과를 원하는 분</span></li>
+          <li class="flex gap-3"><i class="fas fa-chevron-right text-gold mt-1"></i><span>여행 중 다운타임 없이 시술받고 싶은 분</span></li>
+          <li class="flex gap-3"><i class="fas fa-chevron-right text-gold mt-1"></i><span>자연스러운 결과를 원하는 분</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="text-gold uppercase tracking-widest text-xs font-bold">자주 묻는 질문</span>
+      <h2 class="text-3xl font-serif text-slate-900 mt-3">시그니처 리프팅 FAQ</h2>
+    </div>
+    <div class="space-y-4">
+      <details class="group bg-white p-6 rounded-2xl border border-slate-200">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="font-serif text-slate-900">울쎄라 결과는 언제부터 보이나요?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">초기 타이트닝은 시술 후 2-4주 내에 느껴질 수 있습니다. 콜라겐 생성에 의한 전체적인 결과는 3-6개월에 걸쳐 나타납니다. 많은 환자들이 6-12개월 이상 결과를 유지한다고 보고합니다.</div>
+      </details>
+      <details class="group bg-white p-6 rounded-2xl border border-slate-200">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="font-serif text-slate-900">시술이 아픈가요?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">울쎄라는 깊은 층에 작용하므로 일부 불편함이 있을 수 있습니다. 튠 클리닉에서는 타겟 컴포트 블록과 선택적 IV 의식 진정을 제공하여 시술 편안함을 최적화합니다.</div>
+      </details>
+      <details class="group bg-white p-6 rounded-2xl border border-slate-200">
+        <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+          <span class="font-serif text-slate-900">시술 후 바로 비행기를 탈 수 있나요?</span>
+          <i class="fas fa-plus text-gold group-open:rotate-45 transition"></i>
+        </summary>
+        <div class="text-sm text-slate-600 leading-relaxed mt-4">네, 일반적으로 가능합니다. 울쎄라는 회복 기간이 거의 없어 여행 친화적인 시술입니다. 의사가 여행 일정에 맞게 계획을 조정할 것입니다.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-widest text-xs font-bold">지금 시작하기</span>
+    <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">방문 예약</h2>
+    <p class="text-slate-500 mb-10 leading-relaxed">시그니처 리프팅 프로토콜은 상담을 통해 개인 맞춤화됩니다.</p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="/ko/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg">
+        <i class="fas fa-calendar-check text-gold"></i> 지금 예약
+      </a>
+      <a href="/ko/structural-reset.html" class="inline-flex items-center gap-2 border border-slate-300 text-slate-700 px-8 py-4 font-semibold rounded-sm hover:border-gold hover:text-slate-900 bg-white transition">
+        스트럭처럴 리셋 보기
+      </a>
+    </div>
+  </div>
+</section>

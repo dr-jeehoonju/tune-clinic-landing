@@ -1,0 +1,10 @@
+{
+  "key": "signature-lifting",
+  "template": "program",
+  "permalink": "vi/signature-lifting.html",
+  "title": "Signature Lifting | Giao thức Ultherapy 350 phát tại Seoul",
+  "description": "Signature Lifting của Tune Clinic Seoul là giao thức nâng cơ Ultherapy 350 phát do bác sĩ điều phối.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/vi/signature-lifting.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

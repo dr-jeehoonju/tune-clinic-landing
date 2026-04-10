@@ -1,0 +1,10 @@
+{
+  "key": "design-method",
+  "template": "editorial",
+  "permalink": "ru/design-method.html",
+  "title": "Метод дизайна Chamaka-se | Tune Clinic Апгуджон Сеул",
+  "description": "Узнайте о методе дизайна Chamaka-se под руководством врача в Tune Clinic для международных пациентов.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/design-method.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}
