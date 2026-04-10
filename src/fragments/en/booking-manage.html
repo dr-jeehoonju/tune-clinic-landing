@@ -1,0 +1,505 @@
+<section class="bg-slate-950 text-white py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold" data-i18n="tagline">Booking Management</span>
+    <h1 class="text-4xl md:text-5xl font-serif mt-5" data-i18n="heading">Manage Your Appointment</h1>
+  </div>
+</section>
+
+<section class="py-14 md:py-20 bg-slate-50">
+  <div class="max-w-2xl mx-auto px-6">
+
+    <!-- Loading -->
+    <div id="mg-loading" class="text-center py-20">
+      <i class="fas fa-spinner fa-spin text-3xl text-gold"></i>
+      <p class="text-slate-400 mt-4" data-i18n="loading">Loading booking details…</p>
+    </div>
+
+    <!-- Not Found -->
+    <div id="mg-notfound" class="hidden text-center py-20">
+      <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-exclamation-triangle text-2xl"></i>
+      </div>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="notFoundTitle">Booking Not Found</h2>
+      <p class="text-slate-500 mt-4" data-i18n="notFoundMsg">This booking link may be invalid or expired.</p>
+    </div>
+
+    <!-- Booking Details -->
+    <div id="mg-details" class="hidden">
+      <!-- Summary Card -->
+      <div class="bg-white rounded-xl shadow-sm border overflow-hidden mb-6">
+        <div class="bg-slate-900 px-6 py-4">
+          <h2 class="text-white font-serif text-lg" data-i18n="summaryTitle">Appointment Details</h2>
+        </div>
+        <div class="px-6 py-5">
+          <table class="w-full text-sm">
+            <tr><td class="py-2 text-slate-400 w-28" data-i18n="labelName">Name</td><td id="mg-name" class="py-2 text-slate-800 font-bold"></td></tr>
+            <tr><td class="py-2 text-slate-400" data-i18n="labelDate">Date</td><td id="mg-date" class="py-2 text-slate-800 font-bold"></td></tr>
+            <tr><td class="py-2 text-slate-400" data-i18n="labelTime">Time</td><td id="mg-time" class="py-2 text-slate-800 font-bold"></td></tr>
+            <tr><td class="py-2 text-slate-400" data-i18n="labelProgram">Program</td><td id="mg-program" class="py-2 text-slate-800"></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div id="mg-actions" class="space-y-3">
+        <button id="btn-reschedule"
+          class="w-full bg-gold text-white py-3.5 px-6 rounded-lg font-bold hover:bg-gold/90 transition flex items-center justify-center gap-2">
+          <i class="fas fa-calendar-alt"></i> <span data-i18n="btnReschedule">Reschedule Appointment</span>
+        </button>
+        <button id="btn-cancel"
+          class="w-full border-2 border-red-200 text-red-600 py-3.5 px-6 rounded-lg font-bold hover:bg-red-50 transition flex items-center justify-center gap-2">
+          <i class="fas fa-times-circle"></i> <span data-i18n="btnCancel">Cancel Booking</span>
+        </button>
+        <div class="flex gap-3 mt-2">
+          <a id="link-gcal" href="#" target="_blank" rel="noopener"
+            class="flex-1 border border-slate-200 py-3 rounded-lg text-sm font-bold text-slate-600 hover:border-gold hover:text-gold transition text-center flex items-center justify-center gap-1.5">
+            <i class="fab fa-google"></i> <span data-i18n="btnGcal">Google Calendar</span>
+          </a>
+          <a id="link-ics" href="#"
+            class="flex-1 border border-slate-200 py-3 rounded-lg text-sm font-bold text-slate-600 hover:border-gold hover:text-gold transition text-center flex items-center justify-center gap-1.5">
+            <i class="fas fa-download"></i> <span data-i18n="btnIcs">Apple / Outlook</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Reschedule Panel -->
+      <div id="mg-reschedule" class="hidden mt-6">
+        <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+          <div class="bg-gold px-6 py-4 flex items-center justify-between">
+            <h3 class="text-white font-bold" data-i18n="rescheduleTitle">Choose a New Date & Time</h3>
+            <button id="btn-resched-close" class="text-white/70 hover:text-white transition"><i class="fas fa-times text-lg"></i></button>
+          </div>
+          <div class="px-6 py-5">
+            <!-- Calendar -->
+            <div class="flex items-center justify-between mb-4">
+              <button id="rs-prev" class="w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 transition"><i class="fas fa-chevron-left"></i></button>
+              <h4 id="rs-cal-title" class="font-bold text-lg text-slate-800"></h4>
+              <button id="rs-next" class="w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 transition"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="grid grid-cols-7 gap-1 text-center text-xs mb-2">
+              <span class="font-bold text-red-400 py-1">S</span>
+              <span class="font-bold text-slate-500 py-1">M</span>
+              <span class="font-bold text-slate-500 py-1">T</span>
+              <span class="font-bold text-slate-500 py-1">W</span>
+              <span class="font-bold text-slate-500 py-1">T</span>
+              <span class="font-bold text-slate-500 py-1">F</span>
+              <span class="font-bold text-blue-400 py-1">S</span>
+            </div>
+            <div id="rs-cal-grid" class="grid grid-cols-7 gap-1 mb-5"></div>
+
+            <!-- Time Slots -->
+            <div id="rs-slot-section" class="hidden">
+              <h4 class="font-bold text-slate-700 text-sm mb-2"><span data-i18n="availableTimes">Available times for</span> <span id="rs-slot-label" class="text-gold"></span></h4>
+              <div id="rs-slot-list" class="grid grid-cols-4 sm:grid-cols-5 gap-2 mb-5"></div>
+              <p id="rs-slot-none" class="hidden text-sm text-slate-400 text-center py-2" data-i18n="noSlots">No available slots for this date.</p>
+            </div>
+
+            <button id="btn-resched-confirm" disabled
+              class="w-full bg-gold text-white py-3 rounded-lg font-bold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gold/90 transition flex items-center justify-center gap-2">
+              <i class="fas fa-check"></i> <span data-i18n="btnConfirmResched">Confirm New Time</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cancel Confirmation -->
+      <div id="mg-cancel-confirm" class="hidden mt-6 bg-red-50 border border-red-200 rounded-xl p-6 text-center">
+        <p class="text-red-800 font-bold mb-1" data-i18n="cancelConfirmTitle">Are you sure?</p>
+        <p class="text-red-600 text-sm mb-4" data-i18n="cancelConfirmMsg">This will cancel your appointment. This action cannot be undone.</p>
+        <div class="flex gap-3 justify-center">
+          <button id="btn-cancel-yes" class="bg-red-600 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-red-700 transition text-sm">
+            <span data-i18n="cancelYes">Yes, Cancel</span>
+          </button>
+          <button id="btn-cancel-no" class="border border-slate-300 text-slate-600 px-6 py-2.5 rounded-lg font-bold hover:bg-slate-100 transition text-sm">
+            <span data-i18n="cancelNo">Keep Booking</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cancelled State -->
+    <div id="mg-cancelled" class="hidden text-center py-20">
+      <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-ban text-2xl"></i>
+      </div>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="cancelledTitle">Booking Cancelled</h2>
+      <p class="text-slate-500 mt-4" data-i18n="cancelledMsg">Your appointment has been cancelled. You can book a new appointment anytime.</p>
+      <a id="link-rebook" href="/booking.html" class="inline-block mt-8 bg-slate-900 text-white px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition">
+        <i class="fas fa-calendar-check mr-2"></i><span data-i18n="btnRebook">Book New Appointment</span>
+      </a>
+    </div>
+
+    <!-- Rescheduled State -->
+    <div id="mg-rescheduled" class="hidden text-center py-20">
+      <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-check text-2xl"></i>
+      </div>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="rescheduledTitle">Appointment Rescheduled</h2>
+      <p class="text-slate-500 mt-4" data-i18n="rescheduledMsg">Your new appointment time has been confirmed.</p>
+      <p id="mg-new-summary" class="text-gold font-bold mt-2"></p>
+    </div>
+
+  </div>
+</section>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const supabase = createClient(
+  'https://jwlfffpyeczyyojcutcx.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY'
+);
+
+const MANAGE_FN = 'https://jwlfffpyeczyyojcutcx.supabase.co/functions/v1/booking-manage';
+const $ = s => document.querySelector(s);
+const LOCALE = document.documentElement.lang || 'en';
+const BOOKING_URLS = { en: '/booking.html', ja: '/ja/booking.html', zh: '/zh/booking.html', th: '/th/booking.html' };
+
+const I18N = {
+  en: {
+    tagline: 'Booking Management', heading: 'Manage Your Appointment',
+    loading: 'Loading booking details…', notFoundTitle: 'Booking Not Found',
+    notFoundMsg: 'This booking link may be invalid or expired.',
+    summaryTitle: 'Appointment Details', labelName: 'Name', labelDate: 'Date',
+    labelTime: 'Time', labelProgram: 'Program',
+    btnReschedule: 'Reschedule Appointment', btnCancel: 'Cancel Booking',
+    btnGcal: 'Google Calendar', btnIcs: 'Apple / Outlook',
+    rescheduleTitle: 'Choose a New Date & Time', availableTimes: 'Available times for',
+    noSlots: 'No available slots for this date.', btnConfirmResched: 'Confirm New Time',
+    cancelConfirmTitle: 'Are you sure?',
+    cancelConfirmMsg: 'This will cancel your appointment. This action cannot be undone.',
+    cancelYes: 'Yes, Cancel', cancelNo: 'Keep Booking',
+    cancelledTitle: 'Booking Cancelled',
+    cancelledMsg: 'Your appointment has been cancelled. You can book a new appointment anytime.',
+    btnRebook: 'Book New Appointment',
+    rescheduledTitle: 'Appointment Rescheduled',
+    rescheduledMsg: 'Your new appointment time has been confirmed.',
+    notSpecified: 'Not specified',
+  },
+  ja: {
+    tagline: '予約管理', heading: 'ご予約の管理',
+    loading: '予約情報を読み込み中…', notFoundTitle: '予約が見つかりません',
+    notFoundMsg: 'このリンクは無効か期限切れの可能性があります。',
+    summaryTitle: '予約詳細', labelName: 'お名前', labelDate: '日付',
+    labelTime: '時間', labelProgram: 'プログラム',
+    btnReschedule: '日程変更', btnCancel: '予約をキャンセル',
+    btnGcal: 'Google カレンダー', btnIcs: 'Apple / Outlook',
+    rescheduleTitle: '新しい日時を選択', availableTimes: '空き時間：',
+    noSlots: 'この日は空きがありません。', btnConfirmResched: '新しい日時を確定',
+    cancelConfirmTitle: '本当にキャンセルしますか？',
+    cancelConfirmMsg: 'ご予約がキャンセルされます。この操作は取り消せません。',
+    cancelYes: 'キャンセルする', cancelNo: '予約を維持',
+    cancelledTitle: 'キャンセル完了',
+    cancelledMsg: 'ご予約はキャンセルされました。いつでも新しい予約ができます。',
+    btnRebook: '新しい予約をする',
+    rescheduledTitle: '日程変更完了',
+    rescheduledMsg: '新しいご予約の日時が確定しました。',
+    notSpecified: '未定',
+  },
+  zh: {
+    tagline: '预约管理', heading: '管理您的预约',
+    loading: '正在加载预约信息…', notFoundTitle: '未找到预约',
+    notFoundMsg: '此链接可能无效或已过期。',
+    summaryTitle: '预约详情', labelName: '姓名', labelDate: '日期',
+    labelTime: '时间', labelProgram: '项目',
+    btnReschedule: '更改时间', btnCancel: '取消预约',
+    btnGcal: 'Google 日历', btnIcs: 'Apple / Outlook',
+    rescheduleTitle: '选择新的日期和时间', availableTimes: '可预约时间：',
+    noSlots: '该日期无可用时段。', btnConfirmResched: '确认新时间',
+    cancelConfirmTitle: '确定要取消吗？',
+    cancelConfirmMsg: '您的预约将被取消，此操作无法撤消。',
+    cancelYes: '确认取消', cancelNo: '保留预约',
+    cancelledTitle: '预约已取消',
+    cancelledMsg: '您的预约已取消。您可以随时重新预约。',
+    btnRebook: '重新预约',
+    rescheduledTitle: '预约已更改',
+    rescheduledMsg: '您的新预约时间已确认。',
+    notSpecified: '未指定',
+  },
+  th: {
+    tagline: 'จัดการนัดหมาย', heading: 'จัดการนัดหมายของคุณ',
+    loading: 'กำลังโหลดข้อมูลนัดหมาย…', notFoundTitle: 'ไม่พบการนัดหมาย',
+    notFoundMsg: 'ลิงก์นี้อาจไม่ถูกต้องหรือหมดอายุ',
+    summaryTitle: 'รายละเอียดนัดหมาย', labelName: 'ชื่อ', labelDate: 'วันที่',
+    labelTime: 'เวลา', labelProgram: 'โปรแกรม',
+    btnReschedule: 'เปลี่ยนเวลานัดหมาย', btnCancel: 'ยกเลิกนัดหมาย',
+    btnGcal: 'Google Calendar', btnIcs: 'Apple / Outlook',
+    rescheduleTitle: 'เลือกวันและเวลาใหม่', availableTimes: 'เวลาว่าง:',
+    noSlots: 'ไม่มีช่วงเวลาว่างในวันนี้', btnConfirmResched: 'ยืนยันเวลาใหม่',
+    cancelConfirmTitle: 'ยืนยันการยกเลิก?',
+    cancelConfirmMsg: 'การนัดหมายของคุณจะถูกยกเลิก ไม่สามารถเรียกคืนได้',
+    cancelYes: 'ยืนยันยกเลิก', cancelNo: 'เก็บนัดหมาย',
+    cancelledTitle: 'ยกเลิกเรียบร้อย',
+    cancelledMsg: 'นัดหมายของคุณถูกยกเลิกแล้ว คุณสามารถจองนัดหมายใหม่ได้ตลอดเวลา',
+    btnRebook: 'จองนัดหมายใหม่',
+    rescheduledTitle: 'เปลี่ยนเวลาเรียบร้อย',
+    rescheduledMsg: 'เวลานัดหมายใหม่ของคุณได้รับการยืนยันแล้ว',
+    notSpecified: 'ยังไม่ระบุ',
+  },
+};
+
+const TREATMENT_LABELS = {
+  'signature-lifting': 'Signature Lifting',
+  'structural-reset': 'Structural Reset Elite',
+  'collagen-builder': 'The Collagen Builder',
+  'filler-chamaka-se': 'Volume Chamaka-se',
+  'other': 'Other',
+};
+
+const t = I18N[LOCALE] || I18N.en;
+
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  const key = el.getAttribute('data-i18n');
+  if (t[key]) el.textContent = t[key];
+});
+
+$('#link-rebook').href = BOOKING_URLS[LOCALE] || '/booking.html';
+
+/* ── Reschedule calendar state ── */
+let templates = [], blocks = [], bookedSlots = [];
+let rsCalY, rsCalM, rsSelectedDate = null, rsSelectedTime = null;
+let currentBooking = null;
+
+const params = new URLSearchParams(window.location.search);
+const bookingId = params.get('id');
+
+if (!bookingId) {
+  $('#mg-loading').classList.add('hidden');
+  $('#mg-notfound').classList.remove('hidden');
+} else {
+  loadBooking(bookingId);
+}
+
+async function loadBooking(id) {
+  try {
+    const res = await fetch(`${MANAGE_FN}?id=${encodeURIComponent(id)}`);
+    if (!res.ok) throw new Error('Not found');
+    const booking = await res.json();
+    currentBooking = booking;
+
+    $('#mg-loading').classList.add('hidden');
+
+    if (booking.status === 'cancelled') {
+      $('#mg-cancelled').classList.remove('hidden');
+      return;
+    }
+
+    renderDetails(booking);
+    $('#mg-details').classList.remove('hidden');
+  } catch {
+    $('#mg-loading').classList.add('hidden');
+    $('#mg-notfound').classList.remove('hidden');
+  }
+}
+
+function fmtDate(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00+09:00');
+  return d.toLocaleDateString(LOCALE === 'en' ? 'en-US' : LOCALE, {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Seoul'
+  });
+}
+
+function renderDetails(b) {
+  const timeKST = (b.appointment_time || '').slice(0, 5);
+  const treatments = (b.treatment_interest || []).map(k => TREATMENT_LABELS[k] || k).join(', ');
+
+  $('#mg-name').textContent = b.patient_name;
+  $('#mg-date').textContent = fmtDate(b.appointment_date);
+  $('#mg-time').textContent = timeKST + ' KST';
+  $('#mg-program').textContent = treatments || t.notSpecified;
+
+  // Google Calendar link
+  const kst = new Date(`${b.appointment_date}T${b.appointment_time}+09:00`);
+  const end = new Date(kst.getTime() + 60 * 60 * 1000);
+  const gcalFmt = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  $('#link-gcal').href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Tune Clinic Appointment')}&dates=${gcalFmt(kst)}/${gcalFmt(end)}&details=${encodeURIComponent('Program: ' + (treatments || 'TBD'))}&location=${encodeURIComponent('5F, 868 Nonhyeon-ro, Gangnam-gu, Seoul')}`;
+
+  // ICS download
+  $('#link-ics').href = `${MANAGE_FN}?id=${encodeURIComponent(b.id)}&ics=1`;
+
+  /* ── Reschedule ── */
+  $('#btn-reschedule').addEventListener('click', async () => {
+    await initRescheduleCalendar();
+    $('#mg-actions').classList.add('hidden');
+    $('#mg-reschedule').classList.remove('hidden');
+  });
+
+  $('#btn-resched-close').addEventListener('click', () => {
+    $('#mg-reschedule').classList.add('hidden');
+    $('#mg-actions').classList.remove('hidden');
+  });
+
+  $('#btn-resched-confirm').addEventListener('click', async () => {
+    if (!rsSelectedDate || !rsSelectedTime) return;
+    const btn = $('#btn-resched-confirm');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+    try {
+      const res = await fetch(MANAGE_FN, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'reschedule', id: b.id, appointment_date: rsSelectedDate, appointment_time: rsSelectedTime }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      $('#mg-details').classList.add('hidden');
+      $('#mg-new-summary').textContent = `${fmtDate(rsSelectedDate)} · ${rsSelectedTime} KST`;
+      $('#mg-rescheduled').classList.remove('hidden');
+    } catch {
+      alert('Failed to reschedule. Please try again.');
+      btn.disabled = false;
+      btn.innerHTML = `<i class="fas fa-check"></i> <span>${t.btnConfirmResched}</span>`;
+    }
+  });
+
+  /* ── Cancel ── */
+  $('#btn-cancel').addEventListener('click', () => {
+    $('#mg-cancel-confirm').classList.remove('hidden');
+    $('#btn-cancel').classList.add('hidden');
+  });
+
+  $('#btn-cancel-no').addEventListener('click', () => {
+    $('#mg-cancel-confirm').classList.add('hidden');
+    $('#btn-cancel').classList.remove('hidden');
+  });
+
+  $('#btn-cancel-yes').addEventListener('click', async () => {
+    $('#btn-cancel-yes').disabled = true;
+    $('#btn-cancel-yes').innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    try {
+      const res = await fetch(MANAGE_FN, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'cancel', id: b.id }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      $('#mg-details').classList.add('hidden');
+      $('#mg-cancelled').classList.remove('hidden');
+    } catch {
+      alert('Failed to cancel. Please try again.');
+      $('#btn-cancel-yes').disabled = false;
+      $('#btn-cancel-yes').innerHTML = `<span>${t.cancelYes}</span>`;
+    }
+  });
+}
+
+/* ═══════ Reschedule Calendar ═══════ */
+
+async function initRescheduleCalendar() {
+  if (templates.length === 0) {
+    const [tRes, bRes, sRes] = await Promise.all([
+      supabase.from('schedule_templates').select('*'),
+      supabase.from('schedule_blocks').select('*'),
+      supabase.from('booked_slots').select('appointment_date, appointment_time, status'),
+    ]);
+    templates = tRes.data || [];
+    blocks = bRes.data || [];
+    bookedSlots = sRes.data || [];
+  }
+
+  const now = new Date();
+  rsCalY = now.getFullYear();
+  rsCalM = now.getMonth();
+  rsSelectedDate = null;
+  rsSelectedTime = null;
+  $('#btn-resched-confirm').disabled = true;
+
+  $('#rs-prev').onclick = () => { rsCalM--; if (rsCalM < 0) { rsCalM = 11; rsCalY--; } renderRsCal(); };
+  $('#rs-next').onclick = () => { rsCalM++; if (rsCalM > 11) { rsCalM = 0; rsCalY++; } renderRsCal(); };
+
+  renderRsCal();
+}
+
+function renderRsCal() {
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  $('#rs-cal-title').textContent = `${monthNames[rsCalM]} ${rsCalY}`;
+
+  const grid = $('#rs-cal-grid');
+  const firstDay = new Date(rsCalY, rsCalM, 1).getDay();
+  const daysInMonth = new Date(rsCalY, rsCalM + 1, 0).getDate();
+  const today = new Date(); today.setHours(0,0,0,0);
+
+  const blockSet = new Set(blocks.map(b => b.block_date));
+  const activeDays = new Set(templates.filter(t => t.is_active).map(t => t.day_of_week));
+
+  let html = '';
+  for (let i = 0; i < firstDay; i++) html += '<div></div>';
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = new Date(rsCalY, rsCalM, d);
+    const dateStr = `${rsCalY}-${String(rsCalM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dow = date.getDay();
+    const isPast = date < today;
+    const isBlocked = blockSet.has(dateStr);
+    const isOpen = activeDays.has(dow);
+    const isAvailable = !isPast && !isBlocked && isOpen;
+    const isSel = dateStr === rsSelectedDate;
+
+    if (isAvailable) {
+      const cls = dow === 0 ? 'text-red-400' : dow === 6 ? 'text-blue-400' : 'text-slate-700';
+      html += `<div class="text-center py-2 rounded-lg cursor-pointer transition text-sm ${isSel ? 'bg-gold text-white font-bold' : `hover:bg-gold/10 ${cls}`}" data-date="${dateStr}">${d}</div>`;
+    } else {
+      html += `<div class="text-center py-2 rounded-lg text-slate-300 cursor-not-allowed text-sm">${d}</div>`;
+    }
+  }
+  grid.innerHTML = html;
+
+  grid.querySelectorAll('[data-date]').forEach(el => {
+    el.addEventListener('click', () => {
+      rsSelectedDate = el.dataset.date;
+      rsSelectedTime = null;
+      $('#btn-resched-confirm').disabled = true;
+      renderRsCal();
+      renderRsSlots(rsSelectedDate);
+    });
+  });
+}
+
+function renderRsSlots(dateStr) {
+  const section = $('#rs-slot-section');
+  const list = $('#rs-slot-list');
+  const none = $('#rs-slot-none');
+  section.classList.remove('hidden');
+
+  const parts = dateStr.split('-');
+  const dow = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2])).getDay();
+  const tmpl = templates.find(t => t.day_of_week === dow && t.is_active);
+
+  if (!tmpl) { list.innerHTML = ''; none.classList.remove('hidden'); return; }
+
+  const toMins = t => { const [h, m] = (t || '00:00').split(':').map(Number); return h * 60 + m; };
+  const toTime = m => `${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`;
+
+  const startM = toMins(tmpl.start_time);
+  const endM = toMins(tmpl.end_time);
+  const dur = tmpl.slot_duration_minutes;
+
+  const usedTimes = new Set(bookedSlots.filter(s => s.appointment_date === dateStr).map(s => (s.appointment_time || '').slice(0,5)));
+
+  const slots = [];
+  for (let m = startM; m + dur <= endM; m += dur) {
+    const ts = toTime(m);
+    slots.push({ time: ts, booked: usedTimes.has(ts) });
+  }
+
+  if (!slots.length) { list.innerHTML = ''; none.classList.remove('hidden'); return; }
+  none.classList.add('hidden');
+
+  const lbl = new Date(dateStr + 'T00:00:00').toLocaleDateString(LOCALE === 'en' ? 'en-US' : LOCALE, { weekday: 'short', month: 'short', day: 'numeric' });
+  $('#rs-slot-label').textContent = lbl;
+
+  list.innerHTML = slots.map(s => {
+    if (s.booked) return `<div class="py-2.5 rounded-lg border border-slate-100 bg-slate-50 text-center opacity-50 cursor-not-allowed"><p class="text-xs font-bold text-slate-400 line-through">${s.time}</p></div>`;
+    const isSel = s.time === rsSelectedTime;
+    return `<div class="py-2.5 rounded-lg border transition cursor-pointer text-center ${isSel ? 'border-gold bg-gold/10 ring-2 ring-gold' : 'border-slate-200 bg-white hover:border-gold/50'}" data-time="${s.time}"><p class="text-xs font-bold ${isSel ? 'text-gold' : 'text-slate-700'}">${s.time}</p></div>`;
+  }).join('');
+
+  list.querySelectorAll('[data-time]').forEach(el => {
+    el.addEventListener('click', () => {
+      rsSelectedTime = el.dataset.time;
+      $('#btn-resched-confirm').disabled = false;
+      renderRsSlots(dateStr);
+    });
+  });
+}
+</script>

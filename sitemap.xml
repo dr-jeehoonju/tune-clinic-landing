@@ -486,6 +486,50 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tuneclinic-global.com/booking-manage.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tuneclinic-global.com/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tuneclinic-global.com/ja/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/booking-manage.html" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tuneclinic-global.com/ja/booking-manage.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tuneclinic-global.com/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tuneclinic-global.com/ja/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/booking-manage.html" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tuneclinic-global.com/zh/booking-manage.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tuneclinic-global.com/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tuneclinic-global.com/ja/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/booking-manage.html" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tuneclinic-global.com/th/booking-manage.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tuneclinic-global.com/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tuneclinic-global.com/ja/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tuneclinic-global.com/zh/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://tuneclinic-global.com/th/booking-manage.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tuneclinic-global.com/booking-manage.html" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://tuneclinic-global.com/consult.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://tuneclinic-global.com/consult.html" />
     <xhtml:link rel="alternate" hreflang="ja" href="https://tuneclinic-global.com/ja/consult.html" />

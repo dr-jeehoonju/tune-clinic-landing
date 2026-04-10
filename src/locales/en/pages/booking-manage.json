@@ -1,0 +1,12 @@
+{
+  "key": "booking-manage",
+  "template": "editorial",
+  "chromeLabel": "Manage Booking",
+  "permalink": "booking-manage.html",
+  "title": "Manage Your Booking | Tune Clinic",
+  "description": "Cancel or reschedule your Tune Clinic appointment.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/en/booking-manage.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "noIndex": true
+}

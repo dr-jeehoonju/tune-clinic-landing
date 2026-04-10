@@ -1,0 +1,12 @@
+{
+  "key": "booking-manage",
+  "template": "editorial",
+  "chromeLabel": "预约管理",
+  "permalink": "zh/booking-manage.html",
+  "title": "预约管理 | Tune Clinic",
+  "description": "取消或更改您的Tune Clinic预约。",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased",
+  "fragment": "fragments/zh/booking-manage.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "noIndex": true
+}
