@@ -229,6 +229,78 @@ function clinicCancelKoHtml(b: Booking): string {
 </body></html>`;
 }
 
+function programChangePatientHtml(b: Booking): string {
+  const dateFmt = formatDate(b.appointment_date as string);
+  const timeKST = (b.appointment_time as string).slice(0, 5);
+  const timeLocal = kstToLocal(b.appointment_date as string, b.appointment_time as string, b.patient_timezone as string);
+  const treatments = treatmentList((b.treatment_interest as string[]) || []);
+
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);">
+      <div style="background:#0f172a;padding:32px 28px;text-align:center;">
+        <h1 style="margin:0;color:#c9a55a;font-size:14px;letter-spacing:3px;text-transform:uppercase;font-weight:700;">Tune Clinic</h1>
+        <p style="margin:12px 0 0;color:#fff;font-size:22px;font-family:Georgia,serif;">Program Updated</p>
+      </div>
+      <div style="padding:32px 28px;">
+        <p style="margin:0 0 20px;color:#334155;font-size:15px;line-height:1.6;">
+          Hi <strong>${b.patient_name}</strong>,<br>
+          Your program selection has been updated. Here are your current booking details:
+        </p>
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:20px;margin:0 0 24px;">
+          <table style="width:100%;border-collapse:collapse;">
+            <tr><td style="padding:8px 0;color:#64748b;font-size:13px;width:100px;">Date</td><td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFmt}</td></tr>
+            <tr><td style="padding:8px 0;color:#64748b;font-size:13px;">Time</td><td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST${timeLocal !== "—" ? ` (${timeLocal} ${b.patient_timezone})` : ""}</td></tr>
+            <tr><td style="padding:8px 0;color:#64748b;font-size:13px;">Program</td><td style="padding:8px 0;color:#c9a55a;font-size:14px;font-weight:700;">${treatments || "—"}</td></tr>
+          </table>
+        </div>
+        <div style="text-align:center;margin:0 0 24px;">
+          <a href="${manageUrl(b)}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;">Manage Booking</a>
+        </div>
+        <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;">
+          <p style="margin:0 0 4px;color:#0f172a;font-size:14px;font-weight:700;">📍 Apgujeong Tune Clinic</p>
+          <p style="margin:0;color:#64748b;font-size:13px;line-height:1.5;">5th floor, 868 Nonhyeon-ro, Gangnam-gu, Seoul</p>
+        </div>
+      </div>
+      <div style="background:#f8fafc;padding:20px 28px;text-align:center;border-top:1px solid #e2e8f0;">
+        <p style="margin:0;color:#94a3b8;font-size:11px;">© 2026 Apgujeong Tune Clinic · Evidence-Based Aesthetics</p>
+      </div>
+    </div>
+  </div>
+</body></html>`;
+}
+
+function clinicProgramChangeKoHtml(b: Booking): string {
+  const dateFmt = formatDate(b.appointment_date as string);
+  const timeKST = (b.appointment_time as string).slice(0, 5);
+  const treatments = treatmentList((b.treatment_interest as string[]) || []);
+  const localeLabel: Record<string, string> = { en: "영어", ja: "일본어", zh: "중국어", th: "태국어" };
+
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="background:#fff;border-radius:12px;overflow:hidden;border:2px solid #8b5cf6;">
+      <div style="background:#8b5cf6;padding:16px 24px;">
+        <h1 style="margin:0;color:#fff;font-size:16px;">🔀 프로그램 변경</h1>
+      </div>
+      <div style="padding:24px;">
+        <p style="margin:0 0 16px;color:#334155;font-size:14px;">환자가 프로그램을 변경했습니다.</p>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;width:110px;">환자명</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${b.patient_name}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">이메일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_email || "—"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">연락처</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_phone || "—"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">예약일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFmt}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">시간</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">변경된 프로그램</td><td style="padding:6px 0;color:#8b5cf6;font-size:14px;font-weight:700;">${treatments || "미정"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${localeLabel[b.locale as string] || (b.locale as string).toUpperCase()}</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body></html>`;
+}
+
 async function notifyAll(
   patientEmail: string | null,
   patientSubject: string,
@@ -355,6 +427,26 @@ Deno.serve(async (req) => {
           reschedulePatientHtml(data),
           `🔄 예약 변경: ${data.patient_name} — ${data.appointment_date} ${(data.appointment_time as string).slice(0, 5)}`,
           clinicRescheduleKoHtml(data),
+        );
+
+        return json({ success: true, booking: data, emails: emailResults });
+      }
+
+      if (action === "update_program") {
+        const { treatment_interest } = body;
+        if (!Array.isArray(treatment_interest) || treatment_interest.length === 0)
+          return json({ error: "Missing treatment_interest" }, 400);
+
+        const { data, error } = await supabase
+          .from("bookings").update({ treatment_interest }).eq("id", id).select().single();
+        if (error) return json({ error: error.message }, 500);
+
+        const emailResults = await notifyAll(
+          data.patient_email,
+          `Program Updated — ${treatmentList(data.treatment_interest)}`,
+          programChangePatientHtml(data),
+          `🔀 프로그램 변경: ${data.patient_name} — ${treatmentList(data.treatment_interest)}`,
+          clinicProgramChangeKoHtml(data),
         );
 
         return json({ success: true, booking: data, emails: emailResults });

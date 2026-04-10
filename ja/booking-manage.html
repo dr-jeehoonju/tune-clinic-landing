@@ -185,6 +185,10 @@
           class="w-full bg-gold text-white py-3.5 px-6 rounded-lg font-bold hover:bg-gold/90 transition flex items-center justify-center gap-2">
           <i class="fas fa-calendar-alt"></i> <span data-i18n="btnReschedule">Reschedule Appointment</span>
         </button>
+        <button id="btn-change-program"
+          class="w-full bg-slate-800 text-white py-3.5 px-6 rounded-lg font-bold hover:bg-slate-700 transition flex items-center justify-center gap-2">
+          <i class="fas fa-exchange-alt"></i> <span data-i18n="btnChangeProgram">Change Program</span>
+        </button>
         <button id="btn-cancel"
           class="w-full border-2 border-red-200 text-red-600 py-3.5 px-6 rounded-lg font-bold hover:bg-red-50 transition flex items-center justify-center gap-2">
           <i class="fas fa-times-circle"></i> <span data-i18n="btnCancel">Cancel Booking</span>
@@ -281,6 +285,44 @@
           </button>
         </div>
       </div>
+
+      <!-- Change Program Panel -->
+      <div id="mg-change-program" class="hidden mt-6">
+        <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+          <div class="bg-slate-800 px-6 py-4 flex items-center justify-between">
+            <h3 class="text-white font-bold" data-i18n="changeProgramTitle">Select New Program</h3>
+            <button id="btn-cp-close" class="text-white/70 hover:text-white transition"><i class="fas fa-times text-lg"></i></button>
+          </div>
+          <div class="px-6 py-5">
+            <div id="cp-programs" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
+              <label class="flex items-start gap-2.5 px-3 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
+                <input type="checkbox" name="cp-treatment" value="signature-lifting" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+                <div><span class="text-slate-700 font-bold">Signature Lifting</span><p class="text-xs text-slate-400 mt-0.5">Ultherapy 350-shot physician protocol</p></div>
+              </label>
+              <label class="flex items-start gap-2.5 px-3 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
+                <input type="checkbox" name="cp-treatment" value="structural-reset" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+                <div><span class="text-slate-700 font-bold">Structural Reset Elite</span><p class="text-xs text-slate-400 mt-0.5">Ultherapy + Thermage combined</p></div>
+              </label>
+              <label class="flex items-start gap-2.5 px-3 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
+                <input type="checkbox" name="cp-treatment" value="collagen-builder" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+                <div><span class="text-slate-700 font-bold">The Collagen Builder</span><p class="text-xs text-slate-400 mt-0.5">Rejuran + Juvelook skin regeneration</p></div>
+              </label>
+              <label class="flex items-start gap-2.5 px-3 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
+                <input type="checkbox" name="cp-treatment" value="filler-chamaka-se" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+                <div><span class="text-slate-700 font-bold">Volume Chamaka-se</span><p class="text-xs text-slate-400 mt-0.5">Juvelook Volume collagen remodeling</p></div>
+              </label>
+              <label class="flex items-center gap-2.5 px-3 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm sm:col-span-2">
+                <input type="checkbox" name="cp-treatment" value="other" class="accent-[#c9a55a] w-4 h-4">
+                <span class="text-slate-700 font-medium" data-i18n="otherProgram">Other / Not sure yet</span>
+              </label>
+            </div>
+            <button id="btn-cp-confirm"
+              class="w-full bg-slate-800 text-white py-3 rounded-lg font-bold hover:bg-slate-700 transition flex items-center justify-center gap-2">
+              <i class="fas fa-check"></i> <span data-i18n="btnConfirmProgram">Confirm Program Change</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Cancelled State -->
@@ -303,6 +345,16 @@
       <h2 class="text-2xl font-serif text-slate-900" data-i18n="rescheduledTitle">Appointment Rescheduled</h2>
       <p class="text-slate-500 mt-4" data-i18n="rescheduledMsg">Your new appointment time has been confirmed.</p>
       <p id="mg-new-summary" class="text-gold font-bold mt-2"></p>
+    </div>
+
+    <!-- Program Updated State -->
+    <div id="mg-program-updated" class="hidden text-center py-20">
+      <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-check text-2xl"></i>
+      </div>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="programUpdatedTitle">Program Updated</h2>
+      <p class="text-slate-500 mt-4" data-i18n="programUpdatedMsg">Your program selection has been updated. A confirmation email has been sent.</p>
+      <p id="mg-new-program" class="text-gold font-bold mt-2"></p>
     </div>
 
   </div>
@@ -343,6 +395,11 @@ const I18N = {
     notSpecified: 'Not specified',
     labelChangeProgram: 'Change program (optional)',
     otherProgram: 'Other / Not sure yet',
+    btnChangeProgram: 'Change Program',
+    changeProgramTitle: 'Select New Program',
+    btnConfirmProgram: 'Confirm Program Change',
+    programUpdatedTitle: 'Program Updated',
+    programUpdatedMsg: 'Your program selection has been updated. A confirmation email has been sent.',
   },
   ja: {
     tagline: '予約管理', heading: 'ご予約の管理',
@@ -365,6 +422,11 @@ const I18N = {
     notSpecified: '未定',
     labelChangeProgram: 'プログラム変更（任意）',
     otherProgram: 'その他 / 未定',
+    btnChangeProgram: 'プログラム変更',
+    changeProgramTitle: '新しいプログラムを選択',
+    btnConfirmProgram: 'プログラム変更を確定',
+    programUpdatedTitle: 'プログラム変更完了',
+    programUpdatedMsg: 'プログラムが更新されました。確認メールをお送りしました。',
   },
   zh: {
     tagline: '预约管理', heading: '管理您的预约',
@@ -387,6 +449,11 @@ const I18N = {
     notSpecified: '未指定',
     labelChangeProgram: '更改项目（可选）',
     otherProgram: '其他 / 尚未确定',
+    btnChangeProgram: '更改项目',
+    changeProgramTitle: '选择新项目',
+    btnConfirmProgram: '确认更改项目',
+    programUpdatedTitle: '项目已更新',
+    programUpdatedMsg: '您的项目已更新，确认邮件已发送。',
   },
   th: {
     tagline: 'จัดการนัดหมาย', heading: 'จัดการนัดหมายของคุณ',
@@ -409,6 +476,11 @@ const I18N = {
     notSpecified: 'ยังไม่ระบุ',
     labelChangeProgram: 'เปลี่ยนโปรแกรม (ไม่บังคับ)',
     otherProgram: 'อื่นๆ / ยังไม่แน่ใจ',
+    btnChangeProgram: 'เปลี่ยนโปรแกรม',
+    changeProgramTitle: 'เลือกโปรแกรมใหม่',
+    btnConfirmProgram: 'ยืนยันเปลี่ยนโปรแกรม',
+    programUpdatedTitle: 'อัปเดตโปรแกรมแล้ว',
+    programUpdatedMsg: 'โปรแกรมของคุณได้รับการอัปเดตแล้ว อีเมลยืนยันถูกส่งแล้ว',
   },
 };
 
@@ -560,6 +632,48 @@ function renderDetails(b) {
       alert('Failed to cancel. Please try again.');
       $('#btn-cancel-yes').disabled = false;
       $('#btn-cancel-yes').innerHTML = `<span>${t.cancelYes}</span>`;
+    }
+  });
+
+  /* ── Change Program ── */
+  $('#btn-change-program').addEventListener('click', () => {
+    (b.treatment_interest || []).forEach(v => {
+      const cb = document.querySelector(`input[name="cp-treatment"][value="${v}"]`);
+      if (cb) cb.checked = true;
+    });
+    $('#mg-actions').classList.add('hidden');
+    $('#mg-change-program').classList.remove('hidden');
+  });
+
+  $('#btn-cp-close').addEventListener('click', () => {
+    $('#mg-change-program').classList.add('hidden');
+    $('#mg-actions').classList.remove('hidden');
+    document.querySelectorAll('input[name="cp-treatment"]').forEach(cb => cb.checked = false);
+  });
+
+  $('#btn-cp-confirm').addEventListener('click', async () => {
+    const selected = [...document.querySelectorAll('input[name="cp-treatment"]:checked')].map(c => c.value);
+    if (selected.length === 0) { alert(t.selectAtLeastOne || 'Please select at least one program.'); return; }
+
+    const btn = $('#btn-cp-confirm');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+    try {
+      const res = await fetch(MANAGE_FN, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'update_program', id: b.id, treatment_interest: selected }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      const programNames = selected.map(k => TREATMENT_LABELS[k] || k).join(', ');
+      $('#mg-details').classList.add('hidden');
+      $('#mg-new-program').textContent = programNames;
+      $('#mg-program-updated').classList.remove('hidden');
+    } catch {
+      alert('Failed to update. Please try again.');
+      btn.disabled = false;
+      btn.innerHTML = `<i class="fas fa-check"></i> <span>${t.btnConfirmProgram}</span>`;
     }
   });
 }

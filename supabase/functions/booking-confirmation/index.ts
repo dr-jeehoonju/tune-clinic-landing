@@ -174,7 +174,8 @@ function patientEmailHtml(b: BookingRecord): string {
         <!-- Manage Booking -->
         <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;margin-top:8px;text-align:center;">
           <p style="margin:0 0 10px;color:#64748b;font-size:12px;">Need to change your plans?</p>
-          <a href="${manageUrl(b)}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">Reschedule or Cancel</a>
+          <a href="${manageUrl(b)}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">Reschedule or Cancel</a>
+          <a href="${manageUrl(b)}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">Change Program</a>
         </div>
 
         <!-- Location -->
