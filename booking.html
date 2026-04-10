@@ -510,6 +510,7 @@ $('#booking-form').addEventListener('submit', async (e) => {
 
     $('#bkf-summary').textContent = `Date: ${row.appointment_date} | Time: ${row.appointment_time.slice(0,5)} KST`;
     $('#bkf-success').classList.remove('hidden');
+    $('#bkf-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
   } catch (err) {
     console.error(err);
     $('#booking-form').classList.add('hidden');
