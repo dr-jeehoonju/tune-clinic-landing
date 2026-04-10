@@ -27,22 +27,22 @@
           <button id="bk-next" class="w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 transition"><i class="fas fa-chevron-right"></i></button>
         </div>
         <div class="grid grid-cols-7 gap-1 text-center text-xs mb-2">
-          <span class="font-bold text-red-400 py-1">Sun</span>
-          <span class="font-bold text-slate-500 py-1">Mon</span>
-          <span class="font-bold text-slate-500 py-1">Tue</span>
-          <span class="font-bold text-slate-500 py-1">Wed</span>
-          <span class="font-bold text-slate-500 py-1">Thu</span>
-          <span class="font-bold text-slate-500 py-1">Fri</span>
-          <span class="font-bold text-blue-400 py-1">Sat</span>
+          <span class="font-bold text-red-400 py-1">Вс</span>
+          <span class="font-bold text-slate-500 py-1">Пн</span>
+          <span class="font-bold text-slate-500 py-1">Вт</span>
+          <span class="font-bold text-slate-500 py-1">Ср</span>
+          <span class="font-bold text-slate-500 py-1">Чт</span>
+          <span class="font-bold text-slate-500 py-1">Пт</span>
+          <span class="font-bold text-blue-400 py-1">Сб</span>
         </div>
         <div id="bk-cal-grid" class="grid grid-cols-7 gap-1"></div>
       </div>
 
       <!-- Time Slots -->
       <div id="slot-section" class="hidden">
-        <h3 class="font-bold text-slate-800 mb-3">Available Times for <span id="slot-date-label" class="text-gold"></span></h3>
+        <h3 class="font-bold text-slate-800 mb-3">Доступное время на <span id="slot-date-label" class="text-gold"></span></h3>
         <div id="slot-list" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 mb-6"></div>
-        <p id="slot-none" class="hidden text-sm text-slate-400 text-center py-4">No available slots for this date.</p>
+        <p id="slot-none" class="hidden text-sm text-slate-400 text-center py-4">Нет доступных слотов на эту дату.</p>
       </div>
     </div>
 
@@ -57,7 +57,7 @@
 
       <div>
         <label for="bkf-name" class="block text-sm font-bold text-slate-700 mb-2">Полное имя <span class="text-red-500">*</span></label>
-        <input type="text" id="bkf-name" required placeholder="Your name"
+        <input type="text" id="bkf-name" required placeholder="Ваше имя"
           class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
       </div>
 
@@ -75,7 +75,7 @@
       </div>
 
       <fieldset>
-        <legend class="block text-sm font-bold text-slate-700 mb-3">Which program are you interested in?</legend>
+        <legend class="block text-sm font-bold text-slate-700 mb-3">Какая программа вас интересует?</legend>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
             <input type="checkbox" name="treatment" value="signature-lifting" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
@@ -101,19 +101,19 @@
 
       <div>
         <label for="bkf-message" class="block text-sm font-bold text-slate-700 mb-2">Дополнительные заметки <span class="text-slate-400 font-normal">(optional)</span></label>
-        <textarea id="bkf-message" rows="3" placeholder="Travel dates, specific concerns, etc."
+        <textarea id="bkf-message" rows="3" placeholder="Даты поездки, особые пожелания и т.д."
           class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white resize-y"></textarea>
       </div>
 
       <button type="submit" id="bkf-submit"
         class="w-full bg-slate-900 text-white py-4 px-8 font-bold rounded-lg hover:bg-slate-800 transition text-lg flex items-center justify-center gap-2">
-        <i class="fas fa-calendar-check"></i> Submit Booking
+        <i class="fas fa-calendar-check"></i> Отправить запись
       </button>
-      <p class="text-xs text-slate-400 text-center leading-relaxed">Your booking will be confirmed by our team within clinic hours (Mon–Sat). You will receive a confirmation email.</p>
+      <p class="text-xs text-slate-400 text-center leading-relaxed">Ваша запись будет подтверждена нашей командой в рабочие часы клиники (Пн–Сб). Вы получите письмо с подтверждением.</p>
 
       <div class="mt-8 pt-8 border-t border-slate-200">
-        <p class="text-sm font-bold text-slate-700 text-center mb-1">Have a question? Feel free to reach out anytime.</p>
-        <p class="text-xs text-slate-400 text-center mb-5">Typical response time: Within clinic hours (Mon–Sat).</p>
+        <p class="text-sm font-bold text-slate-700 text-center mb-1">Есть вопрос? Свяжитесь с нами в любое время.</p>
+        <p class="text-xs text-slate-400 text-center mb-5">Обычное время ответа: в рабочие часы клиники (Пн–Сб).</p>
         <div class="flex flex-wrap items-center justify-center gap-2.5">
           <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-green-600 text-white rounded-lg font-bold text-xs hover:bg-green-700 transition">
             <i class="fab fa-whatsapp text-sm"></i> WhatsApp
