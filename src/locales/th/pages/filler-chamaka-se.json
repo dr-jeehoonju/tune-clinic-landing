@@ -2,8 +2,8 @@
   "key": "filler-chamaka-se",
   "template": "program",
   "permalink": "th/filler-chamaka-se.html",
-  "title": "Filler Chamaka-se | ออกแบบสัดส่วนใบหน้าโดยแพทย์",
-  "description": "Filler Chamaka-se คือการใช้ฟิลเลอร์เป็นเครื่องมือเชิงโครงสร้างเพื่อคอนทัวร์ สัดส่วน และความกลมกลืนของใบหน้า ไม่ใช่การเพิ่มวอลุ่มแบบทั่วไป.",
+  "title": "Volume Chamaka-se | Juvelook Volume คอลลาเจนรีโมเดลลิ่ง",
+  "description": "Volume Chamaka-se ที่ Tune Clinic กรุงเทพ ใช้ Juvelook Volume 1 ขวดฉีดทั่วทั้งใบหน้าตามการออกแบบของแพทย์ กระตุ้นคอลลาเจนรีโมเดลลิ่ง ให้ใบหน้าสว่างสดใสและมีชีวิตชีวา",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/th/filler-chamaka-se.html",
   "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
