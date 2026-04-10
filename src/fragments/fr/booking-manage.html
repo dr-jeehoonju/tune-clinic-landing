@@ -1,7 +1,7 @@
 <section class="bg-slate-950 text-white py-16 md:py-24">
   <div class="max-w-3xl mx-auto px-6 text-center">
-    <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold" data-i18n="tagline">Booking Management</span>
-    <h1 class="text-4xl md:text-5xl font-serif mt-5" data-i18n="heading">Manage Your Appointment</h1>
+    <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold" data-i18n="tagline">Gestion de rendez-vous</span>
+    <h1 class="text-4xl md:text-5xl font-serif mt-5" data-i18n="heading">Gérer votre rendez-vous</h1>
   </div>
 </section>
 
@@ -11,7 +11,7 @@
     <!-- Loading -->
     <div id="mg-loading" class="text-center py-20">
       <i class="fas fa-spinner fa-spin text-3xl text-gold"></i>
-      <p class="text-slate-400 mt-4" data-i18n="loading">Loading booking details…</p>
+      <p class="text-slate-400 mt-4" data-i18n="loading">Chargement des détails…</p>
     </div>
 
     <!-- Not Found -->
@@ -19,8 +19,8 @@
       <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="fas fa-exclamation-triangle text-2xl"></i>
       </div>
-      <h2 class="text-2xl font-serif text-slate-900" data-i18n="notFoundTitle">Booking Not Found</h2>
-      <p class="text-slate-500 mt-4" data-i18n="notFoundMsg">This booking link may be invalid or expired.</p>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="notFoundTitle">Réservation introuvable</h2>
+      <p class="text-slate-500 mt-4" data-i18n="notFoundMsg">Ce lien de réservation est peut-être invalide ou expiré.</p>
     </div>
 
     <!-- Booking Details -->
@@ -28,14 +28,14 @@
       <!-- Summary Card -->
       <div class="bg-white rounded-xl shadow-sm border overflow-hidden mb-6">
         <div class="bg-slate-900 px-6 py-4">
-          <h2 class="text-white font-serif text-lg" data-i18n="summaryTitle">Appointment Details</h2>
+          <h2 class="text-white font-serif text-lg" data-i18n="summaryTitle">Détails du rendez-vous</h2>
         </div>
         <div class="px-6 py-5">
           <table class="w-full text-sm">
-            <tr><td class="py-2 text-slate-400 w-28" data-i18n="labelName">Name</td><td id="mg-name" class="py-2 text-slate-800 font-bold"></td></tr>
+            <tr><td class="py-2 text-slate-400 w-28" data-i18n="labelName">Nom</td><td id="mg-name" class="py-2 text-slate-800 font-bold"></td></tr>
             <tr><td class="py-2 text-slate-400" data-i18n="labelDate">Date</td><td id="mg-date" class="py-2 text-slate-800 font-bold"></td></tr>
-            <tr><td class="py-2 text-slate-400" data-i18n="labelTime">Time</td><td id="mg-time" class="py-2 text-slate-800 font-bold"></td></tr>
-            <tr><td class="py-2 text-slate-400" data-i18n="labelProgram">Program</td><td id="mg-program" class="py-2 text-slate-800"></td></tr>
+            <tr><td class="py-2 text-slate-400" data-i18n="labelTime">Heure</td><td id="mg-time" class="py-2 text-slate-800 font-bold"></td></tr>
+            <tr><td class="py-2 text-slate-400" data-i18n="labelProgram">Programme</td><td id="mg-program" class="py-2 text-slate-800"></td></tr>
           </table>
         </div>
       </div>
@@ -44,20 +44,20 @@
       <div id="mg-actions" class="space-y-3">
         <button id="btn-reschedule"
           class="w-full bg-gold text-white py-3.5 px-6 rounded-lg font-bold hover:bg-gold/90 transition flex items-center justify-center gap-2">
-          <i class="fas fa-calendar-alt"></i> <span data-i18n="btnReschedule">Reschedule Appointment</span>
+          <i class="fas fa-calendar-alt"></i> <span data-i18n="btnReschedule">Reporter le rendez-vous</span>
         </button>
         <button id="btn-change-program"
           class="w-full bg-slate-800 text-white py-3.5 px-6 rounded-lg font-bold hover:bg-slate-700 transition flex items-center justify-center gap-2">
-          <i class="fas fa-exchange-alt"></i> <span data-i18n="btnChangeProgram">Change Program</span>
+          <i class="fas fa-exchange-alt"></i> <span data-i18n="btnChangeProgram">Changer de programme</span>
         </button>
         <button id="btn-cancel"
           class="w-full border-2 border-red-200 text-red-600 py-3.5 px-6 rounded-lg font-bold hover:bg-red-50 transition flex items-center justify-center gap-2">
-          <i class="fas fa-times-circle"></i> <span data-i18n="btnCancel">Cancel Booking</span>
+          <i class="fas fa-times-circle"></i> <span data-i18n="btnCancel">Annuler la réservation</span>
         </button>
         <div class="flex gap-3 mt-2">
           <a id="link-gcal" href="#" target="_blank" rel="noopener"
             class="flex-1 border border-slate-200 py-3 rounded-lg text-sm font-bold text-slate-600 hover:border-gold hover:text-gold transition text-center flex items-center justify-center gap-1.5">
-            <i class="fab fa-google"></i> <span data-i18n="btnGcal">Google Calendar</span>
+            <i class="fab fa-google"></i> <span data-i18n="btnGcal">Google Agenda</span>
           </a>
           <a id="link-ics" href="#"
             class="flex-1 border border-slate-200 py-3 rounded-lg text-sm font-bold text-slate-600 hover:border-gold hover:text-gold transition text-center flex items-center justify-center gap-1.5">
@@ -70,7 +70,7 @@
       <div id="mg-reschedule" class="hidden mt-6">
         <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
           <div class="bg-gold px-6 py-4 flex items-center justify-between">
-            <h3 class="text-white font-bold" data-i18n="rescheduleTitle">Choose a New Date & Time</h3>
+            <h3 class="text-white font-bold" data-i18n="rescheduleTitle">Choisir une nouvelle date et heure</h3>
             <button id="btn-resched-close" class="text-white/70 hover:text-white transition"><i class="fas fa-times text-lg"></i></button>
           </div>
           <div class="px-6 py-5">
@@ -93,14 +93,14 @@
 
             <!-- Time Slots -->
             <div id="rs-slot-section" class="hidden">
-              <h4 class="font-bold text-slate-700 text-sm mb-2"><span data-i18n="availableTimes">Available times for</span> <span id="rs-slot-label" class="text-gold"></span></h4>
+              <h4 class="font-bold text-slate-700 text-sm mb-2"><span data-i18n="availableTimes">Horaires disponibles pour le</span> <span id="rs-slot-label" class="text-gold"></span></h4>
               <div id="rs-slot-list" class="grid grid-cols-4 sm:grid-cols-5 gap-2 mb-5"></div>
-              <p id="rs-slot-none" class="hidden text-sm text-slate-400 text-center py-2" data-i18n="noSlots">No available slots for this date.</p>
+              <p id="rs-slot-none" class="hidden text-sm text-slate-400 text-center py-2" data-i18n="noSlots">Aucun créneau disponible pour cette date.</p>
             </div>
 
             <!-- Program Selection -->
             <div class="mb-5">
-              <h4 class="font-bold text-slate-700 text-sm mb-2" data-i18n="labelChangeProgram">Change program (optional)</h4>
+              <h4 class="font-bold text-slate-700 text-sm mb-2" data-i18n="labelChangeProgram">Changer de programme (facultatif)</h4>
               <div id="rs-programs" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <label class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
                   <input type="checkbox" name="rs-treatment" value="signature-lifting" class="accent-[#c9a55a] w-4 h-4">
@@ -120,14 +120,14 @@
                 </label>
                 <label class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm sm:col-span-2">
                   <input type="checkbox" name="rs-treatment" value="other" class="accent-[#c9a55a] w-4 h-4">
-                  <span class="text-slate-700 font-medium" data-i18n="otherProgram">Other / Not sure yet</span>
+                  <span class="text-slate-700 font-medium" data-i18n="otherProgram">Autre / Pas encore sûr</span>
                 </label>
               </div>
             </div>
 
             <button id="btn-resched-confirm" disabled
               class="w-full bg-gold text-white py-3 rounded-lg font-bold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gold/90 transition flex items-center justify-center gap-2">
-              <i class="fas fa-check"></i> <span data-i18n="btnConfirmResched">Confirm New Time</span>
+              <i class="fas fa-check"></i> <span data-i18n="btnConfirmResched">Confirmer le nouvel horaire</span>
             </button>
           </div>
         </div>
@@ -135,14 +135,14 @@
 
       <!-- Cancel Confirmation -->
       <div id="mg-cancel-confirm" class="hidden mt-6 bg-red-50 border border-red-200 rounded-xl p-6 text-center">
-        <p class="text-red-800 font-bold mb-1" data-i18n="cancelConfirmTitle">Are you sure?</p>
-        <p class="text-red-600 text-sm mb-4" data-i18n="cancelConfirmMsg">This will cancel your appointment. This action cannot be undone.</p>
+        <p class="text-red-800 font-bold mb-1" data-i18n="cancelConfirmTitle">Êtes-vous sûr ?</p>
+        <p class="text-red-600 text-sm mb-4" data-i18n="cancelConfirmMsg">Votre rendez-vous sera annulé. Cette action est irréversible.</p>
         <div class="flex gap-3 justify-center">
           <button id="btn-cancel-yes" class="bg-red-600 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-red-700 transition text-sm">
-            <span data-i18n="cancelYes">Yes, Cancel</span>
+            <span data-i18n="cancelYes">Oui, annuler</span>
           </button>
           <button id="btn-cancel-no" class="border border-slate-300 text-slate-600 px-6 py-2.5 rounded-lg font-bold hover:bg-slate-100 transition text-sm">
-            <span data-i18n="cancelNo">Keep Booking</span>
+            <span data-i18n="cancelNo">Garder la réservation</span>
           </button>
         </div>
       </div>
@@ -151,7 +151,7 @@
       <div id="mg-change-program" class="hidden mt-6">
         <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
           <div class="bg-slate-800 px-6 py-4 flex items-center justify-between">
-            <h3 class="text-white font-bold" data-i18n="changeProgramTitle">Select New Program</h3>
+            <h3 class="text-white font-bold" data-i18n="changeProgramTitle">Sélectionner un nouveau programme</h3>
             <button id="btn-cp-close" class="text-white/70 hover:text-white transition"><i class="fas fa-times text-lg"></i></button>
           </div>
           <div class="px-6 py-5">
@@ -174,12 +174,12 @@
               </label>
               <label class="flex items-center gap-2.5 px-3 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm sm:col-span-2">
                 <input type="checkbox" name="cp-treatment" value="other" class="accent-[#c9a55a] w-4 h-4">
-                <span class="text-slate-700 font-medium" data-i18n="otherProgram">Other / Not sure yet</span>
+                <span class="text-slate-700 font-medium" data-i18n="otherProgram">Autre / Pas encore sûr</span>
               </label>
             </div>
             <button id="btn-cp-confirm"
               class="w-full bg-slate-800 text-white py-3 rounded-lg font-bold hover:bg-slate-700 transition flex items-center justify-center gap-2">
-              <i class="fas fa-check"></i> <span data-i18n="btnConfirmProgram">Confirm Program Change</span>
+              <i class="fas fa-check"></i> <span data-i18n="btnConfirmProgram">Confirmer le changement</span>
             </button>
           </div>
         </div>
@@ -191,10 +191,10 @@
       <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="fas fa-ban text-2xl"></i>
       </div>
-      <h2 class="text-2xl font-serif text-slate-900" data-i18n="cancelledTitle">Booking Cancelled</h2>
-      <p class="text-slate-500 mt-4" data-i18n="cancelledMsg">Your appointment has been cancelled. You can book a new appointment anytime.</p>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="cancelledTitle">Réservation annulée</h2>
+      <p class="text-slate-500 mt-4" data-i18n="cancelledMsg">Votre rendez-vous a été annulé. Vous pouvez réserver à tout moment.</p>
       <a id="link-rebook" href="/fr/booking.html" class="inline-block mt-8 bg-slate-900 text-white px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition">
-        <i class="fas fa-calendar-check mr-2"></i><span data-i18n="btnRebook">Book New Appointment</span>
+        <i class="fas fa-calendar-check mr-2"></i><span data-i18n="btnRebook">Nouveau rendez-vous</span>
       </a>
     </div>
 
@@ -203,8 +203,8 @@
       <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="fas fa-check text-2xl"></i>
       </div>
-      <h2 class="text-2xl font-serif text-slate-900" data-i18n="rescheduledTitle">Appointment Rescheduled</h2>
-      <p class="text-slate-500 mt-4" data-i18n="rescheduledMsg">Your new appointment time has been confirmed.</p>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="rescheduledTitle">Rendez-vous reporté</h2>
+      <p class="text-slate-500 mt-4" data-i18n="rescheduledMsg">Votre nouvel horaire a été confirmé.</p>
       <p id="mg-new-summary" class="text-gold font-bold mt-2"></p>
     </div>
 
@@ -213,8 +213,8 @@
       <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="fas fa-check text-2xl"></i>
       </div>
-      <h2 class="text-2xl font-serif text-slate-900" data-i18n="programUpdatedTitle">Program Updated</h2>
-      <p class="text-slate-500 mt-4" data-i18n="programUpdatedMsg">Your program selection has been updated. A confirmation email has been sent.</p>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="programUpdatedTitle">Programme mis à jour</h2>
+      <p class="text-slate-500 mt-4" data-i18n="programUpdatedMsg">Votre programme a été mis à jour. Un e-mail de confirmation a été envoyé.</p>
       <p id="mg-new-program" class="text-gold font-bold mt-2"></p>
     </div>
 
