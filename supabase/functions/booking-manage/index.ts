@@ -586,6 +586,12 @@ function json(body: unknown, status = 200) {
   });
 }
 
+function htmlResponse(html: string) {
+  return new Response(new TextEncoder().encode(html), {
+    headers: { ...CORS, "Content-Type": "text/html; charset=utf-8" },
+  });
+}
+
 // ── Main handler ──
 
 Deno.serve(async (req) => {
@@ -611,23 +617,17 @@ Deno.serve(async (req) => {
 
       if (url.searchParams.get("action") === "confirm") {
         if (data.status === "confirmed") {
-          return new Response(confirmHtmlPage("이미 확정된 예약입니다.", data), {
-            headers: { ...CORS, "Content-Type": "text/html; charset=utf-8" },
-          });
+          return htmlResponse(confirmHtmlPage("이미 확정된 예약입니다.", data));
         }
         if (data.status === "cancelled") {
-          return new Response(confirmHtmlPage("취소된 예약은 확정할 수 없습니다.", data), {
-            headers: { ...CORS, "Content-Type": "text/html; charset=utf-8" },
-          });
+          return htmlResponse(confirmHtmlPage("취소된 예약은 확정할 수 없습니다.", data));
         }
 
         const { error: updateErr } = await supabase
           .from("bookings").update({ status: "confirmed" }).eq("id", id);
 
         if (updateErr) {
-          return new Response(confirmHtmlPage("오류: " + updateErr.message, data), {
-            headers: { ...CORS, "Content-Type": "text/html; charset=utf-8" },
-          });
+          return htmlResponse(confirmHtmlPage("오류: " + updateErr.message, data));
         }
 
         data.status = "confirmed";
@@ -641,9 +641,7 @@ Deno.serve(async (req) => {
         );
         console.log("Confirm email results:", emailResults.join(" | "));
 
-        return new Response(confirmHtmlPage("예약이 확정되었습니다! 환자에게 확정 이메일이 발송되었습니다.", data), {
-          headers: { ...CORS, "Content-Type": "text/html; charset=utf-8" },
-        });
+        return htmlResponse(confirmHtmlPage("예약이 확정되었습니다! 환자에게 확정 이메일이 발송되었습니다.", data));
       }
 
       return json(data);
