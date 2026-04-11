@@ -1,6 +1,6 @@
 ---
-title: "Le vieillissement cutané ne tient pas aux rides — il tient au changement structurel"
-description: "La plupart des patients pensent que le vieillissement commence par les rides. Une spécialiste en médecine esthétique explique pourquoi la vraie transformation commence sous la surface — par la perte de collagène, la redistribution des graisses et la dégradation du soutien structurel."
+title: "Le vieillissement cutané est structurel, pas de surface"
+description: "Le vieillissement ne commence pas par les rides. Un médecin explique pourquoi la vraie transformation commence en dessous — dans le collagène, la graisse et le soutien structurel."
 slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -105,6 +105,8 @@ Quand on ne regarde que la surface, chaque décision semble compliquée. Quand o
 La question la plus importante en médecine esthétique n'est pas « que devons-nous faire ? ». C'est « où devons-nous regarder en premier ? »
 
 Quand on y répond correctement, les résultats suivent d'eux-mêmes.
+
+C'est la philosophie structurelle qui sous-tend [Structural Reset Elite](/structural-reset.html) — un programme conçu pour les patientes dont la trajectoire de vieillissement est portée par un changement architectural profond plutôt que par la texture de surface — et [The Collagen Builder](/collagen-builder.html), qui cible spécifiquement la couche de dégradation matricielle. Pour un regard plus rapproché sur l'un des outils utilisés pour restaurer la densité structurelle, voir [Applications cliniques de Juvelook Volume](/blog/juvelook-volume-clinical-applications.html). Les preuves anatomiques sous-jacentes — redistribution des coussinets graisseux, résorption osseuse et laxité ligamentaire — sont bien documentées dans la [littérature PubMed sur le vieillissement facial](https://pubmed.ncbi.nlm.nih.gov/?term=facial+aging+fat+pad+bone+remodeling).
 
 ---
 

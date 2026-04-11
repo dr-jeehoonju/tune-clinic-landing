@@ -1,6 +1,6 @@
 ---
-title: "皮肤衰老的核心不是皱纹 ― 而是支撑结构的变化"
-description: "大多数患者认为衰老始于皱纹。美容医学专家解释为什么真正的变化始于皮肤深处 ― 胶原蛋白流失、脂肪重新分布和支撑结构的崩解。"
+title: "皮肤衰老是结构性问题，而非表层问题"
+description: "衰老并非从皱纹开始。医生解析：真正的变化发生在皮肤深层——胶原、脂肪与结构支撑的改变。"
 slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -105,6 +105,8 @@ tags: [aging, anti-aging, collagen, structure, education]
 美容医学中最重要的问题不是"应该做什么？"而是"应该先看哪里？"
 
 当这个问题得到正确回答时，效果自然而然就会到来。
+
+这正是[结构重置精英方案](/structural-reset.html)背后的结构性理念——专为那些衰老轨迹主要由深层结构变化而非表层质地驱动的患者而设计；同样的理念也贯穿在[胶原蛋白构建计划](/collagen-builder.html)中，后者针对的是真皮基质退化这一层次。如果想了解恢复结构密度时使用的具体工具之一，可参阅[Juvelook Volume临床应用解析](/blog/juvelook-volume-clinical-applications.html)。关于脂肪垫再分布、骨吸收与韧带松弛等底层解剖学证据，[PubMed收录的面部衰老相关文献](https://pubmed.ncbi.nlm.nih.gov/?term=facial+aging+fat+pad+bone+remodeling)有较完整的记录。
 
 ---
 

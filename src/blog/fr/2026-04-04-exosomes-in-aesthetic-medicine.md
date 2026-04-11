@@ -1,6 +1,6 @@
 ---
-title: "Les exosomes en médecine esthétique — la nouvelle génération de signalisation régénérative"
-description: "Les facteurs de croissance appliqués à la peau ne sont plus à la pointe. Un médecin explique comment les exosomes — des messagers à l'échelle nanométrique qui reprogramment le comportement cellulaire — redessinent la médecine esthétique régénérative pour la peau et les cheveux."
+title: "Les exosomes en médecine esthétique"
+description: "Comment les exosomes — des vésicules nanométriques qui reprogramment le comportement cellulaire — redessinent la médecine esthétique régénérative pour la peau et les cheveux."
 slug: exosomes-in-aesthetic-medicine
 date: 2026-04-04
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -118,6 +118,8 @@ Mais comme pour tout traitement émergent, la question n'est pas simplement *« 
 Validation des sources, protocoles de stockage, logique de combinaison et attentes de résultats réalistes — ce sont ces variables qui déterminent si la thérapie par exosomes tient ses promesses ou reste en deçà.
 
 La technologie est prête. Le critère qui la sous-tend est ce qui compte.
+
+Dans notre pratique, les exosomes apparaissent le plus souvent au sein du programme [The Collagen Builder](/collagen-builder.html) — utilisés comme amplificateur de récupération et de remodelage après les séances de laser ou de microneedling — et en association avec des mécanismes comme ceux expliqués dans [Le laser pico fractionné expliqué](/blog/pico-fractional-laser-explained.html), où l'application post-acte d'exosomes accélère l'induction de collagène portée par le LIOB. Pour la recherche sous-jacente sur la biologie des exosomes dans la régénération cutanée et capillaire, la [littérature PubMed sur les exosomes en régénération cutanée](https://pubmed.ncbi.nlm.nih.gov/?term=exosome+skin+regeneration+cosmetic) offre une vue d'ensemble utile.
 
 ---
 

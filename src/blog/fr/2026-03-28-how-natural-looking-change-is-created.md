@@ -1,6 +1,6 @@
 ---
-title: "Comment se crée réellement un changement d'aspect naturel"
-description: "Les patients demandent souvent des résultats qui paraissent naturels, subtils et respectueux du visage. Une spécialiste en médecine esthétique explique pourquoi les résultats d'apparence naturelle dépendent moins du fait d'en faire plus que de l'amplitude, de la séquence, de la retenue et de l'harmonie faciale."
+title: "Comment se crée un changement d'aspect naturel"
+description: "Pourquoi les résultats d'apparence naturelle dépendent moins du fait d'en faire plus que de l'amplitude, de la séquence, de la retenue et de l'harmonie faciale — par un médecin."
 slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -79,6 +79,8 @@ Il est façonné par les critères utilisés pour juger le visage, par la séque
 C'est pourquoi la vraie mesure d'un bon résultat n'est pas « De combien le visage a-t-il changé ? ». C'est « Dans quelle mesure le changement reste-t-il connecté au flux originel de la personne ? »
 
 Quand ce critère est respecté, le changement d'aspect naturel cesse d'être un slogan vague. Il devient un processus clinique délibéré.
+
+C'est le fondement de notre [méthode de design Chamaka-se](/design-method.html) et de la logique d'enchaînement en couches du [Signature Lifting](/signature-lifting.html) — qui commencent tous deux par la façon dont le visage tient ensemble, et non par l'appareil qui produit le plus grand changement. Pour la question plus profonde de *pourquoi* définir le critère compte plus que courir après l'efficacité, voir [Définir le critère avant le résultat](/blog/standards-before-results-in-aesthetic-medicine.html). La littérature clinique sur l'harmonie faciale, les proportions et la perception cognitive des résultats « naturels » est rassemblée dans les [données PubMed sur l'harmonie faciale en esthétique](https://pubmed.ncbi.nlm.nih.gov/?term=facial+harmony+aesthetic+balance).
 
 ---
 

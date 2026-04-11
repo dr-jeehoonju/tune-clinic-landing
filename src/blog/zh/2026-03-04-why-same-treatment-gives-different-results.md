@@ -1,6 +1,6 @@
 ---
-title: "同样的项目，为什么每个人反应不同"
-description: "两位患者接受相同的皮肤美容项目，却得到完全不同的体验——决定结果的真正因素是什么？"
+title: "同样的治疗，不同的结果"
+description: "为什么两位患者接受同一个皮肤美容项目，却会得到完全不同的体验——真正决定结果的因素是什么。"
 slug: why-same-treatment-gives-different-results
 date: 2026-03-04
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -83,3 +83,5 @@ tags: [皮肤科学, 个性化, 科普]
 当这三者对齐，即使是一个常见的项目，也能带来稳定而令人满意的结果。
 
 真正重要的，不仅仅是*选择了什么项目*，而是*用什么标准引导了这个选择*。
+
+这与我们[Chamaka-se设计方法论](/design-method.html)背后的逻辑完全一致，并且直接关联到另一个问题：你又是如何决定"什么才是正确的标准"的？这一基础问题在[在谈效果之前，先确立标准](/blog/standards-before-results-in-aesthetic-medicine.html)一文中有专门的探讨。如果想深入了解皮肤生物学层面的背景，[PubMed收录的关于个体皮肤反应差异的研究](https://pubmed.ncbi.nlm.nih.gov/?term=skin+type+laser+response)显示：真皮厚度、光型分类和炎症倾向如何让同一套方案产生截然不同的结果。

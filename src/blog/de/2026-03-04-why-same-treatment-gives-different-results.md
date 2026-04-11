@@ -1,5 +1,5 @@
 ---
-title: "Gleiche Behandlung, unterschiedliche Ergebnisse — die unsichtbaren Variablen"
+title: "Gleiche Behandlung, andere Ergebnisse"
 description: "Warum zwei Patientinnen denselben ästhetischen Eingriff erhalten und mit völlig unterschiedlichen Erfahrungen nach Hause gehen können – und was das Ergebnis wirklich bestimmt."
 slug: why-same-treatment-gives-different-results
 date: 2026-03-04
@@ -83,3 +83,5 @@ Die Haut verstehen. Den richtigen Zeitpunkt beurteilen. Ein realistisches Ziel s
 Wenn diese drei Elemente übereinstimmen, liefert selbst ein vertrauter Eingriff stabile, zufriedenstellende Ergebnisse.
 
 Entscheidend ist nicht einfach, *welche Behandlung gewählt wurde* – sondern *welcher Maßstab die Wahl leitete*.
+
+Das ist dieselbe Logik, die unserer [Chamaka-se Design-Methode](/design-method.html) zugrunde liegt, und sie schließt direkt an eine verwandte Frage an: Wie entscheiden Sie überhaupt, welcher Maßstab der richtige ist? Diese Grundlage wird in [Erst den Maßstab, dann das Ergebnis](/blog/standards-before-results-in-aesthetic-medicine.html) behandelt. Für die dahinterstehende hautbiologische Forschung zeigt die [PubMed-Evidenz zur individuellen Variabilität der Hautreaktion](https://pubmed.ncbi.nlm.nih.gov/?term=skin+type+laser+response), wie dermale Dicke, Hauttyp und Entzündungsneigung die Ergebnisse identischer Protokolle verändern.

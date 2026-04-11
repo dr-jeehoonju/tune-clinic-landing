@@ -1,5 +1,5 @@
 ---
-title: "Bevor Sie Ergebnissen nachjagen, legen Sie den richtigen Maßstab fest"
+title: "Erst den Maßstab, dann das Ergebnis"
 description: "Warum 'Ist diese Behandlung wirksam?' in der ästhetischen Medizin die falsche erste Frage ist – und was Sie stattdessen fragen sollten, bevor Sie sich entscheiden."
 slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
@@ -84,3 +84,5 @@ Vertrauen in die ästhetische Medizin entsteht nicht allein aus Ergebnissen.
 Es entsteht aus dem Verständnis, wie die Entscheidung getroffen wurde – welche Maßstäbe angewendet wurden, was gewählt wurde und – ebenso wichtig – was bewusst *nicht* gewählt wurde.
 
 Wirksamkeit ist wichtig. Aber sie ist immer das *Ergebnis* eines soliden Urteils – niemals der Ausgangspunkt.
+
+Das ist die Philosophie hinter unserer [Chamaka-se Design-Methode](/design-method.html): Jeder Behandlungsplan beginnt damit, den Maßstab festzulegen, nicht das Gerät auszuwählen. Eine eng verwandte Frage – warum zwei Patientinnen denselben Eingriff erhalten und mit völlig unterschiedlichen Ergebnissen nach Hause gehen können – wird in [Gleiche Behandlung, unterschiedliche Ergebnisse](/blog/why-same-treatment-gives-different-results.html) erörtert. Für den breiteren wissenschaftlichen Kontext zeichnet die [PubMed-Literatur zur evidenzbasierten ästhetischen Medizin](https://pubmed.ncbi.nlm.nih.gov/?term=evidence+based+aesthetic+medicine) nach, wie sich das Fachgebiet von ergebnisgetriebenen zu maßstabsgetriebenen Entscheidungsrahmen entwickelt hat.

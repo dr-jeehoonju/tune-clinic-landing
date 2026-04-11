@@ -1,6 +1,6 @@
 ---
-title: "Hautalterung ist keine Frage von Falten – sie ist eine strukturelle Veränderung"
-description: "Die meisten Patientinnen gehen davon aus, dass Alterung mit Falten beginnt. Eine Fachärztin für ästhetische Medizin erklärt, warum die eigentliche Transformation unter der Oberfläche beginnt – im Kollagenverlust, in der Fettumverteilung und im Zusammenbruch der strukturellen Abstützung."
+title: "Hautalterung ist strukturell, nicht oberflächlich"
+description: "Alterung beginnt nicht mit Falten. Eine Ärztin erklärt, warum die eigentliche Transformation unter der Oberfläche beginnt – in Kollagen, Fett und struktureller Abstützung."
 slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -105,6 +105,8 @@ Wenn Sie nur auf die Oberfläche schauen, wirkt jede Entscheidung kompliziert. W
 Die wichtigste Frage in der ästhetischen Medizin ist nicht "Was sollen wir tun?" Sie lautet: "Wo sollen wir zuerst hinschauen?"
 
 Wird diese Frage richtig beantwortet, kommen die Ergebnisse von selbst.
+
+Das ist die strukturelle Philosophie hinter [Structural Reset Elite](/structural-reset.html) – einem Programm für Patientinnen, deren Alterungsverlauf durch tiefe architektonische Veränderungen und nicht durch Oberflächentextur angetrieben wird – und hinter dem [Collagen Builder](/collagen-builder.html), der gezielt die Ebene der Matrix-Degradation adressiert. Für einen genaueren Blick auf eines der Werkzeuge, mit denen strukturelle Dichte wiederhergestellt wird, siehe [Klinische Anwendungen von Juvelook Volume](/blog/juvelook-volume-clinical-applications.html). Die zugrunde liegende anatomische Evidenz – Umverteilung der Fettpolster, Knochenresorption und Bänderlaxität – ist in der [PubMed-Literatur zur Gesichtsalterung](https://pubmed.ncbi.nlm.nih.gov/?term=facial+aging+fat+pad+bone+remodeling) gut dokumentiert.
 
 ---
 

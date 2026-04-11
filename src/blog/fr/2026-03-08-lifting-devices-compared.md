@@ -1,6 +1,6 @@
 ---
-title: "Trois appareils de lifting, trois missions différentes — Ultherapy, Thermage et Oligio comparés"
-description: "Ultherapy, Thermage FLX et Oligio ne sont pas interchangeables. Un médecin explique quelle couche chaque appareil cible et comment choisir en fonction de votre anatomie."
+title: "Ultherapy vs Thermage vs Oligio"
+description: "Ultherapy, Thermage FLX et Oligio ne sont pas interchangeables. Un médecin explique quelle couche chaque appareil cible et comment choisir selon votre anatomie."
 slug: lifting-devices-compared
 date: 2026-03-08
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -55,6 +55,30 @@ La décision ne repose pas sur l'appareil « le plus récent » ou « le plus po
 Les protocoles combinés sont souvent plus efficaces que les approches à appareil unique. À la Tune Clinic, nous combinons fréquemment Ultherapy (lift structurel profond) et Thermage (raffermissement de surface) au sein d'une même séance ou d'un plan échelonné. C'est la logique centrale de notre protocole [Signature Lifting](/signature-lifting.html).
 
 La clé, c'est l'enchaînement : le profond d'abord, la surface ensuite. Et non l'inverse.
+
+## Qui est le bon candidat pour chaque appareil ?
+
+La réponse honnête, c'est qu'aucun de ces appareils n'est universellement approprié. Chacun est performant dans une indication précise et sous-performe en dehors de celle-ci.
+
+**Ultherapy** est le plus utile pour les patientes de la fin de la trentaine à la cinquantaine qui présentent un **affaissement débutant à modéré de l'ovale et une laxité sous-mentale**, lorsque le problème structurel est véritablement au niveau de la couche SMAS. Il est moins utile lorsque la question dominante est une redistribution graisseuse plutôt qu'une laxité ligamentaire, ou lorsque la qualité cutanée est trop médiocre pour que la surface puisse suivre le lift en profondeur.
+
+**Thermage FLX** convient aux patientes dont la préoccupation principale est une **laxité cutanée diffuse avec une structure profonde intacte** — le type de plainte « la peau ne reprend plus sa place » qui n'implique pas encore un véritable affaissement. Il tend aussi à convenir aux patientes qui souhaitent une amélioration texturale progressive et sont prêtes à attendre la fenêtre complète de remodelage de 3 à 6 mois.
+
+**Oligio** se situe entre les deux. C'est un choix raisonnable pour les patientes qui veulent un raffermissement étendu sans la profondeur ciblée avec précision d'Ultherapy ni le chauffage dermique volumétrique de Thermage — et pour celles qui ont besoin d'une séance plus confortable, puisque la diffusion d'énergie tend à être moins ponctuelle.
+
+L'enjeu n'est pas de classer ces appareils. C'est de reconnaître que choisir le mauvais appareil pour votre anatomie spécifique est bien plus fréquent que de choisir un « mauvais » appareil.
+
+## À quoi s'attendre dans le temps
+
+Une erreur fréquente consiste à évaluer ces traitements au mauvais moment.
+
+- **Résultat immédiat (0 à 2 semaines) :** léger raffermissement par contraction thermique aiguë. Souvent trompeusement décevant. Certaines patientes repartent en pensant qu'il ne s'est rien passé.
+- **Résultat intermédiaire (1 à 3 mois) :** le nouveau collagène commence à se déposer. Le visage commence à paraître plus « mis en place » sans changement évident. C'est généralement à ce moment que les patientes cessent d'être sceptiques.
+- **Résultat final (3 à 6 mois) :** remodelage collagénique maximal. L'ovale s'affine, la texture cutanée se raffermit. C'est le moment correct pour juger du résultat.
+
+Un traitement évalué à la deuxième semaine est presque toujours jugé décevant. Le même traitement évalué au quatrième mois aboutit souvent à une conclusion très différente. Établir cette attente à l'avance fait partie de la responsabilité clinique.
+
+Pour la question plus large de *pourquoi* les comparaisons d'appareils ne prédisent pas les résultats — et ce qu'il faut demander à la place — voir [Pourquoi les comparatifs de lifting induisent les patientes en erreur](/blog/why-lifting-comparisons-are-misleading.html). Et pour les preuves cliniques sous-jacentes sur la profondeur des ultrasons micro-focalisés et le ciblage du SMAS, la [littérature PubMed sur les ultrasons micro-focalisés et la couche SMAS](https://pubmed.ncbi.nlm.nih.gov/?term=microfocused+ultrasound+SMAS) est un point de départ utile.
 
 ---
 

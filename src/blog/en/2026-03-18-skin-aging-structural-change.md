@@ -1,6 +1,6 @@
 ---
-title: "Skin Aging Is Not About Wrinkles — It's About Structural Change"
-description: "Most patients assume aging starts with wrinkles. An aesthetic medicine specialist explains why the real transformation begins beneath the surface — in collagen loss, fat redistribution, and structural support breakdown."
+title: "Skin Aging Is Structural, Not Surface"
+description: "Aging doesn't start with wrinkles. A physician explains why the real transformation begins beneath — in collagen, fat, and structural support."
 slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -105,6 +105,8 @@ When you look only at the surface, every decision feels complicated. When you un
 The most important question in aesthetic medicine is not "what should we do?" It is "where should we look first?"
 
 When that question is answered correctly, the results take care of themselves.
+
+This is the structural philosophy behind [Structural Reset Elite](/structural-reset.html) — a program designed for patients whose aging trajectory is being driven by deep architectural change rather than surface texture — and behind [The Collagen Builder](/collagen-builder.html), which addresses the matrix degradation layer specifically. For a closer look at one of the tools used to restore structural density, see [Juvelook Volume Clinical Applications](/blog/juvelook-volume-clinical-applications.html). The underlying anatomical evidence — fat pad redistribution, bone resorption, and ligamentous laxity — is well documented in the [PubMed literature on facial aging](https://pubmed.ncbi.nlm.nih.gov/?term=facial+aging+fat+pad+bone+remodeling).
 
 ---
 

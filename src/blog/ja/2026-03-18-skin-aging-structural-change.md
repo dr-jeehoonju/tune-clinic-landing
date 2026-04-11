@@ -1,6 +1,6 @@
 ---
-title: "肌の老化はシワが問題ではない ― 支持構造の変化こそが本質"
-description: "多くの患者はシワが老化の始まりだと考えています。美容医学専門医が、真の変化が皮膚の下 ― コラーゲンの減少、脂肪の再分布、支持構造の崩壊 ― から始まる理由を解説します。"
+title: "肌の老化は構造的、表面ではない"
+description: "老化はシワから始まりません。真の変化が皮膚の下 ― コラーゲン、脂肪、支持構造 ― から始まる理由を医師が解説します。"
 slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -105,6 +105,8 @@ tags: [aging, anti-aging, collagen, structure, education]
 美容医学で最も重要な問いは「何をするか？」ではありません。「まずどこを見るか？」です。
 
 その問いに正しく答えられたとき、結果は自然とついてきます。
+
+これが[ストラクチュラル リセット エリート](/structural-reset.html)の背景にある構造的な哲学です——老化の軌道が表面のテクスチャーではなく深部の構造変化によって駆動されている患者さんのために設計されたプログラムであり、マトリクス劣化の層に特化してアプローチする[コラーゲンビルダー](/collagen-builder.html)の背景にある哲学でもあります。構造的密度を回復するために用いられるツールのひとつについては、[Juvelook Volumeの臨床応用](/blog/juvelook-volume-clinical-applications.html)をご覧ください。根底にある解剖学的エビデンス——脂肪パッドの再配置、骨吸収、靭帯の弛緩——については、[顔面老化に関するPubMed文献](https://pubmed.ncbi.nlm.nih.gov/?term=facial+aging+fat+pad+bone+remodeling)に十分な記録があります。
 
 ---
 

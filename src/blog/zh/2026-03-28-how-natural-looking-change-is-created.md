@@ -1,6 +1,6 @@
 ---
-title: "自然感的变化究竟是如何形成的"
-description: "许多患者都希望结果自然、克制、不过度。美容医学医生解释，真正自然的变化并不取决于做得越多越好，而取决于变化范围、介入顺序、克制判断以及面部整体和谐。"
+title: "自然的变化究竟是如何做出来的"
+description: "为什么自然感的结果不取决于做得更多，而取决于变化范围、介入顺序、克制与面部整体和谐——医生的临床解析。"
 slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -79,6 +79,8 @@ tags: [natural-results, facial-harmony, treatment-planning, consultation, educat
 所以，衡量好结果的真正标准，不是"脸改变了多少"，而是"这种变化与原本的面部流动连接得有多自然"。
 
 当这个标准被清楚地建立起来时，"自然"就不再只是一个模糊的宣传词，而会变成一个有意识的临床决策过程。
+
+这正是我们[Chamaka-se设计方法论](/design-method.html)与[定制提升方案](/signature-lifting.html)分层推进逻辑背后的共同基础——两者都从"面部如何保持整体性"出发，而非从"哪台设备能带来最大落差"出发。关于"为什么确立标准比追求效果更重要"这一更深层次的问题，可参阅[在谈效果之前，先确立标准](/blog/standards-before-results-in-aesthetic-medicine.html)。有关面部和谐、比例与"自然"认知感受的临床文献，整理于[PubMed收录的面部美学和谐与平衡相关证据](https://pubmed.ncbi.nlm.nih.gov/?term=facial+harmony+aesthetic+balance)。
 
 ---
 

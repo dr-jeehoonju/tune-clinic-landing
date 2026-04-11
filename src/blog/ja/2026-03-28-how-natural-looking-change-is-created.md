@@ -1,6 +1,6 @@
 ---
-title: "自然に見える変化はどのように作られるのか"
-description: "多くの患者は自然で控えめな変化を望みます。美容医学専門医が、自然に見える結果は何を多くするかではなく、変化の範囲、介入の順序、抑制、そして顔全体の調和によって決まる理由を解説します。"
+title: "自然に見える変化はどう作られるのか"
+description: "自然に見える結果は、何を多くするかではなく、変化の範囲、介入の順序、抑制、そして顔全体の調和によって決まります。その理由を医師が解説します。"
 slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -79,6 +79,8 @@ tags: [natural-results, facial-harmony, treatment-planning, consultation, educat
 だから良い結果を測る本当の指標は、「どれだけ変わったか」ではありません。「その変化が、その人本来の流れとどれだけ滑らかにつながっているか」です。
 
 この基準が守られるとき、「自然」という言葉は曖昧なスローガンではなく、意図された臨床プロセスになります。
+
+これが私たちの[チャマカセ デザインメソッド](/design-method.html)と[シグネチャーリフティング](/signature-lifting.html)のレイヤード順序ロジックの土台です——どちらも、どのデバイスが最も劇的な変化をもたらすかではなく、顔全体がどう調和しているかから始まります。なぜ「効果を追う」より「基準を定める」ことが重要なのか、より深い問いについては[「効果」の前に整理すべき基準](/blog/standards-before-results-in-aesthetic-medicine.html)をご覧ください。顔の調和、プロポーション、そして「自然」に見える結果の認知的知覚に関する臨床文献は、[美容における顔の調和に関するPubMedのエビデンス](https://pubmed.ncbi.nlm.nih.gov/?term=facial+harmony+aesthetic+balance)にまとめられています。
 
 ---
 

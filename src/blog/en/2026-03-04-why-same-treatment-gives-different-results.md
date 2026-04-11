@@ -1,5 +1,5 @@
 ---
-title: "Same Treatment, Different Results — The Variables You Can't See"
+title: "Same Treatment, Different Results"
 description: "Why two patients can receive the same aesthetic procedure and walk away with completely different experiences — and what actually determines the outcome."
 slug: why-same-treatment-gives-different-results
 date: 2026-03-04
@@ -83,3 +83,5 @@ Understanding the skin. Assessing the right timing. Setting a realistic goal.
 When these three align, even a familiar procedure delivers stable, satisfying results.
 
 What matters is not simply *what treatment was chosen* — but *what standard guided the choice*.
+
+This is the same logic that underpins our [Chamaka-se design method](/design-method.html), and it connects directly to a separate but related question: how do you decide what the right standard even is? That foundation is explored in [Define the Standard Before the Result](/blog/standards-before-results-in-aesthetic-medicine.html). For the underlying skin-biology research, the [PubMed evidence on individual skin response variability](https://pubmed.ncbi.nlm.nih.gov/?term=skin+type+laser+response) shows how dermal thickness, photo-type, and inflammatory tendency reshape outcomes from identical protocols.

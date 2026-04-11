@@ -1,6 +1,6 @@
 ---
 title: "How Natural-Looking Change Is Actually Created"
-description: "Patients often ask for results that look natural, subtle, and easy on the face. An aesthetic medicine specialist explains why natural-looking outcomes depend less on doing more and more on range, sequence, restraint, and facial harmony."
+description: "Why natural-looking results depend less on doing more, and more on range, sequence, restraint, and facial harmony — explained by a physician."
 slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -79,6 +79,8 @@ It is shaped by the standards used to judge the face, the sequence used to appro
 That is why the real measure of a good result is not "How much did the face change?" It is "How well does the change remain connected to the person's original flow?"
 
 When that standard is respected, natural-looking change stops being a vague slogan. It becomes a deliberate clinical process.
+
+This is the foundation of our [Chamaka-se design method](/design-method.html) and the layered sequencing logic of [Signature Lifting](/signature-lifting.html) — both of which begin with how the face holds together, not which device produces the most dramatic delta. For the deeper question of *why* defining the standard matters more than chasing effectiveness, see [Define the Standard Before the Result](/blog/standards-before-results-in-aesthetic-medicine.html). The clinical literature on facial harmony, proportion, and the cognitive perception of "natural" outcomes is collected in the [PubMed evidence on facial harmony in aesthetics](https://pubmed.ncbi.nlm.nih.gov/?term=facial+harmony+aesthetic+balance).
 
 ---
 

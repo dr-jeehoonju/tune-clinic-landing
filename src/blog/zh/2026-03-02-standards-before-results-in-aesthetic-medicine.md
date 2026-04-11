@@ -1,6 +1,6 @@
 ---
-title: "在追求效果之前，先确立正确的标准"
-description: "「这个项目有效吗？」不应该是皮肤美容中首先提出的问题。在做决定之前，应该先思考什么？"
+title: "在谈效果之前，先确立标准"
+description: "为什么「这个项目有效吗？」不是皮肤美容中应当首先提出的问题——在做决定之前，真正应该问自己什么。"
 slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -84,3 +84,5 @@ tags: [理念, 决策, 科普]
 它建立在对决策过程的理解——运用了什么样的标准、做出了什么样的选择，以及同样重要的，有意识地*没有选择*什么。
 
 效果当然重要。但它始终是合理判断的*结果*，而非出发点。
+
+这正是我们[Chamaka-se设计方法论](/design-method.html)背后的理念：每一个治疗方案都从确立标准开始，而不是从选择设备开始。另一个紧密相关的问题——为什么两位患者接受同一个治疗却得到完全不同的结果——在[同样的治疗，不同的结果](/blog/why-same-treatment-gives-different-results.html)一文中有更完整的讨论。如果你想进一步了解学术背景，[PubMed收录的循证皮肤美容医学文献](https://pubmed.ncbi.nlm.nih.gov/?term=evidence+based+aesthetic+medicine)追溯了这个领域如何从"以效果为导向"逐步转向"以标准为导向"的决策框架。

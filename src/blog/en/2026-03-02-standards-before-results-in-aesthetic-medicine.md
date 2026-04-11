@@ -1,5 +1,5 @@
 ---
-title: "Before Chasing Results, Define the Right Standard"
+title: "Define the Standard Before the Result"
 description: "Why 'Is this treatment effective?' is the wrong first question in aesthetic medicine — and what to ask instead before making a decision."
 slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
@@ -84,3 +84,5 @@ Trust in aesthetic medicine isn't built on outcomes alone.
 It's built on understanding how the decision was made — what standards were applied, what was chosen, and just as importantly, what was deliberately *not* chosen.
 
 Effectiveness matters. But it is always the *result* of sound judgment — never the starting point.
+
+This is the philosophy behind our [Chamaka-se design method](/design-method.html): every treatment plan begins by establishing the standard, not by selecting the device. A closely related question — why two patients can receive the same procedure and walk away with completely different results — is explored in [Same Treatment, Different Results](/blog/why-same-treatment-gives-different-results.html). For the broader academic context, the [PubMed literature on evidence-based aesthetic medicine](https://pubmed.ncbi.nlm.nih.gov/?term=evidence+based+aesthetic+medicine) traces how the field has shifted from outcome-driven to standard-driven decision frameworks.

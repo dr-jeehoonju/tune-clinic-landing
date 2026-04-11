@@ -1,5 +1,5 @@
 ---
-title: "Three Lifting Devices, Three Different Jobs — Ultherapy, Thermage, and Oligio Compared"
+title: "Ultherapy vs. Thermage vs. Oligio"
 description: "Ultherapy, Thermage FLX, and Oligio are not interchangeable. A physician explains which layer each device targets and how to choose based on your anatomy."
 slug: lifting-devices-compared
 date: 2026-03-08
@@ -55,6 +55,30 @@ The decision is not based on which machine is "newest" or "most popular." It is 
 Combination protocols are often more effective than single-device approaches. At Tune Clinic, we frequently combine Ultherapy (deep structural lift) with Thermage (surface tightening) in a single session or staged plan. This is the core logic behind our [Signature Lifting](/signature-lifting.html) protocol.
 
 The key is sequencing: deep first, surface second. Not the other way around.
+
+## Who is the right candidate for each device?
+
+The honest answer is that none of these devices are universally appropriate. Each one performs well within a specific indication and underperforms outside of it.
+
+**Ultherapy** is most useful for patients in their late 30s through 50s who present with **early-to-moderate jawline descent and submental laxity**, where the structural problem is genuinely at the SMAS layer. It is less helpful when the dominant issue is fat redistribution rather than ligamentous laxity, or when skin quality is so poor that the surface cannot follow the deeper lift.
+
+**Thermage FLX** fits patients whose primary concern is **diffuse skin laxity with intact deep structure** — the kind of "the skin no longer snaps back" complaint that doesn't yet involve true sagging. It also tends to suit patients who want gradual textural improvement and are willing to wait the full 3–6 month remodeling window.
+
+**Oligio** sits between the two. It is a reasonable choice for patients who want broad firming without the precision-targeted depth of Ultherapy or the bulk dermal heating of Thermage — and for those who need a more comfortable session, since the energy spread tends to be less pinpointed.
+
+The point is not to rank these devices. It is to recognize that picking the wrong one for your specific anatomy is far more common than picking a "bad" device.
+
+## What to expect on the timeline
+
+A common mistake is to evaluate any of these treatments at the wrong time point.
+
+- **Immediate result (0–2 weeks):** Mild tightening from acute thermal contraction. Often misleadingly underwhelming. Some patients leave thinking nothing happened.
+- **Intermediate result (1–3 months):** New collagen begins to deposit. The face starts to look more "put together" without an obvious change. This is usually when patients first stop being skeptical.
+- **Final result (3–6 months):** Maximum collagen remodeling. Jawline definition firms up, skin texture refines. This is the correct time to judge the outcome.
+
+A treatment evaluated at week 2 is almost always rated as a disappointment. The same treatment evaluated at month 4 often produces a very different conclusion. Setting that expectation in advance is part of the clinical responsibility.
+
+For the broader question of *why* device comparisons often fail to predict outcomes — and what to ask instead — see [Why Lifting Comparisons Mislead Patients](/blog/why-lifting-comparisons-are-misleading.html). And for the underlying clinical evidence on microfocused ultrasound depth and SMAS targeting, the [PubMed literature on microfocused ultrasound and the SMAS layer](https://pubmed.ncbi.nlm.nih.gov/?term=microfocused+ultrasound+SMAS) is a useful starting point.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Même traitement, résultats différents — les variables invisibles"
+title: "Même traitement, résultats différents"
 description: "Pourquoi deux patients peuvent recevoir le même acte esthétique et en ressortir avec des expériences totalement différentes — et ce qui détermine réellement le résultat."
 slug: why-same-treatment-gives-different-results
 date: 2026-03-04
@@ -83,3 +83,5 @@ Comprendre la peau. Évaluer le bon moment. Fixer un objectif réaliste.
 Lorsque ces trois éléments s'alignent, même un acte familier offre des résultats stables et satisfaisants.
 
 Ce qui compte n'est pas simplement *le traitement choisi* — mais *le critère qui a guidé ce choix*.
+
+C'est la même logique qui sous-tend notre [méthode de design Chamaka-se](/design-method.html), et elle se rattache directement à une question distincte mais connexe : comment décider de ce qu'est le bon critère ? Cette base est explorée dans [Définir le critère avant le résultat](/blog/standards-before-results-in-aesthetic-medicine.html). Pour la recherche sous-jacente en biologie cutanée, les [données PubMed sur la variabilité individuelle de la réponse cutanée](https://pubmed.ncbi.nlm.nih.gov/?term=skin+type+laser+response) montrent comment l'épaisseur dermique, le phototype et la tendance inflammatoire transforment les résultats à partir de protocoles identiques.

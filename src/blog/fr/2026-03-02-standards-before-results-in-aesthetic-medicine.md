@@ -1,6 +1,6 @@
 ---
-title: "Avant de chercher des résultats, définissez le bon critère"
-description: "Pourquoi « Ce traitement est-il efficace ? » est la mauvaise première question en médecine esthétique — et ce qu'il faut se demander à la place avant de prendre une décision."
+title: "Définir le critère avant le résultat"
+description: "Pourquoi « Ce traitement est-il efficace ? » est la mauvaise première question en médecine esthétique — et ce qu'il faut demander à la place avant de décider."
 slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -84,3 +84,5 @@ La confiance en médecine esthétique ne se construit pas uniquement sur les ré
 Elle se construit sur la compréhension de la manière dont la décision a été prise — quels critères ont été appliqués, ce qui a été choisi, et tout aussi important, ce qui a été délibérément *écarté*.
 
 L'efficacité compte. Mais elle est toujours le *résultat* d'un jugement solide — jamais le point de départ.
+
+C'est la philosophie qui sous-tend notre [méthode de design Chamaka-se](/design-method.html) : tout plan de traitement commence par établir le critère, et non par choisir l'appareil. Une question étroitement liée — pourquoi deux patients peuvent recevoir le même acte et en ressortir avec des résultats totalement différents — est explorée dans [Même traitement, résultats différents](/blog/why-same-treatment-gives-different-results.html). Pour le contexte académique plus large, la [littérature PubMed sur la médecine esthétique fondée sur les preuves](https://pubmed.ncbi.nlm.nih.gov/?term=evidence+based+aesthetic+medicine) retrace comment le domaine est passé de cadres décisionnels centrés sur le résultat à des cadres centrés sur le critère.

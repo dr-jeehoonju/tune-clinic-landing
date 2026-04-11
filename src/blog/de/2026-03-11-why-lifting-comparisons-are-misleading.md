@@ -1,6 +1,6 @@
 ---
-title: "Warum Vergleiche von Lifting-Behandlungen nicht immer zu besseren Entscheidungen führen"
-description: "Debatten über Ultherapy vs. Thermage verfehlen den Punkt. Eine Ärztin erklärt, warum die eigentliche Frage nicht ist, welches Gerät besser ist – sondern welches Problem Sie lösen möchten."
+title: "Warum Lifting-Vergleiche in die Irre führen"
+description: "Debatten über Ultherapy vs. Thermage verfehlen den Punkt. Die eigentliche Frage ist nicht, welches Gerät besser ist – sondern welches Problem Sie lösen möchten."
 slug: why-lifting-comparisons-are-misleading
 date: 2026-03-11
 author: [cha-seung-yeon, ju-jee-hoon]
@@ -85,3 +85,5 @@ Der Gerätename mag von Patientin zu Patientin derselbe sein. Aber die Haut daru
 Deshalb werden Lifting-Ergebnisse weniger durch das Gerät geformt als durch den Maßstab hinter der Entscheidung.
 
 Vergleiche liefern Informationen. **Aber nur ein klarer Maßstab führt zu einer sicheren Wahl.**
+
+Genau deshalb ist unser [Signature Lifting](/signature-lifting.html)-Protokoll nach Indikation und nicht nach Gerät aufgebaut – HIFU und RF werden nur dann kombiniert, wenn jede Modalität im selben Gesicht ein anderes anatomisches Problem löst. Für die geräteweise Aufschlüsselung, die die meisten Patientinnen dennoch sehen möchten, beschreibt [Ultherapy vs. Thermage vs. Oligio](/blog/lifting-devices-compared.html) die Schicht, die jedes Gerät tatsächlich behandelt. Und für die zugrunde liegende klinische Evidenz, die Energiemodalitäten direkt vergleicht, ist die [PubMed-Literatur zu Ultherapy vs. Thermage](https://pubmed.ncbi.nlm.nih.gov/?term=ultherapy+thermage+comparison) ein nützlicher Bezugspunkt.
