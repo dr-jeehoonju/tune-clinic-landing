@@ -1359,6 +1359,7 @@ let allBookings = [];
 let bookingFilter = 'all';
 let calYear, calMonth;
 let selectedCalDate = null;
+let activeStatFilter = null;
 
 const BOOKING_STATUS_MAP = {
   pending: { label: '대기', cls: 'status-new' },
@@ -1491,9 +1492,11 @@ $('#bf-save').addEventListener('click', async () => {
 /* --- Booking List --- */
 $$('.bfilter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
+    activeStatFilter = null;
     bookingFilter = btn.dataset.bfilter;
     $$('.bfilter-btn').forEach(b => { b.className = 'bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200'; });
     btn.className = 'bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full bg-slate-900 text-white';
+    renderBookingStats();
     renderBookingsList();
   });
 });
@@ -1526,12 +1529,12 @@ function renderBookingStats() {
   }).length;
 
   $('#booking-stat-cards').innerHTML = [
-    { label: '오늘 예약', value: todayCount, icon: 'fa-calendar-day', color: 'text-amber-500' },
-    { label: '대기 중', value: pending, icon: 'fa-hourglass-half', color: 'text-red-500' },
-    { label: '확정', value: confirmed, icon: 'fa-check-circle', color: 'text-green-600' },
-    { label: '총 예약', value: total, icon: 'fa-calendar-check', color: 'text-slate-600' },
+    { label: '오늘 예약', value: todayCount, icon: 'fa-calendar-day', color: 'text-amber-500', filter: 'today' },
+    { label: '대기 중', value: pending, icon: 'fa-hourglass-half', color: 'text-red-500', filter: 'pending' },
+    { label: '확정', value: confirmed, icon: 'fa-check-circle', color: 'text-green-600', filter: 'confirmed' },
+    { label: '총 예약', value: total, icon: 'fa-calendar-check', color: 'text-slate-600', filter: 'total' },
   ].map(s => `
-    <div class="bg-white rounded-xl p-4 shadow-sm border">
+    <div class="bg-white rounded-xl p-4 shadow-sm border cursor-pointer hover:border-gold/50 transition ${activeStatFilter === s.filter ? 'ring-2 ring-gold' : ''}" data-stat-filter="${s.filter}">
       <div class="flex items-center justify-between">
         <div class="min-w-0">
           <p class="text-[10px] font-bold text-slate-400 uppercase truncate">${s.label}</p>
@@ -1540,7 +1543,44 @@ function renderBookingStats() {
         <i class="fas ${s.icon} text-xl text-slate-200 shrink-0"></i>
       </div>
     </div>`).join('');
-}
+
+  $('#booking-stat-cards').querySelectorAll('[data-stat-filter]').forEach(el => {
+    el.addEventListener('click', () => {
+      const f = el.dataset.statFilter;
+      if (activeStatFilter === f) {
+        activeStatFilter = null;
+        bookingFilter = 'all';
+        $('#booking-date-from').value = '';
+        $('#booking-date-to').value = '';
+        selectedCalDate = null;
+      } else {
+        activeStatFilter = f;
+        selectedCalDate = null;
+        if (f === 'today') {
+          const t = new Date();
+          const ts = `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
+          bookingFilter = 'all';
+          $('#booking-date-from').value = ts;
+          $('#booking-date-to').value = ts;
+        } else if (f === 'total') {
+          bookingFilter = 'all';
+          $('#booking-date-from').value = '';
+          $('#booking-date-to').value = '';
+        } else {
+          bookingFilter = f;
+          $('#booking-date-from').value = '';
+          $('#booking-date-to').value = '';
+        }
+      }
+      $$('.bfilter-btn').forEach(b => {
+        const isActive = b.dataset.bfilter === bookingFilter;
+        b.className = `bfilter-btn px-3 py-1.5 text-xs font-bold rounded-full ${isActive ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`;
+      });
+      renderBookingStats();
+      renderBookingCalendar();
+      renderBookingsList();
+    });
+  });
 
 /* --- Mini Calendar --- */
 function initCalendar() {
@@ -1586,9 +1626,11 @@ function renderBookingCalendar() {
 
   grid.querySelectorAll('[data-cal-date]').forEach(el => {
     el.addEventListener('click', () => {
+      activeStatFilter = null;
       selectedCalDate = el.dataset.calDate;
       $('#booking-date-from').value = el.dataset.calDate;
       $('#booking-date-to').value = el.dataset.calDate;
+      renderBookingStats();
       renderBookingCalendar();
       renderBookingsList();
     });
@@ -1642,8 +1684,8 @@ function renderBookingsList() {
   });
 }
 
-$('#booking-date-from').addEventListener('change', () => { selectedCalDate = null; renderBookingCalendar(); renderBookingsList(); });
-$('#booking-date-to').addEventListener('change', () => { selectedCalDate = null; renderBookingCalendar(); renderBookingsList(); });
+$('#booking-date-from').addEventListener('change', () => { activeStatFilter = null; selectedCalDate = null; renderBookingStats(); renderBookingCalendar(); renderBookingsList(); });
+$('#booking-date-to').addEventListener('change', () => { activeStatFilter = null; selectedCalDate = null; renderBookingStats(); renderBookingCalendar(); renderBookingsList(); });
 
 /* --- Booking Detail Modal --- */
 function openBookingDetail(id) {
