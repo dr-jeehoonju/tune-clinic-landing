@@ -317,12 +317,12 @@
 
       <!-- Sub-tabs: Schedule / Bookings -->
       <div class="flex gap-4 mb-6 border-b">
-        <button data-bsub="schedule" class="bsub-btn pb-2 text-sm font-bold border-b-2 border-gold text-gold">스케줄 설정</button>
-        <button data-bsub="list" class="bsub-btn pb-2 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-700">예약 목록</button>
+        <button data-bsub="schedule" class="bsub-btn pb-2 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-700">스케줄 설정</button>
+        <button data-bsub="list" class="bsub-btn pb-2 text-sm font-bold border-b-2 border-gold text-gold">예약 목록</button>
       </div>
 
       <!-- SCHEDULE SUB-TAB -->
-      <div id="bsub-schedule" class="bsub-content">
+      <div id="bsub-schedule" class="bsub-content hidden">
         <div class="grid lg:grid-cols-2 gap-6">
           <!-- Weekly Template -->
           <div class="bg-white rounded-xl p-6 shadow-sm border">
@@ -364,7 +364,7 @@
       </div>
 
       <!-- BOOKING LIST SUB-TAB -->
-      <div id="bsub-list" class="bsub-content hidden">
+      <div id="bsub-list" class="bsub-content">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6" id="booking-stat-cards"></div>
 
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
