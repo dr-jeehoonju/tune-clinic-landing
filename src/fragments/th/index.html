@@ -1129,7 +1129,16 @@
             <a href="/th/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg text-base">
                 <i class="fas fa-calendar-check text-lg"></i> จองเลย
             </a>
-            <p class="text-sm text-slate-400 mt-6">มีคำถาม? <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">WhatsApp</a> · <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">Instagram</a></p>
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+                <span class="text-sm text-slate-400">มีคำถาม?</span>
+                <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-gold hover:underline"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <span class="text-slate-300">·</span>
+                <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-gold hover:underline"><i class="fab fa-instagram"></i> Instagram DM</a>
+                <span class="text-slate-300">·</span>
+                <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 text-sm text-gold hover:underline cursor-pointer"><i class="fab fa-line"></i> LINE</button>
+                <span class="text-slate-300">·</span>
+                <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 text-sm text-gold hover:underline cursor-pointer"><i class="fab fa-weixin"></i> WeChat</button>
+            </div>
         </div>
     </section>
 
