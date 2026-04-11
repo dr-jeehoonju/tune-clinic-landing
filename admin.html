@@ -445,19 +445,28 @@ async function checkSession() {
 
 $('#login-form').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const email = $('#login-email').value;
+  const email = $('#login-email').value.trim();
   const password = $('#login-password').value;
   $('#login-btn').textContent = '로그인 중...';
+  $('#login-btn').disabled = true;
   $('#login-error').classList.add('hidden');
 
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) {
-    $('#login-error').textContent = '이메일 또는 비밀번호가 올바르지 않습니다.';
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      $('#login-error').textContent = error.message || '이메일 또는 비밀번호가 올바르지 않습니다.';
+      $('#login-error').classList.remove('hidden');
+      $('#login-btn').textContent = '로그인';
+      $('#login-btn').disabled = false;
+      return;
+    }
+    showDashboard(data.user);
+  } catch (err) {
+    $('#login-error').textContent = '네트워크 오류: ' + (err.message || err);
     $('#login-error').classList.remove('hidden');
     $('#login-btn').textContent = '로그인';
-    return;
+    $('#login-btn').disabled = false;
   }
-  showDashboard(data.user);
 });
 
 $('#logout-btn').addEventListener('click', async () => {
