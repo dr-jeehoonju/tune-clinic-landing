@@ -5,6 +5,7 @@ slug: why-lifting-comparisons-are-misleading
 date: 2026-03-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [lifting, ultherapy, thermage, education]
+ogImage: /blog/images/why-lifting-comparisons-are-misleading-hero.webp
 ---
 
 ## La comparaison qui commence toute recherche
@@ -33,6 +34,8 @@ Les **appareils de radiofréquence** (comme Thermage FLX) ciblent la couche derm
 L'idée clé : bien qu'ils soient tous appelés « lifting », l'énergie atteint des profondeurs différentes et produit des types de changements différents.
 
 Les comparer côte à côte sans comprendre cette différence rend la décision plus difficile, et non plus facile.
+
+![Trois pièces de puzzle de formes et de tailles clairement différentes posées côte à côte sur une surface d'ardoise, aucune ne s'emboîtant](/blog/images/why-lifting-comparisons-are-misleading-body-puzzle.webp)
 
 ## L'affaissement a plus d'une cause
 

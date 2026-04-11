@@ -5,6 +5,7 @@ slug: pico-fractional-laser-explained
 date: 2026-04-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [pico laser, pores, acne scars, skin texture]
+ogImage: /blog/images/pico-fractional-laser-explained-hero.webp
 ---
 
 ## 質問の前に、ある患者さんの話
@@ -22,6 +23,8 @@ tags: [pico laser, pores, acne scars, skin texture]
 この短縮が物理を変えます。ナノ秒レーザーは標的を加熱することで作用します（光熱作用）。ピコ秒レーザーはエネルギーをあまりに速く送達するため熱が拡散する時間がなく、主作用は**光機械的／光音響的作用**へと移行します — エネルギーは持続的な熱としてではなく、圧力波として到達するのです。
 
 熱が少ないということは、周囲組織への損傷も少ないということです。これはアジア人の肌にとって非常に重要で、炎症後色素沈着（PIH）こそが最も避けるべき問題だからです。
+
+![水平な表面線の下に浮かぶ金色の楕円形の模式図。真皮内でのLIOBマイクロキャビテーションを示している](/blog/images/pico-fractional-laser-explained-body-liob.webp)
 
 ## 「フラクショナル」モードはどのように肌を再構築するのか？
 
@@ -47,6 +50,8 @@ tags: [pico laser, pores, acne scars, skin texture]
 - **高フルエンスでの肝斑治療** — 逆説的に悪化させる可能性がある
 
 ピコフラクショナルは、問題が深い構造的瘢痕である場合に、本格的なアブレイティブリサーフェシングの**代替にはなりません**。そう装うクリニックは、患者を失望へと導いているだけです。
+
+![同じ空の窓辺を一日の三つの時間帯——冷たい夜明け、柔らかな午前中、暖かい黄金色の正午——に撮影した三連画。段階的なリモデリングの比喩として](/blog/images/pico-fractional-laser-explained-body-timeline.webp)
 
 ## 何回のセッションが必要？
 

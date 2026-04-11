@@ -5,6 +5,7 @@ slug: pico-fractional-laser-explained
 date: 2026-04-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [pico laser, pores, acne scars, skin texture]
+ogImage: /blog/images/pico-fractional-laser-explained-hero.webp
 ---
 
 ## 在问题之前，先讲一个小故事
@@ -22,6 +23,8 @@ tags: [pico laser, pores, acne scars, skin texture]
 脉宽的缩短改变了物理机制。纳秒激光通过加热靶色基起效（光热效应）。而皮秒激光传递能量的速度太快，热量来不及扩散，于是主导机制转变为**光机械 / 光声效应**——能量是以压力波的形式抵达，而不是以持续的热量。
 
 热量更少，就意味着对周围组织的附带损伤更小。这一点对亚洲皮肤尤其重要，因为炎症后色素沉着（PIH）正是最需要规避的问题。
+
+![在一条完整的水平表面线下方悬浮着若干金色椭圆的示意图，展示真皮层内的LIOB微空化效应](/blog/images/pico-fractional-laser-explained-body-liob.webp)
 
 ## "点阵"模式是如何重建皮肤的？
 
@@ -47,6 +50,8 @@ tags: [pico laser, pores, acne scars, skin texture]
 - **用高能量激进治疗的黄褐斑** — 反而可能使其恶化
 
 当问题是深层的结构性瘢痕时，皮秒点阵**并不能替代**真正的剥脱性换肤。任何试图模糊这一点的诊所，都是在为之后的失望埋下伏笔。
+
+![同一扇空窗台在一天三个时刻拍摄的三联图——清冷的黎明、柔和的上午、温暖的金色正午——象征渐进式的重塑过程](/blog/images/pico-fractional-laser-explained-body-timeline.webp)
 
 ## 我需要做多少次？
 

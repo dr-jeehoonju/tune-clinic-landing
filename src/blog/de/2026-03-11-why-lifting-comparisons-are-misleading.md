@@ -5,6 +5,7 @@ slug: why-lifting-comparisons-are-misleading
 date: 2026-03-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [lifting, ultherapy, thermage, education]
+ogImage: /blog/images/why-lifting-comparisons-are-misleading-hero.webp
 ---
 
 ## Der Vergleich, mit dem jede Suche beginnt
@@ -33,6 +34,8 @@ An der Oberfläche sieht es so aus, als täten alle Lifting-Behandlungen dasselb
 Der wesentliche Punkt: Obwohl alle als "Lifting" bezeichnet werden, erreicht die Energie unterschiedliche Tiefen und erzeugt unterschiedliche Arten von Veränderung.
 
 Sie nebeneinander zu vergleichen, ohne diesen Unterschied zu verstehen, erschwert die Entscheidung – statt sie zu erleichtern.
+
+![Drei Puzzleteile deutlich unterschiedlicher Formen und Größen nebeneinander auf einer Schieferfläche, von denen keines zum anderen passt](/blog/images/why-lifting-comparisons-are-misleading-body-puzzle.webp)
 
 ## Absacken hat mehr als eine Ursache
 

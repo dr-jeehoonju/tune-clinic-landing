@@ -5,6 +5,7 @@ slug: lifting-devices-compared
 date: 2026-03-08
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [lifting, ultherapy, thermage, education]
+ogImage: /blog/images/lifting-devices-compared-hero.webp
 ---
 
 ## Chúng không phải là đối thủ — chúng bổ sung cho nhau
@@ -12,6 +13,8 @@ tags: [lifting, ultherapy, thermage, education]
 Bệnh nhân thường hỏi: "Cái nào tốt hơn — Ultherapy hay Thermage?" Câu hỏi này giả định rằng hai thiết bị làm cùng một việc. Thực ra không phải vậy.
 
 Mỗi thiết bị làm việc trên một lớp mô khác nhau, tạo ra một kiểu đáp ứng khác nhau, và phù hợp với một tình huống lâm sàng khác nhau. Lựa chọn giữa chúng không giống như lựa chọn giữa hai nhà hàng. Nó giống như lựa chọn giữa việc sửa móng nhà và làm lại bề mặt.
+
+![Ba vật thể hình học bằng đồng thau có hình dạng và chiều cao khác nhau xếp trên một tấm đá phiến, mỗi vật đổ bóng ở một góc khác nhau, đại diện cho ba độ sâu mô khác nhau](/blog/images/lifting-devices-compared-body-tools.webp)
 
 ## Cách mỗi thiết bị hoạt động
 
@@ -67,6 +70,8 @@ Câu trả lời trung thực là không có thiết bị nào trong số này p
 **Oligio** nằm giữa hai thiết bị trên. Nó là một lựa chọn hợp lý cho những bệnh nhân muốn làm săn chắc trên diện rộng mà không cần độ sâu nhắm mục tiêu chính xác của Ultherapy hay làm nóng thể tích lớp bì của Thermage — và cho những người cần một buổi thoải mái hơn, vì năng lượng thường lan tỏa rộng hơn thay vì điểm.
 
 Điểm mấu chốt không phải là xếp hạng các thiết bị này. Mà là nhận ra rằng chọn sai thiết bị cho giải phẫu cụ thể của bạn phổ biến hơn nhiều so với việc chọn phải một thiết bị "tệ".
+
+![Ba mảnh giấy vuông nhỏ đặt trên bề mặt đá phiến dưới ánh sáng ban ngày ấm dần từ lạnh đến vàng, như một ẩn dụ cho tiến trình điều trị qua nhiều tháng](/blog/images/lifting-devices-compared-body-timeline.webp)
 
 ## Kỳ vọng gì về dòng thời gian
 

@@ -5,6 +5,7 @@ slug: why-lifting-comparisons-are-misleading
 date: 2026-03-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [提升, 超声刀, 热玛吉, 科普]
+ogImage: /blog/images/why-lifting-comparisons-are-misleading-hero.webp
 ---
 
 ## 每个人搜索的第一步，几乎都是"比较"
@@ -33,6 +34,8 @@ tags: [提升, 超声刀, 热玛吉, 科普]
 关键点在于：虽然这些都被统称为"提升"，但能量到达的深度不同，产生的变化类型也完全不同。
 
 在不理解这一差异的情况下将它们并列比较，只会让决策变得更难，而非更清晰。
+
+![三块形状与大小明显不同的拼图块并排摆放在石板表面上，彼此之间无法拼合](/blog/images/why-lifting-comparisons-are-misleading-body-puzzle.webp)
 
 ## 松弛的成因不止一种
 

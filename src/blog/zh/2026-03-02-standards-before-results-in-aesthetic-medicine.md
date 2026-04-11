@@ -5,6 +5,7 @@ slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [理念, 决策, 科普]
+ogImage: /blog/images/standards-before-results-in-aesthetic-medicine-hero.webp
 ---
 
 ## 信息差，并不是你以为的那样
@@ -16,6 +17,8 @@ tags: [理念, 决策, 科普]
 这不仅仅是营销层面的问题。它反映出一个更深层的变化——信任的基础已经从*专业性*转向了*易获取性*。那些容易对比、一目了然的信息，逐渐取代了严谨的临床判断，成为很多人做决定的依据。
 
 皮肤美容领域的大部分困惑，正是从这里开始的。
+
+![金色黄昏光线下，空无一人的咨询室里摆着两把椅子和一张矮边桌](/blog/images/standards-before-results-in-aesthetic-medicine-body-room.webp)
 
 ## "咨询完之后，我反而更迷茫了"
 

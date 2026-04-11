@@ -5,6 +5,7 @@ slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [aging, anti-aging, collagen, structure, education]
+ogImage: /blog/images/skin-aging-structural-change-hero.webp
 ---
 
 ## 鏡の中の顔が違って見える理由
@@ -18,6 +19,8 @@ tags: [aging, anti-aging, collagen, structure, education]
 しかし、ほとんどの場合、本当の原因はまったく別のところにあります。
 
 肌の老化は表面から始まりません。目に見える変化のほとんどは、シワが一本現れるずっと前から、皮膚の下で起きている構造的変化の*最終結果*なのです。
+
+![大理石、リネン、木材、石など、質感の異なる七枚の薄い素材サンプルが重ねられており、顔面組織の層状構造を表現している](/blog/images/skin-aging-structural-change-body-layers.webp)
 
 ## 肌は単なる表面ではない
 
@@ -45,6 +48,8 @@ tags: [aging, anti-aging, collagen, structure, education]
 その総合的な結果は「シワ」ではありません。顔全体の幾何学的変化 ― 萎縮、下垂、凸面の喪失です。
 
 現れるシワは原因ではありません。それは*結果*です ― 下の支持構造が変化したために表面に形成されたクリースなのです。
+
+![夕暮れの柔らかな光の中、中央の支柱が部分的に崩れたキャンバステント——骨組みが崩れてしまえば、布を滑らかにしても形は戻らない](/blog/images/skin-aging-structural-change-body-tent.webp)
 
 ## シワだけを治療しても限界がある理由
 

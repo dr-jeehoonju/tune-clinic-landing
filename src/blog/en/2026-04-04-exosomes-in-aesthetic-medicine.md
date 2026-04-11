@@ -5,6 +5,7 @@ slug: exosomes-in-aesthetic-medicine
 date: 2026-04-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [exosome, regenerative, skin, hair]
+ogImage: /blog/images/exosomes-in-aesthetic-medicine-hero.webp
 ---
 
 ## Beyond growth factors — delivering the language cells use to communicate
@@ -14,6 +15,8 @@ For years, regenerative aesthetics focused on delivering growth factors directly
 But cells don't operate on isolated signals. They communicate through structured packages — nanoscale vesicles that carry not just one molecule, but an entire instruction set. These are **exosomes**.
 
 An exosome is not a growth factor. It is a **cellular directive** — a message that tells the receiving cell what to become, what to produce, and how to behave. The difference is not incremental. It is architectural.
+
+![Editorial cross-section illustration of a spherical vesicle with visible double-layer membrane and abstract cargo inside, rendered in gold ink on ivory paper](/blog/images/exosomes-in-aesthetic-medicine-body-vesicle.webp)
 
 ## What exosomes actually are
 
@@ -27,6 +30,8 @@ What makes them remarkable is what they carry inside:
 - **Lipid molecules** — structural components and signaling mediators
 
 > The key concept: exosomes are not growth factors themselves. They are instruction sets that **reprogram the phenotype of the receiving cell**.
+
+![Wax-sealed ivory envelope resting on a slate desk as a metaphor for targeted cellular signalling](/blog/images/exosomes-in-aesthetic-medicine-body-letter.webp)
 
 ## How exosomes are produced and delivered
 

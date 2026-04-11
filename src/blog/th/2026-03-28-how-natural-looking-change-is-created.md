@@ -5,6 +5,7 @@ slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [natural-results, facial-harmony, treatment-planning, consultation, education]
+ogImage: /blog/images/how-natural-looking-change-is-created-hero.webp
 ---
 
 ## คำขอที่พบบ่อยที่สุด กลับเป็นคำขอที่นิยามยากที่สุด
@@ -51,6 +52,8 @@ tags: [natural-results, facial-harmony, treatment-planning, consultation, educat
    วิธีที่เหมาะสมขึ้นอยู่กับสภาพผิวและโครงสร้างรองรับในเวลานั้น แผนที่เหมาะกับคนหนึ่ง หรือแม้แต่กับคนเดิมในอีกช่วงเวลา อาจไม่เหมาะกับสภาพปัจจุบัน
 
 เมื่อทั้งสามเกณฑ์นี้สอดคล้องกัน ใบหน้าจะเปลี่ยนไปโดยไม่สูญเสียความต่อเนื่องของตัวเอง
+
+![มือของประติมากรกำลังถอนเครื่องมือไม้ชิ้นเล็กออกจากรูปดินเหนียวที่ยังไม่เสร็จ — การตัดสินใจที่จะหยุด](/blog/images/how-natural-looking-change-is-created-body-sculptor.webp)
 
 ## การตัดสินใจที่ยากที่สุด คือรู้ว่าจะหยุดตรงไหน
 

@@ -5,6 +5,7 @@ slug: why-same-treatment-gives-different-results
 date: 2026-03-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [皮肤科学, 个性化, 科普]
+ogImage: /blog/images/why-same-treatment-gives-different-results-hero.webp
 ---
 
 ## 最常被问到的那个问题
@@ -18,6 +19,8 @@ tags: [皮肤科学, 个性化, 科普]
 这种差距很少能用项目本身的优劣来解释。绝大多数情况下，根源在于皮肤状态的不同，以及接受治疗时的具体条件。
 
 在皮肤美容中，决定结果的因素，与其说是方法，不如说是使用方法时的那些条件。
+
+![同一片龟背竹叶在三种不同光照角度下拍摄成的三联图，每一幅都像是不同的物体](/blog/images/why-same-treatment-gives-different-results-body-leaves.webp)
 
 ## 皮肤的反应差异，超乎你的想象
 

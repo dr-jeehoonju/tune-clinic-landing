@@ -5,6 +5,7 @@ slug: lifting-devices-compared
 date: 2026-03-08
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [lifting, ultherapy, thermage, education]
+ogImage: /blog/images/lifting-devices-compared-hero.webp
 ---
 
 ## Ce ne sont pas des concurrents — ce sont des compléments
@@ -12,6 +13,8 @@ tags: [lifting, ultherapy, thermage, education]
 Les patients demandent fréquemment : « Lequel est le meilleur — Ultherapy ou Thermage ? » Cette question suppose que les deux appareils font la même chose. Ce n'est pas le cas.
 
 Chaque appareil agit sur une couche tissulaire différente, produit un type de réponse différent, et convient à un scénario clinique différent. Choisir entre eux, ce n'est pas comme choisir entre deux restaurants. C'est plutôt comme choisir entre la réparation des fondations et un ravalement de surface.
+
+![Trois objets géométriques en laiton de formes et hauteurs différentes disposés sur une tuile d'ardoise, chacun projetant une ombre sous un angle différent, représentant trois profondeurs de ciblage tissulaire](/blog/images/lifting-devices-compared-body-tools.webp)
 
 ## Comment fonctionne chaque appareil
 
@@ -67,6 +70,8 @@ La réponse honnête, c'est qu'aucun de ces appareils n'est universellement appr
 **Oligio** se situe entre les deux. C'est un choix raisonnable pour les patientes qui veulent un raffermissement étendu sans la profondeur ciblée avec précision d'Ultherapy ni le chauffage dermique volumétrique de Thermage — et pour celles qui ont besoin d'une séance plus confortable, puisque la diffusion d'énergie tend à être moins ponctuelle.
 
 L'enjeu n'est pas de classer ces appareils. C'est de reconnaître que choisir le mauvais appareil pour votre anatomie spécifique est bien plus fréquent que de choisir un « mauvais » appareil.
+
+![Trois petits carrés de papier posés sur une surface d'ardoise sous une lumière du jour progressivement plus chaude, du froid au doré, comme métaphore de la progression du traitement sur plusieurs mois](/blog/images/lifting-devices-compared-body-timeline.webp)
 
 ## À quoi s'attendre dans le temps
 

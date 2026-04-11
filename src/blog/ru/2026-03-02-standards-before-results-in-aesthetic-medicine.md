@@ -5,6 +5,7 @@ slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [philosophy, decision-making, education]
+ogImage: /blog/images/standards-before-results-in-aesthetic-medicine-hero.webp
 ---
 
 ## Информационный разрыв — не то, чем он кажется
@@ -16,6 +17,8 @@ tags: [philosophy, decision-making, education]
 Это не просто маркетинговая проблема. Это отражает более глубокий сдвиг: доверие переместилось от *компетентности* к *доступности*. Информация, которую легко сравнивать и быстро оценивать, заменила тонкое клиническое мышление как основу для принятия решений.
 
 Именно отсюда начинается большая часть путаницы вокруг эстетических процедур.
+
+![Пустой кабинет для консультаций с двумя креслами и низким столиком в свете «золотого часа»](/blog/images/standards-before-results-in-aesthetic-medicine-body-room.webp)
 
 ## «Я сходил на консультацию, но стало ещё непонятнее»
 

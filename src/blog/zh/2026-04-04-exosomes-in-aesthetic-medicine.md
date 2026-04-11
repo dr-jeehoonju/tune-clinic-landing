@@ -5,6 +5,7 @@ slug: exosomes-in-aesthetic-medicine
 date: 2026-04-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [exosome, regenerative, skin, hair]
+ogImage: /blog/images/exosomes-in-aesthetic-medicine-hero.webp
 ---
 
 ## 超越生长因子 — 传递细胞之间真正使用的语言
@@ -14,6 +15,8 @@ tags: [exosome, regenerative, skin, hair]
 但细胞并不是靠单一信号运转的。它们通过结构化的封装进行通信——纳米级的囊泡，携带的不仅是一个分子，而是一整套指令集。这就是**外泌体（exosome）**。
 
 外泌体不是生长因子。它是一种**细胞指令**——告诉接收细胞应该变成什么、应该产生什么、应该如何运作。这种区别不是量的递增，而是架构层面的根本差异。
+
+![编辑风格的球形囊泡剖面插图，展示清晰的双层膜结构与内部抽象货物，以金色油墨绘制于象牙色纸面](/blog/images/exosomes-in-aesthetic-medicine-body-vesicle.webp)
 
 ## 外泌体究竟是什么
 
@@ -27,6 +30,8 @@ tags: [exosome, regenerative, skin, hair]
 - **脂质分子** — 结构组分和信号传导介质
 
 > 核心概念：外泌体本身不是生长因子，而是能够**重编程接收细胞表型**的指令集。
+
+![石板桌面上放着一只以蜡封口的象牙色信封，象征细胞层面的定向信号传递](/blog/images/exosomes-in-aesthetic-medicine-body-letter.webp)
 
 ## 外泌体如何产生和递送
 

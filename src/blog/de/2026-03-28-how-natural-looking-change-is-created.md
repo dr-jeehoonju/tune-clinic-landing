@@ -5,6 +5,7 @@ slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [natural-results, facial-harmony, treatment-planning, consultation, education]
+ogImage: /blog/images/how-natural-looking-change-is-created-hero.webp
 ---
 
 ## Der häufigste Wunsch ist auch der am schwersten zu definierende
@@ -51,6 +52,8 @@ Um ein Ergebnis zu schaffen, das natürlich und angenehm wirkt, sollten zunächs
    Der richtige Ansatz hängt vom Haut- und Strukturzustand in diesem konkreten Moment ab. Ein Plan, der zu einer Patientin oder sogar zur selben Patientin zu einem anderen Zeitpunkt passt, passt möglicherweise nicht zur aktuellen Anatomie.
 
 Wenn diese drei Maßstäbe übereinstimmen, verändert sich das Gesicht, ohne seine eigene Kontinuität zu verlieren.
+
+![Die Hand eines Bildhauers zieht ein kleines Holzwerkzeug aus einer unfertigen Tonform zurück – die Entscheidung, aufzuhören](/blog/images/how-natural-looking-change-is-created-body-sculptor.webp)
 
 ## Das schwierigste Urteil ist zu wissen, wo man aufhört
 

@@ -5,6 +5,7 @@ slug: exosomes-in-aesthetic-medicine
 date: 2026-04-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [exosome, regenerative, skin, hair]
+ogImage: /blog/images/exosomes-in-aesthetic-medicine-hero.webp
 ---
 
 ## 成長因子の先へ — 細胞が使う「言語」を届ける
@@ -14,6 +15,8 @@ tags: [exosome, regenerative, skin, hair]
 しかし、細胞は単独のシグナルで動くわけではありません。細胞は構造化されたパッケージ — 一つの分子だけでなく、指令セット全体を運ぶナノスケールの小胞 — を通じてコミュニケーションを行います。これが**エクソソーム**です。
 
 エクソソームは成長因子ではありません。それは**細胞への指令** — 受け取った細胞に、何になるべきか、何を産生すべきか、どう振る舞うべきかを伝えるメッセージです。その違いは段階的なものではなく、構造的なものです。
+
+![二重膜構造と内部に抽象化された積み荷が描かれた球状小胞の編集的断面図。アイボリーの紙にゴールドインクで描かれている](/blog/images/exosomes-in-aesthetic-medicine-body-vesicle.webp)
 
 ## エクソソームとは実際に何か
 
@@ -27,6 +30,8 @@ tags: [exosome, regenerative, skin, hair]
 - **脂質分子** — 構造成分およびシグナル伝達メディエーター
 
 > 重要な概念：エクソソームはそれ自体が成長因子ではありません。エクソソームは、**受け取り側の細胞の表現型を再プログラムする指令セット**です。
+
+![スレートの机の上に置かれた、蝋で封をされたアイボリーの封筒——標的指向型の細胞シグナリングの比喩](/blog/images/exosomes-in-aesthetic-medicine-body-letter.webp)
 
 ## エクソソームはどのように産生・送達されるか
 

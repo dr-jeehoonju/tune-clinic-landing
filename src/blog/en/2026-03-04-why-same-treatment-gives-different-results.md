@@ -5,6 +5,7 @@ slug: why-same-treatment-gives-different-results
 date: 2026-03-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [skin-science, personalization, education]
+ogImage: /blog/images/why-same-treatment-gives-different-results-hero.webp
 ---
 
 ## The question that keeps coming up
@@ -18,6 +19,8 @@ Some patients experience visible change. Others feel like nothing happened.
 This gap is rarely explained by the quality of the procedure itself. In most cases, it comes down to differences in skin condition and the circumstances under which the treatment was applied.
 
 In aesthetic medicine, outcomes are influenced less by the method and more by the conditions in which it was used.
+
+![Triptych of the same monstera leaf photographed under three different lighting angles, each reading as a different object](/blog/images/why-same-treatment-gives-different-results-body-leaves.webp)
 
 ## Skin response varies more than you'd expect
 

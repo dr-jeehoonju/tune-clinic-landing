@@ -25,5 +25,10 @@ npm-debug.log*
 # Dependencies (if any future tooling is added)
 node_modules/
 
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
 # Obsidian
 src/blog/.obsidian/

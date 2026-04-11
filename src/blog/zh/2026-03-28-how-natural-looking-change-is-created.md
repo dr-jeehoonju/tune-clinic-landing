@@ -5,6 +5,7 @@ slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [natural-results, facial-harmony, treatment-planning, consultation, education]
+ogImage: /blog/images/how-natural-looking-change-is-created-hero.webp
 ---
 
 ## 最常见的要求，往往也是最难定义的
@@ -51,6 +52,8 @@ tags: [natural-results, facial-harmony, treatment-planning, consultation, educat
    合适的处理方式取决于此刻皮肤和支持结构所处的状态。适合一个人的方案，不一定适合另一个人；即使是同一个人，在不同时间点，最佳策略也可能不同。
 
 当这三个标准被对齐时，面部就能在不失去自身连续性的情况下发生变化。
+
+![雕塑家的手正从一件尚未完成的黏土作品上收回一件小巧的木制工具——停手的那一刻](/blog/images/how-natural-looking-change-is-created-body-sculptor.webp)
 
 ## 最难的判断，其实是知道该停在哪里
 

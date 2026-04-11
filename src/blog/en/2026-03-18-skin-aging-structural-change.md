@@ -5,6 +5,7 @@ slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [aging, anti-aging, collagen, structure, education]
+ogImage: /blog/images/skin-aging-structural-change-hero.webp
 ---
 
 ## Why the face in the mirror feels different
@@ -18,6 +19,8 @@ Most people interpret this as "I'm getting wrinkles." So the first instinct is t
 But in most cases, the real cause is somewhere else entirely.
 
 Skin aging does not begin at the surface. The visible changes you notice are almost always the *end result* of structural shifts happening beneath the skin — long before a single wrinkle appears.
+
+![Stack of seven thin material samples of different textures — marble, linen, wood, stone — representing the layered architecture of facial tissue](/blog/images/skin-aging-structural-change-body-layers.webp)
 
 ## Skin is not just a surface
 
@@ -45,6 +48,8 @@ As years pass, the face does not simply "get wrinkled." Multiple structural proc
 The combined effect is not "wrinkles." It is a global shift in facial geometry — deflation, descent, and loss of convexity.
 
 The wrinkles that appear are not the cause. They are a *consequence* — surface creases formed because the underlying support has changed.
+
+![Canvas tent with a partially collapsed central pole glowing softly at dusk — smoothing the fabric cannot fix the shape once the frame has collapsed](/blog/images/skin-aging-structural-change-body-tent.webp)
 
 ## Why treating wrinkles alone has limits
 

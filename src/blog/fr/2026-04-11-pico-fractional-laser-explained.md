@@ -5,6 +5,7 @@ slug: pico-fractional-laser-explained
 date: 2026-04-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [pico laser, pores, acne scars, skin texture]
+ogImage: /blog/images/pico-fractional-laser-explained-hero.webp
 ---
 
 ## Une courte histoire avant les questions
@@ -22,6 +23,8 @@ Cela se rapporte à la durée de l'impulsion. Une picoseconde vaut 10⁻¹² sec
 Ce raccourcissement change la physique. Les lasers nanosecondes fonctionnent en chauffant leur cible (photothermique). Les lasers picosecondes délivrent l'énergie si rapidement que la chaleur n'a pas le temps de se propager, et le mécanisme dominant bascule vers le **photomécanique / photoacoustique** — l'énergie arrive sous forme d'onde de pression plutôt que sous forme de chaleur soutenue.
 
 Moins de chaleur signifie moins de dommages collatéraux, ce qui compte beaucoup sur les peaux asiatiques où l'hyperpigmentation post-inflammatoire (PIH) est la principale chose à éviter.
+
+![Schéma de formes ovales dorées en suspension sous une ligne horizontale de surface intacte, illustrant la microcavitation LIOB dans le derme](/blog/images/pico-fractional-laser-explained-body-liob.webp)
 
 ## Comment le mode « fractionné » reconstruit-il la peau ?
 
@@ -47,6 +50,8 @@ Les fibroblastes autour de ces bulles détectent la lésion, passent en mode ré
 - **Mélasma agressif avec fluence élevée** — peut paradoxalement l'aggraver
 
 Le pico fractionné **n'est pas un substitut** à un véritable resurfaçage ablatif lorsque le problème est une cicatrisation structurelle profonde. Toute clinique qui prétend le contraire vous prépare à la déception.
+
+![Triptyque d'un même rebord de fenêtre vide photographié à trois moments de la journée — aube froide, matinée douce, midi doré et chaleureux — comme métaphore d'un remodelage progressif](/blog/images/pico-fractional-laser-explained-body-timeline.webp)
 
 ## Combien de séances me faudra-t-il ?
 

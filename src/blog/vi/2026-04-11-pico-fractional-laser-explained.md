@@ -5,6 +5,7 @@ slug: pico-fractional-laser-explained
 date: 2026-04-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [pico laser, pores, acne scars, skin texture]
+ogImage: /blog/images/pico-fractional-laser-explained-hero.webp
 ---
 
 ## Một câu chuyện ngắn trước khi vào câu hỏi
@@ -22,6 +23,8 @@ Nó đề cập đến thời lượng xung. Một picosecond là 10⁻¹² giâ
 Sự rút ngắn đó thay đổi vật lý. Các laser nanosecond hoạt động bằng cách làm nóng mục tiêu (photothermal). Các laser picosecond truyền năng lượng nhanh đến mức nhiệt không có thời gian lan ra, vì vậy cơ chế chi phối chuyển sang **photomechanical / photoacoustic** — năng lượng đến như một sóng áp lực thay vì nhiệt duy trì.
 
 Ít nhiệt hơn đồng nghĩa với ít tổn thương phụ cận hơn, điều này rất quan trọng với da châu Á nơi post-inflammatory hyperpigmentation (PIH) là điều chính cần tránh.
+
+![Sơ đồ các hình oval vàng treo bên dưới một đường bề mặt ngang còn nguyên vẹn, minh họa vi cavitation LIOB trong lớp bì](/blog/images/pico-fractional-laser-explained-body-liob.webp)
 
 ## Chế độ "fractional" tái xây dựng da như thế nào?
 
@@ -47,6 +50,8 @@ Các nguyên bào sợi xung quanh các bọt đó cảm nhận được tổn t
 - **Melasma dữ dội với fluence cao** — có thể làm nó tồi tệ hơn một cách nghịch lý
 
 Pico fractional **không phải là sự thay thế** cho ablative resurfacing thực sự khi vấn đề là sẹo cấu trúc sâu. Bất kỳ phòng khám nào giả vờ khác đều đang đặt bạn vào thế sẽ thất vọng.
+
+![Bộ ba ảnh chụp cùng một bậu cửa sổ trống vào ba thời điểm trong ngày — bình minh lạnh, giữa buổi sáng dịu, trưa vàng ấm — như một ẩn dụ cho tái cấu trúc tiến triển](/blog/images/pico-fractional-laser-explained-body-timeline.webp)
 
 ## Tôi sẽ cần bao nhiêu buổi?
 

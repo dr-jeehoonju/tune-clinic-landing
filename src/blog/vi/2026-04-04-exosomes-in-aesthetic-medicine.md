@@ -5,6 +5,7 @@ slug: exosomes-in-aesthetic-medicine
 date: 2026-04-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [exosome, regenerative, skin, hair]
+ogImage: /blog/images/exosomes-in-aesthetic-medicine-hero.webp
 ---
 
 ## Vượt ra ngoài growth factor — truyền tải ngôn ngữ mà các tế bào dùng để giao tiếp
@@ -14,6 +15,8 @@ Trong nhiều năm, thẩm mỹ tái tạo tập trung vào việc đưa growth 
 Nhưng tế bào không hoạt động dựa trên các tín hiệu riêng lẻ. Chúng giao tiếp thông qua những gói được cấu trúc hóa — các túi kích thước nano không chỉ mang một phân tử, mà là cả một bộ chỉ thị. Đó là **exosome**.
 
 Exosome không phải là một growth factor. Đó là một **chỉ thị tế bào** — một thông điệp cho tế bào nhận biết nó nên trở thành gì, sản xuất gì, và ứng xử ra sao. Sự khác biệt không phải từng bước nhỏ. Nó mang tính kiến trúc.
+
+![Minh họa mặt cắt biên tập của một túi hình cầu với màng lớp kép rõ nét và hàng hóa trừu tượng bên trong, vẽ bằng mực vàng trên giấy ngà](/blog/images/exosomes-in-aesthetic-medicine-body-vesicle.webp)
 
 ## Exosome thực sự là gì
 
@@ -27,6 +30,8 @@ Exosome là một phân nhóm của **extracellular vesicle (EV)** — các hạ
 - **Phân tử lipid** — các thành phần cấu trúc và trung gian tín hiệu
 
 > Khái niệm cốt lõi: exosome không phải là chính các growth factor. Chúng là các bộ chỉ thị **lập trình lại kiểu hình của tế bào nhận**.
+
+![Phong bì màu ngà được niêm phong bằng sáp đặt trên bàn đá phiến như một ẩn dụ cho tín hiệu tế bào có định hướng](/blog/images/exosomes-in-aesthetic-medicine-body-letter.webp)
 
 ## Exosome được sản xuất và truyền tải như thế nào
 

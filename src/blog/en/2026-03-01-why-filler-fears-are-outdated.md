@@ -5,6 +5,7 @@ slug: why-filler-fears-are-outdated
 date: 2026-03-01
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [filler, education, myths]
+ogImage: /blog/images/why-filler-fears-are-outdated-hero.webp
 ---
 
 ## The gap between perception and practice
@@ -32,6 +33,8 @@ Filler migration is real — but it is almost always a result of poor placement,
 Sometimes the answer is not filler at all. If a patient presents with lower face heaviness and jowl descent, the priority may be lifting — not filling. Adding volume to a face that needs structural support first can actually make things look heavier.
 
 At Tune Clinic, we call this the [Chamaka-se approach](/design-method.html): the physician decides what is medically rational, not what the patient saw trending online. For patients who genuinely need volume restoration, our [Volume Chamaka-se](/filler-chamaka-se.html) protocol is structured around layered placement and product matching — not bulk filling. And when the underlying issue is collagen architecture rather than acute volume loss, biostimulator approaches like [Juvelook Volume](/blog/juvelook-volume-clinical-applications.html) often serve the patient better than HA filler ever would.
+
+![Single stainless-steel cannula resting on folded white linen next to a brushed-metal tray](/blog/images/why-filler-fears-are-outdated-body-technique.webp)
 
 ## What "modern technique" actually involves
 

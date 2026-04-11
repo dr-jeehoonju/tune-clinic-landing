@@ -5,6 +5,7 @@ slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [aging, anti-aging, collagen, structure, education]
+ogImage: /blog/images/skin-aging-structural-change-hero.webp
 ---
 
 ## 为什么镜中的面孔感觉不一样了
@@ -18,6 +19,8 @@ tags: [aging, anti-aging, collagen, structure, education]
 但在绝大多数情况下，真正的原因在完全不同的地方。
 
 皮肤衰老并不从表面开始。你看到的那些可见变化，几乎都是皮肤深层结构性变化的*最终结果* ― 远在第一条皱纹出现之前就已经开始了。
+
+![七片不同质地的薄材料样本叠放在一起——大理石、亚麻、木材、石头——象征面部组织的分层结构](/blog/images/skin-aging-structural-change-body-layers.webp)
 
 ## 皮肤不仅仅是一层表面
 
@@ -45,6 +48,8 @@ tags: [aging, anti-aging, collagen, structure, education]
 综合结果不是"皱纹"。而是面部整体几何形态的改变 ― 凹陷、下垂、凸度丧失。
 
 出现的皱纹不是原因，而是*结果* ― 因为底层支撑发生了变化，表面才形成了褶皱。
+
+![黄昏时分，一顶帆布帐篷的中心支柱部分塌陷，在柔和的光线下微微发亮——一旦支架塌了，抚平布面也无法恢复形状](/blog/images/skin-aging-structural-change-body-tent.webp)
 
 ## 为什么只治疗皱纹效果有限
 

@@ -5,6 +5,7 @@ slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [理念, 意思決定, 教育]
+ogImage: /blog/images/standards-before-results-in-aesthetic-medicine-hero.webp
 ---
 
 美容医療に関心を持ち始めると、多くの方がまず「この施術は効果がありますか？」と尋ねます。当然の疑問です。しかし、この問いを出発点にしてしまうと、判断はかえって難しくなります。
@@ -16,6 +17,8 @@ tags: [理念, 意思決定, 教育]
 医療には本質的に「情報の非対称性」が存在します。医師が持っている知識と、患者が持っている知識には大きな差があります。その差を埋めようと、多くの方がインターネットで情報を調べ、口コミを読み、比較サイトを参照します。
 
 しかし、アクセスしやすい情報が正確な情報とは限りません。むしろ、わかりやすく整理された情報ほど、重要な文脈が省かれていることがあります。施術の効果を数値やビフォーアフター写真だけで判断することは、物事の一面しか見ていないのと同じです。
+
+![ゴールデンアワーの光に包まれた、二脚の椅子とローサイドテーブルだけが置かれた無人のカウンセリングルーム](/blog/images/standards-before-results-in-aesthetic-medicine-body-room.webp)
 
 ## 「相談を受けたのに、かえって迷ってしまった」
 

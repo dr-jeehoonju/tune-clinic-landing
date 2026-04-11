@@ -5,6 +5,7 @@ slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [philosophy, decision-making, education]
+ogImage: /blog/images/standards-before-results-in-aesthetic-medicine-hero.webp
 ---
 
 ## The information gap isn't what you think it is
@@ -16,6 +17,8 @@ And yet, something interesting keeps happening. Patients walk into the clinic tr
 This isn't simply a marketing problem. It reflects a deeper shift: trust has moved from *expertise* to *accessibility*. Information that is easy to compare and quick to judge has replaced nuanced clinical reasoning as the basis for decision-making.
 
 That's where most of the confusion around aesthetic treatments begins.
+
+![Empty consultation room with two chairs and a low side table in golden-hour light](/blog/images/standards-before-results-in-aesthetic-medicine-body-room.webp)
 
 ## "I had a consultation, but now I'm more confused"
 

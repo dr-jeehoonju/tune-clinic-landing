@@ -5,6 +5,7 @@ slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [natural-results, facial-harmony, treatment-planning, consultation, education]
+ogImage: /blog/images/how-natural-looking-change-is-created-hero.webp
 ---
 
 ## 最も多い要望は、同時に最も定義が難しい
@@ -51,6 +52,8 @@ tags: [natural-results, facial-harmony, treatment-planning, consultation, educat
    適切なアプローチは、その時点の皮膚や支持構造の状態によって変わります。ある患者に合う計画が、別の患者にもそのまま合うとは限りませんし、同じ患者でも別の時期なら最適解は変わります。
 
 この三つがそろったとき、顔は本来の連続性を失わずに変化できます。
+
+![彫刻家の手が、未完成の粘土の造形から小さな木製の道具を引き離す——「止める」という決断](/blog/images/how-natural-looking-change-is-created-body-sculptor.webp)
 
 ## 最も難しい判断は「どこで止めるか」
 

@@ -5,6 +5,7 @@ slug: pico-fractional-laser-explained
 date: 2026-04-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [pico laser, pores, acne scars, skin texture]
+ogImage: /blog/images/pico-fractional-laser-explained-hero.webp
 ---
 
 ## Eine kurze Geschichte vor den Fragen
@@ -22,6 +23,8 @@ Es bezieht sich auf die Impulsdauer. Eine Pikosekunde ist 10⁻¹² Sekunden –
 Diese Verkürzung verändert die Physik. Nanosekunden-Laser arbeiten, indem sie ihr Ziel erwärmen (photothermisch). Pikosekunden-Laser liefern die Energie so schnell, dass sich die Wärme nicht ausbreiten kann – der dominante Mechanismus verschiebt sich zu **photomechanisch / photoakustisch**: Die Energie trifft als Druckwelle auf, nicht als anhaltende Hitze.
 
 Weniger Hitze bedeutet weniger Kollateralschaden, was bei asiatischer Haut eine große Rolle spielt, da hier die postinflammatorische Hyperpigmentierung (PIH) das Haupt­problem ist, das es zu vermeiden gilt.
+
+![Schema goldener ovaler Formen, die unterhalb einer intakten horizontalen Oberflächenlinie schweben, zur Veranschaulichung der LIOB-Mikrokavitation in der Dermis](/blog/images/pico-fractional-laser-explained-body-liob.webp)
 
 ## Wie baut der "fraktionale" Modus die Haut wieder auf?
 
@@ -47,6 +50,8 @@ Fibroblasten rund um diese Blasen nehmen die Verletzung wahr, schalten in den Re
 - **Aggressives Melasma bei hoher Fluenz** — kann es paradoxerweise verschlimmern
 
 Der Pico-Fraktional-Laser ist **kein Ersatz** für echtes ablatives Resurfacing, wenn das Problem in tiefer struktureller Narbenbildung besteht. Jede Klinik, die etwas anderes behauptet, steuert Sie auf Enttäuschung zu.
+
+![Triptychon eines einzelnen leeren Fensterbretts, zu drei Tageszeiten fotografiert – kühle Morgendämmerung, sanfter Vormittag, warmer goldener Mittag – als Metapher für fortschreitendes Remodelling](/blog/images/pico-fractional-laser-explained-body-timeline.webp)
 
 ## Wie viele Sitzungen werde ich brauchen?
 

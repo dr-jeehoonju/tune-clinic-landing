@@ -5,6 +5,7 @@ slug: juvelook-volume-clinical-applications
 date: 2026-03-14
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [juvelook, biostimulator, collagen, nasolabial-folds, marionette-lines, midface, under-eye, education]
+ogImage: /blog/images/juvelook-volume-clinical-applications-hero.webp
 ---
 
 ## Vượt ra ngoài mô hình filler
@@ -25,6 +26,8 @@ Juvelook Volume (sản xuất bởi Humedix, Hàn Quốc) là một công thức
 Cơ chế diễn ra theo trình tự: HA cung cấp một giàn đỡ mô ban đầu trong khi các vi cầu PDLLA kích hoạt đáp ứng dị vật có kiểm soát, kích thích **tổng hợp mới collagen loại I và loại III** trong khoảng 8–12 tuần. Kết quả không phải là thể tích được thêm vào theo nghĩa truyền thống, mà là sự phục hồi mật độ mô, độ dày của lớp bì, và tính toàn vẹn cấu trúc.
 
 Sự khác biệt này có ý nghĩa lâm sàng. Juvelook Volume không "làm đầy". Nó tái xây dựng.
+
+![Hai mạng lưới sợi giống vải đặt cạnh nhau — một thưa và lỏng, một dày đặc và có tổ chức hơn — đại diện cho sự phục hồi ma trận ngoại bào](/blog/images/juvelook-volume-clinical-applications-body-collagen.webp)
 
 ## Ứng dụng 1 — Rãnh mũi má
 
@@ -157,6 +160,8 @@ Công thức của Juvelook Volume mang lại một hồ sơ nguy cơ-lợi ích
 - **Kỹ thuật:** Micro-bolus (0.02–0.05mL mỗi điểm tiêm), cách nhau gần dọc theo tear trough và viền dưới ổ mắt
 - **Số buổi:** 2 buổi, cách nhau 4–6 tuần
 - **Ghi chú an toàn quan trọng:** Giữ nghiêm ngặt mặt phẳng lớp bì sâu; hút ngược trước khi tiêm; tránh gần medial canthus để ngăn ngừa tổn thương mạch máu
+
+![Sơ đồ kiến trúc tối giản với bốn vòng tròn vàng nhỏ nối với nhau bằng các đường chấm mảnh trên giấy ngà, đánh dấu bốn vùng giải phẫu](/blog/images/juvelook-volume-clinical-applications-body-landmarks.webp)
 
 ## Triết lý lâm sàng
 

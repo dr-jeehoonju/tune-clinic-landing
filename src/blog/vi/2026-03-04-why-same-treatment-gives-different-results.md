@@ -5,6 +5,7 @@ slug: why-same-treatment-gives-different-results
 date: 2026-03-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [skin-science, personalization, education]
+ogImage: /blog/images/why-same-treatment-gives-different-results-hero.webp
 ---
 
 ## Câu hỏi cứ liên tục xuất hiện
@@ -18,6 +19,8 @@ Một số bệnh nhân thấy thay đổi rõ. Một số khác lại có cảm
 Khoảng cách này hiếm khi được giải thích bằng chất lượng của chính thủ thuật. Trong hầu hết các trường hợp, nó đến từ sự khác biệt về tình trạng da và hoàn cảnh mà trong đó phương pháp được áp dụng.
 
 Trong y học thẩm mỹ, kết quả ít bị ảnh hưởng bởi phương pháp, mà nhiều hơn bởi các điều kiện mà trong đó phương pháp được sử dụng.
+
+![Bộ ba bức ảnh chụp cùng một lá monstera dưới ba góc chiếu sáng khác nhau, mỗi bức đọc như một vật thể khác nhau](/blog/images/why-same-treatment-gives-different-results-body-leaves.webp)
 
 ## Đáp ứng của da thay đổi nhiều hơn bạn nghĩ
 

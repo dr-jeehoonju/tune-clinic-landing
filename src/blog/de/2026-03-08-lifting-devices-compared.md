@@ -5,6 +5,7 @@ slug: lifting-devices-compared
 date: 2026-03-08
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [lifting, ultherapy, thermage, education]
+ogImage: /blog/images/lifting-devices-compared-hero.webp
 ---
 
 ## Sie sind keine Konkurrenten – sie ergänzen einander
@@ -12,6 +13,8 @@ tags: [lifting, ultherapy, thermage, education]
 Patientinnen fragen häufig: "Was ist besser – Ultherapy oder Thermage?" Diese Frage unterstellt, dass beide Geräte dasselbe leisten. Das tun sie nicht.
 
 Jedes Gerät wirkt auf eine andere Gewebeschicht, erzeugt eine andere Art von Reaktion und eignet sich für ein anderes klinisches Szenario. Die Wahl zwischen ihnen ist nicht wie die Wahl zwischen zwei Restaurants. Es ist eher wie die Wahl zwischen einer Fundamentsanierung und einer Oberflächenauffrischung.
+
+![Drei geometrische Messingobjekte unterschiedlicher Formen und Höhen auf einer Schieferfliese, jedes wirft einen Schatten in einem anderen Winkel – als Sinnbild für drei unterschiedliche Gewebetiefen](/blog/images/lifting-devices-compared-body-tools.webp)
 
 ## So wirkt jedes Gerät
 
@@ -67,6 +70,8 @@ Die ehrliche Antwort lautet, dass keines dieser Geräte universell geeignet ist.
 **Oligio** liegt zwischen den beiden. Es ist eine sinnvolle Wahl für Patientinnen, die eine breite Festigung ohne die präzise tiefenfokussierte Wirkung von Ultherapy oder die volumetrische dermale Erwärmung von Thermage wünschen – und für solche, die eine angenehmere Sitzung benötigen, da die Energieverteilung tendenziell weniger punktgenau ist.
 
 Der Punkt ist nicht, diese Geräte zu ranken. Es geht darum zu erkennen, dass die Wahl des falschen Geräts für die eigene Anatomie weit häufiger vorkommt als die Wahl eines "schlechten" Geräts.
+
+![Drei kleine Papierquadrate auf einer Schieferfläche, beleuchtet von allmählich wärmer werdendem Tageslicht von kühl bis golden – eine Metapher für den Behandlungsverlauf über Monate](/blog/images/lifting-devices-compared-body-timeline.webp)
 
 ## Was auf der Zeitachse zu erwarten ist
 

@@ -5,6 +5,7 @@ slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [natural-results, facial-harmony, treatment-planning, consultation, education]
+ogImage: /blog/images/how-natural-looking-change-is-created-hero.webp
 ---
 
 ## Yêu cầu phổ biến nhất cũng là yêu cầu khó định nghĩa nhất
@@ -51,6 +52,8 @@ Bệnh nhân hiếm khi mô tả điều này bằng ngôn ngữ kỹ thuật. H
    Cách tiếp cận đúng phụ thuộc vào tình trạng da và cấu trúc tại thời điểm cụ thể này. Một kế hoạch phù hợp với một bệnh nhân, hoặc thậm chí cùng một bệnh nhân tại thời điểm khác, có thể không phù hợp với giải phẫu hiện tại.
 
 Khi ba tiêu chuẩn này được đồng nhất, khuôn mặt thay đổi mà không mất đi sự liên tục của chính nó.
+
+![Bàn tay nhà điêu khắc rút một dụng cụ gỗ nhỏ khỏi khối đất sét chưa hoàn thiện — quyết định dừng lại](/blog/images/how-natural-looking-change-is-created-body-sculptor.webp)
 
 ## Phán đoán khó nhất là biết khi nào nên dừng
 

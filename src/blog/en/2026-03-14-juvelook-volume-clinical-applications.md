@@ -5,6 +5,7 @@ slug: juvelook-volume-clinical-applications
 date: 2026-03-14
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [juvelook, biostimulator, collagen, nasolabial-folds, marionette-lines, midface, under-eye, education]
+ogImage: /blog/images/juvelook-volume-clinical-applications-hero.webp
 ---
 
 ## Beyond the filler paradigm
@@ -25,6 +26,8 @@ Juvelook Volume (manufactured by Humedix, South Korea) is a reconstitutable lyop
 The mechanism is sequential: the HA provides an initial tissue support scaffold while the PDLLA microspheres trigger a controlled foreign-body response, stimulating **type I and type III collagen neosynthesis** over 8–12 weeks. The result is not added volume in the traditional sense, but restored tissue density, dermal thickness, and structural integrity.
 
 This distinction matters clinically. Juvelook Volume does not "fill." It rebuilds.
+
+![Two textile-like fibre networks side by side — one loose and sparse, the other denser and more organised — representing extracellular matrix restoration](/blog/images/juvelook-volume-clinical-applications-body-collagen.webp)
 
 ## Application 1 — Nasolabial folds
 
@@ -157,6 +160,8 @@ Juvelook Volume's formulation provides a fundamentally different risk-benefit pr
 - **Technique:** Micro-bolus (0.02–0.05mL per injection point), closely spaced along the tear trough and infraorbital rim
 - **Sessions:** 2 sessions at 4–6 week intervals
 - **Critical safety note:** Maintain strict deep dermal plane; aspiration before injection; avoid medial canthus proximity to prevent vascular compromise
+
+![Minimalist architectural diagram of four small gold circles connected by fine dotted lines on ivory paper, marking the four anatomical zones](/blog/images/juvelook-volume-clinical-applications-body-landmarks.webp)
 
 ## The clinical philosophy
 

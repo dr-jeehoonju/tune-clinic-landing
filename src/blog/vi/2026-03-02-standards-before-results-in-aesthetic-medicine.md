@@ -5,6 +5,7 @@ slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [philosophy, decision-making, education]
+ogImage: /blog/images/standards-before-results-in-aesthetic-medicine-hero.webp
 ---
 
 ## Khoảng cách thông tin không phải như bạn nghĩ
@@ -16,6 +17,8 @@ Tuy vậy, có một điều thú vị cứ lặp đi lặp lại. Bệnh nhân 
 Đây không chỉ đơn thuần là vấn đề marketing. Nó phản ánh một sự dịch chuyển sâu hơn: niềm tin đã chuyển từ *chuyên môn* sang *khả năng tiếp cận*. Những thông tin dễ so sánh và dễ đánh giá nhanh đã thay thế tư duy lâm sàng tinh tế làm cơ sở cho việc ra quyết định.
 
 Đó là nơi mà phần lớn sự bối rối xung quanh các thủ thuật thẩm mỹ bắt đầu.
+
+![Phòng tư vấn trống với hai chiếc ghế và một chiếc bàn phụ thấp dưới ánh sáng giờ vàng](/blog/images/standards-before-results-in-aesthetic-medicine-body-room.webp)
 
 ## "Tôi đã đi tư vấn, nhưng giờ lại càng rối hơn"
 

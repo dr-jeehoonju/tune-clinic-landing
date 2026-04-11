@@ -5,6 +5,7 @@ slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [natural-results, facial-harmony, treatment-planning, consultation, education]
+ogImage: /blog/images/how-natural-looking-change-is-created-hero.webp
 ---
 
 ## Самая частая просьба — и самую сложно определимая
@@ -51,6 +52,8 @@ tags: [natural-results, facial-harmony, treatment-planning, consultation, educat
    Правильный подход зависит от состояния кожи и структуры именно в этот момент. План, подходящий одному пациенту — или тому же пациенту в другое время, — может не подойти нынешней анатомии.
 
 Когда эти три стандарта согласованы, лицо меняется, не теряя собственной непрерывности.
+
+![Рука скульптора, отводящая маленький деревянный инструмент от незавершённой глиняной формы, — решение остановиться](/blog/images/how-natural-looking-change-is-created-body-sculptor.webp)
 
 ## Самое трудное решение — знать, где остановиться
 

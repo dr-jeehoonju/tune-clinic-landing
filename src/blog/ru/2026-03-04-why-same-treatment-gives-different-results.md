@@ -5,6 +5,7 @@ slug: why-same-treatment-gives-different-results
 date: 2026-03-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [skin-science, personalization, education]
+ogImage: /blog/images/why-same-treatment-gives-different-results-hero.webp
 ---
 
 ## Вопрос, который звучит снова и снова
@@ -18,6 +19,8 @@ tags: [skin-science, personalization, education]
 Этот разрыв редко объясняется качеством самой процедуры. В большинстве случаев он сводится к различиям в состоянии кожи и условиях, при которых проводилось лечение.
 
 В эстетической медицине на результат влияет не столько метод, сколько условия, в которых он применялся.
+
+![Триптих одного и того же листа монстеры, снятого под тремя разными углами освещения — каждый кадр читается как другой объект](/blog/images/why-same-treatment-gives-different-results-body-leaves.webp)
 
 ## Реакция кожи варьируется сильнее, чем можно подумать
 

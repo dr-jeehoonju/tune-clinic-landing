@@ -1,0 +1,159 @@
+{
+  "styleSuffix": "Editorial photography for a high-end aesthetic medicine clinic. Minimalist composition with deep negative space. Cinematic natural light, soft directional shadows. Muted slate-grey and warm antique-gold palette. Calm, clinical but not sterile. No faces, no skin close-ups, no syringes, no before-after framing, no stock-photo feel. High-end print magazine quality, 35mm, shallow depth of field. IMPORTANT: no text, no letters, no typography, no labels, no words, no captions, no numbers anywhere in the image.",
+  "defaults": {
+    "aspectRatio": "16:9",
+    "numberOfImages": 1
+  },
+  "images": [
+    {
+      "slug": "why-filler-fears-are-outdated",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "An empty glass vial and a single folded surgical glove resting on a pale marble counter in a modern Seoul clinic. Strong side light from a large window, long soft shadow. Nothing else in the frame. Muted, contemplative, quietly premium."
+    },
+    {
+      "slug": "why-filler-fears-are-outdated",
+      "kind": "body-technique",
+      "aspectRatio": "4:3",
+      "prompt": "Overhead still life: a single stainless steel cannula resting on a neatly folded white linen cloth next to a small brushed-metal tray. Nothing medical or graphic. Quiet, precise, craftsman energy. Black and white with warm tone."
+    },
+    {
+      "slug": "standards-before-results-in-aesthetic-medicine",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "An antique brass balance scale on a pale marble tabletop, one pan empty, the other holding a small smooth river stone. Single feather on the marble beside it. Soft morning light from the left. Contemplative, philosophical, timeless."
+    },
+    {
+      "slug": "standards-before-results-in-aesthetic-medicine",
+      "kind": "body-room",
+      "aspectRatio": "16:9",
+      "prompt": "An empty consultation room: two simple upholstered chairs facing each other, a low side table between them with a single glass of water. Large window, backlit golden-hour light. No people. Architectural, quiet, designed."
+    },
+    {
+      "slug": "why-same-treatment-gives-different-results",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "Six different marble samples arranged in a loose grid on a neutral surface, each with distinct veining and colour. Raking daylight from the side emphasising the different grains. Museum specimen styling. Metaphor for individual variation under identical conditions."
+    },
+    {
+      "slug": "why-same-treatment-gives-different-results",
+      "kind": "body-leaves",
+      "aspectRatio": "4:3",
+      "prompt": "Three photographs of the same single monstera leaf, arranged in a triptych, each shot under a completely different lighting angle so the same subject reads as three different objects. Editorial studio still life."
+    },
+    {
+      "slug": "lifting-devices-compared",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "An elegant abstract line drawing on heavy ivory paper showing four distinct horizontal stratified zones of varying line density and texture — one airy and fine, one denser with woven gold lines, one architecturally rigid with parallel strokes, one open with soft curves. Pure fine gold ink on cream paper. Studio overhead photograph on a neutral linen surface. No words, no text, no letters, no labels, no annotations, no numbers — purely visual geometric differentiation between zones."
+    },
+    {
+      "slug": "lifting-devices-compared",
+      "kind": "body-tools",
+      "aspectRatio": "16:9",
+      "prompt": "Still life of three abstract geometric sculptural objects of different heights and shapes standing in a row on a matte slate surface. Each casts its own shadow at a different angle. No medical objects. Metaphor for three different depths of targeting."
+    },
+    {
+      "slug": "lifting-devices-compared",
+      "kind": "body-timeline",
+      "aspectRatio": "16:9",
+      "prompt": "Three folded cream-coloured calendar pages or paper rectangles laid flat on a slate surface in a horizontal row, each with a small pencilled mark. Sunlight moving subtly from left (soft) to centre (brighter) to right (warm golden). Visualises progression over time."
+    },
+    {
+      "slug": "why-lifting-comparisons-are-misleading",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A folded pair of thin reading glasses resting on a printed comparison chart of empty rows and columns on textured ivory paper. Warm desk lamp light from one side. Monochrome desk, quiet, analytical mood."
+    },
+    {
+      "slug": "why-lifting-comparisons-are-misleading",
+      "kind": "body-puzzle",
+      "aspectRatio": "4:3",
+      "prompt": "Three puzzle pieces of clearly different shapes and sizes laid next to each other on a slate surface, none of them fitting together. Soft overhead light. Metaphor for problems that aren't actually comparable."
+    },
+    {
+      "slug": "juvelook-volume-clinical-applications",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A minimalist abstract contour line drawing on heavy ivory paper, rendered in fine continuous gold ink, suggesting the quiet architecture of a side profile in the most reduced form possible — only two or three elegant curved lines. Four tiny solid gold dots placed along the line at different positions. No facial features, no eyes, no mouth, no text, no letters, no words, no labels, no annotations, no numbers anywhere. Studio overhead photograph of the paper on a neutral dark linen surface."
+    },
+    {
+      "slug": "juvelook-volume-clinical-applications",
+      "kind": "body-collagen",
+      "aspectRatio": "16:9",
+      "prompt": "Highly abstracted illustration of two textile-like fibre networks side by side: the left loose and sparse, the right denser and more organised. Rendered in warm cream and gold on a slate background. Metaphor for extracellular matrix restoration. Not medical, not biological — textile-art aesthetic."
+    },
+    {
+      "slug": "juvelook-volume-clinical-applications",
+      "kind": "body-landmarks",
+      "aspectRatio": "4:3",
+      "prompt": "A minimalist architectural diagram showing four small circles connected by fine dotted gold lines on ivory paper, each circle labelled only with a thin tick mark. Abstract topography, no facial features. Studio overhead photograph."
+    },
+    {
+      "slug": "skin-aging-structural-change",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A weathered stone archway slightly leaning under its own weight, photographed from the side in dramatic low light. Black and white with a hint of warm tone. Metaphor for structural collapse preceding surface damage. Timeless, architectural."
+    },
+    {
+      "slug": "skin-aging-structural-change",
+      "kind": "body-layers",
+      "aspectRatio": "16:9",
+      "prompt": "A studio overhead photograph of a stack of five horizontally arranged thin flat material samples of distinctly different textures and tones resting on a neutral slate surface — one smooth ivory marble, one soft cream paper, one raw linen, one pale fibrous wood, one pale stone. Each sample is a thin rectangle of identical shape, stacked vertically with small gaps between. Side light. Pure architectural still life. No words, no text, no letters, no labels, no numbers anywhere."
+    },
+    {
+      "slug": "skin-aging-structural-change",
+      "kind": "body-tent",
+      "aspectRatio": "16:9",
+      "prompt": "An elegant canvas tent whose central support pole has partially collapsed, photographed at dusk in soft monochromatic light. The fabric sags but is not torn. Metaphor: smoothing the fabric cannot fix the shape once the frame has collapsed."
+    },
+    {
+      "slug": "how-natural-looking-change-is-created",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A minimalist East Asian ink painting with only three or four confident brushstrokes on cream rice paper, the composition dominated by negative space. Subject is an abstract bent branch. Single brush resting beside the paper. Contemplative, disciplined restraint."
+    },
+    {
+      "slug": "how-natural-looking-change-is-created",
+      "kind": "body-sculptor",
+      "aspectRatio": "4:3",
+      "prompt": "Close-up of a sculptor's hand in a moment of pause, holding a small wooden tool just slightly withdrawn from an unfinished clay form on a studio stand. Warm raking light. No face visible. The frame captures the decision to stop."
+    },
+    {
+      "slug": "exosomes-in-aesthetic-medicine",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "Highly abstract photograph of tiny golden light particles suspended in a dark slate-blue void, loosely connected by faint threads of light. Scientific yet artistic. No cells, no biology — pure abstraction of signalling and connection."
+    },
+    {
+      "slug": "exosomes-in-aesthetic-medicine",
+      "kind": "body-vesicle",
+      "aspectRatio": "4:3",
+      "prompt": "An editorial cross-section illustration of a single spherical vesicle with a clearly visible double-layer membrane, tiny abstract cargo shapes arranged inside. Drawn in fine gold ink on ivory paper. Textbook-page aesthetic, overhead studio photograph."
+    },
+    {
+      "slug": "exosomes-in-aesthetic-medicine",
+      "kind": "body-letter",
+      "aspectRatio": "16:9",
+      "prompt": "A single wax-sealed ivory envelope resting on a dark slate desk next to a pen, photographed from above in directional morning light. The wax seal is warm amber. Metaphor: a sealed letter addressed to a specific recipient — cellular signalling as targeted communication."
+    },
+    {
+      "slug": "pico-fractional-laser-explained",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "Extreme high-speed photograph of a single water droplet frozen mid-impact, forming a delicate crown splash against a dark slate background. Subtle warm gold rim-light on the crown. Frozen time, physics as aesthetic — metaphor for picosecond duration."
+    },
+    {
+      "slug": "pico-fractional-laser-explained",
+      "kind": "body-liob",
+      "aspectRatio": "16:9",
+      "prompt": "A flat minimalist technical diagram viewed head-on, filling the entire frame. A single thin horizontal ivory line crosses the middle of the frame representing an intact top surface. Below that line, a row of small vertical oval shapes in soft gold and ivory floats within a gradient slate-blue background, representing suspended subsurface formations. Pure flat schematic abstraction — no room, no objects, no environment, no furniture, no scenery. Rendered like a fine gold-ink textbook cross-section on dark slate canvas."
+    },
+    {
+      "slug": "pico-fractional-laser-explained",
+      "kind": "body-timeline",
+      "aspectRatio": "16:9",
+      "prompt": "A triptych of a single empty windowsill photographed at three different times of day — cool early dawn, soft mid-morning, warm golden noon — arranged horizontally. Each frame identical in composition, only the light has changed. Metaphor for gradual progression over weeks."
+    }
+  ]
+}

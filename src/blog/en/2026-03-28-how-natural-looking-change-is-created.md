@@ -5,6 +5,7 @@ slug: how-natural-looking-change-is-created
 date: 2026-03-28
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [natural-results, facial-harmony, treatment-planning, consultation, education]
+ogImage: /blog/images/how-natural-looking-change-is-created-hero.webp
 ---
 
 ## The most common request is also the hardest to define
@@ -51,6 +52,8 @@ To create a result that feels natural and comfortable, three criteria should be 
    The right approach depends on the skin and structural condition at this specific moment. A plan that suits one patient, or even the same patient at a different time, may not suit the present anatomy.
 
 When these three standards are aligned, the face changes without losing its own continuity.
+
+![Sculptor's hand withdrawing a small wooden tool from an unfinished clay form — the decision to stop](/blog/images/how-natural-looking-change-is-created-body-sculptor.webp)
 
 ## The hardest judgment is knowing where to stop
 

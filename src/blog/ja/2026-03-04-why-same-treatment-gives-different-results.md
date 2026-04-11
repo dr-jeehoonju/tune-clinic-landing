@@ -5,11 +5,14 @@ slug: why-same-treatment-gives-different-results
 date: 2026-03-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [皮膚科学, パーソナライズ, 教育]
+ogImage: /blog/images/why-same-treatment-gives-different-results-hero.webp
 ---
 
 「友達と同じ施術を受けたのに、私だけ効果を感じなかった」——美容クリニックで最もよく聞かれる言葉のひとつです。同じ機器、同じ設定、同じ医師。それなのに結果が違う。不思議に思うのは当然のことです。
 
 しかし、この疑問の裏には、美容医療を理解する上で非常に重要な原則が隠されています。
+
+![同じモンステラの葉を三つの異なる光の角度で撮影した三連画。それぞれ別の物体のように見える](/blog/images/why-same-treatment-gives-different-results-body-leaves.webp)
 
 ## 肌の反応は一人ひとり異なる
 

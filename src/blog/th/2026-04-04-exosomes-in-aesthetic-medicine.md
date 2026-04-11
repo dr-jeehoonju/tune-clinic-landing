@@ -5,6 +5,7 @@ slug: exosomes-in-aesthetic-medicine
 date: 2026-04-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [exosome, regenerative, skin, hair]
+ogImage: /blog/images/exosomes-in-aesthetic-medicine-hero.webp
 ---
 
 ## ก้าวข้าม growth factor — ส่งมอบภาษาที่เซลล์ใช้สื่อสารกัน
@@ -14,6 +15,8 @@ tags: [exosome, regenerative, skin, hair]
 แต่เซลล์ไม่ได้ทำงานจากสัญญาณแยกเดี่ยว เซลล์สื่อสารกันผ่านแพ็กเกจที่มีโครงสร้าง — ถุงระดับนาโนที่บรรจุไม่ใช่แค่โมเลกุลเดียว แต่เป็นชุดคำสั่งทั้งชุด สิ่งนี้คือ **exosome**
 
 Exosome ไม่ใช่ growth factor มันคือ**คำสั่งระดับเซลล์** — ข้อความที่บอกเซลล์ผู้รับว่าควรกลายเป็นอะไร ควรผลิตอะไร และควรทำงานอย่างไร ความแตกต่างนี้ไม่ใช่แค่ระดับเล็กน้อย แต่เป็นระดับสถาปัตยกรรม
+
+![ภาพประกอบเชิงบรรณาธิการของถุงทรงกลมในภาพตัดขวาง เห็นเยื่อหุ้มสองชั้นชัดเจน และสารภายในแบบนามธรรม วาดด้วยหมึกสีทองบนกระดาษสีงาช้าง](/blog/images/exosomes-in-aesthetic-medicine-body-vesicle.webp)
 
 ## Exosome คืออะไรกันแน่
 
@@ -27,6 +30,8 @@ Exosome เป็นกลุ่มย่อยของ **extracellular vesicle
 - **โมเลกุลลิพิด** — องค์ประกอบโครงสร้างและตัวกลางส่งสัญญาณ
 
 > แนวคิดสำคัญ: exosome ไม่ใช่ growth factor มันคือชุดคำสั่งที่**รีโปรแกรม phenotype ของเซลล์ผู้รับ**
+
+![ซองจดหมายสีงาช้างปิดผนึกด้วยขี้ผึ้ง วางอยู่บนโต๊ะหินชนวน เป็นอุปมาสำหรับการส่งสัญญาณระดับเซลล์ที่มีเป้าหมายเฉพาะ](/blog/images/exosomes-in-aesthetic-medicine-body-letter.webp)
 
 ## Exosome ถูกผลิตและส่งมอบอย่างไร
 

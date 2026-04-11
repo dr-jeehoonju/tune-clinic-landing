@@ -5,6 +5,7 @@ slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [philosophy, decision-making, education]
+ogImage: /blog/images/standards-before-results-in-aesthetic-medicine-hero.webp
 ---
 
 ## L'asymétrie d'information n'est pas ce que vous croyez
@@ -16,6 +17,8 @@ Et pourtant, quelque chose d'intéressant se produit régulièrement. Les patien
 Il ne s'agit pas simplement d'un problème de marketing. Cela reflète un glissement plus profond : la confiance s'est déplacée de l'*expertise* vers l'*accessibilité*. L'information facile à comparer et rapide à juger a remplacé le raisonnement clinique nuancé comme base de décision.
 
 C'est là que commence la plupart de la confusion entourant les traitements esthétiques.
+
+![Salle de consultation vide avec deux fauteuils et une table basse dans la lumière dorée de fin de journée](/blog/images/standards-before-results-in-aesthetic-medicine-body-room.webp)
 
 ## « J'ai eu une consultation, mais maintenant je suis encore plus perdu »
 

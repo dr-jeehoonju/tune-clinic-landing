@@ -5,6 +5,7 @@ slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [aging, anti-aging, collagen, structure, education]
+ogImage: /blog/images/skin-aging-structural-change-hero.webp
 ---
 
 ## Pourquoi le visage dans le miroir semble différent
@@ -18,6 +19,8 @@ La plupart des gens interprètent cela comme « Je prends des rides ». Le premi
 Mais dans la plupart des cas, la vraie cause est ailleurs.
 
 Le vieillissement cutané ne commence pas à la surface. Les changements visibles que vous remarquez sont presque toujours le *résultat final* de déplacements structurels qui se produisent sous la peau — bien avant qu'une seule ride n'apparaisse.
+
+![Empilement de sept fins échantillons de matériaux aux textures différentes — marbre, lin, bois, pierre — représentant l'architecture stratifiée du tissu facial](/blog/images/skin-aging-structural-change-body-layers.webp)
 
 ## La peau n'est pas qu'une surface
 
@@ -45,6 +48,8 @@ Au fil des années, le visage ne se contente pas de « se rider ». Plusieurs pr
 L'effet combiné n'est pas « des rides ». C'est un déplacement global de la géométrie faciale — déflation, descente et perte de convexité.
 
 Les rides qui apparaissent ne sont pas la cause. Elles sont une *conséquence* — des plis de surface formés parce que le soutien sous-jacent a changé.
+
+![Tente en toile dont le mât central est partiellement effondré, luisant doucement au crépuscule — lisser le tissu ne peut pas corriger la forme une fois la structure affaissée](/blog/images/skin-aging-structural-change-body-tent.webp)
 
 ## Pourquoi traiter les rides seules a ses limites
 

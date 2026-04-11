@@ -5,6 +5,7 @@ slug: lifting-devices-compared
 date: 2026-03-08
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [lifting, ultherapy, thermage, education]
+ogImage: /blog/images/lifting-devices-compared-hero.webp
 ---
 
 ## They are not competitors — they are complements
@@ -12,6 +13,8 @@ tags: [lifting, ultherapy, thermage, education]
 Patients frequently ask: "Which is better — Ultherapy or Thermage?" This question assumes the two devices do the same thing. They do not.
 
 Each device works on a different tissue layer, produces a different type of response, and is suited for a different clinical scenario. Choosing between them is not like choosing between two restaurants. It is more like choosing between a foundation repair and a surface refinish.
+
+![Three brass geometric objects of different shapes and heights arranged on a slate tile, each casting a shadow at a different angle, representing three different depths of tissue targeting](/blog/images/lifting-devices-compared-body-tools.webp)
 
 ## How each device works
 
@@ -67,6 +70,8 @@ The honest answer is that none of these devices are universally appropriate. Eac
 **Oligio** sits between the two. It is a reasonable choice for patients who want broad firming without the precision-targeted depth of Ultherapy or the bulk dermal heating of Thermage — and for those who need a more comfortable session, since the energy spread tends to be less pinpointed.
 
 The point is not to rank these devices. It is to recognize that picking the wrong one for your specific anatomy is far more common than picking a "bad" device.
+
+![Three small paper squares laid on a slate surface under progressively warming daylight from cool to golden, as a metaphor for treatment progression over months](/blog/images/lifting-devices-compared-body-timeline.webp)
 
 ## What to expect on the timeline
 

@@ -5,6 +5,7 @@ slug: why-lifting-comparisons-are-misleading
 date: 2026-03-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [lifting, ultherapy, thermage, education]
+ogImage: /blog/images/why-lifting-comparisons-are-misleading-hero.webp
 ---
 
 ## Сравнение, с которого начинается любой поиск
@@ -33,6 +34,8 @@ tags: [lifting, ultherapy, thermage, education]
 Ключевая мысль: хотя всё это называется «лифтингом», энергия достигает разной глубины и вызывает разные типы изменений.
 
 Сравнение их бок о бок без понимания этой разницы затрудняет решение, а не облегчает его.
+
+![Три кусочка пазла явно разных форм и размеров, лежащих бок о бок на сланцевой поверхности — ни один из них не подходит к другому](/blog/images/why-lifting-comparisons-are-misleading-body-puzzle.webp)
 
 ## У провисания больше одной причины
 

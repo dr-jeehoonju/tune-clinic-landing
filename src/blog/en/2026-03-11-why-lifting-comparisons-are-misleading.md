@@ -5,6 +5,7 @@ slug: why-lifting-comparisons-are-misleading
 date: 2026-03-11
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [lifting, ultherapy, thermage, education]
+ogImage: /blog/images/why-lifting-comparisons-are-misleading-hero.webp
 ---
 
 ## The comparison that starts every search
@@ -33,6 +34,8 @@ On the surface, every lifting treatment looks like it does the same thing — ti
 The key insight: even though these are all called "lifting," the energy reaches different depths and produces different types of change.
 
 Comparing them side-by-side without understanding this difference makes the decision harder, not easier.
+
+![Three puzzle pieces of clearly different shapes and sizes laid side by side on a slate surface, none of them fitting together](/blog/images/why-lifting-comparisons-are-misleading-body-puzzle.webp)
 
 ## Sagging has more than one cause
 

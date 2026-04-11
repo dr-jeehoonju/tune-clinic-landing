@@ -5,6 +5,7 @@ slug: standards-before-results-in-aesthetic-medicine
 date: 2026-03-02
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [philosophy, decision-making, education]
+ogImage: /blog/images/standards-before-results-in-aesthetic-medicine-hero.webp
 ---
 
 ## Die Informationslücke ist nicht das, wofür Sie sie halten
@@ -16,6 +17,8 @@ Und doch passiert etwas Interessantes. Patientinnen betreten die Klinik und vert
 Das ist nicht einfach ein Marketingproblem. Es spiegelt eine tiefere Verschiebung wider: Vertrauen hat sich von *Expertise* zu *Zugänglichkeit* verlagert. Leicht vergleichbare und schnell bewertbare Informationen haben die nuancierte klinische Überlegung als Grundlage für Entscheidungen ersetzt.
 
 Genau dort beginnt die meiste Verwirrung rund um ästhetische Behandlungen.
+
+![Leerer Beratungsraum mit zwei Stühlen und einem niedrigen Beistelltisch im Licht der goldenen Stunde](/blog/images/standards-before-results-in-aesthetic-medicine-body-room.webp)
 
 ## "Ich hatte eine Beratung, aber jetzt bin ich noch verwirrter"
 

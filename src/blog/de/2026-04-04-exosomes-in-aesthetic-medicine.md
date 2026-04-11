@@ -5,6 +5,7 @@ slug: exosomes-in-aesthetic-medicine
 date: 2026-04-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [exosome, regenerative, skin, hair]
+ogImage: /blog/images/exosomes-in-aesthetic-medicine-hero.webp
 ---
 
 ## Jenseits der Wachstumsfaktoren – die Sprache liefern, die Zellen zur Kommunikation verwenden
@@ -14,6 +15,8 @@ Jahrelang konzentrierte sich die regenerative Ästhetik darauf, Wachstumsfaktore
 Doch Zellen arbeiten nicht mit isolierten Signalen. Sie kommunizieren über strukturierte Pakete – nanoskalige Vesikel, die nicht nur ein einzelnes Molekül, sondern einen ganzen Befehlssatz tragen. Das sind **Exosomen**.
 
 Ein Exosom ist kein Wachstumsfaktor. Es ist eine **zelluläre Anweisung** – eine Botschaft, die der empfangenden Zelle sagt, was sie werden, was sie produzieren und wie sie sich verhalten soll. Der Unterschied ist nicht graduell. Er ist architektonisch.
+
+![Editorial-Querschnittillustration eines kugelförmigen Vesikels mit sichtbarer Doppelmembran und abstrakter Fracht im Inneren, in Goldtinte auf elfenbeinfarbenem Papier](/blog/images/exosomes-in-aesthetic-medicine-body-vesicle.webp)
 
 ## Was Exosomen tatsächlich sind
 
@@ -27,6 +30,8 @@ Bemerkenswert ist, was sie in ihrem Inneren tragen:
 - **Lipidmoleküle** — strukturelle Komponenten und Signalmediatoren
 
 > Das Kernkonzept: Exosomen sind selbst keine Wachstumsfaktoren. Sie sind Anweisungssätze, die **den Phänotyp der empfangenden Zelle neu programmieren**.
+
+![Mit Wachs versiegelter elfenbeinfarbener Briefumschlag auf einem Schieferschreibtisch als Metapher für zielgerichtete zelluläre Signalübertragung](/blog/images/exosomes-in-aesthetic-medicine-body-letter.webp)
 
 ## Wie Exosomen produziert und geliefert werden
 

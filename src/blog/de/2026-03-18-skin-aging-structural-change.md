@@ -5,6 +5,7 @@ slug: skin-aging-structural-change
 date: 2026-03-18
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [aging, anti-aging, collagen, structure, education]
+ogImage: /blog/images/skin-aging-structural-change-hero.webp
 ---
 
 ## Warum das Gesicht im Spiegel anders wirkt
@@ -18,6 +19,8 @@ Die meisten interpretieren das als "Ich bekomme Falten". Der erste Instinkt ist 
 Doch in den meisten Fällen liegt die eigentliche Ursache ganz woanders.
 
 Hautalterung beginnt nicht an der Oberfläche. Die sichtbaren Veränderungen, die Ihnen auffallen, sind fast immer das *Endergebnis* struktureller Verschiebungen, die sich unter der Haut abspielen – lange bevor eine einzige Falte erscheint.
+
+![Stapel aus sieben dünnen Materialproben unterschiedlicher Texturen – Marmor, Leinen, Holz, Stein – als Sinnbild für die geschichtete Architektur des Gesichtsgewebes](/blog/images/skin-aging-structural-change-body-layers.webp)
 
 ## Haut ist nicht bloß eine Oberfläche
 
@@ -45,6 +48,8 @@ Im Lauf der Jahre bekommt das Gesicht nicht einfach "Falten". Mehrere strukturel
 Der kombinierte Effekt sind nicht "Falten". Es ist eine globale Verschiebung der Gesichtsgeometrie – Deflation, Abstieg und Verlust der Konvexität.
 
 Die Falten, die erscheinen, sind nicht die Ursache. Sie sind eine *Folge* – Oberflächenkerben, die entstehen, weil sich die zugrunde liegende Abstützung verändert hat.
+
+![Leinenzelt mit teilweise eingeknicktem Mittelmast, in der Dämmerung sanft leuchtend – den Stoff zu glätten kann die Form nicht wiederherstellen, wenn das Gerüst zusammengebrochen ist](/blog/images/skin-aging-structural-change-body-tent.webp)
 
 ## Warum das alleinige Behandeln von Falten Grenzen hat
 

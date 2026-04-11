@@ -5,6 +5,7 @@ slug: exosomes-in-aesthetic-medicine
 date: 2026-04-04
 author: [cha-seung-yeon, ju-jee-hoon]
 tags: [exosome, regenerative, skin, hair]
+ogImage: /blog/images/exosomes-in-aesthetic-medicine-hero.webp
 ---
 
 ## Au-delà des facteurs de croissance — délivrer le langage que les cellules utilisent pour communiquer
@@ -14,6 +15,8 @@ Pendant des années, la médecine esthétique régénérative s'est concentrée 
 Mais les cellules ne fonctionnent pas à partir de signaux isolés. Elles communiquent par des paquets structurés — des vésicules à l'échelle nanométrique qui transportent non pas une seule molécule, mais un jeu d'instructions complet. Ce sont les **exosomes**.
 
 Un exosome n'est pas un facteur de croissance. C'est une **directive cellulaire** — un message qui dit à la cellule réceptrice ce qu'elle doit devenir, ce qu'elle doit produire et comment se comporter. La différence n'est pas incrémentale. Elle est architecturale.
+
+![Illustration éditoriale en coupe d'une vésicule sphérique avec une membrane à double couche visible et une cargaison abstraite à l'intérieur, rendue à l'encre dorée sur papier ivoire](/blog/images/exosomes-in-aesthetic-medicine-body-vesicle.webp)
 
 ## Ce que sont réellement les exosomes
 
@@ -27,6 +30,8 @@ Ce qui les rend remarquables, c'est ce qu'ils transportent à l'intérieur :
 - **Molécules lipidiques** — composants structurels et médiateurs de signalisation
 
 > Le concept clé : les exosomes ne sont pas des facteurs de croissance eux-mêmes. Ce sont des jeux d'instructions qui **reprogramment le phénotype de la cellule réceptrice**.
+
+![Enveloppe ivoire scellée à la cire posée sur un bureau en ardoise, comme métaphore d'une signalisation cellulaire ciblée](/blog/images/exosomes-in-aesthetic-medicine-body-letter.webp)
 
 ## Comment les exosomes sont produits et délivrés
 
