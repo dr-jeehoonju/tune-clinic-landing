@@ -994,7 +994,7 @@ function renderBlogPost(post, localeData) {
   const formattedDate = formatBlogDate(post.date, post.locale);
   const tagBadges = post.tags.map((t) => `<span class="px-3 py-1 rounded-full border border-slate-200 text-slate-500 text-[10px] uppercase tracking-[0.15em] font-bold">${esc(t)}</span>`).join(" ");
   const ogAlternateTags = localeMeta.ogAlternates
-    .filter((v) => { const m = { en_US: "en", ja_JP: "ja", zh_CN: "zh", th_TH: "th" }; return m[v] && (post.availableLocales || []).includes(m[v]); })
+    .filter((v) => { const m = { en_US: "en", ja_JP: "ja", zh_CN: "zh", th_TH: "th", ko_KR: "ko", de_DE: "de", fr_FR: "fr", ru_RU: "ru", vi_VN: "vi" }; return m[v] && (post.availableLocales || []).includes(m[v]); })
     .map((v) => `<meta property="og:locale:alternate" content="${v}">`).join("\n  ");
   const authorNames = authors.map((a) => esc(a.name)).join(", ");
   const authorMeta = authors.map((a) => `<meta property="article:author" content="${esc(a.name)}">`).join("\n  ");
