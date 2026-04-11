@@ -326,7 +326,14 @@
         <div class="grid lg:grid-cols-2 gap-6">
           <!-- Weekly Template -->
           <div class="bg-white rounded-xl p-6 shadow-sm border">
-            <h3 class="font-bold text-slate-800 mb-4"><i class="fas fa-clock mr-2 text-gold"></i>요일별 운영시간</h3>
+            <h3 class="font-bold text-slate-800 mb-1"><i class="fas fa-clock mr-2 text-gold"></i>요일별 운영시간</h3>
+            <div class="flex items-center gap-3 py-1.5 mb-1 text-[10px] font-bold text-slate-400 uppercase">
+              <span class="w-12 shrink-0"></span>
+              <span class="w-[7.5rem] text-center">운영 시간</span>
+              <span class="text-slate-200"></span>
+              <span class="w-[7.5rem]"></span>
+              <span>예약 간격</span>
+            </div>
             <div id="schedule-week" class="space-y-3"></div>
             <button id="schedule-save-btn" class="mt-4 w-full py-2.5 bg-slate-900 text-white text-sm font-bold rounded-lg hover:bg-slate-800 transition">저장</button>
           </div>
@@ -1420,7 +1427,7 @@ function renderScheduleWeek() {
       <input type="time" class="sched-start border rounded px-2 py-1.5 text-sm" value="${t.start_time?.slice(0,5) || '10:00'}" ${!t.is_active ? 'disabled' : ''}>
       <span class="text-slate-400">~</span>
       <input type="time" class="sched-end border rounded px-2 py-1.5 text-sm" value="${t.end_time?.slice(0,5) || '18:00'}" ${!t.is_active ? 'disabled' : ''}>
-      <select class="sched-dur border rounded px-2 py-1.5 text-sm" ${!t.is_active ? 'disabled' : ''}>
+      <select class="sched-dur border rounded px-2 py-1.5 text-sm" title="예약 간격 (슬롯 단위)" ${!t.is_active ? 'disabled' : ''}>
         <option value="30" ${t.slot_duration_minutes === 30 ? 'selected' : ''}>30분</option>
         <option value="60" ${t.slot_duration_minutes === 60 ? 'selected' : ''}>60분</option>
       </select>
