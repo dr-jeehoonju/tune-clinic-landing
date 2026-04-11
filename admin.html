@@ -118,25 +118,25 @@
 
     <!-- ANALYTICS TAB -->
     <section id="tab-analytics" class="tab-content hidden">
-      <h2 class="text-xl font-bold text-slate-800 mb-6">통계 대시보드</h2>
+      <h2 class="text-xl font-bold text-slate-800 mb-6">예약 통계</h2>
 
-      <!-- Row 1: Summary Cards (8) -->
+      <!-- Row 1: Summary Cards -->
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-8" id="stat-cards"></div>
 
-      <!-- Row 2: Daily Trend (30 days) -->
+      <!-- Row 2: Daily Booking Trend (30 days) -->
       <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
-        <h3 class="font-bold text-sm text-slate-600 mb-4">일별 문의 추이 <span class="font-normal text-slate-400">(최근 30일)</span></h3>
+        <h3 class="font-bold text-sm text-slate-600 mb-4">일별 예약 추이 <span class="font-normal text-slate-400">(최근 30일)</span></h3>
         <canvas id="chart-daily" height="120"></canvas>
       </div>
 
       <!-- Row 3: Treatment Interest + Locale -->
       <div class="grid lg:grid-cols-2 gap-6 mb-6">
         <div class="bg-white rounded-xl p-6 shadow-sm border">
-          <h3 class="font-bold text-sm text-slate-600 mb-4">시술별 관심도</h3>
+          <h3 class="font-bold text-sm text-slate-600 mb-4">시술별 예약 현황</h3>
           <canvas id="chart-treatments" height="220"></canvas>
         </div>
         <div class="bg-white rounded-xl p-6 shadow-sm border">
-          <h3 class="font-bold text-sm text-slate-600 mb-4">언어별 문의 비율</h3>
+          <h3 class="font-bold text-sm text-slate-600 mb-4">언어별 예약 비율</h3>
           <canvas id="chart-locales" height="220"></canvas>
         </div>
       </div>
@@ -144,11 +144,11 @@
       <!-- Row 4: Status Distribution + Day-of-Week -->
       <div class="grid lg:grid-cols-2 gap-6 mb-6">
         <div class="bg-white rounded-xl p-6 shadow-sm border">
-          <h3 class="font-bold text-sm text-slate-600 mb-4">상태별 분포</h3>
+          <h3 class="font-bold text-sm text-slate-600 mb-4">예약 상태별 분포</h3>
           <canvas id="chart-status" height="220"></canvas>
         </div>
         <div class="bg-white rounded-xl p-6 shadow-sm border">
-          <h3 class="font-bold text-sm text-slate-600 mb-4">요일별 문의 패턴</h3>
+          <h3 class="font-bold text-sm text-slate-600 mb-4">요일별 예약 패턴</h3>
           <canvas id="chart-weekday" height="220"></canvas>
         </div>
       </div>
@@ -159,9 +159,9 @@
         <div class="overflow-x-auto" id="heatmap-container"></div>
       </div>
 
-      <!-- Row 6: Recent Timeline -->
+      <!-- Row 6: Recent Bookings Timeline -->
       <div class="bg-white rounded-xl p-6 shadow-sm border">
-        <h3 class="font-bold text-sm text-slate-600 mb-4">최근 문의 타임라인</h3>
+        <h3 class="font-bold text-sm text-slate-600 mb-4">최근 예약 타임라인</h3>
         <div id="timeline-container"></div>
       </div>
     </section>
@@ -647,14 +647,15 @@ $('#consult-modal').addEventListener('click', (e) => { if (e.target === e.curren
 let treatmentChart, localeChart, dailyChart, statusChart, weekdayChart;
 
 const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
-const LOCALE_LABELS = { en: 'EN', ja: 'JA', zh: 'ZH', th: 'TH' };
-const LOCALE_COLORS = { en: '#3b82f6', ja: '#ef4444', zh: '#f59e0b', th: '#10b981' };
-const STATUS_COLORS = { new: '#fbbf24', 'in-progress': '#60a5fa', replied: '#34d399', closed: '#94a3b8' };
+const LOCALE_LABELS = { en: 'English', ja: '日本語', zh: '中文', th: 'ไทย', ko: '한국어', vi: 'Tiếng Việt', de: 'Deutsch', fr: 'Français', ru: 'Русский' };
+const LOCALE_COLORS = { en: '#3b82f6', ja: '#ef4444', zh: '#f59e0b', th: '#10b981', ko: '#8b5cf6', vi: '#ec4899', de: '#6366f1', fr: '#14b8a6', ru: '#f97316' };
+const BSTATUS_COLORS = { pending: '#fbbf24', confirmed: '#34d399', cancelled: '#94a3b8', completed: '#60a5fa', no_show: '#f87171' };
+const BSTATUS_LABELS = { pending: '대기', confirmed: '확정', cancelled: '취소', completed: '완료', no_show: '노쇼' };
 
 function fmtDate(d) { return `${d.getMonth()+1}/${d.getDate()}`; }
 
 async function loadAnalytics() {
-  const { data } = await supabase.from('consultations').select('*');
+  const { data } = await supabase.from('bookings').select('*');
   const all = data || [];
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -662,25 +663,23 @@ async function loadAnalytics() {
   const monthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
 
   const total = all.length;
-  const todayCount = all.filter(c => new Date(c.created_at) >= today).length;
-  const thisWeek = all.filter(c => new Date(c.created_at) >= weekAgo).length;
-  const thisMonth = all.filter(c => new Date(c.created_at) >= monthAgo).length;
-  const newCount = all.filter(c => c.status === 'new').length;
-  const photoCount = all.filter(c => c.photo_urls && c.photo_urls.length > 0).length;
-  const photoRate = total > 0 ? Math.round((photoCount / total) * 100) : 0;
-  const resolved = all.filter(c => c.status === 'replied' || c.status === 'closed').length;
-  const convRate = total > 0 ? Math.round((resolved / total) * 100) : 0;
-  const avgReply = '–';
+  const todayCount = all.filter(b => new Date(b.created_at) >= today).length;
+  const thisWeek = all.filter(b => new Date(b.created_at) >= weekAgo).length;
+  const thisMonth = all.filter(b => new Date(b.created_at) >= monthAgo).length;
+  const pending = all.filter(b => b.status === 'pending').length;
+  const confirmed = all.filter(b => b.status === 'confirmed').length;
+  const cancelled = all.filter(b => b.status === 'cancelled').length;
+  const confirmRate = total > 0 ? Math.round((confirmed / total) * 100) : 0;
 
   $('#stat-cards').innerHTML = [
     { label: '오늘', value: todayCount, icon: 'fa-bolt', color: 'text-amber-500' },
     { label: '이번 주', value: thisWeek, icon: 'fa-calendar-week', color: 'text-blue-600' },
     { label: '이번 달', value: thisMonth, icon: 'fa-calendar', color: 'text-green-600' },
-    { label: '총 문의', value: total, icon: 'fa-inbox', color: 'text-slate-600' },
-    { label: '미처리', value: newCount, icon: 'fa-exclamation-circle', color: 'text-red-500' },
-    { label: '전환율', value: convRate + '%', icon: 'fa-check-double', color: 'text-emerald-600' },
-    { label: '사진첨부', value: photoRate + '%', icon: 'fa-camera', color: 'text-violet-500' },
-    { label: '평균응답', value: avgReply, icon: 'fa-clock', color: 'text-orange-500' },
+    { label: '총 예약', value: total, icon: 'fa-calendar-check', color: 'text-slate-600' },
+    { label: '대기 중', value: pending, icon: 'fa-hourglass-half', color: 'text-red-500' },
+    { label: '확정', value: confirmed, icon: 'fa-check-circle', color: 'text-emerald-600' },
+    { label: '취소', value: cancelled, icon: 'fa-times-circle', color: 'text-slate-400' },
+    { label: '확정률', value: confirmRate + '%', icon: 'fa-chart-line', color: 'text-violet-500' },
   ].map(s => `
     <div class="bg-white rounded-xl p-4 shadow-sm border">
       <div class="flex items-center justify-between">
@@ -692,7 +691,7 @@ async function loadAnalytics() {
       </div>
     </div>`).join('');
 
-  /* ── Daily Trend (30 days) ── */
+  /* ── Daily Booking Trend (30 days) ── */
   const days30 = [];
   for (let i = 29; i >= 0; i--) {
     const d = new Date(now);
@@ -701,7 +700,7 @@ async function loadAnalytics() {
   }
   const dailyCounts = days30.map(day => {
     const next = new Date(day); next.setDate(next.getDate() + 1);
-    return all.filter(c => { const t = new Date(c.created_at); return t >= day && t < next; }).length;
+    return all.filter(b => { const t = new Date(b.created_at); return t >= day && t < next; }).length;
   });
 
   if (dailyChart) dailyChart.destroy();
@@ -729,7 +728,7 @@ async function loadAnalytics() {
 
   /* ── Treatment Interest (bar) ── */
   const treatmentCounts = {};
-  all.forEach(c => (c.treatment_interest || []).forEach(t => { treatmentCounts[t] = (treatmentCounts[t] || 0) + 1; }));
+  all.forEach(b => (b.treatment_interest || []).forEach(t => { treatmentCounts[t] = (treatmentCounts[t] || 0) + 1; }));
 
   if (treatmentChart) treatmentChart.destroy();
   treatmentChart = new Chart($('#chart-treatments'), {
@@ -743,7 +742,7 @@ async function loadAnalytics() {
 
   /* ── Locale Distribution (doughnut) ── */
   const localeCounts = {};
-  all.forEach(c => { const l = c.locale || 'en'; localeCounts[l] = (localeCounts[l] || 0) + 1; });
+  all.forEach(b => { const l = b.locale || 'en'; localeCounts[l] = (localeCounts[l] || 0) + 1; });
 
   if (localeChart) localeChart.destroy();
   localeChart = new Chart($('#chart-locales'), {
@@ -757,17 +756,17 @@ async function loadAnalytics() {
 
   /* ── Status Distribution (horizontal bar) ── */
   const statusCounts = {};
-  Object.keys(STATUS_MAP).forEach(k => { statusCounts[k] = 0; });
-  all.forEach(c => { const s = c.status || 'new'; statusCounts[s] = (statusCounts[s] || 0) + 1; });
+  Object.keys(BSTATUS_LABELS).forEach(k => { statusCounts[k] = 0; });
+  all.forEach(b => { const s = b.status || 'pending'; statusCounts[s] = (statusCounts[s] || 0) + 1; });
 
   if (statusChart) statusChart.destroy();
   statusChart = new Chart($('#chart-status'), {
     type: 'bar',
     data: {
-      labels: Object.keys(statusCounts).map(k => STATUS_MAP[k]?.label || k),
+      labels: Object.keys(statusCounts).map(k => BSTATUS_LABELS[k] || k),
       datasets: [{
         data: Object.values(statusCounts),
-        backgroundColor: Object.keys(statusCounts).map(k => STATUS_COLORS[k] || '#94a3b8'),
+        backgroundColor: Object.keys(statusCounts).map(k => BSTATUS_COLORS[k] || '#94a3b8'),
         borderRadius: 6,
       }]
     },
@@ -779,11 +778,14 @@ async function loadAnalytics() {
     }
   });
 
-  /* ── Day-of-Week Pattern (bar) ── */
+  /* ── Day-of-Week Pattern (bar) — based on appointment_date ── */
   const weekdayCounts = [0, 0, 0, 0, 0, 0, 0];
-  all.forEach(c => { weekdayCounts[new Date(c.created_at).getDay()]++; });
+  all.forEach(b => {
+    if (b.appointment_date) weekdayCounts[new Date(b.appointment_date + 'T00:00:00').getDay()]++;
+    else weekdayCounts[new Date(b.created_at).getDay()]++;
+  });
   const orderedDays = [1, 2, 3, 4, 5, 6, 0];
-  const weekdayColors = orderedDays.map(i => i === 0 || i === 6 ? '#f87171' : '#c9a55a');
+  const weekdayColors = orderedDays.map(i => i === 0 ? '#f87171' : i === 6 ? '#60a5fa' : '#c9a55a');
 
   if (weekdayChart) weekdayChart.destroy();
   weekdayChart = new Chart($('#chart-weekday'), {
@@ -801,14 +803,14 @@ async function loadAnalytics() {
 
   /* ── Treatment × Locale Heatmap ── */
   const treatments = Object.keys(TREATMENT_MAP);
-  const locales = ['en', 'ja', 'zh', 'th'];
+  const locales = [...new Set(all.map(b => b.locale || 'en'))].sort();
   const heatData = {};
   treatments.forEach(t => { heatData[t] = {}; locales.forEach(l => { heatData[t][l] = 0; }); });
-  all.forEach(c => {
-    const l = c.locale || 'en';
-    (c.treatment_interest || []).forEach(t => { if (heatData[t]) heatData[t][l] = (heatData[t][l] || 0) + 1; });
+  all.forEach(b => {
+    const l = b.locale || 'en';
+    (b.treatment_interest || []).forEach(t => { if (heatData[t]) heatData[t][l] = (heatData[t][l] || 0) + 1; });
   });
-  const maxVal = Math.max(1, ...treatments.flatMap(t => locales.map(l => heatData[t][l])));
+  const maxVal = Math.max(1, ...treatments.flatMap(t => locales.map(l => heatData[t]?.[l] || 0)));
 
   function heatColor(v) {
     if (v === 0) return 'bg-slate-50 text-slate-300';
@@ -829,39 +831,44 @@ async function loadAnalytics() {
       </thead>
       <tbody>
         ${treatments.map(t => {
-          const rowTotal = locales.reduce((s, l) => s + heatData[t][l], 0);
+          const rowTotal = locales.reduce((s, l) => s + (heatData[t]?.[l] || 0), 0);
+          if (rowTotal === 0) return '';
           return `<tr class="border-t border-slate-100">
             <td class="px-3 py-2.5 font-medium text-slate-700">${TREATMENT_MAP[t]}</td>
-            ${locales.map(l => `<td class="text-center px-3 py-2.5"><span class="inline-block w-10 py-1 rounded text-xs ${heatColor(heatData[t][l])}">${heatData[t][l]}</span></td>`).join('')}
+            ${locales.map(l => `<td class="text-center px-3 py-2.5"><span class="inline-block w-10 py-1 rounded text-xs ${heatColor(heatData[t]?.[l] || 0)}">${heatData[t]?.[l] || 0}</span></td>`).join('')}
             <td class="text-center px-3 py-2.5 font-bold text-slate-600">${rowTotal}</td>
           </tr>`;
         }).join('')}
       </tbody>
     </table>`;
 
-  /* ── Recent Timeline (last 10) ── */
-  const recent = all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 10);
+  /* ── Recent Bookings Timeline (last 10) ── */
+  const recent = [...all].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 10);
   if (!recent.length) {
-    $('#timeline-container').innerHTML = '<p class="text-sm text-slate-400 text-center py-6">문의 데이터가 없습니다.</p>';
+    $('#timeline-container').innerHTML = '<p class="text-sm text-slate-400 text-center py-6">예약 데이터가 없습니다.</p>';
   } else {
     $('#timeline-container').innerHTML = `
       <div class="space-y-3">
-        ${recent.map(c => {
-          const st = STATUS_MAP[c.status] || STATUS_MAP.new;
-          const d = new Date(c.created_at);
+        ${recent.map(b => {
+          const st = BSTATUS_LABELS[b.status] || b.status;
+          const stColor = BSTATUS_COLORS[b.status] || '#94a3b8';
+          const d = new Date(b.created_at);
           const timeAgo = getTimeAgo(d, now);
-          const treats = (c.treatment_interest || []).map(t => TREATMENT_MAP[t] || t).join(', ');
+          const treats = (b.treatment_interest || []).map(t => TREATMENT_MAP[t] || t).join(', ');
+          const dateDisplay = b.appointment_date
+            ? `${b.appointment_date} ${b.appointment_time ? b.appointment_time.slice(0,5) : ''}`
+            : '일시 미정';
           return `
             <div class="flex items-start gap-3 py-2 border-b border-slate-50 last:border-0">
-              <div class="w-2 h-2 rounded-full mt-2 shrink-0" style="background:${STATUS_COLORS[c.status] || '#94a3b8'}"></div>
+              <div class="w-2 h-2 rounded-full mt-2 shrink-0" style="background:${stColor}"></div>
               <div class="min-w-0 flex-1">
                 <div class="flex items-center gap-2 flex-wrap">
-                  <span class="font-bold text-sm text-slate-800">${esc(c.name)}</span>
-                  <span class="px-1.5 py-0.5 text-[9px] font-bold rounded ${st.cls}">${st.label}</span>
-                  <span class="text-[10px] text-slate-400 uppercase">${c.locale || 'en'}</span>
-                  ${c.photo_urls && c.photo_urls.length ? '<i class="fas fa-camera text-[10px] text-violet-400"></i>' : ''}
+                  <span class="font-bold text-sm text-slate-800">${esc(b.patient_name)}</span>
+                  <span class="px-1.5 py-0.5 text-[9px] font-bold rounded" style="background:${stColor}20;color:${stColor}">${st}</span>
+                  <span class="text-[10px] text-slate-400 uppercase">${b.locale || 'en'}</span>
                 </div>
-                <p class="text-xs text-slate-500 mt-0.5 truncate">${treats || '시술 미선택'}</p>
+                <p class="text-xs text-slate-500 mt-0.5"><i class="fas fa-calendar text-slate-300 mr-1"></i>${dateDisplay}</p>
+                <p class="text-xs text-slate-400 mt-0.5 truncate">${treats || '시술 미선택'}</p>
               </div>
               <span class="text-[10px] text-slate-400 whitespace-nowrap shrink-0">${timeAgo}</span>
             </div>`;
