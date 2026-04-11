@@ -616,18 +616,23 @@ Deno.serve(async (req) => {
       }
 
       if (url.searchParams.get("action") === "confirm") {
+        const redirect = (msg: string) => new Response(null, {
+          status: 302,
+          headers: { "Location": `${manageUrl(data)}&msg=${encodeURIComponent(msg)}` },
+        });
+
         if (data.status === "confirmed") {
-          return htmlResponse(confirmHtmlPage("이미 확정된 예약입니다.", data));
+          return redirect("already_confirmed");
         }
         if (data.status === "cancelled") {
-          return htmlResponse(confirmHtmlPage("취소된 예약은 확정할 수 없습니다.", data));
+          return redirect("cancelled");
         }
 
         const { error: updateErr } = await supabase
           .from("bookings").update({ status: "confirmed" }).eq("id", id);
 
         if (updateErr) {
-          return htmlResponse(confirmHtmlPage("오류: " + updateErr.message, data));
+          return redirect("error");
         }
 
         data.status = "confirmed";
@@ -641,7 +646,7 @@ Deno.serve(async (req) => {
         );
         console.log("Confirm email results:", emailResults.join(" | "));
 
-        return htmlResponse(confirmHtmlPage("예약이 확정되었습니다! 환자에게 확정 이메일이 발송되었습니다.", data));
+        return redirect("confirmed");
       }
 
       return json(data);
