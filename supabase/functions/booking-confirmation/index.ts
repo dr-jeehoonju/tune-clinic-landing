@@ -236,14 +236,14 @@ function patientEmailHtml(b: BookingRecord): string {
       <!-- Header -->
       <div style="background:#0f172a;padding:32px 28px;text-align:center;">
         <h1 style="margin:0;color:#c9a55a;font-size:14px;letter-spacing:3px;text-transform:uppercase;font-weight:700;">Tune Clinic</h1>
-        <p style="margin:12px 0 0;color:#fff;font-size:22px;font-family:Georgia,serif;">Booking Confirmed</p>
+        <p style="margin:12px 0 0;color:#fff;font-size:22px;font-family:Georgia,serif;">Booking Request Received</p>
       </div>
 
       <!-- Body -->
       <div style="padding:32px 28px;">
         <p style="margin:0 0 20px;color:#334155;font-size:15px;line-height:1.6;">
           Hi <strong>${b.patient_name}</strong>,<br>
-          Thank you for booking with Tune Clinic. Here are your appointment details:
+          Thank you for your booking request. Here are the details we received:
         </p>
 
         <div style="background:#f8fafc;border-radius:12px;padding:20px;margin:0 0 24px;">
@@ -263,21 +263,37 @@ function patientEmailHtml(b: BookingRecord): string {
           </table>
         </div>
 
-        <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:16px 20px;margin:0 0 24px;">
-          <p style="margin:0;color:#92400e;font-size:13px;line-height:1.5;">
-            <strong>Next steps:</strong> Our team will reach out to confirm final details before your visit.
-          </p>
+        <!-- Status Badge -->
+        <div style="text-align:center;margin:0 0 24px;">
+          <span style="display:inline-block;background:#fef3c7;color:#92400e;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:700;">⏳ Awaiting Confirmation</span>
         </div>
 
-        <!-- Add to Calendar -->
-        <div style="text-align:center;margin:0 0 24px;">
-          <p style="margin:0 0 10px;color:#64748b;font-size:12px;font-weight:700;">Add to your calendar:</p>
-          <a href="${googleCalUrl(b)}" target="_blank" style="display:inline-block;background:#4285f4;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">📅 Google Calendar</a>
-          <a href="${icsUrl(b)}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">📥 Apple / Outlook</a>
+        <!-- Next Steps -->
+        <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:20px;margin:0 0 24px;">
+          <p style="margin:0 0 8px;color:#92400e;font-size:14px;font-weight:700;">What happens next?</p>
+          <ol style="margin:0;padding:0 0 0 18px;color:#92400e;font-size:13px;line-height:1.8;">
+            <li>Send us a message with your name via any messenger below</li>
+            <li>Our counselor will assist you during business hours</li>
+            <li>Once confirmed, you'll receive a confirmation email</li>
+          </ol>
+        </div>
+
+        <!-- Messenger Contact -->
+        <div style="background:#0f172a;border-radius:12px;padding:24px;margin:0 0 24px;text-align:center;">
+          <p style="margin:0 0 14px;color:#c9a55a;font-size:14px;font-weight:700;">Contact us to confirm your booking</p>
+          <div>
+            <a href="https://wa.me/821076744128" style="display:inline-block;background:#22c55e;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">💬 WhatsApp</a>
+            <a href="https://www.instagram.com/tuneclinic_english/" style="display:inline-block;background:#8b5cf6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">📸 Instagram</a>
+          </div>
+          <div style="margin-top:8px;">
+            <a href="https://line.me/R/ti/p/@tuneclinic" style="display:inline-block;background:#06c755;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">💚 LINE</a>
+            <a href="https://wa.me/821076744128" style="display:inline-block;background:#07c160;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">🟢 WeChat</a>
+          </div>
+          <p style="margin:12px 0 0;color:#94a3b8;font-size:11px;">Mon–Fri 10:00–21:00 · Sat 10:00–16:00 (KST)</p>
         </div>
 
         <!-- Manage Booking -->
-        <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;margin-top:8px;text-align:center;">
+        <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;text-align:center;">
           <p style="margin:0 0 10px;color:#64748b;font-size:12px;">Need to change your plans?</p>
           <a href="${manageUrl(b)}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">Reschedule or Cancel</a>
           <a href="${manageUrl(b)}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">Change Program</a>
@@ -290,13 +306,6 @@ function patientEmailHtml(b: BookingRecord): string {
             5th floor, 868 Nonhyeon-ro, Gangnam-gu, Seoul<br>
             Mon–Fri 10:00–21:00 · Sat 10:00–16:00
           </p>
-        </div>
-
-        <!-- Contact -->
-        <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;margin-top:20px;text-align:center;">
-          <p style="margin:0 0 10px;color:#64748b;font-size:12px;">Questions? Reach out anytime:</p>
-          <a href="https://wa.me/821076744128" style="display:inline-block;background:#22c55e;color:#fff;text-decoration:none;padding:8px 16px;border-radius:6px;font-size:12px;font-weight:700;margin:0 4px;">WhatsApp</a>
-          <a href="https://www.instagram.com/tuneclinic_english/" style="display:inline-block;background:#8b5cf6;color:#fff;text-decoration:none;padding:8px 16px;border-radius:6px;font-size:12px;font-weight:700;margin:0 4px;">Instagram</a>
         </div>
       </div>
 
@@ -397,7 +406,7 @@ Deno.serve(async (req) => {
     if (booking.patient_email) {
       const { ok, error } = await sendEmail(
         booking.patient_email,
-        `Booking Confirmed — ${formatDate(booking.appointment_date)} at ${booking.appointment_time.slice(0, 5)} KST`,
+        `Booking Request Received — ${formatDate(booking.appointment_date)} at ${booking.appointment_time.slice(0, 5)} KST`,
         patientEmailHtml(booking),
       );
       results.push(ok ? "patient: sent" : `patient: failed (${error})`);

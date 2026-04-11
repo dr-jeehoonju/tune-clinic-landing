@@ -133,12 +133,22 @@
 
     <!-- Success -->
     <div id="bkf-success" class="hidden text-center py-20">
-      <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-        <i class="fas fa-check text-2xl"></i>
+      <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-clock text-2xl"></i>
       </div>
       <h2 class="text-3xl font-serif text-slate-900">Booking Request Received</h2>
-      <p class="text-slate-500 mt-4 max-w-md mx-auto leading-relaxed">Thank you! We will review your request and send a confirmation email within clinic hours.</p>
+      <p class="text-slate-500 mt-4 max-w-md mx-auto leading-relaxed">Thank you! To confirm your booking, please send us a message with your name via any channel below.</p>
       <p id="bkf-summary" class="text-sm text-slate-400 mt-3"></p>
+      <div class="mt-8 max-w-sm mx-auto">
+        <p class="text-sm font-bold text-slate-700 mb-3">Contact us to complete your booking:</p>
+        <div class="flex flex-wrap justify-center gap-2.5">
+          <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-green-600 text-white rounded-lg font-bold text-xs hover:bg-green-700 transition"><i class="fab fa-whatsapp text-sm"></i> WhatsApp</a>
+          <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-violet-500 text-white rounded-lg font-bold text-xs hover:bg-violet-600 transition"><i class="fab fa-instagram text-sm"></i> Instagram</a>
+          <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer"><i class="fab fa-line text-sm"></i> LINE</button>
+          <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer"><i class="fab fa-weixin text-sm"></i> WeChat</button>
+        </div>
+        <p class="text-xs text-slate-400 mt-3">Our counselor will assist you during business hours (Mon–Sat)</p>
+      </div>
       <a href="/index.html" class="inline-block mt-8 text-gold font-bold hover:underline">Back to Home</a>
     </div>
 
