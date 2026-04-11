@@ -154,6 +154,24 @@
       "kind": "body-timeline",
       "aspectRatio": "16:9",
       "prompt": "A triptych of a single empty windowsill photographed at three different times of day — cool early dawn, soft mid-morning, warm golden noon — arranged horizontally. Each frame identical in composition, only the light has changed. Metaphor for gradual progression over weeks."
+    },
+    {
+      "slug": "filler-vascular-occlusion-explained",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A single antique brass mechanical stopwatch resting alone on a pale veined marble counter, photographed from a slightly low angle in directional natural window light from the left. The polished metal catches a soft warm gold reflection. Long quiet shadow stretches to the right. Nothing else in the frame. Calm, precise, time-critical mood — the visual language of preparation, not panic."
+    },
+    {
+      "slug": "filler-vascular-occlusion-explained",
+      "kind": "body-hourglass",
+      "aspectRatio": "16:9",
+      "prompt": "Extreme close-up of fine sand falling through the narrow waist of an antique glass hourglass, photographed against a deep slate background with a single warm directional light source from the right. The grains are sharp and individually visible mid-fall. Quiet, contemplative, the visual metaphor of a closing window of time. No clock numbers, no text, no labels."
+    },
+    {
+      "slug": "filler-vascular-occlusion-explained",
+      "kind": "body-vial",
+      "aspectRatio": "4:3",
+      "prompt": "A single small amber glass apothecary vial standing alone on a clean ivory marble shelf, photographed in soft directional window light. The vial casts a long elegant shadow. Empty space surrounding it on the shelf. No labels on the vial, no text anywhere in the image. Quiet still life suggesting preparedness — an object kept ready, not used."
     }
   ]
 }
