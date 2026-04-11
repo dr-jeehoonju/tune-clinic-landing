@@ -39,7 +39,6 @@
         로그인
       </button>
       <p id="login-error" class="hidden text-red-400 text-sm text-center"></p>
-      <p id="login-status" class="text-yellow-400 text-xs text-center mt-2">스크립트 로딩 중...</p>
     </form>
   </div>
 </div>
@@ -435,10 +434,6 @@ const supabase = createClient(
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 
-$('#login-status').textContent = '준비 완료';
-$('#login-status').className = 'text-green-400 text-xs text-center mt-2';
-setTimeout(() => { const el = $('#login-status'); if (el) el.remove(); }, 3000);
-
 /* ─── AUTH ─── */
 const loginScreen = $('#login-screen');
 const dashboard = $('#dashboard');
@@ -464,7 +459,6 @@ $('#login-form').addEventListener('submit', async (e) => {
       $('#login-error').classList.remove('hidden');
       $('#login-btn').textContent = '로그인';
       $('#login-btn').disabled = false;
-      alert('로그인 실패: ' + msg);
       return;
     }
     showDashboard(data.user);
@@ -474,7 +468,6 @@ $('#login-form').addEventListener('submit', async (e) => {
     $('#login-error').classList.remove('hidden');
     $('#login-btn').textContent = '로그인';
     $('#login-btn').disabled = false;
-    alert(msg);
   }
 });
 
@@ -1599,6 +1592,7 @@ function renderBookingStats() {
       renderBookingsList();
     });
   });
+}
 
 /* --- Mini Calendar --- */
 function initCalendar() {
