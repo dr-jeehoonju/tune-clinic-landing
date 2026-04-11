@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { SITE_URL, hrefLang, pageUrl, publicUrl } = require("./url-helpers");
 
-const languageOrder = ["en", "ja", "zh", "th", "ko", "de", "fr", "ru", "vi"];
+const languageOrder = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi"];
 const SITE_NAME = "Tune Clinic";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75`;
 const GA_MEASUREMENT_ID = "G-P68CDTNEV1";
