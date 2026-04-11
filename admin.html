@@ -1358,6 +1358,7 @@ let blockDates = [];
 let allBookings = [];
 let bookingFilter = 'all';
 let calYear, calMonth;
+let selectedCalDate = null;
 
 const BOOKING_STATUS_MAP = {
   pending: { label: '대기', cls: 'status-new' },
@@ -1573,10 +1574,11 @@ function renderBookingCalendar() {
     const dateStr = `${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
     const count = bookingsByDate[dateStr] || 0;
     const isToday = dateStr === todayStr;
+    const isSelected = dateStr === selectedCalDate;
     const dow = new Date(calYear, calMonth, d).getDay();
 
-    html += `<div class="relative text-center py-1.5 rounded-lg cursor-pointer hover:bg-slate-100 transition ${isToday ? 'ring-2 ring-gold' : ''} ${dow === 0 ? 'text-red-400' : dow === 6 ? 'text-blue-400' : ''}" data-cal-date="${dateStr}">
-      <span class="text-xs">${d}</span>
+    html += `<div class="relative text-center py-1.5 rounded-lg cursor-pointer hover:bg-slate-100 transition ${isSelected ? 'ring-2 ring-gold bg-gold/10' : isToday ? 'ring-2 ring-gold/40' : ''} ${dow === 0 ? 'text-red-400' : dow === 6 ? 'text-blue-400' : ''}" data-cal-date="${dateStr}">
+      <span class="text-xs ${isSelected ? 'font-bold' : ''}">${d}</span>
       ${count > 0 ? `<span class="absolute -top-0.5 -right-0.5 w-4 h-4 text-[9px] font-bold bg-gold text-white rounded-full flex items-center justify-center">${count}</span>` : ''}
     </div>`;
   }
@@ -1584,8 +1586,10 @@ function renderBookingCalendar() {
 
   grid.querySelectorAll('[data-cal-date]').forEach(el => {
     el.addEventListener('click', () => {
+      selectedCalDate = el.dataset.calDate;
       $('#booking-date-from').value = el.dataset.calDate;
       $('#booking-date-to').value = el.dataset.calDate;
+      renderBookingCalendar();
       renderBookingsList();
     });
   });
@@ -1638,8 +1642,8 @@ function renderBookingsList() {
   });
 }
 
-$('#booking-date-from').addEventListener('change', renderBookingsList);
-$('#booking-date-to').addEventListener('change', renderBookingsList);
+$('#booking-date-from').addEventListener('change', () => { selectedCalDate = null; renderBookingCalendar(); renderBookingsList(); });
+$('#booking-date-to').addEventListener('change', () => { selectedCalDate = null; renderBookingCalendar(); renderBookingsList(); });
 
 /* --- Booking Detail Modal --- */
 function openBookingDetail(id) {
