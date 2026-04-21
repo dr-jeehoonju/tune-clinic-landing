@@ -2,8 +2,8 @@
   "key": "structural-reset",
   "template": "program",
   "permalink": "ko/structural-reset.html",
-  "title": "토탈 리프팅 엘리트 | 울쎄라 + 써마지 in Seoul",
-  "description": "토탈 리프팅 엘리트는 울쎄라 300샷과 써마지 600샷을 수면마취 하에 진행하는 튠클리닉의 가장 포괄적인 비수술적 리프팅 및 타이트닝 프로토콜입니다.",
+  "title": "토탈 리프팅 엘리트 | 울쎄라 + 써마지",
+  "description": "토탈 리프팅 엘리트는 울쎄라 300샷과 써마지 600샷을 수면마취 하에 진행하는 튠클리닉의 가장 포괄적인 비수술적 리프팅 및 타이트닝 프로그램입니다.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/structural-reset.html",
   "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"

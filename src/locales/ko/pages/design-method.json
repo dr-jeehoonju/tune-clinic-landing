@@ -2,8 +2,8 @@
   "key": "design-method",
   "template": "editorial",
   "permalink": "ko/design-method.html",
-  "title": "차마카-세 디자인 철학 | 튠클리닉 압구정",
-  "description": "전문의가 주도하는 튠클리닉의 차마카-세 디자인 철학을 알아보세요. 글로벌 환자를 위한 해부학적 분석, 프로토콜 계획 및 여행을 고려한 미학적 결정을 안내합니다.",
+  "title": "차마카-세 디자인 철학 | 압구정 튠클리닉",
+  "description": "원장이 직접 진료를 디자인하는 튠클리닉만의 차마카-세 철학. 해부학적 분석부터 다운타임을 고려한 진료 흐름 설계까지, 진료 기준을 안내합니다.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/design-method.html",
   "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"

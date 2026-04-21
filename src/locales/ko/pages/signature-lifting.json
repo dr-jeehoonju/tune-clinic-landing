@@ -2,8 +2,8 @@
   "key": "signature-lifting",
   "template": "program",
   "permalink": "ko/signature-lifting.html",
-  "title": "시그니처 리프팅 | 울쎄라 350샷 프로토콜 in Seoul",
-  "description": "튠클리닉의 시그니처 리프팅은 최소한의 다운타임으로 깊은 근막층(SMAS) 타이트닝을 원하는 해외 고객을 위해 설계된 의사 맞춤형 울쎄라 350샷 리프팅 프로토콜입니다.",
+  "title": "시그니처 리프팅 | 울쎄라 350샷 프로그램",
+  "description": "튠클리닉의 시그니처 리프팅은 최소한의 다운타임으로 깊은 근막층(SMAS) 타이트닝을 원하는 고객님을 위해 설계된 원장 맞춤형 울쎄라 350샷 리프팅 프로그램입니다.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/signature-lifting.html",
   "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"

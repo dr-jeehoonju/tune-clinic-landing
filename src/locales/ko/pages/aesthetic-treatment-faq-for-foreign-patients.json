@@ -2,10 +2,10 @@
   "key": "aesthetic-treatment-faq-for-foreign-patients",
   "template": "editorial",
   "permalink": "ko/aesthetic-treatment-faq-for-foreign-patients.html",
-  "title": "해외 환자를 위한 미용 시술 FAQ | 튠클리닉 서울",
-  "description": "서울을 방문하는 해외 환자분들을 위한 미용 시술 FAQ를 확인해보세요. 상담 시기, 회복 기간, 언어 지원, 당일 시술 여부, 멍 발생 위험, 시술 후 비행기 탑승 및 튠클리닉의 여행 일정 맞춤 계획에 대한 답변을 제공합니다.",
+  "title": "고객님들이 자주 묻는 미용 시술 FAQ | 튠클리닉 서울",
+  "description": "튠클리닉 고객님들이 가장 자주 묻는 미용 시술 FAQ를 확인해 보세요. 당일 시술 가능 여부, 다운타임(회복 기간), 상담 절차, 멍과 붓기 관리, 그리고 중요한 일정에 맞춘 안전한 시술 계획에 대한 상세한 답변을 제공합니다.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/aesthetic-treatment-faq-for-foreign-patients.html",
   "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
-  "chromeLabel": "환자 FAQ"
+  "chromeLabel": "자주 묻는 질문 FAQ"
 }

@@ -1,10 +1,10 @@
 {
   "key": "consult",
   "template": "editorial",
-  "chromeLabel": "상담",
+  "chromeLabel": "사진 상담",
   "permalink": "ko/consult.html",
-  "title": "상담 시작하기 | 튠클리닉 압구정",
-  "description": "튠클리닉에 상담을 신청하세요. 관심 시술과 사진을 공유해 주시면 의료진이 예비 평가를 진행해 드립니다.",
+  "title": "사진 상담 신청 | 튠클리닉 압구정",
+  "description": "튠클리닉에 사진 상담을 신청하세요. 고민 부위 사진을 공유해 주시면 원장이 직접 확인 후 답변해 드립니다.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
   "fragment": "fragments/ko/consult.html",
   "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
