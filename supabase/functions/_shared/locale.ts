@@ -61,6 +61,16 @@ const PROGRAM_NAMES: Record<TreatmentKey, string> = {
   other: "Other",
 };
 
+// Korean program names for /ko/ patient-facing emails. Other locales
+// fall back to the English brand names above.
+const PROGRAM_NAMES_KO: Record<TreatmentKey, string> = {
+  "signature-lifting": "시그니처 리프팅",
+  "structural-reset": "토탈 리프팅 엘리트",
+  "collagen-builder": "콜라겐 부스터",
+  "filler-chamaka-se": "볼륨 차마카-세",
+  other: "기타",
+};
+
 const OTHER_LABEL: Record<string, string> = {
   en: "Other / Not sure yet",
   ja: "その他 / 未定",
@@ -75,6 +85,9 @@ const OTHER_LABEL: Record<string, string> = {
 
 function treatmentLabel(key: string, locale: string): string {
   if (key === "other") return OTHER_LABEL[locale] || OTHER_LABEL.en;
+  if (locale === "ko") {
+    return PROGRAM_NAMES_KO[key as TreatmentKey] || key;
+  }
   return PROGRAM_NAMES[key as TreatmentKey] || key;
 }
 
