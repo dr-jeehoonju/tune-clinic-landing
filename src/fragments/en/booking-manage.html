@@ -235,7 +235,7 @@ const supabase = createClient(
 const MANAGE_FN = 'https://jwlfffpyeczyyojcutcx.supabase.co/functions/v1/booking-manage';
 const $ = s => document.querySelector(s);
 const LOCALE = document.documentElement.lang || 'en';
-const BOOKING_URLS = { en: '/booking.html', ja: '/ja/booking.html', zh: '/zh/booking.html', th: '/th/booking.html' };
+const BOOKING_URLS = { en: '/booking.html', ja: '/ja/booking.html', zh: '/zh/booking.html', th: '/th/booking.html', de: '/de/booking.html', fr: '/fr/booking.html', ru: '/ru/booking.html', vi: '/vi/booking.html' };
 
 const I18N = {
   en: {
@@ -372,6 +372,7 @@ let currentBooking = null;
 
 const params = new URLSearchParams(window.location.search);
 const bookingId = params.get('id');
+const bookingToken = params.get('t') || '';
 const confirmMsg = params.get('msg');
 
 if (confirmMsg) {
@@ -397,7 +398,7 @@ if (!bookingId) {
 
 async function loadBooking(id) {
   try {
-    const res = await fetch(`${MANAGE_FN}?id=${encodeURIComponent(id)}`);
+    const res = await fetch(`${MANAGE_FN}?id=${encodeURIComponent(id)}&t=${encodeURIComponent(bookingToken)}`);
     if (!res.ok) throw new Error('Not found');
     const booking = await res.json();
     currentBooking = booking;
@@ -440,7 +441,7 @@ function renderDetails(b) {
   $('#link-gcal').href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Tune Clinic Appointment')}&dates=${gcalFmt(kst)}/${gcalFmt(end)}&details=${encodeURIComponent('Program: ' + (treatments || 'TBD'))}&location=${encodeURIComponent('5F, 868 Nonhyeon-ro, Gangnam-gu, Seoul')}`;
 
   // ICS download
-  $('#link-ics').href = `${MANAGE_FN}?id=${encodeURIComponent(b.id)}&ics=1`;
+  $('#link-ics').href = `${MANAGE_FN}?id=${encodeURIComponent(b.id)}&ics=1&t=${encodeURIComponent(bookingToken)}`;
 
   /* ── Reschedule ── */
   $('#btn-reschedule').addEventListener('click', async () => {
@@ -471,7 +472,7 @@ function renderDetails(b) {
       const res = await fetch(MANAGE_FN, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'reschedule', id: b.id, appointment_date: rsSelectedDate, appointment_time: rsSelectedTime, treatment_interest: newTreatments.length > 0 ? newTreatments : undefined }),
+        body: JSON.stringify({ action: 'reschedule', id: b.id, token: bookingToken, appointment_date: rsSelectedDate, appointment_time: rsSelectedTime, treatment_interest: newTreatments.length > 0 ? newTreatments : undefined }),
       });
       if (!res.ok) throw new Error('Failed');
       $('#mg-details').classList.add('hidden');
@@ -503,7 +504,7 @@ function renderDetails(b) {
       const res = await fetch(MANAGE_FN, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'cancel', id: b.id }),
+        body: JSON.stringify({ action: 'cancel', id: b.id, token: bookingToken }),
       });
       if (!res.ok) throw new Error('Failed');
       $('#mg-details').classList.add('hidden');
@@ -544,7 +545,7 @@ function renderDetails(b) {
       const res = await fetch(MANAGE_FN, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'update_program', id: b.id, treatment_interest: selected }),
+        body: JSON.stringify({ action: 'update_program', id: b.id, token: bookingToken, treatment_interest: selected }),
       });
       if (!res.ok) throw new Error('Failed');
       const programNames = selected.map(k => TREATMENT_LABELS[k] || k).join(', ');

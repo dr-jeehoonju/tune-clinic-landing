@@ -1,15 +1,29 @@
 import "@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
+import { notifyAll } from "../_shared/email.ts";
+import { dDayLabel, formatDate, kstToLocal } from "../_shared/format.ts";
+import { LOCALE_LABELS_KO, treatmentList } from "../_shared/locale.ts";
+import {
+  bookingPageUrl,
+  googleCalUrl,
+  icsUrl,
+  manageUrl,
+  signToken,
+  type TokenAction,
+} from "../_shared/booking-urls.ts";
+import {
+  clinicActionsHtml,
+  clinicContactHtml,
+  clinicLocationHtml,
+  clinicQuickReplyHtml,
+} from "../_shared/clinic-html.ts";
+import { generateICS } from "../_shared/ics.ts";
+import { verifyToken } from "../_shared/token.ts";
+
 const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
 const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY")!;
-const CLINIC_EMAILS = (Deno.env.get("CLINIC_NOTIFICATION_EMAIL") || "").split(",").map(e => e.trim()).filter(Boolean);
-const FROM_EMAIL = Deno.env.get("FROM_EMAIL") || "Tune Clinic <booking@tuneclinic-global.com>";
-const SITE_URL = "https://tuneclinic-global.com";
-const MANAGE_FN_URL = `${supabaseUrl}/functions/v1/booking-manage`;
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -17,181 +31,28 @@ const CORS = {
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
 };
 
-type Booking = Record<string, unknown>;
-
-const TREATMENT_LABELS: Record<string, string> = {
-  "signature-lifting": "Signature Lifting",
-  "structural-reset": "Structural Reset Elite",
-  "collagen-builder": "The Collagen Builder",
-  "filler-chamaka-se": "Volume Chamaka-se",
-  "other": "Other / Not sure yet",
+type Booking = Record<string, unknown> & {
+  id: string;
+  locale: string;
+  appointment_date: string;
+  appointment_time: string;
+  treatment_interest?: string[];
+  patient_name: string;
+  patient_email: string | null;
+  patient_phone: string | null;
+  patient_timezone: string;
+  status: string;
 };
 
-const LOCALE_PREFIX: Record<string, string> = { en: "", ja: "ja/", zh: "zh/", th: "th/" };
+// ── Patient-facing email templates ──
 
-function treatmentList(arr: string[]): string {
-  return (arr || []).map(t => TREATMENT_LABELS[t] || t).join(", ");
-}
-
-function formatDate(dateStr: string): string {
-  const d = new Date(dateStr + "T00:00:00+09:00");
-  return d.toLocaleDateString("en-US", {
-    weekday: "long", year: "numeric", month: "long", day: "numeric", timeZone: "Asia/Seoul",
-  });
-}
-
-function kstToLocal(dateStr: string, timeStr: string, tz: string): string {
-  try {
-    const kst = new Date(`${dateStr}T${timeStr}+09:00`);
-    return kst.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true, timeZone: tz });
-  } catch { return "—"; }
-}
-
-function manageUrl(b: Booking): string {
-  const prefix = LOCALE_PREFIX[b.locale as string] || "";
-  return `${SITE_URL}/${prefix}booking-manage.html?id=${b.id}`;
-}
-
-function googleCalUrl(b: Booking): string {
-  const kst = new Date(`${b.appointment_date}T${b.appointment_time}+09:00`);
-  const end = new Date(kst.getTime() + 60 * 60 * 1000);
-  const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-  const treatments = treatmentList((b.treatment_interest as string[]) || []);
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Tune Clinic Appointment")}&dates=${fmt(kst)}/${fmt(end)}&details=${encodeURIComponent("Program: " + (treatments || "TBD"))}&location=${encodeURIComponent("5F, 868 Nonhyeon-ro, Gangnam-gu, Seoul")}`;
-}
-
-function icsUrl(b: Booking): string {
-  return `${MANAGE_FN_URL}?id=${b.id}&ics=1`;
-}
-
-// ── Shared clinic-email helpers ──
-
-const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("압구정 튠클리닉 논현로 868 강남구 서울");
-const LOCALE_LABELS: Record<string, string> = { en: "영어", ja: "일본어", zh: "중국어", th: "태국어" };
-
-function dDayLabel(dateStr: string): string {
-  const kstStr = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Seoul" });
-  const todayMs = new Date(kstStr + "T00:00:00+09:00").getTime();
-  const apptMs = new Date(dateStr + "T00:00:00+09:00").getTime();
-  const days = Math.round((apptMs - todayMs) / 86400000);
-  if (days === 0) return "오늘";
-  if (days === 1) return "내일";
-  if (days === 2) return "모레";
-  if (days < 0) return `D+${Math.abs(days)}`;
-  return `D-${days}`;
-}
-
-function confirmUrl(b: Booking): string {
-  return `${MANAGE_FN_URL}?id=${b.id}&action=confirm`;
-}
-
-function phoneDigits(phone: unknown): string {
-  if (!phone) return "";
-  return String(phone).replace(/[^0-9]/g, "");
-}
-
-const QUICK_REPLY: Record<string, { subject: string; body: string }> = {
-  en: {
-    subject: "Your Tune Clinic Appointment is Confirmed",
-    body: "Dear {name},\n\nYour appointment at Tune Clinic on {date} at {time} KST has been confirmed.\n\nWe look forward to seeing you!\n\nBest regards,\nTune Clinic Team",
-  },
-  ja: {
-    subject: "Tune Clinic ご予約確定のお知らせ",
-    body: "{name}様\n\n{date} {time} KSTのTune Clinicのご予約が確定いたしました。\n\nお会いできることを楽しみにしております。\n\nTune Clinic",
-  },
-  zh: {
-    subject: "Tune Clinic 预约确认通知",
-    body: "{name}您好，\n\n您在Tune Clinic {date} {time} KST的预约已确认。\n\n期待您的到来！\n\nTune Clinic",
-  },
-  th: {
-    subject: "ยืนยันนัดหมาย Tune Clinic",
-    body: "สวัสดี {name}\n\nการนัดหมายที่ Tune Clinic วันที่ {date} เวลา {time} KST ได้รับการยืนยันแล้ว\n\nเราตั้งตาคอยที่จะพบคุณ!\n\nTune Clinic",
-  },
-};
-
-function quickReplyMailto(b: Booking): string {
-  const locale = (b.locale as string) || "en";
-  const tmpl = QUICK_REPLY[locale] || QUICK_REPLY.en;
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  const subject = encodeURIComponent(tmpl.subject);
-  const body = encodeURIComponent(
-    tmpl.body
-      .replace("{name}", b.patient_name as string)
-      .replace("{date}", dateFmt)
-      .replace("{time}", timeKST)
-  );
-  return `mailto:${b.patient_email || ""}?subject=${subject}&body=${body}`;
-}
-
-function clinicContactHtml(b: Booking): string {
-  const phone = (b.patient_phone as string) || "";
-  const email = (b.patient_email as string) || "";
-  const digits = phoneDigits(phone);
-  const phoneBtn = digits
-    ? `<a href="tel:${phone}" style="display:inline-block;background:#0f172a;color:#fff;text-decoration:none;padding:8px 14px;border-radius:6px;font-size:12px;font-weight:600;margin:3px;">📞 전화</a>`
-    : `<span style="display:inline-block;background:#e2e8f0;color:#94a3b8;padding:8px 14px;border-radius:6px;font-size:12px;margin:3px;">📞 번호 없음</span>`;
-  const emailBtn = email
-    ? `<a href="mailto:${email}" style="display:inline-block;background:#3b82f6;color:#fff;text-decoration:none;padding:8px 14px;border-radius:6px;font-size:12px;font-weight:600;margin:3px;">✉️ 이메일</a>`
-    : "";
-  const waBtn = digits
-    ? `<a href="https://wa.me/${digits}" style="display:inline-block;background:#22c55e;color:#fff;text-decoration:none;padding:8px 14px;border-radius:6px;font-size:12px;font-weight:600;margin:3px;">💬 WhatsApp</a>`
-    : "";
-  return `
-        <div style="margin:20px 0 0;padding:16px 0 0;border-top:1px solid #e2e8f0;">
-          <p style="margin:0 0 10px;color:#64748b;font-size:12px;font-weight:700;">빠른 연락</p>
-          <div style="text-align:center;">${phoneBtn}${emailBtn}${waBtn}</div>
-        </div>`;
-}
-
-function clinicQuickReplyHtml(b: Booking): string {
-  const locale = (b.locale as string) || "en";
-  const langLabel = LOCALE_LABELS[locale] || locale.toUpperCase();
-  return `
-        <div style="margin:16px 0 0;padding:16px 0 0;border-top:1px solid #e2e8f0;text-align:center;">
-          <p style="margin:0 0 10px;color:#64748b;font-size:12px;font-weight:700;">빠른 답장 (환자 언어: ${langLabel})</p>
-          <a href="${quickReplyMailto(b)}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;">📝 확정 답장 보내기</a>
-        </div>`;
-}
-
-function clinicActionsHtml(b: Booking, showConfirm: boolean): string {
-  const confirmBtn = showConfirm
-    ? `<a href="${confirmUrl(b)}" style="display:inline-block;background:#16a34a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">✅ 예약 확정</a>`
-    : "";
-  return `
-        <div style="margin:16px 0 0;padding:16px 0 0;border-top:1px solid #e2e8f0;text-align:center;">
-          ${confirmBtn}
-          <a href="${manageUrl(b)}" style="display:inline-block;background:#0f172a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">📋 예약 관리</a>
-        </div>`;
-}
-
-function clinicLocationHtml(): string {
-  return `
-        <div style="margin:16px 0 0;padding:16px 0 0;border-top:1px solid #e2e8f0;">
-          <p style="margin:0 0 4px;color:#0f172a;font-size:13px;font-weight:700;">📍 압구정 튠클리닉</p>
-          <p style="margin:0 0 8px;color:#64748b;font-size:12px;line-height:1.4;">서울 강남구 논현로 868, 5층</p>
-          <a href="${GOOGLE_MAPS_URL}" style="display:inline-block;background:#4285f4;color:#fff;text-decoration:none;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:600;">🗺️ 지도 보기</a>
-        </div>`;
-}
-
-// ── Email helpers ──
-
-async function sendEmail(to: string | string[], subject: string, html: string): Promise<{ ok: boolean; error?: string }> {
-  const recipients = Array.isArray(to) ? to : [to];
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: FROM_EMAIL, to: recipients, subject, html }),
-  });
-  if (!res.ok) { const body = await res.text(); return { ok: false, error: `${res.status}: ${body}` }; }
-  return { ok: true };
-}
-
-function reschedulePatientHtml(b: Booking): string {
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  const timeLocal = kstToLocal(b.appointment_date as string, b.appointment_time as string, b.patient_timezone as string);
-  const treatments = treatmentList((b.treatment_interest as string[]) || []);
+async function reschedulePatientHtml(b: Booking): Promise<string> {
+  const dateFmt = formatDate(b.appointment_date);
+  const timeKST = b.appointment_time.slice(0, 5);
+  const timeLocal = kstToLocal(b.appointment_date, b.appointment_time, b.patient_timezone);
+  const treatments = treatmentList(b.treatment_interest);
+  const manageHref = await manageUrl(b);
+  const ics = await icsUrl(b);
 
   return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
@@ -216,11 +77,11 @@ function reschedulePatientHtml(b: Booking): string {
         <div style="text-align:center;margin:0 0 24px;">
           <p style="margin:0 0 10px;color:#64748b;font-size:12px;font-weight:700;">Update your calendar:</p>
           <a href="${googleCalUrl(b)}" target="_blank" style="display:inline-block;background:#4285f4;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">📅 Google Calendar</a>
-          <a href="${icsUrl(b)}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">📥 Apple / Outlook</a>
+          <a href="${ics}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">📥 Apple / Outlook</a>
         </div>
         <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;text-align:center;">
           <p style="margin:0 0 10px;color:#64748b;font-size:12px;">Need to make more changes?</p>
-          <a href="${manageUrl(b)}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;">Manage Booking</a>
+          <a href="${manageHref}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;">Manage Booking</a>
         </div>
         <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;margin-top:20px;">
           <p style="margin:0 0 4px;color:#0f172a;font-size:14px;font-weight:700;">📍 Apgujeong Tune Clinic</p>
@@ -236,10 +97,10 @@ function reschedulePatientHtml(b: Booking): string {
 }
 
 function cancelPatientHtml(b: Booking): string {
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  const treatments = treatmentList((b.treatment_interest as string[]) || []);
-  const bookingUrl = `${SITE_URL}/${LOCALE_PREFIX[b.locale as string] || ""}booking.html`;
+  const dateFmt = formatDate(b.appointment_date);
+  const timeKST = b.appointment_time.slice(0, 5);
+  const treatments = treatmentList(b.treatment_interest);
+  const newBookingHref = bookingPageUrl(b.locale);
 
   return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
@@ -263,7 +124,7 @@ function cancelPatientHtml(b: Booking): string {
         </div>
         <div style="text-align:center;margin:0 0 24px;">
           <p style="margin:0 0 12px;color:#334155;font-size:14px;">We'd love to see you whenever you're ready.</p>
-          <a href="${bookingUrl}" style="display:inline-block;background:#0f172a;color:#fff;text-decoration:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;">Book New Appointment</a>
+          <a href="${newBookingHref}" style="display:inline-block;background:#0f172a;color:#fff;text-decoration:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;">Book New Appointment</a>
         </div>
         <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;text-align:center;">
           <p style="margin:0 0 10px;color:#64748b;font-size:12px;">Questions? Reach out anytime:</p>
@@ -279,80 +140,12 @@ function cancelPatientHtml(b: Booking): string {
 </body></html>`;
 }
 
-function clinicRescheduleKoHtml(b: Booking): string {
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  const treatments = treatmentList((b.treatment_interest as string[]) || []);
-  const dday = dDayLabel(b.appointment_date as string);
-
-  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
-    <div style="background:#fff;border-radius:12px;overflow:hidden;border:2px solid #3b82f6;">
-      <div style="background:#3b82f6;padding:16px 24px;">
-        <table style="width:100%;"><tr>
-          <td><h1 style="margin:0;color:#fff;font-size:16px;">🔄 예약 변경</h1></td>
-          <td style="text-align:right;"><span style="background:rgba(255,255,255,0.25);color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;">${dday}</span></td>
-        </tr></table>
-      </div>
-      <div style="padding:24px;">
-        <p style="margin:0 0 16px;color:#334155;font-size:14px;">환자가 예약을 변경했습니다.</p>
-        <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;width:110px;">환자명</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${b.patient_name}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">이메일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_email || "—"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">연락처</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_phone || "—"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">변경된 예약일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFmt}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">변경된 시간</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">프로그램</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${treatments || "미정"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${LOCALE_LABELS[b.locale as string] || (b.locale as string).toUpperCase()}</td></tr>
-        </table>
-        ${clinicContactHtml(b)}
-        ${clinicQuickReplyHtml(b)}
-        ${clinicActionsHtml(b, true)}
-        ${clinicLocationHtml()}
-      </div>
-    </div>
-  </div>
-</body></html>`;
-}
-
-function clinicCancelKoHtml(b: Booking): string {
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  const treatments = treatmentList((b.treatment_interest as string[]) || []);
-
-  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
-    <div style="background:#fff;border-radius:12px;overflow:hidden;border:2px solid #ef4444;">
-      <div style="background:#ef4444;padding:16px 24px;">
-        <h1 style="margin:0;color:#fff;font-size:16px;">❌ 예약 취소</h1>
-      </div>
-      <div style="padding:24px;">
-        <p style="margin:0 0 16px;color:#334155;font-size:14px;">환자가 예약을 취소했습니다.</p>
-        <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;width:110px;">환자명</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${b.patient_name}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">이메일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_email || "—"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">연락처</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_phone || "—"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">취소된 예약일</td><td style="padding:6px 0;color:#64748b;font-size:14px;text-decoration:line-through;">${dateFmt}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">취소된 시간</td><td style="padding:6px 0;color:#64748b;font-size:14px;text-decoration:line-through;">${timeKST} KST</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">프로그램</td><td style="padding:6px 0;color:#64748b;font-size:14px;text-decoration:line-through;">${treatments || "미정"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${LOCALE_LABELS[b.locale as string] || (b.locale as string).toUpperCase()}</td></tr>
-        </table>
-        ${clinicContactHtml(b)}
-        ${clinicActionsHtml(b, false)}
-        ${clinicLocationHtml()}
-      </div>
-    </div>
-  </div>
-</body></html>`;
-}
-
-function programChangePatientHtml(b: Booking): string {
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  const timeLocal = kstToLocal(b.appointment_date as string, b.appointment_time as string, b.patient_timezone as string);
-  const treatments = treatmentList((b.treatment_interest as string[]) || []);
+async function programChangePatientHtml(b: Booking): Promise<string> {
+  const dateFmt = formatDate(b.appointment_date);
+  const timeKST = b.appointment_time.slice(0, 5);
+  const timeLocal = kstToLocal(b.appointment_date, b.appointment_time, b.patient_timezone);
+  const treatments = treatmentList(b.treatment_interest);
+  const manageHref = await manageUrl(b);
 
   return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
@@ -375,7 +168,7 @@ function programChangePatientHtml(b: Booking): string {
           </table>
         </div>
         <div style="text-align:center;margin:0 0 24px;">
-          <a href="${manageUrl(b)}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;">Manage Booking</a>
+          <a href="${manageHref}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;">Manage Booking</a>
         </div>
         <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;">
           <p style="margin:0 0 4px;color:#0f172a;font-size:14px;font-weight:700;">📍 Apgujeong Tune Clinic</p>
@@ -390,50 +183,13 @@ function programChangePatientHtml(b: Booking): string {
 </body></html>`;
 }
 
-function clinicProgramChangeKoHtml(b: Booking): string {
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  const treatments = treatmentList((b.treatment_interest as string[]) || []);
-  const dday = dDayLabel(b.appointment_date as string);
-
-  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
-    <div style="background:#fff;border-radius:12px;overflow:hidden;border:2px solid #8b5cf6;">
-      <div style="background:#8b5cf6;padding:16px 24px;">
-        <table style="width:100%;"><tr>
-          <td><h1 style="margin:0;color:#fff;font-size:16px;">🔀 프로그램 변경</h1></td>
-          <td style="text-align:right;"><span style="background:rgba(255,255,255,0.25);color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;">${dday}</span></td>
-        </tr></table>
-      </div>
-      <div style="padding:24px;">
-        <p style="margin:0 0 16px;color:#334155;font-size:14px;">환자가 프로그램을 변경했습니다.</p>
-        <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;width:110px;">환자명</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${b.patient_name}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">이메일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_email || "—"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">연락처</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_phone || "—"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">예약일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFmt}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">시간</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">변경된 프로그램</td><td style="padding:6px 0;color:#8b5cf6;font-size:14px;font-weight:700;">${treatments || "미정"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${LOCALE_LABELS[b.locale as string] || (b.locale as string).toUpperCase()}</td></tr>
-        </table>
-        ${clinicContactHtml(b)}
-        ${clinicQuickReplyHtml(b)}
-        ${clinicActionsHtml(b, true)}
-        ${clinicLocationHtml()}
-      </div>
-    </div>
-  </div>
-</body></html>`;
-}
-
-// ── Confirm action templates ──
-
-function confirmPatientHtml(b: Booking): string {
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  const timeLocal = kstToLocal(b.appointment_date as string, b.appointment_time as string, b.patient_timezone as string);
-  const treatments = treatmentList((b.treatment_interest as string[]) || []);
+async function confirmPatientHtml(b: Booking): Promise<string> {
+  const dateFmt = formatDate(b.appointment_date);
+  const timeKST = b.appointment_time.slice(0, 5);
+  const timeLocal = kstToLocal(b.appointment_date, b.appointment_time, b.patient_timezone);
+  const treatments = treatmentList(b.treatment_interest);
+  const manageHref = await manageUrl(b);
+  const ics = await icsUrl(b);
 
   return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
@@ -458,11 +214,11 @@ function confirmPatientHtml(b: Booking): string {
         <div style="text-align:center;margin:0 0 24px;">
           <p style="margin:0 0 10px;color:#64748b;font-size:12px;font-weight:700;">Add to your calendar:</p>
           <a href="${googleCalUrl(b)}" target="_blank" style="display:inline-block;background:#4285f4;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">📅 Google Calendar</a>
-          <a href="${icsUrl(b)}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">📥 Apple / Outlook</a>
+          <a href="${ics}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">📥 Apple / Outlook</a>
         </div>
         <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;text-align:center;">
           <p style="margin:0 0 10px;color:#64748b;font-size:12px;">Need to make changes?</p>
-          <a href="${manageUrl(b)}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;">Manage Booking</a>
+          <a href="${manageHref}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;">Manage Booking</a>
         </div>
         <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;margin-top:20px;">
           <p style="margin:0 0 4px;color:#0f172a;font-size:14px;font-weight:700;">📍 Apgujeong Tune Clinic</p>
@@ -477,11 +233,127 @@ function confirmPatientHtml(b: Booking): string {
 </body></html>`;
 }
 
-function clinicConfirmKoHtml(b: Booking): string {
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  const treatments = treatmentList((b.treatment_interest as string[]) || []);
-  const dday = dDayLabel(b.appointment_date as string);
+// ── Clinic-internal templates (Korean) ──
+
+async function clinicRescheduleKoHtml(b: Booking): Promise<string> {
+  const dateFmt = formatDate(b.appointment_date);
+  const timeKST = b.appointment_time.slice(0, 5);
+  const treatments = treatmentList(b.treatment_interest);
+  const dday = dDayLabel(b.appointment_date);
+  const langLabel = LOCALE_LABELS_KO[b.locale] || b.locale.toUpperCase();
+  const actions = await clinicActionsHtml(b, true);
+
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="background:#fff;border-radius:12px;overflow:hidden;border:2px solid #3b82f6;">
+      <div style="background:#3b82f6;padding:16px 24px;">
+        <table style="width:100%;"><tr>
+          <td><h1 style="margin:0;color:#fff;font-size:16px;">🔄 예약 변경</h1></td>
+          <td style="text-align:right;"><span style="background:rgba(255,255,255,0.25);color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;">${dday}</span></td>
+        </tr></table>
+      </div>
+      <div style="padding:24px;">
+        <p style="margin:0 0 16px;color:#334155;font-size:14px;">환자가 예약을 변경했습니다.</p>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;width:110px;">환자명</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${b.patient_name}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">이메일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_email || "—"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">연락처</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_phone || "—"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">변경된 예약일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFmt}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">변경된 시간</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">프로그램</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${treatments || "미정"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${langLabel}</td></tr>
+        </table>
+        ${clinicContactHtml(b)}
+        ${clinicQuickReplyHtml(b)}
+        ${actions}
+        ${clinicLocationHtml()}
+      </div>
+    </div>
+  </div>
+</body></html>`;
+}
+
+async function clinicCancelKoHtml(b: Booking): Promise<string> {
+  const dateFmt = formatDate(b.appointment_date);
+  const timeKST = b.appointment_time.slice(0, 5);
+  const treatments = treatmentList(b.treatment_interest);
+  const langLabel = LOCALE_LABELS_KO[b.locale] || b.locale.toUpperCase();
+  const actions = await clinicActionsHtml(b, false);
+
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="background:#fff;border-radius:12px;overflow:hidden;border:2px solid #ef4444;">
+      <div style="background:#ef4444;padding:16px 24px;">
+        <h1 style="margin:0;color:#fff;font-size:16px;">❌ 예약 취소</h1>
+      </div>
+      <div style="padding:24px;">
+        <p style="margin:0 0 16px;color:#334155;font-size:14px;">환자가 예약을 취소했습니다.</p>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;width:110px;">환자명</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${b.patient_name}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">이메일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_email || "—"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">연락처</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_phone || "—"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">취소된 예약일</td><td style="padding:6px 0;color:#64748b;font-size:14px;text-decoration:line-through;">${dateFmt}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">취소된 시간</td><td style="padding:6px 0;color:#64748b;font-size:14px;text-decoration:line-through;">${timeKST} KST</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">프로그램</td><td style="padding:6px 0;color:#64748b;font-size:14px;text-decoration:line-through;">${treatments || "미정"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${langLabel}</td></tr>
+        </table>
+        ${clinicContactHtml(b)}
+        ${actions}
+        ${clinicLocationHtml()}
+      </div>
+    </div>
+  </div>
+</body></html>`;
+}
+
+async function clinicProgramChangeKoHtml(b: Booking): Promise<string> {
+  const dateFmt = formatDate(b.appointment_date);
+  const timeKST = b.appointment_time.slice(0, 5);
+  const treatments = treatmentList(b.treatment_interest);
+  const dday = dDayLabel(b.appointment_date);
+  const langLabel = LOCALE_LABELS_KO[b.locale] || b.locale.toUpperCase();
+  const actions = await clinicActionsHtml(b, true);
+
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="background:#fff;border-radius:12px;overflow:hidden;border:2px solid #8b5cf6;">
+      <div style="background:#8b5cf6;padding:16px 24px;">
+        <table style="width:100%;"><tr>
+          <td><h1 style="margin:0;color:#fff;font-size:16px;">🔀 프로그램 변경</h1></td>
+          <td style="text-align:right;"><span style="background:rgba(255,255,255,0.25);color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;">${dday}</span></td>
+        </tr></table>
+      </div>
+      <div style="padding:24px;">
+        <p style="margin:0 0 16px;color:#334155;font-size:14px;">환자가 프로그램을 변경했습니다.</p>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;width:110px;">환자명</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${b.patient_name}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">이메일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_email || "—"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">연락처</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_phone || "—"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">예약일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFmt}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">시간</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">변경된 프로그램</td><td style="padding:6px 0;color:#8b5cf6;font-size:14px;font-weight:700;">${treatments || "미정"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${langLabel}</td></tr>
+        </table>
+        ${clinicContactHtml(b)}
+        ${clinicQuickReplyHtml(b)}
+        ${actions}
+        ${clinicLocationHtml()}
+      </div>
+    </div>
+  </div>
+</body></html>`;
+}
+
+async function clinicConfirmKoHtml(b: Booking): Promise<string> {
+  const dateFmt = formatDate(b.appointment_date);
+  const timeKST = b.appointment_time.slice(0, 5);
+  const treatments = treatmentList(b.treatment_interest);
+  const dday = dDayLabel(b.appointment_date);
+  const langLabel = LOCALE_LABELS_KO[b.locale] || b.locale.toUpperCase();
+  const actions = await clinicActionsHtml(b, false);
 
   return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
@@ -502,10 +374,10 @@ function clinicConfirmKoHtml(b: Booking): string {
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">예약일</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFmt}</td></tr>
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">시간</td><td style="padding:6px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST</td></tr>
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">프로그램</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${treatments || "미정"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${LOCALE_LABELS[b.locale as string] || (b.locale as string).toUpperCase()}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${langLabel}</td></tr>
         </table>
         ${clinicContactHtml(b)}
-        ${clinicActionsHtml(b, false)}
+        ${actions}
         ${clinicLocationHtml()}
       </div>
     </div>
@@ -513,83 +385,41 @@ function clinicConfirmKoHtml(b: Booking): string {
 </body></html>`;
 }
 
-function confirmHtmlPage(message: string, b: Booking): string {
-  const dateFmt = formatDate(b.appointment_date as string);
-  const timeKST = (b.appointment_time as string).slice(0, 5);
-  return `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>예약 확정 — Tune Clinic</title>
-<style>
-body{margin:0;padding:40px 20px;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-.card{max-width:480px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.hdr{background:#0f172a;padding:32px 28px;text-align:center}
-.hdr h1{margin:0;color:#c9a55a;font-size:14px;letter-spacing:3px;text-transform:uppercase;font-weight:700}
-.bd{padding:32px 28px;text-align:center}
-.msg{font-size:18px;color:#0f172a;font-weight:600;margin:0 0 16px}
-.det{color:#64748b;font-size:14px;margin:4px 0}
-.btn{display:inline-block;margin-top:24px;background:#0f172a;color:#fff;text-decoration:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:600}
-</style></head><body>
-<div class="card">
-  <div class="hdr"><h1>Tune Clinic</h1></div>
-  <div class="bd">
-    <p class="msg">${message}</p>
-    <p class="det">${b.patient_name} — ${dateFmt} ${timeKST} KST</p>
-    <a class="btn" href="${manageUrl(b)}">예약 관리 페이지로 이동</a>
-  </div>
-</div></body></html>`;
-}
-
-async function notifyAll(
-  patientEmail: string | null,
-  patientSubject: string,
-  patientHtml: string,
-  clinicSubject: string,
-  clinicHtml: string,
-): Promise<string[]> {
-  const results: string[] = [];
-
-  if (patientEmail) {
-    const { ok, error } = await sendEmail(patientEmail, patientSubject, patientHtml);
-    results.push(ok ? "patient: sent" : `patient: failed (${error})`);
-  }
-
-  if (CLINIC_EMAILS.length > 0) {
-    await new Promise(r => setTimeout(r, 600));
-    const { ok, error } = await sendEmail(CLINIC_EMAILS, clinicSubject, clinicHtml);
-    results.push(ok ? `clinic: sent to ${CLINIC_EMAILS.join(", ")}` : `clinic: failed (${error})`);
-  }
-
-  return results;
-}
-
-// ── ICS ──
-
-function generateICS(b: Booking): string {
-  const kst = new Date(`${b.appointment_date}T${b.appointment_time}+09:00`);
-  const end = new Date(kst.getTime() + 60 * 60 * 1000);
-  const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-  const treatments = ((b.treatment_interest as string[]) || []).join(", ");
-  return [
-    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Tune Clinic//Booking//EN",
-    "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "BEGIN:VEVENT",
-    `UID:${b.id}@tuneclinic-global.com`, `DTSTAMP:${fmt(new Date())}`,
-    `DTSTART:${fmt(kst)}`, `DTEND:${fmt(end)}`,
-    "SUMMARY:Tune Clinic Appointment",
-    `DESCRIPTION:Program: ${treatments || "TBD"}\\nName: ${b.patient_name}`,
-    "LOCATION:5F\\, 868 Nonhyeon-ro\\, Gangnam-gu\\, Seoul",
-    "STATUS:CONFIRMED", "END:VEVENT", "END:VCALENDAR",
-  ].join("\r\n");
-}
+// ── Helpers ──
 
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
-    status, headers: { ...CORS, "Content-Type": "application/json" },
+    status,
+    headers: { ...CORS, "Content-Type": "application/json" },
   });
 }
 
-function htmlResponse(html: string) {
-  return new Response(new TextEncoder().encode(html), {
-    headers: { ...CORS, "Content-Type": "text/html; charset=utf-8" },
-  });
+async function loadBooking(id: string): Promise<Booking | null> {
+  const { data, error } = await supabase
+    .from("bookings").select("*").eq("id", id).single();
+  if (error || !data) return null;
+  return data as Booking;
+}
+
+async function requireToken(
+  url: URL,
+  id: string,
+  actions: TokenAction[],
+): Promise<string | null> {
+  const t = url.searchParams.get("t");
+  const result = await verifyToken(t, id, actions);
+  if (result.ok) return null;
+  return result.reason ?? "invalid_token";
+}
+
+async function requireBodyToken(
+  body: { token?: string },
+  id: string,
+  actions: TokenAction[],
+): Promise<string | null> {
+  const result = await verifyToken(body.token, id, actions);
+  if (result.ok) return null;
+  return result.reason ?? "invalid_token";
 }
 
 // ── Main handler ──
@@ -606,88 +436,135 @@ Deno.serve(async (req) => {
       const id = url.searchParams.get("id");
       if (!id) return json({ error: "Missing id" }, 400);
 
-      const { data, error } = await supabase.from("bookings").select("*").eq("id", id).single();
-      if (error || !data) return json({ error: "Booking not found" }, 404);
-
+      // ICS download — token-protected (anyone with calendar URL would
+      // otherwise know the booking exists).
       if (url.searchParams.get("ics") === "1") {
+        const reason = await requireToken(url, id, ["ics", "manage"]);
+        if (reason) return json({ error: "unauthorized", reason }, 401);
+
+        const data = await loadBooking(id);
+        if (!data) return json({ error: "Booking not found" }, 404);
+
         return new Response(generateICS(data), {
-          headers: { ...CORS, "Content-Type": "text/calendar; charset=utf-8", "Content-Disposition": 'attachment; filename="tune-clinic-appointment.ics"' },
+          headers: {
+            ...CORS,
+            "Content-Type": "text/calendar; charset=utf-8",
+            "Content-Disposition":
+              'attachment; filename="tune-clinic-appointment.ics"',
+          },
         });
       }
 
+      // Confirm action — token-protected, redirects to manage page.
       if (url.searchParams.get("action") === "confirm") {
-        const redirect = (msg: string) => new Response(null, {
-          status: 302,
-          headers: { "Location": `${manageUrl(data)}&msg=${encodeURIComponent(msg)}` },
-        });
+        const reason = await requireToken(url, id, ["confirm"]);
+        if (reason) return json({ error: "unauthorized", reason }, 401);
 
-        if (data.status === "confirmed") {
-          return redirect("already_confirmed");
-        }
-        if (data.status === "cancelled") {
-          return redirect("cancelled");
-        }
+        const data = await loadBooking(id);
+        if (!data) return json({ error: "Booking not found" }, 404);
+
+        const manageHref = await manageUrl(data);
+        const redirect = (msg: string) =>
+          new Response(null, {
+            status: 302,
+            headers: {
+              "Location": `${manageHref}&msg=${encodeURIComponent(msg)}`,
+            },
+          });
+
+        if (data.status === "confirmed") return redirect("already_confirmed");
+        if (data.status === "cancelled") return redirect("cancelled");
 
         const { error: updateErr } = await supabase
-          .from("bookings").update({ status: "confirmed" }).eq("id", id);
+          .from("bookings").update({
+            status: "confirmed",
+            confirmed_at: new Date().toISOString(),
+          }).eq("id", id);
 
-        if (updateErr) {
-          return redirect("error");
-        }
+        if (updateErr) return redirect("error");
 
         data.status = "confirmed";
 
+        const [patientHtml, clinicHtml] = await Promise.all([
+          confirmPatientHtml(data),
+          clinicConfirmKoHtml(data),
+        ]);
+
         const emailResults = await notifyAll(
           data.patient_email,
-          `Appointment Confirmed — ${formatDate(data.appointment_date)} at ${(data.appointment_time as string).slice(0, 5)} KST`,
-          confirmPatientHtml(data),
-          `✅ 예약 확정: ${data.patient_name} — ${data.appointment_date} ${(data.appointment_time as string).slice(0, 5)}`,
-          clinicConfirmKoHtml(data),
+          `Appointment Confirmed — ${formatDate(data.appointment_date)} at ${data.appointment_time.slice(0, 5)} KST`,
+          patientHtml,
+          `✅ 예약 확정: ${data.patient_name} — ${data.appointment_date} ${data.appointment_time.slice(0, 5)}`,
+          clinicHtml,
         );
         console.log("Confirm email results:", emailResults.join(" | "));
 
         return redirect("confirmed");
       }
 
+      // Read-only fetch — used by the booking-manage.html page.
+      // Token-protected so anonymous users with a UUID can't enumerate
+      // patient PII through the function endpoint.
+      const reason = await requireToken(url, id, ["manage"]);
+      if (reason) return json({ error: "unauthorized", reason }, 401);
+
+      const data = await loadBooking(id);
+      if (!data) return json({ error: "Booking not found" }, 404);
       return json(data);
     }
 
     if (req.method === "POST") {
       const body = await req.json();
-      const { action, id } = body;
+      const { action, id, token } = body;
 
       if (!id || !action) return json({ error: "Missing id or action" }, 400);
 
-      const { data: existing, error: fetchErr } = await supabase
-        .from("bookings").select("*").eq("id", id).single();
+      // All mutating actions require a manage token (broad scope so the
+      // patient can perform any self-service action from one link).
+      const reason = await requireBodyToken({ token }, id, ["manage"]);
+      if (reason) return json({ error: "unauthorized", reason }, 401);
 
-      if (fetchErr || !existing) return json({ error: "Booking not found" }, 404);
-      if (existing.status === "cancelled") return json({ error: "Booking is already cancelled" }, 400);
+      const existing = await loadBooking(id);
+      if (!existing) return json({ error: "Booking not found" }, 404);
+      if (existing.status === "cancelled") {
+        return json({ error: "Booking is already cancelled" }, 400);
+      }
 
       if (action === "cancel") {
         const { data, error } = await supabase
-          .from("bookings").update({ status: "cancelled" }).eq("id", id).select().single();
+          .from("bookings").update({ status: "cancelled" }).eq("id", id)
+          .select().single();
         if (error) return json({ error: error.message }, 500);
 
+        const booking = data as Booking;
+        const [patientHtml, clinicHtml] = await Promise.all([
+          Promise.resolve(cancelPatientHtml(booking)),
+          clinicCancelKoHtml(booking),
+        ]);
+
         const emailResults = await notifyAll(
-          data.patient_email,
-          `Booking Cancelled — ${formatDate(data.appointment_date)}`,
-          cancelPatientHtml(data),
-          `❌ 예약 취소: ${data.patient_name} — ${data.appointment_date} ${(data.appointment_time as string).slice(0, 5)}`,
-          clinicCancelKoHtml(data),
+          booking.patient_email,
+          `Booking Cancelled — ${formatDate(booking.appointment_date)}`,
+          patientHtml,
+          `❌ 예약 취소: ${booking.patient_name} — ${booking.appointment_date} ${booking.appointment_time.slice(0, 5)}`,
+          clinicHtml,
         );
 
-        return json({ success: true, booking: data, emails: emailResults });
+        return json({ success: true, booking, emails: emailResults });
       }
 
       if (action === "reschedule") {
         const { appointment_date, appointment_time, treatment_interest } = body;
-        if (!appointment_date || !appointment_time)
+        if (!appointment_date || !appointment_time) {
           return json({ error: "Missing date or time" }, 400);
+        }
 
         const updates: Record<string, unknown> = {
           appointment_date,
-          appointment_time: appointment_time.length === 5 ? appointment_time + ":00" : appointment_time,
+          appointment_time:
+            appointment_time.length === 5
+              ? appointment_time + ":00"
+              : appointment_time,
           status: "pending",
         };
         if (Array.isArray(treatment_interest) && treatment_interest.length > 0) {
@@ -698,35 +575,49 @@ Deno.serve(async (req) => {
           .from("bookings").update(updates).eq("id", id).select().single();
         if (error) return json({ error: error.message }, 500);
 
+        const booking = data as Booking;
+        const [patientHtml, clinicHtml] = await Promise.all([
+          reschedulePatientHtml(booking),
+          clinicRescheduleKoHtml(booking),
+        ]);
+
         const emailResults = await notifyAll(
-          data.patient_email,
-          `Appointment Rescheduled — ${formatDate(data.appointment_date)} at ${(data.appointment_time as string).slice(0, 5)} KST`,
-          reschedulePatientHtml(data),
-          `🔄 예약 변경: ${data.patient_name} — ${data.appointment_date} ${(data.appointment_time as string).slice(0, 5)}`,
-          clinicRescheduleKoHtml(data),
+          booking.patient_email,
+          `Appointment Rescheduled — ${formatDate(booking.appointment_date)} at ${booking.appointment_time.slice(0, 5)} KST`,
+          patientHtml,
+          `🔄 예약 변경: ${booking.patient_name} — ${booking.appointment_date} ${booking.appointment_time.slice(0, 5)}`,
+          clinicHtml,
         );
 
-        return json({ success: true, booking: data, emails: emailResults });
+        return json({ success: true, booking, emails: emailResults });
       }
 
       if (action === "update_program") {
         const { treatment_interest } = body;
-        if (!Array.isArray(treatment_interest) || treatment_interest.length === 0)
+        if (!Array.isArray(treatment_interest) || treatment_interest.length === 0) {
           return json({ error: "Missing treatment_interest" }, 400);
+        }
 
         const { data, error } = await supabase
-          .from("bookings").update({ treatment_interest }).eq("id", id).select().single();
+          .from("bookings").update({ treatment_interest }).eq("id", id)
+          .select().single();
         if (error) return json({ error: error.message }, 500);
 
+        const booking = data as Booking;
+        const [patientHtml, clinicHtml] = await Promise.all([
+          programChangePatientHtml(booking),
+          clinicProgramChangeKoHtml(booking),
+        ]);
+
         const emailResults = await notifyAll(
-          data.patient_email,
-          `Program Updated — ${treatmentList(data.treatment_interest)}`,
-          programChangePatientHtml(data),
-          `🔀 프로그램 변경: ${data.patient_name} — ${treatmentList(data.treatment_interest)}`,
-          clinicProgramChangeKoHtml(data),
+          booking.patient_email,
+          `Program Updated — ${treatmentList(booking.treatment_interest)}`,
+          patientHtml,
+          `🔀 프로그램 변경: ${booking.patient_name} — ${treatmentList(booking.treatment_interest)}`,
+          clinicHtml,
         );
 
-        return json({ success: true, booking: data, emails: emailResults });
+        return json({ success: true, booking, emails: emailResults });
       }
 
       return json({ error: "Unknown action" }, 400);
@@ -738,3 +629,8 @@ Deno.serve(async (req) => {
     return json({ error: String(err) }, 500);
   }
 });
+
+// Token mint endpoint is intentionally not exposed; tokens are minted
+// only inside trusted server contexts (this function and
+// booking-confirmation) and delivered via email.
+void signToken;
