@@ -267,8 +267,11 @@
 
 # Korean site was retired in Phase 3 — preserve any inbound search /
 # bookmark traffic by sending it to the English equivalent. The
-# Eleventy build no longer outputs /ko/* pages, so without these
-# rules every old URL would return a 404.
+# Eleventy build no longer outputs the full /ko/* tree (only
+# /ko/booking.html and /ko/booking-manage.html ship for Korean patients).
+# These wildcard redirects catch the legacy URLs. They are NOT forced,
+# so Netlify falls back to serving the actual file when one exists,
+# meaning /ko/booking and /ko/booking-manage continue to render normally.
 [[redirects]]
   from = "/ko"
   to = "/"

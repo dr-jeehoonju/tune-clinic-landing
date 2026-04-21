@@ -1,0 +1,442 @@
+<section class="bg-slate-950 text-white py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">방문 예약</span>
+    <h1 class="text-4xl md:text-5xl font-serif mt-5">예약하기</h1>
+    <p class="text-slate-300 leading-relaxed mt-5 max-w-2xl mx-auto">날짜와 시간 슬롯을 선택하세요. 진료 시간 내에 예약을 확인해 드리겠습니다.</p>
+  </div>
+</section>
+
+<section class="py-14 md:py-20 bg-slate-50">
+  <div class="max-w-3xl mx-auto px-6">
+
+    <div id="panel-pick">
+      <!-- Timezone Info -->
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6 flex items-start gap-3">
+        <i class="fas fa-globe text-blue-500 mt-0.5"></i>
+        <div class="text-sm">
+          <p class="font-bold text-blue-800">현재 시간대: <span id="tz-display" class="font-normal">감지 중...</span></p>
+          <p class="text-blue-600 mt-0.5">시간은 한국 표준시(KST)와 현지 시간 모두 표시됩니다.</p>
+        </div>
+      </div>
+
+      <!-- Calendar -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
+        <div class="flex items-center justify-between mb-5">
+          <button id="bk-prev" class="w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 transition"><i class="fas fa-chevron-left"></i></button>
+          <h3 id="bk-cal-title" class="font-bold text-lg text-slate-800"></h3>
+          <button id="bk-next" class="w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 transition"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="grid grid-cols-7 gap-1 text-center text-xs mb-2">
+          <span class="font-bold text-red-400 py-1">일</span>
+          <span class="font-bold text-slate-500 py-1">월</span>
+          <span class="font-bold text-slate-500 py-1">화</span>
+          <span class="font-bold text-slate-500 py-1">수</span>
+          <span class="font-bold text-slate-500 py-1">목</span>
+          <span class="font-bold text-slate-500 py-1">금</span>
+          <span class="font-bold text-blue-400 py-1">토</span>
+        </div>
+        <div id="bk-cal-grid" class="grid grid-cols-7 gap-1"></div>
+      </div>
+
+      <!-- Time Slots -->
+      <div id="slot-section" class="hidden">
+        <h3 class="font-bold text-slate-800 mb-3">선택 가능 시간: <span id="slot-date-label" class="text-gold"></span></h3>
+        <div id="slot-list" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 mb-6"></div>
+        <p id="slot-none" class="hidden text-sm text-slate-400 text-center py-4">이 날짜에는 가능한 시간이 없습니다.</p>
+      </div>
+    </div>
+
+    <!-- ========== BOOKING FORM ========== -->
+    <form id="booking-form" class="space-y-8">
+      <input type="hidden" id="bkf-date" value="">
+      <input type="hidden" id="bkf-time" value="">
+
+      <div style="position:absolute;left:-9999px" aria-hidden="true">
+        <input type="text" name="website" id="bkf-hp" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div>
+        <label for="bkf-name" class="block text-sm font-bold text-slate-700 mb-2">이름 <span class="text-red-500">*</span></label>
+        <input type="text" id="bkf-name" required placeholder="이름을 입력하세요"
+          class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label for="bkf-email" class="block text-sm font-bold text-slate-700 mb-2">이메일 <span class="text-red-500">*</span></label>
+          <input type="email" id="bkf-email" required placeholder="you@example.com"
+            class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+        </div>
+        <div>
+          <label for="bkf-phone" class="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
+          <div class="flex">
+            <select id="bkf-cc" class="shrink-0 border border-slate-200 border-r-0 rounded-l-lg px-2 py-3.5 text-slate-700 text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold appearance-none" style="width:100px;">
+              <option value="+82">🇰🇷 +82</option>
+              <option value="+81">🇯🇵 +81</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+86">🇨🇳 +86</option>
+              <option value="+66">🇹🇭 +66</option>
+              <option value="+44">🇬🇧 +44</option>
+              <option value="+61">🇦🇺 +61</option>
+              <option value="+65">🇸🇬 +65</option>
+              <option value="+852">🇭🇰 +852</option>
+              <option value="+886">🇹🇼 +886</option>
+              <option value="+84">🇻🇳 +84</option>
+              <option value="+62">🇮🇩 +62</option>
+              <option value="+60">🇲🇾 +60</option>
+              <option value="+63">🇵🇭 +63</option>
+              <option value="+91">🇮🇳 +91</option>
+              <option value="+49">🇩🇪 +49</option>
+              <option value="+33">🇫🇷 +33</option>
+              <option value="+7">🇷🇺 +7</option>
+              <option value="+971">🇦🇪 +971</option>
+              <option value="+55">🇧🇷 +55</option>
+            </select>
+            <input type="tel" id="bkf-phone" placeholder="10-1234-5678" class="flex-1 min-w-0 border border-slate-200 rounded-r-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+          </div>
+        </div>
+      </div>
+
+      <fieldset>
+        <legend class="block text-sm font-bold text-slate-700 mb-3">어떤 프로그램에 관심이 있으신가요?</legend>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="signature-lifting" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+            <div><span class="text-sm font-bold text-slate-700">시그니처 리프팅</span><p class="text-xs text-slate-400 mt-0.5">Ultherapy 350-shot physician protocol</p><p class="text-xs font-bold text-gold mt-1">₩990,000</p></div>
+          </label>
+          <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="structural-reset" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+            <div><span class="text-sm font-bold text-slate-700">스트럭처럴 리셋 엘리트</span><p class="text-xs text-slate-400 mt-0.5">Ultherapy + Thermage combined</p><p class="text-xs font-bold text-gold mt-1">₩3,047,000</p></div>
+          </label>
+          <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="collagen-builder" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+            <div><span class="text-sm font-bold text-slate-700">콜라겐 빌더</span><p class="text-xs text-slate-400 mt-0.5">Rejuran + Juvelook skin regeneration</p><p class="text-xs font-bold text-gold mt-1">₩770,000</p></div>
+          </label>
+          <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
+            <input type="checkbox" name="treatment" value="filler-chamaka-se" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
+            <div><span class="text-sm font-bold text-slate-700">볼륨 차마카-세</span><p class="text-xs text-slate-400 mt-0.5">Juvelook Volume collagen remodeling</p><p class="text-xs font-bold text-gold mt-1">₩770,000</p></div>
+          </label>
+          <label class="flex items-center gap-2.5 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 sm:col-span-2">
+            <input type="checkbox" name="treatment" value="other" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">상담 후 결정할게요</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="bkf-message" class="block text-sm font-bold text-slate-700 mb-2">추가 메모 <span class="text-slate-400 font-normal">(선택사항)</span></label>
+        <textarea id="bkf-message" rows="3" placeholder="여행 일정, 특별 요청 등"
+          class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white resize-y"></textarea>
+      </div>
+
+            <div class="bkf-turnstile-wrap">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADAXkhXswr-HEGw6" data-size="flexible"></div>
+      </div>
+
+      <button type="submit" id="bkf-submit"
+        class="w-full bg-slate-900 text-white py-4 px-8 font-bold rounded-lg hover:bg-slate-800 transition text-lg flex items-center justify-center gap-2">
+        <i class="fas fa-calendar-check"></i> 예약 제출
+      </button>
+      <p class="text-xs text-slate-400 text-center leading-relaxed">예약은 클리닉 영업 시간(월–토) 내에 확인됩니다. 확인 이메일을 받으실 수 있습니다.</p>
+
+      <div class="mt-8 pt-8 border-t border-slate-200">
+        <p class="text-sm font-bold text-slate-700 text-center mb-1">궁금한 점이 있으신가요? 언제든지 연락 주세요.</p>
+        <p class="text-xs text-slate-400 text-center mb-5">일반적인 응답 시간: 클리닉 영업 시간 내 (월–토).</p>
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
+          <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-green-600 text-white rounded-lg font-bold text-xs hover:bg-green-700 transition">
+            <i class="fab fa-whatsapp text-sm"></i> WhatsApp
+          </a>
+          <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-gold hover:text-gold transition">
+            <i class="fab fa-instagram text-sm"></i> Instagram DM
+          </a>
+          <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer">
+            <i class="fab fa-line text-sm"></i> LINE
+          </button>
+          <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer">
+            <i class="fab fa-weixin text-sm"></i> WeChat
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Success -->
+    <div id="bkf-success" class="hidden text-center py-20">
+      <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-clock text-2xl"></i>
+      </div>
+      <h2 class="text-3xl font-serif text-slate-900">Booking Request Received</h2>
+      <p class="text-slate-500 mt-4 max-w-md mx-auto leading-relaxed">Thank you! To confirm your booking, please send us a message with your name via any channel below.</p>
+      <p id="bkf-summary" class="text-sm text-slate-400 mt-3"></p>
+      <div class="mt-8 max-w-sm mx-auto">
+        <p class="text-sm font-bold text-slate-700 mb-3">Contact us to complete your booking:</p>
+        <div class="flex flex-wrap justify-center gap-2.5">
+          <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-green-600 text-white rounded-lg font-bold text-xs hover:bg-green-700 transition"><i class="fab fa-whatsapp text-sm"></i> WhatsApp</a>
+          <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-violet-500 text-white rounded-lg font-bold text-xs hover:bg-violet-600 transition"><i class="fab fa-instagram text-sm"></i> Instagram</a>
+          <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer"><i class="fab fa-line text-sm"></i> LINE</button>
+          <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer"><i class="fab fa-weixin text-sm"></i> WeChat</button>
+        </div>
+        <p class="text-xs text-slate-400 mt-3">Our counselor will assist you during business hours (Mon–Sat)</p>
+      </div>
+      <a href="/index.html" class="inline-block mt-8 text-gold font-bold hover:underline">Back to Home</a>
+    </div>
+
+    <!-- Error -->
+    <div id="bkf-error" class="hidden text-center py-10">
+      <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-exclamation-triangle text-2xl"></i>
+      </div>
+      <h2 class="text-2xl font-serif text-slate-900">Something went wrong</h2>
+      <p class="text-slate-500 mt-4">Please try again or contact us directly via WhatsApp.</p>
+    </div>
+
+  </div>
+</section>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const supabase = createClient(
+  'https://jwlfffpyeczyyojcutcx.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY'
+);
+
+const LOCALE = 'ko';
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+
+/* ── Timezone ── */
+const patientTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+$('#tz-display').textContent = patientTZ;
+
+function kstToLocal(dateStr, timeStr) {
+  const kst = new Date(`${dateStr}T${timeStr}+09:00`);
+  return kst.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: patientTZ });
+}
+
+/* ── State ── */
+let templates = [];
+let blocks = [];
+let bookedSlots = [];
+let calY, calM;
+let selectedDate = null;
+let selectedTime = null;
+
+const now = new Date();
+calY = now.getFullYear();
+calM = now.getMonth();
+
+/* ── Load Data ── */
+async function init() {
+  const [tRes, bRes, sRes] = await Promise.all([
+    supabase.from('schedule_templates').select('*'),
+    supabase.from('schedule_blocks').select('*'),
+    supabase.from('booked_slots').select('appointment_date, appointment_time, status'),
+  ]);
+  templates = tRes.data || [];
+  blocks = bRes.data || [];
+  bookedSlots = sRes.data || [];
+  renderCalendar();
+
+  supabase.channel('bookings-realtime')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'bookings' }, async () => {
+      const { data } = await supabase.from('booked_slots').select('appointment_date, appointment_time, status');
+      bookedSlots = data || [];
+      renderCalendar();
+      if (selectedDate) renderSlots(selectedDate);
+    })
+    .subscribe();
+}
+
+/* ── Calendar ── */
+$('#bk-prev').addEventListener('click', () => { calM--; if (calM < 0) { calM = 11; calY--; } renderCalendar(); });
+$('#bk-next').addEventListener('click', () => { calM++; if (calM > 11) { calM = 0; calY++; } renderCalendar(); });
+
+function renderCalendar() {
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  $('#bk-cal-title').textContent = `${monthNames[calM]} ${calY}`;
+
+  const grid = $('#bk-cal-grid');
+  const firstDay = new Date(calY, calM, 1).getDay();
+  const daysInMonth = new Date(calY, calM + 1, 0).getDate();
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const blockSet = new Set(blocks.map(b => b.block_date));
+  const activeTemplates = templates.filter(t => t.is_active);
+  const activeDays = new Set(activeTemplates.map(t => t.day_of_week));
+
+  let html = '';
+  for (let i = 0; i < firstDay; i++) html += '<div></div>';
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = new Date(calY, calM, d);
+    const dateStr = `${calY}-${String(calM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dow = date.getDay();
+    const isPast = date < today;
+    const isBlocked = blockSet.has(dateStr);
+    const isOpen = activeDays.has(dow);
+    const isAvailable = !isPast && !isBlocked && isOpen;
+    const isSelected = dateStr === selectedDate;
+
+    if (isAvailable) {
+      const weekendCls = dow === 0 ? 'text-red-400' : dow === 6 ? 'text-blue-400' : 'text-slate-700';
+      html += `<div class="text-center py-2.5 rounded-lg cursor-pointer transition ${isSelected ? 'bg-gold text-white font-bold' : `hover:bg-gold/10 ${weekendCls}`}" data-date="${dateStr}">
+        <span class="text-sm">${d}</span>
+      </div>`;
+    } else {
+      html += `<div class="text-center py-2.5 rounded-lg text-slate-300 cursor-not-allowed">
+        <span class="text-sm">${d}</span>
+      </div>`;
+    }
+  }
+  grid.innerHTML = html;
+
+  grid.querySelectorAll('[data-date]').forEach(el => {
+    el.addEventListener('click', () => {
+      selectedDate = el.dataset.date;
+      selectedTime = null;
+      renderCalendar();
+      renderSlots(selectedDate);
+    });
+  });
+}
+
+/* ── Time Slots ── */
+function renderSlots(dateStr) {
+  const section = $('#slot-section');
+  const list = $('#slot-list');
+  const none = $('#slot-none');
+  section.classList.remove('hidden');
+
+  const parts = dateStr.split('-');
+  const dow = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2])).getDay();
+  const template = templates.find(t => t.day_of_week === dow && t.is_active);
+
+  if (!template) {
+    list.innerHTML = '';
+    none.classList.remove('hidden');
+    return;
+  }
+
+  const startMins = timeToMins(template.start_time);
+  const endMins = timeToMins(template.end_time);
+  const dur = template.slot_duration_minutes;
+
+  const usedTimes = new Set(
+    bookedSlots.filter(s => s.appointment_date === dateStr).map(s => s.appointment_time?.slice(0, 5))
+  );
+
+  const slots = [];
+  for (let m = startMins; m + dur <= endMins; m += dur) {
+    const timeStr = minsToTime(m);
+    const isBooked = usedTimes.has(timeStr);
+    slots.push({ time: timeStr, booked: isBooked });
+  }
+
+  if (!slots.length) { list.innerHTML = ''; none.classList.remove('hidden'); return; }
+  none.classList.add('hidden');
+
+  const dateLabel = new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  $('#slot-date-label').textContent = dateLabel;
+
+  list.innerHTML = slots.map(s => {
+    const local = kstToLocal(dateStr, s.time + ':00');
+    if (s.booked) {
+      return `<div class="py-3 px-2 rounded-lg border border-slate-100 bg-slate-50 text-center opacity-50 cursor-not-allowed">
+        <p class="text-sm font-bold text-slate-400 line-through">${s.time}</p>
+        <p class="text-[10px] text-slate-300">${local} local</p>
+      </div>`;
+    }
+    const isSel = s.time === selectedTime;
+    return `<div class="py-3 px-2 rounded-lg border transition cursor-pointer text-center ${isSel ? 'border-gold bg-gold/10 ring-2 ring-gold' : 'border-slate-200 bg-white hover:border-gold/50'}" data-time="${s.time}">
+      <p class="text-sm font-bold ${isSel ? 'text-gold' : 'text-slate-700'}">${s.time} <span class="font-normal text-slate-400">KST</span></p>
+      <p class="text-[10px] text-slate-400">${local} local</p>
+    </div>`;
+  }).join('');
+
+  list.querySelectorAll('[data-time]').forEach(el => {
+    el.addEventListener('click', () => {
+      selectedTime = el.dataset.time;
+      $('#bkf-date').value = dateStr;
+      $('#bkf-time').value = selectedTime;
+      renderSlots(dateStr);
+    });
+  });
+}
+
+function timeToMins(t) { const [h, m] = (t || '00:00').split(':').map(Number); return h * 60 + m; }
+function minsToTime(m) { return `${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`; }
+
+/* ── Form Submit ── */
+$('#booking-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if ($('#bkf-hp').value) return;
+
+  const name = $('#bkf-name').value.trim();
+  const email = $('#bkf-email').value.trim();
+  const rawPhone = $('#bkf-phone').value.trim().replace(/[^0-9]/g, '').replace(/^0+/, '');
+  const phone = rawPhone ? $('#bkf-cc').value + rawPhone : '';
+  const treatments = [...$$('#booking-form input[name="treatment"]:checked')].map(c => c.value);
+  const message = $('#bkf-message').value.trim();
+  const submitBtn = $('#bkf-submit');
+
+  if (!$('#bkf-date').value || !$('#bkf-time').value) {
+    alert('Please select a date and time slot first.');
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+  const row = {
+    booking_type: 'slot_pick',
+    patient_name: name,
+    patient_email: email || null,
+    patient_phone: phone || null,
+    treatment_interest: treatments,
+    message: message || null,
+    locale: LOCALE,
+    patient_timezone: patientTZ,
+    appointment_date: $('#bkf-date').value,
+    appointment_time: $('#bkf-time').value + ':00',
+  };
+
+  try {
+    const turnstileToken = (document.querySelector('#booking-form [name="cf-turnstile-response"]') || {}).value || '';
+    if (!turnstileToken) {
+      alert('Please complete the verification challenge.');
+      submitBtn.disabled = false;
+      if (window.turnstile) { try { window.turnstile.reset(); } catch (_) {} }
+      return;
+    }
+    const submitResp = await fetch('https://jwlfffpyeczyyojcutcx.supabase.co/functions/v1/submit-booking', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        turnstile_token: turnstileToken,
+        honeypot: $('#bkf-hp').value,
+        ...row,
+      }),
+    });
+    const submitData = await submitResp.json().catch(() => ({}));
+    if (!submitResp.ok || submitData.error) {
+      if (window.turnstile) { try { window.turnstile.reset(); } catch (_) {} }
+      throw new Error(submitData.error || 'submit-failed');
+    }
+
+    $('#booking-form').classList.add('hidden');
+    $('#panel-pick').classList.add('hidden');
+
+    $('#bkf-summary').textContent = `Date: ${row.appointment_date} | Time: ${row.appointment_time.slice(0,5)} KST`;
+    $('#bkf-success').classList.remove('hidden');
+    $('#bkf-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (err) {
+    console.error(err);
+    $('#booking-form').classList.add('hidden');
+    $('#bkf-error').classList.remove('hidden');
+  }
+});
+
+init();
+</script>

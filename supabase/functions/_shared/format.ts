@@ -1,8 +1,21 @@
 // Shared formatting helpers used by booking-confirmation and booking-manage.
 
-export function formatDate(dateStr: string): string {
+const DATE_LOCALE_MAP: Record<string, string> = {
+  en: "en-US",
+  ja: "ja-JP",
+  zh: "zh-CN",
+  th: "th-TH",
+  de: "de-DE",
+  fr: "fr-FR",
+  ru: "ru-RU",
+  vi: "vi-VN",
+  ko: "ko-KR",
+};
+
+export function formatDate(dateStr: string, locale: string = "en"): string {
   const d = new Date(dateStr + "T00:00:00+09:00");
-  return d.toLocaleDateString("en-US", {
+  const intlLocale = DATE_LOCALE_MAP[locale] || "en-US";
+  return d.toLocaleDateString(intlLocale, {
     weekday: "long",
     year: "numeric",
     month: "long",

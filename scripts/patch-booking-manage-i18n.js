@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // Normalize BOOKING_URLS in every booking-manage.html fragment so it
-// only references the 8 locales that are actually built (Korean site
-// was removed in Phase 3). Idempotent.
+// references the full set of locales that ship a booking page
+// (8 main locales + the Korean partial-locale booking page). Idempotent.
 
 const fs = require('node:fs');
 const path = require('node:path');
 
 const TARGET =
-  "const BOOKING_URLS = { en: '/booking.html', ja: '/ja/booking.html', zh: '/zh/booking.html', th: '/th/booking.html', de: '/de/booking.html', fr: '/fr/booking.html', ru: '/ru/booking.html', vi: '/vi/booking.html' };";
+  "const BOOKING_URLS = { en: '/booking.html', ja: '/ja/booking.html', zh: '/zh/booking.html', th: '/th/booking.html', de: '/de/booking.html', fr: '/fr/booking.html', ru: '/ru/booking.html', vi: '/vi/booking.html', ko: '/ko/booking.html' };";
 
 const root = path.join(__dirname, '..', 'src', 'fragments');
 const locales = fs.readdirSync(root).filter((d) =>

@@ -36,7 +36,104 @@ interface WebhookPayload {
   schema: string;
 }
 
+async function patientEmailHtmlKo(b: BookingRecord): Promise<string> {
+  const dateFormatted = formatDate(b.appointment_date, "ko");
+  const timeKST = b.appointment_time.slice(0, 5);
+  const timeLocal = kstToLocal(
+    b.appointment_date,
+    b.appointment_time,
+    b.patient_timezone,
+  );
+  const treatments = treatmentList(b.treatment_interest, "ko");
+  const manageHref = await manageUrl(b);
+
+  return `
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);">
+      <div style="background:#0f172a;padding:32px 28px;text-align:center;">
+        <h1 style="margin:0;color:#c9a55a;font-size:14px;letter-spacing:3px;text-transform:uppercase;font-weight:700;">Tune Clinic</h1>
+        <p style="margin:12px 0 0;color:#fff;font-size:22px;font-family:Georgia,serif;">예약 요청이 접수되었습니다</p>
+      </div>
+
+      <div style="padding:32px 28px;">
+        <p style="margin:0 0 20px;color:#334155;font-size:15px;line-height:1.6;">
+          <strong>${b.patient_name}</strong>님,<br>
+          예약 요청을 보내주셔서 감사합니다. 받은 정보는 다음과 같습니다.
+        </p>
+
+        <div style="background:#f8fafc;border-radius:12px;padding:20px;margin:0 0 24px;">
+          <table style="width:100%;border-collapse:collapse;">
+            <tr>
+              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;width:100px;">날짜</td>
+              <td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFormatted}</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;">시간</td>
+              <td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST${timeLocal !== "—" ? ` (${timeLocal} ${b.patient_timezone})` : ""}</td>
+            </tr>
+            ${treatments ? `<tr>
+              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;">프로그램</td>
+              <td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${treatments}</td>
+            </tr>` : ""}
+          </table>
+        </div>
+
+        <div style="text-align:center;margin:0 0 24px;">
+          <span style="display:inline-block;background:#fef3c7;color:#92400e;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:700;">⏳ 확정 대기 중</span>
+        </div>
+
+        <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:20px;margin:0 0 24px;">
+          <p style="margin:0 0 8px;color:#92400e;font-size:14px;font-weight:700;">다음 단계 안내</p>
+          <ol style="margin:0;padding:0 0 0 18px;color:#92400e;font-size:13px;line-height:1.8;">
+            <li>아래 메신저로 성함과 함께 메시지를 보내주세요</li>
+            <li>진료 시간 내 상담 직원이 안내해드립니다</li>
+            <li>예약이 확정되면 확정 안내 메일이 발송됩니다</li>
+          </ol>
+        </div>
+
+        <div style="background:#0f172a;border-radius:12px;padding:24px;margin:0 0 24px;text-align:center;">
+          <p style="margin:0 0 14px;color:#c9a55a;font-size:14px;font-weight:700;">예약 확정을 위해 연락 주세요</p>
+          <div>
+            <a href="https://wa.me/821076744128" style="display:inline-block;background:#22c55e;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">💬 WhatsApp</a>
+            <a href="https://www.instagram.com/tuneclinic_english/" style="display:inline-block;background:#8b5cf6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">📸 Instagram</a>
+          </div>
+          <div style="margin-top:8px;">
+            <a href="tel:+82-507-1438-8022" style="display:inline-block;background:#0ea5e9;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">📞 전화</a>
+          </div>
+          <p style="margin:12px 0 0;color:#94a3b8;font-size:11px;">월–금 10:00–21:00 · 토 10:00–16:00 (KST)</p>
+        </div>
+
+        <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;text-align:center;">
+          <p style="margin:0 0 10px;color:#64748b;font-size:12px;">일정 변경이 필요하신가요?</p>
+          <a href="${manageHref}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">일정 변경 / 취소</a>
+          <a href="${manageHref}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">프로그램 변경</a>
+        </div>
+
+        <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;margin-top:8px;">
+          <p style="margin:0 0 4px;color:#0f172a;font-size:14px;font-weight:700;">📍 압구정 튠 클리닉</p>
+          <p style="margin:0;color:#64748b;font-size:13px;line-height:1.5;">
+            서울 강남구 논현로 868, 5층<br>
+            월–금 10:00–21:00 · 토 10:00–16:00
+          </p>
+        </div>
+      </div>
+
+      <div style="background:#f8fafc;padding:20px 28px;text-align:center;border-top:1px solid #e2e8f0;">
+        <p style="margin:0;color:#94a3b8;font-size:11px;">© 2026 압구정 튠 클리닉 · 근거 기반 미용 의학</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
 async function patientEmailHtml(b: BookingRecord): Promise<string> {
+  if (b.locale === "ko") return patientEmailHtmlKo(b);
+
   const dateFormatted = formatDate(b.appointment_date);
   const timeKST = b.appointment_time.slice(0, 5);
   const timeLocal = kstToLocal(
@@ -220,9 +317,14 @@ Deno.serve(async (req) => {
     const results: string[] = [];
 
     if (booking.patient_email) {
+      const dateLabel = formatDate(booking.appointment_date, booking.locale);
+      const timeLabel = booking.appointment_time.slice(0, 5);
+      const subject = booking.locale === "ko"
+        ? `예약 요청이 접수되었습니다 — ${dateLabel} ${timeLabel} KST`
+        : `Booking Request Received — ${dateLabel} at ${timeLabel} KST`;
       const { ok, error } = await sendEmail(
         booking.patient_email,
-        `Booking Request Received — ${formatDate(booking.appointment_date)} at ${booking.appointment_time.slice(0, 5)} KST`,
+        subject,
         patientHtml,
       );
       results.push(ok ? "patient: sent" : `patient: failed (${error})`);

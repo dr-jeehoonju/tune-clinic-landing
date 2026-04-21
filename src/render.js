@@ -63,43 +63,47 @@ function languageSwitcher(entry, localeData) {
 
 function mainNav(g, locale, localeData, switcher, options = {}) {
   const { activeKey, isHome, mobileLanguageLinksHtml } = options;
-  const faqHref = isHome ? "#faq" : `${pageUrl(locale, "index")}#faq`;
+  // `ko` is a partial locale (only booking pages exist). Route all
+  // non-booking nav links to the English equivalents so we never link
+  // to a 404; the user-facing labels remain in Korean.
+  const siteLocale = locale === "ko" ? "en" : locale;
+  const faqHref = isHome ? "#faq" : `${pageUrl(siteLocale, "index")}#faq`;
   const contactHref = pageUrl(locale, "booking");
   const activeClass = (key) =>
     activeKey === key
       ? "text-gold transition border-b-2 border-gold pb-1"
       : "hover:text-gold transition";
-  const blogLink = `<a href="${blogIndexUrl(locale)}" class="${activeKey === "blog" ? "text-gold transition border-b-2 border-gold pb-1" : "hover:text-gold transition"}">${g.blog || "Blog"}</a>`;
-  const guidesLink = `<a href="${pageUrl(locale, "guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition ${activeKey === "guides" ? "ring-2 ring-amber-300" : ""}">${g.guides}</a>`;
+  const blogLink = `<a href="${blogIndexUrl(siteLocale)}" class="${activeKey === "blog" ? "text-gold transition border-b-2 border-gold pb-1" : "hover:text-gold transition"}">${g.blog || "Blog"}</a>`;
+  const guidesLink = `<a href="${pageUrl(siteLocale, "guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition ${activeKey === "guides" ? "ring-2 ring-amber-300" : ""}">${g.guides}</a>`;
 
   return `
     <nav class="bg-white border-b border-slate-100 sticky top-0 z-40 transition-all duration-300" id="navbar">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex justify-between items-center h-16">
-          <a href="${pageUrl(locale, "index")}" class="flex items-center gap-2">
+          <a href="${pageUrl(siteLocale, "index")}" class="flex items-center gap-2">
             <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
             <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
           </a>
           <div class="hidden md:flex items-center gap-6">
             <div class="flex items-center gap-8 text-sm font-bold text-slate-600">
-              <a href="${pageUrl(locale, "design-method")}" class="${activeClass("design-method")}">${g.method}</a>
+              <a href="${pageUrl(siteLocale, "design-method")}" class="${activeClass("design-method")}">${g.method}</a>
               <div class="relative group h-16 flex items-center">
                 <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
                   ${g.programs} <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
                 </button>
                 <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
                   <div class="py-2">
-                    <a href="${pageUrl(locale, "signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
-                    <a href="${pageUrl(locale, "structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
-                    <a href="${pageUrl(locale, "collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
-                    <a href="${pageUrl(locale, "filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
+                    <a href="${pageUrl(siteLocale, "signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
+                    <a href="${pageUrl(siteLocale, "structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
+                    <a href="${pageUrl(siteLocale, "collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
+                    <a href="${pageUrl(siteLocale, "filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
                     <div class="border-t border-slate-100 mt-1 pt-1">
-                      <a href="${pageUrl(locale, "menu")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>${g.menu}</a>
+                      <a href="${pageUrl(siteLocale, "menu")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>${g.menu}</a>
                     </div>
                   </div>
                 </div>
               </div>
-              <a href="${pageUrl(locale, "gallery")}" class="${activeClass("gallery")}">${g.gallery}</a>
+              <a href="${pageUrl(siteLocale, "gallery")}" class="${activeClass("gallery")}">${g.gallery}</a>
               ${blogLink}
               ${guidesLink}
               <a href="${faqHref}" class="hover:text-gold transition">${g.faq}</a>
@@ -119,18 +123,18 @@ function mainNav(g, locale, localeData, switcher, options = {}) {
             ${mobileLanguageLinksHtml}
           </div>
         </div>
-        <a href="${pageUrl(locale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "design-method" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.method}</a>
+        <a href="${pageUrl(siteLocale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "design-method" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.method}</a>
         <div class="bg-slate-50 px-6 py-4 border-b border-slate-50">
           <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.programs}</p>
-          <a href="${pageUrl(locale, "signature-lifting")}" class="block py-2 ${activeKey === "signature-lifting" ? "text-gold font-bold" : "text-slate-700"}">${g.sig}</a>
-          <a href="${pageUrl(locale, "structural-reset")}" class="block py-2 ${activeKey === "structural-reset" ? "text-gold font-bold" : "text-slate-700"}">${g.reset}</a>
-          <a href="${pageUrl(locale, "collagen-builder")}" class="block py-2 ${activeKey === "collagen-builder" ? "text-gold font-bold" : "text-slate-700"}">${g.collagen}</a>
-          <a href="${pageUrl(locale, "filler-chamaka-se")}" class="block py-2 ${activeKey === "filler-chamaka-se" ? "text-gold font-bold" : "text-slate-700"}">${g.filler}</a>
-          <a href="${pageUrl(locale, "menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
+          <a href="${pageUrl(siteLocale, "signature-lifting")}" class="block py-2 ${activeKey === "signature-lifting" ? "text-gold font-bold" : "text-slate-700"}">${g.sig}</a>
+          <a href="${pageUrl(siteLocale, "structural-reset")}" class="block py-2 ${activeKey === "structural-reset" ? "text-gold font-bold" : "text-slate-700"}">${g.reset}</a>
+          <a href="${pageUrl(siteLocale, "collagen-builder")}" class="block py-2 ${activeKey === "collagen-builder" ? "text-gold font-bold" : "text-slate-700"}">${g.collagen}</a>
+          <a href="${pageUrl(siteLocale, "filler-chamaka-se")}" class="block py-2 ${activeKey === "filler-chamaka-se" ? "text-gold font-bold" : "text-slate-700"}">${g.filler}</a>
+          <a href="${pageUrl(siteLocale, "menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
         </div>
-        <a href="${pageUrl(locale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "gallery" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.gallery}</a>
-        <a href="${blogIndexUrl(locale)}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "blog" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.blog || "Blog"}</a>
-        <a href="${pageUrl(locale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.guides}</a>
+        <a href="${pageUrl(siteLocale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "gallery" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.gallery}</a>
+        <a href="${blogIndexUrl(siteLocale)}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "blog" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.blog || "Blog"}</a>
+        <a href="${pageUrl(siteLocale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.guides}</a>
         <a href="${faqHref}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
         <a href="${contactHref}" class="block px-6 py-4 font-bold ${activeKey === "booking" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.contact}</a>
       </div>
@@ -437,8 +441,12 @@ function blogAlternateLinks(post) {
   return `${links}\n  <link rel="alternate" hreflang="x-default" href="${publicBlogUrl(fallback, post.slug)}">`;
 }
 
+// `ko` is a partial locale (booking pages only); exclude it from blog
+// language switchers and hreflang sets so we never advertise /ko/blog/.
+const BLOG_LANGUAGE_ORDER = languageOrder.filter((code) => code !== "ko");
+
 function blogIndexAlternateLinks(locale) {
-  const links = languageOrder
+  const links = BLOG_LANGUAGE_ORDER
     .map((l) => `<link rel="alternate" hreflang="${hrefLang(l)}" href="${publicBlogIndexUrl(l)}">`)
     .join("\n  ");
   return `${links}\n  <link rel="alternate" hreflang="x-default" href="${publicBlogIndexUrl("en")}">`;
@@ -555,7 +563,7 @@ function renderBlogIndex(locale, posts, localeData) {
   const blogTitle = g.blog || "Blog";
   const localePosts = posts.filter((p) => p.locale === locale);
   const currentLang = localeData[locale].global;
-  const blogIdxSwitcherRows = languageOrder.map((code) => {
+  const blogIdxSwitcherRows = BLOG_LANGUAGE_ORDER.map((code) => {
     const lg = localeData[code].global;
     const active = code === locale;
     return `<a href="${blogIndexUrl(code)}" class="block px-4 py-2.5 ${active ? "font-bold text-gold border-b border-slate-50" : "hover:bg-slate-50 hover:text-gold transition"}">${lg.languageName}</a>`;
@@ -605,7 +613,7 @@ function renderBlogIndex(locale, posts, localeData) {
   ${siteAssets({ extraStyles: LINE_CLAMP_CSS })}
 </head>
 <body>
-${mainNav(g, locale, localeData, switcher, { activeKey: "blog", isHome: false, mobileLanguageLinksHtml: languageOrder.map((code) => { const loc = localeData[code].global; const active = code === locale; return `<a href="${blogIndexUrl(code)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("") })}
+${mainNav(g, locale, localeData, switcher, { activeKey: "blog", isHome: false, mobileLanguageLinksHtml: BLOG_LANGUAGE_ORDER.map((code) => { const loc = localeData[code].global; const active = code === locale; return `<a href="${blogIndexUrl(code)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("") })}
 <header class="bg-slate-950 text-white border-b border-slate-800">
   <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
     <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gold text-[10px] uppercase tracking-[0.22em] font-bold bg-white/5"><i class="fas fa-pen-nib"></i> ${SITE_NAME} ${blogTitle}</span>

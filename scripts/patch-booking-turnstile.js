@@ -19,7 +19,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const FRAGMENTS_DIR = path.join(__dirname, "..", "src", "fragments");
-const LOCALES = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi"];
+const LOCALES = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi", "ko"];
 
 // Cloudflare Turnstile sitekey for tuneclinic-global.com (public — safe
 // to commit). Allowed hosts are configured on the Cloudflare dashboard.

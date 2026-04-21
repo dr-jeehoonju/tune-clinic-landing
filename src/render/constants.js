@@ -4,7 +4,10 @@
 
 const { SITE_URL } = require("../url-helpers");
 
-const languageOrder = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi"];
+// `ko` only ships /ko/booking/ and /ko/booking-manage/ — it is intentionally
+// kept at the end of the order so the language switcher / hreflang sets for
+// the rest of the site are unaffected.
+const languageOrder = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi", "ko"];
 
 const SITE_NAME = "Tune Clinic";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75`;
@@ -131,6 +134,9 @@ const LOCALE_META = {
   fr: { ogLocale: "fr_FR", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "ru_RU", "vi_VN"] },
   ru: { ogLocale: "ru_RU", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "vi_VN"] },
   vi: { ogLocale: "vi_VN", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU"] },
+  // `ko` is a partial locale (booking pages only); no cross-page alternates
+  // are advertised so the rest of the site stays clean for crawlers.
+  ko: { ogLocale: "ko_KR", ogAlternates: [] },
 };
 
 // Locale → BCP-47 tag for `Date.toLocaleDateString`.
@@ -143,6 +149,7 @@ const DATE_LOCALE_MAP = {
   fr: "fr-FR",
   ru: "ru-RU",
   vi: "vi-VN",
+  ko: "ko-KR",
 };
 
 // og:locale → ISO short code (used for hreflang filtering).
@@ -155,6 +162,7 @@ const OG_LOCALE_TO_CODE = {
   fr_FR: "fr",
   ru_RU: "ru",
   vi_VN: "vi",
+  ko_KR: "ko",
 };
 
 // Vendored CSS asset hrefs (relative URLs are served from /dist).

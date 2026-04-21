@@ -10,11 +10,14 @@ export const SUPPORTED_LOCALES = [
   "fr",
   "ru",
   "vi",
+  "ko",
 ] as const;
 
 export type Locale = typeof SUPPORTED_LOCALES[number];
 
-// Map locale → URL path prefix (en is the root, no prefix).
+// Map locale → URL path prefix (en is the root, no prefix). `ko` is a
+// partial locale that only ships /ko/booking/ and /ko/booking-manage/
+// (rest of the site has no Korean pages).
 export const LOCALE_PREFIX: Record<string, string> = {
   en: "",
   ja: "ja/",
@@ -24,6 +27,7 @@ export const LOCALE_PREFIX: Record<string, string> = {
   fr: "fr/",
   ru: "ru/",
   vi: "vi/",
+  ko: "ko/",
 };
 
 // Korean labels used in clinic-internal email notifications.
@@ -36,6 +40,7 @@ export const LOCALE_LABELS_KO: Record<string, string> = {
   fr: "프랑스어",
   ru: "러시아어",
   vi: "베트남어",
+  ko: "한국어",
 };
 
 const TREATMENT_KEYS = [
@@ -65,6 +70,7 @@ const OTHER_LABEL: Record<string, string> = {
   fr: "Autre / Pas encore décidé",
   ru: "Другое / Ещё не выбрано",
   vi: "Khác / Chưa chắc chắn",
+  ko: "기타 / 아직 정하지 못함",
 };
 
 function treatmentLabel(key: string, locale: string): string {
@@ -125,6 +131,11 @@ export const QUICK_REPLY: Record<
     subject: "Lịch hẹn Tune Clinic đã được xác nhận",
     body:
       "Xin chào {name},\n\nLịch hẹn của bạn tại Tune Clinic vào {date} lúc {time} KST đã được xác nhận.\n\nChúng tôi rất mong được gặp bạn!\n\nTrân trọng,\nTune Clinic",
+  },
+  ko: {
+    subject: "Tune Clinic 예약 확정 안내",
+    body:
+      "{name}님,\n\n{date} {time} KST Tune Clinic 예약이 확정되었습니다.\n\n방문을 기다리겠습니다.\n\nTune Clinic 드림",
   },
 };
 
