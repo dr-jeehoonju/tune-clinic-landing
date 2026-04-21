@@ -176,6 +176,14 @@ async function clinicNotificationKoHtml(b: BookingRecord): Promise<string> {
 </html>`;
 }
 
+// Internal-only function. Deployed with `--no-verify-jwt` so the gateway
+// does not reject Supabase's new non-JWT secret keys, but we enforce a
+// shared-secret check here: only callers that present the project's
+// service role key in the Authorization header are accepted. submit-booking
+// (Phase 5) and the legacy bookings INSERT database webhook both already
+// send this header.
+const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", {
@@ -184,6 +192,14 @@ Deno.serve(async (req) => {
         "Access-Control-Allow-Headers": "*",
       },
     });
+  }
+
+  const auth = req.headers.get("authorization") ?? "";
+  if (!SERVICE_ROLE_KEY || auth !== `Bearer ${SERVICE_ROLE_KEY}`) {
+    return new Response(
+      JSON.stringify({ error: "unauthorized" }),
+      { status: 401, headers: { "Content-Type": "application/json" } },
+    );
   }
 
   try {
