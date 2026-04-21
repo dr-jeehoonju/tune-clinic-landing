@@ -1,17 +1,23 @@
 [build]
-  publish = "."
+  publish = "dist"
   command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "20"
 
+# Tightened CSP — third-party CDNs for Tailwind + Font Awesome are
+# gone (now self-hosted from /css/). Inline scripts are still required
+# for the GA bootstrap and the cookie-consent banner; we keep
+# 'unsafe-inline' on script-src for now and remove 'unsafe-eval'
+# (only the Tailwind CDN needed it).
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://api.emailjs.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' https://*.supabase.co https://*.googleapis.com https://*.gstatic.com data: blob:; connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://api.emailjs.com https://cdn.jsdelivr.net; frame-src https://www.google.com https://maps.google.com; media-src 'self'"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://*.supabase.co https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://*.supabase.co https://*.googleapis.com https://*.gstatic.com data: blob:; connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://challenges.cloudflare.com; frame-src https://www.google.com https://maps.google.com https://challenges.cloudflare.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
 
 [[headers]]
   for = "*.html"
@@ -144,6 +150,9 @@
   to = "/apgujeong-aesthetic-clinic-for-foreign-patients.html"
   status = 200
 
+# Locale roots — every supported locale gets a clean `/xx` URL that
+# resolves to `/xx/index.html`. Keep this list in sync with
+# `languageOrder` in src/render.js.
 [[redirects]]
   from = "/ja"
   to = "/ja/index.html"
@@ -159,6 +168,27 @@
   to = "/th/index.html"
   status = 200
 
+[[redirects]]
+  from = "/de"
+  to = "/de/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/fr"
+  to = "/fr/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ru"
+  to = "/ru/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/vi"
+  to = "/vi/index.html"
+  status = 200
+
+# Blog index per locale.
 [[redirects]]
   from = "/blog"
   to = "/blog/index.html"
@@ -180,6 +210,27 @@
   status = 200
 
 [[redirects]]
+  from = "/de/blog"
+  to = "/de/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/fr/blog"
+  to = "/fr/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ru/blog"
+  to = "/ru/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/vi/blog"
+  to = "/vi/blog/index.html"
+  status = 200
+
+# Pretty URLs inside each locale.
+[[redirects]]
   from = "/ja/*"
   to = "/ja/:splat.html"
   status = 200
@@ -193,3 +244,47 @@
   from = "/th/*"
   to = "/th/:splat.html"
   status = 200
+
+[[redirects]]
+  from = "/de/*"
+  to = "/de/:splat.html"
+  status = 200
+
+[[redirects]]
+  from = "/fr/*"
+  to = "/fr/:splat.html"
+  status = 200
+
+[[redirects]]
+  from = "/ru/*"
+  to = "/ru/:splat.html"
+  status = 200
+
+[[redirects]]
+  from = "/vi/*"
+  to = "/vi/:splat.html"
+  status = 200
+
+# Korean site was retired in Phase 3 — preserve any inbound search /
+# bookmark traffic by sending it to the English equivalent. The
+# Eleventy build no longer outputs /ko/* pages, so without these
+# rules every old URL would return a 404.
+[[redirects]]
+  from = "/ko"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/ko/blog"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/ko/blog/*"
+  to = "/blog/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/ko/*"
+  to = "/:splat"
+  status = 301

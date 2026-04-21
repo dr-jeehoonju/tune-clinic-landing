@@ -128,6 +128,10 @@
           class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white resize-y"></textarea>
       </div>
 
+            <div class="bkf-turnstile-wrap">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADAXkhXswr-HEGw6" data-size="flexible"></div>
+      </div>
+
       <button type="submit" id="bkf-submit"
         class="w-full bg-slate-900 text-white py-4 px-8 font-bold rounded-lg hover:bg-slate-800 transition text-lg flex items-center justify-center gap-2">
         <i class="fas fa-calendar-check"></i> Buchung absenden
@@ -186,6 +190,8 @@
 
   </div>
 </section>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
@@ -397,8 +403,31 @@ $('#booking-form').addEventListener('submit', async (e) => {
   };
 
   try {
-    const { error } = await supabase.from('bookings').insert(row);
-    if (error) throw error;
+    const turnstileToken = (document.querySelector('#booking-form [name="cf-turnstile-response"]') || {}).value || '';
+    if (!turnstileToken) {
+      alert('Please complete the verification challenge.');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = $('#bkf-submit-label').textContent || 'Submit';
+      if (window.turnstile) try { window.turnstile.reset(); } catch (_) {}
+      return;
+    }
+
+    const submitResp = await fetch('https://jwlfffpyeczyyojcutcx.supabase.co/functions/v1/submit-booking', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        turnstile_token: turnstileToken,
+        honeypot: $('#bkf-hp').value,
+        ...row,
+      }),
+    });
+    const submitData = await submitResp.json().catch(() => ({}));
+    if (!submitResp.ok || submitData.error) {
+      const err = new Error(submitData.error || 'submit-failed');
+      err.detail = submitData;
+      if (window.turnstile) try { window.turnstile.reset(); } catch (_) {}
+      throw err;
+    }
 
     $('#booking-form').classList.add('hidden');
     $('#panel-pick').classList.add('hidden');
