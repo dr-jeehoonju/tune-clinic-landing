@@ -12,6 +12,7 @@ const {
   SITE_CSS_HREF,
   FA_CSS_HREF,
   GOOGLE_FONTS_HREF,
+  PRETENDARD_CSS_HREF,
   BRAND_INLINE_CSS,
   languageOrder,
 } = require("./constants");
@@ -72,9 +73,11 @@ function structuredDataScript(structuredData) {
 function siteAssets({ extraStyles = "" } = {}) {
   return `<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="${SITE_CSS_HREF}">
   <link rel="stylesheet" href="${FA_CSS_HREF}">
   <link rel="stylesheet" href="${GOOGLE_FONTS_HREF}">
+  <link rel="stylesheet" href="${PRETENDARD_CSS_HREF}">
   <style>${BRAND_INLINE_CSS}${extraStyles ? extraStyles : ""}</style>`;
 }
 

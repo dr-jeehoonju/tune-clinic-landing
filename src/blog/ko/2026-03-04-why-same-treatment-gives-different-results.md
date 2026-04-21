@@ -87,4 +87,4 @@ ogImage: /blog/images/why-same-treatment-gives-different-results-hero.webp
 
 중요한 것은 단순히 *어떤 시술을 선택했는가*가 아니라 — *어떤 기준이 그 선택을 이끌었는가*입니다.
 
-이것은 우리의 [차마카-세 디자인 메서드](/design-method.html)를 뒷받침하는 것과 동일한 논리이며, 근본적으로 옳은 기준이 무엇인지 어떻게 결정할 것인가라는 별개지만 관련된 질문과 직접적으로 연결됩니다. 그 토대는 [결과 이전의 기준을 정의하다](/blog/standards-before-results-in-aesthetic-medicine.html)에서 탐구됩니다. 개별 피부 반응의 다양성에 대한 근본적인 피부 생물학 연구와 관련하여, 피부 두께, 광타입(photo-type), 그리고 염증 성향이 동일한 프로토콜의 결과를 어떻게 재편하는지 보여주는 [개별 피부 반응 다양성에 관한 PubMed 근거](https://pubmed.ncbi.nlm.nih.gov/?term=skin+type+laser+response)를 참고하실 수 있습니다.
+이것은 우리의 [차마카세 디자인 메서드](/design-method.html)를 뒷받침하는 것과 동일한 논리이며, 근본적으로 옳은 기준이 무엇인지 어떻게 결정할 것인가라는 별개지만 관련된 질문과 직접적으로 연결됩니다. 그 토대는 [결과 이전의 기준을 정의하다](/blog/standards-before-results-in-aesthetic-medicine.html)에서 탐구됩니다. 개별 피부 반응의 다양성에 대한 근본적인 피부 생물학 연구와 관련하여, 피부 두께, 광타입(photo-type), 그리고 염증 성향이 동일한 프로토콜의 결과를 어떻게 재편하는지 보여주는 [개별 피부 반응 다양성에 관한 PubMed 근거](https://pubmed.ncbi.nlm.nih.gov/?term=skin+type+laser+response)를 참고하실 수 있습니다.

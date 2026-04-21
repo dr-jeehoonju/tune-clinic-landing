@@ -17,7 +17,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://*.supabase.co https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://*.supabase.co https://*.googleapis.com https://*.gstatic.com data: blob:; connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://challenges.cloudflare.com; frame-src https://www.google.com https://maps.google.com https://challenges.cloudflare.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://*.supabase.co https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' https://*.supabase.co https://*.googleapis.com https://*.gstatic.com data: blob:; connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://challenges.cloudflare.com; frame-src https://www.google.com https://maps.google.com https://challenges.cloudflare.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
 
 [[headers]]
   for = "*.html"
@@ -188,6 +188,11 @@
   to = "/vi/index.html"
   status = 200
 
+[[redirects]]
+  from = "/ko"
+  to = "/ko/index.html"
+  status = 200
+
 # Blog index per locale.
 [[redirects]]
   from = "/blog"
@@ -229,6 +234,11 @@
   to = "/vi/blog/index.html"
   status = 200
 
+[[redirects]]
+  from = "/ko/blog"
+  to = "/ko/blog/index.html"
+  status = 200
+
 # Pretty URLs inside each locale.
 [[redirects]]
   from = "/ja/*"
@@ -265,29 +275,7 @@
   to = "/vi/:splat.html"
   status = 200
 
-# Korean site was retired in Phase 3 — preserve any inbound search /
-# bookmark traffic by sending it to the English equivalent. The
-# Eleventy build no longer outputs the full /ko/* tree (only
-# /ko/booking.html and /ko/booking-manage.html ship for Korean patients).
-# These wildcard redirects catch the legacy URLs. They are NOT forced,
-# so Netlify falls back to serving the actual file when one exists,
-# meaning /ko/booking and /ko/booking-manage continue to render normally.
-[[redirects]]
-  from = "/ko"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/ko/blog"
-  to = "/blog/"
-  status = 301
-
-[[redirects]]
-  from = "/ko/blog/*"
-  to = "/blog/:splat"
-  status = 301
-
 [[redirects]]
   from = "/ko/*"
-  to = "/:splat"
-  status = 301
+  to = "/ko/:splat.html"
+  status = 200

@@ -88,4 +88,4 @@ ogImage: /blog/images/standards-before-results-in-aesthetic-medicine-hero.webp
 
 효과성은 중요합니다. 그러나 그것은 항상 건전한 판단의 *결과*일 뿐이며 — 결코 출발점이 될 수는 없습니다.
 
-이것이 우리의 [차마카-세 디자인 메서드](/design-method.html) 이면에 있는 철학입니다: 모든 치료 계획은 기기를 선택하는 것이 아니라 기준을 설정하는 것으로 시작됩니다. 동일한 시술을 받은 두 환자가 완전히 다른 결과를 안고 진료실을 나설 수 있는 이유에 대한 밀접하게 관련된 질문은 [같은 시술, 다른 결과](/blog/why-same-treatment-gives-different-results.html)에서 탐구됩니다. 더 넓은 학술적 맥락을 보려면, 미용 의학 분야가 어떻게 결과 중심에서 기준 중심의 의사 결정 프레임워크로 이동해 왔는지 추적한 [근거 기반 미용 의학에 관한 PubMed 문헌](https://pubmed.ncbi.nlm.nih.gov/?term=evidence+based+aesthetic+medicine)을 참고하십시오.
+이것이 우리의 [차마카세 디자인 메서드](/design-method.html) 이면에 있는 철학입니다: 모든 치료 계획은 기기를 선택하는 것이 아니라 기준을 설정하는 것으로 시작됩니다. 동일한 시술을 받은 두 환자가 완전히 다른 결과를 안고 진료실을 나설 수 있는 이유에 대한 밀접하게 관련된 질문은 [같은 시술, 다른 결과](/blog/why-same-treatment-gives-different-results.html)에서 탐구됩니다. 더 넓은 학술적 맥락을 보려면, 미용 의학 분야가 어떻게 결과 중심에서 기준 중심의 의사 결정 프레임워크로 이동해 왔는지 추적한 [근거 기반 미용 의학에 관한 PubMed 문헌](https://pubmed.ncbi.nlm.nih.gov/?term=evidence+based+aesthetic+medicine)을 참고하십시오.

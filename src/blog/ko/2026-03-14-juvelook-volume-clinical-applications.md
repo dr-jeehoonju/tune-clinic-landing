@@ -170,7 +170,7 @@ ogImage: /blog/images/juvelook-volume-clinical-applications-hero.webp
 
 이것이 근거 기반 미용 의학의 참모습입니다: 정확한 조직 깊이와 적절한 시기에, 올바른 메커니즘을 적절한 문제에 연결하는 것입니다.
 
-실제 임상에서 쥬베룩 볼륨이 단독으로 쓰이는 경우는 드뭅니다. 주로 구조적 밀도의 회복이 최우선일 때 [볼륨 차마카-세](/filler-chamaka-se.html) 프로토콜에, 근본적인 문제가 얼굴 전체에 걸친 매트릭스(기질) 분해일 때 [콜라겐 부스터](/collagen-builder.html) 프로그램에 통합되어 사용됩니다. 노화가 표면적인 문제가 아닌 구조적 문제인 이유에 대한 폭넓은 해부학적 맥락은 [피부 노화는 표면이 아니라 구조의 문제입니다](/blog/skin-aging-structural-change.html)를 참조하십시오. 그리고 PDLLA에 의해 유도된 콜라겐 합성에 대한 근거 임상 연구의 조직학적 및 임상적 타임라인은 [폴리-D,L-락틱산 피부 바이오 스티뮬레이션에 관한 PubMed 문헌](https://pubmed.ncbi.nlm.nih.gov/?term=poly-d%2Cl-lactic+acid+dermal+collagen)에 잘 정리되어 있습니다.
+실제 임상에서 쥬베룩 볼륨이 단독으로 쓰이는 경우는 드뭅니다. 주로 구조적 밀도의 회복이 최우선일 때 [볼륨 차마카세](/filler-chamaka-se.html) 프로토콜에, 근본적인 문제가 얼굴 전체에 걸친 매트릭스(기질) 분해일 때 [콜라겐 부스터](/collagen-builder.html) 프로그램에 통합되어 사용됩니다. 노화가 표면적인 문제가 아닌 구조적 문제인 이유에 대한 폭넓은 해부학적 맥락은 [피부 노화는 표면이 아니라 구조의 문제입니다](/blog/skin-aging-structural-change.html)를 참조하십시오. 그리고 PDLLA에 의해 유도된 콜라겐 합성에 대한 근거 임상 연구의 조직학적 및 임상적 타임라인은 [폴리-D,L-락틱산 피부 바이오 스티뮬레이션에 관한 PubMed 문헌](https://pubmed.ncbi.nlm.nih.gov/?term=poly-d%2Cl-lactic+acid+dermal+collagen)에 잘 정리되어 있습니다.
 
 ---
 

@@ -83,7 +83,7 @@ ogImage: /blog/images/how-natural-looking-change-is-created-hero.webp
 
 그 기준이 존중될 때 자연스러운 변화는 막연한 슬로건이 아니라, 계획된 임상적 과정이 됩니다.
 
-이것이 우리의 [차마카-세 디자인 메서드](/design-method.html)의 토대이며, [시그니처 리프팅](/signature-lifting.html)의 층별 시퀀싱 논리입니다 — 이 두 가지 모두 어떤 기기가 가장 극적인 차이를 만들어내느냐가 아니라 얼굴이 어떻게 조화를 이루고 있는지에서 출발합니다. 단순히 효과를 쫓는 것보다 기준을 정의하는 것이 왜 더 중요한지에 대한 더 깊은 질문은 [결과 이전의 기준을 정의하다](/blog/standards-before-results-in-aesthetic-medicine.html)를 참조하십시오. 안면 조화, 비율, 그리고 "자연스러운" 결과에 대한 인지적 인식에 관한 임상 문헌은 [미용의학에서의 안면 조화에 관한 PubMed 근거](https://pubmed.ncbi.nlm.nih.gov/?term=facial+harmony+aesthetic+balance)에서 수집해 볼 수 있습니다.
+이것이 우리의 [차마카세 디자인 메서드](/design-method.html)의 토대이며, [시그니처 리프팅](/signature-lifting.html)의 층별 시퀀싱 논리입니다 — 이 두 가지 모두 어떤 기기가 가장 극적인 차이를 만들어내느냐가 아니라 얼굴이 어떻게 조화를 이루고 있는지에서 출발합니다. 단순히 효과를 쫓는 것보다 기준을 정의하는 것이 왜 더 중요한지에 대한 더 깊은 질문은 [결과 이전의 기준을 정의하다](/blog/standards-before-results-in-aesthetic-medicine.html)를 참조하십시오. 안면 조화, 비율, 그리고 "자연스러운" 결과에 대한 인지적 인식에 관한 임상 문헌은 [미용의학에서의 안면 조화에 관한 PubMed 근거](https://pubmed.ncbi.nlm.nih.gov/?term=facial+harmony+aesthetic+balance)에서 수집해 볼 수 있습니다.
 
 ---
 

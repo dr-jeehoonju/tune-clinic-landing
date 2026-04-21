@@ -67,7 +67,7 @@ const PROGRAM_NAMES_KO: Record<TreatmentKey, string> = {
   "signature-lifting": "시그니처 리프팅",
   "structural-reset": "토탈 리프팅 엘리트",
   "collagen-builder": "콜라겐 부스터",
-  "filler-chamaka-se": "볼륨 차마카-세",
+  "filler-chamaka-se": "볼륨 차마카세",
   other: "기타",
 };
 

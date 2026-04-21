@@ -4,9 +4,7 @@
 
 const { SITE_URL } = require("../url-helpers");
 
-// `ko` only ships /ko/booking/ and /ko/booking-manage/ — it is intentionally
-// kept at the end of the order so the language switcher / hreflang sets for
-// the rest of the site are unaffected.
+// All supported locales. `ko` is now a full locale (all pages translated).
 const languageOrder = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi", "ko"];
 
 const SITE_NAME = "Tune Clinic";
@@ -126,17 +124,15 @@ const PHYSICIANS = [
 ];
 
 const LOCALE_META = {
-  en: { ogLocale: "en_US", ogAlternates: ["ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
-  ja: { ogLocale: "ja_JP", ogAlternates: ["en_US", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
-  zh: { ogLocale: "zh_CN", ogAlternates: ["en_US", "ja_JP", "th_TH", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
-  th: { ogLocale: "th_TH", ogAlternates: ["en_US", "ja_JP", "zh_CN", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
-  de: { ogLocale: "de_DE", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "fr_FR", "ru_RU", "vi_VN"] },
-  fr: { ogLocale: "fr_FR", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "ru_RU", "vi_VN"] },
-  ru: { ogLocale: "ru_RU", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "vi_VN"] },
-  vi: { ogLocale: "vi_VN", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU"] },
-  // `ko` is a partial locale (booking pages only); no cross-page alternates
-  // are advertised so the rest of the site stays clean for crawlers.
-  ko: { ogLocale: "ko_KR", ogAlternates: [] },
+  en: { ogLocale: "en_US", ogAlternates: ["ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU", "vi_VN", "ko_KR"] },
+  ja: { ogLocale: "ja_JP", ogAlternates: ["en_US", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU", "vi_VN", "ko_KR"] },
+  zh: { ogLocale: "zh_CN", ogAlternates: ["en_US", "ja_JP", "th_TH", "de_DE", "fr_FR", "ru_RU", "vi_VN", "ko_KR"] },
+  th: { ogLocale: "th_TH", ogAlternates: ["en_US", "ja_JP", "zh_CN", "de_DE", "fr_FR", "ru_RU", "vi_VN", "ko_KR"] },
+  de: { ogLocale: "de_DE", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "fr_FR", "ru_RU", "vi_VN", "ko_KR"] },
+  fr: { ogLocale: "fr_FR", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "ru_RU", "vi_VN", "ko_KR"] },
+  ru: { ogLocale: "ru_RU", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "vi_VN", "ko_KR"] },
+  vi: { ogLocale: "vi_VN", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU", "ko_KR"] },
+  ko: { ogLocale: "ko_KR", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
 };
 
 // Locale → BCP-47 tag for `Date.toLocaleDateString`.
@@ -168,11 +164,29 @@ const OG_LOCALE_TO_CODE = {
 // Vendored CSS asset hrefs (relative URLs are served from /dist).
 const SITE_CSS_HREF = "/css/site.css";
 const FA_CSS_HREF = "/css/fontawesome-all.min.css";
+// Latin: Playfair Display (display) + Lato (body).
+// Korean: Noto Serif KR (display fallback for .font-serif) — body uses
+// Pretendard, which is loaded separately from jsDelivr below.
 const GOOGLE_FONTS_HREF =
-  "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap";
+  "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+KR:wght@400;600;700&display=swap";
+// Pretendard is the de-facto premium Korean UI font and is not hosted on
+// Google Fonts, so we serve the variable subset from jsDelivr.
+const PRETENDARD_CSS_HREF =
+  "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css";
 
 const BRAND_INLINE_CSS =
-  "body{font-family:'Lato',sans-serif}.font-serif{font-family:'Playfair Display',serif}.text-gold{color:#C5A059}.bg-gold{background-color:#C5A059}.border-gold{border-color:#C5A059}.bg-gold-light{background-color:#F9F5F0}";
+  // Latin pages keep Lato; Korean characters fall through to Pretendard /
+  // Apple SD Gothic Neo. `.font-serif` adds Noto Serif KR as a Korean
+  // fallback so Playfair Display headings still look intentional in ko.
+  "body{font-family:'Lato','Pretendard Variable','Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif}" +
+  ".font-serif{font-family:'Playfair Display','Noto Serif KR',serif}" +
+  // Korean web typography convention: never break in the middle of a word
+  // and prefer wrapping at spaces. Scoped to :lang(ko) so other locales
+  // are unaffected.
+  ":lang(ko){word-break:keep-all;overflow-wrap:break-word;line-break:strict;letter-spacing:-0.01em}" +
+  ":lang(ko) body,:lang(ko) p,:lang(ko) li,:lang(ko) span,:lang(ko) a,:lang(ko) h1,:lang(ko) h2,:lang(ko) h3,:lang(ko) h4,:lang(ko) h5,:lang(ko) h6{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif}" +
+  ":lang(ko) .font-serif{font-family:'Pretendard Variable','Pretendard','Noto Serif KR',serif;font-weight:700;letter-spacing:-0.02em}" +
+  ".text-gold{color:#C5A059}.bg-gold{background-color:#C5A059}.border-gold{border-color:#C5A059}.bg-gold-light{background-color:#F9F5F0}";
 
 const BLOG_PROSE_CSS =
   ".prose h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:#0f172a;margin-top:2.5rem;margin-bottom:1rem}" +
@@ -203,6 +217,7 @@ module.exports = {
   SITE_CSS_HREF,
   FA_CSS_HREF,
   GOOGLE_FONTS_HREF,
+  PRETENDARD_CSS_HREF,
   BRAND_INLINE_CSS,
   BLOG_PROSE_CSS,
   LINE_CLAMP_CSS,
