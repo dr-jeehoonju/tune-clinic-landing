@@ -61,49 +61,101 @@ function languageSwitcher(entry, localeData) {
   `;
 }
 
+// Locales that ship only a partial subset of the site (currently only
+// the booking + booking-manage pages). For these locales we render a
+// minimal navigation (logo + booking link + language switcher) so users
+// don't see Korean labels that would link to English-only pages.
+const PARTIAL_LOCALES = new Set(["ko"]);
+
 function mainNav(g, locale, localeData, switcher, options = {}) {
   const { activeKey, isHome, mobileLanguageLinksHtml } = options;
-  // `ko` is a partial locale (only booking pages exist). Route all
-  // non-booking nav links to the English equivalents so we never link
-  // to a 404; the user-facing labels remain in Korean.
-  const siteLocale = locale === "ko" ? "en" : locale;
-  const faqHref = isHome ? "#faq" : `${pageUrl(siteLocale, "index")}#faq`;
+  // Per-page locale fallback: if a translated page exists for the current
+  // locale, link to it; otherwise fall back to the English equivalent so
+  // we never advertise a 404. Used by full locales whose nav advertises
+  // pages we may not yet have translated for that language.
+  const localePages = (localeData[locale] && localeData[locale].pages) || {};
+  const urlFor = (pageKey) => {
+    const target = localePages[pageKey] ? locale : "en";
+    return pageUrl(target, pageKey);
+  };
   const contactHref = pageUrl(locale, "booking");
   const activeClass = (key) =>
     activeKey === key
       ? "text-gold transition border-b-2 border-gold pb-1"
       : "hover:text-gold transition";
-  const blogLink = `<a href="${blogIndexUrl(siteLocale)}" class="${activeKey === "blog" ? "text-gold transition border-b-2 border-gold pb-1" : "hover:text-gold transition"}">${g.blog || "Blog"}</a>`;
-  const guidesLink = `<a href="${pageUrl(siteLocale, "guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition ${activeKey === "guides" ? "ring-2 ring-amber-300" : ""}">${g.guides}</a>`;
 
-  return `
+  // ─── Partial-locale nav (currently `ko`) ────────────────────────────
+  if (PARTIAL_LOCALES.has(locale)) {
+    return `
     <nav class="bg-white border-b border-slate-100 sticky top-0 z-40 transition-all duration-300" id="navbar">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex justify-between items-center h-16">
-          <a href="${pageUrl(siteLocale, "index")}" class="flex items-center gap-2">
+          <a href="${contactHref}" class="flex items-center gap-2">
             <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
             <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
           </a>
           <div class="hidden md:flex items-center gap-6">
             <div class="flex items-center gap-8 text-sm font-bold text-slate-600">
-              <a href="${pageUrl(siteLocale, "design-method")}" class="${activeClass("design-method")}">${g.method}</a>
+              <a href="${contactHref}" class="${activeClass("booking")}">${g.contact}</a>
+            </div>
+            <div class="pl-5 border-l border-slate-200 text-slate-600">
+              ${switcher}
+            </div>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white absolute w-full left-0 shadow-xl">
+        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${esc(g.langLabel)}</p>
+          <div class="grid grid-cols-2 gap-x-4">
+            ${mobileLanguageLinksHtml}
+          </div>
+        </div>
+        <a href="${contactHref}" class="block px-6 py-4 font-bold ${activeKey === "booking" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.contact}</a>
+      </div>
+    </nav>
+    <script>(function(){var b=document.getElementById("mobile-menu-btn"),m=document.getElementById("mobile-menu");if(b&&m)b.addEventListener("click",function(){m.classList.toggle("hidden")})})();</script>
+    `;
+  }
+
+  // ─── Full-locale nav ────────────────────────────────────────────────
+  // Blog is currently only published in BLOG_LANGUAGE_ORDER locales
+  // (ko is excluded — see comment by BLOG_LANGUAGE_ORDER below).
+  const blogTargetLocale = BLOG_LANGUAGE_ORDER.includes(locale) ? locale : "en";
+  const blogHref = blogIndexUrl(blogTargetLocale);
+  const faqHref = isHome ? "#faq" : `${urlFor("index")}#faq`;
+  const blogLink = `<a href="${blogHref}" class="${activeKey === "blog" ? "text-gold transition border-b-2 border-gold pb-1" : "hover:text-gold transition"}">${g.blog || "Blog"}</a>`;
+  const guidesLink = `<a href="${urlFor("guides")}" class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 hover:border-amber-300 hover:text-amber-800 transition ${activeKey === "guides" ? "ring-2 ring-amber-300" : ""}">${g.guides}</a>`;
+
+  return `
+    <nav class="bg-white border-b border-slate-100 sticky top-0 z-40 transition-all duration-300" id="navbar">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+          <a href="${urlFor("index")}" class="flex items-center gap-2">
+            <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
+            <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
+          </a>
+          <div class="hidden md:flex items-center gap-6">
+            <div class="flex items-center gap-8 text-sm font-bold text-slate-600">
+              <a href="${urlFor("design-method")}" class="${activeClass("design-method")}">${g.method}</a>
               <div class="relative group h-16 flex items-center">
                 <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
                   ${g.programs} <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
                 </button>
                 <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
                   <div class="py-2">
-                    <a href="${pageUrl(siteLocale, "signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
-                    <a href="${pageUrl(siteLocale, "structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
-                    <a href="${pageUrl(siteLocale, "collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
-                    <a href="${pageUrl(siteLocale, "filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
+                    <a href="${urlFor("signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
+                    <a href="${urlFor("structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
+                    <a href="${urlFor("collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
+                    <a href="${urlFor("filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
                     <div class="border-t border-slate-100 mt-1 pt-1">
-                      <a href="${pageUrl(siteLocale, "menu")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>${g.menu}</a>
+                      <a href="${urlFor("menu")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700"><i class="fas fa-list-ul text-[10px] mr-2 opacity-50"></i>${g.menu}</a>
                     </div>
                   </div>
                 </div>
               </div>
-              <a href="${pageUrl(siteLocale, "gallery")}" class="${activeClass("gallery")}">${g.gallery}</a>
+              <a href="${urlFor("gallery")}" class="${activeClass("gallery")}">${g.gallery}</a>
               ${blogLink}
               ${guidesLink}
               <a href="${faqHref}" class="hover:text-gold transition">${g.faq}</a>
@@ -123,18 +175,18 @@ function mainNav(g, locale, localeData, switcher, options = {}) {
             ${mobileLanguageLinksHtml}
           </div>
         </div>
-        <a href="${pageUrl(siteLocale, "design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "design-method" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.method}</a>
+        <a href="${urlFor("design-method")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "design-method" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.method}</a>
         <div class="bg-slate-50 px-6 py-4 border-b border-slate-50">
           <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.programs}</p>
-          <a href="${pageUrl(siteLocale, "signature-lifting")}" class="block py-2 ${activeKey === "signature-lifting" ? "text-gold font-bold" : "text-slate-700"}">${g.sig}</a>
-          <a href="${pageUrl(siteLocale, "structural-reset")}" class="block py-2 ${activeKey === "structural-reset" ? "text-gold font-bold" : "text-slate-700"}">${g.reset}</a>
-          <a href="${pageUrl(siteLocale, "collagen-builder")}" class="block py-2 ${activeKey === "collagen-builder" ? "text-gold font-bold" : "text-slate-700"}">${g.collagen}</a>
-          <a href="${pageUrl(siteLocale, "filler-chamaka-se")}" class="block py-2 ${activeKey === "filler-chamaka-se" ? "text-gold font-bold" : "text-slate-700"}">${g.filler}</a>
-          <a href="${pageUrl(siteLocale, "menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
+          <a href="${urlFor("signature-lifting")}" class="block py-2 ${activeKey === "signature-lifting" ? "text-gold font-bold" : "text-slate-700"}">${g.sig}</a>
+          <a href="${urlFor("structural-reset")}" class="block py-2 ${activeKey === "structural-reset" ? "text-gold font-bold" : "text-slate-700"}">${g.reset}</a>
+          <a href="${urlFor("collagen-builder")}" class="block py-2 ${activeKey === "collagen-builder" ? "text-gold font-bold" : "text-slate-700"}">${g.collagen}</a>
+          <a href="${urlFor("filler-chamaka-se")}" class="block py-2 ${activeKey === "filler-chamaka-se" ? "text-gold font-bold" : "text-slate-700"}">${g.filler}</a>
+          <a href="${urlFor("menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
         </div>
-        <a href="${pageUrl(siteLocale, "gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "gallery" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.gallery}</a>
-        <a href="${blogIndexUrl(siteLocale)}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "blog" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.blog || "Blog"}</a>
-        <a href="${pageUrl(siteLocale, "guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.guides}</a>
+        <a href="${urlFor("gallery")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "gallery" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.gallery}</a>
+        <a href="${blogHref}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "blog" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.blog || "Blog"}</a>
+        <a href="${urlFor("guides")}" class="block px-6 py-4 font-bold border-b border-slate-50 ${activeKey === "guides" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.guides}</a>
         <a href="${faqHref}" class="block px-6 py-4 font-bold border-b border-slate-50 text-slate-800">${g.faq}</a>
         <a href="${contactHref}" class="block px-6 py-4 font-bold ${activeKey === "booking" ? "text-gold bg-slate-50" : "text-slate-800"}">${g.contact}</a>
       </div>
@@ -187,6 +239,67 @@ function homeChrome(entry, localeData) {
 function siteFooter(entry, localeData) {
   const g = localeData[entry.locale].global;
   const isHome = entry.template === "home";
+
+  // Partial locales (currently `ko`) only ship the booking flow, so the
+  // footer is reduced to a booking CTA panel + clinic contact details.
+  // We deliberately omit the explore/programs columns to avoid linking to
+  // English-only pages from a Korean experience.
+  if (PARTIAL_LOCALES.has(entry.locale)) {
+    const bookingHref = pageUrl(entry.locale, "booking");
+    return `
+    <footer id="footer" class="bg-slate-950 text-white border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-6 pt-16 pb-10">
+        <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10 mb-14">
+          <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+            <div>
+              <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">${g.directPhysician || g.footerPlanTitle || ""}</span>
+              <h2 class="text-3xl md:text-4xl font-serif mt-4">${g.footerTitle || g.footerPlanH2 || ""}</h2>
+              <p class="text-slate-300 leading-relaxed mt-4 max-w-2xl">${g.footerSub || g.footerPlanDesc || ""}</p>
+            </div>
+            <div class="flex flex-col gap-3 lg:items-stretch">
+              <a href="${bookingHref}" class="bg-white text-slate-950 px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition flex items-center justify-center gap-2 shadow-lg">
+                <i class="fas fa-calendar-check"></i> ${g.footerCta || g.contact}
+              </a>
+              <a href="${g.consultationHref || g.whatsappHref || "#"}" target="_blank" rel="noopener noreferrer" class="border border-gold/60 text-gold px-8 py-4 font-bold rounded-sm hover:bg-gold/10 transition flex items-center justify-center gap-2">
+                <i class="${g.consultationIcon || "fab fa-whatsapp"}"></i> ${g.footerCtaSecondary || ""}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-[1.4fr_1fr] gap-10">
+          <div>
+            <a href="${bookingHref}" class="inline-flex items-center gap-3">
+              <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-9">
+              <span class="font-serif text-2xl text-white">Tune Clinic</span>
+            </a>
+            <p class="text-slate-300 leading-relaxed mt-5 max-w-md">${g.footerClinicDesc || ""}</p>
+            <div class="flex flex-wrap gap-2 mt-6 text-[11px] uppercase tracking-[0.18em]">
+              <span class="px-3 py-2 rounded-full border border-white/10 text-gold">${g.staffBadge || ""}</span>
+              <span class="px-3 py-2 rounded-full border border-white/10 text-slate-300">${g.travelBadge || ""}</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-gold uppercase tracking-[0.2em] text-[10px] font-bold mb-5">${g.footerVisitContact || ""}</p>
+            <div class="space-y-4 text-sm text-slate-300">
+              <p class="leading-relaxed"><i class="fas fa-location-dot text-gold mr-2"></i>${g.footerAddress || ""}</p>
+              <p><i class="fas fa-phone-alt text-gold mr-2"></i><a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a></p>
+              <p><i class="far fa-clock text-gold mr-2"></i>${g.footerHours || ""}<br><span class="pl-6">${g.footerHoursSat || ""}</span></p>
+              <div class="flex items-center gap-3 pt-2">
+                <a href="${g.whatsappHref || "#"}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-green-400 hover:border-green-400 transition" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="${g.instagramHref || "#"}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-400 transition" title="Instagram"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p class="text-xs text-slate-500">${g.footerCopy || ""}</p>
+          <p class="text-xs text-slate-500">Canonical domain: tuneclinic-global.com</p>
+        </div>
+      </div>
+    </footer>
+    `;
+  }
+
   const blogFooterLink = `<a href="${blogIndexUrl(entry.locale)}" class="hover:text-gold transition">${localeData[entry.locale].global.blog || "Blog"}</a>`;
   const consultFooterLink = `<a href="${pageUrl(entry.locale, "booking")}" class="hover:text-gold transition">${g.contact}</a>`;
   const guideLink = `<a href="${pageUrl(entry.locale, "guides")}" class="hover:text-gold transition">${g.guidesLibrary}</a>`;
