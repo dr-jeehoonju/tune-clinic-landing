@@ -25,6 +25,9 @@ npm-debug.log*
 # Dependencies (if any future tooling is added)
 node_modules/
 
+# Eleventy build output (generated)
+dist/
+
 # Environment / secrets
 .env
 .env.local

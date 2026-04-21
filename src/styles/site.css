@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Brand utilities (previously inline via tailwind.config CDN) ── */
+@layer utilities {
+  .text-gold { color: #c9a55a; }
+  .bg-gold { background-color: #c9a55a; }
+  .border-gold { border-color: #c9a55a; }
+  .hover\:bg-gold:hover { background-color: #c9a55a; }
+}
+
+/* ── Reusable button surfaces ── */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-5 py-3 text-sm font-bold text-white transition hover:opacity-90;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-100;
+  }
+}
+
+/* ── Smooth anchor jumps with a fixed header offset ── */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 96px; }
+
+/* ── Cookie consent banner & misc inline-removed styles ── */
+.consent-hidden { display: none !important; }
