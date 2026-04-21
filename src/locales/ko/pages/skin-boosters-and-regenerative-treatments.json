@@ -1,0 +1,11 @@
+{
+  "key": "skin-boosters-and-regenerative-treatments",
+  "template": "editorial",
+  "permalink": "ko/skin-boosters-and-regenerative-treatments.html",
+  "title": "한국의 스킨부스터 및 재생 시술 | 리쥬란, 쥬베룩, 엑소좀 등",
+  "description": "리쥬란, 쥬베룩, PDRN, 엑소좀, 스컬트라 등 한국의 스킨부스터 및 재생 시술을 확인해 보세요. 피부결, 광채, 탄력 및 장기적인 피부 질 개선을 위한 의사 주도의 시술 계획을 제안합니다.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/skin-boosters-and-regenerative-treatments.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "스킨부스터 가이드"
+}

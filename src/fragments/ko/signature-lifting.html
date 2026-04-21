@@ -1,0 +1,324 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Custom Colors */
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+        
+        /* Animations */
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-signature {
+            background:
+                radial-gradient(circle at 18% 20%, rgba(96,165,250,0.22), transparent 26%),
+                radial-gradient(circle at 82% 18%, rgba(197,160,89,0.18), transparent 22%),
+                linear-gradient(180deg, #09111c 0%, #0f172a 100%);
+        }
+</style>
+
+<header class="relative hero-signature overflow-hidden py-24 md:py-32">
+        <div class="absolute inset-0 z-0">
+            <img src="main.jpeg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-xs font-bold uppercase tracking-widest mb-6 rounded-sm bg-black/20 backdrop-blur-sm">
+                비침습적 / 리프팅
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+                시그니처 리프팅 프로토콜
+            </h1>
+            <p class="text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+                여행객을 위해 설계된 의사 맞춤형 딥 티슈 타이트닝 프로토콜입니다. <br>
+                튠클리닉의 독자적인 벡터 플래닝과 <strong>울쎄라 350샷 의사 맞춤 프로토콜</strong>을 바탕으로 완성되었습니다.
+            </p>
+            
+            <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[240px]">
+                <span class="text-xs text-slate-300 uppercase tracking-wide mb-1">총 프로토콜 비용 (부가세 포함)</span>
+                <span class="text-4xl font-serif text-white font-bold mb-1" data-price="101">₩990,000</span>
+                <div class="mt-3 pt-3 border-t border-white/10 w-full text-center">
+                    <p class="text-[10px] text-slate-300">상담 + 시술 + 애프터케어 가이드 포함</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-6 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">추천 대상</p>
+                <p class="text-sm text-slate-200">초기 및 중등도 처짐</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">다운타임</p>
+                <p class="text-sm text-slate-200">당일 일상생활 가능</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">핵심 장비</p>
+                <p class="text-sm text-slate-200">울쎄라 350샷 프로토콜</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="bg-gold-light p-8 rounded-sm border-t-4 border-gold">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-check-circle text-gold mr-3"></i> 추천 대상
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>초기 및 중등도 처짐:</strong> 턱선이 무너지거나 볼이 약간 처지는 것을 느끼시는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>이중턱:</strong> 턱 아래 부위의 타이트닝을 원하시는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>비침습적 선호:</strong> 실리프팅이나 필러보다 에너지 기반의 리프팅을 선호하시는 분.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3"></span>
+                            <span class="text-sm text-slate-700 leading-relaxed"><strong>짧은 일정:</strong> 서울 방문 일정이 5일 미만이며 최소한의 다운타임이 필요하신 분.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-sm border-t-4 border-slate-300">
+                    <h2 class="text-xl font-serif text-slate-900 mb-6 flex items-center">
+                        <i class="fas fa-times-circle text-slate-300 mr-3"></i> 비추천 대상
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>심한 처짐:</strong> 외과적 수술이 필요한 경우, 이 프로토콜로는 기대하시는 결과를 얻기 어려울 수 있습니다.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>복합적인 개선:</strong> 한 번의 시술로 깊은 층의 리프팅과 피부 표면의 타이트닝이 모두 필요하시다면, <a href="/structural-reset.html" class="underline hover:text-gold">토탈 리프팅 엘리트</a>(울쎄라 + 써마지 + 수면마취)를 권장합니다.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-slate-300 rounded-full mt-2 mr-3"></span>
+                            <span class="text-sm text-slate-500 leading-relaxed"><strong>즉각적인 윤곽 변화:</strong> 콜라겐 리모델링에는 8~12주가 소요됩니다. 본 시술은 즉각적인 성형 수술이 아닌 생물학적 안티에이징입니다.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">과학적 원리</span>
+                <h2 class="text-3xl font-serif text-slate-900 mt-2">효과적인 이유</h2>
+            </div>
+            
+            <div class="prose prose-slate mx-auto text-center">
+                <p class="text-slate-600 leading-relaxed text-lg mb-8">
+                    우리는 단순히 기계를 작동시키는 것이 아닙니다. 정밀하게 벡터를 설계합니다.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-white p-6 rounded-sm shadow-sm">
+                        <h4 class="font-bold text-slate-900 mb-2">1. 깊은 층 타겟팅</h4>
+                        <p class="text-sm text-slate-500">초음파 에너지가 피부 표면을 손상시키지 않고 안면 거상술에서 주로 다루는 깊은 조직층(SMAS)에 도달하여 열을 전달합니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-sm shadow-sm">
+                        <h4 class="font-bold text-slate-900 mb-2">2. 열 응고점 형성</h4>
+                        <p class="text-sm text-slate-500">정밀하게 제어된 열 응고점이 표면 손상 없이 체내의 자연스러운 콜라겐 리모델링 반응을 유도합니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-sm shadow-sm">
+                        <h4 class="font-bold text-slate-900 mb-2">3. 구조적 타이트닝</h4>
+                        <p class="text-sm text-slate-500">2~3개월에 걸쳐 새로운 콜라겐 섬유가 형성되며, 자연스럽게 피부 구조를 타이트닝합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-12 text-slate-900">프로토콜 안내</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 text-center">
+                
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="far fa-clock text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">소요 시간</h4>
+                    <p class="text-slate-500 text-sm mt-auto">약 60분</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-band-aid text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">다운타임</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">가벼운 붉은기<br><span class="text-[11px] opacity-80">보통 당일 메이크업 가능</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-plane-departure text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">여행 일정</h4>
+                    <p class="text-slate-500 text-sm mt-auto leading-relaxed">여행에 적합<br><span class="text-[11px] opacity-80">대부분 당일 일상 활동 가능</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">최상의 결과</h4>
+                    <p class="text-slate-500 text-sm mt-auto">8 ~ 12주</p>
+                    <p class="text-[10px] text-slate-400 mt-1 leading-tight">2~4주 내 초기 타이트닝 효과 발현.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-procedures text-3xl text-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-xs uppercase mb-3">통증 관리 프로토콜</h4>
+                    <ul class="text-slate-500 text-xs space-y-2 mt-auto text-left w-full inline-block">
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>표면 마취 크림 (기본)</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>타겟 신경 차단 마취<br><span class="text-[10px] opacity-70 block mt-0.5">(무료 제공 · 선택 사항)</span></span></li>
+                        <li class="flex items-start"><span class="mr-2 text-gold">•</span><span>수면 마취<br><span class="text-[10px] opacity-70 block mt-0.5">(선택 사항 +₩110,000)</span></span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gold-light/30 border-y border-slate-100">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="h-px bg-gold flex-grow"></div>
+                <h2 class="text-lg font-serif text-slate-900 font-bold uppercase tracking-wide">추천 병행 시술</h2>
+                <div class="h-px bg-gold flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-sm border border-slate-100 shadow-sm text-center">
+                    <h4 class="font-bold text-slate-900 mb-1">쥬베룩 볼륨</h4>
+                    <p class="text-xs text-slate-500 mb-3">콜라겐 부스터</p>
+                    <p class="text-xs text-slate-400 italic">"울쎄라로 타이트닝을 진행하는 동안 꺼진 부위에 자연스러운 볼륨을 채워줍니다."</p>
+                </div>
+                <div class="bg-white p-5 rounded-sm border border-slate-100 shadow-sm text-center">
+                    <h4 class="font-bold text-slate-900 mb-1">타겟 보톡스</h4>
+                    <p class="text-xs text-slate-500 mb-3">근육 이완</p>
+                    <p class="text-xs text-slate-400 italic">"턱 근육이나 이마 주름을 이완시켜 더욱 매끄러운 리프팅을 돕습니다."</p>
+                </div>
+                <div class="bg-white p-5 rounded-sm border border-slate-100 shadow-sm text-center">
+                    <h4 class="font-bold text-slate-900 mb-1">스킨 부스터</h4>
+                    <p class="text-xs text-slate-500 mb-3">피부결 개선</p>
+                    <p class="text-xs text-slate-400 italic">"구조적인 리프팅에 맞춰 피부 표면의 결과 모공을 개선합니다."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">전문의 FAQ</h2>
+            <div class="space-y-4">
+                
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        정품 울쎄라 장비인가요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>네, 그렇습니다. 튠클리닉은 멀츠(Merz) 사의 정품 울쎄라 기기와 트랜스듀서만을 사용합니다. 시술 전 고객님 눈앞에서 새 팁을 개봉하며, 정품 인증 QR 코드를 즉시 확인하실 수 있습니다.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        통증이 심한가요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>울쎄라는 피부 깊은 곳에 열을 전달하기 때문에 따끔거리거나 뻐근한 느낌이 있을 수 있습니다. 많은 분들이 연고 마취만으로도 잘 참아내시지만, 튠클리닉은 <strong>단계별 통증 관리 프로토콜</strong>을 운영하고 있습니다.</p> 
+                        <p class="mt-2">민감한 부위를 위해 해부학적 구조를 바탕으로 한 <strong>타겟 신경 차단 마취</strong>(무료 제공 · 선택 사항)를 제공합니다. 완전한 이완을 원하시는 경우 <strong>수면 마취</strong>(선택 사항 +₩110,000)를 선택하실 수 있습니다.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        주사 시술과 병행할 수 있나요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                        <p>네, 가능합니다. 울쎄라(구조 개선)와 주사 시술(볼륨/피부결 개선)을 결합하면 최고의 "차마카-세" 결과를 얻을 수 있습니다. 보통 같은 날 에너지 기기 시술을 먼저 진행한 뒤 주사 시술을 이어갑니다.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-24 text-center">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-serif mb-6">시그니처 리프팅 예약하기</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                인스타그램 DM을 통해 튠클리닉 전담 직원과 직접 소통하세요.<br>
+                빠른 상담을 위해 아래 양식을 사용해 주시기 바랍니다.
+            </p>
+
+            <div class="bg-slate-800 p-6 rounded-sm text-left max-w-md mx-auto mb-10 border border-slate-700 shadow-inner">
+                <p class="text-xs text-gold uppercase font-bold mb-3 tracking-wider">DM 양식 복사하기:</p>
+                <code class="block bg-black/30 p-4 rounded border border-slate-600 text-slate-300 text-sm font-mono select-all">
+                    안녕하세요 튠클리닉,<br>
+                    • 서울 체류 기간: [ ]<br>
+                    • 출국 예정일: [ ]<br>
+                    • 희망 프로그램: 시그니처 리프팅<br>
+                    • 사진 제공 가능 여부: 예/아니오<br>
+                    • 고민 부위: (턱선 / 이중턱 / 얼굴 전체)<br>
+                    • 중요한 일정 (선택 사항): [ ]
+                </code>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-lg"><i class="fas fa-calendar-check"></i> 예약하기</a>
+                <a href="/index.html" class="border border-slate-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition w-full sm:w-auto">
+                    프로그램 비교하기
+                </a>
+            </div>
+            
+            <div class="mt-16 text-xs text-slate-500 space-y-2">
+                <p>&copy; 2026 압구정 튠클리닉. 근거 중심의 에스테틱.</p>
+                <p class="opacity-70">시술 결과와 적합성은 개인마다 다를 수 있습니다. 최종 시술 계획은 대면 상담 후 확정됩니다.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    (async () => {
+      try {
+        const sb = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
+        const { data } = await sb.from('pricing').select('sort_order,price_krw').order('sort_order');
+        if (!data) return;
+        const map = {};
+        data.forEach(r => { map[r.sort_order] = r.price_krw; });
+        document.querySelectorAll('[data-price]').forEach(el => {
+          const key = parseInt(el.dataset.price);
+          if (map[key]) el.textContent = map[key];
+        });
+      } catch(e) {}
+    })();
+    </script>

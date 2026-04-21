@@ -13,7 +13,7 @@ const md = new MarkdownIt({ html: true, typographer: true }).use(anchor, {
       .replace(/\s+/g, "-"),
 });
 
-const locales = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi"];
+const locales = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi", "ko"];
 const blogDir = path.join(__dirname, "..", "blog");
 
 const posts = [];

@@ -1,0 +1,10 @@
+{
+  "key": "gallery",
+  "template": "editorial",
+  "permalink": "ko/gallery.html",
+  "title": "시술 전후 갤러리 | 튠클리닉 압구정",
+  "description": "튠클리닉 서울의 안면 밸런스, 필러, 윤곽 및 바디 시술 전후 케이스를 둘러보세요. 전문의 상담을 돕기 위한 임상적 맥락을 함께 제공합니다.",
+  "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
+  "fragment": "fragments/ko/gallery.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+}

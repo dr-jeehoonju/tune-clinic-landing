@@ -1,0 +1,11 @@
+{
+  "key": "international-patients-guide",
+  "template": "editorial",
+  "permalink": "ko/international-patients-guide.html",
+  "title": "해외 환자 가이드 | 외국인 방문객을 위한 튠클리닉 서울 안내서",
+  "description": "튠클리닉의 해외 환자 가이드와 함께 서울에서의 에스테틱 시술을 계획해 보십시오. 상담 절차, 언어 지원, 시술 타이밍, 회복, 비용 안내 및 여행 일정에 맞춘 시술에 대한 정보를 제공합니다.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/international-patients-guide.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "여행 가이드"
+}

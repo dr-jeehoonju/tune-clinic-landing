@@ -1,0 +1,1469 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+        body { font-family: 'Lato', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Custom Colors */
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-gold-light { background-color: #F9F5F0; }
+
+        /* Animations */
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Match module */
+        .match-option.selected {
+            border-color: #C5A059;
+            background-color: #F9F5F0;
+            box-shadow: 0 0 0 1px #C5A059;
+        }
+        .match-option.selected i { color: #C5A059; }
+
+        .program-highlight {
+            animation: highlightPulse 1.8s ease-in-out;
+            box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3) !important;
+            border-color: #C5A059 !important;
+        }
+        @keyframes highlightPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.6); }
+            50%  { box-shadow: 0 0 0 8px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 3px #C5A059, 0 20px 40px -5px rgba(197,160,89,0.3); }
+        }
+
+        /* CTA Pulse for matched card */
+        @keyframes ctaPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(197,160,89,0.8); }
+            70%  { box-shadow: 0 0 0 12px rgba(197,160,89,0); }
+            100% { box-shadow: 0 0 0 0 rgba(197,160,89,0); }
+        }
+        .cta-pulse {
+            animation: ctaPulse 1s ease-out 2;
+        }
+        /* match-recommend-badge: styled via JS inline classes (Tailwind CDN cannot process @apply) */
+</style>
+
+<header class="relative bg-black overflow-hidden min-h-[85vh] md:min-h-[calc(100vh-4rem)] flex flex-col">
+        <div class="absolute inset-0 z-0">
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+                class="w-full h-full object-cover"
+            >
+                <source src="hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
+        </div>
+
+        <div class="relative z-10 mt-auto max-w-7xl mx-auto w-full px-6 pb-16 md:pb-20">
+            <div class="fade-in-up max-w-3xl">
+                <div class="flex items-center space-x-3 mb-5">
+                    <div class="h-px w-12 bg-gold"></div>
+                    <span class="text-sm tracking-widest uppercase font-bold text-white/60">Tune Clinic Apgujeong</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] mb-6">
+                    단순한 시술을 넘어,<br>
+                    <span class="italic text-white/50">올바른 결정을 선택하십시오.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-white/70 mb-8 leading-relaxed max-w-2xl">
+                    <strong class="text-white">차마카-세(Chamaka-se)</strong> - 전문의가 직접 큐레이션한 하이엔드 뷰티 플래닝을 경험하십시오.
+                    <span class="block mt-6 text-gold font-bold tracking-widest text-[11px] md:text-sm uppercase border-t border-white/20 pt-4">
+                        울쎄라 350샷 시그니처 프로토콜 기반
+                    </span>
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#programs" class="px-10 py-4 bg-white text-slate-900 font-semibold rounded-sm hover:bg-white/90 transition shadow-xl text-center">
+                        맞춤형 프로그램 보기
+                    </a>
+                    <a href="/booking.html" class="px-10 py-4 border border-white/30 text-white font-semibold rounded-sm hover:bg-white/10 transition text-center flex items-center justify-center gap-2 backdrop-blur-sm">
+                        <i class="fas fa-calendar-check"></i> 예약하기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-12 bg-white border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-5 text-slate-900">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">정품 인증 시스템</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">모든 울쎄라/써마지 팁은 고객의 눈앞에서 개봉됩니다. QR 코드로 정품 여부를 직접 확인하실 수 있습니다.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-5 text-slate-900">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">정확한 에너지 처방</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">개인의 해부학적 특성에 맞춰 에너지 레벨과 샷 수를 정밀하게 조정하여 불필요한 시술을 방지합니다.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-5 text-slate-900">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">회복 기간 최적화</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">일정이나 출국 시간에 맞추어 시술 강도와 사후 관리 플랜을 맞춤 설계해 드립니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="programs" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">최적화된 맞춤 솔루션</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">차마카-세 프로그램</h2>
+                <p class="text-slate-500">가장 합리적인 4가지 솔루션. 투명한 가격, 숨겨진 비용은 없습니다.</p>
+                <p class="text-xs text-slate-400 mt-2 italic">모든 프로토콜은 전문의의 1:1 대면 진단 후 최종 확정됩니다.</p>
+                <div class="mt-8 mb-2">
+                    <p class="text-sm text-slate-400 mb-4 italic">어떤 고민을 가지고 계신가요?</p>
+                    <div class="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">무너진 턱선</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">칙칙하고 지친 피부</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">볼륨 감소</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">넓은 모공</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">다크서클</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">이중턱</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">잔주름</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-1.5 rounded-full">불균형한 피부 톤</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+
+                <div id="program-collagen" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-blue-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">콜라겐 부스터</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">자연스러움 / 근본적 개선</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        인위적인 볼륨감이 부담스러운 분들을 위한 솔루션입니다. 자연스러운 콜라겐 생성과 전반적인 피부 질 개선을 돕습니다.
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">리쥬란 힐러 4cc + 쥬베룩 스킨 2cc</p>
+                        <p class="text-xs text-slate-500">풀페이스 콜라겐 생성 및 잔주름 개선</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> 소요 시간: 약 60분</p>
+                        <p class="text-[10px] text-slate-400 mt-1">상담 및 사후 관리 포함</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-1 rounded uppercase font-bold">미세한 붓기 (24시간)</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩770,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="/collagen-builder.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            자세히 보기
+                        </a>
+                        <a href="/booking.html" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            <i class="fas fa-calendar-check"></i> 예약하기
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-volume" class="border border-slate-100 p-8 rounded-sm hover:shadow-xl transition duration-300 relative bg-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-purple-300 mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">볼륨 차마카-세</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">콜라겐 리모델링 / 생기 부여</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        쥬베룩 볼륨 1병(8cc)을 활용하여, 전문의의 디자인에 따라 얼굴 전체의 콜라겐 리모델링과 입체감을 부여합니다.
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">전문의 디자인 진단 + 쥬베룩 볼륨</p>
+                        <p class="text-xs text-slate-500">풀페이스 콜라겐 리모델링 프로토콜</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> 소요 시간: 약 90분</p>
+                        <p class="text-[10px] text-slate-400 mt-1">상담 및 사후 관리 포함</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-purple-50 text-purple-800 text-[10px] px-2 py-1 rounded uppercase font-bold">미세한 붓기 (24-48시간)</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩770,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="/filler-chamaka-se.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            자세히 보기
+                        </a>
+                        <a href="/booking.html" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            <i class="fas fa-calendar-check"></i> 예약하기
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-lifting" class="border-2 border-gold p-8 rounded-sm shadow-2xl relative bg-white transform md:-translate-y-2 h-full flex flex-col">
+                    <div class="absolute top-0 right-0 bg-gold text-white text-[10px] font-bold px-3 py-1 uppercase">Best Choice</div>
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">시그니처 리프팅</h3>
+                    <p class="text-xs text-gold uppercase tracking-wide mb-4">비수술 / 타이트닝</p>
+                    <p class="text-sm text-slate-600 mb-6 min-h-[60px]">
+                        수술 없이 구조적인 탄력을 회복하기 위해 전문의가 정밀하게 설계한 심부 조직 리프팅 프로토콜입니다.
+                    </p>
+                    <div class="border-t border-slate-100 pt-6 mb-6">
+                        <p class="text-sm font-bold text-slate-900 mb-1">울쎄라 350샷 시그니처 프로토콜</p>
+                        <p class="text-xs text-slate-500">풀페이스 + 이중턱 집중 개선</p>
+                        <p class="text-xs text-slate-400 mt-2"><i class="far fa-clock mr-1"></i> 소요 시간: 약 60분</p>
+                        <p class="text-[10px] text-slate-400 mt-1">상담 및 사후 관리 포함</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-green-50 text-green-800 text-[10px] px-2 py-1 rounded uppercase font-bold">다운타임 없음</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-slate-900">₩990,000</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dashed border-slate-200 mb-6">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-wide mb-1">추가 옵션</p>
+                        <p class="text-xs text-slate-600 font-bold">온다 리프팅 60,000J</p>
+                        <p class="text-xs text-slate-400 mt-1"><span class="font-bold text-slate-600">+ ₩770,000</span></p>
+                    </div>
+
+                    <div class="flex flex-col gap-2 mt-auto">
+                        <a href="/signature-lifting.html" class="block w-full text-center py-3 border border-slate-300 text-slate-700 text-sm font-bold hover:bg-slate-50 transition">
+                            자세히 보기
+                        </a>
+                        <a href="/booking.html" class="block w-full text-center py-3 bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">
+                            <i class="fas fa-calendar-check"></i> 예약하기
+                        </a>
+                    </div>
+                </div>
+
+                <div id="program-elite" class="bg-slate-900 p-8 rounded-sm shadow-xl relative text-white h-full flex flex-col">
+                    <div class="h-1 w-8 bg-gold mb-6"></div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2">토탈 리프팅 엘리트</h3>
+                    <p class="text-xs text-slate-400 uppercase tracking-wide mb-4">근본적 구조 개선</p>
+                    <p class="text-sm text-slate-300 mb-6 min-h-[60px]">
+                        울쎄라의 심부 리프팅과 써마지의 표면 타이트닝을 결합한 가장 완벽한 형태의 프리미엄 구조 개선 플랜입니다. (수면 마취 포함)
+                    </p>
+                    <div class="border-t border-slate-700 pt-6 mb-6">
+                        <p class="text-sm font-bold text-white mb-1">울쎄라 300샷 + 써마지 600샷</p>
+                        <p class="text-xs text-slate-400">수면 마취 포함</p>
+                        <p class="text-xs text-slate-500 mt-2"><i class="far fa-clock mr-1"></i> 소요 시간: 약 120분</p>
+                        <p class="text-[10px] text-slate-500 mt-1">상담 및 사후 관리 포함</p>
+                    </div>
+                    <div class="mb-6 mt-auto">
+                        <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-1 rounded uppercase font-bold">우선 예약 배정</span>
+                    </div>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-serif text-gold">₩3,047,000</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <a href="/structural-reset.html" class="block w-full text-center py-3 border border-slate-600 text-slate-200 text-sm font-bold hover:bg-slate-800 transition">
+                            자세히 보기
+                        </a>
+                        <a href="/booking.html" class="block w-full text-center py-3 bg-gold text-white text-sm font-bold hover:bg-yellow-600 transition">
+                            <i class="fas fa-calendar-check"></i> 예약하기
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16 text-center border-t border-slate-100 pt-10">
+                <p class="text-slate-500 text-sm mb-4">원하시는 다른 시술이 있으신가요?</p>
+                <a href="/menu.html" class="inline-flex items-center justify-center px-8 py-3 border border-slate-300 rounded-sm text-slate-600 font-bold hover:border-slate-800 hover:text-slate-900 transition bg-white shadow-sm hover:shadow-md">
+                    <i class="fas fa-list-ul mr-2 text-slate-400"></i> 전체 메뉴 보기
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="comfort" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-2xl mx-auto text-center px-6">
+            <h4 class="text-2xl font-serif text-slate-900 mb-6">통증 관리 시스템</h4>
+            <div class="inline-block text-left bg-white p-6 rounded-sm shadow-sm border border-slate-100">
+                <ul class="text-slate-600 text-sm space-y-4">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check text-gold"></i>
+                        <span><strong class="text-slate-800">크림 마취</strong> (기본 제공)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-bullseye text-gold"></i>
+                        <span><strong class="text-slate-800">국소 신경 차단술</strong> (무료 제공 · 선택 사항)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-procedures text-gold"></i>
+                        <span><strong class="text-slate-800">수면 마취</strong> (선택 사항 +₩110,000)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-sm font-bold text-gold uppercase tracking-widest mb-4">고객의 고민</h2>
+            <h3 class="text-3xl font-serif text-slate-900 mb-12">왜 잘못된 시술을 선택하게 될까요?</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-layer-group text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">과도한 정보와 장비</h4>
+                    <p class="text-sm text-slate-500">울쎄라, 써마지, 필러... 너무 많은 선택지가 오히려 후회를 남깁니다.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-clock text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">제한된 시간</h4>
+                    <p class="text-sm text-slate-500">회복 기간이 한정된 분들을 위해, 효율성에 집중한 플랜이 필요합니다.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-sm">
+                    <i class="fas fa-balance-scale text-2xl text-slate-300 mb-4"></i>
+                    <h4 class="font-bold text-slate-900 mb-2">명확한 기준 부재</h4>
+                    <p class="text-sm text-slate-500">의학적 효과보다 단순한 '할인'에 이끌려 결정을 내리게 됩니다.</p>
+                </div>
+            </div>
+
+            <p class="text-xl font-serif italic text-slate-700 max-w-2xl mx-auto border-l-4 border-gold pl-6 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-6">
+                "진정한 후회는 시술 자체가 아니라, 명확한 기준 없는 선택에서 비롯됩니다."
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gold-light border-y border-orange-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-4xl text-gold/30 mb-6"></i>
+            <h3 class="text-2xl md:text-4xl font-serif text-slate-900 leading-tight mb-8">
+                "오마카세가 셰프의 온전한 결정이라면,<br>
+                <span class="text-gold">차마카-세</span>는 전문의의 완벽한 책임입니다."
+            </h3>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8">
+                미용 의료에서 가장 안타까운 순간은 시술의 실패가 아니라, 개인의 생리학적 특성을 무시한 채 과장된 정보에 의존하여 결정할 때입니다.
+            </p>
+            <p class="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                튠클리닉은 "어떤 시술을 원하시나요?"라고 묻지 않습니다.<br>
+                우리는 <strong>"지금 고객님께 가장 의학적이고 합리적인 솔루션은 무엇인가?"</strong>를 먼저 생각합니다.
+            </p>
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Technology Arsenal ─────────────────────────────── -->
+    <section class="arsenal-section py-20 overflow-hidden relative">
+        <div class="arsenal-glow arsenal-glow-gold"></div>
+        <div class="arsenal-glow arsenal-glow-blue"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gold uppercase tracking-[0.28em] text-[11px] font-bold">
+                    기술 및 장비 포트폴리오
+                </span>
+                <h2 class="text-3xl md:text-5xl font-serif text-white mt-5 leading-tight">
+                    글로벌 프리미엄 브랜드와
+                    <span class="text-gold">독보적인 시그니처 시스템</span>
+                </h2>
+                <p class="text-slate-300 text-sm md:text-base mt-5 leading-relaxed max-w-2xl mx-auto">
+                    전문의의 진단을 바탕으로 피부 층별로 가장 적합한 에너지 디바이스, 재생 치료, 인젝터블을 선별하여 최상의 결과를 제공합니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10">
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">스킨 부스터 & 필러</span>
+                    <strong>10+ 프리미엄 브랜드</strong>
+                </div>
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">에너지 디바이스</span>
+                    <strong>초음파 & 고주파 리프팅 플랫폼</strong>
+                </div>
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">재생 의료</span>
+                    <strong>줄기세포 및 세포 회복 시스템</strong>
+                </div>
+                <div class="arsenal-stat">
+                    <span class="arsenal-stat-kicker">바디 컨투어링</span>
+                    <strong>탄력 및 윤곽 개선 솔루션</strong>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="arsenal-card">
+                    <div class="arsenal-card-head">
+                        <div>
+                            <span class="arsenal-card-label">Global Brands</span>
+                            <h3 class="arsenal-card-title">인젝터블 & 콜라겐 부스터</h3>
+                        </div>
+                        <p class="arsenal-card-copy">뛰어난 안정성과 유지력을 자랑하는 글로벌 프리미엄 브랜드만을 엄선하여 사용합니다.</p>
+                    </div>
+                    <div class="ticker-shell">
+                        <div class="ticker-row flex gap-6" data-speed="35">
+                            <div class="ticker-track flex gap-6 shrink-0">
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                            </div>
+                            <div class="ticker-track flex gap-6 shrink-0" aria-hidden="true">
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                                <span class="ticker-pill brand">Juvederm</span>
+                                <span class="ticker-pill brand">Restylane</span>
+                                <span class="ticker-pill brand">Belotero</span>
+                                <span class="ticker-pill brand">Radiesse</span>
+                                <span class="ticker-pill brand">Sculptra</span>
+                                <span class="ticker-pill brand">Rejuran</span>
+                                <span class="ticker-pill brand">Juvelook</span>
+                                <span class="ticker-pill brand">Allergan</span>
+                                <span class="ticker-pill brand">Galderma</span>
+                                <span class="ticker-pill brand">Merz Aesthetics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arsenal-card">
+                    <div class="arsenal-card-head">
+                        <div>
+                            <span class="arsenal-card-label">Energy Systems</span>
+                            <h3 class="arsenal-card-title">리프팅 & 타이트닝 플랫폼</h3>
+                        </div>
+                        <p class="arsenal-card-copy">조직의 깊이와 특성, 회복 기간을 고려하여 최적의 에너지 디바이스를 적용합니다.</p>
+                    </div>
+                    <div class="ticker-shell">
+                        <div class="ticker-row flex gap-6" data-speed="30" data-reverse="true">
+                            <div class="ticker-track flex gap-6 shrink-0">
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                            </div>
+                            <div class="ticker-track flex gap-6 shrink-0" aria-hidden="true">
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                                <span class="ticker-pill device">Ultherapy</span>
+                                <span class="ticker-pill device">Thermage FLX</span>
+                                <span class="ticker-pill device">Potenza</span>
+                                <span class="ticker-pill device">Oligio</span>
+                                <span class="ticker-pill device">Re²O</span>
+                                <span class="ticker-pill device">Inmode</span>
+                                <span class="ticker-pill device">Onda</span>
+                                <span class="ticker-pill device">TenTherma</span>
+                                <span class="ticker-pill device">Tensera</span>
+                                <span class="ticker-pill device">Regenera Activa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arsenal-card">
+                    <div class="arsenal-card-head">
+                        <div>
+                            <span class="arsenal-card-label">Signature & Specialty</span>
+                            <h3 class="arsenal-card-title">튠 시그니처 & 스페셜티 케어</h3>
+                        </div>
+                        <p class="arsenal-card-copy">튠클리닉만의 독자적인 노하우가 담긴 재생, 바디, 그리고 시그니처 솔루션입니다.</p>
+                    </div>
+                    <div class="ticker-shell">
+                        <div class="ticker-row flex gap-6" data-speed="40">
+                            <div class="ticker-track flex gap-6 shrink-0">
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                            </div>
+                            <div class="ticker-track flex gap-6 shrink-0" aria-hidden="true">
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                                <span class="ticker-pill tune">Tune Liner</span>
+                                <span class="ticker-pill tune">Tune Face</span>
+                                <span class="ticker-pill tune">Tune Sili-Lifting</span>
+                                <span class="ticker-pill specialty">Stem Cell Therapy</span>
+                                <span class="ticker-pill specialty">Metacell</span>
+                                <span class="ticker-pill specialty">Pangsis</span>
+                                <span class="ticker-pill specialty">Linear Perm</span>
+                                <span class="ticker-pill specialty">PDRN Salmon Injection</span>
+                                <span class="ticker-pill specialty">Exosome Therapy</span>
+                                <span class="ticker-pill specialty">Benev Baby Injection</span>
+                                <span class="ticker-pill specialty">Regenerative Hair Injection</span>
+                                <span class="ticker-pill specialty">Inmode Body</span>
+                                <span class="ticker-pill specialty">BBEE Injection</span>
+                                <span class="ticker-pill specialty">Bella Colline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 text-xs text-slate-300 mt-10">
+                <span class="arsenal-legend"><span class="arsenal-dot brand"></span> 글로벌 브랜드</span>
+                <span class="arsenal-legend"><span class="arsenal-dot device"></span> 에너지 디바이스</span>
+                <span class="arsenal-legend"><span class="arsenal-dot tune"></span> 튠 시그니처</span>
+                <span class="arsenal-legend"><span class="arsenal-dot specialty"></span> 스페셜티 솔루션</span>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .arsenal-section {
+            background:
+                radial-gradient(circle at 20% 15%, rgba(197,160,89,0.12), transparent 28%),
+                radial-gradient(circle at 82% 20%, rgba(96,165,250,0.10), transparent 24%),
+                linear-gradient(180deg, #07101a 0%, #0f172a 50%, #0b1220 100%);
+        }
+        .arsenal-glow {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(90px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .arsenal-glow-gold {
+            width: 20rem;
+            height: 20rem;
+            top: 3rem;
+            left: -6rem;
+            background: rgba(197,160,89,0.22);
+        }
+        .arsenal-glow-blue {
+            width: 22rem;
+            height: 22rem;
+            right: -6rem;
+            bottom: 2rem;
+            background: rgba(96,165,250,0.18);
+        }
+        .arsenal-stat {
+            border: 1px solid rgba(255,255,255,0.08);
+            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            backdrop-filter: blur(12px);
+            border-radius: 1rem;
+            padding: 1rem 1.1rem;
+            color: #e2e8f0;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .arsenal-stat strong {
+            display: block;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .arsenal-stat-kicker {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #c5a059;
+            font-weight: 700;
+        }
+        .arsenal-card {
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.09);
+            background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 18px 60px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .arsenal-card-head {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 1rem;
+            align-items: end;
+            margin-bottom: 1rem;
+        }
+        .arsenal-card-label {
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #c5a059;
+            font-weight: 700;
+        }
+        .arsenal-card-title {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+        .arsenal-card-copy {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            max-width: 30rem;
+            justify-self: end;
+        }
+        .ticker-shell {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(2,6,23,0.38);
+            padding: 1rem 0;
+        }
+        .ticker-shell::before,
+        .ticker-shell::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 5rem;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .ticker-shell::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(2,6,23,0.9), transparent);
+        }
+        .ticker-shell::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(2,6,23,0.9), transparent);
+        }
+        .ticker-pill {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 0.62rem 1.15rem;
+            border-radius: 999px;
+            font-size: 0.79rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            cursor: default;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+        .ticker-pill:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+            opacity: 1 !important;
+        }
+        .ticker-pill.brand {
+            background: linear-gradient(180deg, rgba(197,160,89,0.22), rgba(197,160,89,0.10));
+            color: #f5d68c;
+            border: 1px solid rgba(197,160,89,0.30);
+        }
+        .ticker-pill.device {
+            background: linear-gradient(180deg, rgba(96,165,250,0.18), rgba(96,165,250,0.08));
+            color: #bfdbfe;
+            border: 1px solid rgba(96,165,250,0.25);
+        }
+        .ticker-pill.tune {
+            background: linear-gradient(180deg, rgba(167,139,250,0.20), rgba(167,139,250,0.08));
+            color: #ddd6fe;
+            border: 1px solid rgba(167,139,250,0.28);
+        }
+        .ticker-pill.specialty {
+            background: linear-gradient(180deg, rgba(52,211,153,0.18), rgba(52,211,153,0.08));
+            color: #bbf7d0;
+            border: 1px solid rgba(52,211,153,0.25);
+        }
+        .ticker-row { width: 100%; overflow: hidden; }
+        .ticker-track { will-change: transform; animation: ticker-ltr var(--spd, 35s) linear infinite; }
+        .ticker-row[data-reverse="true"] .ticker-track { animation-name: ticker-rtl; }
+        @keyframes ticker-ltr { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes ticker-rtl { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+        .ticker-row:hover .ticker-track { animation-play-state: paused; }
+        .arsenal-legend {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.55rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+        }
+        .arsenal-dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            display: inline-block;
+        }
+        .arsenal-dot.brand { background: #c5a059; }
+        .arsenal-dot.device { background: #60a5fa; }
+        .arsenal-dot.tune { background: #a78bfa; }
+        .arsenal-dot.specialty { background: #34d399; }
+        @media (max-width: 768px) {
+            .arsenal-card-head {
+                grid-template-columns: 1fr;
+                gap: 0.7rem;
+            }
+            .arsenal-card-title {
+                font-size: 1.2rem;
+            }
+            .arsenal-card-copy {
+                justify-self: start;
+                font-size: 0.85rem;
+            }
+            .ticker-pill {
+                padding: 0.58rem 1rem;
+                font-size: 0.74rem;
+            }
+        }
+    </style>
+    <script>
+    document.querySelectorAll('.ticker-row').forEach(function(row) {
+        var spd = row.dataset.speed || '35';
+        row.querySelectorAll('.ticker-track').forEach(function(t) {
+            t.style.setProperty('--spd', spd + 's');
+            t.style.animationDuration = spd + 's';
+        });
+    });
+    </script>
+    <!-- ── / Technology Arsenal ────────────────────────────── -->
+
+    <section class="py-24 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center">
+                <div>
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 bg-gold-light text-gold uppercase tracking-[0.22em] text-[11px] font-bold">
+                        압도적인 임상 케이스
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-slate-900 mt-6 leading-tight">
+                        실제 시술 건수를 증명하는
+                        <span class="text-gold">투명한 보틀 아카이브</span>
+                    </h2>
+                    <p class="text-slate-600 text-base md:text-lg leading-relaxed mt-6 max-w-2xl">
+                        불과 3개월 미만의 기간 동안 튠클리닉에서 실제 사용된 정품 앰플과 소모품들입니다.
+                        이는 단순한 전시용이 아닌, 필러, 쥬베룩, 리쥬란 등 프리미엄 시술에 대한 전문의의 풍부한 임상 경험을 가장 투명하게 보여주는 결과물입니다.
+                    </p>
+                    <div class="grid sm:grid-cols-3 gap-4 mt-8">
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">수집 기간</p>
+                            <p class="text-lg font-serif text-slate-900 mt-2">3개월 미만</p>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">주요 카테고리</p>
+                            <p class="text-lg font-serif text-slate-900 mt-2">필러, 리쥬란, 쥬베룩</p>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">의미</p>
+                            <p class="text-lg font-serif text-slate-900 mt-2">전문의 주도의 검증된 볼륨</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-500 leading-relaxed mt-6">
+                        중요한 것은 단순한 수량이 아닙니다. 프리미엄 브랜드 제품들이 일회성 이벤트가 아닌, 매일의 실제 임상 환경에서 전문의의 정교한 테크닉과 함께 꾸준히 사용되고 있다는 사실입니다.
+                    </p>
+                </div>
+
+                <div class="grid gap-4">
+                    <div class="rounded-[2rem] overflow-hidden border border-slate-200 shadow-xl bg-slate-50">
+                        <img src="/.netlify/images?url=/used-bottles-archive.png&w=1400&fm=webp&q=75" alt="3개월 미만 수집된 튠클리닉 실제 사용 보틀 아카이브" class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white">
+                            <img src="/.netlify/images?url=/used-filler-bottles.png&w=700&fm=webp&q=75" alt="튠클리닉 필러 사용 내역" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white">
+                            <img src="/.netlify/images?url=/used-rejuran-bottles.png&w=700&fm=webp&q=75" alt="튠클리닉 리쥬란 사용 내역" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white">
+                            <img src="/.netlify/images?url=/used-juvelook-bottles.png&w=700&fm=webp&q=75" alt="튠클리닉 쥬베룩 사용 내역" class="w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">전문의 주도 큐레이션</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">최정상 의료진</h2>
+                <p class="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
+                    리프팅, 수술, 재생 의학, 그리고 글로벌 커뮤니케이션.
+                    <br>단 하나의 목표를 위해 최정상 의료진이 완벽하게 책임집니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 mb-8">
+                <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10"></div>
+                    <img src="/.netlify/images?url=/cha.jpg&w=900&fm=webp&q=75" alt="차승연 원장" class="w-full h-full object-cover object-top min-h-[420px]">
+                    <div class="absolute inset-x-0 bottom-0 z-20 p-8 md:p-10 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] text-gold border border-gold/30 bg-white/5 mb-4">대표 원장</span>
+                        <h3 class="text-3xl md:text-4xl font-serif text-white">차승연 원장</h3>
+                        <p class="text-gold text-xs font-bold uppercase tracking-[0.18em] mt-2 mb-4">페이스 디자인 및 안티에이징 마스터</p>
+                        <p class="text-slate-300 max-w-2xl leading-relaxed mb-5">
+                            "미용 의료는 단순히 얼굴을 바꾸는 것이 아닙니다. 잃어버린 균형을 찾아주는 과정입니다."
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs text-slate-200">
+                            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">대한줄기세포학회 이사</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">페이스 디자인 및 안티에이징 전문가</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">1:1 맞춤 컨시어지 지원</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+                        <div class="grid grid-cols-[120px_1fr] md:grid-cols-[150px_1fr]">
+                            <img src="/.netlify/images?url=/kim_ky.jpg&w=500&fm=webp&q=75" alt="김광연 원장" class="w-full h-full object-cover object-top min-h-[220px]">
+                            <div class="p-6 md:p-7">
+                                <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">대표 원장</span>
+                                <h3 class="text-2xl font-serif text-slate-900 mt-2">김광연 원장</h3>
+                                <p class="text-sm text-slate-500 mt-1 mb-4">리프팅 및 피부 구조 타이트닝 전문가</p>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                                    "리프팅은 과학입니다. 조직의 깊이와 벡터를 정밀하게 계산하여 가장 자연스러운 결과를 약속합니다."
+                                </p>
+                                <div class="flex flex-wrap gap-2 text-[11px] text-slate-500">
+                                    <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">휴젤 리프팅 키닥터</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-100">전 예스타 병원 원장</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-gold-light to-white rounded-3xl border border-gold/20 shadow-lg p-7">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">글로벌 환자 맞춤 서비스</span>
+                        <h3 class="text-2xl font-serif text-slate-900 mt-2">의료진 직접 소통 + 전담 컨시어지</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mt-3 mb-5">
+                            해외 고객은 중간 브로커를 거치지 않습니다. 진단, 의사소통, 사후 관리까지 단일화된 채널을 통해 완벽한 서비스를 제공합니다.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">지원 언어</p>
+                                <p class="text-sm font-bold text-slate-900 mt-2">영어 / 중국어 / 일본어 / 태국어 / 아랍어</p>
+                            </div>
+                            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">운영 방식</p>
+                                <p class="text-sm font-bold text-slate-900 mt-2">전문의 직접 설계</p>
+                            </div>
+                            <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-bold">케어 시스템</p>
+                                <p class="text-sm font-bold text-slate-900 mt-2">풀 프로세스 컨시어지</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75" alt="주지훈 원장" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">국제 의료 센터장</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">주지훈 원장</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">모발, 항노화 치료 및 글로벌 환자 소통 총괄</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- 미국 미용의학회 보드 인증</li>
+                            <li>- 모발 이식 전문가</li>
+                            <li>- MIT 슬론 AI 헬스케어</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/jo.jpg&w=600&fm=webp&q=75" alt="조동현 원장" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">재생 의학 전문가</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">조동현 원장</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">조직 회복 및 줄기세포 기반 재생 치료 총괄</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- 서울대학교병원 임상 자문의</li>
+                            <li>- 국제실용성형학회 회장</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/kim_bj.jpg&w=600&fm=webp&q=75" alt="김범진 원장" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">수술 및 재건 전문가</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">김범진 원장</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">해부학적 깊이에 기반한 구조적 진단 및 수술적 접근</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- 연세대학교 성형외과 임상 교수</li>
+                            <li>- 미국 피츠버그 대학교 UPMC 펠로우</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-500 overflow-hidden">
+                    <img src="/.netlify/images?url=/jang.jpg&w=600&fm=webp&q=75" alt="장승우 원장" class="w-full h-72 object-cover object-top">
+                    <div class="p-6">
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-[0.18em]">의학 자문 전문가</span>
+                        <h3 class="text-xl font-serif text-slate-900 mt-2">장승우 원장</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-4">전반적인 의료 상태 평가 및 소아 전문 자문</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>- 조선대학교 의과대학 임상 교수</li>
+                            <li>- 소아청소년과 전문의, 의학박사</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-lg">
+                    <i class="fas fa-check-circle text-gold"></i>
+                    <span class="text-xs font-bold uppercase">가장 완벽한 경험: 전문의 직접 진단 + 전담 컨시어지 케어</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="match" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">60초 맞춤 진단</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-2 mb-4">나에게 맞는 프로그램 찾기</h2>
+                <p class="text-slate-500">세 가지 질문에 답해주세요. 최적의 맞춤 솔루션을 제안해 드립니다.</p>
+            </div>
+
+            <div id="match-form" class="space-y-10">
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">1 - 시술의 가장 중요한 목적은 무엇인가요?</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="goal">
+                        <button type="button" data-value="collagen" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-seedling text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">콜라겐 생성</span>
+                            <span class="text-[10px] text-slate-400">자연스럽고 장기적인 효과</span>
+                        </button>
+                        <button type="button" data-value="volume" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-cube text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">볼륨감 회복</span>
+                            <span class="text-[10px] text-slate-400">입체감 및 얼굴 윤곽 개선</span>
+                        </button>
+                        <button type="button" data-value="lift" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <i class="fas fa-arrow-up text-lg text-slate-300 mb-2 block"></i>
+                            <span class="text-sm font-bold text-slate-700 block">강력한 리프팅</span>
+                            <span class="text-[10px] text-slate-400">타이트닝 및 피부 탄력 복원</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">2 - 허용 가능한 회복 기간은 어느 정도인가요?</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-match-group="downtime">
+                        <button type="button" data-value="none" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">다운타임 불가</span>
+                            <span class="text-[10px] text-slate-400">일상 생활 즉시 복귀</span>
+                        </button>
+                        <button type="button" data-value="mild" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">24 - 48 시간</span>
+                            <span class="text-[10px] text-slate-400">미세한 붓기 정도는 괜찮음</span>
+                        </button>
+                        <button type="button" data-value="extended" class="match-option border border-slate-200 rounded-sm px-5 py-4 text-center transition hover:border-slate-400 focus:outline-none">
+                            <span class="text-sm font-bold text-slate-700 block">3 - 7 일</span>
+                            <span class="text-[10px] text-slate-400">충분한 회복 기간 확보 가능</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">3 - 출국 일정 (선택 사항)</p>
+                    <label class="flex items-center gap-4 cursor-pointer border border-slate-200 rounded-sm px-5 py-4 transition hover:border-slate-400 w-fit">
+                        <span class="relative inline-block w-11 h-6">
+                            <input type="checkbox" id="match-urgent" class="peer sr-only">
+                            <span class="absolute inset-0 bg-slate-200 rounded-full transition peer-checked:bg-gold"></span>
+                            <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
+                        </span>
+                        <span class="text-sm text-slate-700"><strong>72시간 이내</strong> 출국 예정입니다.</span>
+                    </label>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button type="button" id="match-submit" disabled class="px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider">
+                        결과 확인하기
+                    </button>
+                    <p id="match-hint" class="text-xs text-slate-400 mt-3">목적과 회복 기간을 모두 선택해 주세요.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">시술 플래닝 가이드</span>
+                <h2 class="text-3xl font-serif text-slate-900 mt-3">예약 전, 반드시 확인해야 할 필수 정보</h2>
+                <p class="text-slate-500 mt-4">한국 방문을 계획 중이신가요? 완벽한 결과를 위해 세 가지 핵심 가이드를 먼저 읽어보시길 권장합니다.</p>
+            </div>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <a href="/international-patients-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">방문 전 필수 체크</p>
+                    <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">글로벌 고객 맞춤 가이드</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mt-3">진단 절차, 통역 지원, 짧은 체류 기간에 맞춘 효율적인 시술 계획 등 해외 방문객을 위한 모든 정보를 담았습니다.</p>
+                </a>
+                <a href="/apgujeong-aesthetic-clinic-for-foreign-patients.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">올바른 병원 선택법</p>
+                    <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">압구정 클리닉 선택 가이드</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mt-3">왜 많은 분들이 압구정을 선호할까요? 화려한 마케팅이나 위치 이면의 진짜 실력을 판별하는 기준을 제시합니다.</p>
+                </a>
+                <a href="/korean-lifting-guide.html" class="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-gold hover:shadow-lg transition">
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-3">장비별 상세 비교</p>
+                    <h3 class="text-xl font-serif text-slate-900 group-hover:text-gold transition">한국의 리프팅 트렌드</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mt-3">울쎄라, 써마지 FLX, 올리지오 등 주요 리프팅 장비의 장단점을 객관적으로 비교하고, 나에게 맞는 솔루션을 찾아보세요.</p>
+                </a>
+            </div>
+            <div class="mt-10 text-center">
+                <a href="/guides.html" class="inline-flex items-center justify-center px-8 py-3 border border-slate-300 rounded-sm text-slate-700 font-bold hover:border-slate-900 hover:text-slate-900 transition bg-white shadow-sm hover:shadow-md">
+                    <i class="fas fa-book-open mr-2 text-gold"></i> 전체 가이드 보기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50" id="faq">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-serif text-center mb-10 text-slate-900">자주 묻는 질문 (FAQ)</h2>
+            <div class="space-y-4">
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        시술 직후 비행기 탑승이 가능한가요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>대부분의 경우 가능합니다.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>에너지 기반 리프팅</strong> (울쎄라, 써마지, 온다 등)은 시술 후 즉시 일상 생활 및 비행기 탑승이 가능합니다.</li>
+                            <li><strong>인젝터블 시술</strong> (쥬베룩, 필러 등)은 혹시 모를 붓기나 멍을 확인하기 위해 가급적 24~48시간 이후 탑승을 권장합니다.</li>
+                        </ul>
+                        <p>고객님의 출국 일정에 맞춰 가장 안전한 시술 플랜을 세워드립니다.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        시술 후 회복 기간은 어느 정도 필요한가요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>선택하신 프로그램에 따라 다릅니다.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>리프팅:</strong> 눈에 띄는 다운타임이 거의 없습니다.</li>
+                            <li><strong>쥬베룩:</strong> 약간의 붓기가 발생할 수 있습니다.</li>
+                            <li><strong>필러:</strong> 피부가 얇은 부위의 경우 멍이 발생할 가능성이 있습니다.</li>
+                        </ul>
+                        <p>저희는 일정에 제약이 있는 고객분들을 위해 불필요한 회복 기간을 최소화하는 맞춤 계획을 수립합니다.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        리프팅 시술 시 통증 관리는 어떻게 이루어지나요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>네, 고객님의 편안함을 최우선으로 생각합니다. <strong>국소 신경 차단술</strong>과 <strong>수면 마취</strong>(선택 사항)를 제공하여 통증을 최소화합니다.</p>
+                        <p class="text-xs text-slate-400">수면 마취 가능 여부는 당일 문진을 통해 최종 결정됩니다.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        어떤 프로그램을 선택해야 할지 모르겠어요.
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-3">
+                        <p>미리 결정하지 않으셔도 됩니다. <strong>차마카-세</strong>는 전문의가 직접 최적의 솔루션을 설계해 드리는 프로그램입니다.</p>
+                        <p>대면 진단 시 다음 요소들을 종합적으로 평가합니다.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>피부 두께 및 상태</li>
+                            <li>볼륨 분포</li>
+                            <li>피부 탄력도</li>
+                            <li>출국 일정</li>
+                        </ul>
+                        <p class="italic border-l-2 border-gold pl-3">저희의 목표는 무조건 많은 시술을 권하는 것이 아니라, 고객님께 꼭 필요한, 가장 합리적인 시술만을 찾아드리는 것입니다.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                        상담 전에 무엇을 준비해야 하나요?
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="text-slate-600 mt-4 text-sm leading-relaxed space-y-2">
+                        <p>정확하고 원활한 상담을 위해 다음 사항을 미리 준비해 주시면 좋습니다.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>자연광에서 촬영한 정면 얼굴 사진</li>
+                            <li>한국 체류 일정</li>
+                            <li>가장 해결하고 싶은 고민 (리프팅 / 볼륨 / 피부결 개선 등)</li>
+                        </ul>
+                        <p>최고의 서비스를 위해 하루 예약 인원을 제한하고 있으므로, 여유 있게 일정을 예약해 주시길 권장합니다.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-gold uppercase tracking-widest text-xs font-bold">간편한 온라인 예약</span>
+            <h2 class="text-3xl font-serif text-slate-900 mt-3 mb-4">지금 예약하기</h2>
+            <p class="text-slate-500 mb-14 leading-relaxed max-w-xl mx-auto">글로벌 고객을 위한 체계적인 원스톱 의료 서비스.<br class="hidden md:inline"> 중간 브로커 없이, 투명하고 정확하게 예약하실 수 있습니다.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-14">
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">1</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">일정 선택</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">한국 체류 일정에 맞춰 원하시는 날짜와 시간을 선택하세요. <span class="text-slate-700 font-medium">예약금은 필요하지 않습니다.</span></p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="relative px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">2</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">확정 및 플랜 준비</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">예약이 접수되면 전담팀이 확정 안내를 드리고 <span class="text-slate-700 font-medium">초기 진단 플랜</span>을 준비합니다.</p>
+                    <div class="hidden md:block absolute top-5 -right-3 text-slate-300"><i class="fas fa-chevron-right text-xs"></i></div>
+                </div>
+                <div class="px-6">
+                    <div class="w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center mx-auto mb-5 text-sm font-bold shadow-md">3</div>
+                    <h4 class="font-bold text-slate-900 mb-2 text-lg">클리닉 방문</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">예약하신 날짜에 방문하시면, 전문의의 최종 진단 후 즉시 시술이 진행됩니다. <span class="text-slate-700 font-medium">모든 준비는 이미 완료되어 있습니다.</span></p>
+                </div>
+            </div>
+
+            <a href="/booking.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-4 font-bold rounded-sm hover:bg-slate-800 transition shadow-lg text-base">
+                <i class="fas fa-calendar-check text-lg"></i> 예약하기
+            </a>
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+                <span class="text-sm text-slate-400">궁금한 점이 있으신가요?</span>
+                <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-gold hover:underline"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <span class="text-slate-300">·</span>
+                <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-gold hover:underline"><i class="fab fa-instagram"></i> Instagram DM</a>
+                <span class="text-slate-300">·</span>
+                <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 text-sm text-gold hover:underline cursor-pointer"><i class="fab fa-line"></i> LINE</button>
+                <span class="text-slate-300">·</span>
+                <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 text-sm text-gold hover:underline cursor-pointer"><i class="fab fa-weixin"></i> WeChat</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">프리미엄 공간 철학</span>
+                <h2 class="text-4xl font-serif text-white mt-3 mb-6">튠클리닉 공간 안내</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    로비에서 VIP 스위트까지, 튠클리닉의 모든 공간은 프라이버시, 완벽한 시술 환경, 그리고 완전한 휴식을 위해 섬세하게 설계되었습니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-1.jpg&w=600&fm=webp&q=65" alt="클리닉 로비" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">메인 엔트런스</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-2.jpg&w=600&fm=webp&q=65" alt="리셉션 데스크" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">리셉션</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-3.jpg&w=600&fm=webp&q=65" alt="로비 라운지" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">라운지</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/lobby-4.jpg&w=600&fm=webp&q=65" alt="대기 공간" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">대기 공간</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-1.jpg&w=600&fm=webp&q=65" alt="VIP 트리트먼트 룸" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">VIP 스위트</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-2.jpg&w=600&fm=webp&q=65" alt="프라이빗 트리트먼트 룸" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">프라이빗 룸</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-3.jpg&w=600&fm=webp&q=65" alt="상담실" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">상담실</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm aspect-[3/4] cursor-pointer">
+                    <img src="/.netlify/images?url=/vip-room-4.jpg&w=600&fm=webp&q=65" alt="프리미엄 어메니티" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-500">
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">프리미엄 공간</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 flex justify-center">
+                <div class="h-px w-24 bg-gold"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-bold">강남 중심부 위치</span>
+                <h2 class="text-4xl font-serif text-slate-900 mt-3 mb-6">오시는 길</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="rounded-sm overflow-hidden shadow-lg aspect-[4/3]">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0!2d127.0262995!3d37.5260439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca312332f6f6d%3A0xbca8eff64fdc0d90!2z7JWV6rWs7KCV7Yqg7J2Y7JuQ!5e0!3m2!1sko!2skr!4v1700000000000"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Tune Clinic Apgujeong Location">
+                    </iframe>
+                </div>
+
+                <div class="flex flex-col justify-center space-y-8 py-4">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">오시는 길</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+                            서울특별시 강남구 논현로 868,<br>
+                            <span class="ml-6">구정빌딩 5층</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">전화 번호</h3>
+                        <p class="text-slate-700">
+                            <i class="fas fa-phone-alt text-gold mr-2"></i>
+                            <a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-widest text-gold mb-3">진료 시간</h3>
+                        <div class="text-slate-700 space-y-1">
+                            <div class="flex gap-4">
+                                <i class="fas fa-clock text-gold mr-2 mt-1"></i>
+                                <div>
+                                    <div class="flex justify-between gap-8"><span>월 - 금</span> <span class="font-bold">10:00 - 21:00</span></div>
+                                    <div class="flex justify-between gap-8"><span>토요일</span> <span class="font-bold">10:00 - 16:00</span></div>
+                                    <div class="flex justify-between gap-8 text-red-400"><span>일요일</span> <span class="font-bold">휴진</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="https://maps.app.goo.gl/QPzFkQ9EpJP7D99y6" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold hover:text-yellow-600 transition">
+                            <i class="fas fa-directions"></i> 구글 지도 보기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-slate-100 border-y border-slate-200 py-8">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <p class="text-sm text-slate-500 leading-relaxed">
+                모든 상담 및 시술 계획은 병원 의료진과 직접 조율됩니다.<br>
+                튠클리닉은 외부 브로커를 통하지 않습니다.
+            </p>
+        </div>
+    </div>
+
+<script>
+    /* ── Match Engine ─────────────────────────────────────── */
+    (function () {
+        var state = { goal: null, downtime: null };
+        var submitBtn = document.getElementById('match-submit');
+        var hint      = document.getElementById('match-hint');
+        var urgent    = document.getElementById('match-urgent');
+
+        document.querySelectorAll('[data-match-group]').forEach(function (group) {
+            var key = group.dataset.matchGroup;
+            group.querySelectorAll('.match-option').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    group.querySelectorAll('.match-option').forEach(function (b) { b.classList.remove('selected'); });
+                    btn.classList.add('selected');
+                    state[key] = btn.dataset.value;
+                    updateSubmit();
+                });
+            });
+        });
+
+        function updateSubmit() {
+            var ready = state.goal && state.downtime;
+            submitBtn.disabled = !ready;
+            submitBtn.className = ready
+                ? 'px-10 py-4 bg-slate-900 text-white font-semibold rounded-sm hover:bg-slate-800 transition shadow text-sm uppercase tracking-wider'
+                : 'px-10 py-4 bg-slate-300 text-white font-semibold rounded-sm transition shadow cursor-not-allowed text-sm uppercase tracking-wider';
+            hint.textContent = ready ? '' : '목적과 회복 기간을 모두 선택해 주세요.';
+        }
+
+        submitBtn.addEventListener('click', function () {
+            if (submitBtn.disabled) return;
+            highlight(resolve(state.goal, state.downtime, urgent.checked));
+        });
+
+        /* ── Routing table ────────────────────────────────────
+         *  goal × downtime × urgent → program card id
+         *
+         *  program-elite is now reachable via:
+         *    - any goal + extended downtime (not urgent)
+         *    - lift + standard downtime (not urgent)
+         *  This increases its exposure from ~2 paths to ~4 paths.
+         * ────────────────────────────────────────────────── */
+        function resolve(goal, downtime, isUrgent) {
+            if (isUrgent) {
+                // Urgent always wants fastest result
+                return downtime === 'extended' ? 'program-lifting' : 'program-lifting';
+            }
+            if (goal === 'collagen') {
+                if (downtime === 'none')     return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-collagen';
+            }
+            if (goal === 'volume') {
+                if (downtime === 'none')     return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-volume';
+            }
+            if (goal === 'lift') {
+                if (downtime === 'none')     return 'program-lifting';
+                if (downtime === 'extended') return 'program-elite';
+                return 'program-elite'; // standard → elite (full combo)
+            }
+            return 'program-lifting';
+        }
+
+        function highlight(cardId) {
+            document.querySelectorAll('.program-highlight').forEach(function (el) { el.classList.remove('program-highlight'); });
+            document.querySelectorAll('[data-match-badge]').forEach(function (el) { el.remove(); });
+            document.querySelectorAll('.cta-pulse').forEach(function (el) { el.classList.remove('cta-pulse'); });
+
+            var card = document.getElementById(cardId);
+            if (!card) return;
+
+            var offsetPosition = card.getBoundingClientRect().top + window.pageYOffset - 100;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+
+            setTimeout(function () {
+                card.classList.add('program-highlight');
+                var badge = document.createElement('span');
+                badge.className = 'absolute top-3 left-3 bg-[#C5A059] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider';
+                badge.setAttribute('data-match-badge', '');
+                badge.textContent = '고객님의 선택에 최적화된 프로그램입니다';
+                card.appendChild(badge);
+
+                var btns = card.querySelectorAll('a');
+                if (btns.length > 0) {
+                    btns[btns.length - 1].classList.add('cta-pulse');
+                    setTimeout(function () { btns[btns.length - 1].classList.remove('cta-pulse'); }, 2000);
+                }
+            }, 500);
+        }
+    })();
+    </script>

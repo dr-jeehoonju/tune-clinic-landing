@@ -61,11 +61,9 @@ function languageSwitcher(entry, localeData) {
   `;
 }
 
-// Locales that ship only a partial subset of the site (currently only
-// the booking + booking-manage pages). For these locales we render a
-// minimal navigation (logo + booking link + language switcher) so users
-// don't see Korean labels that would link to English-only pages.
-const PARTIAL_LOCALES = new Set(["ko"]);
+// Locales that ship only a partial subset of the site (currently none, all full).
+// For these locales we render a minimal navigation and footer.
+const PARTIAL_LOCALES = new Set([]);
 
 function mainNav(g, locale, localeData, switcher, options = {}) {
   const { activeKey, isHome, mobileLanguageLinksHtml } = options;
@@ -554,9 +552,8 @@ function blogAlternateLinks(post) {
   return `${links}\n  <link rel="alternate" hreflang="x-default" href="${publicBlogUrl(fallback, post.slug)}">`;
 }
 
-// `ko` is a partial locale (booking pages only); exclude it from blog
-// language switchers and hreflang sets so we never advertise /ko/blog/.
-const BLOG_LANGUAGE_ORDER = languageOrder.filter((code) => code !== "ko");
+// `ko` is now a full locale, so include it in the blog language switchers.
+const BLOG_LANGUAGE_ORDER = languageOrder;
 
 function blogIndexAlternateLinks(locale) {
   const links = BLOG_LANGUAGE_ORDER

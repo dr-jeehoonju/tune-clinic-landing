@@ -1,0 +1,11 @@
+{
+  "key": "guides",
+  "template": "editorial",
+  "permalink": "ko/guides.html",
+  "title": "서울 에스테틱 가이드 | 해외 환자를 위한 튠클리닉 안내서",
+  "description": "해외 환자를 위한 튠클리닉의 서울 에스테틱 가이드를 확인해 보십시오. 시술 비교, 여행 일정 계획, 리프팅 솔루션, 필러, 재생 치료 및 환자 FAQ를 제공합니다.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/guides.html",
+  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "chromeLabel": "가이드 허브"
+}
