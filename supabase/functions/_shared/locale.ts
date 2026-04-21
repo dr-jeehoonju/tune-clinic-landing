@@ -70,7 +70,7 @@ const OTHER_LABEL: Record<string, string> = {
   fr: "Autre / Pas encore décidé",
   ru: "Другое / Ещё не выбрано",
   vi: "Khác / Chưa chắc chắn",
-  ko: "기타 / 아직 정하지 못함",
+  ko: "기타 / 추후 결정",
 };
 
 function treatmentLabel(key: string, locale: string): string {
@@ -133,9 +133,9 @@ export const QUICK_REPLY: Record<
       "Xin chào {name},\n\nLịch hẹn của bạn tại Tune Clinic vào {date} lúc {time} KST đã được xác nhận.\n\nChúng tôi rất mong được gặp bạn!\n\nTrân trọng,\nTune Clinic",
   },
   ko: {
-    subject: "Tune Clinic 예약 확정 안내",
+    subject: "[튠클리닉] 예약이 확정되었습니다",
     body:
-      "{name}님,\n\n{date} {time} KST Tune Clinic 예약이 확정되었습니다.\n\n방문을 기다리겠습니다.\n\nTune Clinic 드림",
+      "{name}님 안녕하세요,\n\n신청해 주신 튠클리닉 예약이 아래 일정으로 확정되었음을 안내드립니다.\n\n· 일시: {date} {time} (KST)\n\n방문해 주실 날을 정성껏 준비하며 기다리겠습니다.\n언제든 궁금하신 점이 있으시면 편하게 연락 주세요.\n\n감사합니다.\n압구정 튠클리닉 드림",
   },
 };
 

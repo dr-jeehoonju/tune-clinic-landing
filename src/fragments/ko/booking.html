@@ -1,8 +1,8 @@
 <section class="bg-slate-950 text-white py-16 md:py-24">
   <div class="max-w-3xl mx-auto px-6 text-center">
     <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">방문 예약</span>
-    <h1 class="text-4xl md:text-5xl font-serif mt-5">예약하기</h1>
-    <p class="text-slate-300 leading-relaxed mt-5 max-w-2xl mx-auto">날짜와 시간 슬롯을 선택하세요. 진료 시간 내에 예약을 확인해 드리겠습니다.</p>
+    <h1 class="text-4xl md:text-5xl font-serif mt-5">방문 예약</h1>
+    <p class="text-slate-300 leading-relaxed mt-5 max-w-2xl mx-auto">원하시는 날짜와 시간을 선택해 주세요. 진료 시간 내에 예약 확인 안내를 보내드립니다.</p>
   </div>
 </section>
 
@@ -14,8 +14,8 @@
       <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6 flex items-start gap-3">
         <i class="fas fa-globe text-blue-500 mt-0.5"></i>
         <div class="text-sm">
-          <p class="font-bold text-blue-800">현재 시간대: <span id="tz-display" class="font-normal">감지 중...</span></p>
-          <p class="text-blue-600 mt-0.5">시간은 한국 표준시(KST)와 현지 시간 모두 표시됩니다.</p>
+          <p class="font-bold text-blue-800">현재 시간대: <span id="tz-display" class="font-normal">확인 중…</span></p>
+          <p class="text-blue-600 mt-0.5">예약 시간은 한국 표준시(KST)와 현지 시간을 함께 표시해 드립니다.</p>
         </div>
       </div>
 
@@ -40,9 +40,9 @@
 
       <!-- Time Slots -->
       <div id="slot-section" class="hidden">
-        <h3 class="font-bold text-slate-800 mb-3">선택 가능 시간: <span id="slot-date-label" class="text-gold"></span></h3>
+        <h3 class="font-bold text-slate-800 mb-3">예약 가능 시간 <span id="slot-date-label" class="text-gold"></span></h3>
         <div id="slot-list" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 mb-6"></div>
-        <p id="slot-none" class="hidden text-sm text-slate-400 text-center py-4">이 날짜에는 가능한 시간이 없습니다.</p>
+        <p id="slot-none" class="hidden text-sm text-slate-400 text-center py-4">선택하신 날짜에는 예약 가능한 시간이 없습니다.</p>
       </div>
     </div>
 
@@ -56,8 +56,8 @@
       </div>
 
       <div>
-        <label for="bkf-name" class="block text-sm font-bold text-slate-700 mb-2">이름 <span class="text-red-500">*</span></label>
-        <input type="text" id="bkf-name" required placeholder="이름을 입력하세요"
+        <label for="bkf-name" class="block text-sm font-bold text-slate-700 mb-2">성함 <span class="text-red-500">*</span></label>
+        <input type="text" id="bkf-name" required placeholder="성함을 입력해 주세요"
           class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
       </div>
 
@@ -68,7 +68,7 @@
             class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
         </div>
         <div>
-          <label for="bkf-phone" class="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
+          <label for="bkf-phone" class="block text-sm font-bold text-slate-700 mb-2">연락처</label>
           <div class="flex">
             <select id="bkf-cc" class="shrink-0 border border-slate-200 border-r-0 rounded-l-lg px-2 py-3.5 text-slate-700 text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold appearance-none" style="width:100px;">
               <option value="+82">🇰🇷 +82</option>
@@ -98,7 +98,7 @@
       </div>
 
       <fieldset>
-        <legend class="block text-sm font-bold text-slate-700 mb-3">어떤 프로그램에 관심이 있으신가요?</legend>
+        <legend class="block text-sm font-bold text-slate-700 mb-3">관심 있는 프로그램을 선택해 주세요</legend>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <label class="flex items-start gap-3 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5">
             <input type="checkbox" name="treatment" value="signature-lifting" class="accent-[#c9a55a] w-4 h-4 mt-0.5">
@@ -117,14 +117,14 @@
             <div><span class="text-sm font-bold text-slate-700">볼륨 차마카-세</span><p class="text-xs text-slate-400 mt-0.5">Juvelook Volume collagen remodeling</p><p class="text-xs font-bold text-gold mt-1">₩770,000</p></div>
           </label>
           <label class="flex items-center gap-2.5 px-4 py-3.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 sm:col-span-2">
-            <input type="checkbox" name="treatment" value="other" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">상담 후 결정할게요</span>
+            <input type="checkbox" name="treatment" value="other" class="accent-[#c9a55a] w-4 h-4"> <span class="text-sm text-slate-700">상담 후 결정하겠습니다</span>
           </label>
         </div>
       </fieldset>
 
       <div>
-        <label for="bkf-message" class="block text-sm font-bold text-slate-700 mb-2">추가 메모 <span class="text-slate-400 font-normal">(선택사항)</span></label>
-        <textarea id="bkf-message" rows="3" placeholder="여행 일정, 특별 요청 등"
+        <label for="bkf-message" class="block text-sm font-bold text-slate-700 mb-2">추가 요청 사항 <span class="text-slate-400 font-normal">(선택)</span></label>
+        <textarea id="bkf-message" rows="3" placeholder="여행 일정, 별도 요청 사항 등을 자유롭게 적어 주세요"
           class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white resize-y"></textarea>
       </div>
 
@@ -134,13 +134,13 @@
 
       <button type="submit" id="bkf-submit"
         class="w-full bg-slate-900 text-white py-4 px-8 font-bold rounded-lg hover:bg-slate-800 transition text-lg flex items-center justify-center gap-2">
-        <i class="fas fa-calendar-check"></i> 예약 제출
+        <i class="fas fa-calendar-check"></i> 예약 신청하기
       </button>
-      <p class="text-xs text-slate-400 text-center leading-relaxed">예약은 클리닉 영업 시간(월–토) 내에 확인됩니다. 확인 이메일을 받으실 수 있습니다.</p>
+      <p class="text-xs text-slate-400 text-center leading-relaxed">예약 신청 후 진료 시간(월–토) 내에 확인 메일을 보내드립니다.</p>
 
       <div class="mt-8 pt-8 border-t border-slate-200">
-        <p class="text-sm font-bold text-slate-700 text-center mb-1">궁금한 점이 있으신가요? 언제든지 연락 주세요.</p>
-        <p class="text-xs text-slate-400 text-center mb-5">일반적인 응답 시간: 클리닉 영업 시간 내 (월–토).</p>
+        <p class="text-sm font-bold text-slate-700 text-center mb-1">문의 사항이 있으시면 언제든 편하게 연락 주세요.</p>
+        <p class="text-xs text-slate-400 text-center mb-5">응답은 진료 시간(월–토) 기준 순차적으로 안내해 드립니다.</p>
         <div class="flex flex-wrap items-center justify-center gap-2.5">
           <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-green-600 text-white rounded-lg font-bold text-xs hover:bg-green-700 transition">
             <i class="fab fa-whatsapp text-sm"></i> WhatsApp
@@ -163,20 +163,20 @@
       <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="fas fa-clock text-2xl"></i>
       </div>
-      <h2 class="text-3xl font-serif text-slate-900">Booking Request Received</h2>
-      <p class="text-slate-500 mt-4 max-w-md mx-auto leading-relaxed">Thank you! To confirm your booking, please send us a message with your name via any channel below.</p>
+      <h2 class="text-3xl font-serif text-slate-900">예약 신청이 접수되었습니다</h2>
+      <p class="text-slate-500 mt-4 max-w-md mx-auto leading-relaxed">감사합니다. 최종 예약 확정을 위해 아래 채널 중 편하신 곳으로 성함과 함께 메시지를 보내 주세요.</p>
       <p id="bkf-summary" class="text-sm text-slate-400 mt-3"></p>
       <div class="mt-8 max-w-sm mx-auto">
-        <p class="text-sm font-bold text-slate-700 mb-3">Contact us to complete your booking:</p>
+        <p class="text-sm font-bold text-slate-700 mb-3">예약 확정을 위한 연락처</p>
         <div class="flex flex-wrap justify-center gap-2.5">
           <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-green-600 text-white rounded-lg font-bold text-xs hover:bg-green-700 transition"><i class="fab fa-whatsapp text-sm"></i> WhatsApp</a>
           <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-violet-500 text-white rounded-lg font-bold text-xs hover:bg-violet-600 transition"><i class="fab fa-instagram text-sm"></i> Instagram</a>
           <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer"><i class="fab fa-line text-sm"></i> LINE</button>
           <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer"><i class="fab fa-weixin text-sm"></i> WeChat</button>
         </div>
-        <p class="text-xs text-slate-400 mt-3">Our counselor will assist you during business hours (Mon–Sat)</p>
+        <p class="text-xs text-slate-400 mt-3">진료 시간(월–토) 내에 담당 상담 직원이 친절히 안내해 드립니다.</p>
       </div>
-      <a href="/index.html" class="inline-block mt-8 text-gold font-bold hover:underline">Back to Home</a>
+      <a href="/index.html" class="inline-block mt-8 text-gold font-bold hover:underline">홈으로 돌아가기</a>
     </div>
 
     <!-- Error -->
@@ -184,8 +184,8 @@
       <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="fas fa-exclamation-triangle text-2xl"></i>
       </div>
-      <h2 class="text-2xl font-serif text-slate-900">Something went wrong</h2>
-      <p class="text-slate-500 mt-4">Please try again or contact us directly via WhatsApp.</p>
+      <h2 class="text-2xl font-serif text-slate-900">예약 신청 중 오류가 발생했습니다</h2>
+      <p class="text-slate-500 mt-4">잠시 후 다시 시도해 주시거나, WhatsApp으로 직접 연락 주세요.</p>
     </div>
 
   </div>
@@ -253,8 +253,7 @@ $('#bk-prev').addEventListener('click', () => { calM--; if (calM < 0) { calM = 1
 $('#bk-next').addEventListener('click', () => { calM++; if (calM > 11) { calM = 0; calY++; } renderCalendar(); });
 
 function renderCalendar() {
-  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  $('#bk-cal-title').textContent = `${monthNames[calM]} ${calY}`;
+  $('#bk-cal-title').textContent = `${calY}년 ${calM + 1}월`;
 
   const grid = $('#bk-cal-grid');
   const firstDay = new Date(calY, calM, 1).getDay();
@@ -337,7 +336,7 @@ function renderSlots(dateStr) {
   if (!slots.length) { list.innerHTML = ''; none.classList.remove('hidden'); return; }
   none.classList.add('hidden');
 
-  const dateLabel = new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  const dateLabel = new Date(dateStr + 'T00:00:00').toLocaleDateString('ko-KR', { month: 'long', day: 'numeric', weekday: 'short' });
   $('#slot-date-label').textContent = dateLabel;
 
   list.innerHTML = slots.map(s => {
@@ -345,13 +344,13 @@ function renderSlots(dateStr) {
     if (s.booked) {
       return `<div class="py-3 px-2 rounded-lg border border-slate-100 bg-slate-50 text-center opacity-50 cursor-not-allowed">
         <p class="text-sm font-bold text-slate-400 line-through">${s.time}</p>
-        <p class="text-[10px] text-slate-300">${local} local</p>
+        <p class="text-[10px] text-slate-300">${local} 현지</p>
       </div>`;
     }
     const isSel = s.time === selectedTime;
     return `<div class="py-3 px-2 rounded-lg border transition cursor-pointer text-center ${isSel ? 'border-gold bg-gold/10 ring-2 ring-gold' : 'border-slate-200 bg-white hover:border-gold/50'}" data-time="${s.time}">
       <p class="text-sm font-bold ${isSel ? 'text-gold' : 'text-slate-700'}">${s.time} <span class="font-normal text-slate-400">KST</span></p>
-      <p class="text-[10px] text-slate-400">${local} local</p>
+      <p class="text-[10px] text-slate-400">${local} 현지</p>
     </div>`;
   }).join('');
 
@@ -382,12 +381,12 @@ $('#booking-form').addEventListener('submit', async (e) => {
   const submitBtn = $('#bkf-submit');
 
   if (!$('#bkf-date').value || !$('#bkf-time').value) {
-    alert('Please select a date and time slot first.');
+    alert('먼저 원하시는 날짜와 시간을 선택해 주세요.');
     return;
   }
 
   submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 신청 중…';
 
   const row = {
     booking_type: 'slot_pick',
@@ -405,7 +404,7 @@ $('#booking-form').addEventListener('submit', async (e) => {
   try {
     const turnstileToken = (document.querySelector('#booking-form [name="cf-turnstile-response"]') || {}).value || '';
     if (!turnstileToken) {
-      alert('Please complete the verification challenge.');
+      alert('보안 인증을 완료해 주세요.');
       submitBtn.disabled = false;
       if (window.turnstile) { try { window.turnstile.reset(); } catch (_) {} }
       return;
@@ -428,7 +427,7 @@ $('#booking-form').addEventListener('submit', async (e) => {
     $('#booking-form').classList.add('hidden');
     $('#panel-pick').classList.add('hidden');
 
-    $('#bkf-summary').textContent = `Date: ${row.appointment_date} | Time: ${row.appointment_time.slice(0,5)} KST`;
+    $('#bkf-summary').textContent = `예약일: ${row.appointment_date} · 시간: ${row.appointment_time.slice(0,5)} KST`;
     $('#bkf-success').classList.remove('hidden');
     $('#bkf-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
   } catch (err) {

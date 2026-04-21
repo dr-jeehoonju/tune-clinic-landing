@@ -1,7 +1,7 @@
 <section class="bg-slate-950 text-white py-16 md:py-24">
   <div class="max-w-3xl mx-auto px-6 text-center">
     <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold" data-i18n="tagline">예약 관리</span>
-    <h1 class="text-4xl md:text-5xl font-serif mt-5" data-i18n="heading">예약 관리</h1>
+    <h1 class="text-4xl md:text-5xl font-serif mt-5" data-i18n="heading">내 예약 관리</h1>
   </div>
 </section>
 
@@ -14,7 +14,7 @@
     <!-- Loading -->
     <div id="mg-loading" class="text-center py-20">
       <i class="fas fa-spinner fa-spin text-3xl text-gold"></i>
-      <p class="text-slate-400 mt-4" data-i18n="loading">예약 정보를 불러오는 중…</p>
+      <p class="text-slate-400 mt-4" data-i18n="loading">예약 정보를 불러오고 있습니다…</p>
     </div>
 
     <!-- Not Found -->
@@ -23,7 +23,7 @@
         <i class="fas fa-exclamation-triangle text-2xl"></i>
       </div>
       <h2 class="text-2xl font-serif text-slate-900" data-i18n="notFoundTitle">예약을 찾을 수 없습니다</h2>
-      <p class="text-slate-500 mt-4" data-i18n="notFoundMsg">이 예약 링크는 유효하지 않거나 만료되었을 수 있습니다.</p>
+      <p class="text-slate-500 mt-4" data-i18n="notFoundMsg">예약 링크가 유효하지 않거나 만료되었을 수 있습니다.</p>
     </div>
 
     <!-- Booking Details -->
@@ -31,11 +31,11 @@
       <!-- Summary Card -->
       <div class="bg-white rounded-xl shadow-sm border overflow-hidden mb-6">
         <div class="bg-slate-900 px-6 py-4">
-          <h2 class="text-white font-serif text-lg" data-i18n="summaryTitle">예약 상세</h2>
+          <h2 class="text-white font-serif text-lg" data-i18n="summaryTitle">예약 정보</h2>
         </div>
         <div class="px-6 py-5">
           <table class="w-full text-sm">
-            <tr><td class="py-2 text-slate-400 w-28" data-i18n="labelName">이름</td><td id="mg-name" class="py-2 text-slate-800 font-bold"></td></tr>
+            <tr><td class="py-2 text-slate-400 w-28" data-i18n="labelName">성함</td><td id="mg-name" class="py-2 text-slate-800 font-bold"></td></tr>
             <tr><td class="py-2 text-slate-400" data-i18n="labelDate">날짜</td><td id="mg-date" class="py-2 text-slate-800 font-bold"></td></tr>
             <tr><td class="py-2 text-slate-400" data-i18n="labelTime">시간</td><td id="mg-time" class="py-2 text-slate-800 font-bold"></td></tr>
             <tr><td class="py-2 text-slate-400" data-i18n="labelProgram">프로그램</td><td id="mg-program" class="py-2 text-slate-800"></td></tr>
@@ -47,7 +47,7 @@
       <div id="mg-actions" class="space-y-3">
         <button id="btn-reschedule"
           class="w-full bg-gold text-white py-3.5 px-6 rounded-lg font-bold hover:bg-gold/90 transition flex items-center justify-center gap-2">
-          <i class="fas fa-calendar-alt"></i> <span data-i18n="btnReschedule">예약 변경</span>
+          <i class="fas fa-calendar-alt"></i> <span data-i18n="btnReschedule">일정 변경</span>
         </button>
         <button id="btn-change-program"
           class="w-full bg-slate-800 text-white py-3.5 px-6 rounded-lg font-bold hover:bg-slate-700 transition flex items-center justify-center gap-2">
@@ -73,7 +73,7 @@
       <div id="mg-reschedule" class="hidden mt-6">
         <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
           <div class="bg-gold px-6 py-4 flex items-center justify-between">
-            <h3 class="text-white font-bold" data-i18n="rescheduleTitle">새 날짜 및 시간 선택</h3>
+            <h3 class="text-white font-bold" data-i18n="rescheduleTitle">새로운 일정 선택</h3>
             <button id="btn-resched-close" class="text-white/70 hover:text-white transition"><i class="fas fa-times text-lg"></i></button>
           </div>
           <div class="px-6 py-5">
@@ -96,14 +96,14 @@
 
             <!-- Time Slots -->
             <div id="rs-slot-section" class="hidden">
-              <h4 class="font-bold text-slate-700 text-sm mb-2"><span data-i18n="availableTimes">가능한 시간:</span> <span id="rs-slot-label" class="text-gold"></span></h4>
+              <h4 class="font-bold text-slate-700 text-sm mb-2"><span data-i18n="availableTimes">예약 가능 시간</span> <span id="rs-slot-label" class="text-gold"></span></h4>
               <div id="rs-slot-list" class="grid grid-cols-4 sm:grid-cols-5 gap-2 mb-5"></div>
-              <p id="rs-slot-none" class="hidden text-sm text-slate-400 text-center py-2" data-i18n="noSlots">이 날짜에는 가능한 시간이 없습니다.</p>
+              <p id="rs-slot-none" class="hidden text-sm text-slate-400 text-center py-2" data-i18n="noSlots">선택하신 날짜에는 예약 가능한 시간이 없습니다.</p>
             </div>
 
             <!-- Program Selection -->
             <div class="mb-5">
-              <h4 class="font-bold text-slate-700 text-sm mb-2" data-i18n="labelChangeProgram">프로그램 변경 (선택)</h4>
+              <h4 class="font-bold text-slate-700 text-sm mb-2" data-i18n="labelChangeProgram">프로그램 변경 (선택 사항)</h4>
               <div id="rs-programs" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <label class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm">
                   <input type="checkbox" name="rs-treatment" value="signature-lifting" class="accent-[#c9a55a] w-4 h-4">
@@ -123,14 +123,14 @@
                 </label>
                 <label class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm sm:col-span-2">
                   <input type="checkbox" name="rs-treatment" value="other" class="accent-[#c9a55a] w-4 h-4">
-                  <span class="text-slate-700 font-medium" data-i18n="otherProgram">기타 / 미정</span>
+                  <span class="text-slate-700 font-medium" data-i18n="otherProgram">기타 / 추후 결정</span>
                 </label>
               </div>
             </div>
 
             <button id="btn-resched-confirm" disabled
               class="w-full bg-gold text-white py-3 rounded-lg font-bold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gold/90 transition flex items-center justify-center gap-2">
-              <i class="fas fa-check"></i> <span data-i18n="btnConfirmResched">새 시간 확정</span>
+              <i class="fas fa-check"></i> <span data-i18n="btnConfirmResched">변경 일정 확정</span>
             </button>
           </div>
         </div>
@@ -138,14 +138,14 @@
 
       <!-- Cancel Confirmation -->
       <div id="mg-cancel-confirm" class="hidden mt-6 bg-red-50 border border-red-200 rounded-xl p-6 text-center">
-        <p class="text-red-800 font-bold mb-1" data-i18n="cancelConfirmTitle">정말로 취소하시겠습니까?</p>
-        <p class="text-red-600 text-sm mb-4" data-i18n="cancelConfirmMsg">예약이 취소됩니다. 이 작업은 취소할 수 없습니다.</p>
+        <p class="text-red-800 font-bold mb-1" data-i18n="cancelConfirmTitle">예약을 취소하시겠어요?</p>
+        <p class="text-red-600 text-sm mb-4" data-i18n="cancelConfirmMsg">예약이 취소되며, 한 번 취소된 예약은 복구할 수 없습니다.</p>
         <div class="flex gap-3 justify-center">
           <button id="btn-cancel-yes" class="bg-red-600 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-red-700 transition text-sm">
-            <span data-i18n="cancelYes">예, 취소합니다</span>
+            <span data-i18n="cancelYes">취소하기</span>
           </button>
           <button id="btn-cancel-no" class="border border-slate-300 text-slate-600 px-6 py-2.5 rounded-lg font-bold hover:bg-slate-100 transition text-sm">
-            <span data-i18n="cancelNo">예약 유지</span>
+            <span data-i18n="cancelNo">유지하기</span>
           </button>
         </div>
       </div>
@@ -154,7 +154,7 @@
       <div id="mg-change-program" class="hidden mt-6">
         <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
           <div class="bg-slate-800 px-6 py-4 flex items-center justify-between">
-            <h3 class="text-white font-bold" data-i18n="changeProgramTitle">새 프로그램 선택</h3>
+            <h3 class="text-white font-bold" data-i18n="changeProgramTitle">프로그램 다시 선택</h3>
             <button id="btn-cp-close" class="text-white/70 hover:text-white transition"><i class="fas fa-times text-lg"></i></button>
           </div>
           <div class="px-6 py-5">
@@ -177,12 +177,12 @@
               </label>
               <label class="flex items-center gap-2.5 px-3 py-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-gold/50 transition has-[:checked]:border-gold has-[:checked]:bg-gold/5 text-sm sm:col-span-2">
                 <input type="checkbox" name="cp-treatment" value="other" class="accent-[#c9a55a] w-4 h-4">
-                <span class="text-slate-700 font-medium" data-i18n="otherProgram">기타 / 미정</span>
+                <span class="text-slate-700 font-medium" data-i18n="otherProgram">기타 / 추후 결정</span>
               </label>
             </div>
             <button id="btn-cp-confirm"
               class="w-full bg-slate-800 text-white py-3 rounded-lg font-bold hover:bg-slate-700 transition flex items-center justify-center gap-2">
-              <i class="fas fa-check"></i> <span data-i18n="btnConfirmProgram">프로그램 변경 확정</span>
+              <i class="fas fa-check"></i> <span data-i18n="btnConfirmProgram">변경 사항 확정</span>
             </button>
           </div>
         </div>
@@ -194,10 +194,10 @@
       <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="fas fa-ban text-2xl"></i>
       </div>
-      <h2 class="text-2xl font-serif text-slate-900" data-i18n="cancelledTitle">예약 취소 완료</h2>
-      <p class="text-slate-500 mt-4" data-i18n="cancelledMsg">예약이 취소되었습니다. 언제든지 새 예약을 하실 수 있습니다.</p>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="cancelledTitle">예약이 취소되었습니다</h2>
+      <p class="text-slate-500 mt-4" data-i18n="cancelledMsg">예약이 정상적으로 취소되었습니다. 언제든지 다시 예약하실 수 있습니다.</p>
       <a id="link-rebook" href="/ko/booking.html" class="inline-block mt-8 bg-slate-900 text-white px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition">
-        <i class="fas fa-calendar-check mr-2"></i><span data-i18n="btnRebook">새 예약하기</span>
+        <i class="fas fa-calendar-check mr-2"></i><span data-i18n="btnRebook">다시 예약하기</span>
       </a>
     </div>
 
@@ -206,8 +206,8 @@
       <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="fas fa-check text-2xl"></i>
       </div>
-      <h2 class="text-2xl font-serif text-slate-900" data-i18n="rescheduledTitle">예약 변경 완료</h2>
-      <p class="text-slate-500 mt-4" data-i18n="rescheduledMsg">새 예약 시간이 확정되었습니다.</p>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="rescheduledTitle">예약이 변경되었습니다</h2>
+      <p class="text-slate-500 mt-4" data-i18n="rescheduledMsg">변경하신 일정으로 예약이 확정되었습니다.</p>
       <p id="mg-new-summary" class="text-gold font-bold mt-2"></p>
     </div>
 
@@ -216,8 +216,8 @@
       <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
         <i class="fas fa-check text-2xl"></i>
       </div>
-      <h2 class="text-2xl font-serif text-slate-900" data-i18n="programUpdatedTitle">프로그램 변경 완료</h2>
-      <p class="text-slate-500 mt-4" data-i18n="programUpdatedMsg">프로그램이 변경되었습니다. 확인 이메일이 발송되었습니다.</p>
+      <h2 class="text-2xl font-serif text-slate-900" data-i18n="programUpdatedTitle">프로그램이 변경되었습니다</h2>
+      <p class="text-slate-500 mt-4" data-i18n="programUpdatedMsg">선택하신 프로그램으로 변경되었으며, 확인 메일도 함께 보내드렸습니다.</p>
       <p id="mg-new-program" class="text-gold font-bold mt-2"></p>
     </div>
 
@@ -347,31 +347,32 @@ const I18N = {
     programUpdatedMsg: 'โปรแกรมของคุณได้รับการอัปเดตแล้ว อีเมลยืนยันถูกส่งแล้ว',
   },
   ko: {
-    tagline: '예약 관리', heading: '예약 관리',
-    loading: '예약 정보를 불러오는 중…', notFoundTitle: '예약을 찾을 수 없습니다',
-    notFoundMsg: '이 예약 링크는 유효하지 않거나 만료되었을 수 있습니다.',
-    summaryTitle: '예약 상세', labelName: '이름', labelDate: '날짜',
+    tagline: '예약 관리', heading: '내 예약 관리',
+    loading: '예약 정보를 불러오고 있습니다…', notFoundTitle: '예약을 찾을 수 없습니다',
+    notFoundMsg: '예약 링크가 유효하지 않거나 만료되었을 수 있습니다.',
+    summaryTitle: '예약 정보', labelName: '성함', labelDate: '날짜',
     labelTime: '시간', labelProgram: '프로그램',
-    btnReschedule: '예약 변경', btnCancel: '예약 취소',
+    btnReschedule: '일정 변경', btnCancel: '예약 취소',
     btnGcal: 'Google 캘린더', btnIcs: 'Apple / Outlook',
-    rescheduleTitle: '새 날짜 및 시간 선택', availableTimes: '가능한 시간:',
-    noSlots: '이 날짜에는 가능한 시간이 없습니다.', btnConfirmResched: '새 시간 확정',
-    cancelConfirmTitle: '정말로 취소하시겠습니까?',
-    cancelConfirmMsg: '예약이 취소됩니다. 이 작업은 취소할 수 없습니다.',
-    cancelYes: '예, 취소합니다', cancelNo: '예약 유지',
-    cancelledTitle: '예약 취소 완료',
-    cancelledMsg: '예약이 취소되었습니다. 언제든지 새 예약을 하실 수 있습니다.',
-    btnRebook: '새 예약하기',
-    rescheduledTitle: '예약 변경 완료',
-    rescheduledMsg: '새 예약 시간이 확정되었습니다.',
-    notSpecified: '미정',
-    labelChangeProgram: '프로그램 변경 (선택)',
-    otherProgram: '기타 / 미정',
+    rescheduleTitle: '새로운 일정 선택', availableTimes: '예약 가능 시간',
+    noSlots: '선택하신 날짜에는 예약 가능한 시간이 없습니다.', btnConfirmResched: '변경 일정 확정',
+    cancelConfirmTitle: '예약을 취소하시겠어요?',
+    cancelConfirmMsg: '예약이 취소되며, 한 번 취소된 예약은 복구할 수 없습니다.',
+    cancelYes: '취소하기', cancelNo: '유지하기',
+    cancelledTitle: '예약이 취소되었습니다',
+    cancelledMsg: '예약이 정상적으로 취소되었습니다. 언제든지 다시 예약하실 수 있습니다.',
+    btnRebook: '다시 예약하기',
+    rescheduledTitle: '예약이 변경되었습니다',
+    rescheduledMsg: '변경하신 일정으로 예약이 확정되었습니다.',
+    notSpecified: '추후 결정',
+    labelChangeProgram: '프로그램 변경 (선택 사항)',
+    otherProgram: '기타 / 추후 결정',
     btnChangeProgram: '프로그램 변경',
-    changeProgramTitle: '새 프로그램 선택',
-    btnConfirmProgram: '프로그램 변경 확정',
-    programUpdatedTitle: '프로그램 업데이트 완료',
-    programUpdatedMsg: '프로그램 선택이 업데이트되었습니다. 확인 이메일이 발송되었습니다.',
+    changeProgramTitle: '프로그램 다시 선택',
+    btnConfirmProgram: '변경 사항 확정',
+    programUpdatedTitle: '프로그램이 변경되었습니다',
+    programUpdatedMsg: '선택하신 프로그램으로 변경되었으며, 확인 메일도 함께 보내드렸습니다.',
+    selectAtLeastOne: '프로그램을 한 가지 이상 선택해 주세요.',
   },
 };
 
@@ -405,10 +406,10 @@ const confirmMsg = params.get('msg');
 if (confirmMsg) {
   const banner = $('#mg-confirm-banner');
   const MSGS = {
-    confirmed: { text: '예약이 확정되었습니다! 환자에게 확정 이메일이 발송되었습니다.', bg: 'bg-green-100 text-green-800 border border-green-300' },
+    confirmed: { text: '예약이 확정되었습니다. 환자에게 확정 안내 메일을 보내드렸습니다.', bg: 'bg-green-100 text-green-800 border border-green-300' },
     already_confirmed: { text: '이미 확정된 예약입니다.', bg: 'bg-blue-100 text-blue-800 border border-blue-300' },
-    cancelled: { text: '취소된 예약은 확정할 수 없습니다.', bg: 'bg-red-100 text-red-800 border border-red-300' },
-    error: { text: '오류가 발생했습니다. 다시 시도해 주세요.', bg: 'bg-red-100 text-red-800 border border-red-300' },
+    cancelled: { text: '취소된 예약은 확정하실 수 없습니다.', bg: 'bg-red-100 text-red-800 border border-red-300' },
+    error: { text: '처리 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.', bg: 'bg-red-100 text-red-800 border border-red-300' },
   };
   const m = MSGS[confirmMsg] || MSGS.error;
   banner.textContent = m.text;
@@ -507,7 +508,7 @@ function renderDetails(b) {
       $('#mg-rescheduled').classList.remove('hidden');
       $('#mg-rescheduled').scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch {
-      alert('Failed to reschedule. Please try again.');
+      alert('일정 변경에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       btn.disabled = false;
       btn.innerHTML = `<i class="fas fa-check"></i> <span>${t.btnConfirmResched}</span>`;
     }
@@ -538,7 +539,7 @@ function renderDetails(b) {
       $('#mg-cancelled').classList.remove('hidden');
       $('#mg-cancelled').scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch {
-      alert('Failed to cancel. Please try again.');
+      alert('예약 취소에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       $('#btn-cancel-yes').disabled = false;
       $('#btn-cancel-yes').innerHTML = `<span>${t.cancelYes}</span>`;
     }
@@ -562,7 +563,7 @@ function renderDetails(b) {
 
   $('#btn-cp-confirm').addEventListener('click', async () => {
     const selected = [...document.querySelectorAll('input[name="cp-treatment"]:checked')].map(c => c.value);
-    if (selected.length === 0) { alert(t.selectAtLeastOne || 'Please select at least one program.'); return; }
+    if (selected.length === 0) { alert(t.selectAtLeastOne || '프로그램을 한 가지 이상 선택해 주세요.'); return; }
 
     const btn = $('#btn-cp-confirm');
     btn.disabled = true;
@@ -581,7 +582,7 @@ function renderDetails(b) {
       $('#mg-program-updated').classList.remove('hidden');
       $('#mg-program-updated').scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch {
-      alert('Failed to update. Please try again.');
+      alert('프로그램 변경에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       btn.disabled = false;
       btn.innerHTML = `<i class="fas fa-check"></i> <span>${t.btnConfirmProgram}</span>`;
     }
@@ -616,8 +617,7 @@ async function initRescheduleCalendar() {
 }
 
 function renderRsCal() {
-  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  $('#rs-cal-title').textContent = `${monthNames[rsCalM]} ${rsCalY}`;
+  $('#rs-cal-title').textContent = LOCALE === 'ko' ? `${rsCalY}년 ${rsCalM + 1}월` : `${['January','February','March','April','May','June','July','August','September','October','November','December'][rsCalM]} ${rsCalY}`;
 
   const grid = $('#rs-cal-grid');
   const firstDay = new Date(rsCalY, rsCalM, 1).getDay();
