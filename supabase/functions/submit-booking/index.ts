@@ -205,7 +205,7 @@ Deno.serve(async (req: Request) => {
   const { data: inserted, error: insertErr } = await supabase
     .from("bookings")
     .insert(validation.row)
-    .select("id")
+    .select("*")
     .single();
   if (insertErr) {
     console.error("booking insert failed", insertErr);
@@ -214,6 +214,32 @@ Deno.serve(async (req: Request) => {
   }
 
   await recordSubmission(supabase, ipHash, true, "ok");
+
+  // Trigger booking-confirmation directly so the email pipeline does not
+  // depend on a Supabase database webhook being configured. We mimic the
+  // database webhook payload shape the function already accepts.
+  try {
+    const confirmRes = await fetch(`${supabaseUrl}/functions/v1/booking-confirmation`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${supabaseServiceKey}`,
+      },
+      body: JSON.stringify({
+        type: "INSERT",
+        table: "bookings",
+        schema: "public",
+        record: inserted,
+      }),
+    });
+    if (!confirmRes.ok) {
+      const body = await confirmRes.text().catch(() => "");
+      console.error("booking-confirmation invoke failed", confirmRes.status, body);
+    }
+  } catch (e) {
+    console.error("booking-confirmation invoke threw", e);
+  }
+
   return new Response(
     JSON.stringify({ ok: true, id: inserted?.id ?? null }),
     { status: 200, headers: JSON_HEADERS },
