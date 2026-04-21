@@ -1,434 +1,35 @@
 const fs = require("fs");
 const path = require("path");
 const { SITE_URL, hrefLang, pageUrl, publicUrl } = require("./url-helpers");
-
-const languageOrder = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi"];
-const SITE_NAME = "Tune Clinic";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75`;
-const GA_MEASUREMENT_ID = "G-P68CDTNEV1";
-const GOOGLE_SEARCH_CONSOLE_VERIFICATION = "";
-const CONSENT_COPY = {
-  en: {
-    title: "Cookie Preferences",
-    body: "We use analytics cookies to understand traffic and improve the experience for international patients.",
-    accept: "Accept Analytics",
-    reject: "Reject",
-  },
-  ja: {
-    title: "クッキー設定",
-    body: "アクセス解析クッキーを使用して、訪問状況を把握し、海外患者向けの体験を改善します。",
-    accept: "分析を許可",
-    reject: "拒否",
-  },
-  zh: {
-    title: "Cookie 偏好设置",
-    body: "我们使用分析 Cookie 来了解访问情况，并持续优化国际患者的浏览体验。",
-    accept: "接受分析",
-    reject: "拒绝",
-  },
-  th: {
-    title: "การตั้งค่าคุกกี้",
-    body: "เราใช้คุกกี้วิเคราะห์เพื่อทำความเข้าใจการเข้าชมและปรับปรุงประสบการณ์สำหรับผู้ป่วยต่างชาติ",
-    accept: "ยอมรับการวิเคราะห์",
-    reject: "ปฏิเสธ",
-  },
-  ko: {
-    title: "쿠키 설정",
-    body: "저희는 분석 쿠키를 사용하여 트래픽을 이해하고 국제 환자를 위한 경험을 개선합니다.",
-    accept: "분석 허용",
-    reject: "거부",
-  },
-  de: {
-    title: "Cookie-Einstellungen",
-    body: "Wir verwenden Analyse-Cookies, um den Datenverkehr zu verstehen und die Erfahrung für internationale Patienten zu verbessern.",
-    accept: "Analyse akzeptieren",
-    reject: "Ablehnen",
-  },
-  fr: {
-    title: "Préférences de cookies",
-    body: "Nous utilisons des cookies d'analyse pour comprendre le trafic et améliorer l'expérience des patients internationaux.",
-    accept: "Accepter l'analyse",
-    reject: "Refuser",
-  },
-  ru: {
-    title: "Настройки файлов cookie",
-    body: "Мы используем аналитические файлы cookie для понимания трафика и улучшения опыта для международных пациентов.",
-    accept: "Принять аналитику",
-    reject: "Отклонить",
-  },
-  vi: {
-    title: "Tùy chọn Cookie",
-    body: "Chúng tôi sử dụng cookie phân tích để hiểu lưu lượng truy cập và cải thiện trải nghiệm cho bệnh nhân quốc tế.",
-    accept: "Chấp nhận phân tích",
-    reject: "Từ chối",
-  },
-};
-const PHYSICIANS = [
-  {
-    slug: "cha-seung-yeon",
-    name: "Dr. Seung Yeon Cha",
-    image: `${SITE_URL}/.netlify/images?url=/cha.jpg&w=900&fm=webp&q=75`,
-    jobTitle: "Medical Director",
-    medicalSpecialty: "Aesthetic Medicine",
-    description:
-      "Physician-led aesthetic planning focused on lifting, structural balance, and travel-conscious treatment design.",
-  },
-  {
-    slug: "kim-kwang-yeon",
-    name: "Dr. Kwang Yeon Kim",
-    image: `${SITE_URL}/.netlify/images?url=/kim_ky.jpg&w=500&fm=webp&q=75`,
-    jobTitle: "Medical Director",
-    medicalSpecialty: "Aesthetic Medicine",
-    description:
-      "Facial design strategy and physician supervision for structural protocols and international patient care.",
-  },
-  {
-    slug: "ju-jee-hoon",
-    name: "Dr. Jee Hoon Ju",
-    image: `${SITE_URL}/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75`,
-    avatarPosition: "object-top",
-    jobTitle: "Aesthetic Medicine Physician",
-    medicalSpecialty: "Aesthetic Medicine",
-    description:
-      "Aesthetic medicine, hair treatment, and regenerative planning with international communication support.",
-  },
-  {
-    slug: "jo-dong-hyun",
-    name: "Dr. Dong Hyun Jo",
-    image: `${SITE_URL}/.netlify/images?url=/jo.jpg&w=600&fm=webp&q=75`,
-    jobTitle: "Regenerative Medicine Physician",
-    medicalSpecialty: "Regenerative Medicine",
-    description:
-      "Stem cell and regenerative strategy for tissue quality, recovery, and longer-term restoration planning.",
-  },
-  {
-    slug: "kim-beom-jin",
-    name: "Dr. Beom Jin Kim",
-    image: `${SITE_URL}/.netlify/images?url=/kim_bj.jpg&w=600&fm=webp&q=75`,
-    jobTitle: "Plastic Surgery Advisor",
-    medicalSpecialty: "Plastic Surgery",
-    description:
-      "Plastic surgery depth supporting structural assessment, referral judgment, and reconstructive context.",
-  },
-  {
-    slug: "jang-seung-woo",
-    name: "Dr. Seung Woo Jang",
-    image: `${SITE_URL}/.netlify/images?url=/jang.jpg&w=600&fm=webp&q=75`,
-    jobTitle: "Medical Advisor",
-    medicalSpecialty: "General Medicine",
-    description:
-      "MD, PhD advisory depth for broader medical evaluation and safety-focused treatment review.",
-  },
-];
-const LOCALE_META = {
-  en: { ogLocale: "en_US", ogAlternates: ["ja_JP", "zh_CN", "th_TH", "ko_KR", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
-  ja: { ogLocale: "ja_JP", ogAlternates: ["en_US", "zh_CN", "th_TH", "ko_KR", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
-  zh: { ogLocale: "zh_CN", ogAlternates: ["en_US", "ja_JP", "th_TH", "ko_KR", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
-  th: { ogLocale: "th_TH", ogAlternates: ["en_US", "ja_JP", "zh_CN", "ko_KR", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
-  ko: { ogLocale: "ko_KR", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "de_DE", "fr_FR", "ru_RU", "vi_VN"] },
-  de: { ogLocale: "de_DE", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "ko_KR", "fr_FR", "ru_RU", "vi_VN"] },
-  fr: { ogLocale: "fr_FR", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "ko_KR", "de_DE", "ru_RU", "vi_VN"] },
-  ru: { ogLocale: "ru_RU", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "ko_KR", "de_DE", "fr_FR", "vi_VN"] },
-  vi: { ogLocale: "vi_VN", ogAlternates: ["en_US", "ja_JP", "zh_CN", "th_TH", "ko_KR", "de_DE", "fr_FR", "ru_RU"] },
-};
+const {
+  languageOrder,
+  SITE_NAME,
+  DEFAULT_OG_IMAGE,
+  LOCALE_META,
+  OG_LOCALE_TO_CODE,
+  DATE_LOCALE_MAP,
+  BLOG_PROSE_CSS,
+  LINE_CLAMP_CSS,
+} = require("./render/constants");
+const {
+  esc,
+  absoluteAssetUrl,
+  googleVerificationMeta,
+  gaScript,
+  structuredDataScript,
+  siteAssets,
+  consentBannerScript,
+  consentBanner,
+  alternateLinks,
+} = require("./render/head");
+const {
+  pageStructuredData,
+  resolveAuthors,
+  blogPostStructuredData,
+} = require("./render/structured-data");
 
 function readFragment(fragmentPath) {
   return fs.readFileSync(path.join(__dirname, fragmentPath), "utf8");
-}
-
-function esc(str = "") {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
-function absoluteAssetUrl(assetPath) {
-  if (!assetPath) return DEFAULT_OG_IMAGE;
-  if (/^https?:\/\//.test(assetPath)) return assetPath;
-  return `${SITE_URL}${assetPath.startsWith("/") ? assetPath : `/${assetPath}`}`;
-}
-
-function googleVerificationMeta() {
-  if (!GOOGLE_SEARCH_CONSOLE_VERIFICATION) return "";
-  return `<meta name="google-site-verification" content="${esc(GOOGLE_SEARCH_CONSOLE_VERIFICATION)}">`;
-}
-
-function consentBanner(locale) {
-  const copy = CONSENT_COPY[locale] || CONSENT_COPY.en;
-  return `
-  <div id="cookie-consent-banner" class="hidden fixed bottom-4 left-4 right-4 md:left-6 md:right-6 z-[80]">
-    <div class="max-w-4xl mx-auto bg-slate-950 text-white border border-slate-800 shadow-2xl rounded-2xl p-5 md:p-6">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div class="max-w-2xl">
-          <p class="text-gold text-[10px] font-bold uppercase tracking-[0.22em] mb-2">${esc(copy.title)}</p>
-          <p class="text-sm text-slate-300 leading-relaxed">${esc(copy.body)}</p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-          <button id="cookie-reject-btn" type="button" class="px-5 py-3 rounded-sm border border-slate-700 text-slate-200 text-sm font-bold hover:border-slate-500 transition">${esc(copy.reject)}</button>
-          <button id="cookie-accept-btn" type="button" class="px-5 py-3 rounded-sm bg-gold text-white text-sm font-bold hover:opacity-90 transition">${esc(copy.accept)}</button>
-        </div>
-      </div>
-    </div>
-  </div>`;
-}
-
-function alternateLinks(entry) {
-  const locales = entry.availableLocales || languageOrder;
-  const links = locales
-    .map((locale) => {
-      return `<link rel="alternate" hreflang="${hrefLang(locale)}" href="${publicUrl(locale, entry.key)}">`;
-    })
-    .join("\n  ");
-
-  const fallbackLocale = locales.includes("en") ? "en" : locales[0];
-  return `${links}\n  <link rel="alternate" hreflang="x-default" href="${publicUrl(fallbackLocale, entry.key)}">`;
-}
-
-function stripHtml(html = "") {
-  return String(html)
-    .replace(/<br\s*\/?>/gi, " ")
-    .replace(/<\/p>/gi, " ")
-    .replace(/<\/li>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function breadcrumbName(entry, localeData) {
-  const g = localeData[entry.locale].global;
-  const map = {
-    index: g.home,
-    "design-method": g.method,
-    "signature-lifting": g.sig,
-    "structural-reset": g.reset,
-    "collagen-builder": g.collagen,
-    "filler-chamaka-se": g.filler,
-    gallery: g.gallery,
-    menu: g.menu,
-    booking: g.contact,
-  };
-  return map[entry.key] || entry.title;
-}
-
-function breadcrumbStructuredData(entry, localeData) {
-  const g = localeData[entry.locale].global;
-  const items = [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: g.home,
-      item: publicUrl(entry.locale, "index"),
-    },
-  ];
-
-  if (entry.key !== "index") {
-    items.push({
-      "@type": "ListItem",
-      position: 2,
-      name: breadcrumbName(entry, localeData),
-      item: publicUrl(entry.locale, entry.key),
-    });
-  }
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items,
-  };
-}
-
-function websiteStructuredData(localeData) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
-    url: SITE_URL,
-    name: SITE_NAME,
-    inLanguage: languageOrder.map((locale) => localeData[locale].global.langAttr),
-  };
-}
-
-function faqStructuredData(fragment, canonicalUrl, locale) {
-  const matches = [...fragment.matchAll(/<details[\s\S]*?<summary[^>]*>([\s\S]*?)<\/summary>[\s\S]*?<div[^>]*>([\s\S]*?)<\/div>[\s\S]*?<\/details>/g)];
-  if (!matches.length) return null;
-
-  const entities = matches
-    .map((match) => ({
-      "@type": "Question",
-      name: stripHtml(match[1]),
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: stripHtml(match[2]),
-      },
-    }))
-    .filter((item) => item.name && item.acceptedAnswer.text);
-
-  if (!entities.length) return null;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${canonicalUrl}#faq`,
-    inLanguage: locale || "en",
-    mainEntity: entities,
-  };
-}
-
-function serviceStructuredData(entry, localeData, canonicalUrl) {
-  if (entry.template !== "program") return null;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${canonicalUrl}#service`,
-    name: breadcrumbName(entry, localeData),
-    description: entry.description,
-    provider: {
-      "@id": `${SITE_URL}/#organization`,
-    },
-    areaServed: {
-      "@type": "City",
-      name: "Seoul",
-    },
-    serviceType: "Aesthetic medicine",
-    url: canonicalUrl,
-  };
-}
-
-function physicianStructuredData(locale) {
-  const lang = locale || "en";
-  return PHYSICIANS.map((physician) => ({
-    "@context": "https://schema.org",
-    "@type": "Physician",
-    "@id": `${SITE_URL}/#physician-${physician.slug}`,
-    name: physician.name,
-    image: physician.image,
-    jobTitle: physician.jobTitle,
-    medicalSpecialty: physician.medicalSpecialty,
-    worksFor: {
-      "@id": `${SITE_URL}/#organization`,
-    },
-    url: SITE_URL,
-    description: physician.description,
-    inLanguage: lang,
-  }));
-}
-
-function offerCatalogStructuredData(entry, localeData, canonicalUrl) {
-  if (entry.key !== "index" && entry.key !== "menu") return null;
-
-  const localePages = localeData[entry.locale].pages;
-  const itemListElement = [
-    "signature-lifting",
-    "structural-reset",
-    "collagen-builder",
-    "filler-chamaka-se",
-  ].map((key, index) => ({
-    "@type": "Offer",
-    position: index + 1,
-    itemOffered: {
-      "@type": "Service",
-      name: breadcrumbName({ ...entry, key }, localeData),
-      description: localePages[key]?.description ?? "",
-      url: publicUrl(entry.locale, key),
-    },
-  }));
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "OfferCatalog",
-    "@id": `${canonicalUrl}#offers`,
-    name: `${SITE_NAME} Programs`,
-    itemListElement,
-  };
-}
-
-function videoStructuredData(entry, canonicalUrl) {
-  if (entry.key !== "index") return null;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "@id": `${canonicalUrl}#hero-video`,
-    name: `${SITE_NAME} Hero Video`,
-    description: entry.description,
-    thumbnailUrl: [DEFAULT_OG_IMAGE],
-    contentUrl: `${SITE_URL}/hero-video.mp4`,
-    embedUrl: canonicalUrl,
-    uploadDate: "2026-02-17T00:00:00+09:00",
-    publisher: {
-      "@id": `${SITE_URL}/#organization`,
-    },
-  };
-}
-
-function pageStructuredData(entry, localeData, fragment) {
-  const g = localeData[entry.locale].global;
-  const canonicalUrl = publicUrl(entry.locale, entry.key);
-  const org = {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "@id": `${SITE_URL}/#organization`,
-    name: SITE_NAME,
-    url: SITE_URL,
-    image: DEFAULT_OG_IMAGE,
-    telephone: "+82-507-1438-8022",
-    priceRange: "$$",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "5th floor, 868, Nonhyeon-ro, Gangnam-gu",
-      addressLocality: "Seoul",
-      addressCountry: "KR",
-    },
-    availableLanguage: languageOrder.map((locale) => localeData[locale].global.languageName),
-    sameAs: ["https://www.instagram.com/tuneclinic_english/", "https://wa.me/821076744128"],
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        telephone: "+82-507-1438-8022",
-        contactType: "customer service",
-        availableLanguage: languageOrder.map((locale) => localeData[locale].global.languageName),
-        areaServed: "KR",
-      },
-    ],
-  };
-  const website = websiteStructuredData(localeData);
-
-  const webPage = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${canonicalUrl}#webpage`,
-    url: canonicalUrl,
-    name: entry.title,
-    description: entry.description,
-    inLanguage: g.langAttr,
-    isPartOf: {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      url: SITE_URL,
-      name: SITE_NAME,
-    },
-    about: {
-      "@id": `${SITE_URL}/#organization`,
-    },
-    breadcrumb: {
-      "@id": `${canonicalUrl}#breadcrumb`,
-    },
-  };
-
-  const breadcrumb = breadcrumbStructuredData(entry, localeData);
-  breadcrumb["@id"] = `${canonicalUrl}#breadcrumb`;
-
-  const faq = faqStructuredData(fragment, canonicalUrl, entry.locale);
-  const service = serviceStructuredData(entry, localeData, canonicalUrl);
-  const physicians = entry.key === "index" ? physicianStructuredData(entry.locale) : [];
-  const offerCatalog = offerCatalogStructuredData(entry, localeData, canonicalUrl);
-  const video = videoStructuredData(entry, canonicalUrl);
-
-  return [org, website, webPage, breadcrumb, faq, service, offerCatalog, video, ...physicians].filter(Boolean);
 }
 
 function languageSwitcher(entry, localeData) {
@@ -746,6 +347,16 @@ function pageChrome(entry, localeData) {
   return programChrome(entry, localeData);
 }
 
+function ogAlternateMeta(localeMeta, availableLocales) {
+  return localeMeta.ogAlternates
+    .filter((value) => {
+      const code = OG_LOCALE_TO_CODE[value];
+      return code && availableLocales.includes(code);
+    })
+    .map((value) => `<meta property="og:locale:alternate" content="${value}">`)
+    .join("\n  ");
+}
+
 function renderPage(entry, localeData) {
   const g = localeData[entry.locale].global;
   const fragment = readFragment(entry.fragment);
@@ -757,14 +368,7 @@ function renderPage(entry, localeData) {
   const hreflang = alternateLinks(entry);
   const structuredData = pageStructuredData(entry, localeData, fragment);
   const availableLocales = entry.availableLocales || languageOrder;
-  const ogAlternateTags = localeMeta.ogAlternates
-    .filter((value) => {
-      const localeMap = { en_US: "en", ja_JP: "ja", zh_CN: "zh", th_TH: "th", ko_KR: "ko", de_DE: "de", fr_FR: "fr", ru_RU: "ru", vi_VN: "vi" };
-      const code = localeMap[value];
-      return code && availableLocales.includes(code);
-    })
-    .map((value) => `<meta property="og:locale:alternate" content="${value}">`)
-    .join("\n  ");
+  const ogAlternateTags = ogAlternateMeta(localeMeta, availableLocales);
 
   return `<!DOCTYPE html>
 <html lang="${g.langAttr}" class="scroll-smooth">
@@ -792,97 +396,16 @@ function renderPage(entry, localeData) {
   <link rel="canonical" href="${canonicalUrl}">
   <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
   ${hreflang}
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied'
-    });
-    gtag('js', new Date());
-    gtag('config', '${GA_MEASUREMENT_ID}', { anonymize_ip: true });
-  </script>
-  <script type="application/ld+json">
-  ${JSON.stringify({"@context":"https://schema.org","@graph":structuredData.map(item => { const {["@context"]:_, ...rest} = item; return rest; })})}
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Lato', sans-serif; }
-    .font-serif { font-family: 'Playfair Display', serif; }
-    .text-gold { color: #C5A059; }
-    .bg-gold { background-color: #C5A059; }
-    .border-gold { border-color: #C5A059; }
-    .bg-gold-light { background-color: #F9F5F0; }
-  </style>
+  ${gaScript()}
+  ${structuredDataScript(structuredData)}
+  ${siteAssets()}
 </head>
 <body class="${esc(entry.bodyClass)}">
 ${chrome}
 ${fragment}
 ${footer}
 ${consentBanner(entry.locale)}
-<script>
-  (function () {
-    const storageKey = 'tune-cookie-consent';
-    const banner = document.getElementById('cookie-consent-banner');
-    const acceptBtn = document.getElementById('cookie-accept-btn');
-    const rejectBtn = document.getElementById('cookie-reject-btn');
-
-    if (!banner || !acceptBtn || !rejectBtn || typeof window.gtag !== 'function') return;
-
-    function updateConsent(granted) {
-      window.gtag('consent', 'update', {
-        analytics_storage: granted ? 'granted' : 'denied',
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied'
-      });
-    }
-
-    function saveChoice(value) {
-      try {
-        localStorage.setItem(storageKey, value);
-      } catch (error) {
-      }
-    }
-
-    function readChoice() {
-      try {
-        return localStorage.getItem(storageKey);
-      } catch (error) {
-        return null;
-      }
-    }
-
-    const savedChoice = readChoice();
-
-    if (savedChoice === 'accepted') {
-      updateConsent(true);
-    } else if (savedChoice === 'rejected') {
-      updateConsent(false);
-    } else {
-      banner.classList.remove('hidden');
-    }
-
-    acceptBtn.addEventListener('click', function () {
-      updateConsent(true);
-      saveChoice('accepted');
-      banner.classList.add('hidden');
-    });
-
-    rejectBtn.addEventListener('click', function () {
-      updateConsent(false);
-      saveChoice('rejected');
-      banner.classList.add('hidden');
-    });
-  })();
-</script>
+${consentBannerScript()}
 </body>
 </html>`;
 }
@@ -921,45 +444,6 @@ function blogIndexAlternateLinks(locale) {
   return `${links}\n  <link rel="alternate" hreflang="x-default" href="${publicBlogIndexUrl("en")}">`;
 }
 
-function resolveAuthors(authorSlugs) {
-  const slugs = Array.isArray(authorSlugs) ? authorSlugs : [authorSlugs || "cha-seung-yeon"];
-  return slugs.map((s) => PHYSICIANS.find((p) => p.slug === s) || PHYSICIANS[0]);
-}
-
-function blogPostStructuredData(post, localeData) {
-  const canonicalUrl = publicBlogUrl(post.locale, post.slug);
-  const authors = resolveAuthors(post.author);
-  const g = localeData[post.locale].global;
-
-  const org = { "@context": "https://schema.org", "@type": "MedicalClinic", "@id": `${SITE_URL}/#organization`, name: SITE_NAME, url: SITE_URL };
-
-  const breadcrumb = {
-    "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": `${canonicalUrl}#breadcrumb`,
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: g.home, item: publicUrl(post.locale, "index") },
-      { "@type": "ListItem", position: 2, name: g.blog || "Blog", item: publicBlogIndexUrl(post.locale) },
-      { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
-    ],
-  };
-
-  const authorLD = authors.length === 1
-    ? { "@type": "Physician", "@id": `${SITE_URL}/#physician-${authors[0].slug}`, name: authors[0].name }
-    : authors.map((a) => ({ "@type": "Physician", "@id": `${SITE_URL}/#physician-${a.slug}`, name: a.name }));
-
-  const article = {
-    "@context": "https://schema.org", "@type": "BlogPosting", "@id": `${canonicalUrl}#article`,
-    headline: post.title, description: post.description,
-    datePublished: post.dateISO, dateModified: post.dateISO,
-    url: canonicalUrl, inLanguage: localeData[post.locale].global.langAttr,
-    author: authorLD,
-    publisher: { "@id": `${SITE_URL}/#organization` },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${canonicalUrl}#webpage` },
-    image: post.ogImage ? absoluteAssetUrl(post.ogImage) : DEFAULT_OG_IMAGE,
-  };
-
-  return [org, breadcrumb, article];
-}
-
 function blogChrome(post, localeData) {
   const g = localeData[post.locale].global;
   const blogLocales = post.availableLocales || languageOrder;
@@ -977,8 +461,11 @@ function blogChrome(post, localeData) {
 
 function formatBlogDate(dateStr, locale) {
   const d = new Date(dateStr);
-  const langMap = { en: "en-US", ja: "ja-JP", zh: "zh-CN", th: "th-TH", ko: "ko-KR", de: "de-DE", fr: "fr-FR", ru: "ru-RU", vi: "vi-VN" };
-  return d.toLocaleDateString(langMap[locale] || "en-US", { year: "numeric", month: "long", day: "numeric" });
+  return d.toLocaleDateString(DATE_LOCALE_MAP[locale] || "en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
 
 function renderBlogPost(post, localeData) {
@@ -989,13 +476,11 @@ function renderBlogPost(post, localeData) {
   const localeMeta = LOCALE_META[post.locale] || LOCALE_META.en;
   const ogImage = absoluteAssetUrl(post.ogImage);
   const hreflangLinks = blogAlternateLinks(post);
-  const structuredData = blogPostStructuredData(post, localeData);
+  const structuredData = blogPostStructuredData(post, localeData, blogIndexUrl, publicBlogUrl);
   const authors = resolveAuthors(post.author);
   const formattedDate = formatBlogDate(post.date, post.locale);
   const tagBadges = post.tags.map((t) => `<span class="px-3 py-1 rounded-full border border-slate-200 text-slate-500 text-[10px] uppercase tracking-[0.15em] font-bold">${esc(t)}</span>`).join(" ");
-  const ogAlternateTags = localeMeta.ogAlternates
-    .filter((v) => { const m = { en_US: "en", ja_JP: "ja", zh_CN: "zh", th_TH: "th", ko_KR: "ko", de_DE: "de", fr_FR: "fr", ru_RU: "ru", vi_VN: "vi" }; return m[v] && (post.availableLocales || []).includes(m[v]); })
-    .map((v) => `<meta property="og:locale:alternate" content="${v}">`).join("\n  ");
+  const ogAlternateTags = ogAlternateMeta(localeMeta, post.availableLocales || []);
   const authorNames = authors.map((a) => esc(a.name)).join(", ");
   const authorMeta = authors.map((a) => `<meta property="article:author" content="${esc(a.name)}">`).join("\n  ");
   const authorAvatars = authors.map((a) => `
@@ -1025,26 +510,9 @@ function renderBlogPost(post, localeData) {
   <link rel="canonical" href="${canonicalUrl}">
   <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
   ${hreflangLinks}
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{anonymize_ip:true});</script>
-  <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":structuredData.map(item => { const {["@context"]:_, ...rest} = item; return rest; })})}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body{font-family:'Lato',sans-serif}.font-serif{font-family:'Playfair Display',serif}.text-gold{color:#C5A059}.bg-gold{background-color:#C5A059}.border-gold{border-color:#C5A059}.bg-gold-light{background-color:#F9F5F0}
-    .prose h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:#0f172a;margin-top:2.5rem;margin-bottom:1rem}
-    .prose h3{font-size:1.25rem;font-weight:700;color:#1e293b;margin-top:2rem;margin-bottom:0.75rem}
-    .prose p{color:#475569;line-height:1.8;margin-bottom:1.25rem}
-    .prose ul,.prose ol{color:#475569;margin-bottom:1.25rem;padding-left:1.5rem}.prose li{margin-bottom:0.5rem;line-height:1.7}.prose ul{list-style-type:disc}.prose ol{list-style-type:decimal}
-    .prose blockquote{border-left:4px solid #C5A059;padding:1rem 1.5rem;margin:1.5rem 0;background:#F9F5F0;color:#334155;font-style:italic}
-    .prose img{border-radius:0.75rem;margin:1.5rem 0;max-width:100%}
-    .prose a{color:#C5A059;text-decoration:underline;text-underline-offset:2px}.prose a:hover{color:#b8913f}
-    .prose table{width:100%;border-collapse:collapse;margin:1.5rem 0}.prose th,.prose td{border:1px solid #e2e8f0;padding:0.75rem 1rem;text-align:left;font-size:0.875rem}.prose th{background:#f8fafc;font-weight:700}
-    .prose hr{border:none;border-top:1px solid #e2e8f0;margin:2rem 0}.prose code{background:#f1f5f9;padding:0.15rem 0.4rem;border-radius:0.25rem;font-size:0.875rem}
-  </style>
+  ${gaScript()}
+  ${structuredDataScript(structuredData)}
+  ${siteAssets({ extraStyles: BLOG_PROSE_CSS })}
 </head>
 <body>
 ${chrome}
@@ -1074,7 +542,7 @@ ${chrome}
 </section>
 ${footer}
 ${consentBanner(post.locale)}
-<script>(function(){var k='tune-cookie-consent',b=document.getElementById('cookie-consent-banner'),a=document.getElementById('cookie-accept-btn'),r=document.getElementById('cookie-reject-btn');if(!b||!a||!r||typeof window.gtag!=='function')return;function u(g){window.gtag('consent','update',{analytics_storage:g?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'})}function s(v){try{localStorage.setItem(k,v)}catch(e){}}function rd(){try{return localStorage.getItem(k)}catch(e){return null}}var c=rd();if(c==='accepted')u(true);else if(c==='rejected')u(false);else b.classList.remove('hidden');a.addEventListener('click',function(){u(true);s('accepted');b.classList.add('hidden')});r.addEventListener('click',function(){u(false);s('rejected');b.classList.add('hidden')})})();</script>
+${consentBannerScript()}
 </body>
 </html>`;
 }
@@ -1132,18 +600,9 @@ function renderBlogIndex(locale, posts, localeData) {
   <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
   ${hreflangLinks}
   <link rel="alternate" type="application/rss+xml" title="${SITE_NAME} Blog RSS" href="${SITE_URL}/blog/feed.xml">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{anonymize_ip:true});</script>
-  <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":structuredData.map(item => { const {["@context"]:_, ...rest} = item; return rest; })})}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body{font-family:'Lato',sans-serif}.font-serif{font-family:'Playfair Display',serif}.text-gold{color:#C5A059}.bg-gold{background-color:#C5A059}.border-gold{border-color:#C5A059}.bg-gold-light{background-color:#F9F5F0}
-    .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  </style>
+  ${gaScript()}
+  ${structuredDataScript(structuredData)}
+  ${siteAssets({ extraStyles: LINE_CLAMP_CSS })}
 </head>
 <body>
 ${mainNav(g, locale, localeData, switcher, { activeKey: "blog", isHome: false, mobileLanguageLinksHtml: languageOrder.map((code) => { const loc = localeData[code].global; const active = code === locale; return `<a href="${blogIndexUrl(code)}" class="block py-2 ${active ? "font-bold text-gold" : "text-slate-700"}">${loc.languageName}</a>`; }).join("") })}
@@ -1161,7 +620,7 @@ ${mainNav(g, locale, localeData, switcher, { activeKey: "blog", isHome: false, m
 </section>
 ${footer}
 ${consentBanner(locale)}
-<script>(function(){var k='tune-cookie-consent',b=document.getElementById('cookie-consent-banner'),a=document.getElementById('cookie-accept-btn'),r=document.getElementById('cookie-reject-btn');if(!b||!a||!r||typeof window.gtag!=='function')return;function u(g){window.gtag('consent','update',{analytics_storage:g?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'})}function s(v){try{localStorage.setItem(k,v)}catch(e){}}function rd(){try{return localStorage.getItem(k)}catch(e){return null}}var c=rd();if(c==='accepted')u(true);else if(c==='rejected')u(false);else b.classList.remove('hidden');a.addEventListener('click',function(){u(true);s('accepted');b.classList.add('hidden')});r.addEventListener('click',function(){u(false);s('rejected');b.classList.add('hidden')})})();</script>
+${consentBannerScript()}
 </body>
 </html>`;
 }

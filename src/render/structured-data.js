@@ -1,0 +1,306 @@
+// JSON-LD builders for the standard pages and the blog templates.
+// All builders return plain objects shaped for schema.org; the head
+// helper wraps them in a graph-style <script type="application/ld+json">.
+
+const { SITE_URL, publicUrl } = require("../url-helpers");
+const {
+  PHYSICIANS,
+  SITE_NAME,
+  DEFAULT_OG_IMAGE,
+  languageOrder,
+} = require("./constants");
+const { stripHtml, absoluteAssetUrl } = require("./head");
+
+function breadcrumbName(entry, localeData) {
+  const g = localeData[entry.locale].global;
+  const map = {
+    index: g.home,
+    "design-method": g.method,
+    "signature-lifting": g.sig,
+    "structural-reset": g.reset,
+    "collagen-builder": g.collagen,
+    "filler-chamaka-se": g.filler,
+    gallery: g.gallery,
+    menu: g.menu,
+    booking: g.contact,
+  };
+  return map[entry.key] || entry.title;
+}
+
+function breadcrumbStructuredData(entry, localeData) {
+  const g = localeData[entry.locale].global;
+  const items = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: g.home,
+      item: publicUrl(entry.locale, "index"),
+    },
+  ];
+
+  if (entry.key !== "index") {
+    items.push({
+      "@type": "ListItem",
+      position: 2,
+      name: breadcrumbName(entry, localeData),
+      item: publicUrl(entry.locale, entry.key),
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  };
+}
+
+function websiteStructuredData(localeData) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: SITE_NAME,
+    inLanguage: languageOrder.map((locale) => localeData[locale].global.langAttr),
+  };
+}
+
+function faqStructuredData(fragment, canonicalUrl, locale) {
+  const matches = [
+    ...fragment.matchAll(
+      /<details[\s\S]*?<summary[^>]*>([\s\S]*?)<\/summary>[\s\S]*?<div[^>]*>([\s\S]*?)<\/div>[\s\S]*?<\/details>/g,
+    ),
+  ];
+  if (!matches.length) return null;
+
+  const entities = matches
+    .map((match) => ({
+      "@type": "Question",
+      name: stripHtml(match[1]),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: stripHtml(match[2]),
+      },
+    }))
+    .filter((item) => item.name && item.acceptedAnswer.text);
+
+  if (!entities.length) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${canonicalUrl}#faq`,
+    inLanguage: locale || "en",
+    mainEntity: entities,
+  };
+}
+
+function serviceStructuredData(entry, localeData, canonicalUrl) {
+  if (entry.template !== "program") return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${canonicalUrl}#service`,
+    name: breadcrumbName(entry, localeData),
+    description: entry.description,
+    provider: { "@id": `${SITE_URL}/#organization` },
+    areaServed: { "@type": "City", name: "Seoul" },
+    serviceType: "Aesthetic medicine",
+    url: canonicalUrl,
+  };
+}
+
+function physicianStructuredData(locale) {
+  const lang = locale || "en";
+  return PHYSICIANS.map((physician) => ({
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "@id": `${SITE_URL}/#physician-${physician.slug}`,
+    name: physician.name,
+    image: physician.image,
+    jobTitle: physician.jobTitle,
+    medicalSpecialty: physician.medicalSpecialty,
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+    url: SITE_URL,
+    description: physician.description,
+    inLanguage: lang,
+  }));
+}
+
+function offerCatalogStructuredData(entry, localeData, canonicalUrl) {
+  if (entry.key !== "index" && entry.key !== "menu") return null;
+
+  const localePages = localeData[entry.locale].pages;
+  const itemListElement = [
+    "signature-lifting",
+    "structural-reset",
+    "collagen-builder",
+    "filler-chamaka-se",
+  ].map((key, index) => ({
+    "@type": "Offer",
+    position: index + 1,
+    itemOffered: {
+      "@type": "Service",
+      name: breadcrumbName({ ...entry, key }, localeData),
+      description: localePages[key]?.description ?? "",
+      url: publicUrl(entry.locale, key),
+    },
+  }));
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "@id": `${canonicalUrl}#offers`,
+    name: `${SITE_NAME} Programs`,
+    itemListElement,
+  };
+}
+
+function videoStructuredData(entry, canonicalUrl) {
+  if (entry.key !== "index") return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${canonicalUrl}#hero-video`,
+    name: `${SITE_NAME} Hero Video`,
+    description: entry.description,
+    thumbnailUrl: [DEFAULT_OG_IMAGE],
+    contentUrl: `${SITE_URL}/hero-video.mp4`,
+    embedUrl: canonicalUrl,
+    uploadDate: "2026-02-17T00:00:00+09:00",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+}
+
+function pageStructuredData(entry, localeData, fragment) {
+  const g = localeData[entry.locale].global;
+  const canonicalUrl = publicUrl(entry.locale, entry.key);
+  const org = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    image: DEFAULT_OG_IMAGE,
+    telephone: "+82-507-1438-8022",
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "5th floor, 868, Nonhyeon-ro, Gangnam-gu",
+      addressLocality: "Seoul",
+      addressCountry: "KR",
+    },
+    availableLanguage: languageOrder.map((locale) => localeData[locale].global.languageName),
+    sameAs: [
+      "https://www.instagram.com/tuneclinic_english/",
+      "https://wa.me/821076744128",
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+82-507-1438-8022",
+        contactType: "customer service",
+        availableLanguage: languageOrder.map((locale) => localeData[locale].global.languageName),
+        areaServed: "KR",
+      },
+    ],
+  };
+  const website = websiteStructuredData(localeData);
+
+  const webPage = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: entry.title,
+    description: entry.description,
+    inLanguage: g.langAttr,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+    },
+    about: { "@id": `${SITE_URL}/#organization` },
+    breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
+  };
+
+  const breadcrumb = breadcrumbStructuredData(entry, localeData);
+  breadcrumb["@id"] = `${canonicalUrl}#breadcrumb`;
+
+  const faq = faqStructuredData(fragment, canonicalUrl, entry.locale);
+  const service = serviceStructuredData(entry, localeData, canonicalUrl);
+  const physicians = entry.key === "index" ? physicianStructuredData(entry.locale) : [];
+  const offerCatalog = offerCatalogStructuredData(entry, localeData, canonicalUrl);
+  const video = videoStructuredData(entry, canonicalUrl);
+
+  return [org, website, webPage, breadcrumb, faq, service, offerCatalog, video, ...physicians].filter(Boolean);
+}
+
+function resolveAuthors(authorSlugs) {
+  const slugs = Array.isArray(authorSlugs) ? authorSlugs : [authorSlugs || "cha-seung-yeon"];
+  return slugs.map((s) => PHYSICIANS.find((p) => p.slug === s) || PHYSICIANS[0]);
+}
+
+function blogPostStructuredData(post, localeData, blogIndexUrlBuilder, blogPostUrlBuilder) {
+  const canonicalUrl = blogPostUrlBuilder(post.locale, post.slug);
+  const authors = resolveAuthors(post.author);
+  const g = localeData[post.locale].global;
+
+  const org = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+  };
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: g.home, item: publicUrl(post.locale, "index") },
+      { "@type": "ListItem", position: 2, name: g.blog || "Blog", item: blogIndexUrlBuilder(post.locale) },
+      { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
+    ],
+  };
+
+  const authorLD = authors.length === 1
+    ? { "@type": "Physician", "@id": `${SITE_URL}/#physician-${authors[0].slug}`, name: authors[0].name }
+    : authors.map((a) => ({ "@type": "Physician", "@id": `${SITE_URL}/#physician-${a.slug}`, name: a.name }));
+
+  const article = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${canonicalUrl}#article`,
+    headline: post.title,
+    description: post.description,
+    datePublished: post.dateISO,
+    dateModified: post.dateISO,
+    url: canonicalUrl,
+    inLanguage: localeData[post.locale].global.langAttr,
+    author: authorLD,
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${canonicalUrl}#webpage` },
+    image: post.ogImage ? absoluteAssetUrl(post.ogImage) : DEFAULT_OG_IMAGE,
+  };
+
+  return [org, breadcrumb, article];
+}
+
+module.exports = {
+  breadcrumbName,
+  breadcrumbStructuredData,
+  websiteStructuredData,
+  faqStructuredData,
+  serviceStructuredData,
+  physicianStructuredData,
+  offerCatalogStructuredData,
+  videoStructuredData,
+  pageStructuredData,
+  resolveAuthors,
+  blogPostStructuredData,
+};
