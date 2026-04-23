@@ -594,7 +594,7 @@ function renderBlogPost(post, localeData) {
   const localeMeta = LOCALE_META[post.locale] || LOCALE_META.en;
   const ogImage = absoluteAssetUrl(post.ogImage);
   const hreflangLinks = blogAlternateLinks(post);
-  const structuredData = blogPostStructuredData(post, localeData, blogIndexUrl, publicBlogUrl);
+  const structuredData = blogPostStructuredData(post, localeData, publicBlogIndexUrl, publicBlogUrl);
   const authors = resolveAuthors(post.author);
   const formattedDate = formatBlogDate(post.date, post.locale);
   const tagBadges = post.tags.map((t) => `<span class="px-3 py-1 rounded-full border border-slate-200 text-slate-500 text-[10px] uppercase tracking-[0.15em] font-bold">${esc(t)}</span>`).join(" ");
