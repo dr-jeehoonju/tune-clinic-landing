@@ -89,10 +89,12 @@ const PHYSICIANS = [
     name: "Dr. Jee Hoon Ju",
     image: `${SITE_URL}/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75`,
     avatarPosition: "object-top",
-    jobTitle: "Aesthetic Medicine Physician",
+    jobTitle: "International Director / Aesthetic Medicine Physician",
     medicalSpecialty: "Aesthetic Medicine",
     description:
-      "Aesthetic medicine, hair treatment, and regenerative planning with international communication support.",
+      "International coordination, aesthetic medicine, hair treatment, and regenerative planning. Fluent English-speaking physician supporting global patients with travel-conscious treatment design.",
+    alumniOf: "University of Debrecen, Faculty of Medicine (Cum Laude)",
+    knowsLanguage: ["en", "ko"],
   },
   {
     slug: "jo-dong-hyun",

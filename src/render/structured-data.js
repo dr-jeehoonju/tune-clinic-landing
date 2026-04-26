@@ -113,19 +113,31 @@ function serviceStructuredData(entry, localeData, canonicalUrl) {
 
 function physicianStructuredData(locale) {
   const lang = locale || "en";
-  return PHYSICIANS.map((physician) => ({
-    "@context": "https://schema.org",
-    "@type": "Physician",
-    "@id": `${SITE_URL}/#physician-${physician.slug}`,
-    name: physician.name,
-    image: physician.image,
-    jobTitle: physician.jobTitle,
-    medicalSpecialty: physician.medicalSpecialty,
-    worksFor: { "@id": `${SITE_URL}/#organization` },
-    url: SITE_URL,
-    description: physician.description,
-    inLanguage: lang,
-  }));
+  return PHYSICIANS.map((physician) => {
+    const node = {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "@id": `${SITE_URL}/#physician-${physician.slug}`,
+      name: physician.name,
+      image: physician.image,
+      jobTitle: physician.jobTitle,
+      medicalSpecialty: physician.medicalSpecialty,
+      worksFor: { "@id": `${SITE_URL}/#organization` },
+      url: SITE_URL,
+      description: physician.description,
+      inLanguage: lang,
+    };
+    if (physician.alumniOf) {
+      node.alumniOf = {
+        "@type": "EducationalOrganization",
+        name: physician.alumniOf,
+      };
+    }
+    if (Array.isArray(physician.knowsLanguage) && physician.knowsLanguage.length) {
+      node.knowsLanguage = physician.knowsLanguage;
+    }
+    return node;
+  });
 }
 
 function offerCatalogStructuredData(entry, localeData, canonicalUrl) {
