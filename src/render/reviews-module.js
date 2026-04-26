@@ -149,7 +149,7 @@ function renderReviewsSection({ ids, locale, localeData, headingOverride, varian
 // Per-surface review IDs map. Single source of truth so render.js, the
 // JSON-LD builder, and the placeholder substitution stay in sync.
 const SURFACE_REVIEW_IDS = {
-  home: ["janice-c", "teri-t", "so-eun", "long-time-patient", "chanmany-t"],
+  home: ["janice-c", "teri-t", "sejoo-k", "so-eun", "long-time-patient", "chanmany-t"],
   menu: ["s", "five-year-regular"],
   "signature-lifting": ["h", "sejoo-k"],
   "structural-reset": ["yeon-d"],
