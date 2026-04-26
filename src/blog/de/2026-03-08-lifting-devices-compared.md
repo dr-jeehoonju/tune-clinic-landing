@@ -87,4 +87,4 @@ Für die umfassendere Frage, *warum* Geräte-Vergleiche oft die Ergebnisse nicht
 
 ---
 
-*Dieser Artikel spiegelt die klinische Perspektive von Dr. Cha Seung-yeon, Medizinische Leiterin der Tune Clinic, wider. Für eine persönliche Einschätzung kontaktieren Sie unser Team über Instagram.*
+*Dieser Artikel spiegelt die klinische Perspektive von Dr. Cha Seung-yeon, Vertretungsdirektorin der Tune Clinic, wider. Für eine persönliche Einschätzung kontaktieren Sie unser Team über Instagram.*

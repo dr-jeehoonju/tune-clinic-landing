@@ -63,4 +63,4 @@ Die Qualität der Antworten auf diese Fragen sagt mehr über die Sicherheit Ihre
 
 ---
 
-*Dieser Artikel spiegelt die klinische Perspektive von Dr. Cha Seung-yeon, Medizinische Leiterin der Tune Clinic, wider. Er dient Bildungszwecken und ersetzt keine individuelle Beratung.*
+*Dieser Artikel spiegelt die klinische Perspektive von Dr. Cha Seung-yeon, Vertretungsdirektorin der Tune Clinic, wider. Er dient Bildungszwecken und ersetzt keine individuelle Beratung.*

@@ -87,4 +87,4 @@ For the broader question of *why* device comparisons often fail to predict outco
 
 ---
 
-*This article reflects the clinical perspective of Dr. Cha Seung-yeon, Medical Director at Tune Clinic. For a personalized assessment, reach out to our team via Instagram.*
+*This article reflects the clinical perspective of Dr. Cha Seung-yeon, Representative Director at Tune Clinic. For a personalized assessment, reach out to our team via Instagram.*

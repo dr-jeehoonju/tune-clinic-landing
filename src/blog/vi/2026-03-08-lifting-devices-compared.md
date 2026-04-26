@@ -87,4 +87,4 @@ Với câu hỏi rộng hơn về *vì sao* các cuộc so sánh thiết bị th
 
 ---
 
-*Bài viết này phản ánh góc nhìn lâm sàng của BS. Cha Seung-yeon, Giám đốc Y khoa tại Tune Clinic. Để được đánh giá cá nhân hóa, vui lòng liên hệ với đội ngũ của chúng tôi qua Instagram.*
+*Bài viết này phản ánh góc nhìn lâm sàng của BS. Cha Seung-yeon, Giám đốc Đại diện tại Tune Clinic. Để được đánh giá cá nhân hóa, vui lòng liên hệ với đội ngũ của chúng tôi qua Instagram.*

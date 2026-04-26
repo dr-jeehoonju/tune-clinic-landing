@@ -63,4 +63,4 @@ La qualité des réponses à ces questions vous en dira davantage sur la sécuri
 
 ---
 
-*Cet article reflète la perspective clinique du Dr Cha Seung-yeon, Directrice médicale de la Tune Clinic. Il est destiné à des fins éducatives et ne remplace pas une consultation individuelle.*
+*Cet article reflète la perspective clinique du Dr Cha Seung-yeon, Directrice représentante de la Tune Clinic. Il est destiné à des fins éducatives et ne remplace pas une consultation individuelle.*

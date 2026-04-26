@@ -63,4 +63,4 @@ The quality of the answers to those questions tells you more about the safety of
 
 ---
 
-*This article reflects the clinical perspective of Dr. Cha Seung-yeon, Medical Director at Tune Clinic. It is intended for educational purposes and does not replace an individual consultation.*
+*This article reflects the clinical perspective of Dr. Cha Seung-yeon, Representative Director at Tune Clinic. It is intended for educational purposes and does not replace an individual consultation.*

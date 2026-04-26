@@ -87,4 +87,4 @@ Pour la question plus large de *pourquoi* les comparaisons d'appareils ne prédi
 
 ---
 
-*Cet article reflète la perspective clinique du Dr Cha Seung-yeon, Directrice médicale de la Tune Clinic. Pour une évaluation personnalisée, contactez notre équipe via Instagram.*
+*Cet article reflète la perspective clinique du Dr Cha Seung-yeon, Directrice représentante de la Tune Clinic. Pour une évaluation personnalisée, contactez notre équipe via Instagram.*

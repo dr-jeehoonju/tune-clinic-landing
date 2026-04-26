@@ -63,4 +63,4 @@ Chất lượng câu trả lời cho những câu hỏi đó nói lên nhiều h
 
 ---
 
-*Bài viết này phản ánh góc nhìn lâm sàng của BS. Cha Seung-yeon, Giám đốc Y khoa tại Tune Clinic. Bài viết nhằm mục đích giáo dục và không thay thế cho việc tư vấn cá nhân.*
+*Bài viết này phản ánh góc nhìn lâm sàng của BS. Cha Seung-yeon, Giám đốc Đại diện tại Tune Clinic. Bài viết nhằm mục đích giáo dục và không thay thế cho việc tư vấn cá nhân.*

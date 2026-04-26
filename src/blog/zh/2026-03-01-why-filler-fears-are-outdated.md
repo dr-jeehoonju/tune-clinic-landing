@@ -109,4 +109,4 @@ ogImage: /blog/images/why-filler-fears-are-outdated-hero.webp
 
 ---
 
-*本文反映了Tune医院医疗总监车承延医生的临床观点，仅供科普参考，不构成个人诊疗建议。*
+*本文反映了Tune医院代表院长车承延医生的临床观点，仅供科普参考，不构成个人诊疗建议。*

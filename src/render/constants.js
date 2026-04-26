@@ -96,10 +96,10 @@ const PHYSICIANS = [
     slug: "cha-seung-yeon",
     name: "Dr. Seung Yeon Cha",
     image: `${SITE_URL}/cha.jpg`,
-    jobTitle: "Medical Director",
+    jobTitle: "Representative Director",
     medicalSpecialty: "Aesthetic Medicine",
     description:
-      "Physician-led aesthetic planning focused on lifting, structural balance, and travel-conscious treatment design.",
+      "Representative Director of Tune Clinic Apgujeong. Physician-led aesthetic planning focused on lifting, structural balance, and travel-conscious treatment design.",
   },
   {
     slug: "kim-kwang-yeon",
