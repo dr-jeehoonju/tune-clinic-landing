@@ -4,6 +4,26 @@
 
 const { SITE_URL } = require("../url-helpers");
 
+// Fixed reference FX for USD display on pricing surfaces.
+// Final payment is processed in KRW at the clinic; USD is shown as a
+// travel-planning reference only. Update quarterly with management.
+const KRW_TO_USD_RATE = 1480;
+
+/**
+ * Format a KRW integer as "₩1,200,000 (~USD 810)" using the fixed FX rate.
+ * Returns just the USD portion if `mode === "usd"` (e.g. "~USD 810") or
+ * just the KRW portion if `mode === "krw"`.
+ */
+function formatKrwUsd(krw, mode = "both") {
+  if (typeof krw !== "number" || !isFinite(krw) || krw <= 0) return "";
+  const usd = Math.round(krw / KRW_TO_USD_RATE);
+  const krwStr = `₩${krw.toLocaleString("en-US")}`;
+  const usdStr = `~USD ${usd.toLocaleString("en-US")}`;
+  if (mode === "krw") return krwStr;
+  if (mode === "usd") return usdStr;
+  return `${krwStr} (${usdStr})`;
+}
+
 // All supported locales. `ko` is now a full locale (all pages translated).
 const languageOrder = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi", "ko"];
 
@@ -230,4 +250,6 @@ module.exports = {
   BRAND_INLINE_CSS,
   BLOG_PROSE_CSS,
   LINE_CLAMP_CSS,
+  KRW_TO_USD_RATE,
+  formatKrwUsd,
 };
