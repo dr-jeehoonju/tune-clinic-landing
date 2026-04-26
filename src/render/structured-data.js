@@ -24,11 +24,33 @@ function breadcrumbName(entry, localeData) {
     "structural-reset": g.reset,
     "collagen-builder": g.collagen,
     "filler-chamaka-se": g.filler,
+    "metacell-protocol": g.metacell || "Metacell Protocol",
     gallery: g.gallery,
     menu: g.menu,
     booking: g.contact,
   };
   return map[entry.key] || entry.title;
+}
+
+// Q2 2026: Per-locale exact H1 headline for the Metacell Protocol LP.
+// Schema.org Article.headline must match the visible H1 verbatim. EN +
+// KO use translated H1 strings; the 7 non-en/ko locales currently render
+// the EN page body under a localized chrome (native review pending), so
+// we keep the EN headline for those locales until translations land.
+const METACELL_PROTOCOL_HEADLINES = {
+  en: "Metacell Protocol",
+  ko: "메타셀 프로토콜",
+  ja: "Metacell Protocol",
+  zh: "Metacell Protocol",
+  de: "Metacell Protocol",
+  fr: "Metacell Protocol",
+  ru: "Metacell Protocol",
+  th: "Metacell Protocol",
+  vi: "Metacell Protocol",
+};
+
+function metacellProtocolHeadline(locale) {
+  return METACELL_PROTOCOL_HEADLINES[locale] || METACELL_PROTOCOL_HEADLINES.en;
 }
 
 // P1-C: Per-locale exact H1 for the Decision Protection LP. The
@@ -371,9 +393,12 @@ function pageStructuredData(entry, localeData, fragment) {
 
   // P1-C: Decision Protection LP is a doctor-led explainer about a
   // medical decision, so the page itself is a `MedicalWebPage` rather
-  // than a generic `WebPage`. Other pages keep the existing `WebPage`
-  // type to avoid mass migrations.
-  const webPageType = entry.key === "decision-protection" ? "MedicalWebPage" : "WebPage";
+  // than a generic `WebPage`. Q2 2026 extension: the Metacell Protocol
+  // LP describes a clinical protocol and likewise gets `MedicalWebPage`.
+  const webPageType =
+    entry.key === "decision-protection" || entry.key === "metacell-protocol"
+      ? "MedicalWebPage"
+      : "WebPage";
   const webPage = {
     "@context": "https://schema.org",
     "@type": webPageType,
@@ -392,6 +417,10 @@ function pageStructuredData(entry, localeData, fragment) {
     breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
   };
   if (entry.key === "decision-protection") {
+    webPage.lastReviewed = "2026-04-26";
+    webPage.reviewedBy = { "@id": `${SITE_URL}/#physician-cha-seung-yeon` };
+  }
+  if (entry.key === "metacell-protocol") {
     webPage.lastReviewed = "2026-04-26";
     webPage.reviewedBy = { "@id": `${SITE_URL}/#physician-cha-seung-yeon` };
   }
@@ -435,7 +464,73 @@ function pageStructuredData(entry, localeData, fragment) {
     };
   }
 
-  return [org, website, webPage, breadcrumb, faq, service, offerCatalog, video, article, ...physicians, ...reviews].filter(Boolean);
+  // Q2 2026: Metacell Protocol LP emits a doctor-led `Article` (the
+  // page is an explainer about the protocol itself) plus a richer
+  // `MedicalProcedure` node so Search Console picks the protocol up
+  // as a real procedure with a real procedureType / bodyLocation /
+  // performer rather than a generic Service. The OfferCatalog at index
+  // 1 already carries a Metacell `MedicalProcedure` for the home page;
+  // this node lives at the protocol page itself.
+  let metacellProcedure = null;
+  if (entry.key === "metacell-protocol") {
+    article = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": `${canonicalUrl}#article`,
+      headline: metacellProtocolHeadline(entry.locale),
+      description: entry.description,
+      url: canonicalUrl,
+      inLanguage: g.langAttr,
+      datePublished: "2026-04-26",
+      dateModified: "2026-04-26",
+      mainEntityOfPage: { "@id": `${canonicalUrl}#webpage` },
+      author: {
+        "@type": "Physician",
+        "@id": `${SITE_URL}/#physician-cha-seung-yeon`,
+        name: "Dr. Seung Yeon Cha",
+      },
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      image: DEFAULT_OG_IMAGE,
+      isPartOf: { "@id": `${canonicalUrl}#webpage` },
+      about: { "@id": `${SITE_URL}/#organization` },
+    };
+    metacellProcedure = {
+      "@context": "https://schema.org",
+      "@type": "MedicalProcedure",
+      "@id": `${canonicalUrl}#procedure`,
+      name: "Metacell Protocol",
+      alternateName: [
+        "Autologous Regenerative Protocol",
+        "Physician-Designed Cellular Regeneration",
+      ],
+      description: entry.description,
+      procedureType: "https://schema.org/TherapeuticProcedure",
+      bodyLocation: "Face",
+      preparation: "Initial physician consultation required",
+      followup: "Customized aftercare plan included",
+      howPerformed:
+        "Autologous PRP activation via PBM (photobiomodulation), followed by physician-customized energy device lifting (Ultherapy and/or Thermage based on individual assessment).",
+      performer: {
+        "@type": "Physician",
+        "@id": `${SITE_URL}/#physician-cha-seung-yeon`,
+        name: "Dr. Seung Yeon Cha",
+      },
+      url: canonicalUrl,
+      offers: {
+        "@type": "Offer",
+        price: "2000000",
+        priceCurrency: "KRW",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          minPrice: "2000000",
+          priceCurrency: "KRW",
+        },
+        availability: "https://schema.org/InStock",
+      },
+    };
+  }
+
+  return [org, website, webPage, breadcrumb, faq, service, offerCatalog, video, article, metacellProcedure, ...physicians, ...reviews].filter(Boolean);
 }
 
 function resolveAuthors(authorSlugs) {

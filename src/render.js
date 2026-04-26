@@ -148,10 +148,11 @@ function mainNav(g, locale, localeData, switcher, options = {}) {
                 <button class="hover:text-gold transition flex items-center gap-1 cursor-pointer focus:outline-none">
                   ${g.programs} <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
                 </button>
-                <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
+                <div class="absolute top-full left-1/2 -translate-x-1/2 w-60 bg-white shadow-xl border border-slate-100 rounded-b-sm hidden group-hover:block">
                   <div class="py-2">
                     <a href="${urlFor("signature-lifting")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.sig}</a>
                     <a href="${urlFor("structural-reset")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.reset}</a>
+                    <a href="${urlFor("metacell-protocol")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.metacell}</a>
                     <a href="${urlFor("collagen-builder")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.collagen}</a>
                     <a href="${urlFor("filler-chamaka-se")}" class="block px-5 py-3 hover:bg-slate-50 hover:text-gold transition text-left text-slate-700">${g.filler}</a>
                     <div class="border-t border-slate-100 mt-1 pt-1">
@@ -185,6 +186,7 @@ function mainNav(g, locale, localeData, switcher, options = {}) {
           <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">${g.programs}</p>
           <a href="${urlFor("signature-lifting")}" class="block py-2 ${activeKey === "signature-lifting" ? "text-gold font-bold" : "text-slate-700"}">${g.sig}</a>
           <a href="${urlFor("structural-reset")}" class="block py-2 ${activeKey === "structural-reset" ? "text-gold font-bold" : "text-slate-700"}">${g.reset}</a>
+          <a href="${urlFor("metacell-protocol")}" class="block py-2 ${activeKey === "metacell-protocol" ? "text-gold font-bold" : "text-slate-700"}">${g.metacell}</a>
           <a href="${urlFor("collagen-builder")}" class="block py-2 ${activeKey === "collagen-builder" ? "text-gold font-bold" : "text-slate-700"}">${g.collagen}</a>
           <a href="${urlFor("filler-chamaka-se")}" class="block py-2 ${activeKey === "filler-chamaka-se" ? "text-gold font-bold" : "text-slate-700"}">${g.filler}</a>
           <a href="${urlFor("menu")}" class="block py-2 text-slate-500 border-t border-slate-100 mt-2 pt-2"><i class="fas fa-list-ul text-[10px] mr-1 opacity-50"></i> ${g.menu}</a>
@@ -393,6 +395,7 @@ function siteFooter(entry, localeData) {
             <div class="flex flex-col gap-2.5 text-sm text-slate-300">
               <a href="${pageUrl(entry.locale, "signature-lifting")}" class="hover:text-gold transition">${g.sig}</a>
               <a href="${pageUrl(entry.locale, "structural-reset")}" class="hover:text-gold transition">${g.reset}</a>
+              <a href="${pageUrl(entry.locale, "metacell-protocol")}" class="hover:text-gold transition">${g.metacell}</a>
               <a href="${pageUrl(entry.locale, "collagen-builder")}" class="hover:text-gold transition">${g.collagen}</a>
               <a href="${pageUrl(entry.locale, "filler-chamaka-se")}" class="hover:text-gold transition">${g.filler}</a>
             </div>

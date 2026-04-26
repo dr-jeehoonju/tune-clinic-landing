@@ -1,0 +1,11 @@
+{
+  "key": "metacell-protocol",
+  "template": "program",
+  "permalink": "metacell-protocol.html",
+  "title": "Metacell Protocol | Physician-Designed Regenerative + Lifting in Seoul",
+  "description": "Metacell Protocol combines autologous regenerative activation (PRP + PBM) with physician-selected energy-device lifting (Ultherapy or Thermage). From ₩2,000,000; final price determined after physician assessment.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/en/metacell-protocol.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "Metacell Protocol"
+}

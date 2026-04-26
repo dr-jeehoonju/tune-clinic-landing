@@ -1,0 +1,348 @@
+<!-- TODO: native review required before 2026-05-13 Tier 2 launch.
+     English source of truth: src/fragments/en/metacell-protocol.html
+     Translation must avoid the imprecise donor-cell phrase that's banned
+     site-wide (see PROJECT.md token policy) and any locale equivalent.
+     Schema placeholders (TC_REVIEWS / TC_ITINERARY) must remain intact. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+body { font-family: 'Lato', sans-serif; }
+.font-serif { font-family: 'Playfair Display', serif; }
+
+.text-gold { color: #C5A059; }
+.bg-gold { background-color: #C5A059; }
+.border-gold { border-color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
+
+.fade-in-up { animation: fadeInUp 0.8s ease-out; }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-metacell {
+    background:
+        radial-gradient(circle at 18% 20%, rgba(197,160,89,0.22), transparent 26%),
+        radial-gradient(circle at 82% 18%, rgba(140,180,220,0.10), transparent 22%),
+        linear-gradient(180deg, #06080d 0%, #0b1220 55%, #111827 100%);
+}
+</style>
+
+<header class="relative hero-metacell overflow-hidden py-24 md:py-32">
+    <div class="absolute inset-0 z-0">
+        <img src="/main.jpeg" alt="Background" class="w-full h-full object-cover opacity-70">
+        <div class="absolute inset-0 bg-black/65"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+        <span class="inline-flex items-center gap-2 py-1.5 px-3 border border-gold text-gold text-[10px] font-bold uppercase tracking-[0.22em] mb-6 rounded-sm bg-black/30 backdrop-blur-sm">
+            <i class="fas fa-shield-halved"></i> Regenerative · Physician-Designed
+        </span>
+        <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+            Metacell Protocol
+        </h1>
+        <p class="text-base md:text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+            Your own blood, your own growth factors, activated through PBM photobiomodulation &mdash; then layered with the energy device the physician selects for your face. Built around your structure, your skin, your trip.
+        </p>
+
+        <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[280px]">
+            <span class="text-xs text-slate-300 uppercase tracking-[0.18em] mb-2">Starting</span>
+            <span class="text-3xl md:text-4xl font-serif text-gold font-bold mb-1">From &#8361;2,000,000</span>
+            <p class="text-[11px] text-slate-300 italic mt-2">Final price determined after physician assessment</p>
+            <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
+                <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">Metacell Activation + Custom Energy Device<br>Includes consultation + treatment + tailored aftercare.</p>
+            </div>
+        </div>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/zh/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> Book Now</a>
+            <a href="/zh/decision-protection.html" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                <i class="fas fa-shield-halved mr-1 text-xs"></i> The doctor-led approach
+            </a>
+        </div>
+    </div>
+</header>
+
+<section class="py-6 bg-black border-b border-slate-800">
+    <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+        <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Best For</p>
+            <p class="text-sm text-slate-200">Combination concerns &mdash; laxity, quality, longevity</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Downtime</p>
+            <p class="text-sm text-slate-200">Mild swelling 2&ndash;4 days, energy-device dependent</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">Core Stack</p>
+            <p class="text-sm text-slate-200">Autologous PRP + PBM + Ultherapy and/or Thermage</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">What this protocol actually is</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3 mb-6">Autologous regenerative activation, then a physician-selected energy device.</h2>
+        <div class="space-y-5 text-base text-slate-600 leading-relaxed">
+            <p>
+                Metacell Protocol starts with your own biology. We draw your blood, separate the platelet-rich plasma, and
+                activate the platelets with PBM (photobiomodulation, also known as low-level light therapy). The result
+                is an autologous concentrate of your own growth factors and signaling proteins, prepared in our clinic in
+                under an hour, ready to be delivered into the layers of your face that need them.
+            </p>
+            <p>
+                We deliberately do <em>not</em> use the imprecise phrase that's often advertised next to autologous regenerative
+                care. There is no banked donor cell line in this protocol, no proprietary culture, no &ldquo;youth serum&rdquo; sourced
+                from outside your body. What we do is autologous regenerative activation: <strong>your platelets, your growth
+                factors, activated through PBM, delivered into the same face that produced them.</strong>
+            </p>
+            <p>
+                The second half of the protocol is the energy device the physician selects for your face. Some patients
+                need deep structural lift &mdash; Ultherapy reaches the SMAS layer. Some need surface tightening across a wider
+                surface area &mdash; Thermage heats dermal collagen. Many patients need both, balanced. The Metacell layer
+                amplifies recovery and biological response across whichever device the physician chooses, which is why
+                the final price varies: it scales with the depth and surface area of the lift you actually need.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">How physicians build around it</span>
+            <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">Three illustrative builds.</h2>
+            <p class="text-sm text-slate-500 mt-3 max-w-2xl mx-auto leading-relaxed">
+                Not a menu. Examples of how the same Metacell foundation gets layered with different energy work
+                depending on what the physician reads on your face at consultation.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+            <article class="rounded-2xl border border-slate-200 bg-white p-7 flex flex-col">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">Patient A &middot; Structural lift</p>
+                <h3 class="text-xl font-serif text-slate-900 mb-3">Metacell + Ultherapy 350</h3>
+                <p class="text-sm text-slate-600 leading-relaxed flex-1">
+                    For visible lower-face descent and a defined jawline goal. Metacell layer prepares the tissue;
+                    Ultherapy 350 shots target the SMAS for deep structural lift. Recovery skews short; results
+                    consolidate over 8&ndash;12 weeks.
+                </p>
+                <p class="text-[11px] text-slate-400 italic mt-4">Illustrative build &mdash; final shot count is set by the physician.</p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-7 flex flex-col">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">Patient B &middot; Surface tightening</p>
+                <h3 class="text-xl font-serif text-slate-900 mb-3">Metacell + Thermage 600</h3>
+                <p class="text-sm text-slate-600 leading-relaxed flex-1">
+                    For texture quality, pore appearance, and broader surface laxity rather than deep descent. Metacell
+                    layer drives regenerative recovery; Thermage 600 heats dermal collagen across the full face for
+                    even tightening. Often the right choice for patients with thinner skin and a longer trip window.
+                </p>
+                <p class="text-[11px] text-slate-400 italic mt-4">Illustrative build &mdash; final shot count is set by the physician.</p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-7 flex flex-col">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">Patient C &middot; Balanced</p>
+                <h3 class="text-xl font-serif text-slate-900 mb-3">Metacell + Ultherapy 200 + Thermage 300</h3>
+                <p class="text-sm text-slate-600 leading-relaxed flex-1">
+                    For mixed indications: some descent, some texture change, some longevity goals. Metacell layer plus
+                    a calibrated split between deep SMAS lift and surface tightening. Often the right answer when a
+                    full Ultherapy 350 + Thermage 600 stack would over-treat for the face in front of us.
+                </p>
+                <p class="text-[11px] text-slate-400 italic mt-4">Illustrative build &mdash; final stack is set by the physician.</p>
+            </article>
+        </div>
+        <p class="text-xs text-slate-500 italic mt-8 text-center max-w-3xl mx-auto leading-relaxed">
+            These are not packages on a shelf. The physician designs the energy-device layer at consultation, after
+            anatomical assessment and contraindication screening. Pricing scales accordingly &mdash; from
+            <strong class="text-slate-700 font-bold">&#8361;2,000,000 baseline</strong> for a Metacell-only build up to roughly
+            <strong class="text-slate-700 font-bold">&#8361;4,000,000</strong> for the deepest combination work.
+        </p>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+        <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">Why physicians design this</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3 mb-6">No template. No broker handoff. No package mismatch.</h2>
+        <div class="space-y-5 text-base text-slate-600 leading-relaxed">
+            <p>
+                Most travel-aimed packages in Seoul are designed in reverse: a fixed combination is set up first, and
+                the patient is then sorted into the closest one. The result is structural over- or under-treatment
+                based on how a face happened to fall on a price grid.
+            </p>
+            <p>
+                Metacell Protocol inverts that. The physician reads the face first &mdash; laxity vector, skin density,
+                volume changes, recovery window, the trip you're actually planning &mdash; and <em>then</em> assembles the
+                Metacell + energy stack around what's in front of them. That's what the &ldquo;Chamaka-se&rdquo; framing has
+                always meant on this site: the physician decides, the physician protects, and you see a fully itemized
+                KRW quote before you commit.
+            </p>
+            <p>
+                Concretely, this is what changes for you: no broker hands off your case to a junior provider. The same
+                physician reads your face, designs the protocol, performs the treatment, and signs off your aftercare.
+                Pricing is itemized in KRW with no hidden &ldquo;international patient&rdquo; surcharge.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- TC_REVIEWS:metacell-protocol -->
+
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">Pricing transparency</span>
+            <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">From &#8361;2,000,000. Final price after assessment.</h2>
+            <p class="text-sm text-slate-500 mt-3 max-w-2xl mx-auto leading-relaxed">
+                The Metacell layer is the fixed baseline. The energy-device layer is what moves the price.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+            <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">Metacell baseline</p>
+                <p class="text-3xl font-serif text-slate-900 mb-2">From &#8361;2,000,000</p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Autologous PRP + PBM activation, no energy device. Used as a lighter regenerative-only entry point.
+                </p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">Most builds land here</p>
+                <p class="text-3xl font-serif text-slate-900 mb-2">~&#8361;2,500,000 &ndash; &#8361;4,000,000</p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Metacell + a physician-selected single device or a calibrated split (Ultherapy and/or Thermage).
+                </p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">Reference</p>
+                <p class="text-base text-slate-700 leading-relaxed">
+                    All pricing is in KRW; payment is processed in KRW at the clinic. Approximate USD figures shown
+                    elsewhere on the site are for reference only at <strong>1 USD &asymp; 1,480 KRW</strong>.
+                </p>
+            </article>
+        </div>
+        <p class="text-xs text-slate-500 italic mt-8 text-center">
+            Final pricing is determined after in-person physician assessment. We do not quote a fixed total before we
+            see your face &mdash; that would mean we picked the protocol before we read the indication.
+        </p>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-2xl md:text-3xl font-serif text-center mb-10 text-slate-900">Physician's FAQ</h2>
+        <div class="space-y-4">
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    Is this the same as the &ldquo;cell therapy&rdquo; often advertised?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>No. There is no banked donor cell line and no cultured cell product in this protocol. Metacell
+                    Protocol is autologous regenerative activation: your platelet-rich plasma is prepared from your own
+                    blood and activated using PBM (photobiomodulation), then delivered into your face. We deliberately
+                    avoid the more dramatic word that's often advertised because it implies something this protocol
+                    does not include.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    How long do results last?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>The regenerative layer (Metacell) drives a recovery and quality boost that typically peaks at
+                    8&ndash;12 weeks and remains visible for several months. The energy-device layer (Ultherapy /
+                    Thermage) is the part that produces structural lift, with collagen remodeling that consolidates
+                    over 3&ndash;6 months and lifts that are typically discussed in the 12&ndash;18 month range.
+                    Maintenance schedules are individualized at follow-up.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    Is this safe for short-stay travel timelines?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>Yes, when the build is matched to your trip. A Metacell-only or Metacell + lighter energy build
+                    can comfortably fit in a 3&ndash;5 day Seoul trip. A deeper combination build (Ultherapy 350 +
+                    Thermage 600 + Metacell) typically wants a 4&ndash;5 day window so the physician can see you for a
+                    follow-up before you fly. The decision is made at consultation, not before.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    Why isn't the price fixed?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>Because the energy-device layer changes per face. The Metacell baseline is fixed at
+                    &#8361;2,000,000. The Ultherapy / Thermage layer scales with shot count, depth, and which device
+                    the physician chooses, so the final total realistically lands anywhere from
+                    &#8361;2,000,000 (Metacell-only) up to roughly &#8361;4,000,000 (deepest combination build). You see
+                    the itemized KRW total before you commit.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    Can I do this on a 3-day trip?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>Often, yes &mdash; for a Metacell + lighter energy build. For the deeper combination builds we
+                    typically prefer a 4&ndash;5 day window so we can see you again before departure. If your trip is
+                    fixed at three days, tell us at consultation and we will design the build around the time you
+                    actually have, not around the protocol that would over-treat for your window.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    Is sedation included?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>Topical anesthetic and a complimentary targeted comfort block are standard. IV conscious
+                    sedation is optional (+&#8361;110,000) and most often selected when the build includes a deeper
+                    Ultherapy + Thermage combination. The physician will recommend at consultation whether sedation
+                    is worthwhile for your specific build.</p>
+                </div>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+<!-- TC_ITINERARY:detail -->
+
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 grid md:grid-cols-[1fr_auto] gap-6 md:items-center">
+            <div>
+                <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">Next step</span>
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mt-2">Start from your face. The build follows.</h2>
+                <p class="text-sm text-slate-500 mt-2">Direct physician consultation, transparent KRW pricing, no broker handoff.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="/zh/booking.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition whitespace-nowrap">
+                    <i class="fas fa-calendar-check"></i> Book Now &rarr;
+                </a>
+                <a href="/zh/decision-protection.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-slate-300 text-slate-800 text-sm font-bold hover:border-slate-900 transition whitespace-nowrap">
+                    <i class="fas fa-shield-halved"></i> Read the doctor-led approach &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-12 bg-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-xs text-slate-400 italic">
+            Individual results may vary. This page describes our general planning approach for the Metacell Protocol
+            and does not guarantee any specific outcome. Final treatment plan, device selection, and pricing are
+            determined after in-person physician assessment.
+        </p>
+    </div>
+</section>

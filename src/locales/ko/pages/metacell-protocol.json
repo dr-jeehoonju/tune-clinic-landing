@@ -1,0 +1,11 @@
+{
+  "key": "metacell-protocol",
+  "template": "program",
+  "permalink": "ko/metacell-protocol.html",
+  "title": "메타셀 프로토콜 | 의사 설계 자가혈 재생 + 리프팅",
+  "description": "메타셀 프로토콜은 자가혈 기반 세포 재생(PRP + 광생체조절 PBM)과 환자별 맞춤 에너지 디바이스 리프팅(울쎄라 또는 써마지)을 결합한 의사 설계 프로그램입니다. ₩2,000,000부터 시작하며, 최종 가격은 의사 진단 후 확정됩니다.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/metacell-protocol.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "메타셀 프로토콜"
+}

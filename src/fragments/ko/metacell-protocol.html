@@ -1,0 +1,344 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+body { font-family: 'Lato', sans-serif; }
+.font-serif { font-family: 'Playfair Display', serif; }
+
+.text-gold { color: #C5A059; }
+.bg-gold { background-color: #C5A059; }
+.border-gold { border-color: #C5A059; }
+.bg-gold-light { background-color: #F9F5F0; }
+
+.fade-in-up { animation: fadeInUp 0.8s ease-out; }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-metacell {
+    background:
+        radial-gradient(circle at 18% 20%, rgba(197,160,89,0.22), transparent 26%),
+        radial-gradient(circle at 82% 18%, rgba(140,180,220,0.10), transparent 22%),
+        linear-gradient(180deg, #06080d 0%, #0b1220 55%, #111827 100%);
+}
+</style>
+
+<header class="relative hero-metacell overflow-hidden py-24 md:py-32">
+    <div class="absolute inset-0 z-0">
+        <img src="/main.jpeg" alt="배경" class="w-full h-full object-cover opacity-70">
+        <div class="absolute inset-0 bg-black/65"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-up">
+        <span class="inline-flex items-center gap-2 py-1.5 px-3 border border-gold text-gold text-[10px] font-bold uppercase tracking-[0.22em] mb-6 rounded-sm bg-black/30 backdrop-blur-sm">
+            <i class="fas fa-shield-halved"></i> 자가혈 재생 · 원장 직접 설계
+        </span>
+        <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+            메타셀 프로토콜
+        </h1>
+        <p class="text-base md:text-lg text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+            본인의 혈액에서 추출한 자가혈 PRP와 광생체조절(PBM)로 활성화한 성장인자를 사용하고,
+            여기에 원장이 직접 선택한 에너지 디바이스 리프팅을 환자별로 맞춰 설계하는 통합 재생 프로그램입니다.
+        </p>
+
+        <div class="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm min-w-[280px]">
+            <span class="text-xs text-slate-300 uppercase tracking-[0.18em] mb-2">시작 가격</span>
+            <span class="text-3xl md:text-4xl font-serif text-gold font-bold mb-1">&#8361;2,000,000부터</span>
+            <p class="text-[11px] text-slate-300 italic mt-2">최종 가격은 의사 진단 후 확정됩니다</p>
+            <div class="mt-4 pt-3 border-t border-white/10 w-full text-center">
+                <p class="text-[10px] text-slate-300 uppercase tracking-wider leading-relaxed">메타셀 활성화 + 맞춤 에너지 디바이스<br>상담 · 시술 · 맞춤 사후관리 포함</p>
+            </div>
+        </div>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/ko/booking.html" class="bg-gold text-white px-10 py-4 font-bold rounded-sm hover:bg-[#b8913f] transition flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-sm"><i class="fas fa-calendar-check"></i> 예약하기</a>
+            <a href="/ko/decision-protection.html" class="border border-white/30 bg-black/20 backdrop-blur-sm text-white px-10 py-4 font-bold rounded-sm hover:bg-white/10 transition w-full sm:w-auto text-sm">
+                <i class="fas fa-shield-halved mr-1 text-xs"></i> 원장 주도 접근법 읽기
+            </a>
+        </div>
+    </div>
+</header>
+
+<section class="py-6 bg-black border-b border-slate-800">
+    <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+        <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">권장 대상</p>
+            <p class="text-sm text-slate-200">탄력 · 결 · 장기적인 피부 노화의 복합적인 변화</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">다운타임</p>
+            <p class="text-sm text-slate-200">에너지 디바이스 구성에 따라 2~4일</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-gold font-bold mb-2">핵심 구성</p>
+            <p class="text-sm text-slate-200">자가혈 PRP + PBM + 울쎄라 / 써마지</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">이 프로토콜은 정확히 무엇인가요?</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3 mb-6">자가혈 기반 세포 재생 활성화 + 원장 직접 설계 에너지 디바이스</h2>
+        <div class="space-y-5 text-base text-slate-600 leading-relaxed">
+            <p>
+                메타셀 프로토콜은 환자분의 혈액에서 시작합니다. 채혈 후 PRP(자가혈 혈소판 풍부 혈장)를 분리하고,
+                광생체조절(PBM, Photobiomodulation, 저출력 광치료)을 이용해 혈소판을 활성화합니다.
+                본인의 성장인자와 신호 단백을 클리닉 내에서 1시간 이내로 준비하여, 그날 바로 필요한 얼굴의 층에 전달합니다.
+            </p>
+            <p>
+                저희는 광고에서 자주 함께 쓰이는 자극적인 표현을 의도적으로 사용하지 않습니다.
+                이 프로토콜에는 <strong>외부에서 가져온 기증 세포주 ・ 배양 세포 제품 ・ &ldquo;외부 유래 회춘 세럼&rdquo;이 일절 포함되지 않습니다.</strong>
+                저희가 하는 것은 자가혈 기반 세포 재생 활성화입니다 &mdash; 본인의 혈소판, 본인의 성장인자를 PBM으로 활성화하여,
+                그 성분을 만들어 낸 같은 얼굴에 다시 전달하는 방식입니다.
+            </p>
+            <p>
+                두 번째 단계는 원장이 직접 선택하는 에너지 디바이스입니다.
+                심부 구조 리프팅이 필요한 환자분께는 SMAS 층에 도달하는 울쎄라를,
+                넓은 표면적의 결과 콜라겐 타이트닝이 필요한 환자분께는 진피 콜라겐을 가열하는 써마지를 사용합니다.
+                두 가지를 균형 있게 설계해 드리는 경우도 많습니다.
+                메타셀 단계는 어떤 디바이스를 선택하더라도 회복과 생물학적 반응을 함께 끌어올리며,
+                바로 그 이유로 <strong>최종 가격은 환자분에게 실제로 필요한 리프팅의 깊이와 면적에 따라 달라집니다.</strong>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">원장이 환자별로 어떻게 설계하는가</span>
+            <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">세 가지 예시 구성</h2>
+            <p class="text-sm text-slate-500 mt-3 max-w-2xl mx-auto leading-relaxed">
+                메뉴판에 올려둔 패키지가 아닙니다. 같은 메타셀 기반 위에, 상담 시 진단된 얼굴의 상태에 따라
+                에너지 디바이스 구성이 어떻게 달라질 수 있는지 보여드리는 예시입니다.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+            <article class="rounded-2xl border border-slate-200 bg-white p-7 flex flex-col">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">환자 A &middot; 구조적 리프팅</p>
+                <h3 class="text-xl font-serif text-slate-900 mb-3">메타셀 + 울쎄라 350샷</h3>
+                <p class="text-sm text-slate-600 leading-relaxed flex-1">
+                    하안면 처짐과 턱선 정리가 우선 목표인 환자분께 권장하는 구성입니다.
+                    메타셀 단계가 조직의 회복을 준비시키고, 울쎄라 350샷이 SMAS 층까지 도달해 심부 구조 리프팅을 만들어냅니다.
+                    다운타임은 짧은 편이며, 콜라겐 리모델링이 진행되는 8~12주에 걸쳐 결과가 자리 잡습니다.
+                </p>
+                <p class="text-[11px] text-slate-400 italic mt-4">예시 구성 &mdash; 최종 샷 수는 원장이 진단 후 결정합니다.</p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-7 flex flex-col">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">환자 B &middot; 표면 타이트닝</p>
+                <h3 class="text-xl font-serif text-slate-900 mb-3">메타셀 + 써마지 600샷</h3>
+                <p class="text-sm text-slate-600 leading-relaxed flex-1">
+                    심부 처짐보다는 결, 모공, 그리고 표면 탄력 저하가 주된 고민인 환자분께 적합한 구성입니다.
+                    메타셀 단계로 재생 회복을 끌어올리고, 써마지 600샷이 진피 콜라겐을 풀페이스로 가열하여 균일한 타이트닝을 만들어냅니다.
+                    피부가 얇은 편이고 회복 일정에 여유가 있는 분들께 자주 권장됩니다.
+                </p>
+                <p class="text-[11px] text-slate-400 italic mt-4">예시 구성 &mdash; 최종 샷 수는 원장이 진단 후 결정합니다.</p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-7 flex flex-col">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">환자 C &middot; 균형형</p>
+                <h3 class="text-xl font-serif text-slate-900 mb-3">메타셀 + 울쎄라 200 + 써마지 300</h3>
+                <p class="text-sm text-slate-600 leading-relaxed flex-1">
+                    탄력 변화 · 결 변화 · 장기적인 관리 목적이 모두 섞여 있는 환자분께 적합한 균형형 구성입니다.
+                    메타셀 위에 울쎄라(SMAS 심부 리프팅)와 써마지(진피 표면 타이트닝)를 적정 비율로 분배합니다.
+                    풀울쎄라 350 + 풀써마지 600 조합이 과치료가 될 얼굴에 자주 권장되는 합리적인 선택지입니다.
+                </p>
+                <p class="text-[11px] text-slate-400 italic mt-4">예시 구성 &mdash; 최종 조합은 원장이 진단 후 결정합니다.</p>
+            </article>
+        </div>
+        <p class="text-xs text-slate-500 italic mt-8 text-center max-w-3xl mx-auto leading-relaxed">
+            세 가지 모두 미리 정해진 패키지가 아닙니다. 에너지 디바이스 단계는 상담 시 해부학적 평가와 금기 사항 확인 후
+            원장이 직접 설계하며, 가격도 그에 맞춰 결정됩니다 &mdash; 메타셀 단독은
+            <strong class="text-slate-700 font-bold">&#8361;2,000,000부터</strong> 시작하며,
+            가장 깊은 조합 구성의 경우 약 <strong class="text-slate-700 font-bold">&#8361;4,000,000</strong>까지 책정될 수 있습니다.
+        </p>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+        <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">왜 원장이 직접 설계해야 하는가</span>
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3 mb-6">정형 패키지 없음 · 브로커 인계 없음 · 패키지-얼굴 미스매치 없음</h2>
+        <div class="space-y-5 text-base text-slate-600 leading-relaxed">
+            <p>
+                여행 환자를 겨냥한 대부분의 패키지는 역순으로 설계되어 있습니다 &mdash; 정형 조합을 먼저 만들어 두고,
+                내원한 환자분을 그중 가장 가까운 패키지에 끼워 넣는 방식입니다.
+                그 결과, 얼굴이 가격표에 어떻게 떨어지느냐에 따라 과치료 또는 부족 치료가 발생합니다.
+            </p>
+            <p>
+                메타셀 프로토콜은 그 구조를 거꾸로 뒤집습니다.
+                원장이 먼저 얼굴을 읽고 &mdash; 처짐 방향, 피부 두께, 부피 변화, 회복 가능 일정, 실제로 계획하시는 여행 일정까지 &mdash;
+                그 다음에 메타셀 + 에너지 조합을 환자분 앞에서 직접 조립합니다.
+                이 사이트의 &ldquo;차마카세&rdquo;가 처음부터 의미한 바가 그것입니다 &mdash;
+                원장이 결정하고, 원장이 보호하며, 환자분은 결제 전에 KRW 항목별 견적을 명확하게 받아보십니다.
+            </p>
+            <p>
+                구체적으로 환자분께 달라지는 점은 다음과 같습니다.
+                브로커가 케이스를 다른 의사에게 인계하지 않으며,
+                같은 원장이 얼굴을 읽고 · 프로토콜을 설계하고 · 시술을 직접 진행하고 · 사후관리까지 사인합니다.
+                가격은 KRW로 항목별로 표기되며, 외국인 환자에게만 적용되는 비공개 가산금이 일절 없습니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- TC_REVIEWS:metacell-protocol -->
+
+<section class="py-20 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">투명한 가격 안내</span>
+            <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mt-3">&#8361;2,000,000부터. 최종 가격은 의사 진단 후 확정.</h2>
+            <p class="text-sm text-slate-500 mt-3 max-w-2xl mx-auto leading-relaxed">
+                메타셀 단계는 고정 베이스라인입니다. 가격이 움직이는 부분은 에너지 디바이스 단계입니다.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+            <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">메타셀 베이스라인</p>
+                <p class="text-3xl font-serif text-slate-900 mb-2">&#8361;2,000,000부터</p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    자가혈 PRP + PBM 활성화 단독 구성. 가벼운 재생 단독 입문 옵션으로도 사용됩니다.
+                </p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">대부분의 구성이 위치하는 구간</p>
+                <p class="text-3xl font-serif text-slate-900 mb-2">약 &#8361;2,500,000 ~ &#8361;4,000,000</p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    메타셀 + 원장 직접 선택한 단일 디바이스 또는 울쎄라 / 써마지 분할 조합.
+                </p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-7">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">참고 사항</p>
+                <p class="text-base text-slate-700 leading-relaxed">
+                    모든 가격은 원화(KRW) 기준이며, 결제 또한 클리닉 내에서 원화로 진행됩니다.
+                    사이트 내 USD 표기는 참고용 환산이며 <strong>1 USD &asymp; 1,480 KRW</strong>를 기준으로 합니다.
+                </p>
+            </article>
+        </div>
+        <p class="text-xs text-slate-500 italic mt-8 text-center">
+            최종 가격은 내원 후 의사 진단을 통해 확정됩니다. 얼굴을 직접 보지 않은 상태에서 고정 총액을
+            안내드리지 않는 이유는, 그것이 곧 진단 전에 프로토콜을 먼저 정해두는 일이기 때문입니다.
+        </p>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-2xl md:text-3xl font-serif text-center mb-10 text-slate-900">원장이 자주 받는 질문</h2>
+        <div class="space-y-4">
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    흔히 광고되는 &lsquo;세포 시술&rsquo;과 같은 것인가요?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>아닙니다. 이 프로토콜에는 외부 기증 세포주나 배양된 세포 제품이 포함되지 않습니다.
+                    메타셀 프로토콜은 자가혈 기반 세포 재생 활성화입니다 &mdash;
+                    본인의 혈액에서 PRP를 추출하여 PBM(광생체조절)으로 활성화한 뒤 본인의 얼굴에 다시 전달하는 방식입니다.
+                    광고에서 자주 쓰이는 더 자극적인 단어는 의도적으로 피하고 있습니다.
+                    그 단어가 본 프로토콜에 포함되지 않은 무언가를 암시하기 때문입니다.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    효과는 얼마나 유지되나요?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>재생 단계(메타셀)에 따른 회복과 결 개선 효과는 보통 8~12주에 정점을 보이며 수개월간 유지됩니다.
+                    구조적인 리프팅 효과는 에너지 디바이스 단계(울쎄라 / 써마지)에서 만들어지며,
+                    콜라겐 리모델링이 3~6개월에 걸쳐 자리 잡고, 보통 12~18개월의 유지 기간을 안내드립니다.
+                    유지 관리 일정은 사후 진료 시 환자분 상태에 맞춰 개별적으로 안내드립니다.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    짧은 여행 일정에도 안전한가요?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>구성을 일정에 맞춰 설계하시면 가능합니다. 메타셀 단독 또는 메타셀 + 가벼운 에너지 디바이스 구성은
+                    3~5일 서울 일정에 무리 없이 들어갑니다. 깊은 조합 구성(울쎄라 350 + 써마지 600 + 메타셀)은
+                    출국 전에 한 번 더 진료를 보는 것을 선호하기 때문에 4~5일 정도의 여유를 권장드립니다.
+                    이 결정은 미리가 아닌 상담 시점에서 함께 정합니다.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    가격이 고정되어 있지 않은 이유는 무엇인가요?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>에너지 디바이스 단계가 환자분의 얼굴에 따라 달라지기 때문입니다.
+                    메타셀 베이스라인은 &#8361;2,000,000으로 고정되어 있으나, 울쎄라 / 써마지 단계는
+                    샷 수, 깊이, 그리고 원장이 선택하는 디바이스에 따라 달라집니다.
+                    그래서 최종 합계는 &#8361;2,000,000(메타셀 단독)부터
+                    약 &#8361;4,000,000(가장 깊은 조합 구성)까지 현실적으로 분포합니다.
+                    결제 전에 KRW 항목별 합계를 명확히 확인하시게 됩니다.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    3일 일정으로 가능한가요?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>메타셀 + 가벼운 에너지 디바이스 구성이라면 3일 일정도 가능합니다.
+                    깊은 조합 구성에는 출국 전 한 번 더 진료를 보는 것을 선호하기 때문에 4~5일 정도의 여유를 권장드립니다.
+                    일정이 3일로 고정되어 있다면 상담 시 말씀해 주시면, 그 시간에 맞는 구성으로 설계해 드리지,
+                    환자분께 과치료가 될 프로토콜을 끼워 맞추지 않습니다.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-6 rounded-sm shadow-sm cursor-pointer border border-slate-200">
+                <summary class="flex justify-between items-center font-bold text-slate-800 list-none">
+                    수면 마취가 포함되나요?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-xs"></i></span>
+                </summary>
+                <div class="text-slate-600 mt-4 text-sm leading-relaxed">
+                    <p>표면 마취(연고)와 무료 부위별 신경 차단(타겟 컴포트 블록)이 기본으로 포함됩니다.
+                    수면 마취(IV 의식 진정)는 선택 옵션(+&#8361;110,000)이며,
+                    깊은 울쎄라 + 써마지 조합 구성에서 가장 자주 권장됩니다.
+                    상담 시 환자분의 구성에 수면 마취가 의미 있는지 원장이 직접 안내드립니다.</p>
+                </div>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+<!-- TC_ITINERARY:detail -->
+
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 grid md:grid-cols-[1fr_auto] gap-6 md:items-center">
+            <div>
+                <span class="text-gold uppercase tracking-[0.22em] text-[10px] font-bold">다음 단계</span>
+                <h2 class="text-2xl md:text-3xl font-serif text-slate-900 mt-2">얼굴부터 시작합니다. 구성은 그 다음입니다.</h2>
+                <p class="text-sm text-slate-500 mt-2">원장 직접 진료 · KRW 투명한 항목별 가격 · 브로커 인계 없음.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="/ko/booking.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition whitespace-nowrap">
+                    <i class="fas fa-calendar-check"></i> 예약하기 &rarr;
+                </a>
+                <a href="/ko/decision-protection.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-slate-300 text-slate-800 text-sm font-bold hover:border-slate-900 transition whitespace-nowrap">
+                    <i class="fas fa-shield-halved"></i> 원장 주도 접근법 읽기 &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-12 bg-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-xs text-slate-400 italic">
+            개인에 따라 결과가 다를 수 있습니다. 본 페이지는 메타셀 프로토콜의 일반적인 설계 방식에 대한 안내이며, 특정 결과를 보장하지 않습니다.
+            최종 치료 계획, 디바이스 선택, 가격은 내원 후 의사 진단을 통해 확정됩니다.
+        </p>
+    </div>
+</section>

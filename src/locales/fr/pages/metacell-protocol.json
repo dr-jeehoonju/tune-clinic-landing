@@ -1,0 +1,12 @@
+{
+  "key": "metacell-protocol",
+  "template": "program",
+  "permalink": "fr/metacell-protocol.html",
+  "title": "Metacell Protocol | Physician-Designed Regenerative + Lifting in Seoul",
+  "description": "Metacell Protocol combines autologous regenerative activation (PRP + PBM) with physician-selected energy-device lifting (Ultherapy or Thermage). From \u20a92,000,000; final price determined after physician assessment.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/fr/metacell-protocol.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "Metacell Protocol",
+  "_todo": "Native review required by 2026-05-12 before Tier 2 launch. English source of truth: src/locales/en/pages/metacell-protocol.json."
+}
