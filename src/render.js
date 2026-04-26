@@ -692,6 +692,7 @@ function renderBlogIndex(locale, posts, localeData) {
     const authors = resolveAuthors(post.author);
     const fd = formatBlogDate(post.date, locale);
     const tb = post.tags.slice(0, 3).map((t) => `<span class="inline-block px-2.5 py-1 rounded-full border border-slate-200 text-slate-400 text-[9px] uppercase tracking-[0.12em] font-bold whitespace-nowrap">${esc(t)}</span>`).join(" ");
+    const tagBoxCls = "flex flex-wrap gap-1.5 mb-4 h-[52px] overflow-hidden content-start";
     const authorNames = authors.map((a) => esc(a.name)).join(" & ");
     const cardBorder = isPinned ? "border-gold/40 hover:border-gold ring-1 ring-gold/10" : "border-slate-200 hover:border-gold";
     const pinnedBadge = isPinned ? `<div class="absolute top-3 right-3 z-10 bg-slate-950/90 text-gold text-[9px] uppercase tracking-[0.18em] font-bold px-2.5 py-1 rounded-full border border-gold/40 backdrop-blur"><i class="fas fa-star mr-1"></i>${esc(pinnedLabel)}</div>` : "";
@@ -703,7 +704,7 @@ function renderBlogIndex(locale, posts, localeData) {
         ${pinnedBadge}
         ${post.ogImage ? `<div class="aspect-[16/9] overflow-hidden bg-slate-100"><img src="${post.ogImage}" alt="${esc(post.title)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>` : ""}
         <div class="p-6 flex flex-col flex-grow">
-          <div class="flex flex-wrap gap-1.5 mb-4">${tb}</div>
+          <div class="${tagBoxCls}">${tb}</div>
           <h2 class="text-lg font-serif text-slate-900 group-hover:text-gold transition leading-snug mb-2">${esc(post.title)}</h2>
           <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 mb-5">${esc(post.description)}</p>
           <div class="mt-auto pt-4 border-t border-slate-100">
