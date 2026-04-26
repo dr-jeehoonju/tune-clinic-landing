@@ -99,11 +99,11 @@ We are not suggesting that patient research is unhelpful. It is often very usefu
 
 Delegation, in the chamaka-se sense, means arriving with a clear description of your concerns and a genuine openness to a plan that serves those concerns — even if it differs from what you expected. The physician's job is to deserve that trust, which requires that the plan genuinely comes from the face in front of them, not from a menu.
 
-## Is chamaka-se a guarantee of a better outcome?
+## Does chamaka-se aim toward a better outcome?
 
-No. And any method that claimed otherwise would be overstating itself.
+Yes — though no clinical process can promise outcomes for any specific patient, and any method that claimed otherwise would be overstating itself.
 
-What it is a guarantee of — to the extent any clinical process can guarantee anything — is that the recommendation comes from the right starting point: the patient's anatomy, the clinical problem, and an honest assessment of what tools can address it. The starting point does not guarantee the destination, but it is the only one from which the destination can be reached.
+What chamaka-se aims to support — to the extent any clinical process can — is that the recommendation comes from the right starting point: the patient's anatomy, the clinical problem, and an honest assessment of what tools can address it. The starting point does not determine the destination, but it is the only one from which the destination can be reached.
 
 For the clinical literature on individualized aesthetic planning, the [PubMed literature on patient-centered aesthetic medicine](https://pubmed.ncbi.nlm.nih.gov/?term=individualized+aesthetic+treatment+planning+patient-centered) provides a useful scientific context for the principles described here. And for the question of what standards should precede results in any clinical setting, [Standards Before Results in Aesthetic Medicine](/blog/standards-before-results-in-aesthetic-medicine.html) articulates the same commitments in a different register.
 
