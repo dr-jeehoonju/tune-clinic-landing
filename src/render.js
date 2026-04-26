@@ -219,7 +219,7 @@ function homeChrome(entry, localeData) {
         <div class="flex items-center gap-4">
           <div class="group relative cursor-pointer hidden md:block">
             <span class="hover:text-gold transition font-bold uppercase tracking-wider text-[10px] flex items-center gap-1">
-              <i class="far fa-clock"></i> ${g.openToday}
+              <i class="far fa-clock"></i> <span data-tc-clinic-status data-open="${g.openNow}" data-closed="${g.closedNow}">${g.hoursLabel}</span>
             </span>
             <div class="absolute right-0 top-full mt-2 w-48 bg-white text-slate-800 shadow-xl rounded-sm p-3 hidden group-hover:block z-50 border border-slate-100 text-[10px]">
               <div class="flex justify-between mb-1"><span>${g.monThu}</span><span class="font-bold">11:00 - 20:00</span></div>
@@ -232,6 +232,7 @@ function homeChrome(entry, localeData) {
         </div>
       </div>
     </div>
+    <script>(function(){var el=document.querySelector('[data-tc-clinic-status]');if(!el)return;try{var p=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());var d=p.find(function(x){return x.type==='weekday';}).value;var h=parseInt(p.find(function(x){return x.type==='hour';}).value,10);if(h===24)h=0;var m=parseInt(p.find(function(x){return x.type==='minute';}).value,10);var t=h*60+m;var open=false;if((d==='Mon'||d==='Tue'||d==='Wed'||d==='Thu')&&t>=660&&t<1200)open=true;else if(d==='Fri'&&t>=660&&t<1260)open=true;else if(d==='Sat'&&t>=600&&t<960)open=true;el.textContent=open?el.dataset.open:el.dataset.closed;if(!open)el.classList.add('text-red-300');else el.classList.add('text-emerald-300');}catch(e){}})();</script>
     ${mainNav(g, entry.locale, localeData, switcher, { activeKey: null, isHome: true, mobileLanguageLinksHtml: mobileLanguageLinks })}
   `;
 }
