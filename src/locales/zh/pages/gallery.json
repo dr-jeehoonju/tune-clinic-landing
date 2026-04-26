@@ -6,5 +6,5 @@
   "description": "浏览Tune Clinic首尔术前术后案例，涵盖面部平衡、填充、轮廓与身体项目，并结合临床背景辅助咨询决策。",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
   "fragment": "fragments/zh/gallery.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

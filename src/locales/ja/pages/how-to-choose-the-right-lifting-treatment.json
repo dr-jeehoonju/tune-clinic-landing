@@ -6,6 +6,6 @@
   "description": "たるみ、ジョール、肌弛緩、フェイスライン、回復期間、ウルセラ・サーマクールFLX・オリジオ・フィラー・コラーゲンサポートの順序設計まで、ソウルのリフティング選択ガイドです。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ja/how-to-choose-the-right-lifting-treatment.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Decision Guide"
 }

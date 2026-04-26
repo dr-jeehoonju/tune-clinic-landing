@@ -6,5 +6,5 @@
   "description": "Signature Lifting คือโปรโตคอล Ultherapy 350-shot ที่แพทย์ออกแบบอย่างแม่นยำ เหมาะสำหรับผู้เดินทางที่ต้องการยกกระชับชั้นลึกและพักฟื้นน้อย.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/th/signature-lifting.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

@@ -6,6 +6,6 @@
   "description": "ค้นหาข้อมูลสกินบูสเตอร์และหัตถการฟื้นฟูในเกาหลี รวมถึง Rejuran, Juvelook, PDRN, Exosomes, Sculptra และแผนโดยแพทย์สำหรับเนื้อผิว ความเปล่งปลั่ง ความยืดหยุ่น และคุณภาพผิวระยะยาว.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/th/skin-boosters-and-regenerative-treatments.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Skin Booster Guide"
 }

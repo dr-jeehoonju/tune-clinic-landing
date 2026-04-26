@@ -6,5 +6,5 @@
   "description": "The Collagen Builder ใช้ Rejuran Black และ Juvelook Skin เพื่อกระตุ้นคอลลาเจน ฟื้นฟูความหนาแน่นผิว รูขุมขน และริ้วรอยเล็ก โดยไม่ทำให้ใบหน้าดูแน่นเกินจริง.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/th/collagen-builder.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

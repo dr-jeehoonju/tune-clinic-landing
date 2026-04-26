@@ -6,5 +6,5 @@
   "description": "튠클리닉의 콜라겐 부스터는 리쥬란 블랙과 쥬베룩 스킨을 결합하여, 과도한 볼륨감 없이 피부 밀도, 모공, 잔주름을 개선하는 원장 주도의 콜라겐 생성 프로그램입니다.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/collagen-builder.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

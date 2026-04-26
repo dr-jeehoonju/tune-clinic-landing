@@ -6,6 +6,6 @@
   "description": "Vergleichen Sie Ultherapy vs. Thermage FLX mit einer arztgeführten Seoul-Klinikperspektive.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/de/ultherapy-vs-thermage.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Gerätevergleich"
 }

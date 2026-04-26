@@ -6,6 +6,6 @@
   "description": "了解位于首尔狎鸥亭的Tune Clinic——为外国顾客提供医师主导的美容治疗、多语言沟通、旅行友好型方案规划，以理性设计取代追风式套餐。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/zh/apgujeong-aesthetic-clinic-for-foreign-patients.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Seoul Clinic Guide"
 }

@@ -6,6 +6,6 @@
   "description": "Khám phá filler da ở Hàn Quốc.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/vi/dermal-fillers-in-korea.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Hướng dẫn filler"
 }

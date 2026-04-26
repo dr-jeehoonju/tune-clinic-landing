@@ -6,5 +6,5 @@
   "description": "查看Tune Clinic首尔的项目分类、参考价格、提升、填充、胶原治疗与舒适化方案，帮助国际顾客规划美容医疗行程。",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
   "fragment": "fragments/zh/menu.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

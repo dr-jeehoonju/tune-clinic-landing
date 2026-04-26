@@ -6,6 +6,6 @@
   "description": "ใช้คู่มือยกกระชับโซลนี้เพื่อเลือกหัตถการที่เหมาะสมสำหรับปัญหาหย่อนคล้อย ผิวหย่อน ขากรรไกร ระยะเวลาพักฟื้น และการจัดลำดับโดยแพทย์สำหรับ Ultherapy, Thermage FLX, Oligio, ฟิลเลอร์ และคอลลาเจน.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/th/how-to-choose-the-right-lifting-treatment.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Decision Guide"
 }

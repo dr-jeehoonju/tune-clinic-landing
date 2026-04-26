@@ -6,5 +6,5 @@
   "description": "The Collagen Builder bei Tune Clinic Seoul kombiniert Rejuran Black und Juvelook Skin für arztgeführte Kollagenstimulation.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/de/collagen-builder.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

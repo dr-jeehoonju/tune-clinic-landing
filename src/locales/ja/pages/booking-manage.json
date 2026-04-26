@@ -7,6 +7,6 @@
   "description": "Tune Clinicの予約をキャンセルまたは変更できます。",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
   "fragment": "fragments/ja/booking-manage.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "noIndex": true
 }

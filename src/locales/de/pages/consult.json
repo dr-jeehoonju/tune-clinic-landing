@@ -6,6 +6,6 @@
   "description": "Senden Sie eine Beratungsanfrage an die Tune Clinic.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
   "fragment": "fragments/de/consult.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Beratung"
 }

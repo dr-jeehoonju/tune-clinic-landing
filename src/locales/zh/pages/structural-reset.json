@@ -6,5 +6,5 @@
   "description": "Structural Reset Elite结合Ultherapy 300发、Thermage 600发与静脉麻醉，在首尔实现更全面的非手术面部提升与紧致。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/zh/structural-reset.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

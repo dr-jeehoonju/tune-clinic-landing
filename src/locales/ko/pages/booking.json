@@ -7,5 +7,5 @@
   "description": "서울 압구정 튠클리닉 방문을 온라인으로 예약하실 수 있습니다. 원하시는 날짜와 시간을 선택해 주세요.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
   "fragment": "fragments/ko/booking.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

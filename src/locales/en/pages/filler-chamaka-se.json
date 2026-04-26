@@ -6,5 +6,5 @@
   "description": "Volume Chamaka-se at Tune Clinic Seoul uses one full bottle of Juvelook Volume, physician-designed across the entire face to stimulate collagen remodeling for a brighter, more vibrant complexion.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/en/filler-chamaka-se.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

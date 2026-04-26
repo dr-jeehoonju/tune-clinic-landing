@@ -6,6 +6,6 @@
   "description": "海外から来院される患者様向けの美容医療FAQをご案内。カウンセリングのタイミング、ダウンタイム、多言語対応、当日施術、内出血リスク、施術後のフライト、チューンクリニックの渡航配慮プランについて。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ja/aesthetic-treatment-faq-for-foreign-patients.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Patient FAQ"
 }

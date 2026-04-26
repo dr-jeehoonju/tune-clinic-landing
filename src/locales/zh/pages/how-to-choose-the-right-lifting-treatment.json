@@ -6,6 +6,6 @@
   "description": "参考本首尔提升指南，为下垂、法令纹、皮肤松弛、下颌线轮廓、恢复时间安排选择合适的治疗方案，涵盖超声刀、热玛吉FLX、Oligio、填充及胶原支持的医师主导排序规划。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/zh/how-to-choose-the-right-lifting-treatment.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Decision Guide"
 }

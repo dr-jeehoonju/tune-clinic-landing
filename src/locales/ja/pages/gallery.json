@@ -6,5 +6,5 @@
   "description": "チューンクリニック狎鷗亭のビフォーアフター症例集。顔バランス、フィラー、輪郭、ボディ施術の臨床経過を参考としてご覧いただけます。",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
   "fragment": "fragments/ja/gallery.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

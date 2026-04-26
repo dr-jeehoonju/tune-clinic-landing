@@ -6,6 +6,6 @@
   "description": "Просматривайте путеводители по эстетике Сеула Tune Clinic для международных пациентов.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ru/guides.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Хаб руководств"
 }

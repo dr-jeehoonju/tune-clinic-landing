@@ -6,5 +6,5 @@
   "description": "Learn Tune Clinic's physician-led Chamaka-se design method for international patients, including anatomical analysis, protocol planning, and travel-conscious aesthetic decision making.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/en/design-method.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

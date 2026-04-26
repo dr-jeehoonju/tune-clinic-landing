@@ -6,5 +6,5 @@
   "description": "ดูหมวดบริการ ราคาอ้างอิง โปรแกรมยกกระชับ ฟิลเลอร์ คอลลาเจน และทางเลือกด้านความสบายของ Tune Clinic สำหรับผู้ป่วยต่างชาติ.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
   "fragment": "fragments/th/menu.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

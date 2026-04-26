@@ -6,6 +6,6 @@
   "description": "Сравните процедуры лифтинга в Сеуле.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ru/korean-lifting-guide.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Гид по лифтингу"
 }

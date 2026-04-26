@@ -6,5 +6,5 @@
   "description": "Tune Clinic's Signature Lifting is a physician-calibrated Ultherapy 350-shot lifting protocol in Seoul for international patients seeking deep tissue tightening with minimal downtime.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/en/signature-lifting.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

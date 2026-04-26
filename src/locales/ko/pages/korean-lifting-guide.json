@@ -6,6 +6,6 @@
   "description": "다양한 리프팅 시술을 비교해 보세요. 처짐, 탄력 저하, 턱선 윤곽 개선 및 고객님의 일정에 맞춘 원장 주도형 복합 시술 플랜을 안내해 드립니다.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/korean-lifting-guide.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "리프팅 가이드"
 }

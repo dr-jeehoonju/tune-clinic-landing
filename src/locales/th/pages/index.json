@@ -6,5 +6,5 @@
   "description": "Tune Clinic Apgujeong Seoul ให้บริการวางแผนความงามโดยแพทย์สำหรับผู้ป่วยต่างชาติ ครอบคลุมการยกกระชับ ฟิลเลอร์ คอลลาเจน และบริการประสานงานการเดินทาง.",
   "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
   "fragment": "fragments/th/index.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

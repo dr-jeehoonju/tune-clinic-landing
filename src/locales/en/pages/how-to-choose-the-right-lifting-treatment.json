@@ -6,6 +6,6 @@
   "description": "Use this Seoul lifting guide to choose the right treatment for sagging, jowls, skin laxity, jawline definition, recovery timing, and physician-led sequencing across Ultherapy, Thermage FLX, Oligio, filler, and collagen support.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/en/how-to-choose-the-right-lifting-treatment.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Decision Guide"
 }

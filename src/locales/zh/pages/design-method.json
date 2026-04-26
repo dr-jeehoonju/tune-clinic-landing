@@ -6,5 +6,5 @@
   "description": "了解Tune Clinic的Chamaka-se设计方法，包括解剖评估、方案设计、疗程排序与面向国际顾客的旅行友好型决策逻辑。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/zh/design-method.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

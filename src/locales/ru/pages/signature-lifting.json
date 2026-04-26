@@ -6,5 +6,5 @@
   "description": "Signature Lifting в Tune Clinic Seoul — это протокол лифтинга Ultherapy 350 выстрелов.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ru/signature-lifting.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

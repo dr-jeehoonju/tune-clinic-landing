@@ -6,6 +6,6 @@
   "description": "튠클리닉의 진료 흐름 안내와 함께 에스테틱 시술을 계획해 보세요. 상담 절차, 언어 지원, 시술 타이밍, 회복, 비용 안내 및 일정에 맞춘 시술에 대한 정보를 제공합니다.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/international-patients-guide.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "여행 가이드"
 }

@@ -6,6 +6,6 @@
   "description": "튠클리닉 고객님을 위한 에스테틱 가이드를 확인해 보세요. 시술 비교, 일정 계획, 리프팅 프로그램, 필러, 재생 치료 및 자주 묻는 질문을 제공합니다.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/guides.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "가이드 허브"
 }

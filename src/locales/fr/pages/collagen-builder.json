@@ -6,5 +6,5 @@
   "description": "The Collagen Builder associe Rejuran Black et Juvelook Skin pour une stimulation du collagène.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/fr/collagen-builder.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

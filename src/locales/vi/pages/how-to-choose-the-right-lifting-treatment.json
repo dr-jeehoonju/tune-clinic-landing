@@ -6,6 +6,6 @@
   "description": "Dùng hướng dẫn nâng cơ Seoul này.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/vi/how-to-choose-the-right-lifting-treatment.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Hướng dẫn quyết định"
 }

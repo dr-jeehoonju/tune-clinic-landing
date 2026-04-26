@@ -6,5 +6,5 @@
   "description": "Apgujeong Tune Clinic in Seoul bietet arztgeführte ästhetische Planung, Lifting, Filler, Kollagen und Concierge-Service für internationale Patienten.",
   "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
   "fragment": "fragments/de/index.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

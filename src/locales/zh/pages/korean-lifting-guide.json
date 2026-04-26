@@ -6,6 +6,6 @@
   "description": "对比首尔韩国提升项目，包括超声刀Ultherapy、热玛吉Thermage FLX、Oligio、Potenza及医师主导的组合方案规划，解决下垂、松弛、下颌线问题及旅行时间安排。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/zh/korean-lifting-guide.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Lifting Guide"
 }

@@ -6,6 +6,6 @@
   "description": "Compare Ultherapy vs Thermage FLX with a physician-led Seoul clinic perspective on lifting depth, skin tightening, downtime, treatment goals, and when combination planning may be more rational than choosing one device alone.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/en/ultherapy-vs-thermage.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Device Comparison"
 }

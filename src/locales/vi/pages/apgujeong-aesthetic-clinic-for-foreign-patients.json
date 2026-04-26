@@ -6,6 +6,6 @@
   "description": "Khám phá Tune Clinic ở Apgujeong, Seoul cho bệnh nhân nước ngoài.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/vi/apgujeong-aesthetic-clinic-for-foreign-patients.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Hướng dẫn phòng khám Seoul"
 }

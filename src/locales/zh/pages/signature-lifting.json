@@ -6,5 +6,5 @@
   "description": "Signature Lifting是Tune Clinic为国际顾客设计的Ultherapy 350发医师方案，强调深层组织提升、自然紧致与极短恢复期。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/zh/signature-lifting.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

@@ -6,6 +6,6 @@
   "description": "Lên lịch thăm khám tại Tune Clinic ở Apgujeong, Seoul.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
   "fragment": "fragments/vi/booking.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Đặt lịch"
 }

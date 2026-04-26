@@ -6,6 +6,6 @@
   "description": "Khám phá tiêm căng da và điều trị tái sinh ở Hàn Quốc.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/vi/skin-boosters-and-regenerative-treatments.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Hướng dẫn tiêm căng da"
 }

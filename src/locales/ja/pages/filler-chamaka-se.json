@@ -6,5 +6,5 @@
   "description": "Volume Chamaka-seは、ジュベルックボリューム1本を顔全体に医師がデザイン注入し、コラーゲンリモデリングを誘導して暗かった顔を明るく活気あふれる肌へ導くプログラムです。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ja/filler-chamaka-se.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

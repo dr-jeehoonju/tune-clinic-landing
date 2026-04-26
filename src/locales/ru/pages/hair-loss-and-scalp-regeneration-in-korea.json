@@ -6,6 +6,6 @@
   "description": "Узнайте о медицинском планировании при выпадении волос в Корее.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ru/hair-loss-and-scalp-regeneration-in-korea.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Гид по волосам"
 }

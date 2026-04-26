@@ -6,5 +6,5 @@
   "description": "Durchsuchen Sie Tune Clinics Seoul Vorher/Nachher-Fälle zu Gesichtsbalance, Filler, Kontur und Körperbehandlungen.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
   "fragment": "fragments/de/gallery.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

@@ -6,6 +6,6 @@
   "description": "Изучите скин-бустеры и регенеративные процедуры в Корее.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ru/skin-boosters-and-regenerative-treatments.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Гид по скин-бустерам"
 }

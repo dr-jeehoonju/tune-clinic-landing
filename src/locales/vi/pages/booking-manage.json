@@ -6,7 +6,7 @@
   "description": "Hủy hoặc dời lịch hẹn tại Tune Clinic.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
   "fragment": "fragments/vi/booking-manage.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Quản lý đặt lịch",
   "noIndex": true
 }

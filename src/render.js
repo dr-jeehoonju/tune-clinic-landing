@@ -90,7 +90,7 @@ function mainNav(g, locale, localeData, switcher, options = {}) {
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex justify-between items-center h-16">
           <a href="${contactHref}" class="flex items-center gap-2">
-            <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
+            <img src="/logo.png" alt="Tune Clinic" class="h-8">
             <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
           </a>
           <div class="hidden md:flex items-center gap-6">
@@ -132,7 +132,7 @@ function mainNav(g, locale, localeData, switcher, options = {}) {
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex justify-between items-center h-16">
           <a href="${urlFor("index")}" class="flex items-center gap-2">
-            <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-8">
+            <img src="/logo.png" alt="Tune Clinic" class="h-8">
             <span class="font-serif text-xl font-bold text-slate-900 tracking-tight">Tune Clinic</span>
           </a>
           <div class="hidden md:flex items-center gap-6">
@@ -270,7 +270,7 @@ function siteFooter(entry, localeData) {
         <div class="grid lg:grid-cols-[1.4fr_1fr] gap-10">
           <div>
             <a href="${bookingHref}" class="inline-flex items-center gap-3">
-              <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-9">
+              <img src="/logo.png" alt="Tune Clinic" class="h-9">
               <span class="font-serif text-2xl text-white">Tune Clinic</span>
             </a>
             <p class="text-slate-300 leading-relaxed mt-5 max-w-md">${g.footerClinicDesc || ""}</p>
@@ -359,7 +359,7 @@ function siteFooter(entry, localeData) {
         <div class="grid lg:grid-cols-[1.25fr_0.8fr_0.8fr_1fr] gap-10">
           <div>
             <a href="${pageUrl(entry.locale, "index")}" class="inline-flex items-center gap-3">
-              <img src="/.netlify/images?url=/logo.png&w=200&fm=webp&q=90" alt="Tune Clinic" class="h-9">
+              <img src="/logo.png" alt="Tune Clinic" class="h-9">
               <span class="font-serif text-2xl text-white">Tune Clinic</span>
             </a>
             <p class="text-slate-300 leading-relaxed mt-5 max-w-md">
@@ -419,7 +419,7 @@ function siteFooter(entry, localeData) {
         <i class="fab fa-line text-3xl text-green-500 mb-3"></i>
         <p class="font-bold text-slate-900 mb-1">LINE</p>
         <p class="text-xs text-slate-500 mb-4">Scan to add Tune Clinic on LINE</p>
-        <img src="/.netlify/images?url=${g.lineQr}&w=400&fm=webp&q=90" alt="LINE QR Code" class="w-56 h-56 mx-auto rounded-lg">
+        <img src="${g.lineQr}" alt="LINE QR Code" class="w-56 h-56 mx-auto rounded-lg">
       </div>
     </div>
     <div id="wechat-qr-modal" class="hidden fixed inset-0 z-[200] bg-black/80 flex items-center justify-center p-4" onclick="if(event.target===this)this.classList.add('hidden')">
@@ -428,7 +428,7 @@ function siteFooter(entry, localeData) {
         <i class="fab fa-weixin text-3xl text-green-600 mb-3"></i>
         <p class="font-bold text-slate-900 mb-1">WeChat</p>
         <p class="text-xs text-slate-500 mb-4">Scan to add Tune Clinic on WeChat</p>
-        <img src="/.netlify/images?url=${g.wechatQr}&w=400&fm=webp&q=90" alt="WeChat QR Code" class="w-56 h-56 mx-auto rounded-lg">
+        <img src="${g.wechatQr}" alt="WeChat QR Code" class="w-56 h-56 mx-auto rounded-lg">
       </div>
     </div>
     ${isHome ? `
@@ -512,7 +512,7 @@ function renderPage(entry, localeData) {
   <meta name="twitter:image" content="${ogImage}">
   ${googleVerificationMeta()}
   <link rel="canonical" href="${canonicalUrl}">
-  <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
+  <link rel="icon" href="/logo.png">
   ${hreflang}
   ${gaScript()}
   ${metaPixelScript()}
@@ -630,7 +630,7 @@ function renderBlogPost(post, localeData) {
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(post.title)}">
   <meta name="twitter:description" content="${esc(post.description)}"><meta name="twitter:image" content="${ogImage}">
   <link rel="canonical" href="${canonicalUrl}">
-  <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
+  <link rel="icon" href="/logo.png">
   ${hreflangLinks}
   ${gaScript()}
   ${metaPixelScript()}
@@ -696,9 +696,9 @@ function renderBlogIndex(locale, posts, localeData) {
     const cardBorder = isPinned ? "border-gold/40 hover:border-gold ring-1 ring-gold/10" : "border-slate-200 hover:border-gold";
     const pinnedBadge = isPinned ? `<div class="absolute top-3 right-3 z-10 bg-slate-950/90 text-gold text-[9px] uppercase tracking-[0.18em] font-bold px-2.5 py-1 rounded-full border border-gold/40 backdrop-blur"><i class="fas fa-star mr-1"></i>${esc(pinnedLabel)}</div>` : "";
     return `
-      <a href="${blogUrl(locale, post.slug)}" class="group block rounded-2xl border ${cardBorder} bg-white hover:shadow-lg transition overflow-hidden relative">
+      <a href="${blogUrl(locale, post.slug)}" class="group flex-shrink-0 w-[78vw] sm:w-[44vw] md:w-[340px] lg:w-[360px] snap-start block rounded-2xl border ${cardBorder} bg-white hover:shadow-lg transition overflow-hidden relative">
         ${pinnedBadge}
-        ${post.ogImage ? `<div class="aspect-[16/9] overflow-hidden"><img src="/.netlify/images?url=${post.ogImage}&w=600&fm=webp&q=80" alt="${esc(post.title)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>` : ""}
+        ${post.ogImage ? `<div class="aspect-[16/9] overflow-hidden bg-slate-100"><img src="${post.ogImage}" alt="${esc(post.title)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>` : ""}
         <div class="p-6">
           <div class="flex flex-wrap gap-1.5 mb-4">${tb}</div>
           <h2 class="text-lg font-serif text-slate-900 group-hover:text-gold transition leading-snug mb-2">${esc(post.title)}</h2>
@@ -714,12 +714,18 @@ function renderBlogIndex(locale, posts, localeData) {
   const pinnedPosts = localePosts.filter((p) => p.pinned);
   const regularPosts = localePosts.filter((p) => !p.pinned);
 
-  const sectionHeader = (label, accent) => `<div class="flex items-center gap-3 mb-8"><i class="fas fa-star text-gold text-xs ${accent ? "" : "hidden"}"></i><h2 class="text-[11px] uppercase tracking-[0.22em] font-bold ${accent ? "text-slate-900" : "text-slate-500"}">${esc(label)}</h2><div class="flex-1 border-t border-slate-200"></div></div>`;
+  const arrowBtns = (sliderId) => `<div class="flex items-center gap-2 ml-auto"><button type="button" data-slider-prev="${sliderId}" aria-label="Previous" class="w-9 h-9 rounded-full border border-slate-200 text-slate-500 hover:text-gold hover:border-gold transition flex items-center justify-center"><i class="fas fa-chevron-left text-xs"></i></button><button type="button" data-slider-next="${sliderId}" aria-label="Next" class="w-9 h-9 rounded-full border border-slate-200 text-slate-500 hover:text-gold hover:border-gold transition flex items-center justify-center"><i class="fas fa-chevron-right text-xs"></i></button></div>`;
 
-  const pinnedSection = pinnedPosts.length ? `<div class="mb-16">${sectionHeader(pinnedLabel, true)}<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${pinnedPosts.map((p) => cardHtml(p, true)).join("\n")}</div></div>` : "";
-  const regularSection = regularPosts.length ? `<div>${pinnedPosts.length ? sectionHeader(allArticlesLabel, false) : ""}<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${regularPosts.map((p) => cardHtml(p, false)).join("\n")}</div></div>` : "";
+  const sliderRow = (id, posts, isPinned) => `<div class="relative"><div id="${id}" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-6 px-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">${posts.map((p) => cardHtml(p, isPinned)).join("\n")}</div></div>`;
 
-  const postsGrid = `${pinnedSection}${regularSection}`;
+  const sectionBlock = (id, label, accent, posts, isPinned) => `<div class="mb-16"><div class="flex items-center gap-3 mb-6"><i class="fas fa-star text-gold text-xs ${accent ? "" : "hidden"}"></i><h2 class="text-[11px] uppercase tracking-[0.22em] font-bold ${accent ? "text-slate-900" : "text-slate-500"}">${esc(label)}</h2><div class="hidden md:block flex-1 border-t border-slate-200 mx-2"></div>${posts.length > 3 ? arrowBtns(id) : ""}</div>${sliderRow(id, posts, isPinned)}</div>`;
+
+  const pinnedSection = pinnedPosts.length ? sectionBlock("slider-pinned", pinnedLabel, true, pinnedPosts, true) : "";
+  const regularSection = regularPosts.length ? sectionBlock("slider-regular", allArticlesLabel, false, regularPosts, false) : "";
+
+  const sliderScript = (pinnedPosts.length || regularPosts.length) ? `<script>(function(){function step(id,dir){var el=document.getElementById(id);if(!el)return;var c=el.firstElementChild;var w=c?c.offsetWidth+24:340;el.scrollBy({left:dir*w,behavior:"smooth"})}document.querySelectorAll("[data-slider-prev],[data-slider-next]").forEach(function(b){b.addEventListener("click",function(){var id=b.dataset.sliderPrev||b.dataset.sliderNext;var dir=b.dataset.sliderPrev?-1:1;step(id,dir)})})})();</script>` : "";
+
+  const postsGrid = `${pinnedSection}${regularSection}${sliderScript}`;
   const emptyState = `<div class="text-center py-20"><i class="fas fa-pen-nib text-5xl text-slate-300 mb-6"></i><p class="text-lg text-slate-500">Articles coming soon.</p></div>`;
   const structuredData = [{ "@context": "https://schema.org", "@type": "Blog", "@id": `${canonicalUrl}#blog`, url: canonicalUrl, name: `${SITE_NAME} ${blogTitle}`, description: `Evidence-based aesthetic medicine insights from ${SITE_NAME}.`, publisher: { "@id": `${SITE_URL}/#organization` }, inLanguage: g.langAttr }];
   const footer = siteFooter({ locale, template: "editorial", key: "blog-index" }, localeData);
@@ -735,7 +741,7 @@ function renderBlogIndex(locale, posts, localeData) {
   <meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta property="og:type" content="website"><meta property="og:locale" content="${localeMeta.ogLocale}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="${canonicalUrl}">
-  <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
+  <link rel="icon" href="/logo.png">
   ${hreflangLinks}
   <link rel="alternate" type="application/rss+xml" title="${SITE_NAME} Blog RSS" href="${SITE_URL}/blog/feed.xml">
   ${gaScript()}

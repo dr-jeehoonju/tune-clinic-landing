@@ -6,6 +6,6 @@
   "description": "So sánh các liệu trình nâng cơ Hàn Quốc tại Seoul.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/vi/korean-lifting-guide.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Hướng dẫn nâng cơ"
 }

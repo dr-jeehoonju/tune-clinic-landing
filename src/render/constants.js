@@ -8,7 +8,7 @@ const { SITE_URL } = require("../url-helpers");
 const languageOrder = ["en", "ja", "zh", "th", "de", "fr", "ru", "vi", "ko"];
 
 const SITE_NAME = "Tune Clinic";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/main.jpeg`;
 const GA_MEASUREMENT_ID = "G-P68CDTNEV1";
 
 // Meta Pixel ID for client-side `fbq` events. Pair with the matching
@@ -75,7 +75,7 @@ const PHYSICIANS = [
   {
     slug: "cha-seung-yeon",
     name: "Dr. Seung Yeon Cha",
-    image: `${SITE_URL}/.netlify/images?url=/cha.jpg&w=900&fm=webp&q=75`,
+    image: `${SITE_URL}/cha.jpg`,
     jobTitle: "Medical Director",
     medicalSpecialty: "Aesthetic Medicine",
     description:
@@ -84,7 +84,7 @@ const PHYSICIANS = [
   {
     slug: "kim-kwang-yeon",
     name: "Dr. Kwang Yeon Kim",
-    image: `${SITE_URL}/.netlify/images?url=/kim_ky.jpg&w=500&fm=webp&q=75`,
+    image: `${SITE_URL}/kim_ky.jpg`,
     jobTitle: "Medical Director",
     medicalSpecialty: "Aesthetic Medicine",
     description:
@@ -93,7 +93,7 @@ const PHYSICIANS = [
   {
     slug: "ju-jee-hoon",
     name: "Dr. Jee Hoon Ju",
-    image: `${SITE_URL}/.netlify/images?url=/ju.jpg&w=600&fm=webp&q=75`,
+    image: `${SITE_URL}/ju.jpg`,
     avatarPosition: "object-top",
     jobTitle: "International Director / Aesthetic Medicine Physician",
     medicalSpecialty: "Aesthetic Medicine",
@@ -105,7 +105,7 @@ const PHYSICIANS = [
   {
     slug: "jo-dong-hyun",
     name: "Dr. Dong Hyun Jo",
-    image: `${SITE_URL}/.netlify/images?url=/jo.jpg&w=600&fm=webp&q=75`,
+    image: `${SITE_URL}/jo.jpg`,
     jobTitle: "Regenerative Medicine Physician",
     medicalSpecialty: "Regenerative Medicine",
     description:
@@ -114,7 +114,7 @@ const PHYSICIANS = [
   {
     slug: "kim-beom-jin",
     name: "Dr. Beom Jin Kim",
-    image: `${SITE_URL}/.netlify/images?url=/kim_bj.jpg&w=600&fm=webp&q=75`,
+    image: `${SITE_URL}/kim_bj.jpg`,
     jobTitle: "Plastic Surgery Advisor",
     medicalSpecialty: "Plastic Surgery",
     description:
@@ -123,7 +123,7 @@ const PHYSICIANS = [
   {
     slug: "jang-seung-woo",
     name: "Dr. Seung Woo Jang",
-    image: `${SITE_URL}/.netlify/images?url=/jang.jpg&w=600&fm=webp&q=75`,
+    image: `${SITE_URL}/jang.jpg`,
     jobTitle: "Medical Advisor",
     medicalSpecialty: "General Medicine",
     description:

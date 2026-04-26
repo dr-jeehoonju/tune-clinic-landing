@@ -6,5 +6,5 @@
   "description": "The Collagen Builder结合Rejuran Black与Juvelook Skin，改善皮肤密度、细纹、毛孔与肤质，适合希望自然提升皮肤质量的顾客。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/zh/collagen-builder.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

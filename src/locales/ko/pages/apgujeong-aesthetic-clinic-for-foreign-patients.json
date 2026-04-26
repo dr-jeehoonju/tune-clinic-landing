@@ -6,6 +6,6 @@
   "description": "트렌드에 치우친 패키지가 아닌 원장 주도의 미용 시술, 충분한 상담, 일상 복귀를 고려한 체계적인 시술 계획을 원하시는 분들을 위한 압구정 튠클리닉을 만나보세요.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/apgujeong-aesthetic-clinic-for-foreign-patients.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "서울 클리닉 가이드"
 }

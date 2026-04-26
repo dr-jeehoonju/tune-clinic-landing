@@ -7,5 +7,5 @@
   "description": "Submit a consultation request to Tune Clinic. Share your treatment interests and photos for a preliminary assessment by our physician team.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased",
   "fragment": "fragments/en/consult.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

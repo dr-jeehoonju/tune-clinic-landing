@@ -6,5 +6,5 @@
   "description": "Browse Tune Clinic Seoul before and after cases across facial balance, filler, contour, and body treatments, with clinical context to support physician-led consultation.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
   "fragment": "fragments/en/gallery.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

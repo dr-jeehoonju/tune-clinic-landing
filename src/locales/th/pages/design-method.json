@@ -6,5 +6,5 @@
   "description": "เรียนรู้แนวคิด Chamaka-se ของ Tune Clinic ตั้งแต่การประเมินกายวิภาค การออกแบบโปรโตคอล ไปจนถึงการวางแผนที่เหมาะกับผู้เดินทางจากต่างประเทศ.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/th/design-method.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

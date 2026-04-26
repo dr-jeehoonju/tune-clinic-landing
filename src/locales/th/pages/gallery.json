@@ -6,5 +6,5 @@
   "description": "ดูตัวอย่างภาพก่อนและหลังของ Tune Clinic ในเคสสมดุลใบหน้า ฟิลเลอร์ คอนทัวร์ และโปรแกรมร่างกาย พร้อมบริบททางคลินิกเพื่อช่วยในการตัดสินใจ.",
   "bodyClass": "bg-slate-50 text-slate-800 antialiased overflow-y-scroll",
   "fragment": "fragments/th/gallery.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

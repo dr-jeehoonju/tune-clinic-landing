@@ -6,6 +6,6 @@
   "description": "Plan aesthetic treatment in Seoul with Tune Clinic's international patient guide covering consultation flow, language support, treatment timing, recovery, pricing expectations, and travel-friendly care.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/en/international-patients-guide.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Travel Guide"
 }

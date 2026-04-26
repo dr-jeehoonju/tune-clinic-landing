@@ -6,6 +6,6 @@
   "description": "Используйте этот гид по лифтингу в Сеуле.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ru/how-to-choose-the-right-lifting-treatment.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Гид по выбору"
 }

@@ -6,6 +6,6 @@
   "description": "튠클리닉을 방문하시는 고객님을 위해 리제네라 액티바 방식의 두피 재생 치료, 얇아지는 모발, 두피 회복, 그리고 의사 주도의 탈모 치료 플랜에 대해 알아봅니다.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ko/hair-loss-and-scalp-regeneration-in-korea.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "헤어 가이드"
 }

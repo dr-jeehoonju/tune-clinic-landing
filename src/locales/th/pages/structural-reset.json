@@ -6,5 +6,5 @@
   "description": "Structural Reset Elite รวม Ultherapy 300 shots, Thermage 600 shots และ IV sedation สำหรับการยกกระชับและกระชับผิวแบบครอบคลุมโดยไม่ผ่าตัด.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/th/structural-reset.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

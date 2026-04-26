@@ -6,6 +6,6 @@
   "description": "Explore dermal fillers in Korea with Tune Clinic's guide to Juvederm, Restylane, Belotero, Radiesse, structural filler planning, and how physician-led facial design differs from volume-first treatment.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/en/dermal-fillers-in-korea.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "Filler Guide"
 }

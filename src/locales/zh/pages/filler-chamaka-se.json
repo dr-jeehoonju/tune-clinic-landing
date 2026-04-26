@@ -6,5 +6,5 @@
   "description": "Volume Chamaka-se在Tune Clinic首尔，使用一整瓶Juvelook Volume经医师设计注射全脸，诱导胶原蛋白重塑，让暗沉面容焕发光彩与活力。",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/zh/filler-chamaka-se.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75"
+  "ogImage": "/main.jpeg"
 }

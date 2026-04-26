@@ -6,6 +6,6 @@
   "description": "Читайте ответы на FAQ для иностранных пациентов, посещающих Сеул.",
   "bodyClass": "bg-white text-slate-800 antialiased",
   "fragment": "fragments/ru/aesthetic-treatment-faq-for-foreign-patients.html",
-  "ogImage": "/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75",
+  "ogImage": "/main.jpeg",
   "chromeLabel": "FAQ пациентов"
 }
