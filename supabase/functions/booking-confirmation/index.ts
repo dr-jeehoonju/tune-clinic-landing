@@ -27,6 +27,10 @@ interface BookingRecord {
   appointment_date: string;
   appointment_time: string;
   created_at: string;
+  // Optional — only populated when the patient ticked the IV sedation
+  // opt-in on the booking form. Drives a fasting + safety-consult
+  // reminder block in the patient confirmation email.
+  iv_sedation_requested?: boolean | null;
 }
 
 interface WebhookPayload {
@@ -81,6 +85,10 @@ interface PatientEmailDict {
   // LINE + WeChat. Encoded as a discriminator so the layout decision is
   // localizable rather than hard-coded to `locale === "ko"`.
   messengerRow2: "phone" | "line_wechat";
+  // IV sedation safety reminder — only rendered when
+  // `iv_sedation_requested === true`. Title shows in the callout header,
+  // body is the explanatory paragraph (8h fasting + DM consult).
+  ivSedationReminder: { title: string; body: string };
 }
 
 const PATIENT_EMAIL_FONT_STACK: Record<string, string> = {
@@ -131,6 +139,11 @@ const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
     addressLine2: "Mon–Thu 11:00–20:00 · Fri 11:00–21:00 · Sat 10:00–16:00 KST",
     copyright: "© 2026 Apgujeong Tune Clinic · Evidence-Based Aesthetics",
     messengerRow2: "line_wechat",
+    ivSedationReminder: {
+      title: "IV sedation safety reminder",
+      body:
+        "You requested IV sedation. An 8-hour fasting period before your appointment is mandatory, and we will confirm pre-appointment safety instructions with you in advance.",
+    },
   },
   ko: {
     langAttr: "ko",
@@ -163,6 +176,11 @@ const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
     addressLine2: "월–목 11:00–20:00 · 금 11:00–21:00 · 토 10:00–16:00",
     copyright: "© 2026 압구정 튠클리닉 · 근거 기반 미용 의학",
     messengerRow2: "phone",
+    ivSedationReminder: {
+      title: "수면 마취 안전 안내",
+      body:
+        "수면 마취를 요청해 주셨습니다. 시술 당일 8시간 금식이 필수이며, 사전 안전 관련 안내는 예약 확정 후 별도로 드리겠습니다.",
+    },
   },
   ja: {
     langAttr: "ja",
@@ -196,6 +214,11 @@ const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
     addressLine2: "月〜木 11:00〜20:00 · 金 11:00〜21:00 · 土 10:00〜16:00 KST",
     copyright: "© 2026 狎鴎亭 Tune Clinic · エビデンスに基づく美容医療",
     messengerRow2: "line_wechat",
+    ivSedationReminder: {
+      title: "静脈鎮静に関する安全のご案内",
+      body:
+        "静脈鎮静をご希望いただきました。当日は施術前8時間の絶食が必須となります。施術前の安全に関する詳細なご案内は、別途お送りいたします。",
+    },
   },
   zh: {
     langAttr: "zh-Hans",
@@ -227,6 +250,12 @@ const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
     addressLine2: "周一至周四 11:00–20:00 · 周五 11:00–21:00 · 周六 10:00–16:00 KST",
     copyright: "© 2026 狎鸥亭 Tune Clinic · 循证医学美容",
     messengerRow2: "line_wechat",
+    // TODO(i18n): native translation by 2026-05-12
+    ivSedationReminder: {
+      title: "IV sedation safety reminder",
+      body:
+        "You requested IV sedation. An 8-hour fasting period before your appointment is mandatory, and we will confirm pre-appointment safety instructions with you in advance.",
+    },
   },
   de: {
     langAttr: "de",
@@ -260,6 +289,12 @@ const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
     addressLine2: "Mo–Do 11:00–20:00 · Fr 11:00–21:00 · Sa 10:00–16:00 KST",
     copyright: "© 2026 Apgujeong Tune Clinic · Evidenzbasierte Ästhetik",
     messengerRow2: "line_wechat",
+    // TODO(i18n): native translation by 2026-05-12
+    ivSedationReminder: {
+      title: "IV sedation safety reminder",
+      body:
+        "You requested IV sedation. An 8-hour fasting period before your appointment is mandatory, and we will confirm pre-appointment safety instructions with you in advance.",
+    },
   },
   fr: {
     langAttr: "fr",
@@ -293,6 +328,12 @@ const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
     addressLine2: "Lun–Jeu 11:00–20:00 · Ven 11:00–21:00 · Sam 10:00–16:00 KST",
     copyright: "© 2026 Apgujeong Tune Clinic · Esthétique fondée sur les preuves",
     messengerRow2: "line_wechat",
+    // TODO(i18n): native translation by 2026-05-12
+    ivSedationReminder: {
+      title: "IV sedation safety reminder",
+      body:
+        "You requested IV sedation. An 8-hour fasting period before your appointment is mandatory, and we will confirm pre-appointment safety instructions with you in advance.",
+    },
   },
   ru: {
     langAttr: "ru",
@@ -325,6 +366,12 @@ const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
     addressLine2: "Пн–Чт 11:00–20:00 · Пт 11:00–21:00 · Сб 10:00–16:00 KST",
     copyright: "© 2026 Apgujeong Tune Clinic · Доказательная эстетика",
     messengerRow2: "line_wechat",
+    // TODO(i18n): native translation by 2026-05-12
+    ivSedationReminder: {
+      title: "IV sedation safety reminder",
+      body:
+        "You requested IV sedation. An 8-hour fasting period before your appointment is mandatory, and we will confirm pre-appointment safety instructions with you in advance.",
+    },
   },
   th: {
     langAttr: "th",
@@ -360,6 +407,12 @@ const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
     copyright:
       "© 2026 Apgujeong Tune Clinic · เวชศาสตร์ความงามบนพื้นฐานหลักฐานทางการแพทย์",
     messengerRow2: "line_wechat",
+    // TODO(i18n): native translation by 2026-05-12
+    ivSedationReminder: {
+      title: "IV sedation safety reminder",
+      body:
+        "You requested IV sedation. An 8-hour fasting period before your appointment is mandatory, and we will confirm pre-appointment safety instructions with you in advance.",
+    },
   },
   vi: {
     langAttr: "vi",
@@ -393,6 +446,12 @@ const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
     addressLine2: "T2–T5 11:00–20:00 · T6 11:00–21:00 · T7 10:00–16:00 KST",
     copyright: "© 2026 Apgujeong Tune Clinic · Thẩm mỹ dựa trên bằng chứng",
     messengerRow2: "line_wechat",
+    // TODO(i18n): native translation by 2026-05-12
+    ivSedationReminder: {
+      title: "IV sedation safety reminder",
+      body:
+        "You requested IV sedation. An 8-hour fasting period before your appointment is mandatory, and we will confirm pre-appointment safety instructions with you in advance.",
+    },
   },
 };
 
@@ -437,6 +496,17 @@ async function patientEmailHtml(b: BookingRecord): Promise<string> {
     .map((s) => `<li>${s}</li>`)
     .join("\n            ");
 
+  // Only rendered when the patient ticked the IV sedation opt-in. Visual
+  // intent matches the inline notice on booking.html: amber border-left
+  // callout with a triangle icon — instantly readable as a safety note.
+  const ivSedationHtml = b.iv_sedation_requested === true
+    ? `
+        <div style="background:#fffbeb;border-left:4px solid #f59e0b;border-radius:8px;padding:16px 18px;margin:0 0 24px;">
+          <p style="margin:0 0 6px;color:#92400e;font-size:13px;font-weight:700;">⚠ ${dict.ivSedationReminder.title}</p>
+          <p style="margin:0;color:#78350f;font-size:12px;line-height:1.6;">${dict.ivSedationReminder.body}</p>
+        </div>`
+    : "";
+
   return `
 <!DOCTYPE html>
 <html lang="${dict.langAttr}">
@@ -474,7 +544,7 @@ async function patientEmailHtml(b: BookingRecord): Promise<string> {
         <div style="text-align:center;margin:0 0 24px;">
           <span style="display:inline-block;background:#dcfce7;color:#166534;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:700;">${dict.badge}</span>
         </div>
-
+${ivSedationHtml}
         <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:20px;margin:0 0 24px;">
           <p style="margin:0 0 8px;color:#92400e;font-size:14px;font-weight:700;">${dict.whatNextHeader}</p>
           <ol style="margin:0 0 12px;padding:0 0 0 18px;color:#92400e;font-size:13px;line-height:1.8;">
@@ -548,6 +618,7 @@ async function clinicNotificationKoHtml(b: BookingRecord): Promise<string> {
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">프로그램</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${treatments || "미정"}</td></tr>
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">언어</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${langLabel}</td></tr>
           <tr><td style="padding:6px 0;color:#64748b;font-size:13px;">시간대</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.patient_timezone}</td></tr>
+          ${b.iv_sedation_requested === true ? `<tr><td style="padding:6px 0;color:#b45309;font-size:13px;font-weight:700;">수면 마취</td><td style="padding:6px 0;color:#b45309;font-size:14px;font-weight:700;">⚠ 요청됨 (8시간 금식 / 사전 안전 안내 필요)</td></tr>` : ""}
           ${b.message ? `<tr><td style="padding:6px 0;color:#64748b;font-size:13px;vertical-align:top;">메모</td><td style="padding:6px 0;color:#0f172a;font-size:14px;">${b.message}</td></tr>` : ""}
         </table>
         ${clinicContactHtml(b)}

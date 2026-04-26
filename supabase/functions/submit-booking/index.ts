@@ -48,7 +48,10 @@ const JSON_HEADERS = { ...CORS, "Content-Type": "application/json" };
 
 const ALLOWED_TREATMENTS = new Set([
   "signature-lifting",
+  // `structural-reset` retained for legacy rows / external links; the new
+  // public form swapped this option for `metacell-protocol` on 2026-04-26.
   "structural-reset",
+  "metacell-protocol",
   "collagen-builder",
   "filler-chamaka-se",
   "other",
@@ -92,6 +95,9 @@ interface SubmitPayload {
   referrer?: string | null;
   user_agent?: string | null;
   preferred_contact_channel?: string | null;
+  // Patient-opt-in for IV conscious sedation. Triggers an 8-hour fasting +
+  // pre-appointment safety-consult reminder in the confirmation email.
+  iv_sedation_requested?: boolean | string | null;
   // P0-3: CAPI dedupe identifiers
   event_id?: string | null;
   event_time?: number | null;
@@ -157,6 +163,19 @@ function validatePayload(p: SubmitPayload): { ok: true; row: Record<string, unkn
     ? channelRaw.toLowerCase()
     : null;
 
+  // Coerce IV-sedation opt-in to a strict boolean. Accept the truthy strings
+  // "yes"/"true"/"1" the form submits via checkbox `value`, plus native
+  // booleans, and treat anything else (including unset) as `false`.
+  const ivRaw = p.iv_sedation_requested;
+  let iv_sedation_requested = false;
+  if (ivRaw === true) iv_sedation_requested = true;
+  else if (typeof ivRaw === "string") {
+    const v = ivRaw.trim().toLowerCase();
+    if (v === "yes" || v === "true" || v === "1" || v === "on") {
+      iv_sedation_requested = true;
+    }
+  }
+
   // event_time is a unix-epoch seconds value (number). Reject obviously
   // bogus values so we never insert garbage into a BIGINT column.
   let event_time: number | null = null;
@@ -195,6 +214,7 @@ function validatePayload(p: SubmitPayload): { ok: true; row: Record<string, unkn
       user_agent:   sanitizeString(p.user_agent,   500),
 
       preferred_contact_channel,
+      iv_sedation_requested,
 
       event_id: sanitizeString(p.event_id, 64),
       event_time,
