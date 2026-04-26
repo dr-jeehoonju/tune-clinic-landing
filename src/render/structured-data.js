@@ -10,6 +10,10 @@ const {
   languageOrder,
 } = require("./constants");
 const { stripHtml, absoluteAssetUrl } = require("./head");
+const {
+  reviewsById,
+  reviewIdsForEntry,
+} = require("./reviews-module");
 
 function breadcrumbName(entry, localeData) {
   const g = localeData[entry.locale].global;
@@ -169,6 +173,36 @@ function offerCatalogStructuredData(entry, localeData, canonicalUrl) {
   };
 }
 
+// P1-E: per-review schema.org/Review nodes for surfaces that display
+// curated Google reviews. We deliberately do NOT emit AggregateRating
+// — Google's review counts are not data we own, and republishing them
+// as a clinic-side aggregate carries policy risk for medical surfaces.
+// Per-Review nodes ARE allowed because we republish each review with
+// verifiable attribution (link to the public GMB profile).
+function reviewsStructuredData(reviewIds) {
+  if (!Array.isArray(reviewIds) || !reviewIds.length) return [];
+  return reviewIds
+    .map((id) => reviewsById[id])
+    .filter(Boolean)
+    .map((review) => ({
+      "@context": "https://schema.org",
+      "@type": "Review",
+      author: { "@type": "Person", "name": review.displayName },
+      datePublished: `${review.date}-01`,
+      reviewBody: review.body,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: review.rating,
+        bestRating: 5,
+      },
+      itemReviewed: {
+        "@type": "MedicalClinic",
+        name: "Tune Clinic Apgujeong",
+        url: SITE_URL + "/",
+      },
+    }));
+}
+
 function videoStructuredData(entry, canonicalUrl) {
   if (entry.key !== "index") return null;
 
@@ -290,8 +324,9 @@ function pageStructuredData(entry, localeData, fragment) {
   const physicians = entry.key === "index" ? physicianStructuredData(entry.locale) : [];
   const offerCatalog = offerCatalogStructuredData(entry, localeData, canonicalUrl);
   const video = videoStructuredData(entry, canonicalUrl);
+  const reviews = reviewsStructuredData(reviewIdsForEntry(entry));
 
-  return [org, website, webPage, breadcrumb, faq, service, offerCatalog, video, ...physicians].filter(Boolean);
+  return [org, website, webPage, breadcrumb, faq, service, offerCatalog, video, ...physicians, ...reviews].filter(Boolean);
 }
 
 function resolveAuthors(authorSlugs) {
@@ -355,6 +390,7 @@ module.exports = {
   physicianStructuredData,
   offerCatalogStructuredData,
   videoStructuredData,
+  reviewsStructuredData,
   pageStructuredData,
   resolveAuthors,
   blogPostStructuredData,
