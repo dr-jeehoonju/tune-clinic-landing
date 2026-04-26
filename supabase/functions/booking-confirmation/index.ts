@@ -36,105 +36,394 @@ interface WebhookPayload {
   schema: string;
 }
 
-async function patientEmailHtmlKo(b: BookingRecord): Promise<string> {
-  const dateFormatted = formatDate(b.appointment_date, "ko");
-  const timeKST = b.appointment_time.slice(0, 5);
-  const timeLocal = kstToLocal(
-    b.appointment_date,
-    b.appointment_time,
-    b.patient_timezone,
-  );
-  const treatments = treatmentList(b.treatment_interest, "ko");
-  const manageHref = await manageUrl(b);
+// ── Patient-facing email i18n ──
+//
+// Every visible string in the booking-acknowledgement email is sourced
+// from this dictionary so adding a new locale is a copy-translate task
+// rather than an HTML refactor. Politeness rules per locale:
+//   ko — 존댓말
+//   ja — 丁寧語 (です/ます/いたします)
+//   zh — formal (您 / 请 / 我们)
+//   de — Sie-form
+//   fr — vous
+//   ru — Вы (capital, formal address)
+//   th — formal/polite, neutral clinic voice (ค่ะ)
+//   vi — Quý khách / formal
+//
+// Layout note: KO uses the existing two-row messenger CTA (WhatsApp +
+// Instagram on row 1, phone on row 2). All other locales keep the
+// original four-channel layout (WhatsApp + Instagram on row 1, LINE +
+// WeChat on row 2).
 
-  return `
-<!DOCTYPE html>
-<html lang="ko">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;">
-  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
-    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);">
-      <div style="background:#0f172a;padding:32px 28px;text-align:center;">
-        <h1 style="margin:0;color:#c9a55a;font-size:14px;letter-spacing:3px;text-transform:uppercase;font-weight:700;">Tune Clinic</h1>
-        <p style="margin:12px 0 0;color:#fff;font-size:22px;font-family:Georgia,serif;">예약 신청이 접수되었습니다</p>
-      </div>
+interface PatientEmailDict {
+  langAttr: string;
+  subject: (date: string, time: string) => string;
+  headerTitle: string;
+  intro: (name: string) => string;
+  dateLabel: string;
+  timeLabel: string;
+  programLabel: string;
+  badge: string;
+  whatNextHeader: string;
+  whatNextSteps: [string, string, string];
+  noFurtherAction: string;
+  messengerHeader: string;
+  messengerHint: string;
+  hoursLine: string;
+  manageHeader: string;
+  manageBtn: string;
+  programBtn: string;
+  addressHeader: string;
+  addressLine1: string;
+  addressLine2: string;
+  copyright: string;
+  // KO uses Phone for the second messenger row; everyone else uses
+  // LINE + WeChat. Encoded as a discriminator so the layout decision is
+  // localizable rather than hard-coded to `locale === "ko"`.
+  messengerRow2: "phone" | "line_wechat";
+}
 
-      <div style="padding:32px 28px;">
-        <p style="margin:0 0 20px;color:#334155;font-size:15px;line-height:1.6;">
-          <strong>${b.patient_name}</strong>님 안녕하세요,<br>
-          튠클리닉을 찾아 주셔서 감사합니다. 신청해 주신 예약 내용은 아래와 같습니다.
-        </p>
+const PATIENT_EMAIL_FONT_STACK: Record<string, string> = {
+  ko:
+    "-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif",
+  ja:
+    "-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans','Yu Gothic',sans-serif",
+  zh:
+    "-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif",
+  th:
+    "-apple-system,BlinkMacSystemFont,'Segoe UI','Sukhumvit Set',Tahoma,sans-serif",
+  ru:
+    "-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue','PT Sans',sans-serif",
+  en: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif",
+  de: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif",
+  fr: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif",
+  vi: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif",
+};
 
-        <div style="background:#f8fafc;border-radius:12px;padding:20px;margin:0 0 24px;">
-          <table style="width:100%;border-collapse:collapse;">
-            <tr>
-              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;width:100px;">날짜</td>
-              <td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFormatted}</td>
-            </tr>
-            <tr>
-              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;">시간</td>
-              <td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST${timeLocal !== "—" ? ` (${timeLocal} ${b.patient_timezone})` : ""}</td>
-            </tr>
-            ${treatments ? `<tr>
-              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;">프로그램</td>
-              <td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${treatments}</td>
-            </tr>` : ""}
-          </table>
-        </div>
+const PATIENT_EMAIL_STRINGS: Record<string, PatientEmailDict> = {
+  en: {
+    langAttr: "en",
+    subject: (date, time) => `Booking Request Received — ${date} at ${time} KST`,
+    headerTitle: "Booking Request Received",
+    intro: (name) =>
+      `Hi <strong>${name}</strong>,<br>\n          Thank you for your booking request. Here are the details we received:`,
+    dateLabel: "Date",
+    timeLabel: "Time",
+    programLabel: "Program",
+    badge: "✓ Our team will respond shortly",
+    whatNextHeader: "What happens next",
+    whatNextSteps: [
+      "Our concierge team reviews your request (typically within one business day).",
+      "We confirm your appointment by email and send treatment-specific preparation notes.",
+      "If you're traveling to Seoul, we share travel-conscious scheduling guidance.",
+    ],
+    noFurtherAction:
+      "No further action is required from you — your booking is in our queue.",
+    messengerHeader: "For fastest confirmation, you may also message us via:",
+    messengerHint: "Optional — your booking is already in our queue.",
+    hoursLine:
+      "Clinic hours (KST): Mon–Thu 11:00–20:00 · Fri 11:00–21:00 · Sat 10:00–16:00 · Sun closed",
+    manageHeader: "Need to change your plans?",
+    manageBtn: "Reschedule or Cancel",
+    programBtn: "Change Program",
+    addressHeader: "📍 Apgujeong Tune Clinic",
+    addressLine1: "5th floor, 868 Nonhyeon-ro, Gangnam-gu, Seoul 06022",
+    addressLine2: "Mon–Thu 11:00–20:00 · Fri 11:00–21:00 · Sat 10:00–16:00 KST",
+    copyright: "© 2026 Apgujeong Tune Clinic · Evidence-Based Aesthetics",
+    messengerRow2: "line_wechat",
+  },
+  ko: {
+    langAttr: "ko",
+    subject: (date, time) =>
+      `[튠클리닉] 예약 신청이 접수되었습니다 — ${date} ${time} KST`,
+    headerTitle: "예약 신청이 접수되었습니다",
+    intro: (name) =>
+      `<strong>${name}</strong>님 안녕하세요,<br>\n          튠클리닉을 찾아 주셔서 감사합니다. 신청해 주신 예약 내용은 아래와 같습니다.`,
+    dateLabel: "날짜",
+    timeLabel: "시간",
+    programLabel: "프로그램",
+    badge: "✓ 담당 직원이 곧 안내해 드립니다",
+    whatNextHeader: "이후 진행 안내",
+    whatNextSteps: [
+      "튠클리닉 컨시어지 팀이 영업일 1일 이내로 신청 내용을 검토합니다.",
+      "예약이 확정되면 확정 안내 메일과 함께 시술별 사전 준비 사항을 보내드립니다.",
+      "한국 방문 일정이 있으신 경우, 일정에 맞춘 예약 안내를 함께 드립니다.",
+    ],
+    noFurtherAction:
+      "추가로 진행하실 절차는 없습니다 — 신청은 정상적으로 접수되었습니다.",
+    messengerHeader: "더 빠른 확정을 원하시면 아래 채널로 메시지 주세요",
+    messengerHint: "선택 사항입니다 — 신청 내역은 이미 접수되었습니다.",
+    hoursLine:
+      "진료 시간 (KST): 월–목 11:00–20:00 · 금 11:00–21:00 · 토 10:00–16:00 · 일 휴무",
+    manageHeader: "예약 일정을 변경하시겠어요?",
+    manageBtn: "일정 변경 또는 취소",
+    programBtn: "프로그램 변경",
+    addressHeader: "📍 압구정 튠클리닉",
+    addressLine1: "서울 강남구 논현로 868, 5층 (06022)",
+    addressLine2: "월–목 11:00–20:00 · 금 11:00–21:00 · 토 10:00–16:00",
+    copyright: "© 2026 압구정 튠클리닉 · 근거 기반 미용 의학",
+    messengerRow2: "phone",
+  },
+  ja: {
+    langAttr: "ja",
+    subject: (date, time) =>
+      `[Tune Clinic] ご予約のお申込みを受け付けました — ${date} ${time} KST`,
+    headerTitle: "ご予約のお申込みを受け付けました",
+    intro: (name) =>
+      `<strong>${name}</strong>様<br>\n          このたびはチューンクリニックへご予約のお申込みをいただき、誠にありがとうございます。お申込みいただいた内容は以下のとおりです。`,
+    dateLabel: "日付",
+    timeLabel: "時間",
+    programLabel: "プログラム",
+    badge: "✓ 担当スタッフより追ってご案内いたします",
+    whatNextHeader: "今後の流れ",
+    whatNextSteps: [
+      "当クリニックのコンシェルジュチームが、原則1営業日以内に内容を確認いたします。",
+      "ご予約が確定次第、確定メールおよび治療ごとの事前準備のご案内をお送りいたします。",
+      "韓国へのご渡航予定がございましたら、ご日程に合わせた予約のご案内も併せてお送りいたします。",
+    ],
+    noFurtherAction:
+      "お客様側でのお手続きは特にございません — お申込みは正しく受け付けられております。",
+    messengerHeader:
+      "より早い確定をご希望の場合は、以下のチャンネルからお気軽にメッセージをお送りください",
+    messengerHint: "任意です — お申込みはすでに受付済みです。",
+    hoursLine:
+      "診療時間 (KST): 月〜木 11:00〜20:00 · 金 11:00〜21:00 · 土 10:00〜16:00 · 日休診",
+    manageHeader: "ご予定の変更が必要ですか?",
+    manageBtn: "日程変更・キャンセル",
+    programBtn: "プログラム変更",
+    addressHeader: "📍 狎鴎亭 Tune Clinic",
+    addressLine1: "ソウル特別市 江南区 論峴路868, 5階 (06022)",
+    addressLine2: "月〜木 11:00〜20:00 · 金 11:00〜21:00 · 土 10:00〜16:00 KST",
+    copyright: "© 2026 狎鴎亭 Tune Clinic · エビデンスに基づく美容医療",
+    messengerRow2: "line_wechat",
+  },
+  zh: {
+    langAttr: "zh-Hans",
+    subject: (date, time) =>
+      `[Tune Clinic] 您的预约申请已收到 — ${date} ${time} KST`,
+    headerTitle: "您的预约申请已收到",
+    intro: (name) =>
+      `<strong>${name}</strong> 您好，<br>\n          感谢您选择 Tune Clinic 提交预约申请。我们已收到您提交的以下信息：`,
+    dateLabel: "日期",
+    timeLabel: "时间",
+    programLabel: "项目",
+    badge: "✓ 我们的团队将尽快与您联系",
+    whatNextHeader: "后续流程",
+    whatNextSteps: [
+      "我们的礼宾团队将在通常一个工作日内审核您的预约申请。",
+      "预约确认后，我们会通过邮件向您发送确认通知，并附上对应项目的术前准备说明。",
+      "如您计划前往首尔，我们也会根据您的行程为您提供更合适的预约安排建议。",
+    ],
+    noFurtherAction: "您无需再进行其他操作 — 您的预约申请已成功进入处理队列。",
+    messengerHeader: "如希望尽快确认，您也可以通过以下方式联系我们：",
+    messengerHint: "可选 — 您的预约申请已进入我们的处理队列。",
+    hoursLine:
+      "营业时间 (KST)：周一至周四 11:00–20:00 · 周五 11:00–21:00 · 周六 10:00–16:00 · 周日休诊",
+    manageHeader: "需要调整您的行程吗？",
+    manageBtn: "更改日期或取消",
+    programBtn: "更改项目",
+    addressHeader: "📍 狎鸥亭 Tune Clinic",
+    addressLine1: "首尔特别市 江南区 论岘路868, 5楼 (06022)",
+    addressLine2: "周一至周四 11:00–20:00 · 周五 11:00–21:00 · 周六 10:00–16:00 KST",
+    copyright: "© 2026 狎鸥亭 Tune Clinic · 循证医学美容",
+    messengerRow2: "line_wechat",
+  },
+  de: {
+    langAttr: "de",
+    subject: (date, time) =>
+      `Ihre Buchungsanfrage ist eingegangen — ${date} um ${time} KST`,
+    headerTitle: "Buchungsanfrage eingegangen",
+    intro: (name) =>
+      `Guten Tag <strong>${name}</strong>,<br>\n          vielen Dank für Ihre Buchungsanfrage. Hier sind die uns übermittelten Daten:`,
+    dateLabel: "Datum",
+    timeLabel: "Uhrzeit",
+    programLabel: "Programm",
+    badge: "✓ Unser Team meldet sich in Kürze bei Ihnen",
+    whatNextHeader: "Wie es weitergeht",
+    whatNextSteps: [
+      "Unser Concierge-Team prüft Ihre Anfrage in der Regel innerhalb eines Werktags.",
+      "Sobald Ihr Termin bestätigt ist, senden wir Ihnen eine Bestätigung per E-Mail sowie behandlungsspezifische Vorbereitungshinweise.",
+      "Falls Sie nach Seoul reisen, geben wir Ihnen reisefreundliche Empfehlungen zur Terminplanung.",
+    ],
+    noFurtherAction:
+      "Sie müssen nichts weiter unternehmen — Ihre Anfrage ist bereits in unserer Bearbeitung.",
+    messengerHeader:
+      "Für eine schnellere Bestätigung können Sie uns auch hier eine Nachricht senden:",
+    messengerHint: "Optional — Ihre Anfrage ist bereits in unserer Bearbeitung.",
+    hoursLine:
+      "Öffnungszeiten (KST): Mo–Do 11:00–20:00 · Fr 11:00–21:00 · Sa 10:00–16:00 · So geschlossen",
+    manageHeader: "Müssen Sie Ihre Pläne ändern?",
+    manageBtn: "Termin ändern oder stornieren",
+    programBtn: "Programm ändern",
+    addressHeader: "📍 Apgujeong Tune Clinic",
+    addressLine1: "5. Etage, 868 Nonhyeon-ro, Gangnam-gu, Seoul 06022",
+    addressLine2: "Mo–Do 11:00–20:00 · Fr 11:00–21:00 · Sa 10:00–16:00 KST",
+    copyright: "© 2026 Apgujeong Tune Clinic · Evidenzbasierte Ästhetik",
+    messengerRow2: "line_wechat",
+  },
+  fr: {
+    langAttr: "fr",
+    subject: (date, time) =>
+      `Votre demande de réservation a été reçue — ${date} à ${time} KST`,
+    headerTitle: "Demande de réservation reçue",
+    intro: (name) =>
+      `Bonjour <strong>${name}</strong>,<br>\n          Nous vous remercions de votre demande de réservation. Voici les informations que nous avons reçues :`,
+    dateLabel: "Date",
+    timeLabel: "Heure",
+    programLabel: "Programme",
+    badge: "✓ Notre équipe vous répondra sous peu",
+    whatNextHeader: "Étapes suivantes",
+    whatNextSteps: [
+      "Notre équipe conciergerie examine votre demande, généralement sous un jour ouvré.",
+      "Dès la confirmation de votre rendez-vous, nous vous adresserons un e-mail de confirmation accompagné des consignes de préparation propres au traitement.",
+      "Si vous voyagez à Séoul, nous vous transmettrons des recommandations de planification adaptées à votre séjour.",
+    ],
+    noFurtherAction:
+      "Aucune autre action n'est requise de votre part — votre demande est déjà entre nos mains.",
+    messengerHeader:
+      "Pour une confirmation plus rapide, vous pouvez également nous écrire via :",
+    messengerHint: "Facultatif — votre demande est déjà prise en charge.",
+    hoursLine:
+      "Horaires de la clinique (KST) : Lun–Jeu 11:00–20:00 · Ven 11:00–21:00 · Sam 10:00–16:00 · Dim fermé",
+    manageHeader: "Besoin de modifier vos plans ?",
+    manageBtn: "Reporter ou annuler",
+    programBtn: "Changer de programme",
+    addressHeader: "📍 Apgujeong Tune Clinic",
+    addressLine1: "5e étage, 868 Nonhyeon-ro, Gangnam-gu, Séoul 06022",
+    addressLine2: "Lun–Jeu 11:00–20:00 · Ven 11:00–21:00 · Sam 10:00–16:00 KST",
+    copyright: "© 2026 Apgujeong Tune Clinic · Esthétique fondée sur les preuves",
+    messengerRow2: "line_wechat",
+  },
+  ru: {
+    langAttr: "ru",
+    subject: (date, time) => `Заявка на запись принята — ${date}, ${time} KST`,
+    headerTitle: "Заявка на запись принята",
+    intro: (name) =>
+      `Здравствуйте, <strong>${name}</strong>!<br>\n          Благодарим Вас за обращение в Tune Clinic. Мы получили Вашу заявку со следующими данными:`,
+    dateLabel: "Дата",
+    timeLabel: "Время",
+    programLabel: "Программа",
+    badge: "✓ Наш специалист свяжется с Вами в ближайшее время",
+    whatNextHeader: "Что дальше",
+    whatNextSteps: [
+      "Наша команда консьержей рассмотрит Вашу заявку, как правило, в течение одного рабочего дня.",
+      "После подтверждения записи мы направим Вам письмо с подтверждением и рекомендациями по подготовке к выбранной процедуре.",
+      "Если Вы планируете поездку в Сеул, мы предложим оптимальное время визита с учётом Вашего маршрута.",
+    ],
+    noFurtherAction:
+      "От Вас никаких дополнительных действий не требуется — Ваша заявка уже принята к обработке.",
+    messengerHeader:
+      "Для более быстрого подтверждения Вы также можете написать нам:",
+    messengerHint: "По желанию — Ваша заявка уже принята к обработке.",
+    hoursLine:
+      "Часы работы (KST): Пн–Чт 11:00–20:00 · Пт 11:00–21:00 · Сб 10:00–16:00 · Вс — выходной",
+    manageHeader: "Нужно изменить планы?",
+    manageBtn: "Перенести или отменить",
+    programBtn: "Изменить программу",
+    addressHeader: "📍 Apgujeong Tune Clinic",
+    addressLine1: "5-й этаж, 868 Nonhyeon-ro, Gangnam-gu, Сеул 06022",
+    addressLine2: "Пн–Чт 11:00–20:00 · Пт 11:00–21:00 · Сб 10:00–16:00 KST",
+    copyright: "© 2026 Apgujeong Tune Clinic · Доказательная эстетика",
+    messengerRow2: "line_wechat",
+  },
+  th: {
+    langAttr: "th",
+    subject: (date, time) =>
+      `[Tune Clinic] รับคำขอจองของคุณเรียบร้อยแล้ว — ${date} ${time} KST`,
+    headerTitle: "รับคำขอจองเรียบร้อยแล้ว",
+    intro: (name) =>
+      `เรียนคุณ <strong>${name}</strong> ค่ะ<br>\n          ขอบคุณที่ส่งคำขอจองมายัง Tune Clinic ค่ะ เราได้รับข้อมูลของคุณดังนี้`,
+    dateLabel: "วันที่",
+    timeLabel: "เวลา",
+    programLabel: "โปรแกรม",
+    badge: "✓ ทีมงานของเราจะติดต่อกลับโดยเร็ว",
+    whatNextHeader: "ขั้นตอนต่อไป",
+    whatNextSteps: [
+      "ทีมที่ปรึกษาของคลินิกจะตรวจสอบคำขอจองของคุณ โดยทั่วไปภายใน 1 วันทำการ",
+      "เมื่อยืนยันการจองแล้ว เราจะส่งอีเมลยืนยัน พร้อมคำแนะนำการเตรียมตัวเฉพาะของแต่ละหัตถการให้คุณ",
+      "หากคุณวางแผนเดินทางมาโซล เราจะแนะนำตารางเวลาที่เหมาะสมกับการเดินทางของคุณด้วยค่ะ",
+    ],
+    noFurtherAction:
+      "คุณไม่ต้องดำเนินการเพิ่มเติมใด ๆ — คำขอจองของคุณอยู่ในระบบของเราเรียบร้อยแล้ว",
+    messengerHeader:
+      "หากต้องการยืนยันให้เร็วขึ้น คุณสามารถส่งข้อความถึงเราผ่านช่องทางด้านล่างได้ค่ะ",
+    messengerHint: "เป็นทางเลือก — คำขอจองของคุณอยู่ในคิวของเราแล้วค่ะ",
+    hoursLine:
+      "เวลาทำการ (KST): จันทร์–พฤหัสบดี 11:00–20:00 · ศุกร์ 11:00–21:00 · เสาร์ 10:00–16:00 · อาทิตย์ปิด",
+    manageHeader: "ต้องการเปลี่ยนแปลงแผนของคุณหรือไม่?",
+    manageBtn: "เปลี่ยนเวลา หรือ ยกเลิก",
+    programBtn: "เปลี่ยนโปรแกรม",
+    addressHeader: "📍 Apgujeong Tune Clinic",
+    addressLine1: "ชั้น 5 อาคาร 868 ถนนนนฮยอนโร เขตกังนัม กรุงโซล 06022",
+    addressLine2:
+      "จันทร์–พฤหัสบดี 11:00–20:00 · ศุกร์ 11:00–21:00 · เสาร์ 10:00–16:00 KST",
+    copyright:
+      "© 2026 Apgujeong Tune Clinic · เวชศาสตร์ความงามบนพื้นฐานหลักฐานทางการแพทย์",
+    messengerRow2: "line_wechat",
+  },
+  vi: {
+    langAttr: "vi",
+    subject: (date, time) =>
+      `[Tune Clinic] Đã nhận yêu cầu đặt lịch — ${date} lúc ${time} KST`,
+    headerTitle: "Đã nhận yêu cầu đặt lịch",
+    intro: (name) =>
+      `Kính gửi Quý khách <strong>${name}</strong>,<br>\n          Cảm ơn Quý khách đã gửi yêu cầu đặt lịch tới Tune Clinic. Dưới đây là thông tin chúng tôi đã nhận được:`,
+    dateLabel: "Ngày",
+    timeLabel: "Thời gian",
+    programLabel: "Chương trình",
+    badge: "✓ Đội ngũ của chúng tôi sẽ phản hồi Quý khách trong thời gian sớm nhất",
+    whatNextHeader: "Các bước tiếp theo",
+    whatNextSteps: [
+      "Đội ngũ chăm sóc khách hàng sẽ xem xét yêu cầu của Quý khách, thường trong vòng một ngày làm việc.",
+      "Sau khi xác nhận lịch hẹn, chúng tôi sẽ gửi email xác nhận kèm hướng dẫn chuẩn bị cụ thể cho từng liệu trình.",
+      "Nếu Quý khách đang lên kế hoạch tới Seoul, chúng tôi sẽ tư vấn lịch hẹn phù hợp với chuyến đi của Quý khách.",
+    ],
+    noFurtherAction:
+      "Quý khách không cần thực hiện thêm thao tác nào — yêu cầu của Quý khách đã được tiếp nhận.",
+    messengerHeader:
+      "Để được xác nhận nhanh hơn, Quý khách cũng có thể nhắn tin cho chúng tôi qua:",
+    messengerHint: "Tùy chọn — yêu cầu của Quý khách đã được tiếp nhận.",
+    hoursLine:
+      "Giờ làm việc (KST): T2–T5 11:00–20:00 · T6 11:00–21:00 · T7 10:00–16:00 · CN nghỉ",
+    manageHeader: "Cần thay đổi lịch trình?",
+    manageBtn: "Đổi lịch hoặc hủy",
+    programBtn: "Đổi chương trình",
+    addressHeader: "📍 Apgujeong Tune Clinic",
+    addressLine1: "Tầng 5, 868 Nonhyeon-ro, Gangnam-gu, Seoul 06022",
+    addressLine2: "T2–T5 11:00–20:00 · T6 11:00–21:00 · T7 10:00–16:00 KST",
+    copyright: "© 2026 Apgujeong Tune Clinic · Thẩm mỹ dựa trên bằng chứng",
+    messengerRow2: "line_wechat",
+  },
+};
 
-        <div style="text-align:center;margin:0 0 24px;">
-          <span style="display:inline-block;background:#fef3c7;color:#92400e;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:700;">⏳ 예약 확정 대기 중</span>
-        </div>
+function getPatientEmailDict(locale: string): PatientEmailDict {
+  return PATIENT_EMAIL_STRINGS[locale] || PATIENT_EMAIL_STRINGS.en;
+}
 
-        <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:20px;margin:0 0 24px;">
-          <p style="margin:0 0 8px;color:#92400e;font-size:14px;font-weight:700;">예약 확정 절차</p>
-          <ol style="margin:0;padding:0 0 0 18px;color:#92400e;font-size:13px;line-height:1.8;">
-            <li>아래 채널 중 편하신 곳으로 성함과 함께 메시지를 보내 주세요.</li>
-            <li>진료 시간 내에 담당 상담 직원이 신속히 안내해 드립니다.</li>
-            <li>최종 확정이 완료되면 확정 안내 메일을 다시 보내드립니다.</li>
-          </ol>
-        </div>
+function getPatientEmailFontStack(locale: string): string {
+  return PATIENT_EMAIL_FONT_STACK[locale] || PATIENT_EMAIL_FONT_STACK.en;
+}
 
-        <div style="background:#0f172a;border-radius:12px;padding:24px;margin:0 0 24px;text-align:center;">
-          <p style="margin:0 0 14px;color:#c9a55a;font-size:14px;font-weight:700;">예약 확정을 위해 아래로 연락 주세요</p>
-          <div>
-            <a href="https://wa.me/821076744128" style="display:inline-block;background:#22c55e;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">💬 WhatsApp</a>
-            <a href="https://www.instagram.com/tuneclinic_english/" style="display:inline-block;background:#8b5cf6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">📸 Instagram</a>
-          </div>
+function messengerRow2Html(variant: "phone" | "line_wechat"): string {
+  if (variant === "phone") {
+    // KO-only variant. The phone label is intentionally hard-coded in
+    // Korean because every other locale uses the LINE+WeChat variant.
+    return `
           <div style="margin-top:8px;">
             <a href="tel:+82-507-1438-8022" style="display:inline-block;background:#0ea5e9;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">📞 전화</a>
-          </div>
-          <p style="margin:12px 0 0;color:#94a3b8;font-size:11px;">월–금 10:00–21:00 · 토 10:00–16:00 (KST)</p>
-        </div>
-
-        <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;text-align:center;">
-          <p style="margin:0 0 10px;color:#64748b;font-size:12px;">예약 일정을 변경하시겠어요?</p>
-          <a href="${manageHref}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">일정 변경 또는 취소</a>
-          <a href="${manageHref}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">프로그램 변경</a>
-        </div>
-
-        <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;margin-top:8px;">
-          <p style="margin:0 0 4px;color:#0f172a;font-size:14px;font-weight:700;">📍 압구정 튠클리닉</p>
-          <p style="margin:0;color:#64748b;font-size:13px;line-height:1.5;">
-            서울 강남구 논현로 868, 5층<br>
-            월–금 10:00–21:00 · 토 10:00–16:00
-          </p>
-        </div>
-      </div>
-
-      <div style="background:#f8fafc;padding:20px 28px;text-align:center;border-top:1px solid #e2e8f0;">
-        <p style="margin:0;color:#94a3b8;font-size:11px;">© 2026 압구정 튠클리닉 · 근거 기반 미용 의학</p>
-      </div>
-    </div>
-  </div>
-</body>
-</html>`;
+          </div>`;
+  }
+  return `
+          <div style="margin-top:8px;">
+            <a href="https://line.me/R/ti/p/@tuneclinic" style="display:inline-block;background:#06c755;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">💚 LINE</a>
+            <a href="https://wa.me/821076744128" style="display:inline-block;background:#07c160;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">🟢 WeChat</a>
+          </div>`;
 }
 
 async function patientEmailHtml(b: BookingRecord): Promise<string> {
-  if (b.locale === "ko") return patientEmailHtmlKo(b);
-
-  const dateFormatted = formatDate(b.appointment_date);
+  const dict = getPatientEmailDict(b.locale);
+  const fontStack = getPatientEmailFontStack(b.locale);
+  const dateFormatted = formatDate(b.appointment_date, b.locale);
   const timeKST = b.appointment_time.slice(0, 5);
   const timeLocal = kstToLocal(
     b.appointment_date,
@@ -144,84 +433,83 @@ async function patientEmailHtml(b: BookingRecord): Promise<string> {
   const treatments = treatmentList(b.treatment_interest, b.locale);
   const manageHref = await manageUrl(b);
 
+  const stepsHtml = dict.whatNextSteps
+    .map((s) => `<li>${s}</li>`)
+    .join("\n            ");
+
   return `
 <!DOCTYPE html>
-<html>
+<html lang="${dict.langAttr}">
 <head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+<body style="margin:0;padding:0;background:#f8fafc;font-family:${fontStack};">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
     <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);">
       <div style="background:#0f172a;padding:32px 28px;text-align:center;">
         <h1 style="margin:0;color:#c9a55a;font-size:14px;letter-spacing:3px;text-transform:uppercase;font-weight:700;">Tune Clinic</h1>
-        <p style="margin:12px 0 0;color:#fff;font-size:22px;font-family:Georgia,serif;">Booking Request Received</p>
+        <p style="margin:12px 0 0;color:#fff;font-size:22px;font-family:Georgia,serif;">${dict.headerTitle}</p>
       </div>
 
       <div style="padding:32px 28px;">
         <p style="margin:0 0 20px;color:#334155;font-size:15px;line-height:1.6;">
-          Hi <strong>${b.patient_name}</strong>,<br>
-          Thank you for your booking request. Here are the details we received:
+          ${dict.intro(b.patient_name)}
         </p>
 
         <div style="background:#f8fafc;border-radius:12px;padding:20px;margin:0 0 24px;">
           <table style="width:100%;border-collapse:collapse;">
             <tr>
-              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;width:100px;">Date</td>
+              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;width:100px;">${dict.dateLabel}</td>
               <td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${dateFormatted}</td>
             </tr>
             <tr>
-              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;">Time</td>
+              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;">${dict.timeLabel}</td>
               <td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${timeKST} KST${timeLocal !== "—" ? ` (${timeLocal} ${b.patient_timezone})` : ""}</td>
             </tr>
             ${treatments ? `<tr>
-              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;">Program</td>
+              <td style="padding:8px 0;color:#64748b;font-size:13px;vertical-align:top;">${dict.programLabel}</td>
               <td style="padding:8px 0;color:#0f172a;font-size:14px;font-weight:600;">${treatments}</td>
             </tr>` : ""}
           </table>
         </div>
 
         <div style="text-align:center;margin:0 0 24px;">
-          <span style="display:inline-block;background:#fef3c7;color:#92400e;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:700;">⏳ Awaiting Confirmation</span>
+          <span style="display:inline-block;background:#dcfce7;color:#166534;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:700;">${dict.badge}</span>
         </div>
 
         <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:20px;margin:0 0 24px;">
-          <p style="margin:0 0 8px;color:#92400e;font-size:14px;font-weight:700;">What happens next?</p>
-          <ol style="margin:0;padding:0 0 0 18px;color:#92400e;font-size:13px;line-height:1.8;">
-            <li>Send us a message with your name via any messenger below</li>
-            <li>Our counselor will assist you during business hours</li>
-            <li>Once confirmed, you'll receive a confirmation email</li>
+          <p style="margin:0 0 8px;color:#92400e;font-size:14px;font-weight:700;">${dict.whatNextHeader}</p>
+          <ol style="margin:0 0 12px;padding:0 0 0 18px;color:#92400e;font-size:13px;line-height:1.8;">
+            ${stepsHtml}
           </ol>
+          <p style="margin:0;color:#78350f;font-size:12px;font-style:italic;">${dict.noFurtherAction}</p>
         </div>
 
         <div style="background:#0f172a;border-radius:12px;padding:24px;margin:0 0 24px;text-align:center;">
-          <p style="margin:0 0 14px;color:#c9a55a;font-size:14px;font-weight:700;">Contact us to confirm your booking</p>
+          <p style="margin:0 0 14px;color:#c9a55a;font-size:14px;font-weight:700;">${dict.messengerHeader}</p>
           <div>
             <a href="https://wa.me/821076744128" style="display:inline-block;background:#22c55e;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">💬 WhatsApp</a>
             <a href="https://www.instagram.com/tuneclinic_english/" style="display:inline-block;background:#8b5cf6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">📸 Instagram</a>
-          </div>
-          <div style="margin-top:8px;">
-            <a href="https://line.me/R/ti/p/@tuneclinic" style="display:inline-block;background:#06c755;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">💚 LINE</a>
-            <a href="https://wa.me/821076744128" style="display:inline-block;background:#07c160;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;margin:4px;">🟢 WeChat</a>
-          </div>
-          <p style="margin:12px 0 0;color:#94a3b8;font-size:11px;">Mon–Fri 10:00–21:00 · Sat 10:00–16:00 (KST)</p>
+          </div>${messengerRow2Html(dict.messengerRow2)}
+          <p style="margin:12px 0 0;color:#94a3b8;font-size:11px;">${dict.messengerHint}</p>
+          <p style="margin:6px 0 0;color:#94a3b8;font-size:11px;">${dict.hoursLine}</p>
         </div>
 
         <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;text-align:center;">
-          <p style="margin:0 0 10px;color:#64748b;font-size:12px;">Need to change your plans?</p>
-          <a href="${manageHref}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">Reschedule or Cancel</a>
-          <a href="${manageHref}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">Change Program</a>
+          <p style="margin:0 0 10px;color:#64748b;font-size:12px;">${dict.manageHeader}</p>
+          <a href="${manageHref}" style="display:inline-block;background:#c9a55a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">${dict.manageBtn}</a>
+          <a href="${manageHref}" style="display:inline-block;background:#334155;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;margin:0 4px;">${dict.programBtn}</a>
         </div>
 
         <div style="border-top:1px solid #e2e8f0;padding:20px 0 0;margin-top:8px;">
-          <p style="margin:0 0 4px;color:#0f172a;font-size:14px;font-weight:700;">📍 Apgujeong Tune Clinic</p>
+          <p style="margin:0 0 4px;color:#0f172a;font-size:14px;font-weight:700;">${dict.addressHeader}</p>
           <p style="margin:0;color:#64748b;font-size:13px;line-height:1.5;">
-            5th floor, 868 Nonhyeon-ro, Gangnam-gu, Seoul<br>
-            Mon–Fri 10:00–21:00 · Sat 10:00–16:00
+            ${dict.addressLine1}<br>
+            ${dict.addressLine2}
           </p>
         </div>
       </div>
 
       <div style="background:#f8fafc;padding:20px 28px;text-align:center;border-top:1px solid #e2e8f0;">
-        <p style="margin:0;color:#94a3b8;font-size:11px;">© 2026 Apgujeong Tune Clinic · Evidence-Based Aesthetics</p>
+        <p style="margin:0;color:#94a3b8;font-size:11px;">${dict.copyright}</p>
       </div>
     </div>
   </div>
@@ -319,9 +607,10 @@ Deno.serve(async (req) => {
     if (booking.patient_email) {
       const dateLabel = formatDate(booking.appointment_date, booking.locale);
       const timeLabel = booking.appointment_time.slice(0, 5);
-      const subject = booking.locale === "ko"
-        ? `[튠클리닉] 예약 신청이 접수되었습니다 — ${dateLabel} ${timeLabel} KST`
-        : `Booking Request Received — ${dateLabel} at ${timeLabel} KST`;
+      const subject = getPatientEmailDict(booking.locale).subject(
+        dateLabel,
+        timeLabel,
+      );
       const { ok, error } = await sendEmail(
         booking.patient_email,
         subject,
