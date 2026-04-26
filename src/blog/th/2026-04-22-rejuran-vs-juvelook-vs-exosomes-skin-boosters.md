@@ -86,7 +86,7 @@ Exosome คือ **extracellular vesicle** ระดับนาโน (30–15
 
 สำหรับกรอบการเสื่อมตามอายุโครงสร้างที่ช่วยกำหนดว่าข้อกังวลใดต้องจัดการก่อน [Skin Aging as a Structural Change](/blog/skin-aging-structural-change.html) ให้การปฐมนิเทศที่มีประโยชน์
 
-![Three sheets of vellum of increasing translucency stacked and backlit, each layer visible through the ones above it, light shifting from cool to warm as it passes through the layers, as a metaphor for distinct treatment layers in the dermis operating at different depths](/blog/images/rejuran-vs-juvelook-vs-exosomes-skin-boosters-body-layers.webp)
+![Editorial product photography of three unbranded medical-grade glass vials on pale marble — amber-tinted polynucleotide formulation, opalescent off-white biostimulator, water-clear pearlescent vesicle formulation, identical brushed-metal crimp caps, soft directional studio light, generic-category clinical product still life](/blog/images/rejuran-vs-juvelook-vs-exosomes-skin-boosters-body-trio.webp)
 
 ## สิ่งที่การรักษาเหล่านี้ไม่ใช่
 

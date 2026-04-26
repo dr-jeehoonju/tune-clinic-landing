@@ -86,7 +86,7 @@ Juvelookの臨床応用、特にボリューム製剤については、[Juvelook
 
 どの懸念を先に対処するかを決定するのに役立つ構造的加齢フレームワークについては、[Skin Aging as a Structural Change](/blog/skin-aging-structural-change.html)が有用な指針を提供します。
 
-![Three sheets of vellum of increasing translucency stacked and backlit, each layer visible through the ones above it, light shifting from cool to warm as it passes through the layers, as a metaphor for distinct treatment layers in the dermis operating at different depths](/blog/images/rejuran-vs-juvelook-vs-exosomes-skin-boosters-body-layers.webp)
+![Editorial product photography of three unbranded medical-grade glass vials on pale marble — amber-tinted polynucleotide formulation, opalescent off-white biostimulator, water-clear pearlescent vesicle formulation, identical brushed-metal crimp caps, soft directional studio light, generic-category clinical product still life](/blog/images/rejuran-vs-juvelook-vs-exosomes-skin-boosters-body-trio.webp)
 
 ## これらの治療のどれでもないこと
 

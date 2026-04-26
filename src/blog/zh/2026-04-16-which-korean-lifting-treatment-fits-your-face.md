@@ -93,7 +93,7 @@ Oligio往往是以下两种情境的选择，这两种情境明显不偏向Ulthe
 
 当真正有组合指征时，顺序很重要。先处理结构层——SMAS。然后是真皮层。原因很实际：如果在表面工作之后再进行深层矫正，两种反应可能无法有效叠加。
 
-![A bespoke tailor's linen measuring tape coiled on a wooden dress form beside a partial sketch of a garment, soft grey-white light from above, as a metaphor for fit designed to one specific form rather than a standard pattern](/blog/images/which-korean-lifting-treatment-fits-your-face-body-tailor.webp)
+![Editorial product photography of two unbranded medical aesthetic device handheld applicators on pale marble — an ultrasound HIFU transducer with flat treatment head beside a monopolar radiofrequency tip with metallic surface, soft directional studio light, deep negative space, generic-category clinical product still life](/blog/images/which-korean-lifting-treatment-fits-your-face-body-devices.webp)
 
 ## 有没有一个直接的决策指南？
 

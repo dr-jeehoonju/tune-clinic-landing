@@ -93,7 +93,7 @@ At Tune Clinic, the decision to combine devices is not automatic. It is based on
 
 When combination is genuinely indicated, sequencing matters. The structural layer — SMAS — is addressed first. The dermal layer second. The reason is practical: if the deeper correction is done after the surface work, the two responses may not compound effectively.
 
-![A bespoke tailor's linen measuring tape coiled on a wooden dress form beside a partial sketch of a garment, soft grey-white light from above, as a metaphor for fit designed to one specific form rather than a standard pattern](/blog/images/which-korean-lifting-treatment-fits-your-face-body-tailor.webp)
+![Editorial product photography of two unbranded medical aesthetic device handheld applicators on pale marble — an ultrasound HIFU transducer with flat treatment head beside a monopolar radiofrequency tip with metallic surface, soft directional studio light, deep negative space, generic-category clinical product still life](/blog/images/which-korean-lifting-treatment-fits-your-face-body-devices.webp)
 
 ## Is there a straightforward decision guide?
 

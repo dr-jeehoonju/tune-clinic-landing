@@ -86,7 +86,7 @@ Juvelook的临床应用，特别是容量配方，在[Juvelook Volume Clinical A
 
 关于帮助确定先处理哪种顾虑的结构性老化框架，[Skin Aging as a Structural Change](/blog/skin-aging-structural-change.html)提供了有用的方向指引。
 
-![Three sheets of vellum of increasing translucency stacked and backlit, each layer visible through the ones above it, light shifting from cool to warm as it passes through the layers, as a metaphor for distinct treatment layers in the dermis operating at different depths](/blog/images/rejuran-vs-juvelook-vs-exosomes-skin-boosters-body-layers.webp)
+![Editorial product photography of three unbranded medical-grade glass vials on pale marble — amber-tinted polynucleotide formulation, opalescent off-white biostimulator, water-clear pearlescent vesicle formulation, identical brushed-metal crimp caps, soft directional studio light, generic-category clinical product still life](/blog/images/rejuran-vs-juvelook-vs-exosomes-skin-boosters-body-trio.webp)
 
 ## 这三种治疗都不是什么
 

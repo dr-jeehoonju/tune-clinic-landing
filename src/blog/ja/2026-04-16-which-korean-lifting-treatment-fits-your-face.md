@@ -93,7 +93,7 @@ Tune Clinicでは、デバイスの組み合わせの決定は自動的ではあ
 
 複合が真に適応となる場合、シーケンスが重要です。構造的な層 — SMAS — を最初に処理します。真皮層を二番目に。その理由は実際的です：表面の施術の後に深部矯正を行うと、二つの反応が効果的に相乗しないことがあります。
 
-![A bespoke tailor's linen measuring tape coiled on a wooden dress form beside a partial sketch of a garment, soft grey-white light from above, as a metaphor for fit designed to one specific form rather than a standard pattern](/blog/images/which-korean-lifting-treatment-fits-your-face-body-tailor.webp)
+![Editorial product photography of two unbranded medical aesthetic device handheld applicators on pale marble — an ultrasound HIFU transducer with flat treatment head beside a monopolar radiofrequency tip with metallic surface, soft directional studio light, deep negative space, generic-category clinical product still life](/blog/images/which-korean-lifting-treatment-fits-your-face-body-devices.webp)
 
 ## 簡潔な意思決定ガイドはあるか
 
