@@ -83,7 +83,7 @@
               <option value="+971">🇦🇪 +971</option>
               <option value="+55">🇧🇷 +55</option>
             </select>
-            <input type="tel" id="bkf-phone" placeholder="138-0000-0000" class="flex-1 min-w-0 border border-slate-200 rounded-r-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+            <input type="tel" id="bkf-phone" inputmode="tel" autocomplete="tel-national" pattern="[\d\s\-\(\)]{4,20}" title="请仅输入号码（例如：138 0000 0000）" placeholder="138-0000-0000" class="flex-1 min-w-0 border border-slate-200 rounded-r-lg px-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
           </div>
         </div>
       </div>
@@ -112,6 +112,18 @@
           </label>
         </div>
       </fieldset>
+
+      <div>
+        <label for="bkf-channel" class="block text-sm font-bold text-slate-700 mb-2">首选联系方式 <span class="text-slate-400 font-normal">（可选）</span></label>
+        <select id="bkf-channel" name="preferred_contact_channel"
+          class="w-full border border-slate-200 rounded-lg px-4 py-3.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition bg-white">
+          <option value="">无偏好 — 任何渠道均可</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="instagram">Instagram DM</option>
+          <option value="email">电子邮件</option>
+          <option value="kakaotalk">KakaoTalk</option>
+        </select>
+      </div>
 
       <div>
         <label for="bkf-message" class="block text-sm font-bold text-slate-700 mb-2">备注 <span class="text-slate-400 font-normal">（可选）</span></label>
@@ -149,18 +161,18 @@
 
     <div id="bkf-success" class="hidden text-center py-20">
       <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-clock text-2xl"></i></div>
-      <h2 class="text-3xl font-serif text-slate-900">预约请求已收到</h2>
-      <p class="text-slate-500 mt-4 max-w-md mx-auto leading-relaxed">谢谢！请通过以下任一渠道发送您的姓名以确认预约。</p>
+      <h2 class="text-3xl font-serif text-slate-900">您的预约请求已收到</h2>
+      <p class="text-slate-500 mt-4 max-w-md mx-auto leading-relaxed">我们的团队将在诊所营业时间内确认您的预约（KST：周一至周四 11:00–20:00，周五 11:00–21:00，周六 10:00–16:00；周日休诊）。您将很快收到确认邮件。</p>
       <p id="bkf-summary" class="text-sm text-slate-400 mt-3"></p>
       <div class="mt-8 max-w-sm mx-auto">
-        <p class="text-sm font-bold text-slate-700 mb-3">联系我们以完成预约：</p>
+        <p class="text-sm font-bold text-slate-700 mb-3">如需更快确认，您也可以通过以下渠道联系我们：</p>
         <div class="flex flex-wrap justify-center gap-2.5">
           <a href="https://wa.me/821076744128" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-green-600 text-white rounded-lg font-bold text-xs hover:bg-green-700 transition"><i class="fab fa-whatsapp text-sm"></i> WhatsApp</a>
           <a href="https://www.instagram.com/tuneclinic_english/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 bg-violet-500 text-white rounded-lg font-bold text-xs hover:bg-violet-600 transition"><i class="fab fa-instagram text-sm"></i> Instagram</a>
           <button onclick="document.getElementById('line-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer"><i class="fab fa-line text-sm"></i> LINE</button>
           <button onclick="document.getElementById('wechat-qr-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-bold text-xs hover:border-green-500 hover:text-green-600 transition cursor-pointer"><i class="fab fa-weixin text-sm"></i> WeChat</button>
         </div>
-        <p class="text-xs text-slate-400 mt-3">顾问将在营业时间内为您服务（周一至周六）</p>
+        <p class="text-xs text-slate-400 mt-3">可选 — 您的预约请求已在我们的处理队列中。</p>
       </div>
       <a href="/zh/index.html" class="inline-block mt-8 text-gold font-bold hover:underline">返回首页</a>
     </div>
@@ -179,6 +191,8 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 const supabase = createClient('https://jwlfffpyeczyyojcutcx.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGZmZnB5ZWN6eXlvamN1dGN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDkxMTUsImV4cCI6MjA4ODk4NTExNX0.3j1AvpMzzB67OOoO97WYeLBeyF9sZxSO2dCjTbznYvY');
 const LOCALE='zh';const $=(s)=>document.querySelector(s);const $$=(s)=>document.querySelectorAll(s);
+/* P0-2: 营销归因 + 访问上下文（无 PHI/PII） */
+function getAttribution(){const params=new URLSearchParams(window.location.search);const channelEl=document.getElementById('bkf-channel');return{utm_source:params.get('utm_source')||null,utm_medium:params.get('utm_medium')||null,utm_campaign:params.get('utm_campaign')||null,utm_content:params.get('utm_content')||null,utm_term:params.get('utm_term')||null,adset_id:params.get('adset_id')||params.get('adsetid')||null,ad_id:params.get('ad_id')||params.get('adid')||null,fbclid:params.get('fbclid')||null,landing_page:window.location.pathname,referrer:document.referrer||'direct',user_agent:navigator.userAgent,preferred_contact_channel:channelEl?(channelEl.value||null):null};}
 const patientTZ=Intl.DateTimeFormat().resolvedOptions().timeZone;$('#tz-display').textContent=patientTZ;
 function kstToLocal(dateStr,timeStr){const kst=new Date(`${dateStr}T${timeStr}+09:00`);return kst.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:patientTZ});}
 let templates=[],blocks=[],bookedSlots=[],calY,calM,selectedDate=null,selectedTime=null;const now=new Date();calY=now.getFullYear();calM=now.getMonth();
@@ -188,10 +202,17 @@ $('#bk-next').addEventListener('click',()=>{calM++;if(calM>11){calM=0;calY++;}re
 function renderCalendar(){const mn=['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];$('#bk-cal-title').textContent=`${calY}年 ${mn[calM]}`;const grid=$('#bk-cal-grid');const fd=new Date(calY,calM,1).getDay();const dim=new Date(calY,calM+1,0).getDate();const today=new Date();today.setHours(0,0,0,0);const blockSet=new Set(blocks.map(b=>b.block_date));const activeDays=new Set(templates.filter(t=>t.is_active).map(t=>t.day_of_week));let h='';for(let i=0;i<fd;i++)h+='<div></div>';for(let d=1;d<=dim;d++){const date=new Date(calY,calM,d);const ds=`${calY}-${String(calM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;const dow=date.getDay();const ok=date>=today&&!blockSet.has(ds)&&activeDays.has(dow);const sel=ds===selectedDate;if(ok){const wc=dow===0?'text-red-400':dow===6?'text-blue-400':'text-slate-700';h+=`<div class="text-center py-2.5 rounded-lg cursor-pointer transition ${sel?'bg-gold text-white font-bold':`hover:bg-gold/10 ${wc}`}" data-date="${ds}"><span class="text-sm">${d}</span></div>`;}else{h+=`<div class="text-center py-2.5 rounded-lg text-slate-300 cursor-not-allowed"><span class="text-sm">${d}</span></div>`;}}grid.innerHTML=h;grid.querySelectorAll('[data-date]').forEach(el=>{el.addEventListener('click',()=>{selectedDate=el.dataset.date;selectedTime=null;renderCalendar();renderSlots(selectedDate);});});}
 function renderSlots(ds){const sec=$('#slot-section');const list=$('#slot-list');const none=$('#slot-none');sec.classList.remove('hidden');const p=ds.split('-');const dow=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])).getDay();const tmpl=templates.find(t=>t.day_of_week===dow&&t.is_active);if(!tmpl){list.innerHTML='';none.classList.remove('hidden');return;}const sm=timeToMins(tmpl.start_time),em=timeToMins(tmpl.end_time),dur=tmpl.slot_duration_minutes;const used=new Set(bookedSlots.filter(s=>s.appointment_date===ds).map(s=>s.appointment_time?.slice(0,5)));const slots=[];for(let m=sm;m+dur<=em;m+=dur){const ts=minsToTime(m);slots.push({time:ts,booked:used.has(ts)});}if(!slots.length){list.innerHTML='';none.classList.remove('hidden');return;}none.classList.add('hidden');$('#slot-date-label').textContent=new Date(ds+'T00:00:00').toLocaleDateString('zh-CN',{month:'long',day:'numeric',weekday:'short'});list.innerHTML=slots.map(s=>{const local=kstToLocal(ds,s.time+':00');if(s.booked)return`<div class="py-3 px-2 rounded-lg border border-slate-100 bg-slate-50 text-center opacity-50 cursor-not-allowed"><p class="text-sm font-bold text-slate-400 line-through">${s.time}</p><p class="text-[10px] text-slate-300">${local} 当地</p></div>`;const sel=s.time===selectedTime;return`<div class="py-3 px-2 rounded-lg border transition cursor-pointer text-center ${sel?'border-gold bg-gold/10 ring-2 ring-gold':'border-slate-200 bg-white hover:border-gold/50'}" data-time="${s.time}"><p class="text-sm font-bold ${sel?'text-gold':'text-slate-700'}">${s.time} <span class="font-normal text-slate-400">KST</span></p><p class="text-[10px] text-slate-400">${local} 当地</p></div>`;}).join('');list.querySelectorAll('[data-time]').forEach(el=>{el.addEventListener('click',()=>{selectedTime=el.dataset.time;$('#bkf-date').value=ds;$('#bkf-time').value=selectedTime;renderSlots(ds);});});}
 function timeToMins(t){const[h,m]=(t||'00:00').split(':').map(Number);return h*60+m;}function minsToTime(m){return`${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`;}
-$('#booking-form').addEventListener('submit',async(e)=>{e.preventDefault();if($('#bkf-hp').value)return;const name=$('#bkf-name').value.trim();const email=$('#bkf-email').value.trim();const rawPhone=$('#bkf-phone').value.trim().replace(/[^0-9]/g,'').replace(/^0+/,'');const phone=rawPhone?$('#bkf-cc').value+rawPhone:'';const treatments=[...$$('#booking-form input[name="treatment"]:checked')].map(c=>c.value);const message=$('#bkf-message').value.trim();const btn=$('#bkf-submit');if(!$('#bkf-date').value||!$('#bkf-time').value){alert('请先选择日期和时间。');return;}btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> 提交中...';const row={booking_type:'slot_pick',patient_name:name,patient_email:email||null,patient_phone:phone||null,treatment_interest:treatments,message:message||null,locale:LOCALE,patient_timezone:patientTZ,appointment_date:$('#bkf-date').value,appointment_time:$('#bkf-time').value+':00'};try{const turnstileToken = (document.querySelector('#booking-form [name="cf-turnstile-response"]') || {}).value || '';
+$('#booking-form').addEventListener('submit',async(e)=>{e.preventDefault();if($('#bkf-hp').value)return;const name=$('#bkf-name').value.trim();const email=$('#bkf-email').value.trim();const rawPhone=$('#bkf-phone').value.trim().replace(/[^0-9]/g,'').replace(/^0+/,'');const phone=rawPhone?$('#bkf-cc').value+rawPhone:'';const treatments=[...$$('#booking-form input[name="treatment"]:checked')].map(c=>c.value);const message=$('#bkf-message').value.trim();const btn=$('#bkf-submit');if(!$('#bkf-date').value||!$('#bkf-time').value){alert('请先选择日期和时间。');return;}btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> 提交中...';
+const eventId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():`${Date.now()}-${Math.random().toString(36).slice(2,10)}`;
+const eventTime=Math.floor(Date.now()/1000);
+const row={booking_type:'slot_pick',patient_name:name,patient_email:email||null,patient_phone:phone||null,treatment_interest:treatments,message:message||null,locale:LOCALE,patient_timezone:patientTZ,appointment_date:$('#bkf-date').value,appointment_time:$('#bkf-time').value+':00',...getAttribution(),event_id:eventId,event_time:eventTime};
+/* P0-3: Meta Pixel client-side `Lead`（与服务器 CAPI 通过 event_id 去重） */
+try{if(typeof window.fbq==='function'){window.fbq('track','Lead',{content_name:'booking_submission',content_category:treatments[0]||'unknown'},{eventID:eventId});}}catch(_){}
+try{const turnstileToken = (document.querySelector('#booking-form [name="cf-turnstile-response"]') || {}).value || '';
     if (!turnstileToken) {
-      alert('Please complete the verification challenge.');
-      submitBtn.disabled = false;
+      alert('请完成安全验证。');
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-calendar-check"></i> 提交预约';
       if (window.turnstile) { try { window.turnstile.reset(); } catch (_) {} }
       return;
     }
