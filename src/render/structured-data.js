@@ -235,6 +235,7 @@ function pageStructuredData(entry, localeData, fragment) {
     name: SITE_NAME,
     url: SITE_URL,
     image: DEFAULT_OG_IMAGE,
+    description: "Physician-led aesthetic medicine in the Apgujeong-Gangnam corridor — direct MD planning, transparent KRW pricing, protocols built for short-stay Seoul travelers.",
     telephone: "+82-507-1438-8022",
     priceRange: "$$",
     currenciesAccepted: "KRW, USD",
