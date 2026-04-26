@@ -189,21 +189,56 @@ function videoStructuredData(entry, canonicalUrl) {
 function pageStructuredData(entry, localeData, fragment) {
   const g = localeData[entry.locale].global;
   const canonicalUrl = publicUrl(entry.locale, entry.key);
+  // P1-2: LocalBusiness/MedicalClinic schema. Hours, geo, and the
+  // Google Maps URL strengthen Local SEO and help Meta/Google verify
+  // the clinic as a real venue. Hours match the visible schedule on
+  // the Visit/footer block (KST). Sunday is intentionally omitted —
+  // Schema.org treats a missing day as closed.
   const org = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
+    "@type": ["MedicalClinic", "LocalBusiness"],
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
     url: SITE_URL,
     image: DEFAULT_OG_IMAGE,
     telephone: "+82-507-1438-8022",
     priceRange: "$$",
+    currenciesAccepted: "KRW, USD",
+    paymentAccepted: "Cash, Credit Card",
     address: {
       "@type": "PostalAddress",
       streetAddress: "5th floor, 868, Nonhyeon-ro, Gangnam-gu",
       addressLocality: "Seoul",
+      addressRegion: "Seoul",
+      postalCode: "06022",
       addressCountry: "KR",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 37.526159,
+      longitude: 127.028864,
+    },
+    hasMap: "https://maps.app.goo.gl/QPzFkQ9EpJP7D99y6",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+        opens: "11:00",
+        closes: "20:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Friday",
+        opens: "11:00",
+        closes: "21:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "10:00",
+        closes: "16:00",
+      },
+    ],
     availableLanguage: languageOrder.map((locale) => localeData[locale].global.languageName),
     sameAs: [
       "https://www.instagram.com/tuneclinic_english/",
@@ -216,6 +251,13 @@ function pageStructuredData(entry, localeData, fragment) {
         contactType: "customer service",
         availableLanguage: languageOrder.map((locale) => localeData[locale].global.languageName),
         areaServed: "KR",
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "international patient coordination",
+        url: "https://wa.me/821076744128",
+        availableLanguage: ["en", "ko"],
+        areaServed: ["US", "GB", "CA", "AU", "SG", "AE"],
       },
     ],
   };
