@@ -69,5 +69,15 @@
     "translationNotice": "Dịch từ tiếng Hàn",
     "localGuideBadge": "Local Guide",
     "googleStarLine": "Đã xác minh trên Google"
+  },
+  "itinerary": {
+    "kicker": "Lịch trình thân thiện với chuyến đi",
+    "homeHeading": "Phù hợp với chuyến đi ngắn ngày đến Seoul",
+    "homeSubheading": "Lịch trình điển hình 3–5 ngày, từ lúc đến cho đến khi rời đi.",
+    "homeFooterLine": "Cần lịch khác? Hãy cho chúng tôi biết khi tư vấn — chúng tôi điều chỉnh kế hoạch theo chuyến đi của bạn, không phải ngược lại.",
+    "homeCta": "Lên kế hoạch đến khám →",
+    "detailHeading": "Lịch trình 3–5 ngày của bạn",
+    "detailSubheading": "Một chuyến thăm 3–5 ngày tại Tune Clinic thường diễn ra như sau, từ đầu đến cuối.",
+    "dayLabel": "Ngày"
   }
 }

@@ -71,5 +71,15 @@
     "translationNotice": "由韩语翻译",
     "localGuideBadge": "在地向导",
     "googleStarLine": "Google 已验证"
+  },
+  "itinerary": {
+    "kicker": "为旅行节奏量身设计",
+    "homeHeading": "为短期首尔行程量身设计的诊疗节奏",
+    "homeSubheading": "从抵达到离境，通常为 3–5 天的就诊安排。",
+    "homeFooterLine": "需要其他时间安排？请在咨询时告诉我们 — 我们会按您的行程定制方案，而不是反过来。",
+    "homeCta": "规划您的就诊 →",
+    "detailHeading": "3–5 天就诊安排",
+    "detailSubheading": "在 Tune Clinic，从抵达到离境的 3–5 天通常是这样的节奏。",
+    "dayLabel": "Day"
   }
 }

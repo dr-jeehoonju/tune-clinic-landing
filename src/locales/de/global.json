@@ -69,5 +69,15 @@
     "translationNotice": "Aus dem Koreanischen übersetzt",
     "localGuideBadge": "Local Guide",
     "googleStarLine": "Auf Google verifiziert"
+  },
+  "itinerary": {
+    "kicker": "Reisefreundlicher Ablauf",
+    "homeHeading": "Auf kurze Seoul-Aufenthalte zugeschnitten",
+    "homeSubheading": "Ein typischer Besuch von 3–5 Tagen, von Ankunft bis Abreise.",
+    "homeFooterLine": "Brauchen Sie einen anderen Zeitplan? Sagen Sie es uns beim Beratungsgespräch — wir richten uns nach Ihrer Reise, nicht umgekehrt.",
+    "homeCta": "Besuch planen →",
+    "detailHeading": "Ihr 3–5-Tage-Behandlungsplan",
+    "detailSubheading": "So sieht ein typischer 3–5-tägiger Aufenthalt bei Tune Clinic aus, von Anfang bis Ende.",
+    "dayLabel": "Tag"
   }
 }

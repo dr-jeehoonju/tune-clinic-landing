@@ -71,5 +71,15 @@
     "translationNotice": "韓国語からの翻訳",
     "localGuideBadge": "ローカルガイド",
     "googleStarLine": "Googleで認証済み"
+  },
+  "itinerary": {
+    "kicker": "ご旅行に合わせた診療スケジュール",
+    "homeHeading": "短期ソウル滞在に合わせて設計",
+    "homeSubheading": "ご到着からご出発まで、通常3〜5日の流れで進めます。",
+    "homeFooterLine": "別のスケジュールがご希望でしたら、診察時にお知らせください。ご旅行に合わせて計画いたします。",
+    "homeCta": "ご来院の計画を立てる →",
+    "detailHeading": "3〜5日のご来院スケジュール",
+    "detailSubheading": "Tune Clinicの3〜5日のご来院は、通常このような流れになります。",
+    "dayLabel": "Day"
   }
 }

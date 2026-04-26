@@ -69,5 +69,15 @@
     "translationNotice": "한국어 원문에서 번역",
     "localGuideBadge": "로컬 가이드",
     "googleStarLine": "구글 인증 리뷰"
+  },
+  "itinerary": {
+    "kicker": "여행 일정에 맞춘 진료",
+    "homeHeading": "짧은 서울 일정에 최적화된 진료 흐름",
+    "homeSubheading": "도착부터 출국까지, 보통 3~5일 일정으로 진행됩니다.",
+    "homeFooterLine": "다른 일정이 필요하신가요? 상담 시에 말씀해 주세요. 일정에 클리닉이 맞추지, 클리닉에 일정을 맞추시는 일은 없습니다.",
+    "homeCta": "방문 일정 잡기 →",
+    "detailHeading": "3~5일 방문 일정",
+    "detailSubheading": "튠클리닉을 방문하시는 환자분의 보통의 3~5일 흐름입니다.",
+    "dayLabel": "Day"
   }
 }

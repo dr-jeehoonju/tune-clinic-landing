@@ -31,6 +31,9 @@ const {
 const {
   substituteReviewPlaceholders,
 } = require("./render/reviews-module");
+const {
+  substituteItineraryPlaceholders,
+} = require("./render/itinerary-module");
 
 function readFragment(fragmentPath) {
   return fs.readFileSync(path.join(__dirname, fragmentPath), "utf8");
@@ -481,7 +484,8 @@ function ogAlternateMeta(localeMeta, availableLocales) {
 function renderPage(entry, localeData) {
   const g = localeData[entry.locale].global;
   const rawFragment = readFragment(entry.fragment);
-  const fragment = substituteReviewPlaceholders(rawFragment, entry.locale, localeData);
+  const reviewsSubstituted = substituteReviewPlaceholders(rawFragment, entry.locale, localeData);
+  const fragment = substituteItineraryPlaceholders(reviewsSubstituted, entry.locale, localeData);
   const chrome = pageChrome(entry, localeData);
   const footer = siteFooter(entry, localeData);
   const canonicalUrl = publicUrl(entry.locale, entry.key);

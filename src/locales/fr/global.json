@@ -69,5 +69,15 @@
     "translationNotice": "Traduit du coréen",
     "localGuideBadge": "Local Guide",
     "googleStarLine": "Vérifié sur Google"
+  },
+  "itinerary": {
+    "kicker": "Parcours adapté au voyage",
+    "homeHeading": "Conçu pour les séjours courts à Séoul",
+    "homeSubheading": "Un déroulé type de 3 à 5 jours, de l'arrivée au départ.",
+    "homeFooterLine": "Vous avez besoin d'un autre calendrier ? Parlez-en lors de la consultation — nous nous adaptons à votre voyage, pas l'inverse.",
+    "homeCta": "Planifier votre venue →",
+    "detailHeading": "Votre parcours sur 3 à 5 jours",
+    "detailSubheading": "Voici à quoi ressemble habituellement un séjour de 3 à 5 jours à Tune Clinic, de bout en bout.",
+    "dayLabel": "Jour"
   }
 }

@@ -71,5 +71,15 @@
     "translationNotice": "Translated from Korean",
     "localGuideBadge": "Local Guide",
     "googleStarLine": "Verified on Google"
+  },
+  "itinerary": {
+    "kicker": "Travel-Conscious Itinerary",
+    "homeHeading": "Built for short-stay Seoul timelines",
+    "homeSubheading": "A typical 3–5 day visit, from arrival to departure.",
+    "homeFooterLine": "Need a different timeline? Tell us at the consultation — we plan around your trip, not the other way around.",
+    "homeCta": "Plan your visit →",
+    "detailHeading": "Your 3–5 day itinerary",
+    "detailSubheading": "What a 3–5 day visit normally looks like at Tune Clinic, end-to-end.",
+    "dayLabel": "Day"
   }
 }
