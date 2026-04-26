@@ -66,6 +66,8 @@ ogImage: /blog/images/filler-in-korea-when-it-helps-when-lifting-is-better-hero.
 
 Tune Clinicの[structural reset approach](/structural-reset.html)は、まさにこの状況 — これ以上追加することが答えではなく、何が配置されてどの方向が今後意味をなすかについての思慮深い再評価が必要なポイントに至った患者 — に対処します。
 
+リフティングの必要性が組織の質の低下と共存する患者 — そしてそれは「もっとフィラーで解決できる」というフレームで来院する患者に多く見られます — には、[Metacell Protocol](/metacell-protocol.html)が両方の層に同時に対応するよう設計されています。自家PRP と光バイオモジュレーション（PBM）が基礎となる組織を準備し、医師が選択したエネルギーデバイス（UltherapyまたはThermage、時にその両方）がその上で構造的な仕事を行います。この組み合わせは、再生的に準備された組織においてエネルギー単独よりも保持力の高いリフティング結果をもたらす傾向があります。
+
 フィラーの合併症の特定の解剖と製品の選択と配置の深さが重要な理由については、[フィラー血管閉塞の解説](/blog/filler-vascular-occlusion-explained.html)と[なぜフィラーへの恐怖は時代遅れか](/blog/why-filler-fears-are-outdated.html)が合わせて、真のリスクと真の安心感の両方の完全な絵を提供しています。
 
 ![Exposed scaffolding behind a half-finished plaster wall, warm light from a construction lamp illuminating the structural wooden framework beneath a smooth surface — metaphor for structural support beneath surface treatment, editorial still life, muted palette, deep background shadow](/blog/images/filler-in-korea-when-it-helps-when-lifting-is-better-body-scaffolding.webp)

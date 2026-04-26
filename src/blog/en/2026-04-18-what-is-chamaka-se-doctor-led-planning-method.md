@@ -77,6 +77,8 @@ For patients whose faces present both structural laxity and significant skin qua
 
 The [Collagen Builder](/collagen-builder.html) program operates on the same principle at the skin quality level: regenerative treatments sequenced to build dermal infrastructure before addressing surface texture, not applied as a menu.
 
+The [Metacell Protocol](/metacell-protocol.html) extends the design method to combined regenerative and lifting cases. Autologous PRP and photobiomodulation activate the patient's own tissue repair capacity; the physician then layers the energy device — Ultherapy, Thermage, or both — that fits the specific anatomy. The regenerative foundation is fixed; the energy combination is not. This is the chamaka-se principle applied at the most layered level: the protocol is the product, the devices are tools chosen against the face in front of the physician.
+
 ## Why does this matter for foreign patients specifically?
 
 For patients traveling from abroad, the stakes of protocol design are higher than for local patients. A local patient who has an unnecessary or suboptimal treatment can return in a few weeks, adjust the plan, and try something different. An international patient who has been over-treated or mis-sequenced faces a much more difficult situation — they are managing the aftermath at home, without access to the treating physician, often without access to any physician familiar with what was done.

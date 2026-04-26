@@ -102,6 +102,8 @@ ONDA、InMode Morpheus8、高周波マイクロニードリングプラットフ
 
 SMAS下垂と皮膚弛緩が共存する患者では、HIFUとThermageを同じセッションまたは連続するセッションで組み合わせ、それぞれが異なる層をターゲットにすることができます。これは不必要な組み合わせではありません — 問題が両方の深さにまたがる場合にメカニズム的に合理的です。[Structural Reset](/structural-reset.html)プロトコルと[シグネチャーリフティング](/signature-lifting.html)の中の層状アプローチは、まさにこの論理を中心に設計されています。
 
+下顔面の懸念が構造的下垂と組織の質の低下を組み合わせる患者 — 40代後半以降でより多く見られるパターン — には、[Metacell Protocol](/metacell-protocol.html)（メタセル・プロトコル）がその複合的な状況に直接対応するよう設計されています。自家PRP と光バイオモジュレーション（PBM）が真皮および皮下組織を準備し、医師はその後、特定の構造的優先事項に対処するエネルギー層 — 最も一般的にはSMAS深度でのUltherapy、時に皮膚エンベロープの処置のためのThermageを組み合わせて — を選択します。再生層は、エネルギーの仕事がどれだけ持続するかを変えます。これは、より高齢またはより薄い組織において特に重要です。
+
 [Korean Lifting Guide](/korean-lifting-guide.html)は初めてこのカテゴリーに取り組む海外患者向けに追加の指針を提供しており、[How to Choose the Right Lifting Treatment](/how-to-choose-the-right-lifting-treatment.html)は決断フレームワークをよりアクセスしやすい言葉で説明しています。
 
 ## 診断上の課題としての下顔面

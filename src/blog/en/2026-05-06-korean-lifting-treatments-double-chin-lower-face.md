@@ -102,6 +102,8 @@ In practice, for a patient with fat and laxity co-present, this often means addr
 
 For a patient with SMAS descent and skin laxity co-present, HIFU and Thermage can be combined in the same session or in sequential sessions, each targeting a different layer. This is not gratuitous combination — it is mechanistically rational when the problem spans both depths. The [Structural Reset](/structural-reset.html) protocol and the layered approach within [Signature Lifting](/signature-lifting.html) are designed around exactly this logic.
 
+For patients whose lower-face concern combines structural descent with declining tissue quality — a pattern that becomes more common in the late forties and beyond — the [Metacell Protocol](/metacell-protocol.html) is designed for the combined picture directly. Autologous PRP and photobiomodulation prime the dermal and subdermal tissue; the physician then selects the energy layer — most commonly Ultherapy at SMAS depth, sometimes paired with Thermage for skin-envelope work — that addresses the specific structural priority. The regenerative layer changes how durable the energy work is, which matters more in older or thinner tissue.
+
 The [Korean Lifting Guide](/korean-lifting-guide.html) offers additional orientation for international patients approaching this category for the first time, and [How to Choose the Right Lifting Treatment](/how-to-choose-the-right-lifting-treatment.html) walks through the decision framework in more accessible terms.
 
 ## The lower face as a diagnostic challenge

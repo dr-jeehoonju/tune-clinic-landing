@@ -102,6 +102,8 @@ Thermage使用单极射频能量均匀加热真皮。热效应对胶原蛋白纤
 
 对于同时有SMAS下垂和皮肤松弛的患者，HIFU和Thermage可以在同一疗程或序列疗程中结合，各自靶向不同层次。这不是无谓的组合——当问题跨越两个深度时，它在机制上是合理的。[Structural Reset](/structural-reset.html)方案和[Signature Lifting](/signature-lifting.html)中的分层方法，正是围绕这种逻辑设计的。
 
+对于面部下垂顾虑兼有结构下垂与组织质量下降的患者——这种模式在四十岁后半段及以后更为常见——[Metacell Protocol](/metacell-protocol.html)正是为直接应对这一复合情况而设计的。自体富血小板血浆（PRP）和光生物调节（PBM）对真皮及真皮下组织进行预处理；医生随后选定能量层次——最常见的是SMAS深度的Ultherapy，有时辅以Thermage处理皮肤包络——以针对具体的结构优先事项。再生层改变了能量治疗的持久性，而这在较年长或较薄的组织中尤为重要。
+
 [Korean Lifting Guide](/korean-lifting-guide.html)为首次接触这一类别的国际患者提供了额外的指引，[How to Choose the Right Lifting Treatment](/how-to-choose-the-right-lifting-treatment.html)以更易理解的方式介绍了决策框架。
 
 ## 面部下方作为诊断挑战

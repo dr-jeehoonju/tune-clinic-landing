@@ -66,6 +66,8 @@ This is the "pillow face" pattern. It is not primarily the consequence of a sing
 
 The [structural reset approach](/structural-reset.html) at Tune Clinic addresses exactly this situation — patients who have arrived at a point where more is not the answer and who need a thoughtful reassessment of what has been placed and what direction makes sense from here.
 
+For patients whose lifting need coexists with declining tissue quality — and that is often the case in patients arriving with concerns originally framed as "more filler will fix it" — the [Metacell Protocol](/metacell-protocol.html) is built for both layers at once. Autologous PRP and photobiomodulation prepare the underlying tissue; a physician-selected energy device (Ultherapy or Thermage, sometimes both) does the structural work on top. The combination produces lifting results that tend to hold better than energy alone in tissue that has been regeneratively primed.
+
 For the specific anatomy of filler complications and why product choice and placement depth matter, [Filler Vascular Occlusion Explained](/blog/filler-vascular-occlusion-explained.html) and [Why Filler Fears Are Outdated](/blog/why-filler-fears-are-outdated.html) together give a full picture of both the real risks and the real reassurances.
 
 ![Exposed scaffolding behind a half-finished plaster wall, warm light from a construction lamp illuminating the structural wooden framework beneath a smooth surface — metaphor for structural support beneath surface treatment, editorial still life, muted palette, deep background shadow](/blog/images/filler-in-korea-when-it-helps-when-lifting-is-better-body-scaffolding.webp)
