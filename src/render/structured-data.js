@@ -171,21 +171,68 @@ function offerCatalogStructuredData(entry, localeData, canonicalUrl) {
   if (entry.key !== "index" && entry.key !== "menu") return null;
 
   const localePages = localeData[entry.locale].pages;
+  // Visual order on the homepage program grid is collagen / volume / lifting /
+  // elite, but the offerCatalog historically lists the 4 program slugs in
+  // the order below. The "structural-reset" slot has been repositioned as
+  // the Metacell Protocol premium tier (autologous regenerative + custom
+  // energy device lifting) — emitted inline as a MedicalProcedure node so
+  // it does not depend on a per-locale page bundle. Array length and the
+  // remaining slugs are preserved.
   const itemListElement = [
     "signature-lifting",
     "structural-reset",
     "collagen-builder",
     "filler-chamaka-se",
-  ].map((key, index) => ({
-    "@type": "Offer",
-    position: index + 1,
-    itemOffered: {
-      "@type": "Service",
-      name: breadcrumbName({ ...entry, key }, localeData),
-      description: localePages[key]?.description ?? "",
-      url: publicUrl(entry.locale, key),
-    },
-  }));
+  ].map((key, index) => {
+    if (key === "structural-reset") {
+      return {
+        "@type": "Offer",
+        position: index + 1,
+        itemOffered: {
+          "@type": "MedicalProcedure",
+          name: "Metacell Protocol",
+          alternateName: [
+            "Autologous Regenerative Protocol",
+            "Physician-Designed Cellular Regeneration",
+          ],
+          description:
+            "Physician-designed protocol combining autologous cellular regeneration (Metacell PRP + PBM) with custom energy device lifting. Tailored to individual facial structure and recovery timeline.",
+          procedureType: "https://schema.org/TherapeuticProcedure",
+          bodyLocation: "Face",
+          preparation: "Initial physician consultation required",
+          followup: "Customized aftercare plan included",
+          howPerformed:
+            "Autologous PRP activation via PBM technology, followed by physician-customized energy device lifting (Ultherapy or Thermage based on individual assessment)",
+          offers: {
+            "@type": "Offer",
+            price: "2000000",
+            priceCurrency: "KRW",
+            priceSpecification: {
+              "@type": "PriceSpecification",
+              minPrice: "2000000",
+              priceCurrency: "KRW",
+            },
+            availability: "https://schema.org/InStock",
+          },
+          performer: {
+            "@type": "Physician",
+            "@id": `${SITE_URL}/#physician-cha-seung-yeon`,
+            name: "Dr. Seung Yeon Cha",
+          },
+        },
+      };
+    }
+    return {
+      "@type": "Offer",
+      position: index + 1,
+      itemOffered: {
+        "@type": "Service",
+        name: breadcrumbName({ ...entry, key }, localeData),
+        description: localePages[key]?.description ?? "",
+        url: publicUrl(entry.locale, key),
+      },
+    };
+  });
 
   return {
     "@context": "https://schema.org",
