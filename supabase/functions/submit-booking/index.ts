@@ -27,6 +27,12 @@ import {
   hashIp,
   recordSubmission,
 } from "../_shared/rate-limit.ts";
+import { normalizePhone } from "../_shared/phone.ts";
+import { isCapiConfigured, sendLeadEvent } from "../_shared/meta-capi.ts";
+
+// Used to absolutize the relative `landing_page` the form sends so that
+// CAPI receives a fully-qualified `event_source_url`.
+const SITE_URL = Deno.env.get("SITE_URL") ?? "https://tuneclinic-global.com";
 
 const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
 const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -48,6 +54,16 @@ const ALLOWED_TREATMENTS = new Set([
   "other",
 ]);
 
+const ALLOWED_CONTACT_CHANNELS = new Set([
+  "whatsapp",
+  "instagram",
+  "email",
+  "kakaotalk",
+  "line",
+  "wechat",
+  "telegram",
+]);
+
 const RATE_LIMIT_PER_HOUR = 5;
 const RATE_LIMIT_WINDOW_SECONDS = 60 * 60;
 
@@ -63,6 +79,22 @@ interface SubmitPayload {
   patient_timezone?: string;
   appointment_date?: string;
   appointment_time?: string;
+  // P0-2: marketing attribution & visit context
+  utm_source?: string | null;
+  utm_medium?: string | null;
+  utm_campaign?: string | null;
+  utm_content?: string | null;
+  utm_term?: string | null;
+  adset_id?: string | null;
+  ad_id?: string | null;
+  fbclid?: string | null;
+  landing_page?: string | null;
+  referrer?: string | null;
+  user_agent?: string | null;
+  preferred_contact_channel?: string | null;
+  // P0-3: CAPI dedupe identifiers
+  event_id?: string | null;
+  event_time?: number | null;
 }
 
 function jsonError(status: number, error: string, extra: Record<string, unknown> = {}) {
@@ -93,11 +125,14 @@ function validatePayload(p: SubmitPayload): { ok: true; row: Record<string, unkn
   if (!name) return { ok: false, reason: "missing-name" };
 
   const email = sanitizeString(p.patient_email, 320);
-  const phone = sanitizeString(p.patient_phone, 40);
-  if (!email && !phone) return { ok: false, reason: "missing-contact" };
+  const phoneRaw = sanitizeString(p.patient_phone, 40);
+  if (!email && !phoneRaw) return { ok: false, reason: "missing-contact" };
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { ok: false, reason: "invalid-email" };
   }
+  const phoneCheck = normalizePhone(phoneRaw);
+  if (!phoneCheck.ok) return { ok: false, reason: "invalid-phone" };
+  const phone = phoneCheck.e164 ?? phoneRaw;
 
   const date = sanitizeString(p.appointment_date, 10);
   const time = sanitizeString(p.appointment_time, 8);
@@ -116,6 +151,21 @@ function validatePayload(p: SubmitPayload): { ok: true; row: Record<string, unkn
     ? p.treatment_interest.filter((t) => typeof t === "string" && ALLOWED_TREATMENTS.has(t))
     : [];
 
+  // ---- P0-2: attribution & context (all optional; trimmed; never thrown) ----
+  const channelRaw = sanitizeString(p.preferred_contact_channel, 32);
+  const preferred_contact_channel = channelRaw && ALLOWED_CONTACT_CHANNELS.has(channelRaw.toLowerCase())
+    ? channelRaw.toLowerCase()
+    : null;
+
+  // event_time is a unix-epoch seconds value (number). Reject obviously
+  // bogus values so we never insert garbage into a BIGINT column.
+  let event_time: number | null = null;
+  if (typeof p.event_time === "number" && Number.isFinite(p.event_time)) {
+    const v = Math.floor(p.event_time);
+    // Accept 2020-01-01 .. 2100-01-01 only.
+    if (v > 1577836800 && v < 4102444800) event_time = v;
+  }
+
   return {
     ok: true,
     row: {
@@ -129,6 +179,25 @@ function validatePayload(p: SubmitPayload): { ok: true; row: Record<string, unkn
       patient_timezone: tz,
       appointment_date: date,
       appointment_time: time.length === 5 ? `${time}:00` : time,
+
+      utm_source:   sanitizeString(p.utm_source,   200),
+      utm_medium:   sanitizeString(p.utm_medium,   200),
+      utm_campaign: sanitizeString(p.utm_campaign, 200),
+      utm_content:  sanitizeString(p.utm_content,  200),
+      utm_term:     sanitizeString(p.utm_term,     200),
+
+      adset_id: sanitizeString(p.adset_id, 64),
+      ad_id:    sanitizeString(p.ad_id,    64),
+      fbclid:   sanitizeString(p.fbclid,   200),
+
+      landing_page: sanitizeString(p.landing_page, 500),
+      referrer:     sanitizeString(p.referrer,     500),
+      user_agent:   sanitizeString(p.user_agent,   500),
+
+      preferred_contact_channel,
+
+      event_id: sanitizeString(p.event_id, 64),
+      event_time,
     },
   };
 }
@@ -214,6 +283,34 @@ Deno.serve(async (req: Request) => {
   }
 
   await recordSubmission(supabase, ipHash, true, "ok");
+
+  // ── P0-3: Meta Conversion API server-side `Lead` event ─────────────
+  // Fired in parallel with the client Pixel; deduplicated via event_id.
+  // Failure here is intentionally non-fatal — booking confirmation must
+  // not depend on Meta's pipeline being healthy.
+  if (isCapiConfigured()) {
+    const persisted = inserted as Record<string, unknown> | null;
+    const landingPath = (persisted?.landing_page as string | null) ?? null;
+    const eventSourceUrl = landingPath
+      ? (landingPath.startsWith("http") ? landingPath : `${SITE_URL}${landingPath.startsWith("/") ? "" : "/"}${landingPath}`)
+      : `${SITE_URL}/`;
+    const treatments = (persisted?.treatment_interest as string[] | null) ?? [];
+    sendLeadEvent({
+      eventId: (persisted?.event_id as string | null) ?? null,
+      eventTime: (persisted?.event_time as number | null) ?? null,
+      eventSourceUrl,
+      email: (persisted?.patient_email as string | null) ?? null,
+      phoneE164: (persisted?.patient_phone as string | null) ?? null,
+      firstName: (persisted?.patient_name as string | null) ?? null,
+      userAgent: (persisted?.user_agent as string | null) ?? null,
+      ipAddress: ip ?? null,
+      fbclid: (persisted?.fbclid as string | null) ?? null,
+      contentCategory: treatments[0] ?? null,
+      bookingId: (persisted?.id as string | number | null) ?? null,
+    }).catch((e) => {
+      console.warn("[submit-booking] CAPI sendLeadEvent threw", e);
+    });
+  }
 
   // Trigger booking-confirmation directly so the email pipeline does not
   // depend on a Supabase database webhook being configured. We mimic the
