@@ -222,7 +222,8 @@ function homeChrome(entry, localeData) {
               <i class="far fa-clock"></i> ${g.openToday}
             </span>
             <div class="absolute right-0 top-full mt-2 w-48 bg-white text-slate-800 shadow-xl rounded-sm p-3 hidden group-hover:block z-50 border border-slate-100 text-[10px]">
-              <div class="flex justify-between mb-1"><span>${g.monFri}</span><span class="font-bold">10:00 - 21:00</span></div>
+              <div class="flex justify-between mb-1"><span>${g.monThu}</span><span class="font-bold">11:00 - 20:00</span></div>
+              <div class="flex justify-between mb-1"><span>${g.fri}</span><span class="font-bold">11:00 - 21:00</span></div>
               <div class="flex justify-between mb-1"><span>${g.sat}</span><span class="font-bold">10:00 - 16:00</span></div>
               <div class="flex justify-between text-red-400"><span>${g.sun}</span><span class="font-bold">${g.closed}</span></div>
             </div>
@@ -683,13 +684,19 @@ function renderBlogIndex(locale, posts, localeData) {
   }).join("");
   const switcher = `<div class="group relative cursor-pointer"><span class="hover:text-gold transition font-bold text-[10px] flex items-center gap-1"><i class="fas fa-globe"></i> ${esc(currentLang.langLabel)}</span><div class="absolute right-0 top-full pt-2 w-36 hidden group-hover:block z-50"><div class="bg-white text-slate-800 shadow-xl rounded-sm border border-slate-100 text-xs">${blogIdxSwitcherRows}</div></div></div>`;
 
-  const postCards = localePosts.map((post) => {
+  const pinnedLabel = g.doctorsPicks || "Doctor's Picks";
+  const allArticlesLabel = g.allArticles || "All Articles";
+
+  const cardHtml = (post, isPinned) => {
     const authors = resolveAuthors(post.author);
     const fd = formatBlogDate(post.date, locale);
     const tb = post.tags.slice(0, 3).map((t) => `<span class="inline-block px-2.5 py-1 rounded-full border border-slate-200 text-slate-400 text-[9px] uppercase tracking-[0.12em] font-bold whitespace-nowrap">${esc(t)}</span>`).join(" ");
     const authorNames = authors.map((a) => esc(a.name)).join(" & ");
+    const cardBorder = isPinned ? "border-gold/40 hover:border-gold ring-1 ring-gold/10" : "border-slate-200 hover:border-gold";
+    const pinnedBadge = isPinned ? `<div class="absolute top-3 right-3 z-10 bg-slate-950/90 text-gold text-[9px] uppercase tracking-[0.18em] font-bold px-2.5 py-1 rounded-full border border-gold/40 backdrop-blur"><i class="fas fa-star mr-1"></i>${esc(pinnedLabel)}</div>` : "";
     return `
-      <a href="${blogUrl(locale, post.slug)}" class="group block rounded-2xl border border-slate-200 bg-white hover:border-gold hover:shadow-lg transition overflow-hidden">
+      <a href="${blogUrl(locale, post.slug)}" class="group block rounded-2xl border ${cardBorder} bg-white hover:shadow-lg transition overflow-hidden relative">
+        ${pinnedBadge}
         ${post.ogImage ? `<div class="aspect-[16/9] overflow-hidden"><img src="/.netlify/images?url=${post.ogImage}&w=600&fm=webp&q=80" alt="${esc(post.title)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>` : ""}
         <div class="p-6">
           <div class="flex flex-wrap gap-1.5 mb-4">${tb}</div>
@@ -701,8 +708,17 @@ function renderBlogIndex(locale, posts, localeData) {
           </div>
         </div>
       </a>`;
-  }).join("\n");
+  };
 
+  const pinnedPosts = localePosts.filter((p) => p.pinned);
+  const regularPosts = localePosts.filter((p) => !p.pinned);
+
+  const sectionHeader = (label, accent) => `<div class="flex items-center gap-3 mb-8"><i class="fas fa-star text-gold text-xs ${accent ? "" : "hidden"}"></i><h2 class="text-[11px] uppercase tracking-[0.22em] font-bold ${accent ? "text-slate-900" : "text-slate-500"}">${esc(label)}</h2><div class="flex-1 border-t border-slate-200"></div></div>`;
+
+  const pinnedSection = pinnedPosts.length ? `<div class="mb-16">${sectionHeader(pinnedLabel, true)}<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${pinnedPosts.map((p) => cardHtml(p, true)).join("\n")}</div></div>` : "";
+  const regularSection = regularPosts.length ? `<div>${pinnedPosts.length ? sectionHeader(allArticlesLabel, false) : ""}<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${regularPosts.map((p) => cardHtml(p, false)).join("\n")}</div></div>` : "";
+
+  const postsGrid = `${pinnedSection}${regularSection}`;
   const emptyState = `<div class="text-center py-20"><i class="fas fa-pen-nib text-5xl text-slate-300 mb-6"></i><p class="text-lg text-slate-500">Articles coming soon.</p></div>`;
   const structuredData = [{ "@context": "https://schema.org", "@type": "Blog", "@id": `${canonicalUrl}#blog`, url: canonicalUrl, name: `${SITE_NAME} ${blogTitle}`, description: `Evidence-based aesthetic medicine insights from ${SITE_NAME}.`, publisher: { "@id": `${SITE_URL}/#organization` }, inLanguage: g.langAttr }];
   const footer = siteFooter({ locale, template: "editorial", key: "blog-index" }, localeData);
@@ -737,7 +753,7 @@ ${mainNav(g, locale, localeData, switcher, { activeKey: "blog", isHome: false, m
 </header>
 <section class="py-14 md:py-20 bg-white">
   <div class="max-w-6xl mx-auto px-6">
-    ${localePosts.length ? `<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${postCards}</div>` : emptyState}
+    ${localePosts.length ? postsGrid : emptyState}
   </div>
 </section>
 ${footer}
