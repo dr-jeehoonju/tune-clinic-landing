@@ -16,6 +16,7 @@ const {
   absoluteAssetUrl,
   googleVerificationMeta,
   gaScript,
+  metaPixelScript,
   structuredDataScript,
   siteAssets,
   consentBannerScript,
@@ -281,7 +282,7 @@ function siteFooter(entry, localeData) {
             <div class="space-y-4 text-sm text-slate-300">
               <p class="leading-relaxed"><i class="fas fa-location-dot text-gold mr-2"></i>${g.footerAddress || ""}</p>
               <p><i class="fas fa-phone-alt text-gold mr-2"></i><a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a></p>
-              <p><i class="far fa-clock text-gold mr-2"></i>${g.footerHours || ""}<br><span class="pl-6">${g.footerHoursSat || ""}</span></p>
+              <p><i class="far fa-clock text-gold mr-2"></i>${g.footerHours || ""}${g.footerHoursFri ? `<br><span class="pl-6">${g.footerHoursFri}</span>` : ""}<br><span class="pl-6">${g.footerHoursSat || ""}</span>${g.footerHoursClosed ? `<br><span class="pl-6 text-slate-400">${g.footerHoursClosed}</span>` : ""}</p>
               <div class="flex items-center gap-3 pt-2">
                 <a href="${g.whatsappHref || "#"}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-green-400 hover:border-green-400 transition" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="${g.instagramHref || "#"}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-400 transition" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -393,7 +394,7 @@ function siteFooter(entry, localeData) {
             <div class="space-y-4 text-sm text-slate-300">
               <p class="leading-relaxed"><i class="fas fa-location-dot text-gold mr-2"></i>${g.footerAddress}</p>
               <p><i class="fas fa-phone-alt text-gold mr-2"></i><a href="tel:+82-507-1438-8022" class="hover:text-gold transition">+82-507-1438-8022</a></p>
-              <p><i class="far fa-clock text-gold mr-2"></i>${g.footerHours}<br><span class="pl-6">${g.footerHoursSat}</span></p>
+              <p><i class="far fa-clock text-gold mr-2"></i>${g.footerHours}${g.footerHoursFri ? `<br><span class="pl-6">${g.footerHoursFri}</span>` : ""}<br><span class="pl-6">${g.footerHoursSat}</span>${g.footerHoursClosed ? `<br><span class="pl-6 text-slate-400">${g.footerHoursClosed}</span>` : ""}</p>
               <p><i class="fas fa-globe text-gold mr-2"></i>${languageOrder.map(code => localeData[code].global.langLabel).join(' / ')}</p>
               <div class="flex items-center gap-3 pt-2">
                 <a href="${g.whatsappHref}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-slate-300 hover:text-green-400 hover:border-green-400 transition" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -512,6 +513,7 @@ function renderPage(entry, localeData) {
   <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
   ${hreflang}
   ${gaScript()}
+  ${metaPixelScript()}
   ${structuredDataScript(structuredData)}
   ${siteAssets()}
 </head>
@@ -629,6 +631,7 @@ function renderBlogPost(post, localeData) {
   <link rel="icon" href="/.netlify/images?url=/logo.png&w=64&fm=webp&q=90">
   ${hreflangLinks}
   ${gaScript()}
+  ${metaPixelScript()}
   ${structuredDataScript(structuredData)}
   ${siteAssets({ extraStyles: BLOG_PROSE_CSS })}
 </head>
@@ -719,6 +722,7 @@ function renderBlogIndex(locale, posts, localeData) {
   ${hreflangLinks}
   <link rel="alternate" type="application/rss+xml" title="${SITE_NAME} Blog RSS" href="${SITE_URL}/blog/feed.xml">
   ${gaScript()}
+  ${metaPixelScript()}
   ${structuredDataScript(structuredData)}
   ${siteAssets({ extraStyles: LINE_CLAMP_CSS })}
 </head>

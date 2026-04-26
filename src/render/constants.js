@@ -11,6 +11,12 @@ const SITE_NAME = "Tune Clinic";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/.netlify/images?url=/main.jpeg&w=1200&fm=webp&q=75`;
 const GA_MEASUREMENT_ID = "G-P68CDTNEV1";
 
+// Meta Pixel ID for client-side `fbq` events. Pair with the matching
+// server-side CAPI secrets `META_PIXEL_ID` / `META_CAPI_ACCESS_TOKEN`
+// configured for the `submit-booking` Edge Function. Leaving this empty
+// disables the client snippet entirely (CAPI keeps working server-side).
+const META_PIXEL_ID = "2806755436327661";
+
 // Empty by default; set when registering with Google Search Console.
 const GOOGLE_SEARCH_CONSOLE_VERIFICATION = "";
 
@@ -210,6 +216,7 @@ module.exports = {
   SITE_URL,
   DEFAULT_OG_IMAGE,
   GA_MEASUREMENT_ID,
+  META_PIXEL_ID,
   GOOGLE_SEARCH_CONSOLE_VERIFICATION,
   CONSENT_COPY,
   PHYSICIANS,

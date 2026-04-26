@@ -7,6 +7,7 @@ const {
   CONSENT_COPY,
   DEFAULT_OG_IMAGE,
   GA_MEASUREMENT_ID,
+  META_PIXEL_ID,
   GOOGLE_SEARCH_CONSOLE_VERIFICATION,
   SITE_URL,
   SITE_CSS_HREF,
@@ -56,6 +57,22 @@ function gaScript() {
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{anonymize_ip:true});</script>`;
 }
 
+// P0-3: Meta Pixel base snippet. Loader is always defined so the
+// booking form's `fbq('track','Lead', …, {eventID})` call never throws,
+// but `PageView` and other events only fire after the visitor accepts
+// the cookie banner (the consent script flips `__metaPixelConsent`).
+// Skipped entirely when `META_PIXEL_ID` is empty (preview/dev).
+function metaPixelScript() {
+  if (!META_PIXEL_ID) return "";
+  return `<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('consent','revoke');
+  fbq('init','${META_PIXEL_ID}');
+  window.__metaPixelTrackPageView=function(){try{fbq('consent','grant');fbq('track','PageView');}catch(e){}};
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1"/></noscript>`;
+}
+
 function structuredDataScript(structuredData) {
   const graph = structuredData.map((item) => {
     const { ["@context"]: _ctx, ...rest } = item;
@@ -84,7 +101,10 @@ function siteAssets({ extraStyles = "" } = {}) {
 // Cookie consent JS injected at end-of-body. Reads/writes a single
 // localStorage entry and calls gtag('consent','update', ...).
 function consentBannerScript() {
-  return `<script>(function(){var k='tune-cookie-consent',b=document.getElementById('cookie-consent-banner'),a=document.getElementById('cookie-accept-btn'),r=document.getElementById('cookie-reject-btn');if(!b||!a||!r||typeof window.gtag!=='function')return;function u(g){window.gtag('consent','update',{analytics_storage:g?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'})}function s(v){try{localStorage.setItem(k,v)}catch(e){}}function rd(){try{return localStorage.getItem(k)}catch(e){return null}}var c=rd();if(c==='accepted')u(true);else if(c==='rejected')u(false);else b.classList.remove('hidden');a.addEventListener('click',function(){u(true);s('accepted');b.classList.add('hidden')});r.addEventListener('click',function(){u(false);s('rejected');b.classList.add('hidden')})})();</script>`;
+  // P0-3: also grants/revokes Meta Pixel consent and triggers the
+  // gated PageView when the visitor accepts. fbq is created by
+  // metaPixelScript() above with consent revoked by default.
+  return `<script>(function(){var k='tune-cookie-consent',b=document.getElementById('cookie-consent-banner'),a=document.getElementById('cookie-accept-btn'),r=document.getElementById('cookie-reject-btn');if(!b||!a||!r||typeof window.gtag!=='function')return;function pixel(g){if(typeof window.fbq!=='function')return;try{window.fbq('consent',g?'grant':'revoke');if(g&&typeof window.__metaPixelTrackPageView==='function'){window.__metaPixelTrackPageView();}}catch(e){}}function u(g){window.gtag('consent','update',{analytics_storage:g?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});pixel(g);}function s(v){try{localStorage.setItem(k,v)}catch(e){}}function rd(){try{return localStorage.getItem(k)}catch(e){return null}}var c=rd();if(c==='accepted')u(true);else if(c==='rejected')u(false);else b.classList.remove('hidden');a.addEventListener('click',function(){u(true);s('accepted');b.classList.add('hidden')});r.addEventListener('click',function(){u(false);s('rejected');b.classList.add('hidden')})})();</script>`;
 }
 
 function consentBanner(locale) {
@@ -124,6 +144,7 @@ module.exports = {
   stripHtml,
   googleVerificationMeta,
   gaScript,
+  metaPixelScript,
   structuredDataScript,
   siteAssets,
   consentBannerScript,
