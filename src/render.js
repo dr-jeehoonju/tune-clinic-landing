@@ -688,22 +688,25 @@ function renderBlogIndex(locale, posts, localeData) {
   const pinnedLabel = g.doctorsPicks || "Doctor's Picks";
   const allArticlesLabel = g.allArticles || "All Articles";
 
-  const cardHtml = (post, isPinned) => {
+  const cardHtml = (post, isPinned, isSlider) => {
     const authors = resolveAuthors(post.author);
     const fd = formatBlogDate(post.date, locale);
     const tb = post.tags.slice(0, 3).map((t) => `<span class="inline-block px-2.5 py-1 rounded-full border border-slate-200 text-slate-400 text-[9px] uppercase tracking-[0.12em] font-bold whitespace-nowrap">${esc(t)}</span>`).join(" ");
     const authorNames = authors.map((a) => esc(a.name)).join(" & ");
     const cardBorder = isPinned ? "border-gold/40 hover:border-gold ring-1 ring-gold/10" : "border-slate-200 hover:border-gold";
     const pinnedBadge = isPinned ? `<div class="absolute top-3 right-3 z-10 bg-slate-950/90 text-gold text-[9px] uppercase tracking-[0.18em] font-bold px-2.5 py-1 rounded-full border border-gold/40 backdrop-blur"><i class="fas fa-star mr-1"></i>${esc(pinnedLabel)}</div>` : "";
+    const widthCls = isSlider
+      ? "flex-shrink-0 w-[78vw] sm:w-[44vw] md:w-[300px] lg:w-[280px] snap-start"
+      : "h-full";
     return `
-      <a href="${blogUrl(locale, post.slug)}" class="group flex-shrink-0 w-[78vw] sm:w-[44vw] md:w-[340px] lg:w-[360px] snap-start block rounded-2xl border ${cardBorder} bg-white hover:shadow-lg transition overflow-hidden relative">
+      <a href="${blogUrl(locale, post.slug)}" class="group ${widthCls} flex flex-col rounded-2xl border ${cardBorder} bg-white hover:shadow-lg transition overflow-hidden relative">
         ${pinnedBadge}
         ${post.ogImage ? `<div class="aspect-[16/9] overflow-hidden bg-slate-100"><img src="${post.ogImage}" alt="${esc(post.title)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>` : ""}
-        <div class="p-6">
+        <div class="p-6 flex flex-col flex-grow">
           <div class="flex flex-wrap gap-1.5 mb-4">${tb}</div>
           <h2 class="text-lg font-serif text-slate-900 group-hover:text-gold transition leading-snug mb-2">${esc(post.title)}</h2>
           <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 mb-5">${esc(post.description)}</p>
-          <div class="pt-4 border-t border-slate-100">
+          <div class="mt-auto pt-4 border-t border-slate-100">
             <p class="text-xs font-medium text-slate-600">${authorNames}</p>
             <time class="text-[11px] text-slate-400 mt-0.5 block">${fd}</time>
           </div>
@@ -716,14 +719,13 @@ function renderBlogIndex(locale, posts, localeData) {
 
   const arrowBtns = (sliderId) => `<div class="flex items-center gap-2 ml-auto"><button type="button" data-slider-prev="${sliderId}" aria-label="Previous" class="w-9 h-9 rounded-full border border-slate-200 text-slate-500 hover:text-gold hover:border-gold transition flex items-center justify-center"><i class="fas fa-chevron-left text-xs"></i></button><button type="button" data-slider-next="${sliderId}" aria-label="Next" class="w-9 h-9 rounded-full border border-slate-200 text-slate-500 hover:text-gold hover:border-gold transition flex items-center justify-center"><i class="fas fa-chevron-right text-xs"></i></button></div>`;
 
-  const sliderRow = (id, posts, isPinned) => `<div class="relative"><div id="${id}" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-6 px-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">${posts.map((p) => cardHtml(p, isPinned)).join("\n")}</div></div>`;
+  const sectionHeader = (label, accent, rightSlot) => `<div class="flex items-center gap-3 mb-6"><i class="fas fa-star text-gold text-xs ${accent ? "" : "hidden"}"></i><h2 class="text-[11px] uppercase tracking-[0.22em] font-bold ${accent ? "text-slate-900" : "text-slate-500"}">${esc(label)}</h2><div class="hidden md:block flex-1 border-t border-slate-200 mx-2"></div>${rightSlot}</div>`;
 
-  const sectionBlock = (id, label, accent, posts, isPinned) => `<div class="mb-16"><div class="flex items-center gap-3 mb-6"><i class="fas fa-star text-gold text-xs ${accent ? "" : "hidden"}"></i><h2 class="text-[11px] uppercase tracking-[0.22em] font-bold ${accent ? "text-slate-900" : "text-slate-500"}">${esc(label)}</h2><div class="hidden md:block flex-1 border-t border-slate-200 mx-2"></div>${posts.length > 3 ? arrowBtns(id) : ""}</div>${sliderRow(id, posts, isPinned)}</div>`;
+  const pinnedSection = pinnedPosts.length ? `<div class="mb-16">${sectionHeader(pinnedLabel, true, pinnedPosts.length > 4 ? arrowBtns("slider-pinned") : "")}<div id="slider-pinned" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-6 px-6 items-stretch [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">${pinnedPosts.map((p) => cardHtml(p, true, true)).join("\n")}</div></div>` : "";
 
-  const pinnedSection = pinnedPosts.length ? sectionBlock("slider-pinned", pinnedLabel, true, pinnedPosts, true) : "";
-  const regularSection = regularPosts.length ? sectionBlock("slider-regular", allArticlesLabel, false, regularPosts, false) : "";
+  const regularSection = regularPosts.length ? `<div>${pinnedPosts.length ? sectionHeader(allArticlesLabel, false, "") : ""}<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">${regularPosts.map((p) => cardHtml(p, false, false)).join("\n")}</div></div>` : "";
 
-  const sliderScript = (pinnedPosts.length || regularPosts.length) ? `<script>(function(){function step(id,dir){var el=document.getElementById(id);if(!el)return;var c=el.firstElementChild;var w=c?c.offsetWidth+24:340;el.scrollBy({left:dir*w,behavior:"smooth"})}document.querySelectorAll("[data-slider-prev],[data-slider-next]").forEach(function(b){b.addEventListener("click",function(){var id=b.dataset.sliderPrev||b.dataset.sliderNext;var dir=b.dataset.sliderPrev?-1:1;step(id,dir)})})})();</script>` : "";
+  const sliderScript = pinnedPosts.length > 4 ? `<script>(function(){function step(id,dir){var el=document.getElementById(id);if(!el)return;var c=el.firstElementChild;var w=c?c.offsetWidth+24:340;el.scrollBy({left:dir*w,behavior:"smooth"})}document.querySelectorAll("[data-slider-prev],[data-slider-next]").forEach(function(b){b.addEventListener("click",function(){var id=b.dataset.sliderPrev||b.dataset.sliderNext;var dir=b.dataset.sliderPrev?-1:1;step(id,dir)})})})();</script>` : "";
 
   const postsGrid = `${pinnedSection}${regularSection}${sliderScript}`;
   const emptyState = `<div class="text-center py-20"><i class="fas fa-pen-nib text-5xl text-slate-300 mb-6"></i><p class="text-lg text-slate-500">Articles coming soon.</p></div>`;
