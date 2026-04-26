@@ -82,9 +82,28 @@ function tFor(localeData, locale) {
   return { ...DEFAULT_T, ...itin };
 }
 
+// P1-C navigation hook: small under-card link to the Decision Protection
+// LP. Per-locale label so the home page's only entry-point to that
+// surface localizes cleanly without polluting `global.json` (the string
+// is used in exactly one place — see "no new locale keys for one-off
+// strings" rule in v1.2 §6.3).
+const DECISION_PROTECTION_LINK_LABEL = {
+  en: "Read the doctor-led approach →",
+  ko: "원장 주도 접근법 읽기 →",
+  ja: "医師主導のアプローチを読む →",
+  zh: "阅读医生主导的做法 →",
+  de: "Den arztgeführten Ansatz lesen →",
+  fr: "Lire l'approche médicale →",
+  ru: "Подход врача — читать →",
+  th: "อ่านแนวทางที่นำโดยแพทย์ →",
+  vi: "Đọc cách tiếp cận do bác sĩ dẫn dắt →",
+};
+
 // ── Variant: home (compact 5-cell day strip) ─────────────────────────
 function renderHomeVariant(locale, t) {
   const bookingHref = pageUrl(locale, "booking");
+  const dpHref = pageUrl(locale, "decision-protection");
+  const dpLabel = DECISION_PROTECTION_LINK_LABEL[locale] || DECISION_PROTECTION_LINK_LABEL.en;
 
   const cards = DAYS.map((day) => `
         <article class="snap-start shrink-0 w-[78vw] sm:w-auto sm:shrink rounded-2xl border border-slate-200 bg-white p-5 md:p-6 shadow-sm hover:shadow-md transition flex flex-col">
@@ -110,12 +129,18 @@ function renderHomeVariant(locale, t) {
       ${cards}
     </div>
 
-    <div class="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <p class="text-xs md:text-sm text-slate-500 italic max-w-3xl">${esc(t.homeFooterLine)}</p>
-      <a href="${bookingHref}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 text-slate-800 hover:border-slate-900 text-xs font-bold transition shrink-0">
-        <i class="fas fa-calendar-check"></i> ${esc(t.homeCta)}
-      </a>
-    </div>
+            <div class="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <p class="text-xs md:text-sm text-slate-500 italic max-w-3xl">${esc(t.homeFooterLine)}</p>
+              <a href="${bookingHref}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 text-slate-800 hover:border-slate-900 text-xs font-bold transition shrink-0">
+                <i class="fas fa-calendar-check"></i> ${esc(t.homeCta)}
+              </a>
+            </div>
+
+            <div class="mt-4 text-center md:text-right">
+              <a href="${dpHref}" class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-bold text-gold hover:text-slate-900 transition">
+                <i class="fas fa-shield-halved text-[10px]"></i> ${esc(dpLabel)}
+              </a>
+            </div>
   </div>
 </section>
 `;

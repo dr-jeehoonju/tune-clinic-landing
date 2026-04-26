@@ -1,0 +1,11 @@
+{
+  "key": "decision-protection",
+  "template": "editorial",
+  "permalink": "de/decision-protection.html",
+  "title": "„Ulthera oder Thermage“ — die falsche erste Frage | Tune Clinic Apgujeong",
+  "description": "Beginnen Sie mit dem, was Ihr Gesicht tatsächlich braucht — Erschlaffung, Volumen, Hautqualität oder eine Kombination. Ein arztgeführter, indikationsbasierter Leitfaden für internationale Patientinnen und Patienten, die zwischen Ulthera, Thermage und Kombinationsplänen abwägen.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/de/decision-protection.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "Decision Protection"
+}

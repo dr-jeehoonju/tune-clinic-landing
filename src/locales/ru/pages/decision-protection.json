@@ -1,0 +1,11 @@
+{
+  "key": "decision-protection",
+  "template": "editorial",
+  "permalink": "ru/decision-protection.html",
+  "title": "«Ultherapy или Thermage» — неверный первый вопрос | Tune Clinic Апкуджон",
+  "description": "Начните с того, что Вашему лицу действительно нужно — провисание, объём, качество кожи или комбинация. Гид от врача, основанный на показаниях, для международных пациентов, выбирающих между Ultherapy, Thermage и комбинированными планами.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ru/decision-protection.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "Decision Protection"
+}

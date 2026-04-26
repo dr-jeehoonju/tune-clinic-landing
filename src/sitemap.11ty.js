@@ -12,6 +12,8 @@ const PAGE_LAST_MODIFIED = {
   booking: "2026-04-26",
   consult: "2026-04-26",
   "booking-manage": "2026-04-26",
+  // P1-C: new Decision Protection LP shipped 2026-04-26.
+  "decision-protection": "2026-04-26",
   // Stable program / informational pages — bump when the body copy
   // is meaningfully revised (not just a build).
   "design-method": "2026-03-01",

@@ -31,6 +31,29 @@ function breadcrumbName(entry, localeData) {
   return map[entry.key] || entry.title;
 }
 
+// P1-C: Per-locale exact H1 for the Decision Protection LP. The
+// `Article.headline` MUST match the visible H1 verbatim so the ad copy,
+// the page heading, and the schema all line up. Body markup contains
+// HTML entities (`&mdash;`, `&laquo;`, `&ldquo;`, etc.) — we keep the
+// schema string in already-decoded plain text so Search Console reads it
+// cleanly. Bodies (`<p>`) localize inline; only this H1 is reused across
+// the page + schema, so it earns a single source of truth here.
+const DECISION_PROTECTION_HEADLINES = {
+  en: "Ultherapy vs Thermage is the wrong first question.",
+  ko: "“울쎄라 vs 써마지” — 첫 질문이 틀렸습니다.",
+  ja: "「ウルセラ対サーマージ」は最初の質問が違います。",
+  zh: "“Ultherapy 还是 Thermage” — 这个问题问错了。",
+  de: "„Ulthera oder Thermage“ — die falsche erste Frage.",
+  fr: "« Ultherapy ou Thermage » — la mauvaise première question.",
+  ru: "«Ultherapy или Thermage» — неверный первый вопрос.",
+  th: "「Ultherapy หรือ Thermage」 — เป็นคำถามแรกที่ผิด",
+  vi: "“Ultherapy hay Thermage” — câu hỏi đầu tiên sai rồi.",
+};
+
+function decisionProtectionHeadline(locale) {
+  return DECISION_PROTECTION_HEADLINES[locale] || DECISION_PROTECTION_HEADLINES.en;
+}
+
 function breadcrumbStructuredData(entry, localeData) {
   const g = localeData[entry.locale].global;
   const items = [
@@ -299,9 +322,14 @@ function pageStructuredData(entry, localeData, fragment) {
   };
   const website = websiteStructuredData(localeData);
 
+  // P1-C: Decision Protection LP is a doctor-led explainer about a
+  // medical decision, so the page itself is a `MedicalWebPage` rather
+  // than a generic `WebPage`. Other pages keep the existing `WebPage`
+  // type to avoid mass migrations.
+  const webPageType = entry.key === "decision-protection" ? "MedicalWebPage" : "WebPage";
   const webPage = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": webPageType,
     "@id": `${canonicalUrl}#webpage`,
     url: canonicalUrl,
     name: entry.title,
@@ -316,6 +344,10 @@ function pageStructuredData(entry, localeData, fragment) {
     about: { "@id": `${SITE_URL}/#organization` },
     breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
   };
+  if (entry.key === "decision-protection") {
+    webPage.lastReviewed = "2026-04-26";
+    webPage.reviewedBy = { "@id": `${SITE_URL}/#physician-cha-seung-yeon` };
+  }
 
   const breadcrumb = breadcrumbStructuredData(entry, localeData);
   breadcrumb["@id"] = `${canonicalUrl}#breadcrumb`;
@@ -327,7 +359,36 @@ function pageStructuredData(entry, localeData, fragment) {
   const video = videoStructuredData(entry, canonicalUrl);
   const reviews = reviewsStructuredData(reviewIdsForEntry(entry));
 
-  return [org, website, webPage, breadcrumb, faq, service, offerCatalog, video, ...physicians, ...reviews].filter(Boolean);
+  // P1-C: Article node for the Decision Protection LP. `headline` MUST
+  // be the exact visible H1 string per locale. Author = the clinic's
+  // Representative Director (Dr. Cha Seung Yeon), matching the
+  // physician-led editorial precedent already used by blog posts.
+  let article = null;
+  if (entry.key === "decision-protection") {
+    article = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": `${canonicalUrl}#article`,
+      headline: decisionProtectionHeadline(entry.locale),
+      description: entry.description,
+      url: canonicalUrl,
+      inLanguage: g.langAttr,
+      datePublished: "2026-04-26",
+      dateModified: "2026-04-26",
+      mainEntityOfPage: { "@id": `${canonicalUrl}#webpage` },
+      author: {
+        "@type": "Physician",
+        "@id": `${SITE_URL}/#physician-cha-seung-yeon`,
+        name: "Dr. Seung Yeon Cha",
+      },
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      image: DEFAULT_OG_IMAGE,
+      isPartOf: { "@id": `${canonicalUrl}#webpage` },
+      about: { "@id": `${SITE_URL}/#organization` },
+    };
+  }
+
+  return [org, website, webPage, breadcrumb, faq, service, offerCatalog, video, article, ...physicians, ...reviews].filter(Boolean);
 }
 
 function resolveAuthors(authorSlugs) {

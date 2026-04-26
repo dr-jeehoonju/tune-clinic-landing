@@ -149,6 +149,12 @@ const SURFACE_REVIEW_IDS = {
   "signature-lifting": ["h", "sejoo-k"],
   "structural-reset": ["yeon-d"],
   "collagen-builder": ["teri-t", "chanmany-t", "anna-k"],
+  // P1-C: Decision Protection LP. The trio combines an anti-broker /
+  // anti-sales-pressure narrative (so-eun), a first-procedure trust
+  // narrative (h), and a multi-year longevity narrative
+  // (long-time-patient) — the three message families that align with
+  // the indication-first ad hook.
+  "decision-protection": ["so-eun", "h", "long-time-patient"],
 };
 
 const PLACEHOLDER_RE = /<!--\s*TC_REVIEWS:([a-z0-9-]+)\s*-->/g;
@@ -168,6 +174,7 @@ function getSurfaceForEntry(entry) {
   if (entry.key === "signature-lifting") return "signature-lifting";
   if (entry.key === "structural-reset") return "structural-reset";
   if (entry.key === "collagen-builder") return "collagen-builder";
+  if (entry.key === "decision-protection") return "decision-protection";
   return null;
 }
 

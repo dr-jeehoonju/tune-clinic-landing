@@ -1,0 +1,11 @@
+{
+  "key": "decision-protection",
+  "template": "editorial",
+  "permalink": "th/decision-protection.html",
+  "title": "「Ultherapy หรือ Thermage」 — เป็นคำถามแรกที่ผิด | Tune Clinic อับกูจอง",
+  "description": "เริ่มจากสิ่งที่ใบหน้าของคุณต้องการจริง ๆ — ความหย่อนคล้อย ปริมาตร ผิวพรรณ หรือการรวมหัตถการ คู่มือการตัดสินใจที่นำโดยแพทย์โดยอิงข้อบ่งชี้ สำหรับคนไข้ต่างชาติที่กำลังเลือกระหว่าง Ultherapy, Thermage และแผนรวม",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/th/decision-protection.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "Decision Protection"
+}

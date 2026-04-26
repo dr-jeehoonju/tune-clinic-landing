@@ -1,0 +1,11 @@
+{
+  "key": "decision-protection",
+  "template": "editorial",
+  "permalink": "ko/decision-protection.html",
+  "title": "\"울쎄라 vs 써마지\" — 첫 질문이 틀렸습니다 | 튠클리닉 압구정",
+  "description": "환자분의 얼굴이 실제로 필요로 하는 것 — 처짐, 볼륨, 결, 또는 복합 — 부터 시작하십시오. 원장이 직접 설명하는 적응증 우선의 의사결정 가이드. 울쎄라, 써마지, 복합 플랜을 고민하시는 해외 환자분을 위한 자료입니다.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ko/decision-protection.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "결정 보호"
+}

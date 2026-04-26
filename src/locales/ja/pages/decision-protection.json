@@ -1,0 +1,11 @@
+{
+  "key": "decision-protection",
+  "template": "editorial",
+  "permalink": "ja/decision-protection.html",
+  "title": "「ウルセラ対サーマージ」は最初の質問が違います | Tune Clinic 狎鴎亭",
+  "description": "お顔が実際に必要としているもの — たるみ、ボリューム、肌質、または複合 — から始めてください。ウルセラ、サーマージ、複合プランを検討される海外の患者様向けに、医師主導のインジケーション優先の意思決定ガイドをまとめました。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/ja/decision-protection.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "ディシジョン・プロテクション"
+}

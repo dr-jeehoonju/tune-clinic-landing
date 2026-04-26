@@ -1,0 +1,11 @@
+{
+  "key": "decision-protection",
+  "template": "editorial",
+  "permalink": "decision-protection.html",
+  "title": "Ultherapy vs Thermage is the wrong first question | Tune Clinic Apgujeong",
+  "description": "Start with what your face actually needs — laxity, volume, texture, or a combination. A doctor-led, indication-first explainer for international patients deciding between Ultherapy, Thermage, and combination plans in Seoul.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/en/decision-protection.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "Decision Protection"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "decision-protection",
+  "template": "editorial",
+  "permalink": "zh/decision-protection.html",
+  "title": "\"Ultherapy 还是 Thermage\" — 这个问题问错了 | Tune Clinic 狎鸥亭",
+  "description": "请先看您的面部真正需要什么 — 松弛、容量、肤质，或综合性问题。一份由医生主导、以适应症为先的决策指南，写给在 Ultherapy、Thermage 与综合方案之间犹豫的海外患者。",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/zh/decision-protection.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "决策保护"
+}

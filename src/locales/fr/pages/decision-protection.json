@@ -1,0 +1,11 @@
+{
+  "key": "decision-protection",
+  "template": "editorial",
+  "permalink": "fr/decision-protection.html",
+  "title": "« Ultherapy ou Thermage » — la mauvaise première question | Tune Clinic Apgujeong",
+  "description": "Commencez par ce dont votre visage a réellement besoin — relâchement, volume, qualité de peau ou combinaison. Un guide médical fondé sur l'indication, pour les patients internationaux qui hésitent entre Ultherapy, Thermage et plans combinés.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/fr/decision-protection.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "Decision Protection"
+}

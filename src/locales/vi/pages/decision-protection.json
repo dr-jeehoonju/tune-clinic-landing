@@ -1,0 +1,11 @@
+{
+  "key": "decision-protection",
+  "template": "editorial",
+  "permalink": "vi/decision-protection.html",
+  "title": "\"Ultherapy hay Thermage\" — câu hỏi đầu tiên sai rồi | Tune Clinic Apgujeong",
+  "description": "Hãy bắt đầu từ điều gương mặt bạn thực sự cần — chảy xệ, thể tích, kết cấu da hay sự kết hợp. Hướng dẫn ra quyết định do bác sĩ dẫn dắt, đi từ chỉ định, dành cho khách quốc tế đang phân vân giữa Ultherapy, Thermage và các kế hoạch kết hợp.",
+  "bodyClass": "bg-white text-slate-800 antialiased",
+  "fragment": "fragments/vi/decision-protection.html",
+  "ogImage": "/main.jpeg",
+  "chromeLabel": "Decision Protection"
+}
