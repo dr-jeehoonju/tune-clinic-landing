@@ -243,6 +243,7 @@ function pageStructuredData(entry, localeData, fragment) {
     sameAs: [
       "https://www.instagram.com/tuneclinic_english/",
       "https://wa.me/821076744128",
+      "https://maps.app.goo.gl/q4jqivgPKaMs9nAy9",
     ],
     contactPoint: [
       {

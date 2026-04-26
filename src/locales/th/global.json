@@ -62,5 +62,14 @@
   "whatsappHref": "https://wa.me/821076744128",
   "instagramHref": "https://www.instagram.com/tuneclinic_english/",
   "lineQr": "/line-qr.png",
-  "wechatQr": "/wechat-qr.png"
+  "wechatQr": "/wechat-qr.png",
+  "reviews": {
+    "sectionHeading": "เสียงจากคนไข้",
+    "sectionSubheading": "รีวิว Google ที่ผ่านการยืนยัน จากคนไข้ทั้งในประเทศและต่างประเทศ",
+    "disclaimer": "ผลลัพธ์อาจแตกต่างกันในแต่ละบุคคล",
+    "seeAllOnGoogle": "ดูรีวิวทั้งหมดบน Google →",
+    "translationNotice": "แปลจากภาษาเกาหลี",
+    "localGuideBadge": "Local Guide",
+    "googleStarLine": "ยืนยันบน Google"
+  }
 }

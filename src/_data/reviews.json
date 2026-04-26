@@ -1,0 +1,143 @@
+{
+  "source": "Google Maps Business Profile",
+  "sourceUrl": "https://maps.app.goo.gl/q4jqivgPKaMs9nAy9",
+  "fxNote": "All reviews verified on the public Google Maps profile and displayed with the patient's permission inferred from public posting. Patient names are reduced to first name + last initial or anonymized handles.",
+  "reviews": [
+    {
+      "id": "h",
+      "displayName": "H.",
+      "originalLang": "ko",
+      "rating": 5,
+      "date": "2026-04",
+      "category": "Lift",
+      "device": "Ulthera",
+      "body": "I had Ulthera here. The pricing was excellent, and this is definitely not an assembly-line clinic. It was my first procedure so it stung a bit — but the conversation with the doctor put me completely at ease. The nursing staff were incredibly kind. I'll be back.",
+      "tags": ["no-broker", "first-procedure"]
+    },
+    {
+      "id": "yeon-d",
+      "displayName": "Yeon D.",
+      "originalLang": "ko",
+      "rating": 5,
+      "date": "2026-04",
+      "category": "Lift + Volume",
+      "device": "Ulthera 600 + Juvelook Volume 3cc ×3",
+      "body": "Three rounds of Ulthera 600 shots and Juvelook Volume 3cc each. I'm genuinely thrilled — my face contour looks slimmer and my nasolabial lines have softened noticeably. I'll be back when the effect fades. Everyone is friendly and the doctors are skilled.",
+      "tags": ["combination", "satisfaction"]
+    },
+    {
+      "id": "long-time-patient",
+      "displayName": "A long-time patient",
+      "displaySuffix": "translated from Korean",
+      "originalLang": "ko",
+      "rating": 5,
+      "date": "2025-12",
+      "category": "General",
+      "device": null,
+      "body": "These days, so many skin clinics open and close so quickly. But Tune Clinic is different — it isn't a place that pops up and disappears. It has stayed in the same place, consistently welcoming patients with care and sincerity. That's why I always trust them whenever I visit. Thank you for always providing steady, thoughtful treatments and for understanding my constantly changing concerns. I'm extremely satisfied with this treatment as well.",
+      "tags": ["longevity", "trust"]
+    },
+    {
+      "id": "chanmany-t",
+      "displayName": "Chanmany T.",
+      "originalLang": "en",
+      "rating": 5,
+      "date": "2025-09",
+      "category": "Skin",
+      "device": "Cetera facial",
+      "body": "My very first facial in Korea was at Tune Clinic. There were six of us going to the clinic. Four of us had the Cetera facial with non-invasive procedures. The staff were very helpful with translation and making sure we were comfortable. Overall a very good experience. We'll try other services next time.",
+      "tags": ["travel-group", "english-support"]
+    },
+    {
+      "id": "janice-c",
+      "displayName": "Janice C.",
+      "originalLang": "en",
+      "rating": 5,
+      "date": "2026-02",
+      "category": "General",
+      "device": null,
+      "body": "The overall experience is excellent. The staff is friendly and super helpful when it comes to communication, since I don't speak Korean. Treatments are professional. I would totally recommend this place.",
+      "tags": ["english-support", "non-korean-speaker"]
+    },
+    {
+      "id": "sejoo-k",
+      "displayName": "Sejoo K.",
+      "originalLang": "ko",
+      "rating": 5,
+      "date": "2026-03",
+      "category": "Lift",
+      "device": "Ulthera",
+      "body": "After Ulthera, my facial contour kept getting more defined as time passed. The result settled in so naturally that I'm even more satisfied than I expected.",
+      "tags": ["natural-result"]
+    },
+    {
+      "id": "anna-k",
+      "displayName": "Anna K.",
+      "displaySuffix": "Local Guide",
+      "originalLang": "ko",
+      "rating": 5,
+      "date": "2026-03",
+      "category": "Skin",
+      "device": "Rejuran",
+      "body": "I was really worried about Rejuran because I'd heard it hurts, but it was much more comfortable than I expected. After about four days, my skin started to feel like it was filling back in.",
+      "tags": ["skin-rejuran"]
+    },
+    {
+      "id": "teri-t",
+      "displayName": "Teri T.",
+      "originalLang": "en",
+      "rating": 5,
+      "date": "2025-09",
+      "category": "Skin",
+      "device": "Cetera facial",
+      "body": "First time in Korea, and did my first Cetera facial here. I feel very rejuvenated. The staff were great — they spoke English and I understood everything.",
+      "tags": ["travel", "english-support", "first-time-korea"]
+    },
+    {
+      "id": "five-year-regular",
+      "displayName": "A long-term regular",
+      "displaySuffix": "translated from Korean",
+      "originalLang": "ko",
+      "rating": 5,
+      "date": "2025-04",
+      "category": "General",
+      "device": null,
+      "body": "I've been a regular since the early days when the clinic was further up in Apgujeong. I'd like to take pride in helping it grow, although I don't actually visit that often — home is far away, so I really only come when I urgently need it. Even so, I've been visiting consistently three to four times a year. Tune Clinic is genuinely a cut above. And the pricing is honest, too.",
+      "tags": ["longevity", "transparent-pricing"]
+    },
+    {
+      "id": "s",
+      "displayName": "S.",
+      "originalLang": "ko",
+      "rating": 5,
+      "date": "2025-11",
+      "category": "General",
+      "device": null,
+      "body": "Above all, the pricing is genuinely outstanding value, so I keep recommending it to everyone around me.",
+      "tags": ["transparent-pricing", "word-of-mouth"]
+    },
+    {
+      "id": "so-eun",
+      "displayName": "So-eun",
+      "displaySuffix": "Local Guide",
+      "originalLang": "ko",
+      "rating": 5,
+      "date": "2025-11",
+      "category": "General",
+      "device": null,
+      "body": "There's no assembly-line feeling at all — the doctors look at each patient individually and plan accordingly. I'm satisfied.",
+      "tags": ["no-broker", "individualized"]
+    },
+    {
+      "id": "d",
+      "displayName": "D.",
+      "originalLang": "en",
+      "rating": 5,
+      "date": "2025-10",
+      "category": "General",
+      "device": null,
+      "body": "The clinic felt warm and professional. I didn't feel rushed and I highly recommend it.",
+      "tags": ["no-rush", "warm"]
+    }
+  ]
+}

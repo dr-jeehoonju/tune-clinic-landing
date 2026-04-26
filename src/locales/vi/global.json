@@ -60,5 +60,14 @@
   "whatsappHref": "https://wa.me/821076744128",
   "instagramHref": "https://www.instagram.com/tuneclinic_english/",
   "lineQr": "/line-qr.png",
-  "wechatQr": "/wechat-qr.png"
+  "wechatQr": "/wechat-qr.png",
+  "reviews": {
+    "sectionHeading": "Cảm nhận của khách hàng",
+    "sectionSubheading": "Đánh giá Google đã được xác minh từ khách hàng quốc tế và trong nước.",
+    "disclaimer": "Kết quả có thể khác nhau ở mỗi người.",
+    "seeAllOnGoogle": "Xem tất cả đánh giá trên Google →",
+    "translationNotice": "Dịch từ tiếng Hàn",
+    "localGuideBadge": "Local Guide",
+    "googleStarLine": "Đã xác minh trên Google"
+  }
 }
