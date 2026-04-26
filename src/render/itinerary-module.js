@@ -106,8 +106,8 @@ function renderHomeVariant(locale, t) {
   const dpLabel = DECISION_PROTECTION_LINK_LABEL[locale] || DECISION_PROTECTION_LINK_LABEL.en;
 
   const cards = DAYS.map((day) => `
-        <article class="snap-start shrink-0 w-[78vw] sm:w-auto sm:shrink rounded-2xl border border-slate-200 bg-white p-5 md:p-6 shadow-sm hover:shadow-md transition flex flex-col">
-          <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-gold-light text-gold text-sm font-bold border border-gold/30 mb-4">${day.n}</span>
+        <article class="rounded-2xl border border-slate-200 bg-white p-5 md:p-6 shadow-sm hover:shadow-md transition flex flex-col h-full">
+          <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">${day.n}</span>
           <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">${esc(t.dayLabel)} ${day.n}</p>
           <h3 class="text-base font-serif text-slate-900 leading-snug mb-2">${esc(day.title)}</h3>
           <p class="text-sm text-slate-500 leading-relaxed">${esc(day.body)}</p>
@@ -125,7 +125,7 @@ function renderHomeVariant(locale, t) {
       <p class="text-sm md:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">${esc(t.homeSubheading)}</p>
     </div>
 
-    <div class="flex sm:grid sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-4 sm:pb-0 -mx-6 px-6 sm:mx-0 sm:px-0 [&amp;::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] items-stretch">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 items-stretch">
       ${cards}
     </div>
 
@@ -153,7 +153,7 @@ function renderDetailVariant(locale, t) {
   const rows = DAYS.map((day) => `
         <div class="grid grid-cols-[auto_1fr] gap-5 md:gap-7 items-start py-6 border-b border-slate-100 last:border-b-0">
           <div class="flex flex-col items-center pt-1">
-            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold-light text-gold text-base font-bold border border-gold/30">${day.n}</span>
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-50 text-gold text-base font-bold border border-gold/30">${day.n}</span>
           </div>
           <div>
             <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">${esc(t.dayLabel)} ${day.n}</p>

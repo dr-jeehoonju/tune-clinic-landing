@@ -71,13 +71,13 @@ function reviewCard(review, locale, reviewsLocale) {
     : "";
 
   return `
-    <article class="snap-start shrink-0 w-[80vw] sm:w-auto sm:shrink bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition flex flex-col">
+    <article class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition flex flex-col h-full">
       <div class="flex flex-wrap items-center gap-2 text-xs">
         <span class="text-amber-500 tracking-[0.2em] text-sm leading-none" aria-label="${review.rating} out of 5 stars">${stars}</span>
         <span class="text-[10px] uppercase tracking-[0.16em] font-bold text-slate-500"><i class="fab fa-google mr-1 text-[11px] opacity-70"></i>${esc(reviewsLocale.googleStarLine)}</span>
         <span class="ml-auto text-[11px] text-slate-400">${esc(dateStr)}</span>
       </div>
-      <blockquote class="mt-4 text-sm text-slate-700 leading-relaxed italic before:content-['“'] before:mr-0.5 before:text-slate-300 after:content-['”'] after:ml-0.5 after:text-slate-300">${esc(review.body)}</blockquote>
+      <blockquote class="mt-4 text-sm text-slate-700 leading-relaxed italic flex-1 before:content-['“'] before:mr-0.5 before:text-slate-300 after:content-['”'] after:ml-0.5 after:text-slate-300">${esc(review.body)}</blockquote>
       <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap items-center gap-2">
         <p class="text-sm font-bold text-slate-900">${esc(review.displayName)}${suffixHtml}</p>
         ${categoryChip ? `<span class="ml-auto">${categoryChip}</span>` : ""}
@@ -100,13 +100,18 @@ function renderReviewsSection({ ids, locale, localeData, headingOverride, varian
   const seeAll = r.seeAllOnGoogle || "See all reviews on Google →";
   const gmbUrl = "https://maps.app.goo.gl/q4jqivgPKaMs9nAy9";
 
-  const isMany = reviews.length >= 4;
-  // Mobile: horizontal snap row when many cards. Desktop: 3-up grid.
-  const gridCls = isMany
-    ? "flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-4 sm:pb-0 -mx-6 px-6 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-    : reviews.length === 2
-      ? "grid grid-cols-1 sm:grid-cols-2 gap-5"
-      : "grid grid-cols-1 gap-5 max-w-2xl mx-auto";
+  // Pure grid layout — adapts naturally without overflow:
+  //   ≥4 reviews → 1 col mobile / 2 col tablet / 3 col desktop
+  //   3 reviews  → 1 col mobile / 3 col desktop
+  //   2 reviews  → 1 col mobile / 2 col desktop
+  //   1 review   → centered single card
+  const gridCls = reviews.length >= 4
+    ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch"
+    : reviews.length === 3
+      ? "grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch"
+      : reviews.length === 2
+        ? "grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch max-w-4xl mx-auto"
+        : "grid grid-cols-1 gap-5 max-w-2xl mx-auto";
 
   const cardsHtml = reviews.map((rv) => reviewCard(rv, locale, r)).join("\n");
 
