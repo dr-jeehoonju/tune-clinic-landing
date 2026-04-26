@@ -172,6 +172,276 @@
       "kind": "body-vial",
       "aspectRatio": "4:3",
       "prompt": "A single small amber glass apothecary vial standing alone on a clean ivory marble shelf, photographed in soft directional window light. The vial casts a long elegant shadow. Empty space surrounding it on the shelf. No labels on the vial, no text anywhere in the image. Quiet still life suggesting preparedness — an object kept ready, not used."
+    },
+    {
+      "slug": "ultherapy-in-korea-international-patient-guide",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A single polished brass calibration instrument — a small depth gauge with a fine needle probe — resting on pale veined marble beside an unfurled scroll of clinical paper. Directional morning light from the left, long soft shadow. Deep negative space above and to the right. The object communicates precision and considered depth rather than medical equipment — contemplative, quietly expert."
+    },
+    {
+      "slug": "ultherapy-in-korea-international-patient-guide",
+      "kind": "body-focus",
+      "aspectRatio": "4:3",
+      "prompt": "Parallel beams of amber light converging through still water onto a single illuminated point on a dark stone surface — a metaphor for focused energy reaching a precise depth in tissue"
+    },
+    {
+      "slug": "ultherapy-in-korea-international-patient-guide",
+      "kind": "body-passport",
+      "aspectRatio": "4:3",
+      "prompt": "Open passport resting on ivory linen beside a fountain pen and an unstamped boarding pass, soft window light from the left, as a metaphor for the deliberation before an international medical trip"
+    },
+    {
+      "slug": "which-korean-lifting-treatment-fits-your-face",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "Three smooth river stones of distinctly different sizes and surface textures arranged in a loose triangle on pale slate, each casting a different shadow under directional side-light. The differences in density and grain suggest different materials requiring different approaches. Muted antique-gold and grey palette, deep negative space, no text."
+    },
+    {
+      "slug": "which-korean-lifting-treatment-fits-your-face",
+      "kind": "body-chisels",
+      "aspectRatio": "4:3",
+      "prompt": "Three stone-working chisels of different profiles arranged beside three small samples of stone — granite, sandstone, and marble — on a worn wooden workbench in raking sidelight, as a metaphor for matching the right tool to the specific material"
+    },
+    {
+      "slug": "which-korean-lifting-treatment-fits-your-face",
+      "kind": "body-tailor",
+      "aspectRatio": "4:3",
+      "prompt": "A bespoke tailor's linen measuring tape coiled on a wooden dress form beside a partial sketch of a garment, soft grey-white light from above, as a metaphor for fit designed to one specific form rather than a standard pattern"
+    },
+    {
+      "slug": "what-is-chamaka-se-doctor-led-planning-method",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "An empty hinoki wood counter surface seen end-on, a single ceramic bowl placed at one end with deliberate asymmetry, a thin folded cloth draped near the other end. Pale morning light from above, long cool shadows, wide empty negative space. The scene suggests the moment before expert judgment is applied — the stillness of preparation."
+    },
+    {
+      "slug": "what-is-chamaka-se-doctor-led-planning-method",
+      "kind": "body-sketch",
+      "aspectRatio": "4:3",
+      "prompt": "An architect's pencil resting on semi-transparent tracing paper laid over an unfinished structural sketch, deep grey background with a single oblique shaft of natural light, suggesting design in progress rather than finished form"
+    },
+    {
+      "slug": "what-is-chamaka-se-doctor-led-planning-method",
+      "kind": "body-counter",
+      "aspectRatio": "4:3",
+      "prompt": "An empty counter-height sushi bar at first light — pale wood grain, a single ceramic plate set with quiet deliberation, no chef in frame yet, warm-cool morning light from a high window, as a metaphor for the moment before a design decision is made"
+    },
+    {
+      "slug": "plan-aesthetic-treatments-short-seoul-trip",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "An open weekly planner on a pale oak desk, a single clean diagonal line drawn across several days with a fine pencil, the remainder of the spread deliberately empty. Raking directional light from the left, long shadows. The composition communicates prioritization and restraint — the discipline of choosing one thing over many."
+    },
+    {
+      "slug": "plan-aesthetic-treatments-short-seoul-trip",
+      "kind": "body-journal",
+      "aspectRatio": "4:3",
+      "prompt": "Open leather travel journal with a single deliberate ink line drawn across a two-page week spread, one date circled, the rest empty — raking directional light on a dark wood desk, as a metaphor for the single committed window of time"
+    },
+    {
+      "slug": "plan-aesthetic-treatments-short-seoul-trip",
+      "kind": "body-coffee",
+      "aspectRatio": "4:3",
+      "prompt": "A single ceramic cup of black coffee on a pale stone tray with one folded linen napkin, cool morning light, wide negative space, as a metaphor for deliberate minimalism over a crowded schedule"
+    },
+    {
+      "slug": "rejuran-vs-juvelook-vs-exosomes-skin-boosters",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "Three small ceramic vessels of nearly identical form but different surface finishes — matte, satin, and burnished — arranged in a line on a pale stone surface, each catching the same directional sidelight differently. No labels. The composition evokes three distinct mechanisms producing related but distinct effects. Muted slate, ivory, and antique-gold palette."
+    },
+    {
+      "slug": "rejuran-vs-juvelook-vs-exosomes-skin-boosters",
+      "kind": "body-dewdrop",
+      "aspectRatio": "4:3",
+      "prompt": "Extreme close-up of morning dew on a single young leaf, each droplet catching diffuse light, deep green-black background with careful bokeh, as a metaphor for cellular-level regeneration occurring beneath the visible surface"
+    },
+    {
+      "slug": "rejuran-vs-juvelook-vs-exosomes-skin-boosters",
+      "kind": "body-layers",
+      "aspectRatio": "4:3",
+      "prompt": "Three sheets of vellum of increasing translucency stacked and backlit, each layer visible through the ones above it, light shifting from cool to warm as it passes through the layers, as a metaphor for distinct treatment layers in the dermis operating at different depths"
+    },
+    {
+      "slug": "can-i-fly-after-aesthetic-treatment-korea",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A folded boarding pass tucked beneath a smooth river stone on a pale marble surface, photographed in deep directional light from the left. The edge of a calendar page is visible beneath both. Wide negative space. The composition evokes the weight of a scheduled departure date pressing on a clinical decision — quiet, precise, travel-constrained."
+    },
+    {
+      "slug": "can-i-fly-after-aesthetic-treatment-korea",
+      "kind": "body-boarding-pass",
+      "aspectRatio": "4:3",
+      "prompt": "A paper boarding pass folded inside a closed leather travel notebook on a wooden desk, side-lit by a narrow beam of warm light casting a long shadow — editorial still life, slate-grey and antique-gold palette, deep negative space"
+    },
+    {
+      "slug": "can-i-fly-after-aesthetic-treatment-korea",
+      "kind": "body-pocket-watch",
+      "aspectRatio": "4:3",
+      "prompt": "An open antique pocket watch resting on folded cream linen, its hands resting at a quiet hour, soft directional light from the left, muted gold and ivory palette against deep slate background — editorial still life, no text"
+    },
+    {
+      "slug": "filler-in-korea-when-it-helps-when-lifting-is-better",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A vintage brass plumb bob hanging perfectly still on a taut cord above a pale marble surface, casting a precise conical shadow directly below. Wide negative space. Soft diffused daylight. The composition suggests the relationship between structural gravity and surface appearance — what hangs depends on what holds it."
+    },
+    {
+      "slug": "filler-in-korea-when-it-helps-when-lifting-is-better",
+      "kind": "body-mallet",
+      "aspectRatio": "4:3",
+      "prompt": "A wooden mallet resting beside an unset jewel and an empty porcelain teacup on a slate surface — editorial still life metaphor for a tool applied to the wrong task, muted slate and antique-gold palette, deep negative space, raking directional light"
+    },
+    {
+      "slug": "filler-in-korea-when-it-helps-when-lifting-is-better",
+      "kind": "body-scaffolding",
+      "aspectRatio": "4:3",
+      "prompt": "Exposed scaffolding behind a half-finished plaster wall, warm light from a construction lamp illuminating the structural wooden framework beneath a smooth surface — metaphor for structural support beneath surface treatment, editorial still life, muted palette, deep background shadow"
+    },
+    {
+      "slug": "masseter-botox-korea-jaw-slimming-clenching",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A single smooth ovoid stone resting on a worn wooden surface, the grain of the wood running left to right, the stone's shadow soft and diffuse. Side-lit in cool morning light. The stone implies gradual, patient change over time — something that has been shaped by sustained, quiet force. Wide negative space, muted palette, no text."
+    },
+    {
+      "slug": "masseter-botox-korea-jaw-slimming-clenching",
+      "kind": "body-scale",
+      "aspectRatio": "4:3",
+      "prompt": "An antique apothecary scale, both sides balanced with small smooth river stones resting on worn brass plates, soft side-light against a deep slate background, muted gold and grey palette — editorial still life metaphor for muscle balance, no text"
+    },
+    {
+      "slug": "masseter-botox-korea-jaw-slimming-clenching",
+      "kind": "body-sleep-mask",
+      "aspectRatio": "4:3",
+      "prompt": "A soft cotton sleep mask folded on white linen beside a single ceramic cup of steaming tea, warm ambient light from the right, cream and slate palette, quiet domestic stillness — metaphor for restful muscular release, editorial still life, no text, deep negative space"
+    },
+    {
+      "slug": "skin-botox-korea-pores-texture-glow",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "Extreme close-up of a single sheet of hand-made washi paper photographed in raking sidelight, the surface texture revealed in micro-relief — fine fibres, subtle grain, quiet luminosity. The paper occupies most of the frame, its edge just visible. Deep background shadow. Metaphor for the difference between surface quality and structural depth. No text, no faces."
+    },
+    {
+      "slug": "skin-botox-korea-pores-texture-glow",
+      "kind": "body-pond",
+      "aspectRatio": "4:3",
+      "prompt": "A still pond surface seen from directly above, very slight ripples moving outward from the center, strong raking sidelight creating micro-texture in the water, deep blue-grey palette against deep shadow — metaphor for surface versus depth, editorial photography, no faces or text"
+    },
+    {
+      "slug": "skin-botox-korea-pores-texture-glow",
+      "kind": "body-ceramic",
+      "aspectRatio": "4:3",
+      "prompt": "Extreme close-up of hand-thrown ceramic surface showing fine grain and micro-texture in the clay, warm raking sidelight creating deep relief shadows across the grain, cream and ochre palette against a dark background — metaphor for surface refinement, editorial still life photography, no text, no faces"
+    },
+    {
+      "slug": "choose-korean-aesthetic-clinic-without-broker",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A single clean unobstructed corridor photographed end-on, the walls pale plaster, the floor pale wood, the light coming from a window at the far end. No furniture, no objects between the viewer and the light source. Wide negative space. Metaphor for a direct path without intermediaries — clarity, access, unmediated connection."
+    },
+    {
+      "slug": "choose-korean-aesthetic-clinic-without-broker",
+      "kind": "body-ribbon-light",
+      "aspectRatio": "4:3",
+      "prompt": "A single straight ribbon of afternoon light crossing a white marble surface, casting a clean sharp-edged shadow, with a loosely folded paper map resting beside it — metaphor for direct line versus intermediated route, editorial still life, muted slate and antique-gold palette, deep negative space, no text"
+    },
+    {
+      "slug": "choose-korean-aesthetic-clinic-without-broker",
+      "kind": "body-apothecary-jar",
+      "aspectRatio": "4:3",
+      "prompt": "A glass apothecary jar, half-filled with clear pale liquid, label-less, on weathered pale wood, soft diffused daylight from the left, cream and slate palette against a deep background — metaphor for transparent, direct exchange, editorial still life, no text, no faces"
+    },
+    {
+      "slug": "apgujeong-vs-gangnam-vs-myeongdong-clinic-district",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A birds-eye view of three distinct ceramic tiles arranged in a loose triangle on aged stone — one smooth and refined, one rougher with visible aggregate, one richly glazed and tactile. Each catches light differently. No labels. The contrast evokes three different environments with different character and quality registers. Muted antique-gold and slate palette, deep negative space."
+    },
+    {
+      "slug": "apgujeong-vs-gangnam-vs-myeongdong-clinic-district",
+      "kind": "body-swatches",
+      "aspectRatio": "4:3",
+      "prompt": "Three folded fabric swatches in muted tones — slate grey, warm ivory, and soft ochre — laid side by side on undyed linen, each with a slightly different texture, seen from directly above in diffused overhead light"
+    },
+    {
+      "slug": "apgujeong-vs-gangnam-vs-myeongdong-clinic-district",
+      "kind": "body-architecture",
+      "aspectRatio": "4:3",
+      "prompt": "An open architectural cross-section drawing on drafting paper, showing the internal structural layers beneath a building's exterior facade, rendered in fine pencil lines with a single amber lamp illuminating the desk from above"
+    },
+    {
+      "slug": "korean-lifting-treatments-double-chin-lower-face",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A single piece of rough-hewn stone resting on a smooth pale marble surface, its bottom edge flush with the marble, the upper surface irregular and unfinished. Strong side-light from the right, long clean shadow to the left. Metaphor for the different anatomical layers contributing to a single visible problem — the surface smooth, the architecture beneath complex. No text, muted palette."
+    },
+    {
+      "slug": "korean-lifting-treatments-double-chin-lower-face",
+      "kind": "body-fig",
+      "aspectRatio": "4:3",
+      "prompt": "A single ripe fig, sliced cleanly in half on dark slate, the internal structure of seeds and flesh visible in clear cross-section — photographed in low side-light with a shallow depth of field, muted burgundy and charcoal tones"
+    },
+    {
+      "slug": "korean-lifting-treatments-double-chin-lower-face",
+      "kind": "body-weights",
+      "aspectRatio": "4:3",
+      "prompt": "Three small brass weights of increasing size — the smallest no larger than a thumb, the largest palm-sized — arranged in a gentle ascending arc on aged parchment, in raking side-light with long shadows, antique gold tones on a warm neutral ground"
+    },
+    {
+      "slug": "how-to-read-before-after-photos-aesthetic-medicine",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A pair of reading glasses resting closed on a blank sheet of cream paper, a narrow beam of directional light crossing the page from the upper left. The light catches one lens and leaves the other in shadow. Metaphor for the act of looking more carefully — what is visible depends on the conditions under which you look. Muted ivory and slate palette, wide negative space, no text."
+    },
+    {
+      "slug": "how-to-read-before-after-photos-aesthetic-medicine",
+      "kind": "body-vessel",
+      "aspectRatio": "4:3",
+      "prompt": "The same matte ceramic vessel photographed twice side-by-side on a worn workbench — once under a single harsh overhead spotlight that picks out every surface imperfection, once in soft diffused window light from the left that smooths the shadows — illustrating how identical objects appear different under different lighting conditions, muted slate and warm cream tones"
+    },
+    {
+      "slug": "how-to-read-before-after-photos-aesthetic-medicine",
+      "kind": "body-ledger",
+      "aspectRatio": "4:3",
+      "prompt": "A single open ledger with hand-written entries in dark ink on warm cream paper, an inkwell resting beside it, the pages slightly worn, photographed in warm directional side-light on a wooden writing surface — conveying the idea of honest, unhurried documentation"
+    },
+    {
+      "slug": "aesthetic-treatment-pricing-korea-why-cheapest-not-best",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A single antique balance scale with one pan holding a neat stack of thin ivory papers and the other pan holding a single dense smooth stone — the stone visibly heavier. Soft diffused light, long still shadows, pale marble surface. Metaphor for the asymmetry between apparent simplicity of price and actual weight of what constitutes quality care. Muted antique-gold and slate palette, no text."
+    },
+    {
+      "slug": "aesthetic-treatment-pricing-korea-why-cheapest-not-best",
+      "kind": "body-iceberg",
+      "aspectRatio": "4:3",
+      "prompt": "A smooth round stone roughly the size of a fist resting on a flat grey surface in bright raking side-light, casting a shadow many times larger than itself — the small visible object and its much larger shadow occupying the frame in sharp contrast, muted slate and charcoal palette"
+    },
+    {
+      "slug": "aesthetic-treatment-pricing-korea-why-cheapest-not-best",
+      "kind": "body-bottle",
+      "aspectRatio": "4:3",
+      "prompt": "A single clear glass apothecary bottle with a handwritten paper label, stopper in place, standing alone against a neutral linen background in soft diffused daylight — the contents and label both legible, the craftsmanship of the vessel itself quietly evident"
+    },
+    {
+      "slug": "first-visit-tune-clinic-consultation-flow",
+      "kind": "hero",
+      "aspectRatio": "16:9",
+      "prompt": "A single open doorway into a bright, unoccupied room, photographed from a low corridor angle — the door frame in deep shadow, the room beyond filled with soft diffused morning light. No furniture visible, no people. Wide negative space in the corridor. Metaphor for the threshold before a first visit: the clarity and openness waiting on the other side of uncertainty."
+    },
+    {
+      "slug": "first-visit-tune-clinic-consultation-flow",
+      "kind": "body-room",
+      "aspectRatio": "4:3",
+      "prompt": "An empty consultation room, two low chairs facing each other across a minimal wooden table, a single glass of water on the table, soft natural window light entering from the left, no people, calm and unhurried atmosphere, muted slate grey and warm wood tones"
+    },
+    {
+      "slug": "first-visit-tune-clinic-consultation-flow",
+      "kind": "body-plan",
+      "aspectRatio": "4:3",
+      "prompt": "A single sheet of cream paper on a smooth wooden desk, a fountain pen resting diagonally across the lower right corner, a circle of soft directional lamplight illuminating the surface — suggesting a plan that has been considered and is ready to be written, warm ivory and dark walnut tones"
     }
   ]
 }

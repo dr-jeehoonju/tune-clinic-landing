@@ -46,12 +46,20 @@ for (const locale of locales) {
       author: Array.isArray(fm.author) ? fm.author : [fm.author || "cha-seung-yeon"],
       tags: fm.tags || [],
       ogImage: fm.ogImage || null,
+      pinned: fm.pinned === true,
       permalink,
       htmlContent: md.render(content),
       sourceFile: file,
     });
   }
 }
+
+// Hide future-dated posts (publish-on-date scheduling).
+// Requires a daily rebuild (Netlify scheduled build hook) to surface posts as their date arrives.
+const todayISO = new Date().toISOString().slice(0, 10);
+const visiblePosts = posts.filter((p) => p.date <= todayISO);
+posts.length = 0;
+posts.push(...visiblePosts);
 
 posts.sort((a, b) => b.date.localeCompare(a.date));
 

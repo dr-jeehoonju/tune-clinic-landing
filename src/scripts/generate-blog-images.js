@@ -70,7 +70,8 @@ async function main() {
   for (const entry of entries) {
     const filename = filenameFor(entry);
     const outPath = path.join(OUTPUT_DIR, filename);
-    const exists = fs.existsSync(outPath);
+    const webpPath = outPath.replace(/\.png$/, ".webp");
+    const exists = fs.existsSync(outPath) || fs.existsSync(webpPath);
 
     if (exists && !args.force) {
       console.log(`⊘ skip    ${filename} (exists)`);
