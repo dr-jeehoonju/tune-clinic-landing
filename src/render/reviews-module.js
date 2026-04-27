@@ -100,13 +100,13 @@ const HOME_PATIENT_PHOTOS = [
 ];
 
 function renderHomePatientRail(variant) {
-  const ringCls = variant === "dark" ? "ring-white/10" : "ring-slate-200";
+  const borderCls = variant === "dark" ? "border-white/10" : "border-slate-200";
   const items = HOME_PATIENT_PHOTOS.map((p, i) => `
-        <div class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ${ringCls} shadow-sm" style="${i > 0 ? "margin-left:-0.75rem;" : ""}">
+        <div class="shrink-0 w-28 h-36 sm:w-32 sm:h-40 md:w-36 md:h-44 lg:w-40 lg:h-48 rounded-2xl overflow-hidden border ${borderCls} shadow-md">
           <img src="${p.file}" alt="${esc(p.alt)} ${i + 1}" loading="lazy" class="w-full h-full object-cover">
         </div>`).join("");
   return `
-    <div class="flex justify-center items-center mb-10 md:mb-12">
+    <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12">
       ${items}
     </div>`;
 }
