@@ -87,7 +87,31 @@ function reviewCard(review, locale, reviewsLocale) {
   `;
 }
 
-function renderReviewsSection({ ids, locale, localeData, headingOverride, variant = "light" } = {}) {
+// Patient interview portraits shown above the home reviews grid as a
+// visual social-proof rail. Photos correspond 1:1 to the home review
+// IDs in SURFACE_REVIEW_IDS.home, displayed in the same order.
+const HOME_PATIENT_PHOTOS = [
+  { file: "/patient-1.webp", alt: "Patient interviewed at Tune Clinic" },
+  { file: "/patient-2.webp", alt: "Patient interviewed at Tune Clinic" },
+  { file: "/patient-3.webp", alt: "Patient interviewed at Tune Clinic" },
+  { file: "/patient-4.webp", alt: "Patient interviewed at Tune Clinic" },
+  { file: "/patient-5.webp", alt: "Patient interviewed at Tune Clinic" },
+  { file: "/patient-6.webp", alt: "Patient interviewed at Tune Clinic" },
+];
+
+function renderHomePatientRail(variant) {
+  const ringCls = variant === "dark" ? "ring-white/10" : "ring-slate-200";
+  const items = HOME_PATIENT_PHOTOS.map((p, i) => `
+        <div class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ${ringCls} shadow-sm" style="${i > 0 ? "margin-left:-0.75rem;" : ""}">
+          <img src="${p.file}" alt="${esc(p.alt)} ${i + 1}" loading="lazy" class="w-full h-full object-cover">
+        </div>`).join("");
+  return `
+    <div class="flex justify-center items-center mb-10 md:mb-12">
+      ${items}
+    </div>`;
+}
+
+function renderReviewsSection({ ids, locale, localeData, headingOverride, variant = "light", surface } = {}) {
   if (!Array.isArray(ids) || !ids.length) return "";
   const g = (localeData && localeData[locale] && localeData[locale].global) || {};
   const r = g.reviews || {};
@@ -132,6 +156,7 @@ function renderReviewsSection({ ids, locale, localeData, headingOverride, varian
       <h2 class="text-3xl md:text-4xl font-serif ${headingColor} mb-3">${esc(heading)}</h2>
       ${subheading ? `<p class="text-sm md:text-base ${subheadColor} max-w-2xl mx-auto leading-relaxed">${esc(subheading)}</p>` : ""}
     </div>
+    ${surface === "home" ? renderHomePatientRail(variant) : ""}
     <div class="${gridCls}">
       ${cardsHtml}
     </div>
@@ -174,7 +199,7 @@ function substituteReviewPlaceholders(fragment, locale, localeData) {
   return fragment.replace(PLACEHOLDER_RE, (_match, surface) => {
     const ids = SURFACE_REVIEW_IDS[surface];
     if (!ids) return "";
-    return renderReviewsSection({ ids, locale, localeData });
+    return renderReviewsSection({ ids, locale, localeData, surface });
   });
 }
 
