@@ -139,10 +139,72 @@
         </div>
     </section>
     <!-- TC_REVIEWS:home -->
-    <!-- TODO 2026-Q2: Itinerary 섹션이 3-scenario 유연 구조로 재설계됨.
-         영어 버전 (src/fragments/en/index.html) 기준 native 검수 후 적용.
-         기존 5-day 고정 구조는 외국인 환자의 일정 다양성 미반영. -->
-    <!-- TC_ITINERARY:home -->
+    <!-- TC_ITINERARY:home — replaced inline below with the 3-scenario flexible layout (de).
+         Module placeholder retained as comment so other locales (which still use
+         the 5-day module render) keep working; the substituteItineraryPlaceholders
+         pass safely no-ops on a comment whose marker has been broken. -->
+    <section id="itinerary" class="itinerary-module py-16 md:py-20 bg-white border-y border-slate-100" data-tc-itinerary="de">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10 md:mb-12">
+          <span class="inline-flex items-center gap-2 text-gold uppercase tracking-[0.22em] text-[10px] font-bold mb-3">
+            <i class="fas fa-plane-departure text-xs"></i> Flexibles Protokolldesign
+          </span>
+          <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mb-3">Ihr Zeitplan bestimmt das Protokoll</h2>
+          <p class="text-sm md:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">Vom Tagesbesuch bis zum längeren Aufenthalt — durch den Arzt um Ihre Reise herum geplant, nicht umgekehrt.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 items-stretch">
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">1</span>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">Tagesbesuch</p>
+            <h3 class="text-base md:text-lg font-serif text-slate-900 leading-snug mb-2">Tagesbesuch</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">Ankunft, Beratung, Behandlung und Abreise an einem einzigen Tag. Ideal für Personen mit Wohnsitz in Korea oder für kurze Geschäftsstopps in Seoul.</p>
+            <ul class="mt-auto space-y-2 text-xs md:text-sm text-slate-600">
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Direktes Gespräch mit dem behandelnden Arzt</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Behandlung am selben Tag, sofern klinisch angemessen</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Nachsorgeanleitung und Fernbetreuung inbegriffen</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">2</span>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">1–3 Tage</p>
+            <h3 class="text-base md:text-lg font-serif text-slate-900 leading-snug mb-2">Kurzaufenthalt</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">Beratung am Ankunftstag, Behandlung am nächsten Tag, Erholung mit einem leichten Seoul-Ausflug vor der Abreise. Das häufigste Muster für internationale Besucher.</p>
+            <ul class="mt-auto space-y-2 text-xs md:text-sm text-slate-600">
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Indikationsorientierte Beratung, keine übereilten Entscheidungen</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Behandlungsspezifische Erholungsplanung</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Klinik per WhatsApp / Instagram während der Erholung erreichbar</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">3</span>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">Erweitert</p>
+            <h3 class="text-base md:text-lg font-serif text-slate-900 leading-snug mb-2">Längerer Aufenthalt</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">Mehrstufige Protokolle, Kombinationsbehandlungen oder kombinierte Reise-und-Behandlungs-Aufenthalte. Wir staffeln die Eingriffe über Ihren Aufenthalt für Erholung und Ergebnis.</p>
+            <ul class="mt-auto space-y-2 text-xs md:text-sm text-slate-600">
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Gestaffelte Mehrbehandlungs-Protokolle</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Kontrolltermine vor Ort oder per Fernbetreuung</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Abreise-Zusammenfassung für Ihren Heimarzt, falls benötigt</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p class="text-sm md:text-base text-slate-600 italic max-w-3xl leading-relaxed">Brauchen Sie einen anderen Zeitplan? Teilen Sie uns das beim Beratungsgespräch mit — wir planen um Ihre Reise herum, nicht umgekehrt.</p>
+          <a href="/de/booking.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 text-slate-800 hover:border-slate-900 text-xs font-bold transition shrink-0">
+            <i class="fas fa-calendar-check"></i> Jetzt buchen →
+          </a>
+        </div>
+
+        <div class="mt-4 text-center md:text-right">
+          <a href="/de/decision-protection.html" class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-bold text-gold hover:text-slate-900 transition">
+            <i class="fas fa-shield-halved text-[10px]"></i> Den arztgeführten Ansatz lesen →
+          </a>
+        </div>
+      </div>
+    </section>
     <section id="programs" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
