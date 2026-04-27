@@ -139,7 +139,72 @@
         </div>
     </section>
     <!-- TC_REVIEWS:home -->
-    <!-- TC_ITINERARY:home -->
+    <!-- TC_ITINERARY:home — replaced inline below with the 3-scenario flexible layout (ko).
+         Module placeholder retained as comment so other locales (which still use
+         the 5-day module render) keep working; the substituteItineraryPlaceholders
+         pass safely no-ops on a comment whose marker has been broken. -->
+    <section id="itinerary" class="itinerary-module py-16 md:py-20 bg-white border-y border-slate-100" data-tc-itinerary="ko">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10 md:mb-12">
+          <span class="inline-flex items-center gap-2 text-gold uppercase tracking-[0.22em] text-[10px] font-bold mb-3">
+            <i class="fas fa-plane-departure text-xs"></i> 유연한 프로토콜 설계
+          </span>
+          <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mb-3">당신의 일정에 맞춰 설계되는 프로토콜</h2>
+          <p class="text-sm md:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">당일 방문부터 장기 체류까지 — 환자의 일정에 맞춰 의사가 설계합니다.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 items-stretch">
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">1</span>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">당일</p>
+            <h3 class="text-base md:text-lg font-serif text-slate-900 leading-snug mb-2">당일 방문</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">도착, 상담, 시술, 출국까지 하루 안에 완료. 한국 거주자 또는 서울 단기 출장자에게 적합합니다.</p>
+            <ul class="mt-auto space-y-2 text-xs md:text-sm text-slate-600">
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>담당 의사 직접 상담</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>임상적으로 적절할 경우 당일 시술</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>사후관리 가이드 및 원격 follow-up 제공</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">2</span>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">1–3일</p>
+            <h3 class="text-base md:text-lg font-serif text-slate-900 leading-snug mb-2">단기 체류</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">도착일 상담, 다음 날 시술, 회복 및 가벼운 서울 탐방 후 출국. 해외 방문 환자에게 가장 일반적인 패턴입니다.</p>
+            <ul class="mt-auto space-y-2 text-xs md:text-sm text-slate-600">
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>지표 기반 상담, 서두르지 않는 의사결정</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>시술별 회복 일정 맞춤 설계</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>회복 기간 중 WhatsApp / Instagram으로 클리닉 상시 연결</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">3</span>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">장기</p>
+            <h3 class="text-base md:text-lg font-serif text-slate-900 leading-snug mb-2">장기 체류</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">다단계 프로토콜, 복합 시술, 또는 여행과 시술을 결합한 일정. 체류 기간 동안 시술을 단계적으로 배치하여 회복과 결과를 설계합니다.</p>
+            <ul class="mt-auto space-y-2 text-xs md:text-sm text-slate-600">
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>단계적 다중 시술 프로토콜</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>방문 또는 원격 follow-up 체크포인트</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>필요 시 본국 의료진 전달용 출국 요약 제공</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p class="text-sm md:text-base text-slate-600 italic max-w-3xl leading-relaxed">다른 일정이 필요하신가요? 상담 시 알려주세요 — 시술이 일정을 결정하는 게 아니라, 일정에 맞춰 시술이 설계됩니다.</p>
+          <a href="/ko/booking.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 text-slate-800 hover:border-slate-900 text-xs font-bold transition shrink-0">
+            <i class="fas fa-calendar-check"></i> 예약하기 →
+          </a>
+        </div>
+
+        <div class="mt-4 text-center md:text-right">
+          <a href="/ko/decision-protection.html" class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-bold text-gold hover:text-slate-900 transition">
+            <i class="fas fa-shield-halved text-[10px]"></i> 원장 주도 접근법 읽기 →
+          </a>
+        </div>
+      </div>
+    </section>
     <section id="programs" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
