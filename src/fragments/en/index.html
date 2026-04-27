@@ -139,7 +139,72 @@
         </div>
     </section>
     <!-- TC_REVIEWS:home -->
-    <!-- TC_ITINERARY:home -->
+    <!-- TC_ITINERARY:home — replaced inline below with the 3-scenario flexible layout (en).
+         Module placeholder retained as comment so other locales (which still use
+         the 5-day module render) keep working; the substituteItineraryPlaceholders
+         pass safely no-ops on a comment whose marker has been broken. -->
+    <section id="itinerary" class="itinerary-module py-16 md:py-20 bg-white border-y border-slate-100" data-tc-itinerary="en">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10 md:mb-12">
+          <span class="inline-flex items-center gap-2 text-gold uppercase tracking-[0.22em] text-[10px] font-bold mb-3">
+            <i class="fas fa-plane-departure text-xs"></i> Flexible Protocol Design
+          </span>
+          <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mb-3">Your timeline shapes the protocol</h2>
+          <p class="text-sm md:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">From same-day visits to extended stays — physician-designed around your trip, not the other way around.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 items-stretch">
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">1</span>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">Same-day</p>
+            <h3 class="text-base md:text-lg font-serif text-slate-900 leading-snug mb-2">Same-day visit</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">Arrival, consultation, treatment, and departure within a single day. Ideal for residents in Korea or short business stops in Seoul.</p>
+            <ul class="mt-auto space-y-2 text-xs md:text-sm text-slate-600">
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Direct consultation with treating physician</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Treatment performed same day if clinically appropriate</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Aftercare regimen and remote follow-up provided</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">2</span>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">1–3 Days</p>
+            <h3 class="text-base md:text-lg font-serif text-slate-900 leading-snug mb-2">Short stay</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">Consultation on arrival day, treatment the next day, recovery and light Seoul exploration before departure. Most common pattern for international visitors.</p>
+            <ul class="mt-auto space-y-2 text-xs md:text-sm text-slate-600">
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Indication-first consultation, no rushed decisions</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Treatment-specific recovery timeline planning</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Clinic remains reachable on WhatsApp / Instagram during recovery</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <span class="inline-flex items-center justify-center self-start w-10 h-10 rounded-full bg-amber-50 text-gold text-sm font-bold border border-gold/30 mb-4">3</span>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">Extended</p>
+            <h3 class="text-base md:text-lg font-serif text-slate-900 leading-snug mb-2">Extended stay</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">Multi-step protocols, combination treatments, or travel-and-treatment combined trips. We sequence procedures across your stay for recovery and results.</p>
+            <ul class="mt-auto space-y-2 text-xs md:text-sm text-slate-600">
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Sequenced multi-treatment protocols</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>In-person or remote follow-up checkpoints</span></li>
+              <li class="flex gap-2"><i class="fas fa-check text-gold text-[10px] mt-1.5 shrink-0"></i><span>Departure-ready summary for your home clinician if needed</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p class="text-sm md:text-base text-slate-600 italic max-w-3xl leading-relaxed">Need a different timeline? Tell us at the consultation — we plan around your trip, not the other way around.</p>
+          <a href="/booking.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 text-slate-800 hover:border-slate-900 text-xs font-bold transition shrink-0">
+            <i class="fas fa-calendar-check"></i> Plan your visit →
+          </a>
+        </div>
+
+        <div class="mt-4 text-center md:text-right">
+          <a href="/decision-protection.html" class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-bold text-gold hover:text-slate-900 transition">
+            <i class="fas fa-shield-halved text-[10px]"></i> Read the doctor-led approach →
+          </a>
+        </div>
+      </div>
+    </section>
     <section id="programs" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
