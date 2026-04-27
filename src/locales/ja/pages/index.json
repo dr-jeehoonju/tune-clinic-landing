@@ -4,7 +4,7 @@
   "permalink": "ja/index.html",
   "title": "チューンクリニック狎鷗亭ソウル | 海外患者様向け美容医療",
   "description": "チューンクリニック狎鷗亭ソウルは、海外患者様向けに医師主導の美容医療、リフティング、フィラー、コラーゲン治療、コンシェルジュ対応を提供します。",
-  "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
+  "bodyClass": "bg-slate-900 text-slate-800 antialiased pb-24 md:pb-0",
   "fragment": "fragments/ja/index.html",
   "ogImage": "/main.jpeg"
 }

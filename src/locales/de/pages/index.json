@@ -4,7 +4,7 @@
   "permalink": "de/index.html",
   "title": "Tune Clinic Apgujeong Seoul | Arztgeführte K-Beauty für internationale Patienten",
   "description": "Apgujeong Tune Clinic in Seoul bietet arztgeführte ästhetische Planung, Lifting, Filler, Kollagen und Concierge-Service für internationale Patienten.",
-  "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
+  "bodyClass": "bg-slate-900 text-slate-800 antialiased pb-24 md:pb-0",
   "fragment": "fragments/de/index.html",
   "ogImage": "/main.jpeg"
 }

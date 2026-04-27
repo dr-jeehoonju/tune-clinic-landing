@@ -4,7 +4,7 @@
   "permalink": "ru/index.html",
   "title": "Tune Clinic Апгуджон Сеул | K-Beauty медицина под руководством врача",
   "description": "Tune Clinic Апгуджон в Сеуле предлагает эстетическое планирование под руководством врача для международных пациентов.",
-  "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
+  "bodyClass": "bg-slate-900 text-slate-800 antialiased pb-24 md:pb-0",
   "fragment": "fragments/ru/index.html",
   "ogImage": "/main.jpeg"
 }

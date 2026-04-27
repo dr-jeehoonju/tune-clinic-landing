@@ -4,7 +4,7 @@
   "permalink": "fr/index.html",
   "title": "Tune Clinic Apgujeong Séoul | K-Beauty médicale dirigée par un médecin",
   "description": "La Tune Clinic Apgujeong à Séoul offre une planification esthétique dirigée par un médecin pour les patients internationaux.",
-  "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
+  "bodyClass": "bg-slate-900 text-slate-800 antialiased pb-24 md:pb-0",
   "fragment": "fragments/fr/index.html",
   "ogImage": "/main.jpeg"
 }

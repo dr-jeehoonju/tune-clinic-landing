@@ -4,7 +4,7 @@
   "permalink": "vi/index.html",
   "title": "Tune Clinic Apgujeong Seoul | K-Beauty y khoa do bác sĩ dẫn dắt cho bệnh nhân quốc tế",
   "description": "Tune Clinic Apgujeong tại Seoul cung cấp lập kế hoạch thẩm mỹ do bác sĩ dẫn dắt cho bệnh nhân quốc tế.",
-  "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
+  "bodyClass": "bg-slate-900 text-slate-800 antialiased pb-24 md:pb-0",
   "fragment": "fragments/vi/index.html",
   "ogImage": "/main.jpeg"
 }

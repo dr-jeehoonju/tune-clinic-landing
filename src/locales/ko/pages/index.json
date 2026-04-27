@@ -4,7 +4,7 @@
   "permalink": "ko/index.html",
   "title": "압구정 튠클리닉 | 원장이 직접 설계하는 의료 미용",
   "description": "압구정 튠클리닉. 합리적인 치료 설계와 분명한 진료 순서, 원장이 직접 진료 계획을 세우는 근거 기반 의료 미용 클리닉.",
-  "bodyClass": "bg-white text-slate-800 antialiased pb-24 md:pb-0",
+  "bodyClass": "bg-slate-900 text-slate-800 antialiased pb-24 md:pb-0",
   "fragment": "fragments/ko/index.html",
   "ogImage": "/main.jpeg"
 }
